@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f1e8">
+  <meta name="description" content="Núcleo: portal pessoal de estudos do segundo semestre da graduação em Banco de Dados.">
+  <title>Núcleo — Banco de Dados · Semestre 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="paper-noise" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Ir ao início">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>Núcleo<small>Banco de Dados · S2</small></span>
+    </a>
+    <nav class="topnav" aria-label="Navegação principal">
+      <a class="active" href="#inicio">Hoje</a>
+      <a href="#trilhas">Trilhas</a>
+      <a href="#estudo">Estudar</a>
+      <a href="#simulado">Simulado</a>
+    </nav>
+    <div class="top-actions">
+      <button class="icon-button" id="theme-toggle" aria-label="Alternar tema" title="Alternar tema">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.91-.1-1.35A7 7 0 0 1 12.35 3.1C12.23 3.05 12.12 3 12 3Z"/></svg>
+      </button>
+      <div class="mini-progress" title="Progresso geral">
+        <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16"/><circle id="progress-ring" cx="20" cy="20" r="16"/></svg>
+        <span id="progress-number">0%</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Ciclo 01 · Semana 1 de 6</p>
+        <h1>Entender muda<br><em>tudo.</em></h1>
+        <p class="hero-lead">Um lugar para desmontar problemas, enxergar padrões e construir o raciocínio — no seu ritmo, de mais de um jeito.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#estudo">Continuar estudando <span>↗</span></a>
+          <button class="text-button" data-open-planner>Ver plano do ciclo <span>→</span></button>
+        </div>
+        <div class="today-note">
+          <span class="note-tape"></span>
+          <strong>Para hoje</strong>
+          <p>35 min · Vetores no plano + primeiro algoritmo</p>
+          <span class="hand-arrow">↳</span>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Ilustração abstrata de lógica e geometria">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="coordinate-card">
+          <div class="card-label">ideia → teste → ajuste</div>
+          <svg viewBox="0 0 420 390" role="img" aria-label="Plano cartesiano e fluxo lógico">
+            <defs><filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity=".12"/></filter></defs>
+            <g class="grid-lines"><path d="M60 45v290M110 45v290M160 45v290M210 45v290M260 45v290M310 45v290M360 45v290M35 80h350M35 130h350M35 180h350M35 230h350M35 280h350M35 330h350"/></g>
+            <path class="axis" d="M35 230h350M160 45v300"/>
+            <path class="vector-line" d="M160 230L315 105"/>
+            <path class="vector-arrow" d="m299 105 16 0-3 16"/>
+            <circle class="point point-a" cx="315" cy="105" r="11"/>
+            <circle class="point point-b" cx="92" cy="280" r="8"/>
+            <rect class="logic-node" x="65" y="78" width="88" height="44" rx="22" filter="url(#shadow)"/>
+            <text x="109" y="106" text-anchor="middle">entrada</text>
+            <rect class="logic-node accent" x="256" y="278" width="99" height="44" rx="22" filter="url(#shadow)"/>
+            <text x="305" y="306" text-anchor="middle">resultado</text>
+            <path class="dashed" d="M109 122C90 178 126 216 160 230M315 116c14 58 28 108-10 162"/>
+            <text class="vector-label" x="245" y="145">v = (3, 2)</text>
+          </svg>
+          <div class="visual-caption"><span>01</span> Duas matérias, uma mesma habilidade: pensar com clareza.</div>
+        </div>
+        <div class="floating-chip chip-one">sem decorar ✦</div>
+        <div class="floating-chip chip-two">passo a passo</div>
+      </div>
+    </section>
+
+    <section class="cycle-section" id="trilhas">
+      <div class="section-heading">
+        <div><p class="eyebrow"><span></span> Seu semestre</p><h2>Um ciclo de cada vez.</h2></div>
+        <p>Seis disciplinas, organizadas em três blocos de seis semanas. Agora, só o que importa.</p>
+      </div>
+
+      <div class="cycle-track">
+        <article class="cycle active">
+          <div class="cycle-top"><span>Ciclo 01</span><strong>Agora</strong></div>
+          <h3>Fundamentos do raciocínio</h3>
+          <div class="subject-pills"><span class="pill coral">Lógica</span><span class="pill blue">Geometria</span></div>
+          <div class="week-line" aria-label="Progresso das seis semanas">
+            <button class="done" aria-label="Semana 1"><i>1</i><small>atual</small></button><button aria-label="Semana 2"><i>2</i></button><button aria-label="Semana 3"><i>3</i></button><button aria-label="Semana 4"><i>4</i></button><button aria-label="Semana 5"><i>5</i></button><button aria-label="Semana 6"><i>6</i></button>
+          </div>
+        </article>
+        <article class="cycle muted"><div class="cycle-top"><span>Ciclo 02</span><strong>Próximo</strong></div><h3>Disciplinas 03 + 04</h3><p>O conteúdo entra aqui quando o próximo ciclo começar.</p><div class="locked-line">6 semanas <span>→</span></div></article>
+        <article class="cycle muted"><div class="cycle-top"><span>Ciclo 03</span><strong>Depois</strong></div><h3>Disciplinas 05 + 06</h3><p>A reta final do segundo semestre, sem atropelar etapas.</p><div class="locked-line">6 semanas <span>→</span></div></article>
+      </div>
+    </section>
+
+    <section class="study-section" id="estudo">
+      <div class="section-heading study-title">
+        <div><p class="eyebrow"><span></span> Sala de estudo</p><h2>Por onde vamos hoje?</h2></div>
+        <div class="subject-switch" role="tablist" aria-label="Escolha a disciplina">
+          <button class="active" data-subject="geometry" role="tab"><span class="dot blue"></span>Geometria analítica</button>
+          <button data-subject="logic" role="tab"><span class="dot coral"></span>Lógica da programação</button>
+        </div>
+      </div>
+
+      <div class="week-tabs" role="tablist" aria-label="Semanas">
+        <button class="active" data-week="1"><span>Semana</span>01<small>Vetores</small></button>
+        <button data-week="2"><span>Semana</span>02<small>Distâncias</small></button>
+        <button data-week="3"><span>Semana</span>03<small>Retas</small></button>
+        <button data-week="4"><span>Semana</span>04<small>Planos</small></button>
+        <button data-week="5"><span>Semana</span>05<small>Cônicas</small></button>
+        <button data-week="6"><span>Semana</span>06<small>Revisão</small></button>
+      </div>
+
+      <div class="lesson-shell">
+        <aside class="lesson-index">
+          <p>Nesta semana</p>
+          <a class="active" href="#conceito"><span>01</span>O conceito</a>
+          <a href="#explicacoes"><span>02</span>Outros jeitos de ver</a>
+          <a href="#laboratorio"><span>03</span>Laboratório</a>
+          <a href="#pratica"><span>04</span>Prática guiada</a>
+          <div class="index-note"><span>⌁</span><p><strong>Dica</strong>Explique em voz alta. Se travar, você encontrou o ponto a revisar.</p></div>
+        </aside>
+
+        <article class="lesson-content" id="lesson-content">
+          <header class="lesson-header" id="conceito">
+            <div><p class="lesson-kicker" id="lesson-kicker">Geometria · Semana 01</p><h2 id="lesson-title">Vetores: movimento com direção</h2><p id="lesson-intro">Antes de pensar em fórmula, pense em deslocamento. Um vetor conta <strong>quanto</strong> algo andou e <strong>para onde</strong>.</p></div>
+            <button class="bookmark" id="bookmark" aria-label="Salvar aula"><svg viewBox="0 0 24 24"><path d="M6 4.8A1.8 1.8 0 0 1 7.8 3h8.4A1.8 1.8 0 0 1 18 4.8V21l-6-3.5L6 21V4.8Z"/></svg></button>
+          </header>
+
+          <section class="concept-card" id="concept-card">
+            <div class="concept-number">01</div>
+            <div><h3>A ideia que sustenta tudo</h3><p>O vetor <strong>v = (3, 2)</strong> não é apenas um par de números. É uma instrução: saia de onde está, caminhe 3 unidades para a direita e 2 para cima.</p><div class="formula-strip"><span>v</span><b>=</b><em>( 3 , 2 )</em><small>horizontal&nbsp;&nbsp;&nbsp; vertical</small></div></div>
+            <div class="mini-sketch"><span>A</span><i></i><span>B</span><small>mesmo deslocamento,<br>em qualquer ponto</small></div>
+          </section>
+
+          <section class="explanations" id="explicacoes">
+            <div class="subheading"><div><p class="eyebrow"><span></span> Mude a lente</p><h3>Quatro jeitos de entender.</h3></div><p>Se uma explicação não encaixar, troque de porta. O conceito continua o mesmo.</p></div>
+            <div class="lens-tabs" role="tablist">
+              <button class="active" data-lens="everyday">No cotidiano</button><button data-lens="visual">Visualmente</button><button data-lens="recipe">Como receita</button><button data-lens="mistake">Pelo erro comum</button>
+            </div>
+            <div class="lens-panel" id="lens-panel">
+              <div class="lens-icon">↗</div><div><span class="lens-label">A explicação do GPS</span><h4>O endereço não importa; o trajeto, sim.</h4><p>Imagine que alguém diga: “ande três quarteirões para leste e dois para norte”. Essa instrução funciona partindo da sua casa, da faculdade ou de qualquer outro ponto. O vetor descreve a <em>mudança</em>, não a posição absoluta.</p><blockquote>Um ponto diz “onde estou”. Um vetor diz “como saio daqui e chego ali”.</blockquote></div>
+            </div>
+          </section>
+
+          <section class="lab-section" id="laboratorio">
+            <div class="subheading"><div><p class="eyebrow"><span></span> Mexa para entender</p><h3 id="lab-title">Laboratório de vetores</h3></div><p id="lab-copy">Altere as componentes. O desenho e os cálculos respondem na hora.</p></div>
+            <div class="vector-lab" id="geometry-lab">
+              <div class="lab-controls">
+                <label>Componente x <output id="x-output">3</output><input id="vector-x" type="range" min="-4" max="4" value="3"></label>
+                <label>Componente y <output id="y-output">2</output><input id="vector-y" type="range" min="-4" max="4" value="2"></label>
+                <div class="lab-results"><div><span>Vetor</span><strong id="vector-pair">(3, 2)</strong></div><div><span>Módulo</span><strong id="vector-module">√13 ≈ 3,61</strong></div><div><span>Leitura</span><strong id="vector-reading">3 → e 2 ↑</strong></div></div>
+                <p class="lab-insight" id="lab-insight">Perceba: o módulo forma a hipotenusa de um triângulo retângulo. Pitágoras reaparece aqui.</p>
+              </div>
+              <div class="canvas-wrap"><canvas id="vector-canvas" width="560" height="430" aria-label="Plano cartesiano interativo"></canvas><span class="canvas-origin">origem</span></div>
+            </div>
+            <div class="logic-lab" id="logic-lab" hidden>
+              <div class="logic-editor">
+                <div class="editor-top"><span></span><span></span><span></span><small>media.alg</small></div>
+                <pre><i>01</i> leia <b>nota_1</b>
+<i>02</i> leia <b>nota_2</b>
+<i>03</i> <b>soma</b> ← nota_1 + nota_2
+<i>04</i> <b>media</b> ← soma / 2
+<i>05</i> mostre media</pre>
+                <div class="logic-inputs"><label>nota_1 <input id="nota-1" type="number" min="0" max="10" value="8"></label><label>nota_2 <input id="nota-2" type="number" min="0" max="10" value="6"></label><button id="trace-code">Executar passo a passo →</button></div>
+              </div>
+              <div class="trace-panel"><p>Mesa de teste</p><div class="trace-head"><span>Linha</span><span>O que mudou</span><span>Valor</span></div><div id="trace-rows"><div class="trace-empty">Clique em executar e observe o estado do algoritmo mudar.</div></div><div class="trace-output">saída <strong id="trace-output">—</strong></div></div>
+            </div>
+          </section>
+
+          <section class="practice-section" id="pratica">
+            <div class="subheading"><div><p class="eyebrow"><span></span> Sua vez</p><h3>Prática guiada</h3></div><div class="practice-count"><b id="practice-done">0</b> / 3 concluídos</div></div>
+            <div class="exercise-list" id="exercise-list">
+              <article class="exercise-card" data-answer="c">
+                <div class="exercise-meta"><span>01</span><small>Aquecimento · 2 min</small></div><h4>O vetor que leva A(1, 2) até B(5, 5) é:</h4>
+                <div class="answers"><button data-option="a">A <span>(6, 7)</span></button><button data-option="b">B <span>(−4, −3)</span></button><button data-option="c">C <span>(4, 3)</span></button><button data-option="d">D <span>(5, 5)</span></button></div>
+                <div class="feedback"><strong></strong><p></p></div>
+              </article>
+              <article class="exercise-card" data-answer="b">
+                <div class="exercise-meta"><span>02</span><small>Conexão · 3 min</small></div><h4>Qual é o módulo do vetor v = (6, 8)?</h4>
+                <div class="answers"><button data-option="a">A <span>14</span></button><button data-option="b">B <span>10</span></button><button data-option="c">C <span>√14</span></button><button data-option="d">D <span>48</span></button></div>
+                <div class="feedback"><strong></strong><p></p></div>
+              </article>
+              <article class="exercise-card" data-answer="d">
+                <div class="exercise-meta"><span>03</span><small>Interpretação · 4 min</small></div><h4>O que permanece igual quando o mesmo vetor é desenhado a partir de outro ponto?</h4>
+                <div class="answers"><button data-option="a">A <span>A origem</span></button><button data-option="b">B <span>O ponto final</span></button><button data-option="c">C <span>As coordenadas dos pontos</span></button><button data-option="d">D <span>Direção, sentido e módulo</span></button></div>
+                <div class="feedback"><strong></strong><p></p></div>
+              </article>
+            </div>
+          </section>
+
+          <footer class="lesson-footer"><div><span>Próxima parada</span><strong>Distância entre dois pontos</strong></div><button data-week-jump="2">Ir para semana 02 <span>→</span></button></footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="sim-section" id="simulado">
+      <div class="sim-copy"><p class="eyebrow light"><span></span> Teste sem pressão</p><h2>Simulado é ensaio,<br>não sentença.</h2><p>Questões misturadas, correção explicada e um mapa do que revisar — quando você estiver pronto.</p><div class="sim-features"><span>12 questões</span><span>≈ 25 minutos</span><span>correção comentada</span></div><button class="light-button" id="start-sim">Começar simulado <span>↗</span></button></div>
+      <div class="sim-card">
+        <span class="sim-stamp">modo treino</span><p>Seu último ensaio</p><div class="sim-score"><strong id="last-score">—</strong><span>/ 12</span></div><div class="score-line"><i id="last-score-line"></i></div><small id="last-score-copy">Ainda não realizado. Comece quando quiser — não há cronômetro obrigatório.</small><div class="sim-quote">“Errar aqui é descobrir onde estudar.”</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer"><div class="brand footer-brand"><span class="brand-mark"><i></i><i></i><i></i></span><span>Núcleo<small>feito para aprender de verdade</small></span></div><p>Semestre 2 · Graduação em Banco de Dados</p><a href="#inicio">Voltar ao topo ↑</a></footer>
+
+  <dialog id="planner-dialog">
+    <button class="dialog-close" data-close-dialog aria-label="Fechar">×</button><p class="eyebrow"><span></span> Visão do ciclo</p><h2>As próximas seis semanas</h2>
+    <div class="planner-grid">
+      <article><b>01</b><span>Geometria</span><strong>Vetores e operações</strong><span>Lógica</span><strong>Algoritmos e variáveis</strong></article>
+      <article><b>02</b><span>Geometria</span><strong>Distâncias e ponto médio</strong><span>Lógica</span><strong>Entrada, saída e operadores</strong></article>
+      <article><b>03</b><span>Geometria</span><strong>Equações da reta</strong><span>Lógica</span><strong>Decisões e condicionais</strong></article>
+      <article><b>04</b><span>Geometria</span><strong>Retas e planos</strong><span>Lógica</span><strong>Repetições</strong></article>
+      <article><b>05</b><span>Geometria</span><strong>Cônicas</strong><span>Lógica</span><strong>Vetores e funções</strong></article>
+      <article><b>06</b><span>Geometria</span><strong>Revisão + avaliação</strong><span>Lógica</span><strong>Revisão + avaliação</strong></article>
+    </div>
+  </dialog>
+
+  <dialog id="sim-dialog" class="sim-dialog">
+    <button class="dialog-close" data-close-dialog aria-label="Fechar">×</button><div id="sim-setup"><p class="eyebrow"><span></span> Simulado do ciclo 01</p><h2>Vamos medir o entendimento,<br>não a memória.</h2><p>Cada ensaio sorteia 12 questões de um banco maior, equilibrando Geometria e Lógica. Ao finalizar, você recebe a justificativa de cada resposta.</p><div id="sim-history" class="sim-history"></div><button class="clear-history" id="clear-history">Limpar histórico</button><button class="primary-button" id="begin-quiz">Gerar 12 questões <span>→</span></button></div>
+    <div id="quiz-area" hidden><div class="quiz-progress"><span id="quiz-label">Questão 1 de 12</span><i><b id="quiz-bar"></b></i></div><p class="quiz-topic" id="quiz-topic"></p><h3 id="quiz-question"></h3><div class="quiz-options" id="quiz-options"></div><button class="primary-button" id="next-question" disabled>Próxima <span>→</span></button></div>
+    <div id="quiz-result" hidden><span class="result-mark">✓</span><p class="eyebrow"><span></span> Resultado comentado</p><h2><span id="quiz-score">0</span> de 12</h2><p id="quiz-message"></p><div id="quiz-review"></div><div class="result-actions"><button class="primary-button" id="new-sim">Gerar outro simulado <span>↻</span></button><button class="text-button" data-close-dialog>Voltar aos estudos</button></div></div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
