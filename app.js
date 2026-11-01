@@ -23,6 +23,11 @@ const lessonData={
       {title:'Revisão e prova presencial',topic:'Revisão',intro:'Da entrada ao resultado: uma revisão integrada para raciocinar no papel e depois traduzir em código.'}
     ]}
 };
+// As atividades reais enviadas por print serão acrescentadas aqui, por disciplina e semana.
+const weeklyActivities={
+  'geometry-1':[], 'geometry-2':[], 'geometry-3':[], 'geometry-4':[], 'geometry-5':[], 'geometry-6':[],
+  'logic-1':[], 'logic-2':[], 'logic-3':[], 'logic-4':[], 'logic-5':[], 'logic-6':[]
+};
 const lenses={
   geometry:{
     everyday:['↗','A explicação do GPS','O endereço não importa; o trajeto, sim.','Imagine que alguém diga: “ande três quarteirões para leste e dois para norte”. Essa instrução funciona partindo da sua casa, da faculdade ou de qualquer outro ponto. O vetor descreve a <em>mudança</em>, não a posição absoluta.','Um ponto diz “onde estou”. Um vetor diz “como saio daqui e chego ali”.'],
@@ -62,6 +67,7 @@ function updateLesson(){
   $('#lab-title').textContent=isGeo?'Laboratório de vetores':'Mesa de teste do algoritmo';
   $('#lab-copy').textContent=isGeo?'Altere as componentes. O desenho e os cálculos respondem na hora.':'Troque as notas e acompanhe cada variável ganhar um valor.';
   renderPractice();
+  renderActivities();
   updateBookmark();
 }
 function restoreConcept(){
@@ -69,6 +75,16 @@ function restoreConcept(){
   $('#concept-card').innerHTML=isGeo?`<div class="concept-number">01</div><div><h3>A ideia que sustenta tudo</h3><p>O vetor <strong>v = (3, 2)</strong> não é apenas um par de números. É uma instrução: saia de onde está, caminhe 3 unidades para a direita e 2 para cima.</p><div class="formula-strip"><span>v</span><b>=</b><em>( 3 , 2 )</em><small>horizontal&nbsp;&nbsp;&nbsp; vertical</small></div></div><div class="mini-sketch"><span>A</span><i></i><span>B</span><small>mesmo deslocamento,<br>em qualquer ponto</small></div>`:`<div class="concept-number">01</div><div><h3>A ideia que sustenta tudo</h3><p>Um algoritmo transforma uma intenção vaga em passos executáveis. Para calcular a média: <strong>ler → somar → dividir → mostrar</strong>.</p><div class="formula-strip"><span>dados</span><b>→</b><em>processo → saída</em><small>entrada&nbsp;&nbsp;&nbsp; transformação</small></div></div><div class="mini-sketch"><span>A</span><i></i><span>B</span><small>cada passo reduz<br>a ambiguidade</small></div>`;
 }
 function renderLens(key){const d=lenses[currentSubject][key];$('#lens-panel').innerHTML=`<div class="lens-icon">${d[0]}</div><div><span class="lens-label">${d[1]}</span><h4>${d[2]}</h4><p>${d[3]}</p><blockquote>${d[4]}</blockquote></div>`;}
+function renderActivities(){
+  const key=`${currentSubject}-${currentWeek+1}`,items=weeklyActivities[key]||[];
+  $('#activity-subject').textContent=currentSubject==='geometry'?'Geometria analítica':'Lógica da programação';
+  $('#activity-week').textContent=`Semana ${String(currentWeek+1).padStart(2,'0')}`;
+  if(!items.length){
+    $('#activity-list').innerHTML=`<div class="activity-empty"><div class="activity-empty-icon">⌁</div><div><h4>Pronto para receber o primeiro exercício</h4><p>Envie o print nesta conversa. Depois da resolução conjunta, o exercício aparecerá aqui para você e seus colegas revisarem.</p></div><small>Aguardando atividade</small></div>`;
+    return;
+  }
+  $('#activity-list').innerHTML=items.map((item,i)=>`<details class="resolved-activity"><summary><b>${String(i+1).padStart(2,'0')}</b><span>${item.title}</span></summary><div class="resolved-activity-body">${item.content}</div></details>`).join('');
+}
 
 $$('[data-subject]').forEach(b=>b.addEventListener('click',()=>setSubject(b.dataset.subject)));
 $$('[data-week]').forEach(b=>b.addEventListener('click',()=>setWeek(+b.dataset.week-1)));
