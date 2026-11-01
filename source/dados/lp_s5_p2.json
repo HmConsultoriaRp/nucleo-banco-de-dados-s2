@@ -1,0 +1,287 @@
+{
+  "disciplina": "lp",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "lp-s5-p07",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Média sem parênteses",
+      "origem": "Prévia · ementa",
+      "enunciado": "Uma pessoa rodou este programa e digitou as notas 4 e 5. O que aparece na tela?",
+      "codigo": "algoritmo \"situacao\"\nvar\n   n1, n2, media: real\ninicio\n   leia(n1, n2)\n   media <- n1 + n2 / 2\n   se media >= 6 entao\n      escreval(\"Aprovado \", media)\n   senao\n      escreval(\"Recuperação \", media)\n   fimse\nfimalgoritmo",
+      "entradas": ["4", "5"],
+      "saida": "Aprovado 6.5",
+      "alternativas": [
+        {"t": "Recuperação 4.5", "certa": false, "erro": "Você fez a média de cabeça: (4 + 5) / 2 = 4,5. Só que no código não há parênteses, e a divisão vem antes da soma: 4 + 5/2 = 6,5."},
+        {"t": "Aprovado 6.5", "certa": true},
+        {"t": "Aprovado 6", "certa": false, "erro": "Você tratou a barra como divisão inteira: 5 / 2 = 2, e 4 + 2 = 6. No VisuAlg a barra sempre dá real, 5 / 2 = 2,5. A divisão inteira é o `div`."},
+        {"t": "Recuperação 6.5", "certa": false, "erro": "A conta está certa, mas o caminho não. Com media = 6,5, `media >= 6` é verdadeiro e roda o bloco do `entao`."},
+        {"t": "Aprovado media", "certa": false, "erro": "Sem aspas, media é o nome da variável, e o `escreval` mostra o valor guardado nela, 6.5. Só o que está entre aspas sai como texto."}
+      ],
+      "dica": "Antes de pensar na média, aplique a ordem das contas à linha `media <- n1 + n2 / 2`.",
+      "resposta": "Aprovado 6.5: sem parênteses, a conta feita é 4 + 5/2.",
+      "jeitos": {
+        "visual": "Ponha uma lupa sobre a linha da média. A barra fica colada no n2 e no 2: ela age primeiro e transforma 5 / 2 em 2,5. Só depois o + junta o n1: 4 + 2,5 = 6,5. Os parênteses seriam uma cerca em volta de n1 + n2, obrigando a soma a vir antes; sem a cerca, a divisão pega só o vizinho. Com 6,5 na gaveta media, o `se` compara 6,5 com 6 e segue pelo `entao`.",
+        "receita": [
+          "`leia(n1, n2)`: n1 = 4 e n2 = 5.",
+          "Divisão antes da soma: n2 / 2 = 5 / 2 = 2,5.",
+          "Soma: media = 4 + 2,5 = 6,5.",
+          "`media >= 6`: 6,5 ≥ 6 é verdadeiro, então roda o bloco do `entao`.",
+          "A tela mostra Aprovado 6.5."
+        ],
+        "cotidiano": "É como pedir ao garçom \"quatro mais cinco divididos por dois\". Ele pode entender (4 + 5) ÷ 2 ou 4 + (5 ÷ 2), e a conta da mesa muda. Na fala, o tom de voz desfaz a dúvida; no programa, só os parênteses desfazem. Sem eles, o computador segue a regra fixa e divide primeiro. O aluno com 4 e 5 ganhou uma aprovação que as notas não dão.",
+        "trabalho": "É o erro de planilha que mais passa despercebido. =A2+B2/2 numa coluna de média dá um número plausível, e ninguém desconfia até alguém conferir uma linha à mão. Em conciliação acontece o mesmo com `=saldo+entradas-saidas*taxa`: a taxa pega só as saídas. A defesa é igual no VisuAlg e no Excel: parênteses explícitos e um teste com números fáceis, como 4 e 5, cuja média você sabe de cabeça.",
+        "conversa": [
+          {"quem": "Você", "fala": "A média de 4 e 5 é 4,5. Recuperação."},
+          {"quem": "Monitor", "fala": "A média é 4,5, sim. Mas o programa calcula a média?"},
+          {"quem": "Você", "fala": "Ele faz n1 + n2 / 2."},
+          {"quem": "Monitor", "fala": "E o que vem primeiro, a soma ou a divisão?"},
+          {"quem": "Você", "fala": "A divisão. Então é 4 + 2,5 = 6,5."},
+          {"quem": "Monitor", "fala": "E com 6,5 o `se` manda para onde?"},
+          {"quem": "Você", "fala": "Para o `entao`. Aprovado 6.5. O programa tem um defeito."},
+          {"quem": "Monitor", "fala": "Tem. A linha certa seria `media <- (n1 + n2) / 2`."}
+        ],
+        "erro": "A armadilha é responder o que o programa deveria fazer, e não o que ele faz. Você sabe que a média de 4 e 5 é 4,5, e a mão corre para Recuperação. O computador não conhece a intenção de quem escreveu: aplica a precedência e divide só o n2. Em questão de \"o que aparece na tela\", siga o código ao pé da letra, mesmo quando ele estiver errado. Outro tropeço é tratar a barra como divisão inteira e achar 6.",
+        "confira": "Reescreva a linha com os parênteses que o VisuAlg usa por dentro: `media <- n1 + (n2 / 2)`. Com 4 e 5 dá 6,5, e a saída não muda. Agora teste a versão corrigida, `(n1 + n2) / 2`: dá 4,5, e a tela passa a mostrar Recuperação 4.5. A diferença entre as duas rodadas prova que a falta de parênteses decide o resultado. O teste de mesa mostra media recebendo 6.5.",
+        "atalho": "Olhe primeiro a linha da conta, antes do `se`. Se não há parênteses em volta da soma, a média calculada é n1 + n2/2 = 4 + 2,5. Isso elimina 4.5 e 6 de uma vez. Com 6,5 ≥ 6, o caminho é o `entao`, e sobra a alternativa com Aprovado e 6.5."
+      }
+    },
+    {
+      "id": "lp-s5-p08",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Escolha com conta antes",
+      "origem": "Prévia · ementa",
+      "enunciado": "O programa diz em que trimestre do ano cai um mês. A pessoa digitou 6. O que aparece na tela?",
+      "codigo": "algoritmo \"trimestre\"\nvar\n   mes, t: inteiro\ninicio\n   leia(mes)\n   t <- (mes - 1) div 3\n   escolha t\n   caso 0\n      escreval(\"T1\")\n   caso 1\n      escreval(\"T2\")\n   caso 2\n      escreval(\"T3\")\n   caso 3\n      escreval(\"T4\")\n   outrocaso\n      escreval(\"Mês inválido\")\n   fimescolha\nfimalgoritmo",
+      "entradas": ["6"],
+      "saida": "T2",
+      "alternativas": [
+        {"t": "T2", "certa": true},
+        {"t": "T3", "certa": false, "erro": "Você arredondou 5 ÷ 3 = 1,67 para 2. O `div` joga fora a parte decimal: 5 div 3 = 1."},
+        {"t": "T1", "certa": false, "erro": "Você achou t = 1 e foi direto para o rótulo T1. O caso 1 escreve T2, porque a contagem dos casos começa no 0."},
+        {"t": "Mês inválido", "certa": false, "erro": "Você comparou o 6 digitado com os casos. O `escolha` compara t, que vale 1, e o caso 1 existe."},
+        {"t": "T2 e Mês inválido", "certa": false, "erro": "Você achou que o `outrocaso` roda sempre no fim. Ele só roda quando nenhum caso combinou; depois do caso 1, o programa pula para o `fimescolha`."}
+      ],
+      "dica": "Calcule t primeiro. O `escolha` compara t, e não o mês digitado, com cada caso.",
+      "resposta": "T2, porque t = 5 div 3 = 1 e o caso 1 escreve T2.",
+      "jeitos": {
+        "visual": "Imagine quatro caixas numeradas de 0 a 3, cada uma com uma etiqueta: T1, T2, T3 e T4. A conta `(mes - 1) div 3` diz em qual caixa o mês cai. Os meses 1, 2 e 3 viram 0, 1 e 2 no `mes - 1`, e todos dão 0 no `div 3`: caixa 0. O 6 vira 5, e 5 div 3 = 1: caixa 1, com a etiqueta T2. O `outrocaso` é a bandeja para o que não cabe em caixa nenhuma.",
+        "receita": [
+          "`leia(mes)`: mes = 6.",
+          "`t <- (mes - 1) div 3`: primeiro o parêntese, 6 − 1 = 5; depois 5 div 3 = 1.",
+          "`escolha t` compara 1 com cada caso: o caso 0 não combina, o caso 1 combina.",
+          "O caso 1 escreve T2. O programa pula para o `fimescolha`, e o `outrocaso` não roda."
+        ],
+        "cotidiano": "Pense num calendário de mesa com quatro abas, uma por trimestre. Para achar a aba de junho, você não procura uma aba chamada 6: conta em que grupo de três meses ele cai. Janeiro a março é o primeiro grupo, abril a junho é o segundo. O programa faz essa contagem com o `div`, mas numera os grupos a partir do 0. Por isso o grupo 1 tem a etiqueta T2.",
+        "trabalho": "No Excel, a mesma lógica sai com =ESCOLHER(QUOCIENTE(A2-1;3)+1;\"T1\";\"T2\";\"T3\";\"T4\"). O +1 existe porque o ESCOLHER começa a contar do 1, enquanto os casos do programa começam do 0. Em relatório gerencial isso aparece quando você agrupa lançamentos por trimestre a partir da data. No MySQL, `QUARTER(data)` devolve de 1 a 4 e chega ao mesmo agrupamento.",
+        "conversa": [
+          {"quem": "Você", "fala": "Não tem caso 6, então cai no `outrocaso`: Mês inválido."},
+          {"quem": "Monitor", "fala": "O `escolha` compara qual variável?"},
+          {"quem": "Você", "fala": "O t. Ah, não é o mes."},
+          {"quem": "Monitor", "fala": "E quanto vale t com mes = 6?"},
+          {"quem": "Você", "fala": "5 div 3. Dá 1,67... então 2?"},
+          {"quem": "Monitor", "fala": "O `div` não arredonda: joga fora a parte decimal."},
+          {"quem": "Você", "fala": "Então t = 1, e o caso 1 escreve T2."}
+        ],
+        "erro": "Três tropeços disputam esta questão. Comparar o 6 digitado com os casos, quando o `escolha` olha para t. Arredondar 5 div 3 para 2, quando o `div` descarta as casas. E ler o número do caso como se fosse o rótulo: o caso 1 escreve T2, porque a contagem começa no 0. Há ainda quem ache que o `outrocaso` roda no fim de todo `escolha`; ele só roda quando nenhum caso combinou.",
+        "confira": "Teste os limites de cada trimestre: mes = 3 dá t = 2 div 3 = 0 (T1) e mes = 4 dá t = 3 div 3 = 1 (T2). Junho é o último mês do segundo trimestre e também tem de dar T2. Com 13, t = 4 e aparece Mês inválido. No laboratório do site, o 0 dá T1: (0 − 1) div 3 fica 0, porque o `div` corta as casas de −1/3. O programa não protege contra mês zero, mas isso não muda a resposta para 6.",
+        "atalho": "Calcule t e só depois olhe os casos. 6 − 1 = 5 e 5 div 3 = 1 levam direto ao caso 1. Isso elimina Mês inválido e a resposta dupla, porque o caso 1 existe e o `escolha` executa um só. Entre T1, T2 e T3, leia o que o caso 1 escreve: T2."
+      }
+    },
+    {
+      "id": "lp-s5-p09",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 4,
+      "tema": "Precedência dos operadores lógicos",
+      "origem": "Prévia · ementa",
+      "enunciado": "O que este algoritmo escreve na tela?",
+      "codigo": "algoritmo \"logica\"\nvar\n   x, y: inteiro\n   p, q: logico\ninicio\n   x <- 4\n   y <- 9\n   p <- nao (x > 5) ou (y > 5) e (x mod 2 = 1)\n   q <- nao ((x > 5) ou (y > 5))\n   escreval(p, \" \", q)\nfimalgoritmo",
+      "entradas": [],
+      "saida": "VERDADEIRO FALSO",
+      "alternativas": [
+        {"t": "FALSO FALSO", "certa": false, "erro": "No p você fez o `ou` antes do `e`: `(V ou V) e F` = F. O `e` tem prioridade: `V ou (V e F)` = `V ou F` = V."},
+        {"t": "VERDADEIRO VERDADEIRO", "certa": false, "erro": "No q você distribuiu o `nao` e esqueceu de trocar o `ou` por `e`: `(nao F) ou (nao V)` = V. O certo é `nao (F ou V)` = `nao V` = F."},
+        {"t": "Erro de tipos", "certa": false, "erro": "Você aplicou o `=` antes do `mod`, como se fosse `x mod (2 = 1)`. Os aritméticos vêm antes dos relacionais: 4 mod 2 = 0, e só depois 0 = 1, que dá FALSO."},
+        {"t": "FALSO VERDADEIRO", "certa": false, "erro": "Você caiu nas duas armadilhas: fez o `ou` antes do `e` no p e distribuiu o `nao` do q sem trocar o `ou` por `e`."},
+        {"t": "VERDADEIRO FALSO", "certa": true}
+      ],
+      "dica": "Resolva cada comparação entre parênteses e escreva V ou F embaixo dela. Depois aplique o `nao`, em seguida o `e` e por último o `ou`.",
+      "resposta": "VERDADEIRO FALSO",
+      "jeitos": {
+        "visual": "Troque cada parêntese por uma lâmpada acesa (V) ou apagada (F). Com x = 4 e y = 9: x > 5 apaga, y > 5 acende e x mod 2 = 1 apaga, porque 4 mod 2 = 0. No p, o `nao` inverte a primeira lâmpada, que acende. O `e` liga as duas da direita em série: acesa com apagada dá apagada. O `ou` liga em paralelo: basta uma acesa, e a primeira está. No q, o `nao` fica do lado de fora: o parêntese inteiro acende e o `nao` apaga.",
+        "receita": [
+          "Comparações: x > 5 é F; y > 5 é V; 4 mod 2 = 0, então x mod 2 = 1 é F.",
+          "p, primeiro o `nao`: `nao F` = V. Fica `V ou V e F`.",
+          "p, depois o `e`: `V e F` = F. Fica `V ou F` = V.",
+          "q, primeiro o parêntese de dentro: `F ou V` = V.",
+          "q, depois o `nao`: `nao V` = F.",
+          "A tela mostra VERDADEIRO FALSO."
+        ],
+        "cotidiano": "Pense na regra de um clube: entra quem é sócio, ou quem é convidado e está de traje. O \"e\" amarra convidado com traje; o sócio entra de qualquer jeito. Ler como \"(sócio ou convidado) e de traje\" barraria um sócio de bermuda, e a regra não manda barrar. O p do programa tem essa forma: o primeiro termo é verdadeiro sozinho e já abre a porta.",
+        "trabalho": "No SQL, `WHERE uf = 'SP' OR tipo = 'importacao' AND tem_di = 0` é lido como `uf = 'SP' OR (tipo = 'importacao' AND tem_di = 0)`, porque o AND tem prioridade, igual ao `e` do VisuAlg. Quem pensou em \"(SP ou importação) e sem DI\" recebe também todas as notas de SP com DI. O hábito que protege a auditoria é pôr parênteses sempre que AND e OR aparecem juntos. E o `NOT (a OR b)` do q é o mesmo que `NOT a AND NOT b`.",
+        "conversa": [
+          {"quem": "Você", "fala": "Fiz da esquerda para a direita: V ou V dá V, e V e F dá F. Então p é FALSO."},
+          {"quem": "Monitor", "fala": "Na aritmética, 1 + 1 × 0 dá quanto?"},
+          {"quem": "Você", "fala": "1, a multiplicação vem antes."},
+          {"quem": "Monitor", "fala": "O `e` faz o papel da multiplicação e o `ou` o da soma. Refaça o p."},
+          {"quem": "Você", "fala": "`V e F` primeiro, que dá F. Depois `V ou F`, que dá V."},
+          {"quem": "Monitor", "fala": "Agora o q. O `nao` está fora do parêntese."},
+          {"quem": "Você", "fala": "O parêntese dá V, e o `nao` vira F. VERDADEIRO FALSO."},
+          {"quem": "Monitor", "fala": "É isso que aparece na tela."}
+        ],
+        "erro": "Duas armadilhas estão montadas. A primeira é ler da esquerda para a direita e fazer o `ou` antes do `e`, o que transforma o p em FALSO. A segunda é a De Morgan pela metade no q: quem empurra o `nao` para dentro do parêntese precisa negar os dois lados e trocar o `ou` por `e`. Negar e manter o `ou` dá VERDADEIRO, que está errado. Se a sua resposta tem FALSO no p ou VERDADEIRO no q, uma delas pegou você.",
+        "confira": "Calcule o q pela De Morgan completa e compare: `nao (A ou B)` é igual a `(nao A) e (nao B)`. Com A = F e B = V fica `V e F` = F, o mesmo resultado. Para o p, escreva os parênteses que a ordem das operações manda, `nao (x > 5) ou ((y > 5) e (x mod 2 = 1))`, e rode no laboratório: o p continua VERDADEIRO. Com os parênteses da leitura errada, em volta do `ou`, o p vira FALSO.",
+        "atalho": "Olhe o primeiro termo do p: `nao (x > 5)` é VERDADEIRO. Como o `e` só junta os dois termos da direita, o p é um `ou` que começa com VERDADEIRO, e isso já basta: p é VERDADEIRO. Elimine as alternativas com FALSO no p. A do erro também cai: o `mod` é feito antes do `=`, então nenhuma conta mistura número com lógico. Para o q, basta ver que y > 5 é verdadeiro: o parêntese dá VERDADEIRO e o `nao` o torna FALSO."
+      }
+    },
+    {
+      "id": "lp-s5-p10",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Separar e inverter dígitos",
+      "origem": "Prévia · ementa",
+      "enunciado": "A pessoa digitou 583. O que o programa escreve na tela?",
+      "codigo": "algoritmo \"inverte\"\nvar\n   n, c, d, u, inv: inteiro\ninicio\n   leia(n)\n   c <- n div 100\n   d <- (n mod 100) div 10\n   u <- n mod 10\n   inv <- u * 100 + d * 10 + c\n   escreval(inv, \" \", c + d + u)\nfimalgoritmo",
+      "entradas": ["583"],
+      "saida": "385 16",
+      "alternativas": [
+        {"t": "583 16", "certa": false, "erro": "Você montou o número na ordem original. A linha do inv põe o u na centena: 3 × 100 + 8 × 10 + 5 = 385."},
+        {"t": "1135 91", "certa": false, "erro": "Você parou no `n mod 100` e usou d = 83. Faltou o `div 10`, que tira o 3 e deixa só o 8. Com 83, inv = 300 + 830 + 5 = 1135 e a soma dá 5 + 83 + 3 = 91."},
+        {"t": "385 16", "certa": true},
+        {"t": "385 583", "certa": false, "erro": "Você juntou os dígitos como texto. c, d e u são `inteiro`, e entre números o + soma: 5 + 8 + 3 = 16."},
+        {"t": "386 17", "certa": false, "erro": "Você arredondou 583 / 100 = 5,83 para 6. O `div` descarta as casas: 583 div 100 = 5. Com c = 6 sairiam 386 e 6 + 8 + 3 = 17."}
+      ],
+      "dica": "Separe os três dígitos com `div` e `mod`, uma linha por vez, antes de olhar para a montagem do inv.",
+      "resposta": "385 16",
+      "jeitos": {
+        "visual": "Pense no 583 como três gavetas lado a lado: centena, dezena e unidade. O `div 100` abre a gaveta da esquerda e tira o 5. O `mod 10` abre a da direita e tira o 3. A do meio pede duas chaves: o `mod 100` corta o 5 e deixa 83; o `div 10` corta o 3 e deixa 8. A linha do inv devolve os dígitos em gavetas trocadas: o 3 vai para a centena e o 5 para a unidade. Depois o programa soma os três: 16.",
+        "receita": [
+          "`leia(n)`: n = 583.",
+          "c = 583 div 100 = 5.",
+          "d = (583 mod 100) div 10 = 83 div 10 = 8.",
+          "u = 583 mod 10 = 3.",
+          "inv = 3 × 100 + 8 × 10 + 5 = 300 + 80 + 5 = 385.",
+          "c + d + u = 5 + 8 + 3 = 16. A tela mostra 385 16."
+        ],
+        "cotidiano": "Pagar 583 reais só com notas de 100, notas de 10 e moedas de 1 pede 5 notas de 100, 8 de 10 e 3 moedas. O `div 100` conta as notas grandes. O `mod 100` é o que falta pagar depois delas, 83, e o `div 10` conta as notas de 10 nesse resto. O `mod 10` são as moedas. Inverter o número é trocar o papel das notas de 100 com o das moedas.",
+        "trabalho": "Separar dígitos com quociente e resto aparece na conferência de códigos. O dígito verificador de um CNPJ multiplica cada algarismo por um peso, soma os produtos e usa o resto da divisão por 11, o `mod 11`. Antes disso, é preciso isolar cada algarismo. No Excel, a separação seria =QUOCIENTE(A2;100), =QUOCIENTE(MOD(A2;100);10) e =MOD(A2;10), as mesmas três linhas do programa.",
+        "conversa": [
+          {"quem": "Você", "fala": "Para a dezena fiz 583 mod 100, e deu 83."},
+          {"quem": "Monitor", "fala": "83 tem quantos algarismos?"},
+          {"quem": "Você", "fala": "Dois. O 8 e o 3."},
+          {"quem": "Monitor", "fala": "E a dezena é qual deles?"},
+          {"quem": "Você", "fala": "O 8. Por isso vem o `div 10` depois: 83 div 10 = 8."},
+          {"quem": "Monitor", "fala": "Agora monte o inv com o u na frente."},
+          {"quem": "Você", "fala": "300 + 80 + 5 = 385. E a soma dá 16."}
+        ],
+        "erro": "A dezena é o ponto fraco. Quem para no `n mod 100` leva 83 para a montagem, e o número explode para 1135. Quem calcula 583 / 100 = 5,83 e arredonda chega a 6, mas o `div` só corta as casas e dá 5. E há a leitura do +: entre variáveis `inteiro`, ele soma; só junta quando as duas pontas são texto. Se a sua soma deu um número de três algarismos, você colou os dígitos em vez de somar.",
+        "confira": "Faça a prova inversa: inverta 385 de cabeça e veja se volta 583. Volta. Para a soma, some os algarismos do original, 5 + 8 + 3 = 16, e os do invertido, 3 + 8 + 5 = 16: inverter não muda a soma. Outro teste é rodar o programa com 100: c = 1, d = 0, u = 0, inv = 1 e soma 1. O inv perde os zeros da frente, o que mostra que ele é número, e não texto.",
+        "atalho": "A soma dos algarismos de 583 é 16, e ela não depende da ordem. Isso elimina 1135 91, 385 583 e 386 17 de uma vez. Sobram 583 16 e 385 16. A linha do inv começa com `u * 100`, então o 3 vai para a frente: 385."
+      }
+    },
+    {
+      "id": "lp-s5-p11",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 4,
+      "tema": "Se aninhado e fronteiras",
+      "origem": "Prévia · ementa",
+      "enunciado": "Um sistema de crédito marca com letras as etapas por onde cada pedido passa. A pessoa digitou idade 18 e renda 3000. O que aparece na tela?",
+      "codigo": "algoritmo \"etapas\"\nvar\n   idade, renda: inteiro\ninicio\n   leia(idade, renda)\n   se idade >= 18 entao\n      escreva(\"A\")\n      se renda > 3000 entao\n         escreva(\"B\")\n      senao\n         escreva(\"C\")\n      fimse\n      escreva(\"D\")\n   senao\n      escreva(\"E\")\n   fimse\n   escreval(\"F\")\nfimalgoritmo",
+      "entradas": ["18", "3000"],
+      "saida": "ACDF",
+      "alternativas": [
+        {"t": "ABDF", "certa": false, "erro": "Você tratou `renda > 3000` como `renda >= 3000`. Com renda igual a 3000, `3000 > 3000` é falso, e o programa vai para o `senao` de dentro, que escreve C."},
+        {"t": "ACDF", "certa": true},
+        {"t": "EF", "certa": false, "erro": "Você leu `idade >= 18` como `idade > 18`. O `>=` inclui o próprio 18, então a condição de fora é verdadeira e o E nem chega a ser escrito."},
+        {"t": "ACF", "certa": false, "erro": "Você achou que o D fazia parte do `se` de dentro. Ele vem depois do `fimse` de dentro: roda para todo pedido que passou pela condição de fora, qualquer que seja a renda."},
+        {"t": "ACD", "certa": false, "erro": "Você achou que o F pertencia ao `senao` de fora. O `escreval(\"F\")` vem depois do último `fimse`, então roda em qualquer caminho."}
+      ],
+      "dica": "Marque com um traço onde cada `se` começa e termina. Depois siga o caminho com 18 e 3000, olhando com cuidado o `>=` e o `>`.",
+      "resposta": "ACDF",
+      "jeitos": {
+        "visual": "Desenhe o código como caixas dentro de caixas. A caixa grande é o `se` de fora: dentro dela ficam o A, uma caixa menor com B ou C e, depois dessa caixa menor, o D. Fora de tudo, embaixo, fica o F. Com idade 18 você entra na caixa grande e escreve A. Na caixa menor, 3000 não passa de 3000: vai para o C. Sai da caixa menor e escreve D. Sai da grande e escreve F.",
+        "receita": [
+          "`leia(idade, renda)`: idade = 18 e renda = 3000.",
+          "`idade >= 18`: 18 ≥ 18 é verdadeiro. Entra e escreve A.",
+          "`renda > 3000`: 3000 > 3000 é falso. Vai para o `senao` de dentro e escreve C.",
+          "Depois do `fimse` de dentro vem o D, que roda.",
+          "O `senao` de fora, com o E, é pulado.",
+          "Depois do último `fimse` vem o `escreval(\"F\")`. A tela mostra ACDF."
+        ],
+        "cotidiano": "É como o roteiro de um caixa de banco. Se a pessoa tem conta, o caixa pega o documento (A), vê se o depósito passa do limite e pede autorização (B) ou não (C), e carimba o comprovante (D). Se não tem conta, encaminha para o atendimento (E). Em qualquer caso, chama o próximo da fila (F). O carimbo vale para todo cliente com conta, e não só para quem precisou de autorização.",
+        "trabalho": "No Excel, o equivalente é um SE dentro de outro: =SE(idade>=18; \"A\" & SE(renda>3000;\"B\";\"C\") & \"D\"; \"E\") & \"F\". O & faz o papel das letras escritas em sequência. A fronteira também é a mesma: com > a renda de exatamente 3000 fica de fora. Numa auditoria de regra de crédito, o primeiro teste é justamente o valor exato da fronteira, porque é ali que \"acima de\" e \"a partir de\" se separam.",
+        "conversa": [
+          {"quem": "Você", "fala": "Deu ABDF. A renda é 3000 e a regra pede mais de 3000."},
+          {"quem": "Monitor", "fala": "3000 é mais que 3000?"},
+          {"quem": "Você", "fala": "Não, é igual. Então o `se` de dentro é falso e vai para o C."},
+          {"quem": "Monitor", "fala": "E o D, roda?"},
+          {"quem": "Você", "fala": "Achei que só rodava junto com o B."},
+          {"quem": "Monitor", "fala": "Olhe onde ele está: depois do `fimse` de dentro, ainda dentro do `se` de fora."},
+          {"quem": "Você", "fala": "Então roda para quem tem 18 anos ou mais. Fica ACDF."}
+        ],
+        "erro": "A questão junta duas armadilhas. A primeira é a fronteira: `>=` inclui o valor e `>` não, e as entradas foram escolhidas exatamente em cima das duas fronteiras. A segunda é o alcance de cada bloco: o que vem depois de um `fimse` não pertence mais àquele `se`. O D fica fora do `se` de dentro, mas dentro do de fora; o F fica fora dos dois. Errar a fronteira da renda troca o C pelo B; errar a da idade leva ao E. Errar o alcance faz sumir o D ou o F.",
+        "confira": "Teste os outros caminhos para ver se a sua leitura se sustenta. Com 17 e 3000, a condição de fora é falsa: sai EF. Com 18 e 3001, a de dentro é verdadeira: sai ABDF. Com 18 e 3000 fica entre os dois, ACDF. Se cada um desses três testes der o que você previu, a leitura do aninhamento está certa. No laboratório, cole o código e mude só as entradas.",
+        "atalho": "O F está fora de todos os blocos, então a resposta termina em F: elimine ACD. A idade 18 passa no `>=`, então a resposta começa com A: elimine EF. Sobram ABDF, ACDF e ACF. A renda 3000 não passa no `>`: é C, e não B. O D vem depois do `fimse` de dentro e aparece sempre junto com o A: fica ACDF."
+      }
+    },
+    {
+      "id": "lp-s5-p12",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Montar uma condição composta",
+      "origem": "Prévia · ementa",
+      "enunciado": "Regra da loja: o frete é grátis quando a compra é de pelo menos 200 reais, ou quando o cliente é VIP e mora a até 50 km. As variáveis são `valor` (`real`), `vip` (`logico`) e `dist` (`inteiro`, em km). Qual condição, usada num `se ... entao`, segue a regra?",
+      "alternativas": [
+        {"t": "`(valor > 200) ou (vip e dist <= 50)`", "certa": false, "erro": "O `>` deixa de fora a compra de exatamente 200 reais. \"Pelo menos 200\" pede `valor >= 200`."},
+        {"t": "`(valor >= 200 ou vip) e dist <= 50`", "certa": false, "erro": "Os parênteses mudaram a regra: agora a distância vale para todo mundo. Uma compra de 300 reais entregue a 80 km perderia o frete grátis."},
+        {"t": "`valor >= 200 e vip ou dist <= 50`", "certa": false, "erro": "Como o `e` vem antes do `ou`, isso é `(valor >= 200 e vip) ou dist <= 50`. Qualquer cliente a 30 km ganharia o frete, e uma compra de 300 reais de quem não é VIP, a 80 km, não."},
+        {"t": "`(valor >= 200) ou (vip e dist <= 50)`", "certa": true},
+        {"t": "`(valor >= 200) ou (vip e dist >= 50)`", "certa": false, "erro": "\"Até 50 km\" é `dist <= 50`. Com `>=`, numa compra abaixo de 200 reais, o VIP que mora a 20 km perde o frete e o VIP que mora a 80 km ganha."}
+      ],
+      "dica": "Separe a regra em duas metades ligadas pelo \"ou\". Depois teste cada alternativa com um caso de fronteira, como uma compra de exatamente 200 reais.",
+      "resposta": "`(valor >= 200) ou (vip e dist <= 50)`",
+      "tabela": {
+        "onde": "explicacao",
+        "cab": ["Caso", "valor", "vip", "dist", "Regra", "A", "B", "C", "D", "E"],
+        "linhas": [
+          ["1", "300", "F", "80", "V", "V", "F", "F", "V", "V"],
+          ["2", "200", "F", "80", "V", "F", "F", "F", "V", "V"],
+          ["3", "100", "V", "50", "V", "V", "V", "V", "V", "V"],
+          ["4", "100", "V", "80", "F", "F", "F", "F", "F", "V"],
+          ["5", "100", "F", "30", "F", "F", "F", "V", "F", "F"]
+        ]
+      },
+      "jeitos": {
+        "visual": "Desenhe duas portas lado a lado para o frete grátis. A primeira tem uma só fechadura: compra de 200 reais ou mais. A segunda tem duas fechaduras, e as duas precisam abrir: ser VIP e morar a até 50 km. O `ou` diz que basta passar por uma das portas. A tabela passa cinco clientes pelas cinco alternativas: só a coluna D repete, linha por linha, a coluna da regra.",
+        "receita": [
+          "Quebre a regra no \"ou\": a metade 1 é \"pelo menos 200 reais\"; a metade 2 é \"VIP e até 50 km\".",
+          "Metade 1 em VisuAlg: `valor >= 200`, porque \"pelo menos\" inclui o 200.",
+          "Metade 2: `vip e dist <= 50`, porque \"até 50\" inclui o 50.",
+          "Junte com `ou` e proteja cada metade com parênteses: `(valor >= 200) ou (vip e dist <= 50)`.",
+          "Teste com 200 reais, cliente comum, 80 km: a metade 1 é verdadeira e o frete sai grátis, como a regra manda."
+        ],
+        "cotidiano": "As placas do dia a dia usam as mesmas fronteiras. \"Velocidade máxima 60 km/h\" deixa andar a 60. \"Proibido para menores de 18 anos\" deixa entrar quem acabou de fazer 18. Na regra da loja, \"pelo menos 200 reais\" funciona como a placa da idade: a compra de exatamente 200 entra. \"Até 50 km\" funciona como a placa de velocidade: quem mora a 50 km também entra. Escrever `valor > 200` seria como barrar na porta quem fez 18 anos ontem.",
+        "trabalho": "Num filtro de SQL, a regra fica `WHERE valor >= 200 OR (vip = 1 AND dist <= 50)`. Em auditoria de regra comercial, o teste é este: pegar um caso de cada borda (200 reais, 50 km, VIP e cliente comum) e comparar o que o sistema fez com o que a política escrita manda. A alternativa B passaria num teste só com clientes perto da loja e falharia no primeiro pedido grande vindo de longe.",
+        "conversa": [
+          {"quem": "Você", "fala": "Fiquei entre a A e a D. A diferença é só o sinal de igual."},
+          {"quem": "Monitor", "fala": "Uma compra de exatamente 200 reais, pela regra, ganha o frete?"},
+          {"quem": "Você", "fala": "Pelo menos 200 inclui o 200. Ganha."},
+          {"quem": "Monitor", "fala": "E com `valor > 200`, ganha?"},
+          {"quem": "Você", "fala": "Não, 200 > 200 é falso. Então é a D."},
+          {"quem": "Monitor", "fala": "Confira também a segunda metade: o VIP a 50 km exatos também tem de ganhar, e na D ganha."}
+        ],
+        "erro": "Há três armadilhas na mesma questão. A fronteira: \"pelo menos\" e \"até\" incluem o valor, então pedem `>=` e `<=`. A precedência: sem parênteses, o `e` é feito antes do `ou`, e mudar os parênteses de lugar muda quem ganha o frete. E o sentido da comparação: \"até 50 km\" é distância menor ou igual a 50. Uma alternativa errada em um desses pontos acerta muitos casos e erra poucos, por isso parece certa à primeira vista.",
+        "confira": "Monte cinco clientes de teste: (1) 300 reais, comum, 80 km: ganha. (2) 200 reais, comum, 80 km: ganha. (3) 100 reais, VIP, 50 km: ganha. (4) 100 reais, VIP, 80 km: não ganha. (5) 100 reais, comum, 30 km: não ganha. A D acerta os cinco. A com `>` erra o 2; a com o `ou` dentro do parêntese erra o 1 e o 2; a sem parênteses erra o 1, o 2 e o 5; a com `dist >= 50` erra o 4.",
+        "atalho": "Comece pela fronteira, que é o teste mais barato: 200 reais exatos têm de ganhar o frete. Isso derruba a alternativa com `valor > 200`. Depois veja se a distância ficou presa só ao VIP: com o `ou` dentro do parêntese, ou sem parêntese nenhum, ela passa a valer para todos. Por fim confira o sentido de \"até 50\", que é `<=`. Sobra uma alternativa."
+      }
+    }
+  ]
+}

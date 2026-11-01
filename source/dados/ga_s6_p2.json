@@ -1,0 +1,338 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s6-p07",
+      "semana": 6,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Focos da hipérbole transladada",
+      "origem": "Prévia · ementa",
+      "enunciado": "Quais são os focos da hipérbole 5x² − 4y² − 10x − 16y − 31 = 0?",
+      "alternativas": [
+        {"t": "(2, −2) e (0, −2)", "certa": false, "erro": "Você usou a relação da elipse: c² = 5 − 4 = 1. Na hipérbole, c² = a² + b² = 4 + 5 = 9, então c = 3."},
+        {"t": "(3, −2) e (−1, −2)", "certa": false, "erro": "Esses são os vértices, a 2 unidades do centro. Os focos ficam mais longe, a c = 3 unidades."},
+        {"t": "(1, 1) e (1, −5)", "certa": false, "erro": "Você pôs os focos na vertical. O termo positivo é o de (x − 1)², então os focos ficam na reta y = −2, à esquerda e à direita do centro."},
+        {"t": "(4, −2) e (−2, −2)", "certa": true},
+        {"t": "(2, 2) e (−4, 2)", "certa": false, "erro": "O c = 3 está certo, mas o centro saiu com os sinais trocados: (−1, 2) no lugar de (1, −2)."}
+      ],
+      "dica": "Cuidado com o −4 na frente do y²: ponha −4 em evidência, e não 4.",
+      "resposta": "(4, −2) e (−2, −2)",
+      "figura": {
+        "modo": "2d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[5.705, -6.761], [5.398, -6.38], [5.117, -6.023], [4.858, -5.689], [4.621, -5.375], [4.405, -5.081], [4.208, -4.804], [4.028, -4.542], [3.866, -4.295], [3.72, -4.061], [3.589, -3.839], [3.473, -3.627], [3.371, -3.424], [3.282, -3.229], [3.206, -3.041], [3.142, -2.858], [3.091, -2.681], [3.051, -2.507], [3.023, -2.337], [3.006, -2.168], [3, -2], [3.006, -1.832], [3.023, -1.663], [3.051, -1.493], [3.091, -1.319], [3.142, -1.142], [3.206, -0.959], [3.282, -0.771], [3.371, -0.576], [3.473, -0.373], [3.589, -0.161], [3.72, 0.061], [3.866, 0.295], [4.028, 0.542], [4.208, 0.804], [4.405, 1.081], [4.621, 1.375], [4.858, 1.689], [5.117, 2.023], [5.398, 2.38], [5.705, 2.761]], "cor": 1, "aberto": true},
+          {"tipo": "poligono", "pts": [[-3.705, -6.761], [-3.398, -6.38], [-3.117, -6.023], [-2.858, -5.689], [-2.621, -5.375], [-2.405, -5.081], [-2.208, -4.804], [-2.028, -4.542], [-1.866, -4.295], [-1.72, -4.061], [-1.589, -3.839], [-1.473, -3.627], [-1.371, -3.424], [-1.282, -3.229], [-1.206, -3.041], [-1.142, -2.858], [-1.091, -2.681], [-1.051, -2.507], [-1.023, -2.337], [-1.006, -2.168], [-1, -2], [-1.006, -1.832], [-1.023, -1.663], [-1.051, -1.493], [-1.091, -1.319], [-1.142, -1.142], [-1.206, -0.959], [-1.282, -0.771], [-1.371, -0.576], [-1.473, -0.373], [-1.589, -0.161], [-1.72, 0.061], [-1.866, 0.295], [-2.028, 0.542], [-2.208, 0.804], [-2.405, 1.081], [-2.621, 1.375], [-2.858, 1.689], [-3.117, 2.023], [-3.398, 2.38], [-3.705, 2.761]], "cor": 1, "aberto": true},
+          {"tipo": "segmento", "de": [-4, -7.59], "ate": [6, 3.59], "cor": 3, "tracejado": true},
+          {"tipo": "segmento", "de": [-4, 3.59], "ate": [6, -7.59], "cor": 3, "tracejado": true},
+          {"tipo": "ponto", "em": [1, -2], "rot": "C"},
+          {"tipo": "ponto", "em": [-2, -2], "rot": "F₁"},
+          {"tipo": "ponto", "em": [4, -2], "rot": "F₂"}
+        ],
+        "legenda": "Centro C = (1, −2); os focos F₁ e F₂ ficam 3 à esquerda e 3 à direita dele, na reta y = −2. As retas tracejadas são as assíntotas."
+      },
+      "jeitos": {
+        "visual": "Primeiro ache o centro, depois ande. A equação esconde uma hipérbole deitada, com centro em C = (1, −2). Na figura, os dois ramos se abrem para a esquerda e para a direita, porque o termo positivo é o do x. Os vértices ficam 2 para cada lado do centro e os focos, um pouco mais longe, 3 para cada lado: em x = 4 e x = −2, ambos na altura y = −2.",
+        "receita": [
+          "Agrupe: 5(x² − 2x) − 4(y² + 4y) = 31.",
+          "Complete: x² − 2x = (x − 1)² − 1 e y² + 4y = (y + 2)² − 4.",
+          "Substitua: 5(x − 1)² − 5 − 4(y + 2)² + 16 = 31, então 5(x − 1)² − 4(y + 2)² = 20.",
+          "Divida por 20: (x − 1)²/4 − (y + 2)²/5 = 1. Centro (1, −2), a² = 4 e b² = 5.",
+          "Hipérbole: c² = a² + b² = 9, então c = 3.",
+          "O termo positivo é o de x: focos em (1 ± 3, −2), ou seja, (4, −2) e (−2, −2)."
+        ],
+        "cotidiano": "Pense num endereço. Primeiro você descobre o bairro: o centro (1, −2). Depois a rua principal: como o termo positivo é o do x, a rua é horizontal, a reta y = −2. Por fim, o número: os focos ficam a 3 quadras do centro, um de cada lado. Errar o bairro, que é o sinal do centro, ou a rua, vertical em vez de horizontal, leva você a uma casa que existe, mas não é a procurada.",
+        "trabalho": "O passo perigoso é o −4 na frente do y², e ele lembra um estorno. Quando você escreve −4(y² + 4y) e completa o quadrado, o −4 multiplica o (y + 2)² e também o −4 que sobra: −4 × (−4) = +16. É como estornar um lançamento negativo: o sinal do ajuste se inverte. Quem lança −16 no lugar de +16 chega a 5(x − 1)² − 4(y + 2)² = 52 e perde os números redondos.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei a² = 4 e b² = 5, então c² = 5 − 4 = 1."},
+          {"quem": "Monitor", "fala": "Isso seria numa elipse. Numa hipérbole, onde fica o foco em relação ao vértice?"},
+          {"quem": "Você", "fala": "Mais longe do centro. Então c² = 4 + 5 = 9 e c = 3."},
+          {"quem": "Monitor", "fala": "E para que lado você anda os 3?"},
+          {"quem": "Você", "fala": "O positivo é o (x − 1)², então na horizontal. Focos (4, −2) e (−2, −2)."},
+          {"quem": "Monitor", "fala": "Confira o centro: ele zera os dois parênteses?"},
+          {"quem": "Você", "fala": "x = 1 zera x − 1 e y = −2 zera y + 2. Zera."}
+        ],
+        "erro": "A armadilha que mais derruba aqui é o sinal na frente do y². Ao pôr −4 em evidência, o −16y vira +4y lá dentro: −4(y² + 4y). Quem escreve −4(y² − 4y) manda o centro para y = 2. Depois vem a relação errada: c² = a² − b² é da elipse. Como perceber: na hipérbole o foco sempre fica além do vértice, então c tem de ser maior que a = 2.",
+        "confira": "Substitua um vértice na equação original. O ponto (3, −2) dá 45 − 16 − 30 + 32 − 31 = 0. Agora teste a definição com o ponto (4, 1/2), que também está na curva: ele fica a 5/2 do foco (4, −2) e a √(36 + 25/4) = 13/2 do foco (−2, −2). A diferença 13/2 − 5/2 = 4 é 2a, como pede a hipérbole.",
+        "atalho": "Dá para achar o centro sem completar quadrados: h = −(−10)/(2·5) = 1 e k = −(−16)/(2·(−4)) = −2. Isso elimina (2, 2) e (−4, 2), cujo ponto médio é (−1, 2). O termo positivo é o x², então os focos ficam na horizontal: sai o par (1, 1) e (1, −5). Sobram três pares centrados em (1, −2); fique com o par a 3 do centro, o c da hipérbole."
+      }
+    },
+    {
+      "id": "ga-s6-p08",
+      "semana": 6,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Circunferência com parâmetro",
+      "origem": "Prévia · ementa",
+      "enunciado": "Para que valor de k a equação x² + y² − 6x + 8y + k = 0 representa uma circunferência de raio 2?",
+      "alternativas": [
+        {"t": "k = 23", "certa": false, "erro": "Você igualou 25 − k ao raio, 2. O lado direito da forma reduzida é r², então 25 − k = 4."},
+        {"t": "k = 21", "certa": true},
+        {"t": "k = 29", "certa": false, "erro": "Você somou em vez de subtrair: 25 + 4 = 29. O k passa para o outro lado com sinal trocado, e a condição é 25 − k = 4."},
+        {"t": "k = −21", "certa": false, "erro": "Sinal trocado no fim: 25 − k = 4 dá k = 21, positivo. Com k = −21, o raio seria √46."},
+        {"t": "k = −4", "certa": false, "erro": "Você tratou o k como se fosse −r² e esqueceu os 9 e 16 que aparecem ao completar os quadrados. Esses números entram no raio: r² = 9 + 16 − k."}
+      ],
+      "dica": "Complete os dois quadrados e veja que número fica do lado direito, em função de k.",
+      "resposta": "k = 21",
+      "figura": {
+        "modo": "2d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[5, -4], [4.975, -3.687], [4.902, -3.382], [4.782, -3.092], [4.618, -2.824], [4.414, -2.586], [4.176, -2.382], [3.908, -2.218], [3.618, -2.098], [3.313, -2.025], [3, -2], [2.687, -2.025], [2.382, -2.098], [2.092, -2.218], [1.824, -2.382], [1.586, -2.586], [1.382, -2.824], [1.218, -3.092], [1.098, -3.382], [1.025, -3.687], [1, -4], [1.025, -4.313], [1.098, -4.618], [1.218, -4.908], [1.382, -5.176], [1.586, -5.414], [1.824, -5.618], [2.092, -5.782], [2.382, -5.902], [2.687, -5.975], [3, -6], [3.313, -5.975], [3.618, -5.902], [3.908, -5.782], [4.176, -5.618], [4.414, -5.414], [4.618, -5.176], [4.782, -4.908], [4.902, -4.618], [4.975, -4.313]], "cor": 1},
+          {"tipo": "ponto", "em": [3, -4], "rot": "C"},
+          {"tipo": "ponto", "em": [5, -4], "rot": ""},
+          {"tipo": "segmento", "de": [3, -4], "ate": [5, -4], "cor": 3}
+        ],
+        "legenda": "Centro C = (3, −4) e raio 2: o segmento ocre vai do centro até o ponto (5, −4) da circunferência."
+      },
+      "jeitos": {
+        "visual": "Imagine o compasso com a ponta seca em C = (3, −4). Os termos −6x e 8y escondem esse centro. Ao completar os quadrados, aparece (x − 3)² + (y + 4)² = 25 − k. O 25 − k é a abertura do compasso ao quadrado. Na figura, a abertura é 2, então 25 − k tem de valer 4. Cada unidade a mais em k fecha um pouco o compasso.",
+        "receita": [
+          "Agrupe: (x² − 6x) + (y² + 8y) = −k.",
+          "Complete: x² − 6x = (x − 3)² − 9 e y² + 8y = (y + 4)² − 16.",
+          "Substitua: (x − 3)² + (y + 4)² = 9 + 16 − k = 25 − k.",
+          "Na forma reduzida, o lado direito é r². Com r = 2: 25 − k = 4.",
+          "Resolva: k = 25 − 4 = 21."
+        ],
+        "cotidiano": "Pense num saldo. Os dois quadrados completados põem 9 + 16 = 25 na conta. O k é um desconto sobre esse saldo, e o que sobra é o raio ao quadrado. Para o raio ser 2, precisa sobrar 4, então o desconto é 21. Se o desconto chegar a 25, não sobra nada e a curva vira um ponto; se passar de 25, o saldo fica negativo e não existe circunferência.",
+        "trabalho": "É o problema do Atingir Meta do Excel. Você tem a fórmula raio = √(25 − k) e quer que o resultado seja 2. O Atingir Meta mexe na célula de k até chegar lá e para em 21. Aqui a equação é simples o bastante para resolver na mão: 25 − k = 4. É o mesmo raciocínio de achar o desconto que leva um preço a um valor-alvo.",
+        "conversa": [
+          {"quem": "Você", "fala": "Raio 2, então k = −4, porque a equação fica igual a r²."},
+          {"quem": "Monitor", "fala": "Isso valeria se a equação fosse x² + y² = 4. Aqui tem −6x e 8y. O que eles escondem?"},
+          {"quem": "Você", "fala": "O centro. Completando, (x − 3)² + (y + 4)² = 25 − k."},
+          {"quem": "Monitor", "fala": "Então quem tem de valer 4?"},
+          {"quem": "Você", "fala": "O 25 − k. Logo k = 21."},
+          {"quem": "Monitor", "fala": "Confira com o ponto (5, −4), que fica a 2 do centro."}
+        ],
+        "erro": "Duas armadilhas aparecem juntas. Igualar 25 − k ao raio, quando ele vale o raio ao quadrado: assim sai 23. E esquecer que completar os quadrados acrescenta 9 e 16 ao lado direito, como se o k sozinho decidisse o raio. Como perceber: com k = 23, sobra 25 − 23 = 2 = r², e o raio seria √2, não 2.",
+        "confira": "Substitua um ponto que tem de estar na circunferência. O ponto (5, −4) fica 2 à direita do centro. Com k = 21: 25 + 16 − 30 − 32 + 21 = 0. O ponto (3, −2), 2 acima do centro: 9 + 4 − 18 − 16 + 21 = 0. Os dois zeram a equação, então o raio é mesmo 2.",
+        "atalho": "Use a fórmula do raio da forma geral: r² = (6/2)² + (8/2)² − k = 9 + 16 − k. Com r² = 4, k = 21. Sem fórmula, dá para eliminar por sinal: o raio 2 é menor que o raio 5 da equação com k = 0, então k precisa ser positivo e menor que 25. Isso tira −21, −4 e 29. Entre 21 e 23, lembre que sobra r² = 4, e não r = 2."
+      }
+    },
+    {
+      "id": "ga-s6-p09",
+      "semana": 6,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Quádrica pelos sinais",
+      "origem": "Prévia · ementa",
+      "enunciado": "Que superfície é x²/4 + y²/9 − z²/16 = 1?",
+      "alternativas": [
+        {"t": "Elipsoide", "certa": false, "erro": "O elipsoide tem os três quadrados com sinal positivo. Aqui o z² vem com sinal negativo."},
+        {"t": "Hiperboloide de duas folhas", "certa": false, "erro": "Duas folhas pedem dois sinais negativos com o lado direito igual a 1. Aqui só o z² é negativo."},
+        {"t": "Cone elíptico", "certa": false, "erro": "O cone tem o lado direito igual a zero. Com 1 do lado direito, o corte em z = 0 é uma elipse, e não um ponto."},
+        {"t": "Paraboloide hiperbólico", "certa": false, "erro": "No paraboloide uma das variáveis aparece só no primeiro grau, como em z = x² − y². Aqui as três estão ao quadrado."},
+        {"t": "Hiperboloide de uma folha", "certa": true}
+      ],
+      "dica": "Conte quantos quadrados têm sinal negativo e olhe o número do lado direito.",
+      "resposta": "Hiperboloide de uma folha, com eixo no eixo z",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[2, 0, 0], [1.962, 0.585, 0], [1.848, 1.148, 0], [1.663, 1.667, 0], [1.414, 2.121, 0], [1.111, 2.494, 0], [0.765, 2.772, 0], [0.39, 2.942, 0], [0, 3, 0], [-0.39, 2.942, 0], [-0.765, 2.772, 0], [-1.111, 2.494, 0], [-1.414, 2.121, 0], [-1.663, 1.667, 0], [-1.848, 1.148, 0], [-1.962, 0.585, 0], [-2, 0, 0], [-1.962, -0.585, 0], [-1.848, -1.148, 0], [-1.663, -1.667, 0], [-1.414, -2.121, 0], [-1.111, -2.494, 0], [-0.765, -2.772, 0], [-0.39, -2.942, 0], [0, -3, 0], [0.39, -2.942, 0], [0.765, -2.772, 0], [1.111, -2.494, 0], [1.414, -2.121, 0], [1.663, -1.667, 0], [1.848, -1.148, 0], [1.962, -0.585, 0]], "cor": 1},
+          {"tipo": "poligono", "pts": [[2.828, 0, 4], [2.774, 0.828, 4], [2.613, 1.624, 4], [2.352, 2.357, 4], [2, 3, 4], [1.571, 3.528, 4], [1.082, 3.92, 4], [0.552, 4.161, 4], [0, 4.243, 4], [-0.552, 4.161, 4], [-1.082, 3.92, 4], [-1.571, 3.528, 4], [-2, 3, 4], [-2.352, 2.357, 4], [-2.613, 1.624, 4], [-2.774, 0.828, 4], [-2.828, 0, 4], [-2.774, -0.828, 4], [-2.613, -1.624, 4], [-2.352, -2.357, 4], [-2, -3, 4], [-1.571, -3.528, 4], [-1.082, -3.92, 4], [-0.552, -4.161, 4], [0, -4.243, 4], [0.552, -4.161, 4], [1.082, -3.92, 4], [1.571, -3.528, 4], [2, -3, 4], [2.352, -2.357, 4], [2.613, -1.624, 4], [2.774, -0.828, 4]], "cor": 1},
+          {"tipo": "poligono", "pts": [[2.828, 0, -4], [2.774, 0.828, -4], [2.613, 1.624, -4], [2.352, 2.357, -4], [2, 3, -4], [1.571, 3.528, -4], [1.082, 3.92, -4], [0.552, 4.161, -4], [0, 4.243, -4], [-0.552, 4.161, -4], [-1.082, 3.92, -4], [-1.571, 3.528, -4], [-2, 3, -4], [-2.352, 2.357, -4], [-2.613, 1.624, -4], [-2.774, 0.828, -4], [-2.828, 0, -4], [-2.774, -0.828, -4], [-2.613, -1.624, -4], [-2.352, -2.357, -4], [-2, -3, -4], [-1.571, -3.528, -4], [-1.082, -3.92, -4], [-0.552, -4.161, -4], [0, -4.243, -4], [0.552, -4.161, -4], [1.082, -3.92, -4], [1.571, -3.528, -4], [2, -3, -4], [2.352, -2.357, -4], [2.613, -1.624, -4], [2.774, -0.828, -4]], "cor": 1},
+          {"tipo": "poligono", "pts": [[2.828, 0, -4], [2.663, 0, -3.516], [2.518, 0, -3.06], [2.393, 0, -2.627], [2.286, 0, -2.215], [2.197, 0, -1.82], [2.126, 0, -1.44], [2.07, 0, -1.07], [2.031, 0, -0.709], [2.008, 0, -0.353], [2, 0, 0], [2.008, 0, 0.353], [2.031, 0, 0.709], [2.07, 0, 1.07], [2.126, 0, 1.44], [2.197, 0, 1.82], [2.286, 0, 2.215], [2.393, 0, 2.627], [2.518, 0, 3.06], [2.663, 0, 3.516], [2.828, 0, 4]], "cor": 2, "aberto": true},
+          {"tipo": "poligono", "pts": [[-2.828, 0, -4], [-2.663, 0, -3.516], [-2.518, 0, -3.06], [-2.393, 0, -2.627], [-2.286, 0, -2.215], [-2.197, 0, -1.82], [-2.126, 0, -1.44], [-2.07, 0, -1.07], [-2.031, 0, -0.709], [-2.008, 0, -0.353], [-2, 0, 0], [-2.008, 0, 0.353], [-2.031, 0, 0.709], [-2.07, 0, 1.07], [-2.126, 0, 1.44], [-2.197, 0, 1.82], [-2.286, 0, 2.215], [-2.393, 0, 2.627], [-2.518, 0, 3.06], [-2.663, 0, 3.516], [-2.828, 0, 4]], "cor": 2, "aberto": true},
+          {"tipo": "poligono", "pts": [[0, 4.243, -4], [0, 3.994, -3.516], [0, 3.777, -3.06], [0, 3.589, -2.627], [0, 3.429, -2.215], [0, 3.296, -1.82], [0, 3.188, -1.44], [0, 3.105, -1.07], [0, 3.047, -0.709], [0, 3.012, -0.353], [0, 3, 0], [0, 3.012, 0.353], [0, 3.047, 0.709], [0, 3.105, 1.07], [0, 3.188, 1.44], [0, 3.296, 1.82], [0, 3.429, 2.215], [0, 3.589, 2.627], [0, 3.777, 3.06], [0, 3.994, 3.516], [0, 4.243, 4]], "cor": 2, "aberto": true},
+          {"tipo": "poligono", "pts": [[0, -4.243, -4], [0, -3.994, -3.516], [0, -3.777, -3.06], [0, -3.589, -2.627], [0, -3.429, -2.215], [0, -3.296, -1.82], [0, -3.188, -1.44], [0, -3.105, -1.07], [0, -3.047, -0.709], [0, -3.012, -0.353], [0, -3, 0], [0, -3.012, 0.353], [0, -3.047, 0.709], [0, -3.105, 1.07], [0, -3.188, 1.44], [0, -3.296, 1.82], [0, -3.429, 2.215], [0, -3.589, 2.627], [0, -3.777, 3.06], [0, -3.994, 3.516], [0, -4.243, 4]], "cor": 2, "aberto": true}
+        ],
+        "legenda": "As fatias horizontais (azuis) são elipses que crescem com |z|; as fatias verticais (coral) são hipérboles. É uma peça só, com o eixo z passando pelo buraco do meio."
+      },
+      "jeitos": {
+        "visual": "Fatie a superfície com planos horizontais z = k. Cada fatia é x²/4 + y²/9 = 1 + k²/16, uma elipse que nunca some e cresce à medida que você sobe ou desce. Na figura, a fatia de z = 0 é a mais estreita, a cintura. Corte agora com o plano y = 0: sai x²/4 − z²/16 = 1, uma hipérbole. O conjunto forma uma peça só, em forma de carretel.",
+        "receita": [
+          "Veja o lado direito: vale 1, então não é cone.",
+          "Veja os expoentes: x, y e z estão ao quadrado, então não é paraboloide nem cilindro.",
+          "Conte os sinais negativos: só o do z², um negativo.",
+          "Um negativo com lado direito 1: hiperboloide de uma folha.",
+          "O eixo é o da variável negativa: o eixo z."
+        ],
+        "cotidiano": "A torre de resfriamento de uma usina tem esse formato: larga embaixo, mais estreita no meio e larga de novo em cima, sem nenhuma emenda. Por dentro dela passa o eixo, sem tocar na parede. Um carretel de linha, visto de lado, dá a mesma ideia. É uma peça só, e daí o nome de uma folha.",
+        "trabalho": "A regra de reconhecimento é uma classificação por contagem, como um CASE no SQL: `CASE negativos WHEN 0 THEN 'elipsoide' WHEN 1 THEN 'uma folha' WHEN 2 THEN 'duas folhas' END`. Ela vale quando os três quadrados aparecem e o lado direito é 1. A coluna que entra na regra é a quantidade de sinais negativos, e aqui ela vale 1.",
+        "conversa": [
+          {"quem": "Você", "fala": "Tem um sinal de menos. Não é o de duas folhas?"},
+          {"quem": "Monitor", "fala": "Corte com z = 0. O que sobra?"},
+          {"quem": "Você", "fala": "x²/4 + y²/9 = 1. Uma elipse."},
+          {"quem": "Monitor", "fala": "Então a superfície passa pelo plano z = 0. A de duas folhas tem um vão justamente ali."},
+          {"quem": "Você", "fala": "Então é uma peça só: uma folha."},
+          {"quem": "Monitor", "fala": "Duas folhas aparecem com dois sinais negativos, como em −x²/4 − y²/9 + z²/16 = 1."}
+        ],
+        "erro": "O tropeço clássico é ligar um sinal de menos a duas folhas. A regra conta direto: um negativo, uma folha; dois negativos, duas folhas. Para não depender só da memória, ache a variável cujo sinal difere do sinal das outras duas e corte pelo plano em que ela vale zero. Se o corte existir, como aqui em z = 0, a peça é uma só. Se o corte for vazio, há um vão e são duas folhas.",
+        "confira": "Teste o eixo z, onde x = 0 e y = 0. Sobra −z²/16 = 1, sem solução real: o eixo atravessa o buraco do carretel e não toca a superfície. Depois teste o corte z = 4: x²/4 + y²/9 = 2, uma elipse maior que a de z = 0. Fatias sempre presentes e crescendo nas duas direções são o retrato do hiperboloide de uma folha.",
+        "atalho": "Três olhadas, nesta ordem. Todas as variáveis ao quadrado? Sim, então sai o paraboloide. Lado direito igual a zero? Não, então sai o cone. Quantos sinais negativos? Um. Zero seria elipsoide; dois seriam duas folhas. Um negativo é uma folha."
+      }
+    },
+    {
+      "id": "ga-s6-p10",
+      "semana": 6,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Quádrica pelos traços",
+      "origem": "Prévia · ementa",
+      "enunciado": "Uma superfície S, com centro na origem, tem estes cortes (traços): no plano z = 2, a elipse x²/16 + y²/36 = 1; no plano z = 0, só o ponto (0, 0, 0); no plano x = 0, as retas y = 3z e y = −3z. Qual é S?",
+      "alternativas": [
+        {"t": "Paraboloide elíptico x²/4 + y²/9 = z", "certa": false, "erro": "O corte em z = 2 até seria uma elipse, x²/8 + y²/18 = 1, mas com outros semieixos. E no plano x = 0 sairia a parábola y² = 9z, não um par de retas."},
+        {"t": "Hiperboloide de uma folha x²/4 + y²/9 − z² = 1", "certa": false, "erro": "No plano z = 0 ele dá a elipse x²/4 + y²/9 = 1, não um ponto. E no plano x = 0 dá uma hipérbole, não retas."},
+        {"t": "Cone elíptico x²/4 + y²/9 = z²", "certa": true},
+        {"t": "Hiperboloide de duas folhas x²/4 + y²/9 − z² = −1", "certa": false, "erro": "No plano z = 0 ele não tem ponto nenhum, nem a origem: x²/4 + y²/9 = −1 não tem solução. O enunciado diz que o corte em z = 0 é um ponto."},
+        {"t": "Cilindro elíptico x²/16 + y²/36 = 1", "certa": false, "erro": "No cilindro todo corte z = k é a mesma elipse, inclusive em z = 0, e no plano x = 0 saem as retas paralelas y = 6 e y = −6. O enunciado tem um ponto em z = 0 e retas que se cruzam."}
+      ],
+      "dica": "Teste cada candidato nos três planos do enunciado. O corte em z = 0 já derruba quase todos.",
+      "resposta": "Cone elíptico x²/4 + y²/9 = z², com vértice na origem",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[4, 0, 2], [3.923, 1.171, 2], [3.696, 2.296, 2], [3.326, 3.333, 2], [2.828, 4.243, 2], [2.222, 4.989, 2], [1.531, 5.543, 2], [0.78, 5.885, 2], [0, 6, 2], [-0.78, 5.885, 2], [-1.531, 5.543, 2], [-2.222, 4.989, 2], [-2.828, 4.243, 2], [-3.326, 3.333, 2], [-3.696, 2.296, 2], [-3.923, 1.171, 2], [-4, 0, 2], [-3.923, -1.171, 2], [-3.696, -2.296, 2], [-3.326, -3.333, 2], [-2.828, -4.243, 2], [-2.222, -4.989, 2], [-1.531, -5.543, 2], [-0.78, -5.885, 2], [0, -6, 2], [0.78, -5.885, 2], [1.531, -5.543, 2], [2.222, -4.989, 2], [2.828, -4.243, 2], [3.326, -3.333, 2], [3.696, -2.296, 2], [3.923, -1.171, 2]], "cor": 1},
+          {"tipo": "poligono", "pts": [[2, 0, 1], [1.962, 0.585, 1], [1.848, 1.148, 1], [1.663, 1.667, 1], [1.414, 2.121, 1], [1.111, 2.494, 1], [0.765, 2.772, 1], [0.39, 2.942, 1], [0, 3, 1], [-0.39, 2.942, 1], [-0.765, 2.772, 1], [-1.111, 2.494, 1], [-1.414, 2.121, 1], [-1.663, 1.667, 1], [-1.848, 1.148, 1], [-1.962, 0.585, 1], [-2, 0, 1], [-1.962, -0.585, 1], [-1.848, -1.148, 1], [-1.663, -1.667, 1], [-1.414, -2.121, 1], [-1.111, -2.494, 1], [-0.765, -2.772, 1], [-0.39, -2.942, 1], [0, -3, 1], [0.39, -2.942, 1], [0.765, -2.772, 1], [1.111, -2.494, 1], [1.414, -2.121, 1], [1.663, -1.667, 1], [1.848, -1.148, 1], [1.962, -0.585, 1]], "cor": 1},
+          {"tipo": "poligono", "pts": [[2, 0, -1], [1.962, 0.585, -1], [1.848, 1.148, -1], [1.663, 1.667, -1], [1.414, 2.121, -1], [1.111, 2.494, -1], [0.765, 2.772, -1], [0.39, 2.942, -1], [0, 3, -1], [-0.39, 2.942, -1], [-0.765, 2.772, -1], [-1.111, 2.494, -1], [-1.414, 2.121, -1], [-1.663, 1.667, -1], [-1.848, 1.148, -1], [-1.962, 0.585, -1], [-2, 0, -1], [-1.962, -0.585, -1], [-1.848, -1.148, -1], [-1.663, -1.667, -1], [-1.414, -2.121, -1], [-1.111, -2.494, -1], [-0.765, -2.772, -1], [-0.39, -2.942, -1], [0, -3, -1], [0.39, -2.942, -1], [0.765, -2.772, -1], [1.111, -2.494, -1], [1.414, -2.121, -1], [1.663, -1.667, -1], [1.848, -1.148, -1], [1.962, -0.585, -1]], "cor": 1},
+          {"tipo": "poligono", "pts": [[4, 0, -2], [3.923, 1.171, -2], [3.696, 2.296, -2], [3.326, 3.333, -2], [2.828, 4.243, -2], [2.222, 4.989, -2], [1.531, 5.543, -2], [0.78, 5.885, -2], [0, 6, -2], [-0.78, 5.885, -2], [-1.531, 5.543, -2], [-2.222, 4.989, -2], [-2.828, 4.243, -2], [-3.326, 3.333, -2], [-3.696, 2.296, -2], [-3.923, 1.171, -2], [-4, 0, -2], [-3.923, -1.171, -2], [-3.696, -2.296, -2], [-3.326, -3.333, -2], [-2.828, -4.243, -2], [-2.222, -4.989, -2], [-1.531, -5.543, -2], [-0.78, -5.885, -2], [0, -6, -2], [0.78, -5.885, -2], [1.531, -5.543, -2], [2.222, -4.989, -2], [2.828, -4.243, -2], [3.326, -3.333, -2], [3.696, -2.296, -2], [3.923, -1.171, -2]], "cor": 1},
+          {"tipo": "segmento", "de": [0, -6, -2], "ate": [0, 6, 2], "cor": 2},
+          {"tipo": "segmento", "de": [0, 6, -2], "ate": [0, -6, 2], "cor": 2},
+          {"tipo": "segmento", "de": [-4, 0, -2], "ate": [4, 0, 2], "cor": 2},
+          {"tipo": "segmento", "de": [4, 0, -2], "ate": [-4, 0, 2], "cor": 2},
+          {"tipo": "ponto", "em": [0, 0, 0], "rot": "V"}
+        ],
+        "legenda": "As elipses azuis encolhem até o vértice V na origem; as retas coral, cortes pelos planos x = 0 e y = 0, se cruzam ali."
+      },
+      "jeitos": {
+        "visual": "Empilhe as fatias horizontais. Em z = 2 há uma elipse de semieixos 4 e 6; em z = 0, tudo encolhe até um ponto; do outro lado, em z = −2, a elipse volta com o mesmo tamanho. A pilha forma duas casquinhas encostadas pela ponta. Na figura, as retas coral cortam o desenho de cima a baixo, passando pela origem: são geratrizes, as linhas retas que formam o cone.",
+        "receita": [
+          "Corte z = 0 com um ponto só: os candidatos são o cone e o paraboloide elíptico.",
+          "Corte x = 0 com duas retas que se cruzam: isso é de cone. O paraboloide daria uma parábola.",
+          "Monte o cone x²/a² + y²/b² = z² com o corte x = 0: y² = b²z², e y = ±3z dá b = 3.",
+          "Use o corte z = 2: x²/a² + y²/9 = 4, ou x²/(4a²) + y²/36 = 1. Como o enunciado tem 16 embaixo do x², 4a² = 16 e a = 2.",
+          "S é o cone elíptico x²/4 + y²/9 = z²."
+        ],
+        "cotidiano": "Uma tomografia faz isso com o corpo: tira fatias, e o médico reconhece o órgão pelas fatias. Aqui, uma fatia horizontal mostra uma elipse, a fatia do meio mostra só um pontinho, e a fatia vertical mostra um X. Uma casquinha de sorvete dupla, ponta com ponta, é a única peça da lista com esses três retratos.",
+        "trabalho": "Cortar a superfície por um plano é como pôr um filtro numa dimensão do Power BI. Fixar z = 2 é escolher um valor na segmentação e ver o que sobra das outras duas colunas. Cada filtro do enunciado é uma evidência, e o candidato certo tem de passar em todos, como uma conciliação que só fecha quando banco, razão e extrato do cartão concordam.",
+        "conversa": [
+          {"quem": "Você", "fala": "Os cortes horizontais são elipses. É paraboloide elíptico?"},
+          {"quem": "Monitor", "fala": "Pode ser. O que o paraboloide mostra no plano x = 0?"},
+          {"quem": "Você", "fala": "z = y²/9, uma parábola."},
+          {"quem": "Monitor", "fala": "E o enunciado diz o quê nesse plano?"},
+          {"quem": "Você", "fala": "Duas retas, y = 3z e y = −3z. Então não é paraboloide."},
+          {"quem": "Monitor", "fala": "Retas que se cruzam no ponto onde as elipses viram um ponto. Qual superfície faz isso?"},
+          {"quem": "Você", "fala": "O cone."}
+        ],
+        "erro": "O erro mais comum é decidir pela primeira fatia. Elipse em z = 2 aparece no cone, no paraboloide elíptico, nos dois hiperboloides e no cilindro. O que separa os candidatos são os outros cortes: o ponto em z = 0 elimina hiperboloides e cilindro, e as retas em x = 0 eliminam o paraboloide. Como perceber: se sobrou mais de um candidato, ainda falta usar um corte.",
+        "confira": "Substitua os três planos na resposta. Em z = 2: x²/4 + y²/9 = 4; dividindo por 4, x²/16 + y²/36 = 1. Em z = 0: x²/4 + y²/9 = 0, que só vale para x = y = 0. Em x = 0: y²/9 = z², ou seja, y = 3z ou y = −3z. Os três cortes do enunciado saem da equação.",
+        "atalho": "Comece pelo corte mais estranho, o ponto em z = 0. O hiperboloide de uma folha dá elipse ali, o de duas folhas dá vazio e o cilindro dá elipse: saem três alternativas de uma vez. Entre cone e paraboloide, olhe o plano x = 0: retas que se cruzam são marca registrada do cone."
+      }
+    },
+    {
+      "id": "ga-s6-p11",
+      "semana": 6,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Variável ausente: cilindro",
+      "origem": "Prévia · ementa",
+      "enunciado": "No espaço (x, y, z), que superfície é 4x² + 9z² = 36?",
+      "alternativas": [
+        {"t": "A elipse x²/9 + z²/4 = 1, uma curva do plano xz", "certa": false, "erro": "No plano, a equação seria uma curva. No espaço, ela não fala de y, então y pode ser qualquer número: a elipse se repete em todo plano y = k e forma uma superfície."},
+        {"t": "Cilindro elíptico com geratrizes paralelas ao eixo y", "certa": true},
+        {"t": "Cilindro elíptico com geratrizes paralelas ao eixo z", "certa": false, "erro": "A variável que falta é o y, e é nessa direção que a superfície se estende. O z aparece na equação, então ele está preso."},
+        {"t": "Paraboloide elíptico com eixo no eixo y", "certa": false, "erro": "No paraboloide, a variável do eixo aparece no primeiro grau, como em y = x²/9 + z²/4. Aqui o y nem aparece, o que é diferente de aparecer no primeiro grau."},
+        {"t": "Cilindro circular de raio 6 em torno do eixo y", "certa": false, "erro": "Você usou o 36 como raio ao quadrado e ignorou os coeficientes 4 e 9. Dividindo por 36, a seção fica x²/9 + z²/4 = 1: elipse de semieixos 3 e 2, e não círculo."}
+      ],
+      "dica": "Pergunte qual variável não aparece na equação e o que acontece com ela.",
+      "resposta": "Cilindro elíptico x²/9 + z²/4 = 1, que se estende ao longo do eixo y",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[3, -4, 0], [2.942, -4, 0.39], [2.772, -4, 0.765], [2.494, -4, 1.111], [2.121, -4, 1.414], [1.667, -4, 1.663], [1.148, -4, 1.848], [0.585, -4, 1.962], [0, -4, 2], [-0.585, -4, 1.962], [-1.148, -4, 1.848], [-1.667, -4, 1.663], [-2.121, -4, 1.414], [-2.494, -4, 1.111], [-2.772, -4, 0.765], [-2.942, -4, 0.39], [-3, -4, 0], [-2.942, -4, -0.39], [-2.772, -4, -0.765], [-2.494, -4, -1.111], [-2.121, -4, -1.414], [-1.667, -4, -1.663], [-1.148, -4, -1.848], [-0.585, -4, -1.962], [0, -4, -2], [0.585, -4, -1.962], [1.148, -4, -1.848], [1.667, -4, -1.663], [2.121, -4, -1.414], [2.494, -4, -1.111], [2.772, -4, -0.765], [2.942, -4, -0.39]], "cor": 1},
+          {"tipo": "poligono", "pts": [[3, 0, 0], [2.942, 0, 0.39], [2.772, 0, 0.765], [2.494, 0, 1.111], [2.121, 0, 1.414], [1.667, 0, 1.663], [1.148, 0, 1.848], [0.585, 0, 1.962], [0, 0, 2], [-0.585, 0, 1.962], [-1.148, 0, 1.848], [-1.667, 0, 1.663], [-2.121, 0, 1.414], [-2.494, 0, 1.111], [-2.772, 0, 0.765], [-2.942, 0, 0.39], [-3, 0, 0], [-2.942, 0, -0.39], [-2.772, 0, -0.765], [-2.494, 0, -1.111], [-2.121, 0, -1.414], [-1.667, 0, -1.663], [-1.148, 0, -1.848], [-0.585, 0, -1.962], [0, 0, -2], [0.585, 0, -1.962], [1.148, 0, -1.848], [1.667, 0, -1.663], [2.121, 0, -1.414], [2.494, 0, -1.111], [2.772, 0, -0.765], [2.942, 0, -0.39]], "cor": 1},
+          {"tipo": "poligono", "pts": [[3, 4, 0], [2.942, 4, 0.39], [2.772, 4, 0.765], [2.494, 4, 1.111], [2.121, 4, 1.414], [1.667, 4, 1.663], [1.148, 4, 1.848], [0.585, 4, 1.962], [0, 4, 2], [-0.585, 4, 1.962], [-1.148, 4, 1.848], [-1.667, 4, 1.663], [-2.121, 4, 1.414], [-2.494, 4, 1.111], [-2.772, 4, 0.765], [-2.942, 4, 0.39], [-3, 4, 0], [-2.942, 4, -0.39], [-2.772, 4, -0.765], [-2.494, 4, -1.111], [-2.121, 4, -1.414], [-1.667, 4, -1.663], [-1.148, 4, -1.848], [-0.585, 4, -1.962], [0, 4, -2], [0.585, 4, -1.962], [1.148, 4, -1.848], [1.667, 4, -1.663], [2.121, 4, -1.414], [2.494, 4, -1.111], [2.772, 4, -0.765], [2.942, 4, -0.39]], "cor": 1},
+          {"tipo": "segmento", "de": [3, -4, 0], "ate": [3, 4, 0], "cor": 3},
+          {"tipo": "segmento", "de": [-3, -4, 0], "ate": [-3, 4, 0], "cor": 3},
+          {"tipo": "segmento", "de": [0, -4, 2], "ate": [0, 4, 2], "cor": 3},
+          {"tipo": "segmento", "de": [0, -4, -2], "ate": [0, 4, -2], "cor": 3}
+        ],
+        "legenda": "A mesma elipse aparece em y = −4, y = 0 e y = 4; as retas ocre, paralelas ao eixo y, costuram as fatias."
+      },
+      "jeitos": {
+        "visual": "Desenhe a elipse x²/9 + z²/4 = 1 na parede do plano xz, com 3 para cada lado em x e 2 para cima e para baixo em z. Agora deslize esse desenho ao longo do eixo y, para frente e para trás, sem parar. O rastro é um tubo achatado. Na figura, as três elipses azuis são iguais, e as retas ocre que as ligam, paralelas ao eixo y, são geratrizes: retas inteiras contidas na superfície.",
+        "receita": [
+          "Divida por 36: x²/9 + z²/4 = 1.",
+          "Veja quem falta: o y não aparece.",
+          "Sem restrição, y pode valer qualquer número: para cada y, a seção é a mesma elipse.",
+          "Seção de semieixos 3 (em x) e 2 (em z): elipse, não círculo.",
+          "Superfície: cilindro elíptico com geratrizes paralelas ao eixo y."
+        ],
+        "cotidiano": "Pense num cano achatado, deitado no chão ao longo de uma rua. Em qualquer ponto da rua, se você serrar o cano, o corte é a mesma oval. A rua é o eixo y. A equação só descreve o formato do corte; ela não diz onde o cano começa ou termina, e por isso ele segue sem fim nas duas direções.",
+        "trabalho": "Pense na equação como um WHERE no SQL: `WHERE 4*x*x + 9*z*z = 36`. A condição não cita a coluna y, então qualquer valor de y passa no filtro. É o que acontece quando um relatório filtra por produto e mês e não filtra por filial: todas as filiais entram. A variável ausente não vale zero; ela está livre.",
+        "conversa": [
+          {"quem": "Você", "fala": "Dividindo por 36, dá x²/9 + z²/4 = 1. É uma elipse."},
+          {"quem": "Monitor", "fala": "No plano, sim. E no espaço, o ponto (3, 7, 0) satisfaz a equação?"},
+          {"quem": "Você", "fala": "4·9 + 0 = 36. Satisfaz, e o y = 7 nem entrou na conta."},
+          {"quem": "Monitor", "fala": "E o ponto (3, −100, 0)?"},
+          {"quem": "Você", "fala": "Também. Qualquer y serve."},
+          {"quem": "Monitor", "fala": "Então a elipse se repete em todo y. Isso é um cilindro elíptico ao longo do eixo y."}
+        ],
+        "erro": "A armadilha é ler a equação com olhos de plano e responder elipse. No espaço, a variável que não aparece fica livre, e a figura vira superfície. O segundo tropeço é errar a direção: o cilindro corre ao longo do eixo da variável ausente, o y, e não do z. Como perceber: tente achar um ponto da superfície com y = 50. Se achar, ela sai do plano xz e não pode ser só a elipse desenhada nele.",
+        "confira": "Teste pontos com y diferentes. (3, 0, 0), (3, 5, 0) e (3, −8, 0) dão 4·9 + 9·0 = 36: todos estão na superfície. (0, 2, 2) também: 0 + 9·4 = 36. Já (0, 0, 3) dá 81, fora. Então a superfície não depende de y e, em cada plano y = k, mostra a mesma elipse de semieixos 3 e 2.",
+        "atalho": "Ache a variável que falta. Ela diz duas coisas de uma vez: é cilindro, e ele corre ao longo do eixo dessa variável. Aqui falta o y. Isso elimina a curva plana, o paraboloide e o cilindro ao longo de z. Entre os dois cilindros ao longo de y, os coeficientes 4 e 9 diferentes pedem seção elíptica."
+      }
+    },
+    {
+      "id": "ga-s6-p12",
+      "semana": 6,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Sela por completar quadrado",
+      "origem": "Prévia · ementa",
+      "enunciado": "Que superfície é z = x² − y² − 2x + 4y, e onde fica o seu ponto especial (o vértice ou o ponto de sela)?",
+      "alternativas": [
+        {"t": "Paraboloide hiperbólico com ponto de sela (−1, −2, 3)", "certa": false, "erro": "Sinais do centro trocados. (x − 1)² e (y − 2)² zeram em x = 1 e y = 2."},
+        {"t": "Paraboloide elíptico com vértice (1, 2, 3)", "certa": false, "erro": "O ponto (1, 2, 3) está certo, mas o tipo não. No paraboloide elíptico os dois quadrados têm o mesmo sinal; aqui (x − 1)² entra com + e (y − 2)² com −, então a superfície sobe numa direção e desce na outra."},
+        {"t": "Cone com vértice (1, 2, 3)", "certa": false, "erro": "O cone tem as três variáveis ao quadrado. Aqui o z aparece no primeiro grau, e isso é marca de paraboloide."},
+        {"t": "Paraboloide hiperbólico com ponto de sela (1, 2, 3)", "certa": true},
+        {"t": "Paraboloide hiperbólico com ponto de sela (1, 2, −3)", "certa": false, "erro": "Você passou o +3 para o lado do z sem trocar o sinal e escreveu z + 3 = (x − 1)² − (y − 2)². O certo é z − 3 = (x − 1)² − (y − 2)², e o ponto fica em z = 3."}
+      ],
+      "dica": "Complete o quadrado em x e em y separadamente; cuidado com o sinal de menos na frente do y².",
+      "resposta": "Paraboloide hiperbólico z − 3 = (x − 1)² − (y − 2)², com ponto de sela (1, 2, 3)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-1, 2, 7], [-0.8, 2, 6.24], [-0.6, 2, 5.56], [-0.4, 2, 4.96], [-0.2, 2, 4.44], [0, 2, 4], [0.2, 2, 3.64], [0.4, 2, 3.36], [0.6, 2, 3.16], [0.8, 2, 3.04], [1, 2, 3], [1.2, 2, 3.04], [1.4, 2, 3.16], [1.6, 2, 3.36], [1.8, 2, 3.64], [2, 2, 4], [2.2, 2, 4.44], [2.4, 2, 4.96], [2.6, 2, 5.56], [2.8, 2, 6.24], [3, 2, 7]], "cor": 1, "aberto": true},
+          {"tipo": "poligono", "pts": [[1, 0, -1], [1, 0.2, -0.24], [1, 0.4, 0.44], [1, 0.6, 1.04], [1, 0.8, 1.56], [1, 1, 2], [1, 1.2, 2.36], [1, 1.4, 2.64], [1, 1.6, 2.84], [1, 1.8, 2.96], [1, 2, 3], [1, 2.2, 2.96], [1, 2.4, 2.84], [1, 2.6, 2.64], [1, 2.8, 2.36], [1, 3, 2], [1, 3.2, 1.56], [1, 3.4, 1.04], [1, 3.6, 0.44], [1, 3.8, -0.24], [1, 4, -1]], "cor": 2, "aberto": true},
+          {"tipo": "segmento", "de": [-1, 0, 3], "ate": [3, 4, 3], "cor": 3},
+          {"tipo": "segmento", "de": [-1, 4, 3], "ate": [3, 0, 3], "cor": 3},
+          {"tipo": "ponto", "em": [1, 2, 3], "rot": "S"}
+        ],
+        "legenda": "Na direção x (azul) a superfície sobe a partir de S; na direção y (coral) ela desce. No plano z = 3, o corte é o X ocre."
+      },
+      "jeitos": {
+        "visual": "Pense numa sela de cavalo com o assento em S = (1, 2, 3). Na figura, a parábola azul, no plano y = 2, sobe para os dois lados: S é o ponto mais baixo dela. A parábola coral, no plano x = 1, desce para os dois lados: ali S é o ponto mais alto. Por isso S se chama ponto de sela. Na altura z = 3, a superfície corta o plano em duas retas cruzadas, o X ocre.",
+        "receita": [
+          "Agrupe: z = (x² − 2x) − (y² − 4y).",
+          "Complete em x: x² − 2x = (x − 1)² − 1.",
+          "Complete em y: y² − 4y = (y − 2)² − 4, e com o sinal de fora fica −(y − 2)² + 4.",
+          "Junte: z = (x − 1)² − (y − 2)² + 3, ou z − 3 = (x − 1)² − (y − 2)².",
+          "z no primeiro grau e quadrados com sinais opostos: paraboloide hiperbólico.",
+          "Ponto de sela onde os quadrados zeram: x = 1, y = 2 e z = 3."
+        ],
+        "cotidiano": "Uma passagem entre duas montanhas, o passo de serra, tem esse formato. Quem segue a trilha que cruza a serra de um vale ao outro chega ao passo no ponto mais alto do caminho. Quem anda pela crista, de um pico ao outro, passa pelo mesmo lugar no ponto mais baixo. O passo é o ponto de sela: máximo numa direção e mínimo na outra.",
+        "trabalho": "Monte no Excel uma tabela de duas entradas: x de −1 a 3 nas colunas, y de 0 a 4 nas linhas e, em cada célula, z = x² − y² − 2x + 4y. Na linha de y = 2, o menor valor está na coluna x = 1 e vale 3. Na coluna de x = 1, o maior valor está na linha y = 2 e também vale 3. A célula de x = 1 e y = 2 é a menor da sua linha e a maior da sua coluna: é o ponto de sela.",
+        "conversa": [
+          {"quem": "Você", "fala": "Completei e deu z = (x − 1)² − (y − 2)² − 5."},
+          {"quem": "Monitor", "fala": "Confira o y. Quanto vale −(y² − 4y) depois de completar?"},
+          {"quem": "Você", "fala": "−[(y − 2)² − 4]. Ah, o −4 vira +4."},
+          {"quem": "Monitor", "fala": "E a constante final?"},
+          {"quem": "Você", "fala": "−1 + 4 = 3. Então z = (x − 1)² − (y − 2)² + 3."},
+          {"quem": "Monitor", "fala": "Os quadrados têm sinais opostos e o z está no primeiro grau. Qual é a superfície?"},
+          {"quem": "Você", "fala": "Paraboloide hiperbólico, a sela, com o ponto em (1, 2, 3)."}
+        ],
+        "erro": "O ponto que mais derruba é o sinal de menos na frente do y². Ao completar −(y² − 4y), o −4 de dentro vira +4 fora, e quem esquece chega na constante −5. O segundo tropeço é confundir paraboloide hiperbólico com cone: os dois têm quadrados com sinais opostos, mas no cone o z também está ao quadrado. Aqui o z aparece só no primeiro grau.",
+        "confira": "Substitua o ponto na equação de partida: 1² − 2² − 2·1 + 4·2 = 1 − 4 − 2 + 8 = 3. Bate com z = 3. Agora expanda a forma reduzida: (x − 1)² − (y − 2)² + 3 = x² − 2x + 1 − y² + 4y − 4 + 3 = x² − y² − 2x + 4y. Volta à equação original, termo por termo.",
+        "atalho": "O z está no primeiro grau: é paraboloide, então sai o cone. Os quadrados x² e −y² têm sinais opostos: é hiperbólico, então sai o elíptico. O centro sai da metade dos coeficientes: x² − 2x pede x = 1 e −y² + 4y pede y = 2, o que tira (−1, −2, 3). Para decidir o z, ponha x = 1 e y = 2 na equação original: dá 3."
+      }
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s4-p07",
+      "semana": 4,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Ponto de interseção",
+      "origem": "Prévia · ementa",
+      "enunciado": "As retas r: x = 1 + t, y = 2 − t, z = 3 + 2t e s: x = 1 + h, y = −4 + 2h, z = 3 + 2h são concorrentes. Qual é o ponto de interseção?",
+      "alternativas": [
+        {"t": "(1, 2, 3)", "certa": false, "erro": "Você igualou x e z, viu que t = h e tomou t = h = 0. Mas em s, h = 0 dá (1, −4, 3): o y não bate, e é a equação de y que fixa o valor."},
+        {"t": "(7, −4, 15)", "certa": false, "erro": "Um sinal escapou na equação de y: 2 − t virou 2 + t, o que dá h = 6. O ponto (7, −4, 15) é r com t = 6; em s, h = 6 leva a (7, 8, 15), outro ponto."},
+        {"t": "(3, 0, 7)", "certa": true},
+        {"t": "Não existe: as retas são reversas", "certa": false, "erro": "O sistema tem solução, t = h = 2, que satisfaz as três equações. Diretores não paralelos não bastam para concluir que as retas são reversas."},
+        {"t": "(−1, 4, −1)", "certa": false, "erro": "Você achou h = 2 e, por causa do −t em y, usou t = −2 em r. Pela equação de x, t = h = 2, e o ponto (−1, 4, −1) nem está em s."}
+      ],
+      "dica": "Iguale as coordenadas usando parâmetros diferentes, t para r e h para s, e resolva o sistema.",
+      "resposta": "P = (3, 0, 7), com t = h = 2",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [0, 3, 1], "ate": [5, -2, 11], "cor": 1},
+          {"tipo": "segmento", "de": [0, -6, 1], "ate": [5, 4, 11], "cor": 2},
+          {"tipo": "ponto", "em": [1, 2, 3], "rot": "r(0)"},
+          {"tipo": "ponto", "em": [1, -4, 3], "rot": "s(0)"},
+          {"tipo": "ponto", "em": [3, 0, 7], "rot": "P"}
+        ],
+        "legenda": "A linha azul é r e a coral é s; elas se encontram no ponto P."
+      },
+      "jeitos": {
+        "visual": "Na figura, r é a linha azul e s é a coral. Os pontos de partida, r(0) = (1, 2, 3) e s(0) = (1, −4, 3), têm o mesmo x e o mesmo z, mas estão separados por 6 unidades em y. As equações de x e z só batem quando t = h. Mantendo t = h, a folga em y cai 3 por passo, porque r desce 1 e s sobe 2. Em 2 passos ela zera, no ponto P.",
+        "receita": [
+          "Iguale x: 1 + t = 1 + h, logo t = h.",
+          "Iguale y: 2 − t = −4 + 2h. Com t = h, 6 = 3h, então h = 2 e t = 2.",
+          "Confira z: 3 + 2·2 = 7 em r e 3 + 2·2 = 7 em s. Bate.",
+          "Ponto: r com t = 2 dá (1 + 2, 2 − 2, 3 + 4) = (3, 0, 7)."
+        ],
+        "cotidiano": "Dois ônibus de linhas diferentes podem passar pelo mesmo ponto de parada. Para saber onde fica a parada comum, você compara as rotas, e não os horários: eles não precisam chegar juntos. Usar a mesma letra para os dois parâmetros seria como exigir que os ônibus cheguem no mesmo minuto, uma condição que o problema não pede.",
+        "trabalho": "É um `JOIN` entre duas tabelas de pontos, uma gerada por t e outra por h, com três condições: `ON r.x = s.x AND r.y = s.y AND r.z = s.z`. As condições de x e z sozinhas casam muitas linhas, todas com t = h. A condição de y é que filtra e deixa uma só: t = h = 2. Um `JOIN` só por duas colunas traria linhas que não são o mesmo ponto.",
+        "conversa": [
+          {"quem": "Você", "fala": "Pelo x e pelo z deu t = h. Posso pegar t = 0?"},
+          {"quem": "Monitor", "fala": "Teste. Com t = h = 0, r está em (1, 2, 3) e s em (1, −4, 3). São o mesmo ponto?"},
+          {"quem": "Você", "fala": "Não, o y é diferente."},
+          {"quem": "Monitor", "fala": "Então use a equação de y para fixar o valor."},
+          {"quem": "Você", "fala": "2 − h = −4 + 2h, então 3h = 6 e h = 2. O ponto é (3, 0, 7)."},
+          {"quem": "Monitor", "fala": "Confira em s também: 1 + 2, −4 + 4, 3 + 4. Mesmo ponto."}
+        ],
+        "erro": "A armadilha principal é aceitar a primeira igualdade que aparece. As equações de x e z aqui dão a mesma informação, t = h, e não fixam nenhum valor. Quem chuta um número nesse momento erra. Outra falha comum é perder o sinal de −t na equação de y. Resolva com as três equações e confira o ponto nas duas retas.",
+        "confira": "Ponha o ponto (3, 0, 7) nas duas retas. Em r: x = 3 dá t = 2; y = 2 − 2 = 0; z = 3 + 4 = 7. Em s: x = 3 dá h = 2; y = −4 + 4 = 0; z = 3 + 4 = 7. O ponto satisfaz as três equações de cada reta, com um único parâmetro em cada uma.",
+        "atalho": "Teste as alternativas direto nas duas retas, começando pelo y, que muda de forma diferente em cada uma. Em (3, 0, 7), y = 0 pede t = 2 em r e h = 2 em s; com esses valores, x e z batem. É mais rápido que montar o sistema inteiro."
+      }
+    },
+    {
+      "id": "ga-s4-p08",
+      "semana": 4,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Simétricas por dois pontos",
+      "origem": "Prévia · ementa",
+      "enunciado": "Quais são as equações simétricas da reta que passa por A = (1, 2, 3) e B = (4, 2, −3)?",
+      "alternativas": [
+        {"t": "(x − 1)/3 = (y − 2)/0 = (z − 3)/(−6)", "certa": false, "erro": "O diretor (3, 0, −6) tem componente y igual a zero, e não existe fração com denominador zero. A coordenada correspondente fica fixa e sai das frações."},
+        {"t": "(x − 1)/3 = (z − 3)/6 e y = 2", "certa": false, "erro": "O z do diretor é −3 − 3 = −6. Com denominador 6, o ponto B nem satisfaz a equação: (4 − 1)/3 = 1, mas (−3 − 3)/6 = −1."},
+        {"t": "(x + 1)/3 = (z + 3)/(−6) e y = −2", "certa": false, "erro": "Os sinais do ponto se inverteram. No numerador entra x − x₀ com x₀ = 1, o que dá x − 1; e y fica preso no valor de A, que é 2."},
+        {"t": "(x − 1)/3 = (z − 3)/(−6) e y = 0", "certa": false, "erro": "O zero é a componente do diretor, não o valor de y. Andando na reta, y fica preso no valor que tem em A e em B, que é 2."},
+        {"t": "(x − 1)/3 = (z − 3)/(−6) e y = 2", "certa": true}
+      ],
+      "dica": "Calcule o diretor e veja se alguma componente dá zero: essa coordenada não entra em fração.",
+      "resposta": "(x − 1)/3 = (z − 3)/(−6) e y = 2",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 2, -5], [5, 2, -5], [5, 2, 5], [0, 2, 5]], "cor": 3},
+          {"tipo": "segmento", "de": [0.1, 2, 4.8], "ate": [4.9, 2, -4.8], "tracejado": true},
+          {"tipo": "ponto", "em": [1, 2, 3], "rot": "A"},
+          {"tipo": "ponto", "em": [4, 2, -3], "rot": "B"},
+          {"tipo": "vetor", "de": [1, 2, 3], "ate": [4, 2, -3], "rot": "v", "cor": 1}
+        ],
+        "legenda": "A reta corre dentro do plano ocre y = 2: o y nunca muda, e por isso não entra nas frações."
+      },
+      "jeitos": {
+        "visual": "Na figura, a reta fica deitada dentro do plano ocre y = 2, como um lápis apoiado numa parede. Ela avança em x e desce em z, mas nunca sai da parede: o y fica sempre 2. A seta azul (3, 0, −6) mostra isso, porque não tem nada na direção de y. Coordenada que não se mexe não vira fração; vira uma equação fixa.",
+        "receita": [
+          "Diretor: [[v]] = B − A = (4 − 1, 2 − 2, −3 − 3) = (3, 0, −6).",
+          "A componente y é zero, então y não muda: y = 2.",
+          "Para x e z, monte as frações com o ponto A: (x − 1)/3 e (z − 3)/(−6).",
+          "Resposta: (x − 1)/3 = (z − 3)/(−6) e y = 2."
+        ],
+        "cotidiano": "Numa viagem por estrada plana, o GPS mostra quanto você andou para leste e para o sul, e a altitude fica igual o tempo todo. Ninguém descreve essa viagem em quilômetros andados por metro de subida, porque não há subida nenhuma. Você anota a altitude, que fica fixa, e descreve só como as outras duas coordenadas mudam.",
+        "trabalho": "No Excel, dividir por uma célula com zero devolve `#DIV/0!`. A fração (y − 2)/0 é esse erro em forma de equação. Quando uma coluna não varia ao longo da projeção, você não calcula taxa para ela; registra o valor fixo. Aqui o y é a coluna parada: fica y = 2, e as frações ficam só para x e z, que variam.",
+        "conversa": [
+          {"quem": "Você", "fala": "O diretor é (3, 0, −6). Monto as três frações normalmente?"},
+          {"quem": "Monitor", "fala": "Quanto vale (y − 2)/0?"},
+          {"quem": "Você", "fala": "Não existe, é divisão por zero."},
+          {"quem": "Monitor", "fala": "Então, o que o zero diz sobre o y ao longo da reta?"},
+          {"quem": "Você", "fala": "Que ele não muda. Fica 2, como em A e em B."},
+          {"quem": "Monitor", "fala": "Isso. Ficam duas frações e a equação y = 2."}
+        ],
+        "erro": "O deslize mais comum é escrever a fração com denominador zero, como se a fórmula valesse sempre. Ela só vale com as três componentes diferentes de zero. O segundo é confundir o zero do diretor com o valor de y e escrever y = 0. O zero diz que y não varia; o valor fixo é o y do ponto, que aqui é 2.",
+        "confira": "Teste A e B na resposta. A = (1, 2, 3): (1 − 1)/3 = 0, (3 − 3)/(−6) = 0 e y = 2. B = (4, 2, −3): (4 − 1)/3 = 1, (−3 − 3)/(−6) = 1 e y = 2. Os dois pontos satisfazem as equações, e a reta por dois pontos é única.",
+        "atalho": "A e B têm o mesmo y, igual a 2. Logo a resposta tem y = 2 e não pode ter fração com y. Isso elimina três alternativas de uma vez. Entre as duas que sobram, o z vai de 3 para −3, então desce: o denominador de z é negativo."
+      }
+    },
+    {
+      "id": "ga-s4-p09",
+      "semana": 4,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Produto misto e posição",
+      "origem": "Prévia · ementa",
+      "enunciado": "Sejam r: X = (1, 0, 2) + t(1, 2, −1) e s: X = (0, 1, −1) + h(2, 1, 1). Com A = (1, 0, 2), B = (0, 1, −1), [[u]] = (1, 2, −1) e [[v]] = (2, 1, 1), calcule o produto misto ([[u]], [[v]], [[AB]]) e diga a posição relativa das retas.",
+      "alternativas": [
+        {"t": "0; concorrentes", "certa": false, "erro": "Você fez ([[u]] × [[v]]) · [[u]], que dá zero sempre, porque o produto vetorial é ortogonal a [[u]]. O terceiro vetor tem de ser [[AB]] = (−1, 1, −3)."},
+        {"t": "3; reversas", "certa": true},
+        {"t": "9; reversas", "certa": false, "erro": "O produto vetorial certo é (3, −3, −3). Com o sinal da componente do meio trocado, (3, 3, −3), o produto com [[AB]] vira −3 + 3 + 9 = 9."},
+        {"t": "3; concorrentes", "certa": false, "erro": "A conta está certa, mas a leitura não. Produto misto diferente de zero quer dizer que [[u]], [[v]] e [[AB]] não cabem num plano: as retas não se encontram."},
+        {"t": "(3, −3, −3); reversas", "certa": false, "erro": "(3, −3, −3) é [[u]] × [[v]], um vetor. O produto misto é um número: falta fazer o produto escalar com [[AB]]."}
+      ],
+      "dica": "Monte [[AB]] = B − A, faça [[u]] × [[v]] e termine com o produto escalar por [[AB]].",
+      "resposta": "([[u]], [[v]], [[AB]]) = 3 ≠ 0: reversas",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [-0.5, -3, 3.5], "ate": [2.5, 3, 0.5], "cor": 1},
+          {"tipo": "segmento", "de": [-2, 0, -2], "ate": [2, 2, 0], "cor": 2},
+          {"tipo": "ponto", "em": [1, 0, 2], "rot": "A"},
+          {"tipo": "ponto", "em": [0, 1, -1], "rot": "B"},
+          {"tipo": "segmento", "de": [1, 0, 2], "ate": [0, 1, -1], "tracejado": true, "cor": 3}
+        ],
+        "legenda": "A linha azul é r e a coral é s. Gire a figura: as duas passam uma pela outra sem se tocar, e o tracejado [[AB]] liga uma à outra."
+      },
+      "jeitos": {
+        "visual": "Pense em [[u]], [[v]] e [[AB]] como três varetas saindo do mesmo ponto. Se as três cabem deitadas numa mesa, o volume da caixa que elas formam é zero e as retas estão no mesmo plano. Aqui a caixa tem volume 3: uma das varetas sai da mesa. Na figura, gire até ver r e s de lado: uma passa por cima da outra sem encostar.",
+        "receita": [
+          "[[AB]] = B − A = (0 − 1, 1 − 0, −1 − 2) = (−1, 1, −3).",
+          "[[u]] × [[v]] = (2·1 − (−1)·1, (−1)·2 − 1·1, 1·1 − 2·2) = (3, −3, −3).",
+          "Produto misto: (3, −3, −3) · (−1, 1, −3) = −3 − 3 + 9 = 3.",
+          "Os diretores não são paralelos e o produto misto não é zero.",
+          "Conclusão: r e s são reversas."
+        ],
+        "cotidiano": "Num cruzamento em níveis, a avenida de baixo e o viaduto de cima não são paralelos, e mesmo assim nunca se encontram. Olhando do alto, parece que se cruzam; olhando de lado, você vê a diferença de altura. O produto misto faz o papel de olhar de lado: se ele não é zero, existe essa diferença de altura.",
+        "trabalho": "O produto misto é o determinante da matriz com [[u]], [[v]] e [[AB]] nas linhas. No Excel, com os nove números em A1:C3, `=MATRIZ.DETERM(A1:C3)` devolve 3. Determinante zero indica que uma linha é combinação das outras, como numa planilha em que uma coluna é soma de outras duas. Aqui não é: os três vetores são independentes, e as retas, reversas.",
+        "conversa": [
+          {"quem": "Você", "fala": "Os diretores não são paralelos. Então as retas se cruzam."},
+          {"quem": "Monitor", "fala": "No plano, sim. No espaço existe uma terceira opção. Qual?"},
+          {"quem": "Você", "fala": "Reversas. Como eu decido?"},
+          {"quem": "Monitor", "fala": "Pelo produto misto com [[AB]]. Quanto deu?"},
+          {"quem": "Você", "fala": "[[u]] × [[v]] = (3, −3, −3), e com (−1, 1, −3) dá 3."},
+          {"quem": "Monitor", "fala": "Diferente de zero: os três vetores não ficam num plano. Reversas."}
+        ],
+        "erro": "O raciocínio herdado do plano é a grande armadilha: não são paralelas, então se cortam. No espaço existem retas reversas. Na conta, os erros comuns são o sinal da componente do meio do produto vetorial, ou usar [[u]] ou [[v]] como terceiro vetor, o que zera tudo. O terceiro vetor sempre liga um ponto de r a um ponto de s.",
+        "confira": "Tente achar a interseção direto. Igualando x e y: 1 + t = 2h e 2t = 1 + h. Daí t = 1 e h = 1. No z, r dá 2 − 1 = 1 e s dá −1 + 1 = 0. Os valores não batem, então não há ponto comum. Como os diretores não são paralelos, só sobra a opção reversas.",
+        "atalho": "Separe as duas partes de cada alternativa. Concorrentes só combina com produto misto zero, e reversas só com valor diferente de zero; isso derruba a que junta 3 com concorrentes. A que traz um vetor no lugar de um número também cai. Restam 0, 3 e 9: o zero aparece quando se usa [[u]] no lugar de [[AB]], e o sinal do meio do produto vetorial decide entre 3 e 9."
+      }
+    },
+    {
+      "id": "ga-s4-p10",
+      "semana": 4,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Parâmetro para concorrentes",
+      "origem": "Prévia · ementa",
+      "enunciado": "Para que valor de k as retas r: X = (1, 2, 0) + t(1, −1, 2) e s: X = (k, 0, 3) + h(2, 1, 1) são concorrentes?",
+      "alternativas": [
+        {"t": "k = 6", "certa": false, "erro": "O produto vetorial certo é (−3, 3, 3). Com o sinal do meio trocado, (−3, −3, 3), a equação vira −3k + 18 = 0 e dá k = 6."},
+        {"t": "k = 0", "certa": false, "erro": "Na distributiva, −3(k − 1) virou −3k − 3. O certo é −3k + 3, e a equação fica −3k + 6 = 0."},
+        {"t": "k = 3", "certa": false, "erro": "Você fez o produto misto com o ponto B = (k, 0, 3) em vez do vetor [[AB]] = (k − 1, −2, 3). Ponto não é vetor entre as retas."},
+        {"t": "k = 2", "certa": true},
+        {"t": "k = −2", "certa": false, "erro": "A terceira componente de [[u]] × [[v]] é 1·1 − (−1)·2 = 3. Quem calcula 1 − 2 = −1 chega a −3k − 6 = 0 e a k = −2."}
+      ],
+      "dica": "Com diretores não paralelos, as retas são concorrentes quando o produto misto ([[u]], [[v]], [[AB]]) é zero.",
+      "resposta": "k = 2",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [1, 2, 0], "ate": [4, -1, 6], "cor": 1},
+          {"tipo": "segmento", "de": [0, -1, 2], "ate": [5, 1.5, 4.5], "cor": 2},
+          {"tipo": "ponto", "em": [1, 2, 0], "rot": "A"},
+          {"tipo": "ponto", "em": [2, 0, 3], "rot": "B"},
+          {"tipo": "ponto", "em": [2.667, 0.333, 3.333], "rot": "P"}
+        ],
+        "legenda": "Com k = 2, a linha coral s encontra a azul r no ponto P = (8/3, 1/3, 10/3)."
+      },
+      "jeitos": {
+        "visual": "Imagine a reta r fixa e a reta s deslizando paralela ao eixo x conforme k muda. Para quase todo k, s passa por cima ou por baixo de r. Existe uma posição só em que ela encosta em r, e é aí que o volume da caixa formada por [[u]], [[v]] e [[AB]] cai a zero. Na figura, com k = 2, a linha coral toca a azul no ponto P.",
+        "receita": [
+          "[[u]] × [[v]] = ((−1)·1 − 2·1, 2·2 − 1·1, 1·1 − (−1)·2) = (−3, 3, 3).",
+          "[[AB]] = (k, 0, 3) − (1, 2, 0) = (k − 1, −2, 3).",
+          "Produto misto: −3(k − 1) + 3·(−2) + 3·3 = −3k + 3 − 6 + 9 = −3k + 6.",
+          "Iguale a zero: −3k + 6 = 0, logo k = 2.",
+          "Os diretores não são paralelos, então com k = 2 as retas são concorrentes."
+        ],
+        "cotidiano": "O produto misto aqui funciona como um saldo que depende de k. Ele vale 6 quando k = 0 e cai 3 a cada unidade de k, como um cartão de transporte com 6 créditos que gasta 3 por viagem. Ele zera depois de 2 viagens. Saldo zero é a posição em que [[u]], [[v]] e [[AB]] ficam num mesmo plano, e as retas passam a se cruzar.",
+        "trabalho": "É um problema de Atingir Meta do Excel: a célula de fórmula é o produto misto, que depende de k, e a meta é zero. Como a fórmula é linear em k (−3k + 6), dá para resolver na mão, mas o Atingir Meta acharia o mesmo k = 2. O trabalho está em montar a célula certa: ela precisa usar [[AB]] = B − A, e não as coordenadas soltas de B.",
+        "conversa": [
+          {"quem": "Você", "fala": "Fiz o produto misto com (−3, 3, 3) e (k, 0, 3). Deu −3k + 9, então k = 3."},
+          {"quem": "Monitor", "fala": "O terceiro vetor do produto misto liga o quê a quê?"},
+          {"quem": "Você", "fala": "Um ponto de r a um ponto de s."},
+          {"quem": "Monitor", "fala": "E o (k, 0, 3) liga quem a quem?"},
+          {"quem": "Você", "fala": "A origem a B. O certo é [[AB]] = (k − 1, −2, 3). Aí dá −3k + 6 e k = 2."},
+          {"quem": "Monitor", "fala": "Agora sim. Com k = 2, as retas têm o ponto comum (8/3, 1/3, 10/3)."}
+        ],
+        "erro": "Três descuidos rendem as alternativas erradas: o sinal do meio do produto vetorial, a distributiva em −3(k − 1) e usar o ponto B no lugar do vetor [[AB]]. Cada um desloca a equação e muda o k. Um quarto descuido é não verificar que os diretores não são paralelos; se fossem, produto misto zero não garantiria concorrência.",
+        "confira": "Ponha k = 2 antes de tudo: [[AB]] = (1, −2, 3). Monte o determinante com [[u]], [[v]] e [[AB]] nas linhas e expanda pela primeira: 1·(1·3 − 1·(−2)) − (−1)·(2·3 − 1·1) + 2·(2·(−2) − 1·1) = 5 + 5 − 10 = 0. A conta não passa pela expressão −3k + 6, então confere a sua álgebra com letra.",
+        "atalho": "Repare que as equações de y e z não têm k: 2 − t = h e 2t = 3 + h. Delas sai t = 5/3 e h = 1/3 em duas linhas. Ponha esses valores na equação do x, 1 + t = k + 2h: 1 + 5/3 = k + 2/3, logo k = 2. Esse caminho já entrega o ponto comum, sem nenhum produto vetorial."
+      }
+    },
+    {
+      "id": "ga-s4-p11",
+      "semana": 4,
+      "nivel": 3,
+      "minutos": 7,
+      "tema": "Reta perpendicular por um ponto",
+      "origem": "Prévia · ementa",
+      "enunciado": "Qual é a reta s que passa por P = (3, 3, −2), corta a reta r: X = (1, 0, 0) + t(1, 1, 1) e é perpendicular a ela?",
+      "alternativas": [
+        {"t": "X = (3, 3, −2) + h(1, 2, −3)", "certa": true},
+        {"t": "X = (3, 3, −2) + h(1, 1, 1)", "certa": false, "erro": "Esse é o diretor de r. A reta obtida é paralela a r, não perpendicular, e nunca a corta."},
+        {"t": "X = (3, 3, −2) + h(2, 3, −2)", "certa": false, "erro": "Você ligou P ao ponto A = (1, 0, 0). Essa reta corta r em A, mas (2, 3, −2) · (1, 1, 1) = 3: não forma 90°."},
+        {"t": "X = (3, 3, −2) + h(1, −1, 0)", "certa": false, "erro": "(1, −1, 0) é ortogonal a (1, 1, 1), mas a reta por P nessa direção passa ao lado de r sem tocá-la. Ser ortogonal não basta; precisa cortar."},
+        {"t": "X = (3, 3, −2) + h(3, 4, −1)", "certa": false, "erro": "Você usou [[PA]] em vez de [[AP]] e achou t = −1, com pé em (0, −1, −1). Aí (3, 4, −1) · (1, 1, 1) = 6, que não é zero."}
+      ],
+      "dica": "Ache o ponto Q = A + t[[v]] de r tal que [[QP]] · [[v]] = 0; a reta procurada liga P a Q.",
+      "resposta": "s: X = (3, 3, −2) + h(1, 2, −3), que corta r em Q = (2, 1, 1)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [0, -1, -1], "ate": [3.5, 2.5, 2.5], "tracejado": true},
+          {"tipo": "ponto", "em": [1, 0, 0], "rot": "A"},
+          {"tipo": "vetor", "de": [1, 0, 0], "ate": [2, 1, 1], "rot": "v", "cor": 1},
+          {"tipo": "ponto", "em": [2, 1, 1], "rot": "Q"},
+          {"tipo": "ponto", "em": [3, 3, -2], "rot": "P"},
+          {"tipo": "vetor", "de": [2, 1, 1], "ate": [3, 3, -2], "rot": "", "cor": 4}
+        ],
+        "legenda": "A seta escura sai de Q, o pé da perpendicular em r, e chega a P; ela forma 90° com o diretor azul."
+      },
+      "jeitos": {
+        "visual": "Pendure P acima da reta r e solte um fio de prumo que cai até r formando ângulo reto. O ponto onde o fio encosta é o pé Q. Na figura, a seta escura vai de Q a P e faz 90° com a seta azul de r. Qualquer outra direção ou erra o ângulo, como a de P até A, ou erra a reta, passando ao lado dela.",
+        "receita": [
+          "Ponto genérico de r: Q = (1 + t, t, t). Vetor [[QP]] = (2 − t, 3 − t, −2 − t).",
+          "Perpendicular a r: [[QP]] · (1, 1, 1) = (2 − t) + (3 − t) + (−2 − t) = 3 − 3t = 0.",
+          "Logo t = 1 e Q = (2, 1, 1).",
+          "Diretor de s: P − Q = (1, 2, −3).",
+          "s: X = (3, 3, −2) + h(1, 2, −3)."
+        ],
+        "cotidiano": "Você está num ponto do gramado e quer chegar à calçada reta pelo caminho mais curto. Se andar inclinado, chega à calçada, mas gasta mais passos. Se andar paralelo a ela, nunca chega. O caminho mais curto bate na calçada formando um canto reto, e o lugar onde você pisa nela é o pé da perpendicular.",
+        "trabalho": "O pé Q é o ponto de r mais próximo de P, a mesma ideia do ajuste por mínimos quadrados: o erro que sobra é perpendicular à direção usada no ajuste. Na conta, t = ([[AP]] · [[v]])/([[v]] · [[v]]), que no Excel seria `=SOMARPRODUTO(AP;v)/SOMARPRODUTO(v;v)` e dá 3/3 = 1. Esse t é o coeficiente da projeção de [[AP]] sobre [[v]].",
+        "conversa": [
+          {"quem": "Você", "fala": "Perpendicular a (1, 1, 1)? Então serve qualquer vetor com produto escalar zero, como (1, −1, 0)."},
+          {"quem": "Monitor", "fala": "A reta por P com esse diretor encosta em r?"},
+          {"quem": "Você", "fala": "Não sei. Como testo?"},
+          {"quem": "Monitor", "fala": "Iguale: 3 + h = 1 + t, 3 − h = t, −2 = t. Funciona?"},
+          {"quem": "Você", "fala": "Com t = −2, a primeira dá h = −4 e a segunda dá h = 5. Não fecha."},
+          {"quem": "Monitor", "fala": "Então ela passa ao lado. Você precisa do pé Q, que atende as duas exigências."}
+        ],
+        "erro": "No espaço existem infinitas direções ortogonais a (1, 1, 1), e quase todas geram retas que não encontram r. A armadilha é escolher uma delas e parar. A outra é ligar P a um ponto qualquer de r, como A, o que corta r mas sem ângulo reto. O pé da perpendicular resolve as duas exigências juntas.",
+        "confira": "Cheque as duas condições. Ortogonal: (1, 2, −3) · (1, 1, 1) = 1 + 2 − 3 = 0. Corta r: com h = −1, s passa por (3 − 1, 3 − 2, −2 + 3) = (2, 1, 1), que é r com t = 1. De quebra, a distância de P a r é ‖(1, 2, −3)‖ = √14.",
+        "atalho": "Primeiro, descarte quem não é ortogonal: faça o produto escalar de cada diretor com (1, 1, 1). Sobram (1, 2, −3) e (1, −1, 0). Depois veja qual delas corta r: P − (1, 2, −3) = (2, 1, 1) tem a forma (1 + t, t, t), com t = 1. A outra não tem ponto comum com r."
+      }
+    },
+    {
+      "id": "ga-s4-p12",
+      "semana": 4,
+      "nivel": 3,
+      "minutos": 7,
+      "tema": "Parâmetro para um ângulo",
+      "origem": "Prévia · ementa",
+      "enunciado": "Para que valor de m as retas r: X = (1, 1, 0) + t(1, 2, 1) e s: X = (2, 0, 1) + h(m, 1, −1) formam ângulo de 60°?",
+      "alternativas": [
+        {"t": "m = −2", "certa": false, "erro": "Você esqueceu o termo do meio, 2·1, e escreveu [[u]] · [[v]] = m − 1. A equação 4(m − 1)² = 6(m² + 2) leva a (m + 2)² = 0."},
+        {"t": "m = −1/2", "certa": false, "erro": "Você igualou o produto escalar m + 1 a 1/2 e esqueceu de dividir pelas normas. O cosseno é o produto escalar dividido por ‖[[u]]‖‖[[v]]‖."},
+        {"t": "m = 2", "certa": true},
+        {"t": "m = 2 ± √3", "certa": false, "erro": "Na norma de [[v]] faltou um termo: ‖[[v]]‖² = m² + 1² + (−1)² = m² + 2, e não m² + 1. Com m² + 1, a equação vira m² − 4m + 1 = 0."},
+        {"t": "Nenhum valor real", "certa": false, "erro": "Você usou cos 60° = √3/2, que é o cosseno de 30°. Com o valor certo, 1/2, a equação tem a raiz m = 2."}
+      ],
+      "dica": "Monte cos 60° = |[[u]] · [[v]]|/(‖[[u]]‖‖[[v]]‖), eleve os dois lados ao quadrado e resolva em m.",
+      "resposta": "m = 2",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 2, 1], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [2, 1, -1], "rot": "v", "cor": 2},
+          {"tipo": "segmento", "de": [1, 2, 1], "ate": [2, 1, -1], "tracejado": true, "cor": 3}
+        ],
+        "legenda": "Com m = 2, as setas [[u]] = (1, 2, 1) e [[v]] = (2, 1, −1) têm o mesmo tamanho, √6, e abrem 60°; o tracejado fecha um triângulo equilátero."
+      },
+      "jeitos": {
+        "visual": "Na figura, com m = 2, as setas azul e coral têm o mesmo comprimento, √6, e abrem 60°. Ligue as pontas das duas: o terceiro lado, [[u]] − [[v]] = (−1, 1, 2), também mede √6. O triângulo formado é equilátero, e triângulo equilátero tem todos os ângulos de 60°. O valor m = 2 é o que fecha esse desenho.",
+        "receita": [
+          "[[u]] · [[v]] = m + 2 − 1 = m + 1; ‖[[u]]‖ = √6; ‖[[v]]‖ = √(m² + 2).",
+          "cos 60° = 1/2, então |m + 1|/(√6·√(m² + 2)) = 1/2.",
+          "Eleve ao quadrado: 4(m + 1)² = 6(m² + 2).",
+          "Expanda: 4m² + 8m + 4 = 6m² + 12, ou seja, m² − 4m + 4 = 0.",
+          "(m − 2)² = 0, logo m = 2."
+        ],
+        "cotidiano": "É como ajustar a abertura de um compasso pelo parafuso: cada volta muda o ângulo entre as pernas. Você quer 60°, então gira até chegar lá. Aqui o parafuso é o m. A diferença é que, em vez de girar e medir, você escreve a medida como fórmula de m e resolve a equação.",
+        "trabalho": "No Excel, ponha m numa célula, monte o vetor v a partir dela e calcule o cosseno com `=ABS(SOMARPRODUTO(u;v))/(RAIZ(SOMARPRODUTO(u;u))*RAIZ(SOMARPRODUTO(v;v)))`. Uma Tabela de Dados com m de −3 a 3 mostraria o cosseno chegando a 0,5 só em m = 2, que é o ponto mais alto da curva. Por isso a equação tem raiz dupla. Resolver na mão dá o mesmo resultado sem tentativa.",
+        "conversa": [
+          {"quem": "Você", "fala": "Igualei m + 1 a 1/2 e achei m = −1/2."},
+          {"quem": "Monitor", "fala": "O 1/2 é o cosseno. O cosseno é só o produto escalar?"},
+          {"quem": "Você", "fala": "Não, é dividido pelas normas. Fica (m + 1)/(√6·√(m² + 2)) = 1/2."},
+          {"quem": "Monitor", "fala": "E como você tira as raízes?"},
+          {"quem": "Você", "fala": "Elevando ao quadrado: 4(m + 1)² = 6(m² + 2). Dá (m − 2)² = 0."},
+          {"quem": "Monitor", "fala": "Raiz dupla, m = 2. Substitua e veja o cosseno dar 3/6."}
+        ],
+        "erro": "Os erros desta questão moram na montagem. Um é igualar o produto escalar ao cosseno sem dividir pelas normas. Outro é esquecer um termo do produto escalar ou da norma de [[v]], que também depende de m. O terceiro é trocar cos 60° por √3/2. Cada um gera uma equação diferente e uma alternativa diferente. Escreva [[u]] · [[v]], ‖[[u]]‖ e ‖[[v]]‖ separados antes de montar a fração.",
+        "confira": "Substitua m = 2: [[v]] = (2, 1, −1). Produto escalar: 2 + 2 − 1 = 3. Normas: √6 e √6. Cosseno: 3/6 = 1/2, que é cos 60°. Teste também m = −2, uma das alternativas: o produto vira −1 e o cosseno vira 1/6, longe de 1/2.",
+        "atalho": "Teste as alternativas em vez de resolver. Com m = 2, o vetor (2, 1, −1) tem a mesma norma de (1, 2, 1), √6, e o produto escalar 3 é metade de 6: cosseno 1/2 na hora. O teste numérico de um candidato leva menos de um minuto e descarta os demais."
+      }
+    }
+  ]
+}

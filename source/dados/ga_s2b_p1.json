@@ -1,0 +1,334 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s2-l2q2",
+      "semana": 2,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Ortogonalidade pelo produto escalar",
+      "origem": "Lista 2 · Q2",
+      "enunciado": "No exercício anterior, existe algum par de vetores que são ortogonais?\nOs vetores do exercício 1 são [[u]] = (1, 4, 3), [[v]] = (−1, 1, −1), [[w]] = (−2, −1/2, 5) e [[z]] = (−1, 2, −3). Qual par é ortogonal?",
+      "alternativas": [
+        {"t": "[[u]] e [[z]]", "certa": false, "erro": "Você contou 1·(−1) como +1 e achou 1 + 8 − 9 = 0. Com o sinal certo, [[u]] · [[z]] = −1 + 8 − 9 = −2, que não é zero."},
+        {"t": "[[u]] e [[v]]", "certa": true},
+        {"t": "Nenhum par", "certa": false, "erro": "Você testou o produto vetorial: [[u]] × [[v]] = (−7, −2, 5) não é nulo. Produto vetorial nulo indica vetores paralelos; ortogonalidade se testa com o produto escalar, e [[u]] · [[v]] = 0."},
+        {"t": "[[v]] e [[z]]", "certa": false, "erro": "O último produto é (−1)·(−3) = +3, e você escreveu −3, ficando com 1 + 2 − 3 = 0. A conta certa dá [[v]] · [[z]] = 1 + 2 + 3 = 6."},
+        {"t": "[[v]] e [[w]]", "certa": false, "erro": "Você viu nos itens m e n que [[w]] × [[v]] é o oposto de [[v]] × [[w]] e tomou isso como sinal de ângulo reto. Isso vale para qualquer par, porque trocar a ordem do produto vetorial troca o sinal; e [[v]] · [[w]] = −7/2, não zero."}
+      ],
+      "dica": "Ortogonal quer dizer ângulo de 90°. Procure o par cujo produto escalar dá exatamente zero.",
+      "resposta": "Sim: [[u]] e [[v]], porque [[u]] · [[v]] = 0",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 4, 3], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, 1, -1], "rot": "v", "cor": 2},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-2, -0.5, 5], "rot": "w", "cor": 3},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, 2, -3], "rot": "z", "cor": 3}
+        ],
+        "legenda": "[[u]] (azul) e [[v]] (coral) formam 90°. [[w]] e [[z]], em ocre, não formam ângulo reto com nenhum dos outros."
+      },
+      "jeitos": {
+        "visual": "Na figura, gire até olhar [[u]] e [[v]] de frente. A seta azul e a coral formam um canto de esquadro, 90°. As setas ocre, [[w]] e [[z]], fazem ângulos mais abertos ou mais fechados com as outras, nunca retos. O produto escalar é o número que mede isso: positivo quando o ângulo é agudo, negativo quando é obtuso, zero exatamente no ângulo reto. Dos seis pares possíveis, só um zera.",
+        "receita": [
+          "Liste os seis pares possíveis: uv, uw, uz, vw, vz e wz.",
+          "[[u]] · [[v]] = 1·(−1) + 4·1 + 3·(−1) = −1 + 4 − 3 = 0.",
+          "[[u]] · [[w]] = −2 − 2 + 15 = 11 e [[u]] · [[z]] = −1 + 8 − 9 = −2.",
+          "[[v]] · [[w]] = 2 − 1/2 − 5 = −7/2 e [[v]] · [[z]] = 1 + 2 + 3 = 6.",
+          "[[w]] · [[z]] = 2 − 1 − 15 = −14.",
+          "Só [[u]] · [[v]] deu zero. O par ortogonal é [[u]] e [[v]]."
+        ],
+        "cotidiano": "Pense em duas pessoas puxando um carrinho por cordas. Se uma puxa para a frente e a outra puxa de lado, em ângulo reto, a força da segunda não ajuda nem atrapalha o avanço. O produto escalar mede essa ajuda: quanto um vetor empurra na direção do outro. Para [[u]] e [[v]], a ajuda é zero. Para [[v]] e [[z]], dá 6: eles puxam para lados parecidos.",
+        "trabalho": "Ponha [[u]] na coluna A e [[v]] na coluna B, uma coordenada por linha. =SOMARPRODUTO(A1:A3;B1:B3) devolve 0. É a mesma fórmula que multiplica quantidade por preço e soma, só que aqui as parcelas se compensam: −1 + 4 − 3. Para testar os seis pares, monte as quatro colunas e troque os intervalos. O par cujo SOMARPRODUTO zera é o ortogonal.",
+        "conversa": [
+          {"quem": "Você", "fala": "Para saber se são ortogonais, preciso achar o ângulo em graus?"},
+          {"quem": "Monitor", "fala": "Pode, mas não precisa. O cosseno do ângulo é o produto escalar dividido pelas normas. Quando o cosseno é zero?"},
+          {"quem": "Você", "fala": "Quando o ângulo é 90°. Então basta o produto escalar dar zero."},
+          {"quem": "Monitor", "fala": "Isso. Agora teste [[u]] e [[z]]."},
+          {"quem": "Você", "fala": "1 + 8 − 9 = 0. Também são ortogonais?"},
+          {"quem": "Monitor", "fala": "Confira o primeiro produto: 1 vezes −1."},
+          {"quem": "Você", "fala": "Dá −1. Então −1 + 8 − 9 = −2. Sobra só o par [[u]] e [[v]]."}
+        ],
+        "erro": "O tropeço mais comum é o sinal. Com tantos números negativos, um −1 vira +1 no meio da conta, e um par que não é ortogonal passa a parecer que é. Foi assim que [[u]] e [[z]], ou [[v]] e [[z]], dão zero por engano. Outro tropeço é usar o produto vetorial: ele dá o vetor nulo para vetores paralelos, não para perpendiculares.",
+        "confira": "Tire a prova por Pitágoras, sem refazer o produto escalar. Dois vetores são perpendiculares exatamente quando ‖[[u]] + [[v]]‖² = ‖[[u]]‖² + ‖[[v]]‖². Aqui [[u]] + [[v]] = (0, 5, 2), e o quadrado da norma é 0 + 25 + 4 = 29. Do outro lado, ‖[[u]]‖² = 1 + 16 + 9 = 26 e ‖[[v]]‖² = 1 + 1 + 1 = 3. Como 26 + 3 = 29, o ângulo é reto.",
+        "atalho": "Na prova, comece pelos pares com [[v]] = (−1, 1, −1). Como as coordenadas de [[v]] são só 1 e −1, o produto escalar vira soma e subtração das coordenadas do outro vetor: [[u]] · [[v]] = −1 + 4 − 3. Com [[z]], fica 1 + 2 + 3. Achou o zero, confira o sinal de cada parcela antes de marcar."
+      }
+    },
+    {
+      "id": "ga-s2-l2q3",
+      "semana": 2,
+      "nivel": 2,
+      "minutos": 6,
+      "tema": "Vetor por produtos escalares",
+      "origem": "Lista 2 · Q3",
+      "enunciado": "Sendo [[u]] = (1, 2, 3), [[v]] = (−1, 0, 3) e [[w]] = (−1, −1, −1). Calcular um vetor [[r]] = (x, y, z), tal que [[r]] · [[u]] = −6, [[r]] · [[v]] = −8 e [[r]] · [[w]] = 2.",
+      "alternativas": [
+        {"t": "(1, −2, 3)", "certa": false, "erro": "Esse vetor dá produtos 6, 8 e −2: os três com o sinal trocado. Acontece quando os segundos membros entram no sistema como 6, 8 e −2."},
+        {"t": "(11, −10, 1)", "certa": false, "erro": "Você montou a terceira equação como x + y + z = 2, esquecendo que [[w]] tem coordenadas negativas. A certa é −x − y − z = 2; com ela errada, o sistema cai em outro ponto."},
+        {"t": "(−6, −8, 2)", "certa": false, "erro": "Você copiou os resultados dos produtos escalares como se fossem as coordenadas de [[r]]. Testando: (−6, −8, 2) · (1, 2, 3) = −6 − 16 + 6 = −16, não −6."},
+        {"t": "(−1, 2, −3)", "certa": true},
+        {"t": "(2, −1, −2)", "certa": false, "erro": "Você resolveu as duas primeiras equações, x = 3z + 8 e y = −7 − 3z, e a terceira virou −1 − z = 2; perdendo o −1, fez −z = 2 e z = −2. Testando: [[r]] · [[w]] = −2 + 1 + 2 = 1, não 2."}
+      ],
+      "dica": "Cada produto escalar vira uma equação em x, y e z. Comece pela de [[v]], que não tem y.",
+      "resposta": "[[r]] = (−1, 2, −3)",
+      "jeitos": {
+        "visual": "Imagine [[r]] como uma seta desconhecida. Cada produto escalar mede quanto [[r]] avança na direção de um vetor, multiplicado pelo tamanho dele. Uma medida só deixa [[r]] solto num plano inteiro. Duas medidas deixam [[r]] numa reta. Três medidas em direções que não estão no mesmo plano prendem a seta num único lugar, e é o caso de [[u]], [[v]] e [[w]]. Esse lugar é (−1, 2, −3).",
+        "receita": [
+          "Monte as equações: x + 2y + 3z = −6; −x + 3z = −8; −x − y − z = 2.",
+          "Da segunda, isole x: x = 3z + 8.",
+          "Na terceira: −(3z + 8) − y − z = 2, logo y = −4z − 10.",
+          "Na primeira: (3z + 8) + 2(−4z − 10) + 3z = −6, que vira −2z − 12 = −6, então z = −3.",
+          "Volte: x = 3·(−3) + 8 = −1 e y = −4·(−3) − 10 = 2.",
+          "Resposta: [[r]] = (−1, 2, −3)."
+        ],
+        "cotidiano": "É como descobrir quanto pesa uma colher de farinha, uma de açúcar e uma de cacau sem pesar nenhuma sozinha. Você monta três misturas, sabendo quantas colheres de cada uma entraram, e pesa cada mistura. Cada pesagem vira uma equação. Com três misturas de receitas bem diferentes, os três pesos ficam determinados. Com só duas, sobra uma família inteira de respostas que servem.",
+        "trabalho": "No Excel, isso é um sistema linear 3 × 3. Ponha os coeficientes numa matriz (as linhas são [[u]], [[v]] e [[w]]) em A1:C3 e os resultados −6, −8 e 2 em E1:E3. =MATRIZ.MULT(MATRIZ.INVERSO(A1:C3);E1:E3) devolve x, y e z. Antes, =MATRIZ.DETERM(A1:C3) dá −2. Esse número, o determinante, sendo diferente de zero, garante que a matriz tem inversa e que a solução é única.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei (2, −1, −2). Testei na primeira e deu −6, na segunda deu −8."},
+          {"quem": "Monitor", "fala": "E na terceira?"},
+          {"quem": "Você", "fala": "−2 + 1 + 2 = 1. Era para dar 2."},
+          {"quem": "Monitor", "fala": "Então não serve. Duas equações deixam uma reta inteira de soluções; a terceira escolhe um ponto dessa reta."},
+          {"quem": "Você", "fala": "Refiz com as três: z = −3, x = −1, y = 2."},
+          {"quem": "Monitor", "fala": "Teste (−1, 2, −3) nas três antes de fechar."}
+        ],
+        "erro": "O tropeço é o sinal na hora de montar as equações. [[w]] = (−1, −1, −1) gera −x − y − z = 2, e é fácil escrever x + y + z = 2. [[v]] tem 0 no meio, então o y some daquela equação; quem esquece isso põe um y que não existe. Monte as três equações com calma, coordenada por coordenada, antes de começar a isolar.",
+        "confira": "Substitua (−1, 2, −3) nos três produtos. Com [[u]]: −1 + 4 − 9 = −6. Com [[v]]: 1 + 0 − 9 = −8. Com [[w]]: 1 − 2 + 3 = 2. Os três batem. Se um só falhar, a resposta está errada, mesmo que os outros dois acertem.",
+        "atalho": "Não precisa resolver o sistema na prova: teste as alternativas. Comece por [[r]] · [[v]] = −x + 3z, que tem de dar −8 e é a conta mais curta. Ela elimina (1, −2, 3), que dá 8, e (−6, −8, 2), que dá 12. Entre as três que sobram, a conta com [[w]] decide: só (−1, 2, −3) dá 2."
+      }
+    },
+    {
+      "id": "ga-s2-l2q4",
+      "semana": 2,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Pitágoras com três vetores",
+      "origem": "Lista 2 · Q4",
+      "enunciado": "Mostrar que se [[u]], [[v]] e [[w]] são vetores dois a dois ortogonais então ‖[[u]] + [[v]] + [[w]]‖² = ‖[[u]]‖² + ‖[[v]]‖² + ‖[[w]]‖².\nNa demonstração, escreve-se ‖[[u]] + [[v]] + [[w]]‖² = ([[u]] + [[v]] + [[w]]) · ([[u]] + [[v]] + [[w]]) e distribui-se o produto. Aparecem ‖[[u]]‖², ‖[[v]]‖², ‖[[w]]‖² e os termos cruzados 2[[u]]·[[v]], 2[[u]]·[[w]] e 2[[v]]·[[w]]. Qual argumento faz os termos cruzados sumirem?",
+      "alternativas": [
+        {"t": "Vetores dois a dois ortogonais têm [[u]]·[[v]] = [[u]]·[[w]] = [[v]]·[[w]] = 0, então cada termo cruzado vale zero.", "certa": true},
+        {"t": "Como o produto escalar é comutativo, [[u]]·[[v]] e [[v]]·[[u]] têm sinais opostos e se cancelam aos pares.", "certa": false, "erro": "Comutativo quer dizer [[u]]·[[v]] = [[v]]·[[u]], com o mesmo sinal. Por isso os dois se somam e formam 2[[u]]·[[v]]; não se cancelam."},
+        {"t": "Pela desigualdade triangular, ‖[[u]] + [[v]]‖ ≤ ‖[[u]]‖ + ‖[[v]]‖, e os termos cruzados ficam de fora.", "certa": false, "erro": "A desigualdade triangular dá um limite, não uma igualdade, e não zera termo nenhum. A igualdade pedida depende da ortogonalidade."},
+        {"t": "Como os vetores são ortogonais, [[u]] × [[v]], [[u]] × [[w]] e [[v]] × [[w]] são nulos, e os termos somem.", "certa": false, "erro": "Os termos cruzados são produtos escalares, não vetoriais. E o produto vetorial de dois vetores ortogonais não nulos nunca é nulo: a norma dele é ‖[[u]]‖·‖[[v]]‖."},
+        {"t": "Pela distributiva, ‖[[u]] + [[v]] + [[w]]‖ = ‖[[u]]‖ + ‖[[v]]‖ + ‖[[w]]‖; elevando ao quadrado, sai a fórmula.", "certa": false, "erro": "A norma não se distribui na soma. E, mesmo que valesse, elevar ao quadrado uma soma de três parcelas gera termos cruzados de novo."}
+      ],
+      "dica": "Pergunte o que a hipótese de ortogonalidade diz sobre o produto escalar de dois vetores diferentes.",
+      "resposta": "Os termos cruzados são produtos escalares entre vetores ortogonais, e cada um vale zero.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [3, 0, 0], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [0, 2, 0], "rot": "v", "cor": 2},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [0, 0, 2], "rot": "w", "cor": 3},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [3, 2, 2], "rot": "soma", "cor": 4},
+          {"tipo": "segmento", "de": [0, 2, 0], "ate": [3, 2, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [0, 0, 2], "ate": [3, 0, 2], "tracejado": true},
+          {"tipo": "segmento", "de": [0, 2, 2], "ate": [3, 2, 2], "tracejado": true},
+          {"tipo": "segmento", "de": [3, 0, 0], "ate": [3, 2, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [0, 0, 2], "ate": [0, 2, 2], "tracejado": true},
+          {"tipo": "segmento", "de": [3, 0, 2], "ate": [3, 2, 2], "tracejado": true},
+          {"tipo": "segmento", "de": [3, 0, 0], "ate": [3, 0, 2], "tracejado": true},
+          {"tipo": "segmento", "de": [0, 2, 0], "ate": [0, 2, 2], "tracejado": true},
+          {"tipo": "segmento", "de": [3, 2, 0], "ate": [3, 2, 2], "tracejado": true}
+        ],
+        "legenda": "Exemplo com números: [[u]] = (3, 0, 0), [[v]] = (0, 2, 0) e [[w]] = (0, 0, 2). A soma é a diagonal da caixa, e 9 + 4 + 4 = 17 = ‖(3, 2, 2)‖²."
+      },
+      "jeitos": {
+        "visual": "Na figura, [[u]], [[v]] e [[w]] são três arestas de uma caixa que saem do mesmo canto, cada uma perpendicular às outras. A soma [[u]] + [[v]] + [[w]] é a diagonal que atravessa a caixa até o canto oposto. A fórmula é o Pitágoras em três dimensões: o quadrado da diagonal é a soma dos quadrados das três arestas. Com os números da figura, 3² + 2² + 2² = 17.",
+        "receita": [
+          "Troque a norma ao quadrado por produto escalar: ‖[[u]] + [[v]] + [[w]]‖² = ([[u]] + [[v]] + [[w]]) · ([[u]] + [[v]] + [[w]]).",
+          "Distribua como numa multiplicação de parênteses: são 9 produtos, cada vetor com cada vetor.",
+          "Junte os iguais. Como [[u]]·[[v]] = [[v]]·[[u]], sobram [[u]]·[[u]] + [[v]]·[[v]] + [[w]]·[[w]] + 2[[u]]·[[v]] + 2[[u]]·[[w]] + 2[[v]]·[[w]].",
+          "Use a hipótese: dois a dois ortogonais quer dizer [[u]]·[[v]] = [[u]]·[[w]] = [[v]]·[[w]] = 0. Os três termos cruzados caem.",
+          "Troque de volta: [[u]]·[[u]] = ‖[[u]]‖², e o mesmo para [[v]] e [[w]]. Fica ‖[[u]]‖² + ‖[[v]]‖² + ‖[[w]]‖²."
+        ],
+        "cotidiano": "Pense num drone que anda 3 metros para leste, 2 metros para norte e sobe 2 metros. As três ordens são perpendiculares entre si. A distância em linha reta até o ponto de partida sai de 3² + 2² + 2² = 17, isto é, √17 metros, cerca de 4,1. Se as direções não fossem perpendiculares, um movimento ajudaria ou atrapalharia o outro, e a conta ganharia termos extras.",
+        "trabalho": "Quem lida com risco conhece a mesma conta. A variância de uma soma de três variáveis é a soma das três variâncias mais duas vezes cada covariância. Se as variáveis não têm correlação, as covariâncias são zero e a variância da soma vira a soma das variâncias. A covariância faz o papel do produto escalar; correlação zero faz o papel de ângulo reto.",
+        "conversa": [
+          {"quem": "Você", "fala": "Posso dizer que ‖[[u]] + [[v]] + [[w]]‖ = ‖[[u]]‖ + ‖[[v]]‖ + ‖[[w]]‖ e elevar ao quadrado?"},
+          {"quem": "Monitor", "fala": "Teste com [[u]] = (3, 0, 0), [[v]] = (0, 2, 0) e [[w]] = (0, 0, 2). Quanto vale cada lado?"},
+          {"quem": "Você", "fala": "A norma da soma é √17, uns 4,1. A soma das normas dá 7."},
+          {"quem": "Monitor", "fala": "Então a norma não se distribui. Por onde começar?"},
+          {"quem": "Você", "fala": "Escrevo a norma ao quadrado como o produto escalar da soma com ela mesma e distribuo."},
+          {"quem": "Monitor", "fala": "E os termos com dois vetores diferentes?"},
+          {"quem": "Você", "fala": "São produtos escalares de vetores ortogonais. Valem zero."}
+        ],
+        "erro": "A armadilha é tratar a norma como se fosse linear e escrever ‖[[u]] + [[v]] + [[w]]‖ = ‖[[u]]‖ + ‖[[v]]‖ + ‖[[w]]‖. Isso só acontece com vetores de mesma direção e sentido. Outra é achar que os termos cruzados se cancelam aos pares; eles se somam, e quem os zera é a hipótese de ortogonalidade. Se a sua prova não usou a hipótese em nenhum passo, ela tem furo.",
+        "confira": "Teste a fórmula num caso em que a hipótese falha. Com [[u]] = (1, 0, 0), [[v]] = (1, 0, 0) e [[w]] = (0, 0, 0), a soma é (2, 0, 0) e o quadrado da norma dela vale 4. Já ‖[[u]]‖² + ‖[[v]]‖² + ‖[[w]]‖² = 2. A diferença, 2, é exatamente 2[[u]]·[[v]]. Os termos cruzados existem; é a ortogonalidade que os apaga.",
+        "atalho": "Na prova, a alternativa certa tem de usar a hipótese do enunciado. Elimine quem fala em produto vetorial, porque os termos cruzados são produtos escalares. Elimine quem distribui a norma, porque norma de soma não é soma de normas. Sobra decidir entre zerar e cancelar: comutativo dá sinais iguais, então nada se cancela."
+      }
+    },
+    {
+      "id": "ga-s2-l2q5a",
+      "semana": 2,
+      "nivel": 2,
+      "minutos": 5,
+      "tema": "Triângulo retângulo com parâmetro",
+      "origem": "Lista 2 · Q5a",
+      "enunciado": "Dados os pontos A = (2m, −1, 1), B = (m, 2m, 1) e C = (1, −1, 2), determinar m de modo que o triângulo ABC seja retângulo em A.",
+      "alternativas": [
+        {"t": "m = 0 ou m = −1/2", "certa": false, "erro": "Você expandiu −m(1 − 2m) como −m − 2m². Daí sai m(1 + 2m) = 0 e o −1/2. Menos com menos dá mais: −m(1 − 2m) = −m + 2m²."},
+        {"t": "Só m = 1/2", "certa": false, "erro": "Você dividiu 2m² − m = 0 por m e perdeu a raiz m = 0. Dividir por m só vale se m ≠ 0; o certo é fatorar: m(2m − 1) = 0."},
+        {"t": "Nenhum valor de m", "certa": false, "erro": "Você igualou [[AB]] × [[AC]] ao vetor nulo. Isso testa se os três pontos estão alinhados, e de fato nenhum m faz isso. Ângulo reto se testa com produto escalar."},
+        {"t": "m = (−5 ± √13)/6", "certa": false, "erro": "Esses valores fazem [[BA]] · [[BC]] = 3m² + 5m + 1 = 0, isto é, ângulo reto em B. O enunciado pede o ângulo reto em A, entre [[AB]] e [[AC]]."},
+        {"t": "m = 0 ou m = 1/2", "certa": true}
+      ],
+      "dica": "Ângulo reto em A quer dizer que os vetores que saem de A, [[AB]] e [[AC]], têm produto escalar zero.",
+      "resposta": "m = 0 ou m = 1/2",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "ponto", "em": [0, -1, 1], "rot": "A"},
+          {"tipo": "ponto", "em": [0, 0, 1], "rot": "B"},
+          {"tipo": "ponto", "em": [1, -1, 2], "rot": "C"},
+          {"tipo": "ponto", "em": [1, -1, 1], "rot": "A'"},
+          {"tipo": "ponto", "em": [0.5, 1, 1], "rot": "B'"},
+          {"tipo": "vetor", "de": [0, -1, 1], "ate": [0, 0, 1], "rot": "", "cor": 1},
+          {"tipo": "vetor", "de": [0, -1, 1], "ate": [1, -1, 2], "rot": "", "cor": 1},
+          {"tipo": "vetor", "de": [1, -1, 1], "ate": [0.5, 1, 1], "rot": "", "cor": 2},
+          {"tipo": "vetor", "de": [1, -1, 1], "ate": [1, -1, 2], "rot": "", "cor": 2}
+        ],
+        "legenda": "Em azul, [[AB]] e [[AC]] para m = 0. Em coral, os mesmos vetores para m = 1/2, com os pontos A' e B'. Nos dois casos, as setas saem do vértice A em ângulo reto."
+      },
+      "jeitos": {
+        "visual": "Os pontos A e B andam quando m muda; C fica parado em (1, −1, 2). Para cada m, saem de A duas setas, uma até B e outra até C. Na figura aparecem os dois valores que dão certo: em azul, m = 0; em coral, m = 1/2. Nos dois, as setas formam um canto reto. Para outros valores de m, o canto abre ou fecha e o produto escalar deixa de ser zero.",
+        "receita": [
+          "[[AB]] = B − A = (m − 2m, 2m + 1, 1 − 1) = (−m, 2m + 1, 0).",
+          "[[AC]] = C − A = (1 − 2m, −1 + 1, 2 − 1) = (1 − 2m, 0, 1).",
+          "[[AB]] · [[AC]] = −m(1 − 2m) + (2m + 1)·0 + 0·1 = −m + 2m².",
+          "Iguale a zero e fatore: m(2m − 1) = 0.",
+          "m = 0 ou 2m − 1 = 0, isto é, m = 1/2."
+        ],
+        "cotidiano": "É como ajustar um esquadro de marceneiro por um parafuso. Girar o parafuso, que é mudar m, mexe em duas peças ao mesmo tempo, A e B. Você procura as posições em que o canto em A fica exatamente reto. Uma equação do segundo grau pode ter duas posições assim, e aqui tem: m = 0 e m = 1/2. Parar na primeira é entregar metade do serviço.",
+        "trabalho": "No Excel, ponha m numa célula, monte as colunas de [[AB]] e [[AC]] dependendo dela e calcule o SOMARPRODUTO das duas. O Atingir Meta consegue zerar esse resultado, mas devolve um único valor de m por rodada; para achar o outro, é preciso rodar de novo partindo de outro chute. Fatorar 2m² − m mostra as duas raízes de uma vez, sem depender do chute.",
+        "conversa": [
+          {"quem": "Você", "fala": "Fiz [[AB]] · [[AC]] = 2m² − m = 0, dividi por m e achei m = 1/2."},
+          {"quem": "Monitor", "fala": "E se m for zero? Dá para dividir por zero?"},
+          {"quem": "Você", "fala": "Não. Então m = 0 precisa ser testado à parte."},
+          {"quem": "Monitor", "fala": "Teste. Com m = 0, quem são [[AB]] e [[AC]]?"},
+          {"quem": "Você", "fala": "(0, 1, 0) e (1, 0, 1). O produto escalar dá 0."},
+          {"quem": "Monitor", "fala": "Então m = 0 também serve. Fatore em vez de dividir: m(2m − 1) = 0."}
+        ],
+        "erro": "O tropeço principal é dividir a equação por m. 2m² − m = 0 dividida por m vira 2m − 1 = 0 e esconde a raiz m = 0. Outro é escolher o vértice errado: o ângulo reto em A usa os vetores que saem de A. Usar [[BA]] e [[BC]] testa o ângulo em B e leva a valores irracionais que não resolvem o problema.",
+        "confira": "Substitua cada valor e refaça o produto escalar. Com m = 1/2: A = (1, −1, 1), B = (1/2, 1, 1), [[AB]] = (−1/2, 2, 0) e [[AC]] = (0, 0, 1); produto 0 + 0 + 0 = 0. Com m = 0 também dá zero. Teste ainda um valor errado, m = −1/2: [[AB]] = (1/2, 0, 0) e [[AC]] = (2, 0, 1), com produto 1, que não serve.",
+        "atalho": "Repare que [[AB]] tem z = 0 e [[AC]] tem y = 0. No produto escalar, só a primeira coordenada sobrevive: −m·(1 − 2m). Um produto de dois fatores zera quando um deles zera, então m = 0 ou 1 − 2m = 0. Sem armar sistema e em meio minuto, as duas raízes aparecem."
+      }
+    },
+    {
+      "id": "ga-s2-l2q5b",
+      "semana": 2,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Área do triângulo retângulo",
+      "origem": "Lista 2 · Q5b",
+      "enunciado": "Dados os pontos A = (2m, −1, 1), B = (m, 2m, 1) e C = (1, −1, 2), com m escolhido para que o triângulo ABC seja retângulo em A (m = 0 ou m = 1/2). Calcular a área do triângulo.",
+      "alternativas": [
+        {"t": "√2 se m = 0, e √17/2 se m = 1/2", "certa": false, "erro": "Esses são os valores de ‖[[AB]] × [[AC]]‖, a área do paralelogramo. O triângulo é metade dele."},
+        {"t": "1 se m = 0, e 17/8 se m = 1/2", "certa": false, "erro": "Você usou ‖[[AB]]‖² e ‖[[AC]]‖² no lugar das normas: com m = 1/2, (17/4 · 1)/2 = 17/8. Faltou tirar a raiz de cada lado."},
+        {"t": "√2/2 se m = 0, e √17/4 se m = 1/2", "certa": true},
+        {"t": "√17/4 se m = 0, e √2/2 se m = 1/2", "certa": false, "erro": "Os valores estão trocados. Com m = 0, os catetos são [[AB]] = (0, 1, 0) e [[AC]] = (1, 0, 1), de normas 1 e √2, e a área é √2/2."},
+        {"t": "√2/2 se m = 0, e √15/4 se m = 1/2", "certa": false, "erro": "Você fez (−1/2)² = −1/4 e achou ‖[[AB]]‖ = √(−1/4 + 4) = √15/2. Quadrado nunca é negativo: (−1/2)² = 1/4, e ‖[[AB]]‖ = √17/2."}
+      ],
+      "dica": "Como o ângulo em A é reto, [[AB]] e [[AC]] são os catetos. A área é cateto vezes cateto dividido por 2.",
+      "resposta": "√2/2 se m = 0; √17/4 se m = 1/2",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, -1, 1], [0, 0, 1], [1, -1, 2]], "cor": 1},
+          {"tipo": "poligono", "pts": [[1, -1, 1], [0.5, 1, 1], [1, -1, 2]], "cor": 2},
+          {"tipo": "ponto", "em": [0, -1, 1], "rot": "A"},
+          {"tipo": "ponto", "em": [0, 0, 1], "rot": "B"},
+          {"tipo": "ponto", "em": [1, -1, 2], "rot": "C"},
+          {"tipo": "ponto", "em": [1, -1, 1], "rot": "A'"},
+          {"tipo": "ponto", "em": [0.5, 1, 1], "rot": "B'"}
+        ],
+        "legenda": "Triângulo azul: m = 0. Triângulo coral: m = 1/2, com vértices A' e B'. O vértice C é o mesmo nos dois."
+      },
+      "jeitos": {
+        "visual": "Na figura há dois triângulos que dividem o vértice C. O azul (m = 0) é pequeno: os catetos medem 1 e √2. O coral (m = 1/2) tem um cateto comprido, de √17/2, deitado no plano z = 1, e um curto, de 1, subindo na vertical até C. Num triângulo retângulo, os dois catetos fazem o papel de base e altura. Por isso a área é o produto deles dividido por 2.",
+        "receita": [
+          "m = 0: [[AB]] = (0, 1, 0) e [[AC]] = (1, 0, 1). Normas: 1 e √(1 + 0 + 1) = √2.",
+          "Área com m = 0: (1 · √2)/2 = √2/2.",
+          "m = 1/2: [[AB]] = (−1/2, 2, 0) e [[AC]] = (0, 0, 1).",
+          "‖[[AB]]‖ = √(1/4 + 4) = √(17/4) = √17/2 e ‖[[AC]]‖ = 1.",
+          "Área com m = 1/2: (√17/2 · 1)/2 = √17/4."
+        ],
+        "cotidiano": "Pense num terreno em forma de esquadro. Se dois lados se encontram em ângulo reto, você mede os dois com a trena, multiplica e divide por 2. Não precisa medir a altura à parte, porque um lado já é a altura do outro. Aqui o problema dá dois terrenos possíveis, um para cada m, e cada um tem a sua área.",
+        "trabalho": "No Excel, a norma de um vetor em A1:A3 é =RAIZ(SOMAQUAD(A1:A3)). Com [[AB]] em A1:A3 e [[AC]] em B1:B3, a área fica =RAIZ(SOMAQUAD(A1:A3))*RAIZ(SOMAQUAD(B1:B3))/2. Essa fórmula só vale porque o ângulo em A é reto. Num triângulo qualquer, a área é a metade da norma do produto vetorial.",
+        "conversa": [
+          {"quem": "Você", "fala": "Com m = 1/2 achei ‖[[AB]]‖ = √15/2."},
+          {"quem": "Monitor", "fala": "Quanto deu (−1/2)²?"},
+          {"quem": "Você", "fala": "Pus −1/4."},
+          {"quem": "Monitor", "fala": "Um número ao quadrado pode ser negativo?"},
+          {"quem": "Você", "fala": "Não. É 1/4. Então ‖[[AB]]‖ = √(1/4 + 4) = √17/2, e a área é √17/2 · 1 / 2 = √17/4."},
+          {"quem": "Monitor", "fala": "E com m = 0?"},
+          {"quem": "Você", "fala": "Catetos 1 e √2, área √2/2."}
+        ],
+        "erro": "Dois tropeços aparecem muito. O primeiro é esquecer de dividir por 2 e entregar a área do paralelogramo, √2 ou √17/2. O segundo é errar o quadrado de um número negativo: (−1/2)² é 1/4, positivo. Há ainda quem calcule só para um valor de m. O enunciado aceita os dois valores, então a resposta tem duas áreas.",
+        "confira": "Calcule pelo produto vetorial, um caminho que não depende do ângulo reto. Com m = 0, [[AB]] × [[AC]] = (1, 0, −1), de norma √2; metade é √2/2. Com m = 1/2, o produto é (2, 1/2, 0), de norma √(4 + 1/4) = √17/2; metade é √17/4. Os dois caminhos chegam no mesmo número.",
+        "atalho": "Compare os dois casos pela ordem de grandeza: √17/4 ≈ 1,03 e √2/2 ≈ 0,71. O triângulo coral tem um cateto bem maior, então a área maior tem de ser a de m = 1/2. Isso elimina a alternativa trocada. Depois confira a divisão por 2: a área do triângulo retângulo é sempre a metade do produto dos catetos."
+      }
+    },
+    {
+      "id": "ga-s2-l2q6",
+      "semana": 2,
+      "nivel": 3,
+      "minutos": 7,
+      "tema": "Vértice no eixo pela área",
+      "origem": "Lista 2 · Q6",
+      "enunciado": "A área de um triângulo ABC é igual a √2/2. Sabe-se que A = (−1, 2, 3), B = (−2, 3, 4) e o vértice C pertence ao eixo OZ. Determine o(s) ponto(s) C.",
+      "alternativas": [
+        {"t": "C = (0, 0, −1) ou C = (0, 0, −2)", "certa": false, "erro": "Você fatorou c² − 3c + 2 como (c + 1)(c + 2), que dá c² + 3c + 2. O certo é (c − 1)(c − 2)."},
+        {"t": "C = (0, 0, 1) ou C = (0, 0, 2)", "certa": true},
+        {"t": "C = (1, 0, 0) ou C = (2, 0, 0)", "certa": false, "erro": "Esses pontos estão no eixo OX. No eixo OZ, as duas primeiras coordenadas são zero: C = (0, 0, c). A área até bate, mas o ponto está no eixo errado."},
+        {"t": "C = (0, 0, −4) ou C = (0, 0, −5)", "certa": false, "erro": "Você escreveu a terceira coordenada de [[AC]] como c + 3. Como A tem z = 3, [[AC]] = (1, −2, c − 3)."},
+        {"t": "Nenhum ponto C", "certa": false, "erro": "Você igualou ‖[[AB]] × [[AC]]‖ a √2/2 e esqueceu a metade. A equação 2c² − 6c + 6 = 1/2 não tem raiz real. O certo é ‖[[AB]] × [[AC]]‖ = √2."}
+      ],
+      "dica": "Escreva C = (0, 0, c). A área do triângulo é metade de ‖[[AB]] × [[AC]]‖; isso dá uma equação em c.",
+      "resposta": "C = (0, 0, 1) ou C = (0, 0, 2)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-1, 2, 3], [-2, 3, 4], [0, 0, 1]], "cor": 1},
+          {"tipo": "poligono", "pts": [[-1, 2, 3], [-2, 3, 4], [0, 0, 2]], "cor": 2},
+          {"tipo": "ponto", "em": [-1, 2, 3], "rot": "A"},
+          {"tipo": "ponto", "em": [-2, 3, 4], "rot": "B"},
+          {"tipo": "ponto", "em": [0, 0, 1], "rot": "C"},
+          {"tipo": "ponto", "em": [0, 0, 2], "rot": "C'"},
+          {"tipo": "segmento", "de": [0, 0, 0], "ate": [0, 0, 4], "tracejado": true}
+        ],
+        "legenda": "Os dois triângulos têm o lado AB em comum e o terceiro vértice no eixo z (tracejado): C = (0, 0, 1) no azul e C' = (0, 0, 2) no coral. Os dois têm área √2/2."
+      },
+      "jeitos": {
+        "visual": "Fixe o lado AB e imagine o ponto C deslizando pelo eixo z, como uma conta num fio. Quando C anda, a área do triângulo muda: diminui até um mínimo em z = 3/2 e depois volta a crescer. A área √2/2 aparece duas vezes nesse caminho, uma antes e outra depois do mínimo. Na figura, os dois triângulos que cumprem a condição dividem o lado AB.",
+        "receita": [
+          "Escreva C = (0, 0, c). Então [[AB]] = (−1, 1, 1) e [[AC]] = (1, −2, c − 3).",
+          "[[AB]] × [[AC]] = (1·(c − 3) − 1·(−2), 1·1 − (−1)(c − 3), (−1)(−2) − 1·1) = (c − 1, c − 2, 1).",
+          "Área = ‖[[AB]] × [[AC]]‖/2 = √2/2, logo ‖[[AB]] × [[AC]]‖ = √2 e o quadrado dela vale 2.",
+          "(c − 1)² + (c − 2)² + 1 = 2, que vira 2c² − 6c + 4 = 0, isto é, c² − 3c + 2 = 0.",
+          "(c − 1)(c − 2) = 0: c = 1 ou c = 2.",
+          "C = (0, 0, 1) ou C = (0, 0, 2)."
+        ],
+        "cotidiano": "Pense numa barraca com uma vara fixa no chão, o lado AB, e uma corda presa num mastro vertical, o eixo z. Você sobe ou desce o nó no mastro e a lona muda de tamanho. Existe uma altura em que a lona fica menor. Abaixo e acima dela, há duas alturas que dão exatamente o tamanho de lona pedido. Por isso o problema tem duas respostas.",
+        "trabalho": "Dá para achar c com uma tabela de cenários. Na coluna A, ponha c = 0; 0,5; 1; 1,5; 2; 2,5; 3. Na coluna B, a área `=RAIZ((A2-1)^2+(A2-2)^2+1)/2`. A coluna mostra 1,22; 0,94; 0,71; 0,61; 0,71; 0,94; 1,22. Os dois 0,71 caem em c = 1 e c = 2. A conta algébrica confirma o que a tabela sugere e garante que não há outros valores.",
+        "conversa": [
+          {"quem": "Você", "fala": "Igualei ‖[[AB]] × [[AC]]‖ a √2/2 e a equação não teve solução."},
+          {"quem": "Monitor", "fala": "‖[[AB]] × [[AC]]‖ é a área de qual figura?"},
+          {"quem": "Você", "fala": "Do paralelogramo de lados AB e AC."},
+          {"quem": "Monitor", "fala": "E o triângulo é que parte dele?"},
+          {"quem": "Você", "fala": "Metade. Então a norma tem de ser √2, e o quadrado, 2."},
+          {"quem": "Monitor", "fala": "Refaça: (c − 1)² + (c − 2)² + 1 = 2."},
+          {"quem": "Você", "fala": "c² − 3c + 2 = 0. Dá c = 1 ou c = 2."}
+        ],
+        "erro": "Três tropeços aparecem aqui. Esquecer a metade: a equação fica sem raiz real e parece que não existe C. Pôr C no eixo errado: ponto do eixo OZ é (0, 0, c), não (c, 0, 0). E errar o sinal de c − 3 em [[AC]], porque A tem z = 3. Quando a equação do segundo grau aparecer, confira as duas raízes; aqui as duas servem.",
+        "confira": "Teste os pontos por outro par de lados, saindo de B. [[BA]] = (1, −1, −1). Com C = (0, 0, 2), [[BC]] = (2, −3, −2) e [[BA]] × [[BC]] = (−1, 0, −1), de norma √2. Com C = (0, 0, 1), [[BC]] = (2, −3, −3) e o produto é (0, 1, −1), norma √2 de novo. A metade, √2/2, é a área pedida nos dois casos.",
+        "atalho": "Na prova, elimine primeiro quem não está no eixo OZ: ponto desse eixo tem x = 0 e y = 0. Depois teste um valor de c na fórmula (c − 1)² + (c − 2)² + 1 = 2. Com c = 1: 0 + 1 + 1 = 2, serve. Com c = −1: 4 + 9 + 1 = 14, não serve. A alternativa que tem c = 1 é a certa."
+      }
+    }
+  ]
+}

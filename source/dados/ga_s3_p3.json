@@ -1,0 +1,313 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s3-l3q5g",
+      "semana": 3,
+      "nivel": 3,
+      "minutos": 4,
+      "tema": "Pontos médios de lados opostos",
+      "origem": "Lista 3 · Q5g",
+      "enunciado": "Classifique em Verdadeiro (V) ou Falso (F). Se verdadeiro, prove. Se falso, dê um contraexemplo:\nSeja ABCD um quadrilátero de lados AB, BC, CD e DA. Sejam E e F os pontos médios dos lados AB e CD, respectivamente. Então, [[EF]] = (1/2)([[AD]] + [[BC]]).\nQual classificação e justificativa estão corretas?",
+      "alternativas": [
+        {"t": "Verdadeira, mas só quando [[AD]] ∥ [[BC]]: é a base média de um trapézio.", "certa": false, "erro": "A conta não usa paralelismo nenhum. Vale em qualquer quadrilátero, até num com os quatro lados em direções diferentes, como A(0, 0), B(6, 0), C(7, 4), D(1, 5)."},
+        {"t": "Verdadeira: [[EF]] = [[EA]] + [[AD]] + [[DF]] e [[EF]] = [[EB]] + [[BC]] + [[CF]]; somando, os meios-lados se anulam e 2[[EF]] = [[AD]] + [[BC]].", "certa": true},
+        {"t": "Falsa: o certo é [[EF]] = (1/2)([[AD]] − [[BC]]), porque AD e BC são percorridos em sentidos opostos.", "certa": false, "erro": "Com pontos, F − E = (1/2)[(D − A) + (C − B)]: os dois entram com sinal de mais. No quadrado A(0, 0), B(2, 0), C(2, 2), D(0, 2), [[EF]] = (0, 2), mas (1/2)([[AD]] − [[BC]]) = (0, 0)."},
+        {"t": "Falsa: o certo é [[EF]] = [[AD]] + [[BC]], sem o 1/2, porque E e F já são pontos médios.", "certa": false, "erro": "No mesmo quadrado, [[AD]] + [[BC]] = (0, 4), mas [[EF]] = (0, 2). O 1/2 aparece porque [[EF]] foi escrito por dois caminhos e somado."},
+        {"t": "Verdadeira: [[EF]] é a média de [[AB]] e [[CD]], que coincide com a média de [[AD]] e [[BC]].", "certa": false, "erro": "(1/2)([[AB]] + [[CD]]) não tem relação com [[EF]]: no quadrado A(0, 0), B(2, 0), C(2, 2), D(0, 2), dá (0, 0), enquanto [[EF]] = (0, 2)."}
+      ],
+      "dica": "Vá de E até F por dois caminhos: passando por A e D, e passando por B e C. Some os dois.",
+      "resposta": "Verdadeira. 2[[EF]] = [[AD]] + [[BC]].",
+      "figura": {
+        "modo": "2d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 0], [6, 0], [7, 4], [1, 5]], "cor": 3},
+          {"tipo": "vetor", "de": [0, 0], "ate": [1, 5], "rot": "AD", "cor": 1},
+          {"tipo": "vetor", "de": [6, 0], "ate": [7, 4], "rot": "BC", "cor": 2},
+          {"tipo": "vetor", "de": [3, 0], "ate": [4, 4.5], "rot": "EF", "cor": 4},
+          {"tipo": "ponto", "em": [0, 0], "rot": "A"},
+          {"tipo": "ponto", "em": [6, 0], "rot": "B"},
+          {"tipo": "ponto", "em": [7, 4], "rot": "C"},
+          {"tipo": "ponto", "em": [1, 5], "rot": "D"},
+          {"tipo": "ponto", "em": [3, 0], "rot": "E"},
+          {"tipo": "ponto", "em": [4, 4.5], "rot": "F"}
+        ],
+        "legenda": "[[EF]] liga os pontos médios de AB e CD. Ele é a média dos dois lados que sobram, [[AD]] e [[BC]]."
+      },
+      "jeitos": {
+        "visual": "Na figura, saia de E e chegue em F de dois jeitos. Pela esquerda: vai até A, sobe por [[AD]] e anda até F. Pela direita: vai até B, sobe por [[BC]] e volta até F. Os pedaços de meio lado aparecem em pares opostos: de E para A e de E para B, de D para F e de C para F. Somando os dois caminhos, eles se anulam e sobram só [[AD]] e [[BC]].",
+        "receita": [
+          "Caminho 1: [[EF]] = [[EA]] + [[AD]] + [[DF]].",
+          "Caminho 2: [[EF]] = [[EB]] + [[BC]] + [[CF]].",
+          "Some: 2[[EF]] = ([[EA]] + [[EB]]) + [[AD]] + [[BC]] + ([[DF]] + [[CF]]).",
+          "E é ponto médio de AB, então [[EA]] e [[EB]] são opostos e somam o vetor nulo. Pelo mesmo motivo, [[DF]] + [[CF]] é nulo.",
+          "Sobra 2[[EF]] = [[AD]] + [[BC]], ou seja, [[EF]] = (1/2)([[AD]] + [[BC]])."
+        ],
+        "cotidiano": "Imagine dois amigos saindo da mesma porta E para o mesmo portão F, cada um por um corredor. Os dois trajetos têm o mesmo deslocamento total. Se você soma os dois trajetos, os trechos curtos que um faz para a esquerda e o outro faz para a direita se compensam. Fica a soma dos dois corredores longos, e cada trajeto vale metade disso.",
+        "trabalho": "É uma conciliação por dois caminhos. O mesmo saldo final [[EF]] é obtido por dois conjuntos de lançamentos. Ao somar os dois, lançamentos de mesmo valor e sinal oposto se anulam, como um débito e o estorno dele. O que sobra é o que de fato movimenta: [[AD]] e [[BC]]. Dividindo por 2, você volta ao saldo de um caminho só.",
+        "conversa": [
+          {"quem": "Você", "fala": "Isso só vale em trapézio, não? Com [[AD]] paralelo a [[BC]]?"},
+          {"quem": "Monitor", "fala": "Onde, na conta dos dois caminhos, entrou paralelismo?"},
+          {"quem": "Você", "fala": "Em lugar nenhum. Só usei que E e F são pontos médios."},
+          {"quem": "Monitor", "fala": "Então vale para qualquer quadrilátero. Teste com A(0, 0), B(6, 0), C(7, 4), D(1, 5)."},
+          {"quem": "Você", "fala": "E = (3, 0), F = (4, 9/2). [[EF]] = (1, 9/2). E (1/2)[(1, 5) + (1, 4)] = (1, 9/2)."},
+          {"quem": "Monitor", "fala": "Bateu, num quadrilátero sem lado paralelo nenhum."}
+        ],
+        "erro": "A armadilha é achar que a fórmula pede alguma forma especial, como trapézio ou paralelogramo. A prova usa só os pontos médios. O segundo tropeço é o sinal: [[AD]] e [[BC]] entram os dois com mais, porque os dois caminhos sobem do lado AB para o lado CD. E o 1/2 vem de somar dois caminhos, não de aplicar a regra do ponto médio uma vez.",
+        "confira": "Com pontos, sem caminhos: F − E = (C + D)/2 − (A + B)/2 = (1/2)[(D − A) + (C − B)] = (1/2)([[AD]] + [[BC]]). Mesmo resultado por outra conta. No quadrado A(0, 0), B(2, 0), C(2, 2), D(0, 2): E = (1, 0), F = (1, 2), [[EF]] = (0, 2), e (1/2)[(0, 2) + (0, 2)] = (0, 2).",
+        "atalho": "Teste o quadrado A(0, 0), B(2, 0), C(2, 2), D(0, 2), o caso mais fácil. [[EF]] = (0, 2). A fórmula sem 1/2 dá (0, 4); com sinal de menos dá (0, 0); com [[AB]] e [[CD]] dá (0, 0). Só a versão do enunciado passa. Depois, escolha a justificativa que soma os dois caminhos e não pede paralelismo."
+      }
+    },
+    {
+      "id": "ga-s3-l3q5h",
+      "semana": 3,
+      "nivel": 3,
+      "minutos": 4,
+      "tema": "Pontos médios e diagonais",
+      "origem": "Lista 3 · Q5h",
+      "enunciado": "Classifique em Verdadeiro (V) ou Falso (F). Se verdadeiro, prove. Se falso, dê um contraexemplo:\nSeja ABCD um quadrilátero de lados AB, BC, CD e DA. Sejam E e F os pontos médios dos lados AB e CD, respectivamente. Então, [[EF]] = (1/2)([[AC]] + [[BD]]).\nQual classificação e justificativa estão corretas?",
+      "alternativas": [
+        {"t": "Falsa: as diagonais AC e BD se cruzam, então a soma delas não pode dar um segmento entre dois lados.", "certa": false, "erro": "Vetores que se cruzam se somam normalmente. No quadrilátero A(0, 0), B(6, 0), C(7, 4), D(1, 5), (1/2)([[AC]] + [[BD]]) = (1, 9/2), que é exatamente [[EF]]."},
+        {"t": "Falsa: o certo é [[EF]] = (1/2)([[AC]] − [[BD]]), porque BD vai no sentido contrário de AC.", "certa": false, "erro": "Com pontos, F − E = (1/2)[(C − A) + (D − B)]: os dois entram com mais. No mesmo exemplo, (1/2)([[AC]] − [[BD]]) = (6, −1/2), longe de [[EF]] = (1, 9/2)."},
+        {"t": "Verdadeira, mas só quando ABCD é paralelogramo, porque aí as diagonais se cortam no meio.", "certa": false, "erro": "A conta F − E = (1/2)[(C − A) + (D − B)] não usa nenhuma hipótese sobre a forma. O quadrilátero A(0, 0), B(6, 0), C(7, 4), D(1, 5) não é paralelogramo, e a igualdade vale."},
+        {"t": "Verdadeira: [[AC]] + [[BD]] = [[AD]] + [[BC]], mas isso só se confere desenhando.", "certa": false, "erro": "A igualdade [[AC]] + [[BD]] = [[AD]] + [[BC]] vale, e se prova com letras: (C − A) + (D − B) = (D − A) + (C − B). Desenho ilustra, não prova."},
+        {"t": "Verdadeira: F − E = (1/2)(C + D) − (1/2)(A + B) = (1/2)[(C − A) + (D − B)] = (1/2)([[AC]] + [[BD]]).", "certa": true}
+      ],
+      "dica": "Escreva E e F como médias de pontos e reagrupe F − E de um jeito diferente do item anterior.",
+      "resposta": "Verdadeira. [[EF]] = (1/2)([[AC]] + [[BD]]).",
+      "figura": {
+        "modo": "2d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 0], [6, 0], [7, 4], [1, 5]], "cor": 3},
+          {"tipo": "vetor", "de": [0, 0], "ate": [7, 4], "rot": "AC", "cor": 1},
+          {"tipo": "vetor", "de": [6, 0], "ate": [1, 5], "rot": "BD", "cor": 2},
+          {"tipo": "vetor", "de": [3, 0], "ate": [4, 4.5], "rot": "EF", "cor": 4},
+          {"tipo": "ponto", "em": [0, 0], "rot": "A"},
+          {"tipo": "ponto", "em": [6, 0], "rot": "B"},
+          {"tipo": "ponto", "em": [7, 4], "rot": "C"},
+          {"tipo": "ponto", "em": [1, 5], "rot": "D"},
+          {"tipo": "ponto", "em": [3, 0], "rot": "E"},
+          {"tipo": "ponto", "em": [4, 4.5], "rot": "F"}
+        ],
+        "legenda": "As diagonais [[AC]] e [[BD]] vão do lado AB para o lado CD. A média delas é o mesmo [[EF]] do item anterior."
+      },
+      "jeitos": {
+        "visual": "Na figura, as duas diagonais se cruzam no meio do quadrilátero. [[AC]] sai de A, no lado de baixo, e chega em C, no lado de cima. [[BD]] sai de B, também embaixo, e chega em D, também em cima. As duas fazem a viagem do lado AB para o lado CD. A média dessas duas viagens é a viagem do meio de AB (E) até o meio de CD (F).",
+        "receita": [
+          "E = (A + B)/2 e F = (C + D)/2.",
+          "[[EF]] = F − E = (1/2)(C + D − A − B).",
+          "Agrupe C com A e D com B: (1/2)[(C − A) + (D − B)].",
+          "C − A = [[AC]] e D − B = [[BD]]. Então [[EF]] = (1/2)([[AC]] + [[BD]]).",
+          "A conta não usou nenhuma forma especial: vale para todo quadrilátero."
+        ],
+        "cotidiano": "Duas pessoas atravessam uma praça. Uma sai de A e chega em C; a outra sai de B e chega em D. O deslocamento médio das duas é igual ao deslocamento do ponto médio das saídas (E) até o ponto médio das chegadas (F). Média dos deslocamentos é o deslocamento das médias, e essa é a frase inteira da questão.",
+        "trabalho": "Os quatro termos C + D − A − B podem ser agrupados de dois jeitos, como um relatório de despesas que dá o mesmo total por centro de custo ou por categoria. Agrupando (D − A) + (C − B), saem os lados [[AD]] e [[BC]] do item anterior. Agrupando (C − A) + (D − B), saem as diagonais [[AC]] e [[BD]]. O total não depende do agrupamento.",
+        "conversa": [
+          {"quem": "Você", "fala": "No item anterior deu [[AD]] + [[BC]]. Agora são as diagonais. Não pode valer as duas coisas."},
+          {"quem": "Monitor", "fala": "Pode, se [[AD]] + [[BC]] for igual a [[AC]] + [[BD]]. Escreva os dois com pontos."},
+          {"quem": "Você", "fala": "(D − A) + (C − B) e (C − A) + (D − B)."},
+          {"quem": "Monitor", "fala": "Tire os parênteses."},
+          {"quem": "Você", "fala": "Os dois dão C + D − A − B. São iguais."},
+          {"quem": "Monitor", "fala": "Então as duas afirmações são verdadeiras ao mesmo tempo, e uma confirma a outra."}
+        ],
+        "erro": "O erro comum é achar que diagonais que se cruzam não podem somar algo bem comportado, ou trocar um sinal e escrever (1/2)([[AC]] − [[BD]]). [[AC]] e [[BD]] vão os dois do lado AB para o lado CD, por isso entram com sinal de mais. Também aparece quem limita a afirmação a paralelogramos, sem motivo na conta.",
+        "confira": "No quadrilátero da figura, A(0, 0), B(6, 0), C(7, 4), D(1, 5): [[AC]] = (7, 4) e [[BD]] = (−5, 5). Metade da soma: (1, 9/2). E [[EF]] = (4, 9/2) − (3, 0) = (1, 9/2). Bate. Na versão de sinal trocado, (1/2)([[AC]] − [[BD]]) = (6, −1/2), bem longe.",
+        "atalho": "Use o resultado do item anterior. Se [[EF]] = (1/2)([[AD]] + [[BC]]) é verdadeira, basta ver que [[AD]] + [[BC]] = [[AC]] + [[BD]]: as duas somas dão C + D − A − B. Isso decide em uma linha. Depois, escolha a justificativa que faz essa conta com pontos, sem pedir paralelogramo nem desenho."
+      }
+    },
+    {
+      "id": "ga-s3-l3q5i",
+      "semana": 3,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Lei do paralelogramo",
+      "origem": "Lista 3 · Q5i",
+      "enunciado": "Classifique em Verdadeiro (V) ou Falso (F). Se verdadeiro, prove. Se falso, dê um contraexemplo:\n‖[[u]] + [[v]]‖² + ‖[[u]] − [[v]]‖² = 2‖[[u]]‖² + 2‖[[v]]‖².\nQual classificação e justificativa estão corretas?",
+      "alternativas": [
+        {"t": "Falsa: ‖[[u]] + [[v]]‖² = ‖[[u]]‖² + ‖[[v]]‖² só com [[u]] ⊥ [[v]], então a igualdade só vale nesse caso.", "certa": false, "erro": "Cada parcela sozinha depende do ângulo, mas a soma das duas não: os termos +2[[u]]·[[v]] e −2[[u]]·[[v]] se cancelam, e a igualdade vale sempre."},
+        {"t": "Falsa: com [[u]] = (1, 0) e [[v]] = (1, 0), o lado esquerdo dá 4 e o direito dá 2.", "certa": false, "erro": "Refaça o lado direito: 2·1 + 2·1 = 4. O esquerdo é ‖(2, 0)‖² + ‖(0, 0)‖² = 4 + 0 = 4. Os dois lados batem."},
+        {"t": "Verdadeira: ‖[[u]] ± [[v]]‖² = ‖[[u]]‖² ± 2[[u]]·[[v]] + ‖[[v]]‖²; somando as duas, os termos com [[u]]·[[v]] se cancelam.", "certa": true},
+        {"t": "Verdadeira: é Pitágoras aplicado duas vezes, uma para [[u]] + [[v]] e outra para [[u]] − [[v]].", "certa": false, "erro": "Pitágoras exige ângulo reto entre [[u]] e [[v]], e a afirmação vale para quaisquer vetores. A prova certa expande cada norma ao quadrado com o produto escalar."},
+        {"t": "Falsa: o certo é ‖[[u]] + [[v]]‖² + ‖[[u]] − [[v]]‖² = 4[[u]]·[[v]].", "certa": false, "erro": "4[[u]]·[[v]] aparece na diferença, ‖[[u]] + [[v]]‖² − ‖[[u]] − [[v]]‖². Na soma, o produto escalar some."}
+      ],
+      "dica": "Escreva cada norma ao quadrado como produto escalar do vetor com ele mesmo e distribua.",
+      "resposta": "Verdadeira. Os termos 2[[u]]·[[v]] se cancelam na soma.",
+      "figura": {
+        "modo": "2d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0], "ate": [4, 1], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0], "ate": [1, 3], "rot": "v", "cor": 2},
+          {"tipo": "segmento", "de": [4, 1], "ate": [5, 4], "tracejado": true},
+          {"tipo": "segmento", "de": [1, 3], "ate": [5, 4], "tracejado": true},
+          {"tipo": "vetor", "de": [0, 0], "ate": [5, 4], "rot": "u + v", "cor": 4},
+          {"tipo": "vetor", "de": [1, 3], "ate": [4, 1], "rot": "u − v", "cor": 4}
+        ],
+        "legenda": "Os lados do paralelogramo são [[u]] e [[v]]; as diagonais são [[u]] + [[v]] e [[u]] − [[v]]."
+      },
+      "jeitos": {
+        "visual": "Na figura, o paralelogramo tem lados [[u]] e [[v]] e duas diagonais. A afirmação diz que a soma dos quadrados das duas diagonais é igual à soma dos quadrados dos quatro lados. Quando o paralelogramo entorta, uma diagonal cresce e a outra encolhe, e em quadrado as mudanças são do mesmo tamanho. O ganho de uma é a perda da outra, e a soma fica parada.",
+        "receita": [
+          "‖[[u]] + [[v]]‖² = ([[u]] + [[v]])·([[u]] + [[v]]) = ‖[[u]]‖² + 2[[u]]·[[v]] + ‖[[v]]‖².",
+          "‖[[u]] − [[v]]‖² = ([[u]] − [[v]])·([[u]] − [[v]]) = ‖[[u]]‖² − 2[[u]]·[[v]] + ‖[[v]]‖².",
+          "Some as duas linhas: +2[[u]]·[[v]] e −2[[u]]·[[v]] se anulam.",
+          "Sobra 2‖[[u]]‖² + 2‖[[v]]‖². A afirmação é verdadeira para quaisquer [[u]] e [[v]]."
+        ],
+        "cotidiano": "Pense numa gangorra: quando um lado sobe, o outro desce exatamente o mesmo tanto. As diagonais do paralelogramo funcionam assim, em quadrado. Entortar a figura aumenta uma e diminui a outra na mesma quantidade, 2[[u]]·[[v]]. A soma das duas não muda e vale o que valeria no retângulo, onde Pitágoras resolve.",
+        "trabalho": "Quem trabalha com risco de carteira conhece esta conta. A variância de uma soma é Var(X) + Var(Y) + 2Cov(X, Y), e a de uma diferença é Var(X) + Var(Y) − 2Cov(X, Y). Somando as duas, a covariância some e sobra 2Var(X) + 2Var(Y). O produto escalar [[u]]·[[v]] faz o papel da covariância.",
+        "conversa": [
+          {"quem": "Você", "fala": "Testei com [[u]] = [[v]] = (1, 0) e achei 4 de um lado e 2 do outro."},
+          {"quem": "Monitor", "fala": "Refaça o lado direito: 2‖[[u]]‖² + 2‖[[v]]‖², com normas iguais a 1."},
+          {"quem": "Você", "fala": "2·1 + 2·1 = 4. Eu tinha feito só 2·1."},
+          {"quem": "Monitor", "fala": "E o lado esquerdo?"},
+          {"quem": "Você", "fala": "‖(2, 0)‖² + ‖(0, 0)‖² = 4 + 0 = 4. Bate."},
+          {"quem": "Monitor", "fala": "Contraexemplo com conta errada não derruba nada. Agora prove para quaisquer vetores, expandindo as normas."}
+        ],
+        "erro": "O tropeço é tratar ‖[[u]] + [[v]]‖² como ‖[[u]]‖² + ‖[[v]]‖², que é Pitágoras e só vale com [[u]] ⊥ [[v]]. Quem faz isso chega no resultado certo, mas com uma prova que só cobre o retângulo. A prova geral precisa do termo 2[[u]]·[[v]], que aparece com sinais opostos e cancela.",
+        "confira": "Use os vetores da figura: [[u]] = (4, 1) e [[v]] = (1, 3). [[u]] + [[v]] = (5, 4), com quadrado da norma 41. [[u]] − [[v]] = (3, −2), com quadrado 13. Soma: 54. Do outro lado, 2·17 + 2·10 = 54. Bate, e [[u]]·[[v]] = 7 não é zero, então o caso não é um retângulo.",
+        "atalho": "Expanda só os termos do meio: um tem +2[[u]]·[[v]], o outro −2[[u]]·[[v]]. Se eles se cancelam, a frase é verdadeira para quaisquer vetores. Isso elimina as justificativas que pedem ângulo reto. Para descartar uma alternativa que diz falsa com contraexemplo, refaça o exemplo dela: aqui ele falha na própria conta."
+      }
+    },
+    {
+      "id": "ga-s3-l3q5j",
+      "semana": 3,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Soma de vetores no hexágono",
+      "origem": "Lista 3 · Q5j",
+      "enunciado": "Classifique em Verdadeiro (V) ou Falso (F). Se verdadeiro, prove. Se falso, dê um contraexemplo:\nSeja ABCDEF um hexágono regular com centro em O. Temos que: [[AB]] + [[AC]] + [[AD]] + [[AE]] + [[AF]] = 6·[[AO]].\nQual classificação e justificativa estão corretas?",
+      "alternativas": [
+        {"t": "Verdadeira: com [[AX]] = [[AO]] + [[OX]], a soma vira 5[[AO]] mais os cinco [[OX]], que juntos valem −[[OA]] = [[AO]].", "certa": true},
+        {"t": "Falsa: são cinco vetores e cada um contribui com um [[AO]], então a soma dá 5·[[AO]].", "certa": false, "erro": "Cada [[AX]] traz um [[AO]] e mais um pedaço [[OX]]. Os cinco pedaços não somam zero: somam [[AO]], porque falta o [[OA]] para fechar a volta. Daí 5 + 1 = 6."},
+        {"t": "Verdadeira: [[AD]] = 2[[AO]], e cada um dos outros quatro vetores vale [[AO]].", "certa": false, "erro": "Os outros quatro não valem [[AO]] cada um: [[AB]] = (1, √3) e [[AO]] = (−1, √3) apontam para lados diferentes. Quem soma [[AO]] é o par [[AB]] + [[AF]]; o par [[AC]] + [[AE]] soma 3[[AO]]."},
+        {"t": "Falsa: a soma dá zero, porque os vetores de um polígono regular se anulam.", "certa": false, "erro": "Somam zero os vetores que saem do centro, de [[OA]] até [[OF]]. Aqui todos saem do vértice A e apontam para dentro do hexágono, então não se anulam."},
+        {"t": "Falsa: [[AB]] e [[AF]] se anulam por simetria, e a soma cai para 5·[[AO]].", "certa": false, "erro": "[[AB]] = (1, √3) e [[AF]] = (−2, 0) não são opostos: somam (−1, √3) = [[AO]]. A simetria em relação à reta AD espelha B em F, e vetores espelhados somam algo na direção do espelho, não zero."}
+      ],
+      "dica": "Escreva cada [[AX]] como [[AO]] + [[OX]] e lembre que os vetores do centro até os seis vértices somam zero.",
+      "resposta": "Verdadeira. A soma é 5[[AO]] + [[AO]] = 6[[AO]].",
+      "figura": {
+        "modo": "2d",
+        "onde": "enunciado",
+        "itens": [
+          {"tipo": "poligono", "pts": [[1, -1.732], [2, 0], [1, 1.732], [-1, 1.732], [-2, 0], [-1, -1.732]]},
+          {"tipo": "ponto", "em": [1, -1.732], "rot": "A"},
+          {"tipo": "ponto", "em": [2, 0], "rot": "B"},
+          {"tipo": "ponto", "em": [1, 1.732], "rot": "C"},
+          {"tipo": "ponto", "em": [-1, 1.732], "rot": "D"},
+          {"tipo": "ponto", "em": [-2, 0], "rot": "E"},
+          {"tipo": "ponto", "em": [-1, -1.732], "rot": "F"},
+          {"tipo": "ponto", "em": [0, 0], "rot": "O"}
+        ],
+        "legenda": "Hexágono regular ABCDEF com centro O."
+      },
+      "jeitos": {
+        "visual": "Na figura, A está embaixo à direita e O no centro. Os cinco vetores saem de A e vão para B, C, D, E e F, todos apontando para dentro do hexágono. Os que vão para B e F se abrem para os lados e, juntos, somam [[AO]]. Os que vão para C e E somam 3[[AO]]. O do meio, [[AD]], atravessa o centro e vale 2[[AO]]. Total: 6[[AO]].",
+        "receita": [
+          "Para cada vértice X, [[AX]] = [[AO]] + [[OX]].",
+          "Some os cinco: 5[[AO]] + ([[OB]] + [[OC]] + [[OD]] + [[OE]] + [[OF]]).",
+          "Os seis vetores do centro aos vértices somam zero, porque vêm em pares opostos: [[OA]] e [[OD]], [[OB]] e [[OE]], [[OC]] e [[OF]].",
+          "Então [[OB]] + [[OC]] + [[OD]] + [[OE]] + [[OF]] = −[[OA]] = [[AO]].",
+          "Total: 5[[AO]] + [[AO]] = 6[[AO]]. A afirmação é verdadeira."
+        ],
+        "cotidiano": "Pense em seis pessoas em volta de uma mesa redonda, puxando cordas presas no centro com a mesma força. Ninguém sai do lugar: quem está frente a frente se anula. Se uma pessoa larga a corda, o centro passa a ser puxado para o lado oposto ao dela, com a força que faltou. É esse um a menos que transforma 5[[AO]] em 6[[AO]].",
+        "trabalho": "Os seis vetores do centro funcionam como lançamentos de partida dobrada: cada débito tem um crédito do mesmo valor do lado oposto, e o total é zero. Tirar um lançamento, o [[OA]], deixa o saldo igual ao oposto dele, [[AO]]. A conta da questão é 5 vezes [[AO]] mais esse saldo que sobrou.",
+        "conversa": [
+          {"quem": "Você", "fala": "São cinco vetores, então a soma é 5[[AO]], não?"},
+          {"quem": "Monitor", "fala": "Cada [[AX]] é [[AO]] + [[OX]]. Os cinco [[AO]] dão 5[[AO]]. E os [[OX]]?"},
+          {"quem": "Você", "fala": "[[OB]] + [[OC]] + [[OD]] + [[OE]] + [[OF]]. Achei que davam zero."},
+          {"quem": "Monitor", "fala": "Os seis somam zero. Aqui falta um. Qual?"},
+          {"quem": "Você", "fala": "O [[OA]]. Então os cinco dão −[[OA]], que é [[AO]]."},
+          {"quem": "Monitor", "fala": "E 5[[AO]] + [[AO]] = 6[[AO]]."}
+        ],
+        "erro": "O erro clássico é cancelar os cinco [[OX]] como se fossem os seis e fechar em 5[[AO]]. Outro é achar que os cinco vetores saindo de A se anulam, como os do centro. Eles não se anulam porque saem de um vértice, não do centro: todos puxam para dentro do hexágono.",
+        "confira": "Use as coordenadas da figura, com √3 ≈ 1,732: A = (1, −√3) e O = (0, 0), então [[AO]] = (−1, √3). Somando os x de B, C, D, E e F: 2 + 1 − 1 − 2 − 1 = −1; os y: 0 + √3 + √3 + 0 − √3 = √3. Cinco vezes A dá (5, −5√3). Soma dos [[AX]]: (−1 − 5, √3 + 5√3) = (−6, 6√3) = 6[[AO]].",
+        "atalho": "Pense em média de pontos. A soma dos cinco [[AX]] é 5 vezes o vetor de A até a média de B, C, D, E e F. Os seis vértices têm média O; sem A, a média dos outros cinco fica em O − (1/5)[[OA]], ou seja, a (6/5)[[AO]] de A. Então a soma é 5·(6/5)[[AO]] = 6[[AO]], sem conta de coordenadas."
+      }
+    },
+    {
+      "id": "ga-s3-c01",
+      "semana": 3,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Regra de Sarrus",
+      "origem": "Construída · conferida",
+      "enunciado": "Com [[u]] = (2, −1, 3), [[v]] = (1, 4, −2) e [[w]] = (0, 5, 1), calcule [[u]]·([[v]] × [[w]]) pela regra de Sarrus, com as coordenadas de [[u]], [[v]] e [[w]] nas linhas.",
+      "alternativas": [
+        {"t": "2", "certa": false, "erro": "Você somou os dois grupos de diagonais, 23 + (−21) = 2. Na regra de Sarrus, o grupo das diagonais que sobem é subtraído: 23 − (−21) = 44."},
+        {"t": "−44", "certa": false, "erro": "A subtração saiu invertida: (−21) − 23 = −44. Primeiro vêm as diagonais que descem para a direita; delas se tiram as que sobem."},
+        {"t": "23", "certa": false, "erro": "Você parou nas três diagonais que descem (8 + 0 + 15). Faltou subtrair as três que sobem, que somam −21."},
+        {"t": "44", "certa": true},
+        {"t": "8", "certa": false, "erro": "Você usou a regra do 2 × 2 na matriz 3 × 3: diagonal principal 2·4·1 = 8 menos a secundária 3·4·0 = 0. No 3 × 3 são seis produtos, não dois."}
+      ],
+      "dica": "Copie as duas primeiras colunas à direita da grade e multiplique três diagonais em cada sentido.",
+      "resposta": "44",
+      "jeitos": {
+        "visual": "Escreva a grade com as linhas (2, −1, 3), (1, 4, −2) e (0, 5, 1). Copie as duas primeiras colunas ao lado, formando cinco colunas. Trace três setas descendo da esquerda para a direita, cada uma pegando três números: 2·4·1, (−1)·(−2)·0 e 3·1·5. Depois trace três setas subindo: 0·4·3, 5·(−2)·2 e 1·1·(−1). As que descem entram com mais; as que sobem, com menos.",
+        "receita": [
+          "Grade: linha 1 (2, −1, 3), linha 2 (1, 4, −2), linha 3 (0, 5, 1). Repita as colunas 1 e 2 à direita.",
+          "Diagonais que descem: 2·4·1 = 8; (−1)·(−2)·0 = 0; 3·1·5 = 15. Soma 23.",
+          "Diagonais que sobem: 3·4·0 = 0; 2·(−2)·5 = −20; (−1)·1·1 = −1. Soma −21.",
+          "Determinante: 23 − (−21) = 44.",
+          "Como as linhas são [[u]], [[v]] e [[w]] nessa ordem, [[u]]·([[v]] × [[w]]) = 44."
+        ],
+        "cotidiano": "A regra de Sarrus é como ler um caça-palavras em diagonal. Você copia as duas primeiras colunas para o lado para que toda diagonal tenha três casas completas. Lê três diagonais num sentido e soma, lê três no outro sentido e soma, e no fim tira uma soma da outra. O cuidado é o mesmo do caça-palavras: não pular casa nem trocar de linha no meio.",
+        "trabalho": "Cada diagonal é um produto de três células, e a regra soma seis produtos com sinal. No Excel, =MATRIZ.DETERM(A1:C3) faz tudo de uma vez e dá 44. Vale montar também as seis multiplicações em células separadas, com o sinal de cada uma, e somar: se der diferente do MATRIZ.DETERM, o erro está numa diagonal específica, e você acha olhando célula por célula.",
+        "conversa": [
+          {"quem": "Você", "fala": "As que descem deram 23 e as que sobem deram −21. Então 23 − 21 = 2?"},
+          {"quem": "Monitor", "fala": "O grupo que sobe soma −21. Subtrair −21 é o mesmo que fazer o quê?"},
+          {"quem": "Você", "fala": "Somar 21. Então 23 + 21 = 44."},
+          {"quem": "Monitor", "fala": "Isso. O sinal de menos da regra e o sinal negativo da soma se encontram."},
+          {"quem": "Você", "fala": "E como confiro?"},
+          {"quem": "Monitor", "fala": "Abra pela primeira linha com cofatores. Tem de dar o mesmo 44."}
+        ],
+        "erro": "O erro mais comum é com o sinal na hora de subtrair o grupo que sobe. Quando esse grupo dá negativo, como −21, menos com menos vira mais, e muita gente faz 23 − 21. Outro tropeço é esquecer de copiar as colunas e ficar com diagonais incompletas, o que leva a usar só a diagonal principal, como num 2 × 2.",
+        "confira": "Abra pela primeira linha, com cofatores: 2·(4·1 − (−2)·5) − (−1)·(1·1 − (−2)·0) + 3·(1·5 − 4·0) = 2·14 + 1·1 + 3·5 = 28 + 1 + 15 = 44. Mesmo número pelo outro método. Teste também que [[v]] × [[w]] = (14, −1, 5) é perpendicular a [[v]]: 14 − 4 − 10 = 0.",
+        "atalho": "A primeira coluna da grade, (2, 1, 0), tem um zero. Abrindo o determinante por ela, sobram só duas contas 2 × 2: 2·(4·1 − (−2)·5) − 1·((−1)·1 − 3·5) = 28 + 16 = 44. Se preferir Sarrus, olhe o sinal antes de tudo: o grupo que sobe deu negativo, então subtraí-lo aumenta o total, que passa de 23. Isso já elimina 2, 8, 23 e −44."
+      }
+    },
+    {
+      "id": "ga-s3-c02",
+      "semana": 3,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Ordem e sinal do produto misto",
+      "origem": "Construída · conferida",
+      "enunciado": "Sabe-se que [[u]]·([[v]] × [[w]]) = 7. Qual das expressões abaixo vale −7?",
+      "alternativas": [
+        {"t": "[[v]]·([[w]] × [[u]])", "certa": false, "erro": "É uma rotação em ciclo de ([[u]], [[v]], [[w]]): cada vetor andou uma casa. Rotação cíclica mantém o sinal, então vale 7."},
+        {"t": "[[u]]·([[w]] × [[v]])", "certa": true},
+        {"t": "([[u]] × [[v]])·[[w]]", "certa": false, "erro": "Trocar o ponto e o × de lugar não muda o produto misto: ([[u]] × [[v]])·[[w]] = [[u]]·([[v]] × [[w]]) = 7."},
+        {"t": "(−[[u]])·([[w]] × [[v]])", "certa": false, "erro": "Aqui há duas inversões: o −[[u]] inverte uma vez e a troca de [[w]] com [[v]] inverte de novo. As duas se anulam, e o valor é 7."},
+        {"t": "[[v]]·([[v]] × [[w]])", "certa": false, "erro": "[[v]] × [[w]] é perpendicular a [[v]], então o produto escalar com [[v]] dá 0. Vetor repetido zera o produto misto."}
+      ],
+      "dica": "Rodar os três vetores em ciclo não muda nada; trocar só dois de lugar troca o sinal.",
+      "resposta": "[[u]]·([[w]] × [[v]]) = −7",
+      "jeitos": {
+        "visual": "Imagine os três vetores sentados numa mesa redonda, na ordem [[u]], [[v]], [[w]]. Se todos andam uma cadeira no mesmo sentido, a ordem em volta da mesa continua a mesma, e o produto misto não muda. Se só dois trocam de cadeira, a ordem em volta da mesa se inverte, e o sinal vira. Na expressão certa, [[v]] e [[w]] trocaram de lugar e [[u]] ficou parado.",
+        "receita": [
+          "Ponto de partida: [[u]]·([[v]] × [[w]]) = 7, na ordem ([[u]], [[v]], [[w]]).",
+          "[[v]]·([[w]] × [[u]]) tem ordem ([[v]], [[w]], [[u]]): rotação cíclica, vale 7.",
+          "([[u]] × [[v]])·[[w]] é o mesmo produto com ponto e × trocados: vale 7.",
+          "(−[[u]])·([[w]] × [[v]]) tem duas inversões e vale 7. [[v]]·([[v]] × [[w]]) tem vetor repetido e vale 0.",
+          "[[u]]·([[w]] × [[v]]) troca só [[v]] e [[w]]: vale −7."
+        ],
+        "cotidiano": "Pense em girar a tampa de um pote. Girar de [[v]] para [[w]] aperta; girar de [[w]] para [[v]] afrouxa. O produto misto pergunta se [[u]] está do lado para onde a tampa anda ao apertar ou ao afrouxar. Trocar [[v]] com [[w]] inverte o giro, e o sinal acompanha. Rodar os três juntos é como olhar o mesmo pote de outro ângulo: nada muda.",
+        "trabalho": "No Excel, monte [[u]], [[v]] e [[w]] em três linhas e calcule =MATRIZ.DETERM(A1:C3). Recorte a linha de [[v]] e cole abaixo da de [[w]]: o resultado troca de sinal, porque houve uma troca. Volte ao original e leve a linha de [[u]] para o fim, formando ([[v]], [[w]], [[u]]): o sinal fica igual, porque isso equivale a duas trocas.",
+        "conversa": [
+          {"quem": "Você", "fala": "Qualquer mudança de ordem não troca o sinal?"},
+          {"quem": "Monitor", "fala": "Compare ([[u]], [[v]], [[w]]) com ([[v]], [[w]], [[u]]). Quantas trocas de dois vetores levam de um ao outro?"},
+          {"quem": "Você", "fala": "Troco [[u]] com [[v]] e depois [[u]] com [[w]]. Duas."},
+          {"quem": "Monitor", "fala": "Duas inversões de sinal se cancelam. E ([[u]], [[w]], [[v]])?"},
+          {"quem": "Você", "fala": "Uma troca só. Inverte: −7."},
+          {"quem": "Monitor", "fala": "Essa é a regra: conte as trocas. Número par mantém, ímpar inverte."}
+        ],
+        "erro": "A armadilha é achar que toda mudança de ordem inverte o sinal. Rotação em ciclo mantém, porque equivale a duas trocas. Outra é esquecer que um vetor com sinal de menos, como −[[u]], também inverte, e aí duas inversões se cancelam. Conte cada inversão antes de decidir.",
+        "confira": "Teste com vetores simples: [[u]] = (1, 0, 0), [[v]] = (0, 1, 0), [[w]] = (0, 0, 7). [[u]]·([[v]] × [[w]]) = 7. [[w]] × [[v]] = (−7, 0, 0), e [[u]]·([[w]] × [[v]]) = −7. Para a cíclica: [[w]] × [[u]] = (0, 7, 0), e [[v]]·(0, 7, 0) = 7. Os números confirmam a regra.",
+        "atalho": "Elimine primeiro o vetor repetido, que dá 0. Depois, conte as inversões de cada expressão em relação a ([[u]], [[v]], [[w]]): troca de dois vetores conta 1, sinal de menos na frente conta 1, rotação em ciclo conta 0, trocar ponto e × conta 0. Só uma alternativa tem total ímpar."
+      }
+    }
+  ]
+}

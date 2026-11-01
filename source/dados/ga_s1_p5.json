@@ -1,0 +1,262 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s1-l1q9d",
+      "semana": 1,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Norma e unitário",
+      "origem": "Lista 1 · Q9d",
+      "enunciado": "Calcule as normas dos seguintes vetores. Quais são unitários?\nItem d: [[r]] = (1/√3, −1/√3, −2/√3). Qual é ‖[[r]]‖, e [[r]] é unitário?",
+      "alternativas": [
+        {"t": "1, é unitário", "certa": false, "erro": "Você reaproveitou o resultado do item c, mas aqui o denominador é √3, não √6. Os quadrados somam 1/3 + 1/3 + 4/3 = 2."},
+        {"t": "2, não é unitário", "certa": false, "erro": "Você parou na soma dos quadrados, 6/3 = 2. Falta a raiz: a norma é √2."},
+        {"t": "−2/√3, não é unitário", "certa": false, "erro": "Você somou as coordenadas: (1 − 1 − 2)/√3 = −2/√3. Norma soma os quadrados e nunca dá negativo."},
+        {"t": "√(4/3), não é unitário", "certa": false, "erro": "Você elevou só o denominador da terceira coordenada: (−2/√3)² virou 2/3. Com o 2 de cima ao quadrado, é 4/3, e a soma dá 2."},
+        {"t": "√2, não é unitário", "certa": true}
+      ],
+      "dica": "Compare com o item c: os numeradores são os mesmos, mas o denominador mudou.",
+      "resposta": "‖[[r]]‖ = √2; [[r]] não é unitário",
+      "jeitos": {
+        "visual": "Ponha [[r]] ao lado do [[w]] do item c. As duas setas apontam para o mesmo lado, porque as coordenadas têm a mesma proporção 1 : −1 : −2. Só o tamanho muda. [[w]] foi dividido por √6 e ficou com comprimento 1. [[r]] foi dividido por √3, um número menor, então ficou mais comprido: √6/√3 = √2.",
+        "receita": [
+          "Quadrados: (1/√3)² = 1/3, (−1/√3)² = 1/3, (−2/√3)² = 4/3.",
+          "Soma: 1/3 + 1/3 + 4/3 = 6/3 = 2.",
+          "Raiz: ‖[[r]]‖ = √2.",
+          "Como √2 ≠ 1, [[r]] não é unitário."
+        ],
+        "cotidiano": "Duas fotos da mesma paisagem, uma delas ampliada. O desenho é igual, só muda o tamanho. [[w]] e [[r]] são assim: mesma direção, tamanhos diferentes. Olhar só o padrão (1, −1, −2) e concluir 'tamanho 1' é como dizer que duas fotos têm o mesmo tamanho porque mostram a mesma paisagem.",
+        "trabalho": "É o erro de copiar uma fórmula de uma planilha para outra sem olhar o denominador. No item c, a normalização usou √6 e funcionou. Aqui o perfil (1, −1, −2) foi dividido por √3, que não é a norma dele. O resultado parece normalizado, mas a soma dos quadrados dá 2, e não 1. Num relatório, seria um rateio que deveria fechar em 100% e fecha em 200%.",
+        "conversa": [
+          {"quem": "Você", "fala": "É igual ao item c, então a norma é 1."},
+          {"quem": "Monitor", "fala": "Os numeradores são iguais. E os denominadores?"},
+          {"quem": "Você", "fala": "Lá era √6, aqui é √3."},
+          {"quem": "Monitor", "fala": "Então quanto dá (−2/√3)²?"},
+          {"quem": "Você", "fala": "4/3. Somando com 1/3 e 1/3, dá 2."},
+          {"quem": "Monitor", "fala": "E a norma?"},
+          {"quem": "Você", "fala": "√2. Não é unitário."}
+        ],
+        "erro": "A armadilha é a semelhança com o item c. O olho reconhece o padrão (1, −1, −2) e responde 1 por reflexo. Mas a norma depende do denominador: com √3 embaixo, os quadrados somam 6/3 = 2. Outro deslize é esquecer a raiz e responder 2, ou elevar só o denominador do −2 e chegar em √(4/3).",
+        "confira": "Multiplique [[r]] por √3: sai (1, −1, −2), de norma √6. Então ‖[[r]]‖ = √6/√3 = √(6/3) = √2, o mesmo da conta direta. Em decimal, √2 ≈ 1,41, maior que 1, então [[r]] não é unitário.",
+        "atalho": "Some os quadrados dos numeradores e compare com o número dentro da raiz do denominador: 1 + 1 + 4 = 6 contra 3. Como 6 é o dobro de 3, a soma dos quadrados é 2 e a norma é √2. Isso elimina a alternativa que diz que [[r]] é unitário."
+      }
+    },
+    {
+      "id": "ga-s1-l1q9e",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Unitário com seno e cosseno",
+      "origem": "Lista 1 · Q9e",
+      "enunciado": "Calcule as normas dos seguintes vetores. Quais são unitários?\nItem e: [[s]] = (cos θ, sen θ).\nCalcule ‖[[s]]‖ e, junto com os itens anteriores ([[u]] = (−2, 1, −2), [[v]] = (0, 1/√2, 1/√2), [[w]] = (1/√6, −1/√6, −2/√6) e [[r]] = (1/√3, −1/√3, −2/√3)), diga quais dos cinco vetores são unitários.",
+      "alternativas": [
+        {"t": "‖[[s]]‖ = 1; unitários: [[v]], [[w]] e [[s]]", "certa": true},
+        {"t": "‖[[s]]‖ = cos θ + sen θ; unitários: [[v]] e [[w]]", "certa": false, "erro": "Você somou as coordenadas de [[s]]. A norma é √(cos² θ + sen² θ), e isso vale 1 para qualquer θ."},
+        {"t": "‖[[s]]‖ = 1; unitários: [[v]], [[w]], [[r]] e [[s]]", "certa": false, "erro": "[[r]] parece com [[w]], mas tem √3 no denominador: os quadrados somam 2 e a norma é √2. Ele não é unitário."},
+        {"t": "‖[[s]]‖ = 1; unitários: só [[s]]", "certa": false, "erro": "Você descartou [[v]] e [[w]] por terem raízes nas coordenadas. Os quadrados de [[v]] somam 1/2 + 1/2 = 1, e os de [[w]], 1/6 + 1/6 + 4/6 = 1."},
+        {"t": "‖[[s]]‖ = √2; unitários: [[v]] e [[w]]", "certa": false, "erro": "Você trocou cos² θ e sen² θ por 1 cada, como se as duas coordenadas valessem 1 ao mesmo tempo. Quando uma vale 1, a outra vale 0."}
+      ],
+      "dica": "Eleve as coordenadas de [[s]] ao quadrado e lembre da relação fundamental entre seno e cosseno.",
+      "resposta": "‖[[s]]‖ = 1; os unitários são [[v]], [[w]] e [[s]]",
+      "figura": {
+        "modo": "2d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[1, 0], [0.966, 0.259], [0.866, 0.5], [0.707, 0.707], [0.5, 0.866], [0.259, 0.966], [0, 1], [-0.259, 0.966], [-0.5, 0.866], [-0.707, 0.707], [-0.866, 0.5], [-0.966, 0.259], [-1, 0], [-0.966, -0.259], [-0.866, -0.5], [-0.707, -0.707], [-0.5, -0.866], [-0.259, -0.966], [0, -1], [0.259, -0.966], [0.5, -0.866], [0.707, -0.707], [0.866, -0.5], [0.966, -0.259]], "cor": 3},
+          {"tipo": "vetor", "de": [0, 0], "ate": [0.866, 0.5], "rot": "s", "cor": 1},
+          {"tipo": "segmento", "de": [0, 0], "ate": [0.866, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [0.866, 0], "ate": [0.866, 0.5], "tracejado": true}
+        ],
+        "legenda": "Com θ = 30°, [[s]] = (cos 30°, sen 30°). Para qualquer θ, a ponta de [[s]] fica no círculo de raio 1."
+      },
+      "jeitos": {
+        "visual": "Na figura, o círculo ocre tem raio 1 e centro na origem. [[s]] sai do centro com ângulo θ; aqui foi desenhado com θ = 30°. Os tracejados mostram cos θ na horizontal e sen θ na vertical. Gire o θ na imaginação: a ponta de [[s]] escorrega pelo círculo, mas nunca sai dele. Por isso o tamanho é sempre 1, seja qual for o ângulo.",
+        "receita": [
+          "Quadrados: (cos θ)² = cos² θ e (sen θ)² = sen² θ.",
+          "Soma: cos² θ + sen² θ = 1 (relação fundamental da trigonometria).",
+          "Raiz: ‖[[s]]‖ = √1 = 1, para qualquer θ.",
+          "Junte com os itens anteriores: ‖[[u]]‖ = 3, ‖[[v]]‖ = 1, ‖[[w]]‖ = 1, ‖[[r]]‖ = √2.",
+          "Unitários: [[v]], [[w]] e [[s]]."
+        ],
+        "cotidiano": "Pense no ponteiro de um relógio de parede com 1 metro de comprimento. Ele gira e aponta para horas diferentes, mas o comprimento não muda. A posição da ponta, medida na horizontal e na vertical, muda o tempo todo; o tamanho do ponteiro, não. [[s]] é esse ponteiro, e cos θ e sen θ são as sombras dele nos dois eixos.",
+        "trabalho": "É a checagem de fechamento de uma base de rateio, que só vale se os pesos fecham 100%. Para vetor unitário, o fechamento é na soma dos quadrados: [[v]] fecha (1/2 + 1/2), [[w]] fecha (1/6 + 1/6 + 4/6), [[s]] fecha (cos² θ + sen² θ). [[u]] dá 9 e [[r]] dá 2: não fecham. No Excel, a coluna de checagem seria `=ARRED(SOMAQUAD(A2:C2);9)=1`. O ARRED evita que uma sobra mínima de arredondamento reprove um vetor unitário.",
+        "conversa": [
+          {"quem": "Você", "fala": "A norma de [[s]] depende do θ, não?"},
+          {"quem": "Monitor", "fala": "As coordenadas dependem. Some os quadrados delas."},
+          {"quem": "Você", "fala": "cos² θ + sen² θ."},
+          {"quem": "Monitor", "fala": "Quanto vale isso para θ = 0? E para θ = 90°?"},
+          {"quem": "Você", "fala": "1 + 0 = 1 e 0 + 1 = 1. Vale 1 sempre."},
+          {"quem": "Monitor", "fala": "Então [[s]] é unitário. Quais outros dos cinco tinham norma 1?"},
+          {"quem": "Você", "fala": "[[v]] e [[w]]. O [[r]] deu √2, e o [[u]], 3."}
+        ],
+        "erro": "Aqui a armadilha é dupla. Em [[s]], achar que a norma depende de θ ou somar cos θ + sen θ, que muda com o ângulo. Na lista final, incluir [[r]] por parecer com [[w]], ou excluir [[v]] e [[w]] por terem raízes. Quem decide é a soma dos quadrados, item por item, e não a aparência das coordenadas.",
+        "confira": "Teste um ângulo: θ = 60°. cos 60° = 1/2 e sen 60° = √3/2. Quadrados: 1/4 + 3/4 = 1. Para a lista, refaça só as somas de quadrados: [[u]] dá 9, [[v]] dá 1, [[w]] dá 1, [[r]] dá 2 e [[s]] dá 1. Três deram 1.",
+        "atalho": "Para [[s]], lembre do círculo trigonométrico: o ponto (cos θ, sen θ) mora num círculo de raio 1, então a norma é 1. Isso elimina quem diz cos θ + sen θ ou √2. Na lista, [[r]] já ficou de fora no item d, e [[v]] e [[w]] entram."
+      }
+    },
+    {
+      "id": "ga-s1-l1q10a",
+      "semana": 1,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Distância entre pontos",
+      "origem": "Lista 1 · Q10a",
+      "enunciado": "Dados os pontos P = (−2, 1, −2), Q = (1, 2, 1) e R = (−3, 2, 0), calcule d(P, Q).",
+      "alternativas": [
+        {"t": "√11", "certa": false, "erro": "Você somou os pontos, P + Q = (−1, 3, −1), e tirou a norma: √(1 + 9 + 1) = √11. A distância usa a diferença Q − P."},
+        {"t": "√19", "certa": true},
+        {"t": "7", "certa": false, "erro": "Você somou as diferenças sem elevar ao quadrado: 3 + 1 + 3 = 7. Isso é o caminho em escada pelos eixos, não a linha reta."},
+        {"t": "19", "certa": false, "erro": "Você parou na soma dos quadrados, 9 + 1 + 9 = 19. Falta a raiz."},
+        {"t": "√3", "certa": false, "erro": "Você ignorou os sinais de P e fez 1 − 2, 2 − 1 e 1 − 2, chegando a (−1, 1, −1). Subtrair −2 é somar 2: 1 − (−2) = 3."}
+      ],
+      "dica": "A distância é a norma do vetor que liga os dois pontos: calcule Q − P primeiro.",
+      "resposta": "d(P, Q) = √19",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "ponto", "em": [-2, 1, -2], "rot": "P"},
+          {"tipo": "ponto", "em": [1, 2, 1], "rot": "Q"},
+          {"tipo": "ponto", "em": [-3, 2, 0], "rot": "R"},
+          {"tipo": "vetor", "de": [-2, 1, -2], "ate": [1, 2, 1], "rot": "PQ", "cor": 1},
+          {"tipo": "segmento", "de": [-2, 1, -2], "ate": [-3, 2, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [-3, 2, 0], "ate": [1, 2, 1], "tracejado": true}
+        ],
+        "legenda": "d(P, Q) é o comprimento da seta [[PQ]]. Os tracejados ligam R, que aparece nos itens b e c."
+      },
+      "jeitos": {
+        "visual": "Na figura, P e Q são dois pontos soltos no espaço, e a seta azul vai de P até Q. A distância entre eles é o comprimento dessa seta. Para medir, transforme a seta em números: ela anda 3 em x, 1 em y e 3 em z. Com esses três trechos, o comprimento sai pelo Pitágoras em três dimensões.",
+        "receita": [
+          "Vetor: [[PQ]] = Q − P = (1 − (−2), 2 − 1, 1 − (−2)) = (3, 1, 3).",
+          "Quadrados: 9, 1 e 9.",
+          "Soma: 9 + 1 + 9 = 19.",
+          "Raiz: d(P, Q) = √19."
+        ],
+        "cotidiano": "É a distância de um drone que voa em linha reta de um ponto a outro. Ele não segue as ruas; isso seria somar 3 + 1 + 3 = 7. Ele corta o caminho pelo ar. A linha reta é sempre menor que o caminho pelas ruas: √19 é um pouco mais que 4,3, bem abaixo de 7.",
+        "trabalho": "Pense em dois clientes descritos por três indicadores na mesma escala, como prazo médio, ticket e atraso. P e Q são os perfis. A distância mede quão diferentes eles são: subtrai indicador por indicador, eleva ao quadrado, soma e tira a raiz. No Excel, `=RAIZ(SOMAXMY2(B1:D1;B2:D2))` faz a conta numa célula. Para P e Q, dá √19.",
+        "conversa": [
+          {"quem": "Você", "fala": "Fiz Q − P e deu (−1, 1, −1)."},
+          {"quem": "Monitor", "fala": "Primeira coordenada: quanto é 1 − (−2)?"},
+          {"quem": "Você", "fala": "1 + 2 = 3. Eu tinha feito 1 − 2."},
+          {"quem": "Monitor", "fala": "E a terceira?"},
+          {"quem": "Você", "fala": "1 − (−2) = 3 também. Fica (3, 1, 3)."},
+          {"quem": "Monitor", "fala": "Agora a norma."},
+          {"quem": "Você", "fala": "√(9 + 1 + 9) = √19."}
+        ],
+        "erro": "O tropeço clássico é o sinal na subtração de coordenadas negativas: 1 − (−2) vira 1 − 2 sem querer. Outro é somar os pontos em vez de subtrair. E há quem pare na soma dos quadrados, 19, e esqueça a raiz. Distância é a norma da diferença, sempre com raiz no fim.",
+        "confira": "Calcule no outro sentido: P − Q = (−3, −1, −3). Os quadrados são os mesmos, 9 + 1 + 9 = 19, e a raiz também. A distância de P a Q é igual à de Q a P. Se as duas contas não baterem, o erro está num sinal.",
+        "atalho": "A distância fica entre a maior diferença de coordenada (3) e a soma das diferenças (7). Isso elimina 7 e 19, e também √3, que é menor que 3. Entre √11 e √19, repare que os dois 3 já dão 9 + 9 = 18 sozinhos."
+      }
+    },
+    {
+      "id": "ga-s1-l1q10b",
+      "semana": 1,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Distância no espaço",
+      "origem": "Lista 1 · Q10b",
+      "enunciado": "Dados os pontos P = (−2, 1, −2), Q = (1, 2, 1) e R = (−3, 2, 0), calcule d(P, R).",
+      "alternativas": [
+        {"t": "√38", "certa": false, "erro": "Você somou os pontos, R + P = (−5, 3, −2), e tirou a norma: √(25 + 9 + 4) = √38. A distância usa R − P."},
+        {"t": "4", "certa": false, "erro": "Você somou as diferenças em valor absoluto: 1 + 1 + 2 = 4. Faltou elevar ao quadrado e tirar a raiz."},
+        {"t": "√30", "certa": false, "erro": "Na primeira coordenada você fez −3 − 2 = −5. O x de P é −2, e −3 − (−2) = −1."},
+        {"t": "√6", "certa": true},
+        {"t": "√2", "certa": false, "erro": "Você deixou o z de fora porque R tem z = 0. Mas o z de P é −2: a diferença é 2 e entra como 4 na soma."}
+      ],
+      "dica": "Monte R − P com cuidado nos sinais: duas coordenadas de P são negativas.",
+      "resposta": "d(P, R) = √6",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "ponto", "em": [-2, 1, -2], "rot": "P"},
+          {"tipo": "ponto", "em": [1, 2, 1], "rot": "Q"},
+          {"tipo": "ponto", "em": [-3, 2, 0], "rot": "R"},
+          {"tipo": "vetor", "de": [-2, 1, -2], "ate": [-3, 2, 0], "rot": "PR", "cor": 1},
+          {"tipo": "segmento", "de": [-2, 1, -2], "ate": [1, 2, 1], "tracejado": true},
+          {"tipo": "segmento", "de": [1, 2, 1], "ate": [-3, 2, 0], "tracejado": true}
+        ],
+        "legenda": "d(P, R) é o comprimento da seta [[PR]], mais em pé que deitada: o maior trecho é a subida de 2 no eixo z."
+      },
+      "jeitos": {
+        "visual": "Na figura, a seta azul liga P a R. Ela é curta: recua 1 em x, avança 1 em y e sobe 2 em z. A subida de 2 é o trecho mais longo, então a seta fica mais em pé do que deitada. O comprimento é a raiz de 1 + 1 + 4, um pouco menos que 2,5.",
+        "receita": [
+          "Vetor: [[PR]] = R − P = (−3 − (−2), 2 − 1, 0 − (−2)) = (−1, 1, 2).",
+          "Quadrados: 1, 1 e 4.",
+          "Soma: 1 + 1 + 4 = 6.",
+          "Raiz: d(P, R) = √6."
+        ],
+        "cotidiano": "Num prédio, P fica no segundo subsolo e R no térreo, um pouco deslocado em relação a P: um passo para o lado e um para a frente. A distância em linha reta é dominada pela subida de 2 andares. Os dois passos laterais pesam pouco: somam 2 dentro da raiz, contra 4 da subida.",
+        "trabalho": "Em SQL, a distância entre duas linhas com colunas x, y e z sai de `SQRT(POWER(r.x - p.x, 2) + POWER(r.y - p.y, 2) + POWER(r.z - p.z, 2))`. Para P e R, o resultado é √6 ≈ 2,45. É a conta por trás de um agrupamento de clientes por semelhança: quanto menor a distância, mais parecidos os perfis.",
+        "conversa": [
+          {"quem": "Você", "fala": "Tirei o z da conta porque R tem z = 0. Deu √2."},
+          {"quem": "Monitor", "fala": "O z de P também é 0?"},
+          {"quem": "Você", "fala": "Não, é −2."},
+          {"quem": "Monitor", "fala": "Então o z muda de −2 para 0. Quanto mudou?"},
+          {"quem": "Você", "fala": "2. Entra 2² = 4 na soma."},
+          {"quem": "Monitor", "fala": "E a distância?"},
+          {"quem": "Você", "fala": "√(1 + 1 + 4) = √6."}
+        ],
+        "erro": "O zero engana. Como R tem z = 0, dá vontade de achar que a terceira coordenada não conta. O que conta é a diferença: de −2 para 0 são 2 unidades. Também é comum errar o sinal em −3 − (−2), que dá −1 e não −5. O quadrado apaga o sinal do resultado, mas não conserta um número calculado errado.",
+        "confira": "Faça P − R = (1, −1, −2). Os quadrados são 1, 1 e 4, a mesma soma 6. Em decimal, √6 ≈ 2,45. Faz sentido: o maior deslocamento numa coordenada é 2, e a distância tem de ser um pouco maior que isso.",
+        "atalho": "A maior diferença entre as coordenadas é 2 (no z) e a soma das diferenças é 1 + 1 + 2 = 4. A distância fica entre 2 e 4. √38 ≈ 6,2 e √30 ≈ 5,5 saem; 4 é o teto, não a resposta; √2 ≈ 1,4 é menor que 2. Sobra √6."
+      }
+    },
+    {
+      "id": "ga-s1-l1q10c",
+      "semana": 1,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Distância com coordenada igual",
+      "origem": "Lista 1 · Q10c",
+      "enunciado": "Dados os pontos P = (−2, 1, −2), Q = (1, 2, 1) e R = (−3, 2, 0), calcule d(R, Q).",
+      "alternativas": [
+        {"t": "√5", "certa": false, "erro": "Na primeira coordenada você fez 1 − 3 = −2. O x de R é −3, e 1 − (−3) = 4."},
+        {"t": "17", "certa": false, "erro": "Você parou na soma dos quadrados, 16 + 0 + 1 = 17. Falta a raiz."},
+        {"t": "√17", "certa": true},
+        {"t": "5", "certa": false, "erro": "Você somou as diferenças sem elevar ao quadrado: 4 + 0 + 1 = 5. Isso é o caminho em escada pelos eixos, não a linha reta."},
+        {"t": "√21", "certa": false, "erro": "Você somou os pontos, R + Q = (−2, 4, 1), e tirou a norma: √(4 + 16 + 1) = √21. A distância usa Q − R."}
+      ],
+      "dica": "Repare que R e Q têm o mesmo y. Uma das diferenças vai dar zero.",
+      "resposta": "d(R, Q) = √17",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "ponto", "em": [-2, 1, -2], "rot": "P"},
+          {"tipo": "ponto", "em": [1, 2, 1], "rot": "Q"},
+          {"tipo": "ponto", "em": [-3, 2, 0], "rot": "R"},
+          {"tipo": "vetor", "de": [-3, 2, 0], "ate": [1, 2, 1], "rot": "RQ", "cor": 1},
+          {"tipo": "segmento", "de": [-2, 1, -2], "ate": [1, 2, 1], "tracejado": true},
+          {"tipo": "segmento", "de": [-2, 1, -2], "ate": [-3, 2, 0], "tracejado": true}
+        ],
+        "legenda": "R e Q têm o mesmo y, então a seta [[RQ]] não anda na direção do eixo y."
+      },
+      "jeitos": {
+        "visual": "Na figura, a seta azul liga R a Q. Gire a cena e veja que ela não anda na direção do eixo y: R e Q têm y = 2. Ela avança 4 em x e sobe 1 em z. É quase um deslocamento só em x, com uma pequena subida. Por isso o comprimento fica um pouco acima de 4: √17 ≈ 4,12.",
+        "receita": [
+          "Vetor: [[RQ]] = Q − R = (1 − (−3), 2 − 2, 1 − 0) = (4, 0, 1).",
+          "Quadrados: 16, 0 e 1.",
+          "Soma: 16 + 0 + 1 = 17.",
+          "Raiz: d(R, Q) = √17."
+        ],
+        "cotidiano": "Pense num corredor reto de 4 metros com um degrau de 1 metro no fim. Para ir do começo do corredor ao alto do degrau em linha reta, você percorre √(16 + 1), pouco mais de 4 metros. O degrau acrescenta pouco, porque entra ao quadrado: 1 contra 16.",
+        "trabalho": "São dois clientes iguais num indicador e diferentes nos outros dois. A diferença zero não some da fórmula; ela entra como 0² e não pesa nada. Em SQL, `POWER(q.y - r.y, 2)` dá 0 e a soma fica com 16 + 1. É um bom teste para quem monta a distância numa consulta: um indicador idêntico tem de contribuir com zero.",
+        "conversa": [
+          {"quem": "Você", "fala": "Fiz Q − R e deu (−2, 0, 1)."},
+          {"quem": "Monitor", "fala": "Quanto é 1 − (−3)?"},
+          {"quem": "Você", "fala": "1 + 3 = 4. Fica (4, 0, 1)."},
+          {"quem": "Monitor", "fala": "E a norma?"},
+          {"quem": "Você", "fala": "√(16 + 0 + 1) = √17."},
+          {"quem": "Monitor", "fala": "Faz sentido ser um pouco mais que 4?"},
+          {"quem": "Você", "fala": "Faz. O maior trecho é 4, em x."}
+        ],
+        "erro": "O sinal volta a ser o vilão: 1 − (−3) é 4, não −2. Com −2, a distância cai para √5, menor até que a diferença real em x. Outro tropeço é somar as diferenças, 4 + 0 + 1 = 5, ou esquecer a raiz e ficar com 17. A coordenada igual ajuda: ela zera e encurta a conta.",
+        "confira": "Refaça no sentido contrário: R − Q = (−4, 0, −1), quadrados 16, 0 e 1, soma 17. Depois teste o tamanho: com x mudando 4 e z mudando 1, a distância tem de ficar entre 4 e 5. √17 ≈ 4,12 passa nesse teste.",
+        "atalho": "Os dois pontos têm o mesmo y, então só x e z contam: diferença 4 em x e 1 em z. A resposta é √(4² + 1²), um pouco mais que 4. Elimine 17, grande demais; 5, que é a soma das diferenças e só serve de teto; e √5, pequeno demais. Das que sobram, só √17 é 16 + 1."
+      }
+    }
+  ]
+}

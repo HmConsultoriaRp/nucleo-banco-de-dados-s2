@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5f0e7">
+<meta name="description" content="Núcleo: estudo do semestre 2 de Tecnologia em Banco de Dados (UFTM) — Geometria Analítica e Lógica de Programação.">
+<title>Núcleo · Semestre 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/*__CSS__*/
+</style>
+</head>
+<body data-subject="ga">
+<div class="paper-noise" aria-hidden="true"></div>
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#inicio" aria-label="Ir ao início">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>Núcleo<small>Banco de Dados · S2</small></span>
+    </a>
+    <nav class="topnav" aria-label="Navegação principal">
+      <a class="active" href="#inicio">Hoje</a>
+      <a href="#trilhas">Trilhas</a>
+      <a href="#estudo">Estudar</a>
+      <a href="#simulado">Simulado</a>
+    </nav>
+    <div class="top-actions">
+      <button class="icon-button" id="theme-toggle" aria-label="Alternar tema claro e escuro" title="Tema claro ou escuro">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.91-.1-1.35A7 7 0 0 1 12.35 3.1C12.23 3.05 12.12 3 12 3Z"/></svg>
+      </button>
+      <div class="mini-progress" title="Questões acertadas no ciclo">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="16"/><circle id="progress-ring" cx="20" cy="20" r="16"/></svg>
+        <span><span id="progress-number">0%</span><small id="progress-detail">0 de 0</small></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="hero-copy">
+      <p class="eyebrow"><span></span> <b id="hero-ciclo">Ciclo 01</b></p>
+      <h1>Uma questão<br>de <em>cada vez.</em></h1>
+      <p class="hero-lead">Geometria Analítica e Lógica de Programação. As listas do Prof. Danilo estão resolvidas aqui de oito jeitos diferentes. Se um jeito não encaixar, troque de jeito: a matéria é a mesma.</p>
+      <div class="hero-actions">
+        <button class="primary-button" id="continuar">Continuar de onde parei <span>↗</span></button>
+        <button class="text-button" data-open-planner>Ver o plano das seis semanas <span>→</span></button>
+      </div>
+      <div class="today-note">
+        <span class="note-tape"></span>
+        <strong>Para hoje</strong>
+        <ul id="para-hoje"></ul>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+      <div class="coordinate-card">
+        <div class="card-label">ideia → teste → ajuste</div>
+        <svg viewBox="0 0 420 390">
+          <defs><filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity=".12"/></filter></defs>
+          <g class="grid-lines"><path d="M60 45v290M110 45v290M160 45v290M210 45v290M260 45v290M310 45v290M360 45v290M35 80h350M35 130h350M35 180h350M35 230h350M35 280h350M35 330h350"/></g>
+          <path class="axis" d="M35 230h350M160 45v300"/>
+          <path class="vector-line" d="M160 230L315 105"/>
+          <path class="vector-arrow" d="m299 105 16 0-3 16"/>
+          <circle class="point point-a" cx="315" cy="105" r="11"/>
+          <circle class="point point-b" cx="92" cy="280" r="8"/>
+          <rect class="logic-node" x="65" y="78" width="88" height="44" rx="22" filter="url(#shadow)"/>
+          <text x="109" y="106" text-anchor="middle">leia(x)</text>
+          <rect class="logic-node accent" x="256" y="278" width="99" height="44" rx="22" filter="url(#shadow)"/>
+          <text x="305" y="306" text-anchor="middle">escreval</text>
+          <path class="dashed" d="M109 122C90 178 126 216 160 230M315 116c14 58 28 108-10 162"/>
+          <text class="vector-label" x="245" y="145">v = (3, 2)</text>
+        </svg>
+        <div class="visual-caption"><span>01</span> Vetor é deslocamento; algoritmo é passo a passo. As duas matérias pedem o mesmo hábito: fazer a conta e conferir.</div>
+      </div>
+      <div class="floating-chip chip-one" id="chip-um">questões</div>
+      <div class="floating-chip chip-two">o VisuAlg roda aqui</div>
+    </div>
+  </section>
+
+  <section class="cycle-section" id="trilhas">
+    <div class="section-heading">
+      <div><p class="eyebrow"><span></span> Seu semestre</p><h2>Um ciclo de cada vez.</h2></div>
+      <p>Seis disciplinas no 2º período, duas a cada seis semanas. Este ciclo: Lógica de Programação e Geometria Analítica.</p>
+    </div>
+    <div class="cycle-track">
+      <article class="cycle active">
+        <div class="cycle-top"><span>Ciclo 01</span><strong>Agora</strong></div>
+        <h3>Lógica de Programação + Geometria Analítica</h3>
+        <div class="subject-pills"><span class="pill">Lógica · 90 h</span><span class="pill blue">Geometria · 60 h</span></div>
+        <div class="week-line" id="week-line" aria-label="Semanas do ciclo"></div>
+      </article>
+      <article class="cycle muted"><div class="cycle-top"><span>Ciclo 02</span><strong>Próximo</strong></div><h3>Duas das quatro que faltam</h3><p>Álgebra Linear, Probabilidade e Estatística, Banco de Dados e Introdução à Ciência de Dados (lista do PPC; a ordem dos ciclos ainda não foi confirmada).</p><div class="locked-line">6 semanas <span>→</span></div></article>
+      <article class="cycle muted"><div class="cycle-top"><span>Ciclo 03</span><strong>Depois</strong></div><h3>As duas últimas do período</h3><p>O conteúdo entra aqui quando o ciclo começar.</p><div class="locked-line">6 semanas <span>→</span></div></article>
+    </div>
+  </section>
+
+  <section class="study-section" id="estudo">
+    <div class="section-heading study-title">
+      <div><p class="eyebrow"><span></span> Sala de estudo</p><h2>Por onde vamos hoje?</h2></div>
+      <div class="subject-switch" role="tablist" aria-label="Disciplina">
+        <button class="active" data-subject="ga" role="tab"><span class="dot blue"></span>Geometria Analítica</button>
+        <button data-subject="lp" role="tab"><span class="dot"></span>Lógica de Programação</button>
+      </div>
+    </div>
+    <div class="week-tabs" id="week-tabs" role="tablist" aria-label="Semanas"></div>
+    <div class="lesson-shell">
+      <aside class="lesson-index">
+        <p>Nesta semana</p>
+        <div class="views-row">
+          <button class="view-link" data-view="conceito"><span>01</span>O conceito</button>
+          <button class="view-link" data-view="lab"><span>02</span>Laboratório</button>
+          <button class="view-link" data-view="questao"><span>03</span>Questões<b id="qcount"></b></button>
+          <button class="view-link" data-view="atividades"><span>04</span>Atividades da faculdade</button>
+        </div>
+        <div class="qfilter" role="group" aria-label="Filtrar questões">
+          <button data-filtro="todas" class="active">Todas</button>
+          <button data-filtro="pendentes">Não feitas</button>
+          <button data-filtro="erradas">Errei</button>
+        </div>
+        <div class="qlist" id="qlist"></div>
+        <div class="index-note" id="index-note"><strong>Dica</strong><p>Explique em voz alta. Se travar, você achou o ponto a revisar.</p></div>
+      </aside>
+      <article class="lesson-content">
+        <div class="view" id="view-conceito"></div>
+        <div class="view" id="view-lab"></div>
+        <div class="view" id="view-questao"></div>
+        <div class="view" id="view-atividades"></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sim-section" id="simulado">
+    <div class="sim-copy">
+      <p class="eyebrow"><span></span> Ensaio sem pressão</p>
+      <h2>Simulado é ensaio,<br>não sentença.</h2>
+      <p>O modo misto traz 12 questões: uma de cada disciplina por semana. Se preferir focar, cada simulado de disciplina traz 18. A correção vem no fim.</p>
+      <div class="sim-features"><span>12 no misto · 18 por disciplina</span><span>novo sorteio sem repetir o anterior</span><span>sem cronômetro</span></div>
+      <button class="primary-button" id="start-sim">Montar um simulado <span>↗</span></button>
+    </div>
+    <div class="sim-card">
+      <span class="sim-stamp">modo treino</span>
+      <p>Seus últimos ensaios</p>
+      <div class="sim-rows" id="sim-rows"></div>
+      <div class="sim-quote">“Errar aqui é descobrir onde estudar.”</div>
+    </div>
+  </section>
+</main>
+
+<footer class="page-footer">
+  <div class="brand"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Núcleo<small>semestre 2 · ciclo 01</small></span></div>
+  <p id="rodape-info">Tecnologia em Banco de Dados · UFTM/CEDD</p>
+  <a href="#inicio">Voltar ao topo ↑</a>
+</footer>
+
+<dialog id="planner-dialog">
+  <button class="dialog-close" data-close-dialog aria-label="Fechar">×</button>
+  <p class="eyebrow"><span></span> Visão do ciclo</p>
+  <h2>As seis semanas</h2>
+  <p style="color:var(--muted);font-size:13px;margin:0">O que tem selo de prévia foi montado pela ementa do PPC e muda quando o material do professor chegar.</p>
+  <div class="planner-grid" id="planner-grid"></div>
+</dialog>
+
+<dialog id="sim-dialog" class="sim-dialog">
+  <button class="dialog-close" data-close-dialog aria-label="Fechar">×</button>
+  <div id="sim-setup">
+    <p class="eyebrow"><span></span> Simulado</p>
+    <h2>Que ensaio você quer hoje?</h2>
+    <div class="sim-opts" id="sim-opts">
+      <button data-sim="ga"><b>Geometria</b><small>18 · 1 de cada nível por semana</small></button>
+      <button data-sim="lp"><b>Lógica</b><small>18 · 1 de cada nível por semana</small></button>
+      <button data-sim="misto" class="active"><b>Misto</b><small>12 · 1 de cada disciplina por semana</small></button>
+    </div>
+    <label class="chk"><input type="checkbox" id="sim-so-material"> Só semanas com material do professor (sem prévia)</label>
+    <p class="insight" id="sim-msg" hidden></p>
+    <button class="primary-button" id="begin-quiz">Começar <span>→</span></button>
+  </div>
+  <div id="quiz-area" hidden>
+    <div class="quiz-progress"><span id="quiz-label">Questão 1</span><i><b id="quiz-bar"></b></i></div>
+    <p class="quiz-topic" id="quiz-topic"></p>
+    <div id="quiz-q"></div>
+    <div class="q-actions"><button class="primary-button" id="next-question" disabled>Próxima <span>→</span></button></div>
+  </div>
+  <div id="quiz-result" hidden>
+    <span class="result-mark" id="result-mark">0</span>
+    <p class="eyebrow" style="margin-top:18px"><span></span> Resultado comentado</p>
+    <h2><span id="quiz-score">0</span> de <span id="quiz-total">0</span> · nota <span id="quiz-nota">0</span></h2>
+    <p id="quiz-message" style="color:var(--muted)"></p>
+    <div id="quiz-review"></div>
+    <div class="q-actions"><button class="primary-button" id="sim-again">Sortear outro <span>↻</span></button><button class="ghost" data-close-dialog>Voltar aos estudos</button></div>
+  </div>
+</dialog>
+
+<script>
+/*__DADOS__*/
+</script>
+<script>
+/*__JS__*/
+</script>
+</body>
+</html>

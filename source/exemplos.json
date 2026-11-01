@@ -1,0 +1,105 @@
+{
+  "disciplina": "exemplos",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s1-l1q3",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Prolongar um segmento",
+      "origem": "Lista 1 · Q3",
+      "enunciado": "Dados os pontos A = (1, 1, 3) e B = (−3, 1, 5), até que ponto se deve prolongar o segmento AB, no sentido de A para B, para que seu comprimento triplique?",
+      "alternativas": [
+        {"t": "(−7, 1, 7)", "certa": false, "erro": "Esse é A + 2·[[AB]] (ou B + [[AB]]): o segmento ficou com o dobro do tamanho, não o triplo."},
+        {"t": "(−15, 1, 11)", "certa": false, "erro": "Você partiu de B e somou 3·[[AB]]. Aí o segmento inteiro, contado de A, mede 4 vezes o original."},
+        {"t": "(−11, 1, 9)", "certa": true},
+        {"t": "(13, 1, −3)", "certa": false, "erro": "Você fez A − 3·[[AB]] e andou no sentido de B para A. O enunciado pede o sentido de A para B."},
+        {"t": "(−12, 0, 6)", "certa": false, "erro": "Esse é o vetor 3·[[AB]], não um ponto. Faltou somar esse deslocamento ao ponto de partida A."}
+      ],
+      "dica": "Ache o vetor [[AB]] = B − A. Triplicar o comprimento a partir de A é andar três vezes esse vetor.",
+      "resposta": "P = (−11, 1, 9)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "ponto", "em": [1, 1, 3], "rot": "A"},
+          {"tipo": "ponto", "em": [-3, 1, 5], "rot": "B"},
+          {"tipo": "ponto", "em": [-7, 1, 7], "rot": ""},
+          {"tipo": "ponto", "em": [-11, 1, 9], "rot": "P"},
+          {"tipo": "vetor", "de": [1, 1, 3], "ate": [-3, 1, 5], "rot": "AB", "cor": 1},
+          {"tipo": "vetor", "de": [-3, 1, 5], "ate": [-7, 1, 7], "rot": "", "cor": 1},
+          {"tipo": "vetor", "de": [-7, 1, 7], "ate": [-11, 1, 9], "rot": "", "cor": 1}
+        ],
+        "legenda": "Três passos iguais a [[AB]], encostados um no outro, levam de A até P."
+      },
+      "jeitos": {
+        "visual": "Imagine A e B como dois postes na mesma rua. O passo que leva de A até B é [[AB]] = (−4, 0, 2). Para o segmento ficar três vezes mais comprido saindo de A, você dá esse mesmo passo três vezes seguidas: A → B → um ponto intermediário → P. Na figura, as três setas azuis são iguais e ficam encostadas uma na outra. O fim da terceira seta é a resposta.",
+        "receita": [
+          "Calcule o passo: [[AB]] = B − A = (−3 − 1, 1 − 1, 5 − 3) = (−4, 0, 2).",
+          "O segmento novo começa em A e mede 3 vezes o original: P = A + 3·[[AB]].",
+          "Multiplique: 3·[[AB]] = (−12, 0, 6).",
+          "Some ao ponto de partida: P = (1 − 12, 1 + 0, 3 + 6) = (−11, 1, 9)."
+        ],
+        "cotidiano": "Pense numa trena. Você mediu de A até B. Para marcar três vezes essa distância na mesma direção, você conta três trenas a partir de A, e não a partir de B. Quem recomeça de B ganha uma trena a mais sem perceber.",
+        "trabalho": "É a mesma conta de projetar uma série com variação constante. Se de um mês para o outro o valor muda (−4, 0, 2), três meses depois do ponto inicial a mudança acumulada é 3 × (−4, 0, 2). Valor final = valor inicial + 3 × variação. O tropeço clássico é aplicar as três variações a partir do segundo mês, e não do primeiro.",
+        "conversa": [
+          {"quem": "Você", "fala": "Se é para triplicar, não é só multiplicar o B por 3?"},
+          {"quem": "Monitor", "fala": "3·B dá (−9, 3, 15). Esse ponto nem fica na reta de A e B. Quem cresce é o deslocamento, não o ponto."},
+          {"quem": "Você", "fala": "Então multiplico o [[AB]]?"},
+          {"quem": "Monitor", "fala": "Isso. [[AB]] = (−4, 0, 2), três vezes dá (−12, 0, 6). E o segmento sai de onde?"},
+          {"quem": "Você", "fala": "De A. Então A + (−12, 0, 6) = (−11, 1, 9)."},
+          {"quem": "Monitor", "fala": "É esse o ponto. O segmento AP mede três vezes o AB."}
+        ],
+        "erro": "A armadilha é começar em B. Como o enunciado fala em prolongar, dá vontade de partir de onde o segmento termina e somar 3·[[AB]] a B. Só que o comprimento total passa a ser 4 vezes o original. Prolongar até triplicar quer dizer: o segmento inteiro, contado de A, mede 3 vezes o AB.",
+        "confira": "Calcule [[AP]] = P − A = (−12, 0, 6). Ele é exatamente 3·(−4, 0, 2): mesmo sentido e três vezes o tamanho. Se o seu ponto der um [[AP]] que não é múltiplo positivo de (−4, 0, 2), ele está fora da reta ou do lado errado.",
+        "atalho": "A coordenada y não muda de A para B (vale 1 nos dois). Elimine qualquer alternativa com y diferente de 1. Depois olhe o z: ele sobe 2 a cada passo, então termina em 3 + 6 = 9. Só uma alternativa tem y = 1 e z = 9."
+      }
+    },
+    {
+      "id": "lp-s6-p01",
+      "semana": 6,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Acumulador com condição",
+      "origem": "Prévia · ementa",
+      "enunciado": "O que este algoritmo escreve na tela?",
+      "codigo": "algoritmo \"soma_dos_pares\"\nvar\n   i, s: inteiro\ninicio\n   s <- 0\n   para i de 1 ate 6 faca\n      se i mod 2 = 0 entao\n         s <- s + i\n      fimse\n   fimpara\n   escreval(s)\nfimalgoritmo",
+      "entradas": [],
+      "saida": "12",
+      "alternativas": [
+        {"t": "21", "certa": false, "erro": "Você somou todos os valores de 1 a 6. O `se` deixa passar só quem tem resto 0 na divisão por 2."},
+        {"t": "9", "certa": false, "erro": "Você somou os ímpares (1 + 3 + 5). `i mod 2 = 0` é verdadeiro para os pares."},
+        {"t": "3", "certa": false, "erro": "Três é quantos pares existem de 1 a 6. O programa não conta: `s <- s + i` soma o próprio i."},
+        {"t": "12", "certa": true},
+        {"t": "6", "certa": false, "erro": "Você guardou só o último par. A linha `s <- s + i` não troca o valor de s: soma ao que já estava lá."}
+      ],
+      "dica": "Escreva numa coluna os valores de i de 1 a 6 e marque só os que dão resto 0 na divisão por 2.",
+      "resposta": "12 (2 + 4 + 6)",
+      "jeitos": {
+        "visual": "Pense em s como um cofrinho que começa vazio. O i passa na frente dele seis vezes: 1, 2, 3, 4, 5, 6. Um porteiro, o `se`, só deixa entrar quem é par. Entram 2, 4 e 6, e o cofrinho termina com 12. O botão do teste de mesa mostra o i andando e o s mudando linha a linha.",
+        "receita": [
+          "s começa em 0.",
+          "i = 1: 1 mod 2 = 1, não entra. s continua 0.",
+          "i = 2: resto 0, entra. s = 0 + 2 = 2.",
+          "i = 3 não entra. i = 4 entra: s = 2 + 4 = 6.",
+          "i = 5 não entra. i = 6 entra: s = 6 + 6 = 12.",
+          "O laço termina e `escreval(s)` mostra 12."
+        ],
+        "cotidiano": "É como separar notas de um maço: você passa nota por nota e só põe no envelope as de valor par. O envelope engorda a cada nota aceita. Contar quantas notas entraram é outra pergunta; aqui interessa quanto dinheiro ficou no envelope.",
+        "trabalho": "No Excel, a mesma conta é =SOMARPRODUTO((MOD(A1:A6;2)=0)*A1:A6), que dá 12. Em SQL: `SELECT SUM(i) FROM numeros WHERE i % 2 = 0`. O `se` dentro do laço faz o papel do WHERE, e o `s <- s + i` faz o papel do SUM.",
+        "conversa": [
+          {"quem": "Você", "fala": "Deu 3, porque tem três pares."},
+          {"quem": "Monitor", "fala": "Três é quantos pares passaram. Olhe a linha dentro do se: ela soma 1 ou soma i?"},
+          {"quem": "Você", "fala": "Soma i. Então entra o 2, depois o 4, depois o 6."},
+          {"quem": "Monitor", "fala": "E o s guarda o total que vai juntando."},
+          {"quem": "Você", "fala": "2 + 4 + 6 = 12."},
+          {"quem": "Monitor", "fala": "Isso. Se fosse `s <- s + 1`, aí seria contador e daria 3."}
+        ],
+        "erro": "A confusão entre contador e acumulador. Contador soma 1 a cada vez (`c <- c + 1`) e responde \"quantos\". Acumulador soma o próprio valor (`s <- s + i`) e responde \"quanto\". Quem marca 3 leu um acumulador como contador. Outro tropeço é esquecer que s mantém o valor anterior e marcar 6, o último par.",
+        "confira": "Faça a conta por fora: os pares de 1 a 6 são 2, 4 e 6. A soma de três números em sequência de 2 em 2 é 3 vezes o do meio: 3 × 4 = 12. Bate com o teste de mesa.",
+        "atalho": "Soma de pares é sempre par. Isso elimina 21, 9 e 3 de uma vez. Entre 12 e 6, pergunte: o s guarda só o último valor ou o total? Como a linha é `s <- s + i`, é o total."
+      }
+    }
+  ]
+}

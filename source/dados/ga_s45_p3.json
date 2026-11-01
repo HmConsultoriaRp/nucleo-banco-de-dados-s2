@@ -1,0 +1,322 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-p01",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Plano por ponto e normal",
+      "origem": "Prévia · ementa",
+      "enunciado": "Qual é a equação geral do plano π que passa por P = (2, −1, 3) e tem vetor normal [[n]] = (3, 1, −2)?",
+      "alternativas": [
+        {"t": "3x + y − 2z − 1 = 0", "certa": false, "erro": "O sinal de d ficou trocado: com P na equação, 6 − 1 − 6 + d = 0 dá d = +1. Com −1, o ponto P dá −2 e não zera."},
+        {"t": "2x − y + 3z + 1 = 0", "certa": false, "erro": "Os papéis trocaram: P virou normal e [[n]] virou ponto, e 2·3 − 1·1 + 3·(−2) + d = 0 dá d = 1. Os coeficientes de x, y e z têm de ser a normal (3, 1, −2), não as coordenadas de P."},
+        {"t": "3x + y − 2z − 11 = 0", "certa": false, "erro": "No cálculo de d, o termo −2z virou +2·3: 6 − 1 + 6 = 11. O certo é 3·2 + (−1) − 2·3 = −1, então d = 1."},
+        {"t": "3x + y − 2z + 1 = 0", "certa": true},
+        {"t": "3x + y − 2z = 0", "certa": false, "erro": "Faltou o d. Esse plano tem a normal certa, mas passa pela origem; P dá 6 − 1 − 6 = −1 e fica fora."}
+      ],
+      "dica": "Os coeficientes vêm da normal; o d sai de pôr P na equação e igualar a zero.",
+      "resposta": "3x + y − 2z + 1 = 0",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[3.5, -0.1, 5.7], [3.5, -4.9, 3.3], [0.5, -1.9, 0.3], [0.5, 2.9, 2.7]], "cor": 3},
+          {"tipo": "ponto", "em": [2, -1, 3], "rot": "P"},
+          {"tipo": "vetor", "de": [2, -1, 3], "ate": [5, 0, 1], "rot": "n", "cor": 1}
+        ],
+        "legenda": "O plano ocre passa por P, e a seta azul [[n]] = (3, 1, −2) sai dele formando 90° com qualquer direção do plano."
+      },
+      "jeitos": {
+        "visual": "Na figura, o plano ocre é uma chapa e a seta azul é um prego espetado nela no ponto P, em ângulo reto. Qualquer ponto X da chapa forma com P um vetor deitado na chapa, e esse vetor faz 90° com o prego. A equação 3x + y − 2z + 1 = 0 é a conta [[n]] · (X − P) = 0 escrita por extenso.",
+        "receita": [
+          "Os coeficientes são a normal: 3x + y − 2z + d = 0.",
+          "Ponha P = (2, −1, 3): 3·2 + (−1) − 2·3 + d = 0.",
+          "6 − 1 − 6 + d = 0, ou seja, −1 + d = 0 e d = 1.",
+          "Equação: 3x + y − 2z + 1 = 0."
+        ],
+        "cotidiano": "Pense num tampo de mesa e na perna que sai dele, reta. A perna diz a inclinação do tampo; o ponto onde ela encaixa diz a altura em que o tampo está. A perna sozinha não basta: há infinitos tampos paralelos com a mesma perna, um em cada altura. O d é o número que escolhe a altura certa.",
+        "trabalho": "A equação do plano é um SOMARPRODUTO igual a zero: `=SOMARPRODUTO(n;X-P)`, com n = (3, 1, −2). Abrindo a conta fica 3x + y − 2z − (3·2 + 1·(−1) − 2·3), e o parêntese vale −1. Por isso d = +1. É o mesmo cuidado de um lançamento de ajuste: o sinal do ajuste é o contrário da diferença encontrada.",
+        "conversa": [
+          {"quem": "Você", "fala": "A normal é (3, 1, −2), então a equação é 3x + y − 2z = 0."},
+          {"quem": "Monitor", "fala": "Esse plano passa por P? Substitua."},
+          {"quem": "Você", "fala": "6 − 1 − 6 = −1. Não dá zero."},
+          {"quem": "Monitor", "fala": "Então falta o termo que corrige isso. Quanto precisa somar?"},
+          {"quem": "Você", "fala": "+1. Fica 3x + y − 2z + 1 = 0."},
+          {"quem": "Monitor", "fala": "Agora P zera a conta, e a normal continua a mesma."}
+        ],
+        "erro": "O tropeço clássico é o sinal de d. Ele é o oposto de ax₀ + by₀ + cz₀: se essa soma deu −1, d vale +1. Errar o sinal do termo −2z no meio da soma também é comum. O caminho seguro é sempre o mesmo: substituir P na equação final e ver se o lado esquerdo vira zero.",
+        "confira": "Substitua P na resposta: 3·2 + (−1) − 2·3 + 1 = 6 − 1 − 6 + 1 = 0. Depois ache outro ponto: com x = 0 e y = 1, sobra −2z + 2 = 0, logo z = 1. O ponto (0, 1, 1) está no plano, e (0, 1, 1) − P = (−2, 2, −2) tem produto escalar −6 + 2 + 4 = 0 com [[n]].",
+        "atalho": "Os coeficientes têm de ser 3, 1 e −2, o que já derruba a alternativa que começa com 2x. Entre as que sobram, só muda o d: substitua P = (2, −1, 3) em 3x + y − 2z, que dá −1, e procure o d que zera. É o +1."
+      }
+    },
+    {
+      "id": "ga-s5-p02",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Distância ponto-plano",
+      "origem": "Prévia · ementa",
+      "enunciado": "Qual é a distância do ponto P = (1, −2, 4) ao plano π: 2x − y + 2z − 5 = 0?",
+      "alternativas": [
+        {"t": "7/3", "certa": true},
+        {"t": "7", "certa": false, "erro": "7 é o valor de P na equação, mas faltou dividir pela norma da normal, √(4 + 1 + 4) = 3."},
+        {"t": "7/9", "certa": false, "erro": "Você dividiu por a² + b² + c² = 9, sem tirar a raiz. O denominador é √9 = 3."},
+        {"t": "17/3", "certa": false, "erro": "O termo independente é −5. Usando +5, o numerador vira |2 + 2 + 8 + 5| = 17."},
+        {"t": "1", "certa": false, "erro": "O termo −y com y = −2 vale +2. Quem escreve −2 fica com 2 − 2 + 8 − 5 = 3 e chega a 3/3 = 1."}
+      ],
+      "dica": "Ponha P no lado esquerdo da equação, tire o módulo e divida por √(a² + b² + c²).",
+      "resposta": "7/3",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[1.944, 0.778, 0.944], [-0.056, -3.222, 0.944], [-3.056, -3.222, 3.944], [-1.056, 0.778, 3.944]], "cor": 3},
+          {"tipo": "ponto", "em": [1, -2, 4], "rot": "P"},
+          {"tipo": "ponto", "em": [-0.556, -1.222, 2.444], "rot": "Q"},
+          {"tipo": "segmento", "de": [1, -2, 4], "ate": [-0.556, -1.222, 2.444], "cor": 4}
+        ],
+        "legenda": "O segmento escuro vai de P até Q, o ponto do plano mais perto de P, na direção da normal. O comprimento dele é a distância."
+      },
+      "jeitos": {
+        "visual": "Na figura, o segmento escuro cai de P até o plano ocre em ângulo reto. O comprimento dele é a distância. A fórmula chega ao mesmo número sem achar Q: o valor de P na equação, 7, é a distância multiplicada pelo tamanho da normal, que é 3. Dividindo, sobra 7/3.",
+        "receita": [
+          "Substitua P no lado esquerdo: 2·1 − (−2) + 2·4 − 5.",
+          "Some com cuidado: 2 + 2 + 8 − 5 = 7.",
+          "Módulo: |7| = 7.",
+          "Norma da normal: √(2² + (−1)² + 2²) = √9 = 3.",
+          "Distância: 7/3."
+        ],
+        "cotidiano": "Para saber a que altura uma lâmpada está do chão, você não mede até um ponto qualquer do piso: mede na vertical, o caminho mais curto. Se o piso fosse inclinado, o caminho mais curto seria perpendicular ao piso, e é essa direção que a normal dá. A fórmula é a trena já apontada no sentido certo.",
+        "trabalho": "Pôr P na equação é rodar uma regra de conferência e ler a diferença: deu 7. Mas a mesma regra escrita com tudo multiplicado por 10 mostraria 70 para o mesmo ponto. Dividir pela norma dos pesos, `=RAIZ(SOMARPRODUTO(n;n))`, que aqui é 3, tira o efeito da escala. Sobra 7/3, um valor que não depende de como a regra foi escrita.",
+        "conversa": [
+          {"quem": "Você", "fala": "Substituí P e deu 7. A distância é 7?"},
+          {"quem": "Monitor", "fala": "Multiplique a equação do plano por 2. É o mesmo plano?"},
+          {"quem": "Você", "fala": "É. Mas aí P daria 14."},
+          {"quem": "Monitor", "fala": "E a distância dobrou?"},
+          {"quem": "Você", "fala": "Não, o ponto e o plano são os mesmos. Então preciso dividir por algo que também dobra."},
+          {"quem": "Monitor", "fala": "A norma da normal. Aqui ela vale 3, e a distância é 7/3."}
+        ],
+        "erro": "Dois erros dominam: esquecer o denominador e dividir por a² + b² + c² sem a raiz. O terceiro é de sinal: no termo −y, com y = −2, o resultado é +2. Faça a substituição devagar, termo a termo, e só depois some. O numerador desta questão é 7 e o denominador é 3.",
+        "confira": "Ache o pé Q e meça. Q = P − (7/9)·(2, −1, 2) = (−5/9, −11/9, 22/9). Substitua no plano: −10/9 + 11/9 + 44/9 − 45/9 = 0, então Q está em π. A distância de P até Q é (7/9)·‖(2, −1, 2)‖ = (7/9)·3 = 7/3. Mesmo número por outro caminho.",
+        "atalho": "Comece pelo denominador: √(4 + 1 + 4) = 3. Como P tem coordenadas inteiras, a resposta é um inteiro dividido por 3, o que derruba 7/9. O 7 exigiria numerador 21, e nem somando todos os termos em módulo, 2 + 2 + 8 + 5 = 17, se chega lá. Sobra refazer o numerador com atenção ao −y: 2 + 2 + 8 − 5 = 7."
+      }
+    },
+    {
+      "id": "ga-s5-p03",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Ângulo entre planos",
+      "origem": "Prévia · ementa",
+      "enunciado": "Calcule o ângulo entre os planos π₁: x − y + 3 = 0 e π₂: y − z − 1 = 0.",
+      "alternativas": [
+        {"t": "120°", "certa": false, "erro": "120° é o ângulo entre as normais (1, −1, 0) e (0, 1, −1), com cosseno −1/2. Entre planos vale o menor ângulo, por isso a fórmula leva módulo."},
+        {"t": "30°", "certa": false, "erro": "Você usou arcsen(1/2), a fórmula do ângulo entre reta e plano. Entre dois planos, o ângulo sai do cosseno do ângulo entre as normais."},
+        {"t": "90°", "certa": false, "erro": "Faltar z em π₁ e x em π₂ não deixa os planos perpendiculares. O teste é [[n₁]] · [[n₂]] = 0, e aqui o produto dá −1."},
+        {"t": "≈ 31,48°", "certa": false, "erro": "Você pôs o termo independente 3 como terceira componente da normal de π₁, (1, −1, 3). A normal é (1, −1, 0): o 3 é o d."},
+        {"t": "60°", "certa": true}
+      ],
+      "dica": "Escreva as normais com zero na variável que falta e aplique cos θ = |[[n₁]] · [[n₂]]|/(‖[[n₁]]‖‖[[n₂]]‖).",
+      "resposta": "60°",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-0.5, 2.5, 3.5], [-0.5, 2.5, -0.5], [-3.5, -0.5, -3.5], [-3.5, -0.5, 0.5]], "cor": 1},
+          {"tipo": "poligono", "pts": [[1.5, 2.5, 1.5], [-2.5, 2.5, 1.5], [-5.5, -0.5, -1.5], [-1.5, -0.5, -1.5]], "cor": 2},
+          {"tipo": "ponto", "em": [-2, 1, 0], "rot": "Q"},
+          {"tipo": "vetor", "de": [-2, 1, 0], "ate": [-1, 0, 0], "rot": "n₁", "cor": 1},
+          {"tipo": "vetor", "de": [-2, 1, 0], "ate": [-2, 2, -1], "rot": "n₂", "cor": 2}
+        ],
+        "legenda": "Os dois planos se cortam ao longo da direção (1, 1, 1), que passa por Q. As normais desenhadas abrem 120°; o ângulo entre os planos é o suplemento, 60°."
+      },
+      "jeitos": {
+        "visual": "Pense em duas folhas de papel unidas por uma dobra, como um livro meio aberto. Espete um palito perpendicular em cada folha. O ângulo entre os palitos acompanha a abertura do livro: ou é igual a ela, ou é o que falta para 180°. Na figura, as normais abrem 120°, e por isso a abertura que interessa, a menor, é 60°.",
+        "receita": [
+          "Normais: π₁ não tem z, então [[n₁]] = (1, −1, 0); π₂ não tem x, então [[n₂]] = (0, 1, −1).",
+          "Produto escalar: 1·0 + (−1)·1 + 0·(−1) = −1.",
+          "Normas: √2 e √2, com produto 2.",
+          "cos θ = |−1|/2 = 1/2.",
+          "θ = 60°."
+        ],
+        "cotidiano": "Uma porta entreaberta e a parede formam um ângulo, e você mede a abertura menor, a da fresta. Se medir pelo lado de fora, encontra o suplemento. Com normais acontece o mesmo: dependendo do sentido escolhido para cada seta, sai o ângulo da fresta ou o de fora. O módulo na fórmula garante que você leia sempre a fresta.",
+        "trabalho": "No Excel, uma coluna que não entra numa fórmula funciona como peso zero no SOMARPRODUTO. Se as colunas são x, y e z, os pesos de π₁ são (1, −1, 0), e não (1, −1, 3): o 3 é a constante da fórmula, não o peso de uma coluna. Montar o vetor de pesos na ordem das colunas evita deslocar números, o mesmo erro de colar uma linha de pesos uma coluna para o lado.",
+        "conversa": [
+          {"quem": "Você", "fala": "π₁ não tem z e π₂ não tem x. Então eles são perpendiculares."},
+          {"quem": "Monitor", "fala": "Faça a conta com as normais. Quais são?"},
+          {"quem": "Você", "fala": "(1, −1, 0) e (0, 1, −1). O produto dá −1."},
+          {"quem": "Monitor", "fala": "Não deu zero, então não são perpendiculares. E o cosseno?"},
+          {"quem": "Você", "fala": "|−1|/(√2·√2) = 1/2. Dá 60°."},
+          {"quem": "Monitor", "fala": "Isso. A variável ausente só diz que o plano é paralelo àquele eixo."}
+        ],
+        "erro": "O erro de leitura é o mais traiçoeiro: pegar o termo independente como se fosse coeficiente e transformar x − y + 3 = 0 na normal (1, −1, 3). A variável que falta tem coeficiente 0. Depois vêm os de sempre: esquecer o módulo e dar 120°, ou usar seno, que pertence à fórmula entre reta e plano.",
+        "confira": "Meça o ângulo dentro dos próprios planos. A reta comum tem direção [[n₁]] × [[n₂]] = (1, 1, 1). Em π₁, o vetor (1, 1, −2) é perpendicular a essa reta e fica no plano, porque (1, 1, −2) · (1, −1, 0) = 0. Em π₂, (2, −1, −1) faz o mesmo: (2, −1, −1) · (0, 1, −1) = 0. Entre esses dois vetores, o produto é 2 − 1 + 2 = 3 e as normas são √6, então o cosseno é 3/6 = 1/2: 60°.",
+        "atalho": "As duas normais têm norma √2, então o cosseno é o produto escalar dividido por 2. Com produto −1, o módulo do cosseno é 1/2, que corresponde a 60°. Descarte qualquer resposta acima de 90°: ângulo entre planos fica de 0° a 90°."
+      }
+    },
+    {
+      "id": "ga-s5-p04",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Plano na forma vetorial",
+      "origem": "Prévia · ementa",
+      "enunciado": "O plano π tem equação vetorial X = (1, 0, 2) + λ(1, 1, 0) + μ(0, 1, −1). Qual dos pontos pertence a π?",
+      "alternativas": [
+        {"t": "(2, 3, −1)", "certa": false, "erro": "Esse é 2·(1, 1, 0) + (0, 1, −1), sem o ponto de partida (1, 0, 2). Os vetores dizem para onde andar; falta somar de onde se sai."},
+        {"t": "(3, 3, 1)", "certa": true},
+        {"t": "(1, 1, 0)", "certa": false, "erro": "Esse é o vetor (1, 1, 0), paralelo ao plano, mas não é ponto dele. Pelo x, λ = 0; pelo y, μ = 1; aí o z teria de ser 2 − 1 = 1, não 0."},
+        {"t": "(3, 3, 3)", "certa": false, "erro": "Com λ = 2 e μ = 1, o z é 2 + 0 − 1 = 1. Você somou o μ no z, mas a terceira componente de (0, 1, −1) é −1."},
+        {"t": "(2, 1, 1)", "certa": false, "erro": "x e y dão λ = 1 e μ = 0. Com esses valores, o z teria de ser 2, não 1."}
+      ],
+      "dica": "Use x e y para achar λ e μ e confira se o z bate.",
+      "resposta": "(3, 3, 1), com λ = 2 e μ = 1",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[3.5, 4.0, 0.5], [3.5, 1.0, 3.5], [-1.5, -4.0, 3.5], [-1.5, -1.0, 0.5]], "cor": 3},
+          {"tipo": "ponto", "em": [1, 0, 2], "rot": "A"},
+          {"tipo": "vetor", "de": [1, 0, 2], "ate": [2, 1, 2], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [1, 0, 2], "ate": [1, 1, 1], "rot": "v", "cor": 2},
+          {"tipo": "segmento", "de": [1, 0, 2], "ate": [3, 2, 2], "tracejado": true},
+          {"tipo": "segmento", "de": [3, 2, 2], "ate": [3, 3, 1], "tracejado": true},
+          {"tipo": "ponto", "em": [3, 3, 1], "rot": "P"}
+        ],
+        "legenda": "Saindo de A, dois passos de [[u]] e um de [[v]] (tracejado) levam ao ponto P, que fica sobre o plano."
+      },
+      "jeitos": {
+        "visual": "O plano é um tabuleiro inclinado. O ponto A é a casa de saída; a seta azul [[u]] = (1, 1, 0) e a coral [[v]] = (0, 1, −1) são os dois tipos de passo permitidos. Qualquer combinação de passos leva a uma casa do tabuleiro. Na figura, o tracejado mostra dois passos azuis e um coral, terminando em (3, 3, 1).",
+        "receita": [
+          "Escreva as paramétricas: x = 1 + λ, y = λ + μ, z = 2 − μ.",
+          "Para (3, 3, 1): x dá λ = 2; y dá 2 + μ = 3, logo μ = 1.",
+          "Confira o z: 2 − 1 = 1. Bate.",
+          "O ponto (3, 3, 1) pertence a π."
+        ],
+        "cotidiano": "Pense numa encosta lisa e inclinada. Você escolhe à vontade quanto anda para leste e para norte, mas a altura não é escolha sua: vem do terreno. Aqui a encosta é z = 1 + x − y. Um ponto com a altura errada para aquele leste e norte está no ar ou enterrado. O (2, 1, 1) pede altura 2 e tem 1: está enterrado, fora do plano.",
+        "trabalho": "Pense numa projeção com dois motores: resultado = base + λ × efeito de preço + μ × efeito de volume, cada efeito com três indicadores. Qualquer cenário é uma escolha de λ e μ. Um número que não sai de nenhuma escolha não é cenário possível dessa projeção. Esquecer a base é o erro de somar só os efeitos e chamar isso de resultado.",
+        "conversa": [
+          {"quem": "Você", "fala": "Para (2, 1, 1), o x dá λ = 1 e o y dá μ = 0. Serve."},
+          {"quem": "Monitor", "fala": "Você usou duas equações para achar duas incógnitas. E a terceira?"},
+          {"quem": "Você", "fala": "z = 2 − μ = 2. Mas o ponto tem z = 1."},
+          {"quem": "Monitor", "fala": "Então?"},
+          {"quem": "Você", "fala": "Está fora. Para (3, 3, 1): λ = 2, μ = 1 e z = 1. Esse está dentro."},
+          {"quem": "Monitor", "fala": "Com dois parâmetros, duas equações escolhem e a terceira é a prova."}
+        ],
+        "erro": "O plano tem dois parâmetros e três coordenadas. Duas coordenadas sempre podem ser satisfeitas escolhendo λ e μ; a terceira é que decide. Quem não confere o z aceita pontos fora do plano. Os outros deslizes são esquecer o ponto de partida e tratar um vetor diretor como se fosse ponto.",
+        "confira": "Ache a equação geral e teste nela. [[n]] = (1, 1, 0) × (0, 1, −1) = (−1, 1, 1), e com (1, 0, 2) sai −x + y + z − 1 = 0. Para (3, 3, 1): −3 + 3 + 1 − 1 = 0, pertence. Para (2, 1, 1): −2 + 1 + 1 − 1 = −1, não pertence.",
+        "atalho": "Some y e z nas paramétricas: (λ + μ) + (2 − μ) = λ + 2, e λ = x − 1. Logo todo ponto do plano tem y + z = x + 1. Teste cada alternativa nessa conta rápida: (3, 3, 1) dá 4 = 4. As outras falham."
+      }
+    },
+    {
+      "id": "ga-s5-p05",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 5,
+      "tema": "Plano por três pontos",
+      "origem": "Prévia · ementa",
+      "enunciado": "Qual é a equação geral do plano que passa por A = (1, 0, 2), B = (3, 1, 1) e C = (0, 2, 3)?",
+      "alternativas": [
+        {"t": "3x + y + 5z − 13 = 0", "certa": false, "erro": "A componente do meio de [[AB]] × [[AC]] é (−1)·(−1) − 2·1 = −1, não +1. Com +y, o ponto B dá 9 + 1 + 5 − 13 = 2 e fica fora."},
+        {"t": "3x − y + 5z + 13 = 0", "certa": false, "erro": "O sinal de d se inverteu. A dá 3 − 0 + 10 = 13, então d = −13."},
+        {"t": "3x − y + 5z − 13 = 0", "certa": true},
+        {"t": "2x + y − z = 0", "certa": false, "erro": "Você usou [[AB]] = (2, 1, −1) como normal. Esse vetor está dentro do plano, não perpendicular a ele: B dá 6 + 1 − 1 = 6 e nem satisfaz essa equação."},
+        {"t": "−2x + 5y + z = 0", "certa": false, "erro": "Você fez A × B com os pontos em vez de [[AB]] × [[AC]]. O plano obtido passa pela origem, por A e por B, mas C dá 10 + 3 = 13 e fica fora."}
+      ],
+      "dica": "Monte [[AB]] e [[AC]], faça o produto vetorial para obter a normal e use A para achar d.",
+      "resposta": "3x − y + 5z − 13 = 0",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[1, 0, 2], [3, 1, 1], [0, 2, 3]], "cor": 3},
+          {"tipo": "ponto", "em": [1, 0, 2], "rot": "A"},
+          {"tipo": "ponto", "em": [3, 1, 1], "rot": "B"},
+          {"tipo": "ponto", "em": [0, 2, 3], "rot": "C"},
+          {"tipo": "vetor", "de": [1, 0, 2], "ate": [3, 1, 1], "rot": "AB", "cor": 1},
+          {"tipo": "vetor", "de": [1, 0, 2], "ate": [0, 2, 3], "rot": "AC", "cor": 2},
+          {"tipo": "vetor", "de": [1.333, 1, 2], "ate": [2.833, 0.5, 4.5], "rot": "n", "cor": 4}
+        ],
+        "legenda": "As setas [[AB]] e [[AC]] ficam no triângulo; a seta escura, metade de [[n]] = (3, −1, 5), sai do centro do triângulo em ângulo reto."
+      },
+      "jeitos": {
+        "visual": "Na figura, os três pontos formam o triângulo ocre. As setas azul e coral saem de A e ficam deitadas nele. O produto vetorial das duas é a seta escura, em pé, perpendicular às duas ao mesmo tempo. Essa seta é a normal, e as coordenadas dela viram os coeficientes de x, y e z na equação.",
+        "receita": [
+          "[[AB]] = (2, 1, −1) e [[AC]] = (−1, 2, 1).",
+          "[[n]] = [[AB]] × [[AC]] = (1·1 − (−1)·2, (−1)·(−1) − 2·1, 2·2 − 1·(−1)) = (3, −1, 5).",
+          "Equação: 3x − y + 5z + d = 0.",
+          "Com A: 3 − 0 + 10 + d = 0, logo d = −13.",
+          "Resposta: 3x − y + 5z − 13 = 0."
+        ],
+        "cotidiano": "Uma mesa de três pés nunca balança, porque três pontos sempre cabem num mesmo plano. Com quatro pés, um pode ficar no ar. Por isso três pontos não alinhados bastam para fixar um plano. A conta só traduz a posição desses três pés numa equação.",
+        "trabalho": "Este plano pode ser escrito como z = α + βx + γy, uma relação linear com duas variáveis. Três observações não alinhadas determinam α, β e γ de forma exata, como um `PROJ.LIN` com três linhas e três coeficientes: o ajuste passa por todos os pontos, sem resíduo. Com quatro pontos já poderia sobrar erro, como acontece na regressão de uma série real.",
+        "conversa": [
+          {"quem": "Você", "fala": "Posso usar [[AB]] como normal? Ele sai de A."},
+          {"quem": "Monitor", "fala": "[[AB]] liga dois pontos do plano. Ele fica dentro ou fora do plano?"},
+          {"quem": "Você", "fala": "Dentro. Então preciso de um vetor perpendicular a [[AB]] e a [[AC]]."},
+          {"quem": "Monitor", "fala": "Qual operação dá isso?"},
+          {"quem": "Você", "fala": "O produto vetorial: (3, −1, 5). Com A, d = −13."},
+          {"quem": "Monitor", "fala": "Agora teste B e C. Se os dois zerarem, está certo."}
+        ],
+        "erro": "Os erros mais frequentes ficam no produto vetorial, principalmente no sinal da componente do meio. Outro é usar os pontos como se fossem vetores, fazendo A × B, o que gera um plano pela origem. Como o plano deve passar pelos três pontos, testar B e C no final pega quase todos esses erros.",
+        "confira": "Teste os três pontos. A: 3 − 0 + 10 − 13 = 0. B: 9 − 1 + 5 − 13 = 0. C: 0 − 2 + 15 − 13 = 0. Os três zeram. Confira também a normal: (3, −1, 5) · (2, 1, −1) = 6 − 1 − 5 = 0 e (3, −1, 5) · (−1, 2, 1) = −3 − 2 + 5 = 0.",
+        "atalho": "Não faça conta nenhuma no começo: teste os pontos em cada alternativa. Comece por C = (0, 2, 3), que tem x = 0 e simplifica a conta. Só uma alternativa zera com C, e ela também zera com A e B."
+      }
+    },
+    {
+      "id": "ga-s5-p06",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Reta e plano",
+      "origem": "Prévia · ementa",
+      "enunciado": "Qual é a posição relativa da reta r: X = (1, 2, 0) + t(2, −1, 1) e do plano π: x + 3y + z − 7 = 0?",
+      "alternativas": [
+        {"t": "r é paralela a π, sem ponto comum", "certa": false, "erro": "[[v]] · [[n]] = 0 deixa duas opções: paralela ou contida. Faltou testar o ponto (1, 2, 0): ele dá 1 + 6 + 0 − 7 = 0 e está em π."},
+        {"t": "r é perpendicular a π", "certa": false, "erro": "Perpendicular exigiria [[v]] paralelo a [[n]]. Produto escalar zero diz o contrário: [[v]] é ortogonal à normal, ou seja, corre ao longo do plano."},
+        {"t": "r corta π só no ponto (1, 2, 0)", "certa": false, "erro": "(1, 2, 0) está em π, mas não sozinho. Como [[v]] · [[n]] = 0, a reta inteira acompanha o plano, e todos os pontos dela estão em π."},
+        {"t": "r está contida em π", "certa": true},
+        {"t": "r corta π num único ponto, porque [[v]] e [[n]] não são paralelos", "certa": false, "erro": "O teste para cortar num ponto é [[v]] · [[n]] ≠ 0. Aqui o produto é 2 − 3 + 1 = 0, então a reta não fura o plano."}
+      ],
+      "dica": "Calcule [[v]] · [[n]] e, se der zero, teste um ponto da reta na equação do plano.",
+      "resposta": "r está contida em π",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[5.5, 0.5, 0], [2.5, 0.5, 3], [-3.5, 3.5, 0], [-0.5, 3.5, -3]], "cor": 3},
+          {"tipo": "segmento", "de": [-2, 3.5, -1.5], "ate": [4, 0.5, 1.5], "cor": 1},
+          {"tipo": "ponto", "em": [1, 2, 0], "rot": "A"},
+          {"tipo": "vetor", "de": [1, 2, 0], "ate": [3, 1, 1], "rot": "v", "cor": 1},
+          {"tipo": "vetor", "de": [1, 2, 0], "ate": [2, 5, 1], "rot": "n", "cor": 2}
+        ],
+        "legenda": "A reta azul fica deitada no plano ocre; a seta coral, a normal, forma 90° com ela."
+      },
+      "jeitos": {
+        "visual": "Na figura, a reta azul está deitada sobre o plano ocre, como uma régua apoiada numa mesa. A seta coral, a normal, forma ângulo reto com a régua: é o que [[v]] · [[n]] = 0 diz. Uma régua paralela à mesa poderia estar flutuando acima dela; o que decide é se um ponto da régua toca a mesa. Aqui o ponto A toca.",
+        "receita": [
+          "[[v]] = (2, −1, 1) e [[n]] = (1, 3, 1).",
+          "[[v]] · [[n]] = 2 − 3 + 1 = 0: a reta é paralela ao plano ou está nele.",
+          "Teste A = (1, 2, 0) em π: 1 + 3·2 + 0 − 7 = 0.",
+          "A está em π, então a reta toda está contida em π."
+        ],
+        "cotidiano": "Um trem anda num trilho horizontal. A direção do trem faz 90° com a vertical, mas isso não garante que ele esteja no chão: poderia ser um trem num viaduto, também horizontal. Para saber se ele está no chão, você olha se uma das rodas toca o piso. A roda é o ponto (1, 2, 0).",
+        "trabalho": "Pense na reta como uma tabela de pontos gerada por t e no plano como o filtro `WHERE x + 3*y + z = 7`. Como [[v]] · [[n]] = 0, a conta x + 3y + z dá o mesmo valor em todas as linhas da tabela: ou o filtro aceita todas, ou recusa todas. Basta testar uma linha. O ponto (1, 2, 0) dá 1 + 6 + 0 = 7 e passa, então a reta inteira está no plano.",
+        "conversa": [
+          {"quem": "Você", "fala": "O produto escalar deu zero, então a reta é perpendicular ao plano."},
+          {"quem": "Monitor", "fala": "Zero entre quais vetores?"},
+          {"quem": "Você", "fala": "Entre [[v]] e a normal."},
+          {"quem": "Monitor", "fala": "Se [[v]] faz 90° com a normal, ele aponta para fora do plano ou ao longo dele?"},
+          {"quem": "Você", "fala": "Ao longo. Então é paralela ou está dentro. Testo o ponto: 1 + 6 + 0 − 7 = 0."},
+          {"quem": "Monitor", "fala": "Dentro, então. Contida."}
+        ],
+        "erro": "A confusão mais comum é entre ortogonal à normal e perpendicular ao plano, que são opostos. Reta perpendicular ao plano tem [[v]] paralelo a [[n]]. A segunda armadilha é parar no produto escalar zero e responder paralela, sem testar se um ponto da reta está no plano.",
+        "confira": "Teste mais pontos da reta. Com t = 1, (3, 1, 1): 3 + 3 + 1 − 7 = 0. Com t = −1, (−1, 3, −1): −1 + 9 − 1 − 7 = 0. Pontos diferentes da reta caíram todos no plano, o que só acontece se ela estiver contida.",
+        "atalho": "Substitua a paramétrica da reta direto na equação do plano. Se sobrar um número diferente de zero, paralela; se sobrar 0 = 0, contida; se sobrar uma equação em t com solução, secante. Aqui sobra 0 = 0 numa linha de conta."
+      }
+    }
+  ]
+}

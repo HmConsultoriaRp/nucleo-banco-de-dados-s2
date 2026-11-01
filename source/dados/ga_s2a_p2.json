@@ -1,0 +1,263 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s2-l2q1e",
+      "semana": 2,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Produto escalar positivo",
+      "origem": "Lista 2 · Q1e",
+      "enunciado": "Sendo [[u]] = (1, 4, 3), [[v]] = (−1, 1, −1), [[w]] = (−2, −1/2, 5) e [[z]] = (−1, 2, −3). Calcular: e) [[v]] · [[z]]. Qual é o valor?",
+      "alternativas": [
+        {"t": "−2", "certa": false, "erro": "Você fez menos com menos dar menos: (−1)·(−1) = −1 e (−1)·(−3) = −3. Aí −1 + 2 − 3 = −2. Os dois produtos são positivos."},
+        {"t": "(1, 2, 3)", "certa": false, "erro": "Os três produtos estão certos, mas ficaram separados. O produto escalar é a soma: 1 + 2 + 3 = 6."},
+        {"t": "6", "certa": true},
+        {"t": "−3", "certa": false, "erro": "Você somou as coordenadas em vez de multiplicar: (−1 − 1) + (1 + 2) + (−1 − 3) = −2 + 3 − 4 = −3."},
+        {"t": "0", "certa": false, "erro": "Você fez (−1)·(−3) = −3 e chegou a 1 + 2 − 3 = 0. Esse zero falso ainda levaria à conclusão errada de que os vetores são ortogonais."}
+      ],
+      "dica": "Compare os sinais de [[v]] e [[z]] coordenada por coordenada antes de multiplicar.",
+      "resposta": "[[v]] · [[z]] = 6",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, 1, -1], "rot": "v", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, 2, -3], "rot": "z", "cor": 2}
+        ],
+        "legenda": "[[v]] e [[z]] apontam quase para o mesmo lado: o ângulo entre eles é pequeno."
+      },
+      "jeitos": {
+        "visual": "Na figura, [[v]] e [[z]] descem para o mesmo lado: os dois têm x negativo, y positivo e z negativo. As setas ficam próximas, com um ângulo de cerca de 22,21° entre elas. Como os sinais batem nas três coordenadas, cada uma contribui com um produto positivo. A sombra de [[z]] sobre a reta de [[v]] cai inteira para a frente.",
+        "receita": [
+          "Coordenadas: [[v]] = (−1, 1, −1) e [[z]] = (−1, 2, −3).",
+          "x: (−1)·(−1) = 1.",
+          "y: 1·2 = 2.",
+          "z: (−1)·(−3) = 3.",
+          "Some: 1 + 2 + 3 = 6."
+        ],
+        "cotidiano": "Dois aplicativos de mapa sugerindo rotas. Se os dois mandam virar para o mesmo lado em cada cruzamento, eles concordam em tudo, e a concordância vai se somando. [[v]] e [[z]] fazem isso: sinais iguais em x, em y e em z. Não há parcela negativa para descontar. A soma 1 + 2 + 3 = 6 é toda de concordância.",
+        "trabalho": "No Power BI, o produto escalar é um SUMX. Numa tabela com as colunas V e Z, uma linha por coordenada, a medida `SUMX(Vetores, Vetores[V] * Vetores[Z])` passa linha a linha, multiplica e soma: 1 + 2 + 3 = 6. É a mesma lógica do SOMARPRODUTO. Já SUM(V) vezes SUM(Z) daria (−1)·(−2) = 2: produto das somas não é soma dos produtos.",
+        "conversa": [
+          {"quem": "Você", "fala": "Aqui tem muito sinal negativo. O resultado deve ser negativo."},
+          {"quem": "Monitor", "fala": "Conte os sinais em cada coordenada. No x, quem multiplica quem?"},
+          {"quem": "Você", "fala": "−1 com −1. Dá 1."},
+          {"quem": "Monitor", "fala": "E no z?"},
+          {"quem": "Você", "fala": "−1 com −3, dá 3. Então é 1 + 2 + 3 = 6."},
+          {"quem": "Monitor", "fala": "Os negativos se casaram. O que decide o sinal de cada produto é se os dois sinais batem, não quantos menos aparecem."}
+        ],
+        "erro": "A armadilha é contar os sinais de menos e concluir que o resultado vai ser negativo. O sinal de cada produto depende de as duas coordenadas terem ou não o mesmo sinal. Aqui todas batem, então todos os produtos são positivos. Quem escreve (−1)·(−3) = −3 chega a 0 e ainda tira uma conclusão falsa: que os vetores são ortogonais.",
+        "confira": "Use a norma da soma. [[v]] + [[z]] = (−2, 3, −4), e ‖[[v]] + [[z]]‖² = 4 + 9 + 16 = 29. Pela regra ‖[[v]] + [[z]]‖² = ‖[[v]]‖² + 2[[v]] · [[z]] + ‖[[z]]‖², fica 3 + 2·6 + 14 = 29. Os dois lados batem, o que confirma [[v]] · [[z]] = 6. Com 0 no lugar de 6, o lado direito daria 17.",
+        "atalho": "Olhe os sinais antes de qualquer conta. Em x, y e z, [[v]] e [[z]] têm o mesmo sinal. Então os três produtos são positivos e o total também. Isso elimina −2, −3 e 0. O vetor cai por não ser número. Sobra 6."
+      }
+    },
+    {
+      "id": "ga-s2-l2q1f",
+      "semana": 2,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Escalar negativo e grande",
+      "origem": "Lista 2 · Q1f",
+      "enunciado": "Sendo [[u]] = (1, 4, 3), [[v]] = (−1, 1, −1), [[w]] = (−2, −1/2, 5) e [[z]] = (−1, 2, −3). Calcular: f) [[w]] · [[z]]. Qual é o valor?",
+      "alternativas": [
+        {"t": "−12", "certa": false, "erro": "Você trocou o sinal da fração: (−1/2)·2 virou +1. Aí 2 + 1 − 15 = −12. Negativo vezes positivo dá −1."},
+        {"t": "−14", "certa": true},
+        {"t": "(2, −1, −15)", "certa": false, "erro": "Os três produtos estão certos, só faltou somar: 2 − 1 − 15 = −14. Produto escalar dá um número."},
+        {"t": "−18", "certa": false, "erro": "Você fez (−2)·(−1) = −2. Menos com menos dá +2, e o total é 2 − 1 − 15 = −14, não −2 − 1 − 15 = −18."},
+        {"t": "1/2", "certa": false, "erro": "Você somou em vez de multiplicar: (−2 − 1) + (−1/2 + 2) + (5 − 3) = −3 + 3/2 + 2 = 1/2."}
+      ],
+      "dica": "Comece pelo produto do z, o maior em tamanho. Ele já mostra o sinal do resultado.",
+      "resposta": "[[w]] · [[z]] = −14",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-2, -0.5, 5], "rot": "w", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, 2, -3], "rot": "z", "cor": 2}
+        ],
+        "legenda": "[[w]] sobe e [[z]] desce: as setas apontam para lados mais opostos do que parecidos."
+      },
+      "jeitos": {
+        "visual": "Na figura, [[w]] sobe forte (z = 5) e [[z]] desce (z = −3). As setas se afastam: o ângulo entre elas é de cerca de 133,78°, bem mais que reto. A sombra de [[z]] sobre a reta de [[w]] cai para trás e é comprida. Por isso o produto escalar sai negativo e grande. O sobe e desce do z, sozinho, já dá 5·(−3) = −15.",
+        "receita": [
+          "Coordenadas: [[w]] = (−2, −1/2, 5) e [[z]] = (−1, 2, −3).",
+          "x: (−2)·(−1) = 2.",
+          "y: (−1/2)·2 = −1.",
+          "z: 5·(−3) = −15.",
+          "Some: 2 − 1 − 15 = −14."
+        ],
+        "cotidiano": "Um cabo de guerra torto. Quando dois times puxam a corda em sentidos quase opostos, a força de um trabalha contra a do outro, e o produto escalar das duas forças sai negativo e grande. Se puxassem em ângulo reto, daria zero. [[w]] e [[z]] puxam mais um contra o outro do que juntos, e o −14 mostra essa disputa.",
+        "trabalho": "No Excel, o produto escalar também sai de uma multiplicação de matrizes. Ponha [[w]] numa linha, A1:C1, e [[z]] numa coluna, E1:E3. `=MATRIZ.MULT(A1:C1;E1:E3)` multiplica uma linha 1×3 por uma coluna 3×1 e devolve uma única célula: −14. Linha vezes coluna é exatamente isto: multiplicar par a par e somar.",
+        "conversa": [
+          {"quem": "Você", "fala": "No y deu (−1/2)·2. Fica −1/4?"},
+          {"quem": "Monitor", "fala": "Quanto é a metade de 2?"},
+          {"quem": "Você", "fala": "1. Com o sinal, −1."},
+          {"quem": "Monitor", "fala": "Fração vezes inteiro: o inteiro multiplica o numerador. O denominador fica como está."},
+          {"quem": "Você", "fala": "Então 2 − 1 − 15 = −14."},
+          {"quem": "Monitor", "fala": "E o sinal negativo e grande combina com a figura: uma seta subindo, outra descendo."}
+        ],
+        "erro": "Dois sinais pedem atenção. No x, (−2)·(−1) é positivo, e quem escreve −2 chega a −18. No y, (−1/2)·2 é negativo, e quem perde o sinal chega a −12. Um teste rápido para cada produto: sinais iguais dão mais, sinais diferentes dão menos. Faça esse teste antes de multiplicar os números.",
+        "confira": "Use a norma da diferença. [[w]] − [[z]] = (−1, −5/2, 8), e ‖[[w]] − [[z]]‖² = 1 + 25/4 + 64 = 285/4. Pela regra ‖[[w]] − [[z]]‖² = ‖[[w]]‖² − 2[[w]] · [[z]] + ‖[[z]]‖², fica 117/4 + 28 + 14 = 117/4 + 168/4 = 285/4. Os dois lados batem, então [[w]] · [[z]] = −14.",
+        "atalho": "O produto do z, 5·(−3) = −15, domina. Os outros dois são pequenos, +2 e −1, e juntos dão +1. O resultado fica uma unidade acima de −15: −14. O vetor e o 1/2 caem de cara. Entre −12, −14 e −18, só o −14 está a uma unidade de −15."
+      }
+    },
+    {
+      "id": "ga-s2-l2q1g",
+      "semana": 2,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Vetor com ele mesmo",
+      "origem": "Lista 2 · Q1g",
+      "enunciado": "Sendo [[u]] = (1, 4, 3), [[v]] = (−1, 1, −1), [[w]] = (−2, −1/2, 5) e [[z]] = (−1, 2, −3). Calcular: g) [[u]] · [[u]]. Qual é o valor?",
+      "alternativas": [
+        {"t": "√26", "certa": false, "erro": "√26 é a norma ‖[[u]]‖, o comprimento. O produto [[u]] · [[u]] é o quadrado dela, 26, sem raiz."},
+        {"t": "(1, 16, 9)", "certa": false, "erro": "São os quadrados das coordenadas, ainda separados. Some: 1 + 16 + 9 = 26."},
+        {"t": "64", "certa": false, "erro": "Você somou as coordenadas e depois elevou ao quadrado: (1 + 4 + 3)² = 8² = 64. O certo é elevar cada uma e depois somar."},
+        {"t": "8", "certa": false, "erro": "Você somou as coordenadas, 1 + 4 + 3 = 8, sem elevar ao quadrado. Em [[u]] · [[u]], cada coordenada multiplica ela mesma."},
+        {"t": "26", "certa": true}
+      ],
+      "dica": "Um vetor vezes ele mesmo: cada coordenada multiplica a si própria. Lembre o que é ‖[[u]]‖².",
+      "resposta": "[[u]] · [[u]] = 26 = ‖[[u]]‖²",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 4, 3], "rot": "u", "cor": 1},
+          {"tipo": "segmento", "de": [0, 0, 0], "ate": [1, 0, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [1, 0, 0], "ate": [1, 4, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [1, 4, 0], "ate": [1, 4, 3], "tracejado": true},
+          {"tipo": "segmento", "de": [0, 0, 0], "ate": [1, 4, 0], "tracejado": true, "cor": 3}
+        ],
+        "legenda": "[[u]] é a diagonal de uma caixa de arestas 1, 4 e 3; a linha ocre é a diagonal do chão."
+      },
+      "jeitos": {
+        "visual": "Na figura, [[u]] é a diagonal de uma caixa com arestas 1, 4 e 3. Primeiro ande 1 no x e 4 no y: a diagonal do chão, a linha ocre, mede √(1 + 16) = √17. Depois suba 3. A seta azul é a hipotenusa de outro triângulo retângulo, de catetos √17 e 3, e o quadrado dela é 17 + 9 = 26. Esse quadrado é [[u]] · [[u]].",
+        "receita": [
+          "Escreva [[u]] duas vezes: (1, 4, 3) e (1, 4, 3).",
+          "Multiplique cada coordenada por ela mesma: 1·1 = 1; 4·4 = 16; 3·3 = 9.",
+          "Some: 1 + 16 + 9 = 26.",
+          "Ligue com a norma: ‖[[u]]‖² = [[u]] · [[u]] = 26, logo ‖[[u]]‖ = √26."
+        ],
+        "cotidiano": "Uma caixa de papelão com 1, 4 e 3 palmos de aresta. Você quer saber se um guarda-chuva de 5 palmos cabe dentro dela, de um canto ao canto oposto. Compare quadrados: a diagonal ao quadrado é 1 + 16 + 9 = 26, e 5² = 25. Como 25 é menor que 26, cabe, com folga pequena. O vetor vezes ele mesmo dá esse quadrado do comprimento, sem precisar tirar raiz.",
+        "trabalho": "Pense em três indicadores de um cliente, guardados como desvios em relação ao perfil médio: 1, 4 e 3. A distância desse cliente até o perfil médio é a norma do vetor. Para ordenar clientes por distância, a raiz nem é necessária: `=SOMAQUAD(1;4;3)` dá 26, que é [[u]] · [[u]], e quem tem a maior soma de quadrados está mais longe. A raiz entra quando você quer a distância em si: `=RAIZ(SOMAQUAD(1;4;3))`.",
+        "conversa": [
+          {"quem": "Você", "fala": "[[u]] · [[u]] não é a norma? Respondi √26."},
+          {"quem": "Monitor", "fala": "A norma é o comprimento. Quanto dá 1·1 + 4·4 + 3·3?"},
+          {"quem": "Você", "fala": "1 + 16 + 9 = 26."},
+          {"quem": "Monitor", "fala": "Então o produto escalar dá 26. Qual a relação com √26?"},
+          {"quem": "Você", "fala": "√26 ao quadrado é 26. O escalar dá o quadrado da norma."},
+          {"quem": "Monitor", "fala": "Isso: ‖[[u]]‖² = [[u]] · [[u]]. A raiz vem depois, se a questão pedir o comprimento."}
+        ],
+        "erro": "A confusão é entre o produto escalar do vetor com ele mesmo e a norma. [[u]] · [[u]] dá o quadrado do comprimento, 26; a norma é a raiz disso, √26. Outro tropeço é somar antes de elevar: (1 + 4 + 3)² = 64 não é igual a 1² + 4² + 3² = 26. O quadrado de uma soma carrega termos cruzados que a soma dos quadrados não tem.",
+        "confira": "Teste a regra num vetor cujo tamanho você já conhece: (3, 4, 0) mede 5, e (3, 4, 0) · (3, 4, 0) = 9 + 16 = 25 = 5². A regra funciona. Aplicada a [[u]], dá 26, e a norma √26 ≈ 5,10 fica entre 5 e 6, coerente com um vetor cuja maior coordenada é 4.",
+        "atalho": "[[u]] · [[u]] é soma de quadrados: positivo, sem raiz e inteiro quando as coordenadas são inteiras. √26 cai, e o vetor também. Entre 8, 26 e 64, só 26 sai de 1 + 16 + 9. O 64 é 8², o quadrado da soma, outra conta."
+      }
+    },
+    {
+      "id": "ga-s2-l2q1h",
+      "semana": 2,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Quadrado da norma",
+      "origem": "Lista 2 · Q1h",
+      "enunciado": "Sendo [[u]] = (1, 4, 3), [[v]] = (−1, 1, −1), [[w]] = (−2, −1/2, 5) e [[z]] = (−1, 2, −3). Calcular: h) [[v]] · [[v]]. Qual é o valor?",
+      "alternativas": [
+        {"t": "3", "certa": true},
+        {"t": "−1", "certa": false, "erro": "Você fez (−1)·(−1) = −1 nas duas coordenadas negativas: −1 + 1 − 1 = −1. Menos com menos dá mais, e [[v]] · [[v]] nunca é negativo."},
+        {"t": "√3", "certa": false, "erro": "√3 é a norma de [[v]], o comprimento. O produto [[v]] · [[v]] é o quadrado da norma, 3."},
+        {"t": "1", "certa": false, "erro": "Você somou as coordenadas e elevou ao quadrado: (−1 + 1 − 1)² = (−1)² = 1. Eleve cada coordenada antes de somar."},
+        {"t": "(1, 1, 1)", "certa": false, "erro": "São os três quadrados, ainda separados. Somando: 1 + 1 + 1 = 3."}
+      ],
+      "dica": "Cada coordenada de [[v]] vale 1 ou −1. Quanto dá cada uma vezes ela mesma?",
+      "resposta": "[[v]] · [[v]] = 3 = ‖[[v]]‖²",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, 1, -1], "rot": "v", "cor": 1},
+          {"tipo": "segmento", "de": [0, 0, 0], "ate": [-1, 0, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [-1, 0, 0], "ate": [-1, 1, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [-1, 1, 0], "ate": [-1, 1, -1], "tracejado": true}
+        ],
+        "legenda": "[[v]] liga dois cantos opostos de um cubo de aresta 1: três passos tracejados de tamanho 1."
+      },
+      "jeitos": {
+        "visual": "Na figura, [[v]] atravessa um cubo de aresta 1, de um canto ao canto oposto. Para ir da origem até a ponta, os tracejados andam uma unidade em cada eixo, com sinais −, + e −. Cada passo tem tamanho 1, para qualquer lado. Ao quadrado, o sentido some e cada passo vira 1. Três passos, soma 3. A diagonal do cubo mede √3.",
+        "receita": [
+          "Coordenadas: [[v]] = (−1, 1, −1).",
+          "x: (−1)·(−1) = 1.",
+          "y: 1·1 = 1.",
+          "z: (−1)·(−1) = 1.",
+          "Some: 1 + 1 + 1 = 3. Logo ‖[[v]]‖² = 3 e ‖[[v]]‖ = √3."
+        ],
+        "cotidiano": "Dar meia-volta duas vezes deixa você virado para onde já estava. Multiplicar −1 por −1 faz o mesmo com o sinal: duas inversões se anulam, e sobra +1. Em [[v]] · [[v]], cada coordenada encontra ela mesma, então o sinal sempre se anula. Tanto faz se a coordenada é 1 ou −1: ao quadrado vira 1.",
+        "trabalho": "Em banco de dados, dá para guardar o sentido de um lançamento como +1 (crédito) ou −1 (débito). Numa consulta, `SUM(sinal * sinal)` sobre três lançamentos dá 3, o mesmo que `COUNT(*)`, porque cada sinal ao quadrado vale 1. [[v]] é um vetor de sinais: [[v]] · [[v]] conta quantas coordenadas dele são diferentes de zero.",
+        "conversa": [
+          {"quem": "Você", "fala": "Somei −1 + 1 − 1 e deu −1."},
+          {"quem": "Monitor", "fala": "Isso é a soma das coordenadas. O produto escalar multiplica antes de somar. Quanto é (−1)·(−1)?"},
+          {"quem": "Você", "fala": "1. Então ficam 1, 1 e 1."},
+          {"quem": "Monitor", "fala": "E a soma?"},
+          {"quem": "Você", "fala": "3."},
+          {"quem": "Monitor", "fala": "Isso. Repare que [[v]] · [[v]] nunca pode dar negativo: é uma soma de quadrados."}
+        ],
+        "erro": "Dois atalhos mentais derrubam essa conta. O primeiro é somar as coordenadas, −1 + 1 − 1 = −1, e chamar isso de produto escalar. O segundo é elevar essa soma ao quadrado e achar 1. Os dois pulam a multiplicação coordenada por coordenada. Um alarme simples: se [[v]] · [[v]] der negativo, ou zero com [[v]] não nulo, a conta está errada.",
+        "confira": "Calcule a diagonal do cubo por Pitágoras, em duas etapas. A diagonal de uma face, com dois lados 1, tem quadrado 1 + 1 = 2. A diagonal do cubo junta essa face com a terceira aresta: 2 + 1 = 3. O quadrado da diagonal é 3, igual a [[v]] · [[v]].",
+        "atalho": "Quando as coordenadas só valem 1 ou −1, o vetor com ele mesmo dá o número de coordenadas: aqui, 3, sem conta. √3 seria a norma, que é outra pergunta. Negativo não pode ser, e vetor não responde a produto escalar."
+      }
+    },
+    {
+      "id": "ga-s2-l2q1i",
+      "semana": 2,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Quadrado da norma com fração",
+      "origem": "Lista 2 · Q1i",
+      "enunciado": "Sendo [[u]] = (1, 4, 3), [[v]] = (−1, 1, −1), [[w]] = (−2, −1/2, 5) e [[z]] = (−1, 2, −3). Calcular: i) [[w]] · [[w]]. Qual é o valor?",
+      "alternativas": [
+        {"t": "115/4", "certa": false, "erro": "Você fez (−1/2)·(−1/2) = −1/4. Menos com menos dá mais: é +1/4, e o total é 4 + 1/4 + 25 = 117/4."},
+        {"t": "59/2", "certa": false, "erro": "Você elevou só o numerador: (−1/2)² virou 1/2. O denominador também vai ao quadrado, (1/2)² = 1/4. Com o erro, 4 + 1/2 + 25 = 59/2."},
+        {"t": "117/4", "certa": true},
+        {"t": "√117/2", "certa": false, "erro": "Essa é a norma ‖[[w]]‖ = √(117/4) = √117/2. O produto [[w]] · [[w]] é o quadrado dela, 117/4."},
+        {"t": "(4, 1/4, 25)", "certa": false, "erro": "São os três quadrados, um por coordenada. Falta somar: 4 + 1/4 + 25 = 117/4."}
+      ],
+      "dica": "Eleve cada coordenada ao quadrado, inclusive o −1/2, e some tudo em quartos.",
+      "resposta": "[[w]] · [[w]] = 117/4 = ‖[[w]]‖²",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-2, -0.5, 5], "rot": "w", "cor": 1},
+          {"tipo": "segmento", "de": [0, 0, 0], "ate": [-2, 0, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [-2, 0, 0], "ate": [-2, -0.5, 0], "tracejado": true, "cor": 3},
+          {"tipo": "segmento", "de": [-2, -0.5, 0], "ate": [-2, -0.5, 5], "tracejado": true}
+        ],
+        "legenda": "O trecho ocre é o meio passo no eixo y: no quadrado, ele contribui com só 1/4."
+      },
+      "jeitos": {
+        "visual": "Na figura, [[w]] é uma seta alta e pouco inclinada. Ela anda 2 no sentido negativo de x, só meio passo no y (o trecho ocre) e sobe 5 no z. Troque cada trecho por um quadrado com aquele lado: as áreas são 4, 1/4 e 25. O quadradinho do y é um quarto de um quadrado de lado 1. Somando as três áreas, 117/4.",
+        "receita": [
+          "Coordenadas: [[w]] = (−2, −1/2, 5).",
+          "x: (−2)·(−2) = 4.",
+          "y: (−1/2)·(−1/2) = 1/4.",
+          "z: 5·5 = 25.",
+          "Some os inteiros: 4 + 25 = 29.",
+          "Ponha 29 em quartos e junte: 116/4 + 1/4 = 117/4. Logo ‖[[w]]‖ = √117/2."
+        ],
+        "cotidiano": "Metade da metade de uma pizza é um quarto da pizza. Elevar 1/2 ao quadrado é isso: (1/2)·(1/2) = 1/4. O sinal de menos não muda nada, porque menos vezes menos dá mais. A fatia é pequena perto dos outros dois quadrados, 4 e 25, mas sem ela o resultado não fecha em 117/4.",
+        "trabalho": "Na planilha, `=SOMAQUAD(-2;-0,5;5)` devolve 29,25, o mesmo número que 117/4, porque 117 dividido por 4 dá 29,25. O decimal serve para conferir; a fração é o formato da lista. Para ir do decimal à fração, multiplique por 4: 29,25 × 4 = 117. Se a sua conta à mão, passada para decimal, der 29,5 ou 28,75, algum sinal ou quadrado da fração saiu errado.",
+        "conversa": [
+          {"quem": "Você", "fala": "(−1/2)² eu fiz −1/4. Menos ao quadrado continua menos?"},
+          {"quem": "Monitor", "fala": "Escreva por extenso: (−1/2)·(−1/2). Menos vezes menos dá quanto?"},
+          {"quem": "Você", "fala": "Mais. Então +1/4."},
+          {"quem": "Monitor", "fala": "E o 1/2 vezes 1/2, como fica?"},
+          {"quem": "Você", "fala": "Numerador 1·1, denominador 2·2. Dá 1/4. Total 4 + 1/4 + 25 = 117/4."},
+          {"quem": "Monitor", "fala": "Isso. Um quadrado nunca é negativo, nem quando o número é fração."}
+        ],
+        "erro": "A fração no y gera dois erros. Um é manter o sinal: (−1/2)² = −1/4, que leva a 115/4. O outro é elevar só o numerador, (−1/2)² = 1/2, que leva a 59/2. Escreva sempre o produto por extenso, (−1/2)·(−1/2): numerador vezes numerador, denominador vezes denominador, e sinais iguais dão mais.",
+        "confira": "Tire a fração dobrando [[w]]: 2[[w]] = (−4, −1, 10). Esse vetor tem só inteiros, e 2[[w]] · 2[[w]] = 16 + 1 + 100 = 117. Dobrar o vetor multiplica o quadrado do tamanho por 4. Então [[w]] · [[w]] = 117/4. Mesmo resultado, sem fração no caminho.",
+        "atalho": "[[w]] · [[w]] é soma de quadrados: positivo e sem raiz. √117/2 e o vetor caem. O 1/4 do y obriga o resultado a ter denominador 4, então 59/2 também cai. Entre 115/4 e 117/4, lembre que quadrado só soma: 29 + 1/4 = 117/4."
+      }
+    }
+  ]
+}

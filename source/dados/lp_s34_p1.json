@@ -1,0 +1,333 @@
+{
+  "disciplina": "lp",
+  "semanas": [
+    {
+      "semana": 3,
+      "titulo": "Proposições e tabela-verdade",
+      "chamada": "Proposição é uma frase que só pode ser verdadeira ou falsa. Com os conectivos você junta frases e calcula o valor do conjunto, linha a linha, numa tabela-verdade: a mesma lógica de um filtro WHERE.",
+      "fonte": "Prévia pela ementa do PPC — trocar quando o material da semana chegar",
+      "previa": true,
+      "blocos": [
+        {"titulo": "O que é proposição", "texto": "Proposição é uma frase declarativa que tem um valor lógico: verdadeiro (V) ou falso (F). Nunca os dois ao mesmo tempo, e nunca um terceiro valor. 'O número 15 é divisível por 4' é proposição, e falsa. Não são proposições: a pergunta ('Qual é o saldo?'), a ordem ('Confira o extrato'), a exclamação, que só expressa emoção ('Que mês difícil'), e a sentença aberta, que depende de algo ainda não definido, como 'x + 3 = 10' ou 'Ele fechou o caixa'. Quando você troca o x por um número, ou diz quem é 'ele', a sentença aberta vira proposição."},
+        {"titulo": "Os conectivos", "texto": "Proposição simples é a que não tem outra dentro, e se representa por uma letra: p, q, r. Os conectivos montam proposições compostas. ¬p é a negação ('não p'). p ∧ q é a conjunção ('p e q'). p ∨ q é a disjunção inclusiva ('p ou q, ou os dois'). p ⊕ q é o ou exclusivo ('ou p, ou q, mas não os dois'). p → q é a condicional ('se p, então q'): p é o antecedente e q, o consequente. p ↔ q é a bicondicional ('p se, e somente se, q'). No VisuAlg, os quatro primeiros aparecem como `nao`, `e`, `ou` e `xou`."},
+        {"titulo": "A regra de cada tabela", "texto": "Cada conectivo tem uma regra curta, e ela basta para montar qualquer tabela. ¬ inverte o valor. ∧ só é V quando os dois lados são V. ∨ só é F quando os dois lados são F. ⊕ é V quando os lados têm valores diferentes. → só é F numa linha: antecedente V e consequente F. ↔ é V quando os lados têm o mesmo valor. A condicional costuma surpreender: com antecedente F ela é V, qualquer que seja o consequente. A promessa 'se chover, levo guarda-chuva' não é quebrada num dia de sol."},
+        {"titulo": "Quantas linhas: 2ⁿ", "texto": "A tabela-verdade lista todas as combinações de V e F das proposições simples. Cada letra tem 2 valores possíveis; com n letras distintas, as combinações são 2 × 2 × ... × 2 = 2ⁿ. Uma letra dá 2 linhas, duas dão 4, três dão 8, quatro dão 16. Conte letras distintas: em p ∧ (p ∨ q) o p aparece duas vezes, mas a tabela tem 4 linhas. Para não esquecer combinação, a primeira coluna leva metade das linhas com V e metade com F; cada coluna seguinte alterna em blocos com a metade do tamanho; a última alterna V, F, V, F."},
+        {"titulo": "Ordem de precedência", "texto": "Sem parênteses, os conectivos se resolvem nesta ordem: primeiro ¬, depois ∧, depois ∨, depois →, por último ↔. É como na aritmética, em que a multiplicação vem antes da soma. Assim, ¬p ∨ q → r se lê ((¬p) ∨ q) → r. O ¬ pega só a letra ou o parêntese colado nele: para negar um bloco inteiro, escreva ¬(p ∨ q). Parênteses sempre vêm primeiro e desfazem qualquer dúvida. Há livros que põem ∧ e ∨ no mesmo nível. Por isso, neste material, toda fórmula em que a ordem entre ∧ e ∨ mudaria o valor traz parênteses, e o ⊕ também aparece sempre entre parênteses."},
+        {"titulo": "Traduzir frases para símbolos", "texto": "Defina cada letra como uma frase afirmativa e depois procure as palavras-chave. 'Não' vira ¬. 'E' e 'mas' viram ∧: 'mas' tem tom de contraste, só que a lógica é a mesma. 'Ou' costuma ser ∨; 'ou ... ou ..., mas não ambos' é ⊕. 'Se p, então q', 'q, se p' e 'p somente se q' viram p → q. 'Se, e somente se' vira ↔. 'Nem p nem q' é ¬p ∧ ¬q. A vírgula da frase costuma indicar onde ficam os parênteses."}
+      ],
+      "formulas": [
+        {"nome": "Negação", "expr": "¬p", "quando": "inverte o valor: V vira F e F vira V"},
+        {"nome": "Conjunção", "expr": "p ∧ q", "quando": "V só quando p e q são V"},
+        {"nome": "Disjunção inclusiva", "expr": "p ∨ q", "quando": "F só quando p e q são F"},
+        {"nome": "Ou exclusivo", "expr": "p ⊕ q", "quando": "V quando p e q têm valores diferentes"},
+        {"nome": "Condicional", "expr": "p → q", "quando": "F só quando p é V e q é F"},
+        {"nome": "Bicondicional", "expr": "p ↔ q", "quando": "V quando p e q têm o mesmo valor"},
+        {"nome": "Número de linhas", "expr": "linhas = 2ⁿ", "quando": "n é o número de letras distintas da fórmula"},
+        {"nome": "Precedência", "expr": "¬, depois ∧, depois ∨, depois →, por último ↔", "quando": "fórmula sem parênteses; entre ∧ e ∨, na dúvida, ponha parênteses"},
+        {"nome": "No VisuAlg", "expr": "nao = ¬, e = ∧, ou = ∨, xou = ⊕", "quando": "expressões lógicas dentro do algoritmo"}
+      ],
+      "jeitos": {
+        "visual": "Pense em cada proposição como um interruptor: ligado é V, desligado é F. O ∧ são dois interruptores em série: a lâmpada só acende com os dois ligados. O ∨ são dois em paralelo: basta um ligado. O ⊕ é a luz de escada ligada de modo que acende quando os dois botões estão em posições diferentes. A tabela-verdade é a grade com todas as posições possíveis dos interruptores, uma por linha, e a última coluna diz se a lâmpada acendeu.",
+        "cotidiano": "A condicional é uma promessa: 'se o salário cair hoje, eu pago a fatura'. Você só pode acusar quem prometeu de mentir num caso: o salário caiu e a fatura ficou sem pagar. Se o salário não caiu, a promessa nem foi posta à prova, e a lógica conta isso como V. O ∧ é a lista de exigências de um edital: falhou uma, está fora. O ∨ é a porta com duas chaves: qualquer uma abre.",
+        "receita": "Para achar o valor de uma fórmula:\n1. Conte as letras distintas e, se precisar da tabela inteira, monte as 2ⁿ linhas.\n2. Escreva os parênteses que a precedência esconde: ¬, depois ∧, depois ∨, depois →, por último ↔.\n3. Resolva de dentro para fora, uma coluna por conectivo.\n4. Use a regra curta de cada conectivo, sem decorar a tabela.\n5. A última coluna é o valor da fórmula em cada linha.",
+        "trabalho": "Todo filtro WHERE é uma fórmula lógica avaliada linha a linha. `WHERE vencido = 1 AND pago = 0` é vencido ∧ ¬pago: só passa a linha em que as duas condições valem. A precedência também vale no SQL: NOT antes de AND, AND antes de OR, e um parêntese esquecido traz linhas a mais. No Excel, E(), OU() e NÃO() fazem o mesmo papel dentro de um SE. A regra de auditoria 'se a NF é de importação, então tem DI (declaração de importação)' é uma condicional: só a nota de importação sem DI a viola.",
+        "erro": "Três tropeços concentram os erros da semana. O primeiro é a condicional com antecedente falso: muita gente marca F, mas p → q é V sempre que p é F. O segundo é contar ocorrências em vez de letras distintas e errar o 2ⁿ. O terceiro é a precedência: ler ¬p ∨ q como se o ¬ negasse tudo, ou resolver da esquerda para a direita como se não houvesse ordem. Na dúvida, escreva os parênteses antes de calcular."
+      },
+      "lab": "No laboratório, digite p → q, ache a única linha com F e depois troque por q → p para ver essa linha mudar de lugar."
+    },
+    {
+      "semana": 4,
+      "titulo": "Equivalências, argumentos e quantificadores",
+      "chamada": "Duas fórmulas são equivalentes quando têm a mesma tabela-verdade. Com isso você reescreve uma regra sem mudar o sentido, testa se um raciocínio se sustenta e nega frases com 'todo' e 'algum'.",
+      "fonte": "Prévia pela ementa do PPC — trocar quando o material da semana chegar",
+      "previa": true,
+      "blocos": [
+        {"titulo": "Tautologia, contradição e contingência", "texto": "Olhe a última coluna da tabela. Se ela é V em todas as linhas, a fórmula é uma tautologia, como p ∨ ¬p. Se é F em todas, é uma contradição, como p ∧ ¬p. Se tem V e F misturados, é uma contingência: o valor depende do caso, como em p → q. Duas fórmulas A e B são equivalentes, escrito A ≡ B, quando têm a mesma coluna final em todas as linhas; dito de outro jeito, quando A ↔ B é tautologia. Basta uma linha diferente para não haver equivalência."},
+        {"titulo": "De Morgan e dupla negação", "texto": "Para negar uma conjunção, negue cada parte e troque ∧ por ∨: ¬(p ∧ q) ≡ ¬p ∨ ¬q. Para negar uma disjunção, negue cada parte e troque ∨ por ∧: ¬(p ∨ q) ≡ ¬p ∧ ¬q. Essas são as leis de De Morgan. O erro clássico é negar as partes e esquecer de trocar o conectivo, o 'De Morgan pela metade'. A dupla negação desfaz a si mesma: ¬¬p ≡ p. 'Não é verdade que o título não foi pago' quer dizer que o título foi pago."},
+        {"titulo": "A condicional e suas parentes", "texto": "A condicional p → q tem duas reescritas equivalentes que você precisa reconhecer. ¬p ∨ q: o antecedente é falso ou o consequente é verdadeiro (ou os dois). E a contrapositiva ¬q → ¬p. Já a recíproca q → p e a inversa ¬p → ¬q NÃO são equivalentes a p → q (são equivalentes entre si). Para negar a condicional, lembre que ela só é F com antecedente V e consequente F: ¬(p → q) ≡ p ∧ ¬q. A negação de uma regra 'se ... então' não é outra regra, é um caso concreto que a quebra."},
+        {"titulo": "Argumento válido", "texto": "Um argumento tem premissas e uma conclusão. Ele é válido quando é impossível ter todas as premissas V e a conclusão F. Para testar, monte a tabela-verdade com uma coluna por premissa e uma para a conclusão, e procure uma linha com premissas todas V e conclusão F. Se achar, essa linha é o contraexemplo e o argumento é inválido. Se não achar, é válido. Validade fala da forma, não do conteúdo: um argumento inválido pode ter conclusão verdadeira por sorte."},
+        {"titulo": "Regras de inferência e falácias", "texto": "Quatro formas válidas aparecem sempre. Modus ponens: p → q e p, logo q. Modus tollens: p → q e ¬q, logo ¬p. Silogismo hipotético: p → q e q → r, logo p → r. Silogismo disjuntivo: p ∨ q e ¬p, logo q. Duas formas parecidas são falácias, ou seja, inválidas. Afirmar o consequente: p → q e q, logo p. Negar o antecedente: p → q e ¬p, logo ¬q. Nas duas, a linha p = F e q = V deixa as premissas V e a conclusão F."},
+        {"titulo": "Predicados e quantificadores", "texto": "Uma sentença aberta como 'x foi pago' vira predicado, P(x). Ela só ganha valor lógico quando você diz quem é x ou quantos x valem. ∀x P(x) diz 'para todo x, P(x)'; ∃x P(x) diz 'existe pelo menos um x com P(x)'. 'Todo A é B' vira ∀x (A(x) → B(x)); 'algum A é B' vira ∃x (A(x) ∧ B(x)); 'nenhum A é B' vira ∀x (A(x) → ¬B(x)). Para negar, troque o quantificador e negue o que vem depois: ¬∀x P(x) ≡ ∃x ¬P(x) e ¬∃x P(x) ≡ ∀x ¬P(x)."}
+      ],
+      "formulas": [
+        {"nome": "Equivalência", "expr": "A ≡ B quando A ↔ B é tautologia", "quando": "mesma coluna final em todas as linhas"},
+        {"nome": "De Morgan (e)", "expr": "¬(p ∧ q) ≡ ¬p ∨ ¬q", "quando": "negar uma conjunção"},
+        {"nome": "De Morgan (ou)", "expr": "¬(p ∨ q) ≡ ¬p ∧ ¬q", "quando": "negar uma disjunção"},
+        {"nome": "Dupla negação", "expr": "¬¬p ≡ p", "quando": "duas negações seguidas sobre a mesma proposição"},
+        {"nome": "Condicional como ou", "expr": "p → q ≡ ¬p ∨ q", "quando": "trocar a seta por ∨, ou ¬a ∨ b por a → b"},
+        {"nome": "Contrapositiva", "expr": "p → q ≡ ¬q → ¬p", "quando": "conferir a regra pelo lado do consequente"},
+        {"nome": "Recíproca e inversa", "expr": "q → p e ¬p → ¬q não equivalem a p → q", "quando": "armadilha clássica de prova"},
+        {"nome": "Negação da condicional", "expr": "¬(p → q) ≡ p ∧ ¬q", "quando": "descrever o caso que quebra a regra"},
+        {"nome": "Modus ponens", "expr": "p → q; p; logo q", "quando": "afirmar o antecedente (válido)"},
+        {"nome": "Modus tollens", "expr": "p → q; ¬q; logo ¬p", "quando": "negar o consequente (válido)"},
+        {"nome": "Silogismo hipotético", "expr": "p → q; q → r; logo p → r", "quando": "encadear duas condicionais (válido)"},
+        {"nome": "Silogismo disjuntivo", "expr": "p ∨ q; ¬p; logo q", "quando": "eliminar uma opção falsa (válido)"},
+        {"nome": "Falácia: afirmar o consequente", "expr": "p → q; q; logo p", "quando": "inválido: contraexemplo p = F, q = V"},
+        {"nome": "Falácia: negar o antecedente", "expr": "p → q; ¬p; logo ¬q", "quando": "inválido: contraexemplo p = F, q = V"},
+        {"nome": "Negação do todo", "expr": "¬∀x P(x) ≡ ∃x ¬P(x)", "quando": "basta um exemplo que falha"},
+        {"nome": "Negação do existe", "expr": "¬∃x P(x) ≡ ∀x ¬P(x)", "quando": "nenhum elemento tem a propriedade"},
+        {"nome": "Todo, algum, nenhum", "expr": "∀x (A(x) → B(x)); ∃x (A(x) ∧ B(x)); ∀x (A(x) → ¬B(x))", "quando": "traduzir 'todo A é B', 'algum A é B' e 'nenhum A é B'"}
+      ],
+      "jeitos": {
+        "visual": "Ponha as colunas finais de duas fórmulas lado a lado, como duas fileiras de lâmpadas. Se elas acendem e apagam juntas em todas as linhas, as fórmulas são equivalentes. Uma tautologia é a fileira toda acesa; uma contradição, toda apagada. Para testar um argumento, pinte as linhas em que todas as premissas estão acesas e olhe só para elas: se alguma tem a conclusão apagada, o argumento cai. Nos quantificadores, cada elemento é uma lâmpada: ∀ pede todas acesas, ∃ pede pelo menos uma.",
+        "cotidiano": "A regra da casa é 'se chover, a roupa sai do varal'. Ela vale do mesmo jeito lida de trás para a frente com as duas negações: 'se a roupa está no varal, não choveu'. Já 'se a roupa saiu do varal, choveu' não vale: alguém pode ter tirado a roupa porque secou. Esse é o pulo da falácia de afirmar o consequente. E para desmentir 'todo mundo chegou' basta um ausente; você não precisa provar que ninguém chegou.",
+        "receita": "Para testar uma equivalência ou um argumento:\n1. Liste as letras distintas e monte as 2ⁿ linhas.\n2. Para equivalência, calcule as duas colunas finais e compare linha a linha; uma diferença basta para derrubar.\n3. Para argumento, faça uma coluna por premissa e uma para a conclusão.\n4. Marque as linhas com todas as premissas V.\n5. Se uma delas tem conclusão F, o argumento é inválido; se nenhuma tem, é válido.",
+        "trabalho": "A contrapositiva é um segundo caminho de conciliação. A regra 'se a NF é de importação, então tem DI' se audita também filtrando as notas sem DI e conferindo se alguma é de importação. A negação da regra, importação ∧ ¬DI, é a consulta de exceções: `WHERE importacao = 1 AND di IS NULL`. Consulta vazia: a regra vale para a base inteira, que é o ∀. Uma linha basta para derrubá-la, que é o ∃. E `NOT (A AND B)` no SQL devolve o mesmo que `NOT A OR NOT B`.",
+        "erro": "O tropeço mais caro da semana é achar que a recíproca vale. 'Se é importação, tem DI' não autoriza 'se tem DI, é importação': esse pulo é a falácia de afirmar o consequente, e 'não é importação, logo não tem DI' é negar o antecedente. Logo atrás vem o De Morgan pela metade: negar as partes e manter o ∧. Nos quantificadores, o erro é negar 'todo' com 'nenhum'; a negação certa é 'algum ... não'."
+      },
+      "lab": "No laboratório, compare ¬(p ∧ q) com ¬p ∨ ¬q e depois com ¬p ∧ ¬q: o site diz em qual linha as duas colunas deixam de bater."
+    }
+  ],
+  "questoes": [
+    {
+      "id": "lp-s3-p01",
+      "semana": 3,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Proposição ou não",
+      "origem": "Prévia · ementa",
+      "enunciado": "Qual das frases abaixo é uma proposição?",
+      "alternativas": [
+        {"t": "Qual é o saldo da conta corrente?", "certa": false, "erro": "É uma pergunta. Ela pede uma informação, mas não afirma nada, então não pode ser verdadeira nem falsa."},
+        {"t": "Confira o extrato antes de fechar o mês.", "certa": false, "erro": "É uma ordem. Uma ordem pode ser cumprida ou não, mas não tem valor lógico."},
+        {"t": "x + 3 = 10", "certa": false, "erro": "É uma sentença aberta. Com x = 7 ela é V, com x = 1 é F; enquanto o x não for definido, não há valor lógico."},
+        {"t": "O número 15 é divisível por 4.", "certa": true},
+        {"t": "Ele fechou o caixa ontem.", "certa": false, "erro": "O 'ele' não diz de quem se fala, então a frase funciona como sentença aberta: o valor depende de quem você puser no lugar do pronome."}
+      ],
+      "dica": "Para cada frase, pergunte: dá para responder 'é verdade' ou 'é mentira' sem precisar de nenhuma informação a mais?",
+      "resposta": "“O número 15 é divisível por 4”, uma proposição falsa",
+      "jeitos": {
+        "visual": "Imagine uma etiqueta com duas casas, V e F, para colar em cada frase. Na pergunta, você não sabe em qual casa marcar, porque ela não afirma nada. Na ordem, também não. Em x + 3 = 10 e em 'Ele fechou o caixa', a etiqueta fica em suspenso até alguém dizer quem é x ou quem é 'ele'. Só a frase sobre o 15 recebe a marca na hora: F, porque 15 dividido por 4 dá 3 e sobra 3.",
+        "receita": [
+          "Pergunta não afirma nada: descarte 'Qual é o saldo da conta corrente?'.",
+          "Ordem manda fazer algo: descarte 'Confira o extrato antes de fechar o mês'.",
+          "x + 3 = 10 depende do valor de x: é sentença aberta, descarte.",
+          "'Ele fechou o caixa ontem' depende de quem é 'ele': também é sentença aberta.",
+          "Sobra 'O número 15 é divisível por 4'. Como 15 = 4 × 3 + 3, o resto é 3 e a frase é F. Falsa, mas é proposição."
+        ],
+        "cotidiano": "Pense num auditor com dois carimbos: 'confere' e 'não confere'. Se você entrega a ele uma pergunta, ele devolve: não há o que carimbar. Uma ordem, também. Um formulário com o nome em branco, como 'ele fechou o caixa', fica parado até alguém preencher. Já uma afirmação completa, mesmo errada, recebe carimbo. 'Não confere' ainda é um carimbo.",
+        "trabalho": "No banco de dados, uma proposição é como uma condição com os valores já preenchidos: `15 % 4 = 0` devolve falso na hora. Uma sentença aberta é a condição com coluna, `valor % 4 = 0`: ela só dá V ou F quando o banco a aplica a uma linha concreta. Por isso o WHERE é avaliado linha a linha. Pergunta e ordem não entram no WHERE: são o pedido de consulta e o comando, não condições.",
+        "conversa": [
+          {"quem": "Você", "fala": "A frase do 15 é falsa. Então não é proposição, certo?"},
+          {"quem": "Monitor", "fala": "Proposição é a frase que tem valor lógico. Falso é um valor lógico. Ela tem?"},
+          {"quem": "Você", "fala": "Tem. É F, porque 15 dividido por 4 sobra 3."},
+          {"quem": "Monitor", "fala": "Então é proposição. E o x + 3 = 10, tem valor?"},
+          {"quem": "Você", "fala": "Depende do x. Com 7 é V, com outro número é F."},
+          {"quem": "Monitor", "fala": "Por isso ela é sentença aberta. Só vira proposição quando o x for definido."}
+        ],
+        "erro": "A armadilha é achar que proposição precisa ser verdadeira. Quem pensa assim descarta a frase do 15 justamente por ela ser falsa e procura outra resposta. O critério é ter valor lógico definido, não ter valor V. Outro tropeço é aceitar 'Ele fechou o caixa ontem' só porque é afirmativa: o pronome sem dono deixa a frase em aberto, como o x da equação.",
+        "confira": "Faça o teste da troca. Se você puder trocar algum pedaço da frase e mudar o valor dela, ela é aberta: em x + 3 = 10, trocar o x muda o valor; em 'Ele fechou o caixa', trocar a pessoa também. Na frase do 15 não há nada a trocar, e a conta 15 = 4 × 3 + 3 fecha o valor em F.",
+        "atalho": "Elimine pela pontuação e pelo verbo. Interrogação, fora. Verbo no imperativo, como 'Confira', fora. Letra solta como x ou pronome sem dono, fora. Sobra uma frase completa, com sujeito definido, que afirma algo. Não perca tempo decidindo se ela é verdadeira: para esta pergunta, tanto faz."
+      }
+    },
+    {
+      "id": "lp-s3-p02",
+      "semana": 3,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Número de linhas 2ⁿ",
+      "origem": "Prévia · ementa",
+      "enunciado": "Quantas linhas tem a tabela-verdade completa da fórmula (p ∧ q) → (¬p ∨ r ∨ s)?",
+      "alternativas": [
+        {"t": "4", "certa": false, "erro": "Quatro é o número de letras distintas. Cada letra dobra o número de combinações, então a conta é 2⁴, e não uma linha por letra."},
+        {"t": "8", "certa": false, "erro": "Você fez 2 × 4. Cada letra nova multiplica as linhas por 2, então o certo é 2 × 2 × 2 × 2."},
+        {"t": "16", "certa": true},
+        {"t": "32", "certa": false, "erro": "Você contou o p duas vezes e fez 2⁵. A tabela combina valores de letras distintas; o p aparece duas vezes, mas tem um valor só em cada linha."},
+        {"t": "10", "certa": false, "erro": "Você multiplicou 2 pelas 5 ocorrências de letras. Além de contar o p duas vezes, trocou a potência por um produto."}
+      ],
+      "dica": "Conte quantas letras diferentes aparecem, não quantas vezes elas aparecem.",
+      "resposta": "16 linhas (2⁴, com p, q, r e s)",
+      "tabela": {"onde": "explicacao", "cab": ["letras distintas", "conta", "linhas"], "linhas": [["1", "2¹", "2"], ["2", "2²", "4"], ["3", "2³", "8"], ["4", "2⁴", "16"]]},
+      "jeitos": {
+        "visual": "Na tabela ao lado, cada letra nova dobra o número de linhas: 2, 4, 8, 16. Desenhe uma árvore: do tronco saem dois galhos, V e F, para o p. De cada galho saem mais dois para o q, depois para o r, depois para o s. No fim há 16 pontas, e cada ponta é uma linha da tabela. O segundo p da fórmula não cria galho novo, porque o valor do p já foi decidido no começo da árvore.",
+        "receita": [
+          "Liste as letras na ordem em que aparecem: p, q, p, r, s.",
+          "Tire as repetidas: sobram p, q, r e s, ou seja, n = 4.",
+          "Cada letra tem 2 valores, e as escolhas se combinam: 2 × 2 × 2 × 2.",
+          "2⁴ = 16 linhas."
+        ],
+        "cotidiano": "É como montar um lanche com quatro escolhas de sim ou não: queijo, tomate, alface e molho. Duas opções para cada um dá 2 × 2 × 2 × 2 = 16 lanches diferentes. Se o cardápio citar o queijo duas vezes, você não ganha uma escolha nova: o queijo já está ou não está no pão.",
+        "trabalho": "É a mesma conta dos cenários de teste de uma regra. Se um alerta depende de quatro marcas de sim ou não, testar todas as combinações pede 2⁴ = 16 linhas de teste, uma para cada combinação distinta das quatro colunas. Uma quinta marca dobra o trabalho para 32. Por isso a mesma marca citada duas vezes na regra não conta em dobro: ela não cria combinação nova na base de teste.",
+        "conversa": [
+          {"quem": "Você", "fala": "São cinco letras na fórmula. Então 2⁵ = 32."},
+          {"quem": "Monitor", "fala": "Quantas letras diferentes?"},
+          {"quem": "Você", "fala": "p, q, r e s. O p aparece duas vezes."},
+          {"quem": "Monitor", "fala": "Numa mesma linha, o p pode valer V num lugar e F no outro?"},
+          {"quem": "Você", "fala": "Não. É a mesma proposição."},
+          {"quem": "Monitor", "fala": "Então ele não cria combinação nova. São 4 letras e 2⁴ = 16 linhas."}
+        ],
+        "erro": "O tropeço é contar ocorrências em vez de letras distintas. A fórmula tem cinco letras escritas e só quatro diferentes, e quem conta cinco chega a 32. O segundo tropeço é trocar potência por produto e fazer 2 × 4. Para perceber o primeiro, teste com uma letra só: p ∨ ¬p tem duas ocorrências e a tabela tem 2 linhas, não 4.",
+        "confira": "Monte as colunas de cabeça. A do p tem 8 V seguidos de 8 F; a do q alterna de 4 em 4; a do r, de 2 em 2; a do s, uma a uma. Com esse padrão, cada combinação aparece uma vez só e nenhuma falta. Conte: 8 + 8 = 16. Uma quinta coluna só existiria com outra letra, e a fórmula não tem.",
+        "atalho": "A resposta é sempre uma potência de 2, o que elimina o 10 na hora. Entre 4, 8, 16 e 32, conte as letras distintas e lembre a sequência 2, 4, 8, 16, 32. Quatro letras, quarto termo: 16."
+      }
+    },
+    {
+      "id": "lp-s3-p03",
+      "semana": 3,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Valor de cada conectivo",
+      "origem": "Prévia · ementa",
+      "enunciado": "Considere p verdadeira e q falsa. Qual das proposições abaixo é verdadeira?",
+      "alternativas": [
+        {"t": "p ∧ q", "certa": false, "erro": "O ∧ só é V quando os dois lados são V. Com q falsa, p ∧ q é F."},
+        {"t": "p → q", "certa": false, "erro": "Esta é justamente a única linha em que a condicional falha: antecedente V e consequente F. p → q é F."},
+        {"t": "p ↔ q", "certa": false, "erro": "O ↔ é V quando os dois lados têm o mesmo valor. V e F são diferentes, então p ↔ q é F."},
+        {"t": "¬p ∨ q", "certa": false, "erro": "¬p é F e q é F; o ∨ com os dois lados F dá F. Essa fórmula tem a mesma tabela de p → q."},
+        {"t": "p ⊕ q", "certa": true}
+      ],
+      "dica": "Substitua p por V e q por F em cada alternativa e use a regra curta de cada conectivo.",
+      "resposta": "p ⊕ q (V ⊕ F = V)",
+      "tabela": {"onde": "explicacao", "cab": ["fórmula", "com p = V e q = F", "valor"], "linhas": [["p ∧ q", "V ∧ F", "F"], ["p → q", "V → F", "F"], ["p ↔ q", "V ↔ F", "F"], ["¬p ∨ q", "F ∨ F", "F"], ["p ⊕ q", "V ⊕ F", "V"]]},
+      "jeitos": {
+        "visual": "Pense em p como um interruptor ligado e em q como um desligado. Na tabela ao lado, cada linha é um circuito diferente com os mesmos dois interruptores. O ∧, em série, não acende, porque um está desligado. O ↔ acende quando os dois estão na mesma posição, e aqui não estão. O ⊕ faz o contrário: acende quando as posições são diferentes. É a única lâmpada acesa da lista.",
+        "receita": [
+          "p ∧ q = V ∧ F = F, porque o ∧ pede os dois V.",
+          "p → q = V → F = F, a única linha em que a seta falha.",
+          "p ↔ q = V ↔ F = F, porque os valores são diferentes.",
+          "¬p ∨ q = F ∨ F = F, porque o ∨ precisa de pelo menos um V.",
+          "p ⊕ q = V ⊕ F = V, porque o ou exclusivo quer valores diferentes."
+        ],
+        "cotidiano": "Uma loja anuncia: 'ou você leva o desconto à vista, ou parcela sem juros'. Isso é ou exclusivo: um ou outro, nunca os dois. Você pagou à vista (p é V) e não parcelou (q é F). Cumpriu exatamente uma das opções, então o anúncio vale. Se tivesse feito as duas coisas, ou nenhuma, o ou exclusivo daria F.",
+        "trabalho": "Pense numa conferência entre dois sistemas, com p: 'o título foi pago' e q: 'a nota foi emitida'. A linha p = V, q = F é a que interessa: pagou e não emitiu. `WHERE pago = 1 AND emitida = 1` não traz essa linha. O ou exclusivo traz: no MySQL, `pago XOR emitida`; no Excel, `=A2<>B2` com VERDADEIRO e FALSO nas células. O ⊕ é o detector de divergência: acende quando os dois lados discordam.",
+        "conversa": [
+          {"quem": "Você", "fala": "A p → q é V. Se p é V, então q... ah, q é F."},
+          {"quem": "Monitor", "fala": "Pois é. Em qual linha a seta é F?"},
+          {"quem": "Você", "fala": "Quando o antecedente é V e o consequente é F. É esta."},
+          {"quem": "Monitor", "fala": "E o ¬p ∨ q?"},
+          {"quem": "Você", "fala": "¬p é F, q é F. Dá F também."},
+          {"quem": "Monitor", "fala": "Não é coincidência: ¬p ∨ q tem a mesma tabela de p → q. Sobrou qual?"},
+          {"quem": "Você", "fala": "O ⊕. V e F são diferentes, então dá V."}
+        ],
+        "erro": "A armadilha é a condicional. Como p é verdadeira, a frase 'se p, então q' soa aceitável, e muita gente marca p → q. Só que V → F é exatamente a linha em que a seta falha. A segunda armadilha é tratar o ⊕ como um ∨ que 'não acrescenta nada': aqui ele é o único que dá V, porque os dois lados têm valores diferentes.",
+        "confira": "Troque os valores e veja se o raciocínio se mantém. Com p = V e q = V, o ⊕ daria F, e o ∧, o → e o ↔ dariam V. Ou seja, nesta questão o ⊕ só ficou sozinho porque p e q discordam. Outra prova: ¬p ∨ q e p → q deram o mesmo F, como deve ser, já que as duas fórmulas são equivalentes.",
+        "atalho": "Com valores diferentes, o ↔ dá F e o ⊕ dá V: um é o oposto do outro. E V → F é a linha clássica de F da condicional. Vá direto ao ⊕ e confirme o ∧ e o ¬p ∨ q em poucos segundos."
+      }
+    },
+    {
+      "id": "lp-s3-p04",
+      "semana": 3,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Tradução com 'mas'",
+      "origem": "Prévia · ementa",
+      "enunciado": "Sejam p: “o pagamento foi aprovado” e q: “o pedido foi enviado”. Qual fórmula traduz a frase “O pedido não foi enviado, mas o pagamento foi aprovado”?",
+      "alternativas": [
+        {"t": "¬q ∧ p", "certa": true},
+        {"t": "¬q ∨ p", "certa": false, "erro": "Você leu 'mas' como 'ou'. A frase afirma as duas coisas ao mesmo tempo, então o conectivo é ∧."},
+        {"t": "¬(q ∧ p)", "certa": false, "erro": "Esse ¬ nega o bloco inteiro: 'não é verdade que o pedido foi enviado e o pagamento aprovado'. A frase nega só o envio."},
+        {"t": "q ∧ ¬p", "certa": false, "erro": "A negação foi para a letra errada. Quem não aconteceu foi o envio (q), não a aprovação (p)."},
+        {"t": "p → ¬q", "certa": false, "erro": "O 'mas' não cria condição. A frase não diz 'se foi aprovado, então não foi enviado'; ela afirma dois fatos."}
+      ],
+      "dica": "Pergunte se a frase afirma as duas partes ou deixa escolher uma, e veja em qual parte está o 'não'.",
+      "resposta": "¬q ∧ p",
+      "jeitos": {
+        "visual": "Corte a frase na vírgula e ponha cada metade numa caixa. Caixa da esquerda: 'o pedido não foi enviado', que é ¬q. Caixa da direita: 'o pagamento foi aprovado', que é p. Entre as caixas está o 'mas', e ele funciona como uma ponte de 'e': as duas caixas valem juntas. Resultado: ¬q ∧ p. O ¬ fica preso só na caixa da esquerda.",
+        "receita": [
+          "Ache as frases afirmativas: q é 'o pedido foi enviado' e p é 'o pagamento foi aprovado'.",
+          "'O pedido não foi enviado' é a negação de q: ¬q.",
+          "'O pagamento foi aprovado' é p, sem negação.",
+          "O 'mas' afirma as duas partes: conectivo ∧.",
+          "Junte na ordem da frase: ¬q ∧ p."
+        ],
+        "cotidiano": "Alguém conta: 'Choveu, mas a festa aconteceu'. A pessoa está afirmando duas coisas: choveu e a festa aconteceu. O 'mas' só avisa que a segunda parte é inesperada. Se qualquer uma das duas for mentira, a frase inteira é mentira, e esse é o comportamento do ∧.",
+        "trabalho": "É um filtro de pendências: pedidos com pagamento aprovado e ainda não enviados. Em SQL, `WHERE aprovado = 1 AND NOT enviado`. O AND é o 'mas' da frase, e o NOT fica colado só na coluna do envio. Se você escrever `NOT (aprovado = 1 AND enviado = 1)`, a lista passa a trazer também pedidos que nem foram aprovados, e a fila de expedição recebe o que não devia.",
+        "conversa": [
+          {"quem": "Você", "fala": "'Mas' é contraste, então pensei em ou."},
+          {"quem": "Monitor", "fala": "Na frase, o pagamento foi aprovado?"},
+          {"quem": "Você", "fala": "Foi."},
+          {"quem": "Monitor", "fala": "E o pedido foi enviado?"},
+          {"quem": "Você", "fala": "Não. As duas coisas são afirmadas."},
+          {"quem": "Monitor", "fala": "Então é ∧. O contraste é só o tom da frase: ¬q ∧ p."}
+        ],
+        "erro": "Dois tropeços. O primeiro é traduzir 'mas' como ∨ ou como →, porque a palavra soa diferente de 'e'. O segundo é o alcance do 'não': ele cola em 'o pedido foi enviado' e em mais nada. Quem escreve ¬(q ∧ p) nega o par inteiro, e essa fórmula é V até quando o pagamento não foi aprovado.",
+        "confira": "Teste o caso que a frase descreve: pagamento aprovado (p = V) e pedido parado (q = F). ¬q ∧ p = V ∧ V = V, como deveria. Agora teste um caso que a frase exclui: pagamento recusado e pedido parado (p = F, q = F). ¬q ∧ p dá F, certo. Já ¬(q ∧ p) e ¬q ∨ p dariam V, aceitando um caso que a frase nega.",
+        "atalho": "A frase afirma dois fatos, então procure ∧ e descarte o ∨ e a seta. Sobram três fórmulas com ∧. Agora veja onde está o 'não' na frase: colado no envio, que é q. Só uma alternativa tem o ¬ colado no q e nada negando o p."
+      }
+    },
+    {
+      "id": "lp-s3-p05",
+      "semana": 3,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Precedência dos conectivos",
+      "origem": "Prévia · ementa",
+      "enunciado": "Sejam p falsa, q verdadeira e r falsa. Pela ordem de precedência, como se lê ¬p ∨ q → r e qual é o seu valor lógico?",
+      "alternativas": [
+        {"t": "¬((p ∨ q) → r), valor V", "certa": false, "erro": "Você estendeu o ¬ sobre a fórmula toda. Sem parênteses, o ¬ pega só a letra colada nele, o p."},
+        {"t": "((¬p) ∨ q) → r, valor F", "certa": true},
+        {"t": "(¬p) ∨ (q → r), valor V", "certa": false, "erro": "Você resolveu a seta antes do ∨. Na ordem, ∨ vem antes de →, então o bloco ¬p ∨ q é o antecedente."},
+        {"t": "((¬p) ∨ q) → r, valor V", "certa": false, "erro": "A leitura está certa, mas a conta final não: o antecedente deu V e o r é F, e V → F é F."},
+        {"t": "¬(p ∨ q) → r, valor V", "certa": false, "erro": "Você pôs o ¬ sobre p ∨ q. Com isso o antecedente vira F e a seta dá V, mas o ¬ da fórmula é só do p."}
+      ],
+      "dica": "Coloque os parênteses na ordem ¬, ∧, ∨, →, ↔ antes de substituir os valores.",
+      "resposta": "((¬p) ∨ q) → r, que vale F",
+      "jeitos": {
+        "visual": "Imagine a fórmula como uma conta de calculadora com prioridades. O ¬ gruda na letra seguinte como um sinal de menos e forma um bloco só, ¬p. Depois o ∨ junta esse bloco com o q, formando um bloco maior. A seta é a mais fraca das três e fica para o fim: liga o bloco grande, à esquerda, ao r, à direita. Desenhe os parênteses de dentro para fora e a leitura aparece: ((¬p) ∨ q) → r.",
+        "receita": [
+          "Precedência: ¬ primeiro, depois ∨, por último →.",
+          "Leitura: ((¬p) ∨ q) → r.",
+          "¬p: p é F, então ¬p é V.",
+          "(¬p) ∨ q = V ∨ V = V.",
+          "V → r = V → F = F."
+        ],
+        "cotidiano": "É a mesma coisa que 2 + 3 × 4 na escola: ninguém faz 5 × 4. A multiplicação tem prioridade e o resultado é 14. Na lógica, o ¬ é o mais forte, como o sinal de menos colado num número, e a seta é a mais fraca, como a soma. Quem resolve da esquerda para a direita sem olhar a prioridade erra a conta mesmo sabendo todas as tabelas.",
+        "trabalho": "O SQL também tem ordem: NOT antes de AND, e AND antes de OR. `WHERE NOT ativo OR vip AND bloqueado` é lido como `(NOT ativo) OR (vip AND bloqueado)`. Quem esperava `NOT (ativo OR vip) AND bloqueado` recebe outra lista, sem nenhum aviso de erro. Num relatório de exceções, isso significa linhas a mais ou a menos. A regra prática é a mesma da questão: escreva os parênteses que a precedência esconde.",
+        "conversa": [
+          {"quem": "Você", "fala": "O ¬ está na frente de tudo, então nega tudo."},
+          {"quem": "Monitor", "fala": "Na aritmética, −2 + 5 é o mesmo que −(2 + 5)?"},
+          {"quem": "Você", "fala": "Não, dá 3. O menos é só do 2."},
+          {"quem": "Monitor", "fala": "Com o ¬ é igual: ele pega só o p. E entre ∨ e →, quem vem primeiro?"},
+          {"quem": "Você", "fala": "O ∨. Então fica ((¬p) ∨ q) → r."},
+          {"quem": "Monitor", "fala": "Agora substitua os valores."},
+          {"quem": "Você", "fala": "V ∨ V dá V, e V → F dá F."}
+        ],
+        "erro": "O erro principal é ler o ¬ como se ele cobrisse o resto da fórmula. Ele cobre só a letra ou o parêntese colado nele. O segundo erro é a ordem entre ∨ e →: quem faz a seta antes fica com (¬p) ∨ (q → r), e o valor muda de F para V. Repare que três leituras erradas dão V: errar a leitura costuma inverter a resposta.",
+        "confira": "Faça a tabela só para conferir esta linha: p = F, q = V, r = F. A coluna ¬p dá V, a coluna ¬p ∨ q dá V e a coluna final, com r = F, dá F. Outra forma: a seta só é F com antecedente V e consequente F. O consequente r é F; basta confirmar que o antecedente ¬p ∨ q é V, e ele é, porque o q já é V.",
+        "atalho": "O r é F, e uma seta com consequente F só dá F se o antecedente for V. Na leitura correta, o antecedente é ¬p ∨ q, que já é V por causa do q. Então o valor é F. Só duas alternativas têm a leitura certa, e só uma delas tem F."
+      }
+    },
+    {
+      "id": "lp-s3-p06",
+      "semana": 3,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Conectivo pela tabela",
+      "origem": "Prévia · ementa",
+      "enunciado": "A coluna “p ? q” da tabela-verdade abaixo é de um conectivo desconhecido. Qual fórmula tem exatamente essa coluna?",
+      "tabela": {"onde": "enunciado", "cab": ["p", "q", "p ? q"], "linhas": [["V", "V", "F"], ["V", "F", "V"], ["F", "V", "V"], ["F", "F", "F"]]},
+      "alternativas": [
+        {"t": "p ∨ q", "certa": false, "erro": "O ∨ é V na primeira linha, com p e q verdadeiros. A tabela tem F ali."},
+        {"t": "p ↔ q", "certa": false, "erro": "O ↔ é V quando os valores são iguais. A coluna é o oposto do ↔ nas quatro linhas."},
+        {"t": "p ⊕ q", "certa": true},
+        {"t": "¬(p ∧ q)", "certa": false, "erro": "Bate nas três primeiras linhas, mas na última ¬(F ∧ F) = ¬F = V, e a tabela tem F."},
+        {"t": "p → q", "certa": false, "erro": "A seta é V na primeira linha e F na segunda. A tabela mostra o contrário nessas duas."}
+      ],
+      "dica": "Olhe as duas linhas das pontas, V V e F F: o que a coluna faz quando p e q são iguais?",
+      "resposta": "p ⊕ q, o ou exclusivo",
+      "jeitos": {
+        "visual": "Na tabela do enunciado, leia a coluna da direita como um semáforo. Nas linhas do meio, em que p e q discordam (V F e F V), o sinal é V. Nas linhas das pontas, em que eles concordam (V V e F F), o sinal é F. A coluna acende quando há divergência. Esse é o desenho do ou exclusivo: ele mede diferença, e só ele tem F nas duas pontas e V no meio.",
+        "receita": [
+          "Linha V V dá F: isso descarta p ∨ q, p ↔ q e p → q, que dão V ali.",
+          "Sobram p ⊕ q e ¬(p ∧ q).",
+          "Linha F F dá F. ¬(p ∧ q) dá ¬(F ∧ F) = ¬F = V, então cai.",
+          "p ⊕ q dá F em V V, V em V F, V em F V e F em F F: bate nas quatro linhas."
+        ],
+        "cotidiano": "Pense na luz da escada com dois interruptores, um embaixo e outro em cima, ligada de modo que a lâmpada acende quando os dois estão em posições diferentes. Os dois para cima: apagada. Os dois para baixo: apagada. Um de cada jeito: acesa. Mexer em qualquer um dos dois sempre troca o estado da luz, e esse é o comportamento do ⊕.",
+        "trabalho": "É o teste de divergência entre duas fontes, com p: 'o título consta no sistema' e q: 'o título consta no extrato'. A conciliação quer as linhas em que as fontes discordam, e isso é p ⊕ q. Um filtro `NOT (sistema = 1 AND extrato = 1)` erraria numa linha: a do título marcado F nos dois lados, como um título cancelado que saiu do sistema e não passou no banco. Ele não é divergência, mas esse filtro o traria.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei que era ¬(p ∧ q). Bate nas três primeiras linhas."},
+          {"quem": "Monitor", "fala": "E na última, com p e q falsos?"},
+          {"quem": "Você", "fala": "p ∧ q é F, e o ¬ vira V."},
+          {"quem": "Monitor", "fala": "O que a tabela tem lá?"},
+          {"quem": "Você", "fala": "F. Então não é."},
+          {"quem": "Monitor", "fala": "Qual conectivo dá F quando os dois concordam e V quando discordam?"},
+          {"quem": "Você", "fala": "O ou exclusivo, p ⊕ q."}
+        ],
+        "erro": "O tropeço é conferir só parte das linhas. ¬(p ∧ q) acerta três das quatro, e quem para na terceira linha marca essa. Uma fórmula só tem 'a mesma coluna' se bater em todas as linhas. Outro tropeço é confundir ⊕ com ∨: os dois são V quando um lado só é V, mas na linha V V o ∨ dá V e o ⊕ dá F.",
+        "confira": "Escreva a coluna de p ↔ q: V, F, F, V. Agora inverta cada valor: F, V, V, F. É exatamente a coluna do enunciado. Isso confirma por outro caminho que o conectivo é a negação do ↔, e a negação do ↔ é o ou exclusivo: p ⊕ q tem o mesmo valor de ¬(p ↔ q) em todas as linhas.",
+        "atalho": "Olhe só as duas linhas das pontas. V V dando F já elimina ∨, ↔ e →. F F dando F elimina ¬(p ∧ q). Duas linhas resolvem a questão; as do meio servem só para confirmar."
+      }
+    }
+  ]
+}

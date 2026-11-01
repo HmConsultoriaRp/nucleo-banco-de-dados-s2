@@ -1,0 +1,232 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s1-l1q8a",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Isolar um vetor",
+      "origem": "Lista 1 · Q8a",
+      "enunciado": "Dados os vetores [[u]] = (−2, 1, −2), [[v]] = (1, 2, 1) e [[w]] = (−3, 2, 0), determine o vetor [[r]] tal que [[u]] − 2[[v]] + [[r]] = 3[[v]] − 2[[w]].",
+      "alternativas": [
+        {"t": "(9, −3, 3)", "certa": false, "erro": "Você passou o −2[[v]] para o outro lado sem trocar o sinal: [[r]] = 3[[v]] − 2[[v]] − 2[[w]] − [[u]] = [[v]] − 2[[w]] − [[u]] = (9, −3, 3)."},
+        {"t": "(13, 5, 7)", "certa": true},
+        {"t": "(9, 7, 3)", "certa": false, "erro": "Você passou o [[u]] para a direita sem trocar o sinal: 5[[v]] − 2[[w]] + [[u]] = (9, 7, 3). O [[u]] estava somando, então passa subtraindo."},
+        {"t": "(1, 13, 7)", "certa": false, "erro": "Você trocou o sinal do −2[[w]], que nem mudou de lado: 5[[v]] + 2[[w]] − [[u]] = (1, 13, 7)."},
+        {"t": "(11, 1, 5)", "certa": false, "erro": "Você esqueceu o −2[[v]] do lado esquerdo e ficou com [[r]] = 3[[v]] − 2[[w]] − [[u]] = (11, 1, 5)."}
+      ],
+      "dica": "Isole [[r]] como numa equação de números: o que está somando passa subtraindo, e o que está subtraindo passa somando.",
+      "resposta": "[[r]] = (13, 5, 7)",
+      "jeitos": {
+        "visual": "Pense na equação como uma balança de dois pratos, que precisa ficar equilibrada nas três coordenadas. No prato da esquerda estão [[u]], −2[[v]] e o [[r]] que você procura. No da direita, 3[[v]] e −2[[w]]. Para deixar [[r]] sozinho, tire [[u]] e −2[[v]] da esquerda e faça a mesma retirada na direita. Os dois blocos de [[v]] acabam juntos à direita: 3[[v]] + 2[[v]] = 5[[v]].",
+        "receita": [
+          "Isole: [[r]] = 3[[v]] − 2[[w]] − [[u]] + 2[[v]] = 5[[v]] − 2[[w]] − [[u]].",
+          "Calcule os pedaços: 5[[v]] = (5, 10, 5) e 2[[w]] = (−6, 4, 0).",
+          "5[[v]] − 2[[w]] = (5 + 6, 10 − 4, 5 − 0) = (11, 6, 5).",
+          "Tire o [[u]]: (11 − (−2), 6 − 1, 5 − (−2)) = (13, 5, 7)."
+        ],
+        "cotidiano": "Pense num acerto de contas com um amigo. Você descontou 2 parcelas dele por engano e, pelo combinado, ainda deve outras 3. Para ficar quite, paga as 3 do combinado e devolve as 2 descontadas: 5 parcelas. É o que acontece com o [[v]]. O −2[[v]] da esquerda muda de lado, vira +2[[v]] e se junta ao 3[[v]]. O [[u]] também muda de lado e troca de sinal; o −2[[w]] fica onde está.",
+        "trabalho": "É o lançamento de ajuste. Saldo atual: [[u]] − 2[[v]]. Saldo que deveria estar: 3[[v]] − 2[[w]]. O ajuste é o que deveria estar menos o que está: [[r]] = (3[[v]] − 2[[w]]) − ([[u]] − 2[[v]]). Feito em três contas ao mesmo tempo, dá (13, 5, 7). É a conta de qualquer conciliação: diferença igual a esperado menos apurado.",
+        "conversa": [
+          {"quem": "Você", "fala": "Passei tudo para a direita e deu [[r]] = [[v]] − 2[[w]] − [[u]]."},
+          {"quem": "Monitor", "fala": "O −2[[v]] estava à esquerda. Ao mudar de lado, ele vira o quê?"},
+          {"quem": "Você", "fala": "+2[[v]]. Então fica 3[[v]] + 2[[v]]."},
+          {"quem": "Monitor", "fala": "Quanto dá?"},
+          {"quem": "Você", "fala": "5[[v]]. Fica [[r]] = 5[[v]] − 2[[w]] − [[u]] = (13, 5, 7)."},
+          {"quem": "Monitor", "fala": "Agora substitua de volta na equação para conferir."}
+        ],
+        "erro": "O tropeço é mudar um termo de lado sem trocar o sinal. Se isso acontece com o −2[[v]], sai (9, −3, 3); se acontece com o [[u]], sai (9, 7, 3). Também tem quem esqueça o −2[[v]] do lado esquerdo e fique com 3[[v]] − 2[[w]] − [[u]] = (11, 1, 5). Isole [[r]] em letras antes de pôr qualquer número.",
+        "confira": "Substitua [[r]] = (13, 5, 7) no lado esquerdo: [[u]] − 2[[v]] + [[r]] = (−2 − 2 + 13, 1 − 4 + 5, −2 − 2 + 7) = (9, 2, 3). Lado direito: 3[[v]] − 2[[w]] = (3 + 6, 6 − 4, 3 − 0) = (9, 2, 3). Os dois lados batem.",
+        "atalho": "Olhe o z: [[w]] tem z = 0, então o z da resposta é só 5·1 − (−2) = 7. Sobram as duas alternativas que terminam em 7. O x desempata: 5·1 − 2·(−3) − (−2) = 13."
+      }
+    },
+    {
+      "id": "ga-s1-l1q8b",
+      "semana": 1,
+      "nivel": 3,
+      "minutos": 7,
+      "tema": "Combinação linear",
+      "origem": "Lista 1 · Q8b",
+      "enunciado": "Dados os vetores [[u]] = (−2, 1, −2), [[v]] = (1, 2, 1) e [[w]] = (−3, 2, 0), encontre os números a₁, a₂ e a₃ tais que a₁[[u]] + a₂[[v]] + a₃[[w]] = (2, −3, 1).",
+      "alternativas": [
+        {"t": "a₁ = 1/3, a₂ = 5/3, a₃ = −1/3", "certa": false, "erro": "Você leu o alvo como (2, 3, 1), sem o sinal do −3. A segunda equação ficou a₁ + 2a₂ + 2a₃ = 3, e o sistema mudou."},
+        {"t": "a₁ = −17/15, a₂ = −19/15, a₃ = 1/3", "certa": false, "erro": "Ao subtrair a terceira equação da primeira, você ficou com 3a₃ = 1 em vez de −3a₃ = 1. O a₃ saiu com sinal trocado e arrastou a₁ e a₂."},
+        {"t": "a₁ = 0, a₂ = 1, a₃ = −1/3", "certa": false, "erro": "Esses valores satisfazem a primeira e a terceira equações, mas não a segunda: 0 + 2 − 2/3 = 4/3, e não −3. Faltou testar as três."},
+        {"t": "a₁ = −13/15, a₂ = −4/5, a₃ = −8/15", "certa": false, "erro": "Você montou cada equação com as coordenadas de um mesmo vetor, como −2a₁ + a₂ − 2a₃ = 2. Cada equação tem de juntar a mesma coordenada dos três vetores: −2a₁ + a₂ − 3a₃ = 2."},
+        {"t": "a₁ = −13/15, a₂ = −11/15, a₃ = −1/3", "certa": true}
+      ],
+      "dica": "Escreva uma equação para cada coordenada. A terceira tem só duas incógnitas, porque o z de [[w]] é 0.",
+      "resposta": "a₁ = −13/15, a₂ = −11/15 e a₃ = −1/3",
+      "jeitos": {
+        "visual": "Pense em três setas fixas, [[u]], [[v]] e [[w]], e em três botões de volume, a₁, a₂ e a₃, que esticam, encolhem ou viram cada seta. Você gira os botões até que as três setas, encostadas em fila, terminem exatamente no ponto (2, −3, 1). Aqui os três botões ficam abaixo de zero: as três setas são viradas ao contrário e encolhidas antes de entrar na fila.",
+        "receita": [
+          "Monte o sistema, uma equação por coordenada: −2a₁ + a₂ − 3a₃ = 2; a₁ + 2a₂ + 2a₃ = −3; −2a₁ + a₂ = 1.",
+          "Subtraia a terceira equação da primeira: −3a₃ = 1, logo a₃ = −1/3.",
+          "Da terceira equação: a₂ = 1 + 2a₁.",
+          "Na segunda: a₁ + 2(1 + 2a₁) + 2·(−1/3) = −3, que vira 5a₁ = −13/3. Então a₁ = −13/15.",
+          "Volte: a₂ = 1 + 2·(−13/15) = 15/15 − 26/15 = −11/15."
+        ],
+        "cotidiano": "É montar uma vitamina com três frutas, cada uma com quantidades fixas de três nutrientes. Você quer um copo com uma composição exata e precisa descobrir quanto de cada fruta usar; cada nutriente dá uma equação. Aqui as quantidades saem negativas, o que na cozinha não existe. Em vetores, quantidade negativa quer dizer virar a seta.",
+        "trabalho": "É um rateio ao contrário. Três centros de custo têm, cada um, um perfil fixo de gasto em três contas ([[u]], [[v]] e [[w]]). Você sabe o total de cada conta, (2, −3, 1), e quer o peso de cada centro. Cada conta vira uma linha do tipo SOMARPRODUTO(pesos; perfil da conta) = total. No Excel, o sistema inteiro se resolve com MATRIZ.INVERSO e MATRIZ.MULT.",
+        "conversa": [
+          {"quem": "Você", "fala": "Montei a primeira equação com as coordenadas de [[u]]: −2a₁ + a₂ − 2a₃ = 2."},
+          {"quem": "Monitor", "fala": "Essa equação fala de qual coordenada do resultado?"},
+          {"quem": "Você", "fala": "Da primeira, que tem de dar 2."},
+          {"quem": "Monitor", "fala": "Então ela junta a primeira coordenada de cada vetor. Quais são?"},
+          {"quem": "Você", "fala": "−2 de [[u]], 1 de [[v]] e −3 de [[w]]. Fica −2a₁ + a₂ − 3a₃ = 2."},
+          {"quem": "Monitor", "fala": "Isso. Cada equação pega a mesma posição nos três vetores, não um vetor inteiro."}
+        ],
+        "erro": "O erro de montagem é o mais caro: usar as coordenadas de um mesmo vetor numa equação, em vez da mesma coordenada dos três vetores. O sistema muda e a resposta muda junto. Depois vêm os sinais: o −3 do alvo e o −1/3 de a₃ multiplicado por 2. E há quem acerte duas equações e esqueça de testar a terceira.",
+        "confira": "Substitua os três números na combinação. Primeira coordenada: −2·(−13/15) + (−11/15) − 3·(−1/3) = 26/15 − 11/15 + 15/15 = 30/15 = 2. Segunda: −13/15 − 22/15 − 10/15 = −45/15 = −3. Terceira: 26/15 − 11/15 + 0 = 15/15 = 1. Deu (2, −3, 1).",
+        "atalho": "A primeira equação menos a terceira elimina a₁ e a₂ de uma vez e entrega a₃ = −1/3. Isso derruba as alternativas com a₃ diferente. Para as que sobrarem, teste a segunda equação, a₁ + 2a₂ + 2a₃ = −3: só a certa passa."
+      }
+    },
+    {
+      "id": "ga-s1-l1q9a",
+      "semana": 1,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Norma de um vetor",
+      "origem": "Lista 1 · Q9a",
+      "enunciado": "Calcule as normas dos seguintes vetores. Quais são unitários?\nItem a: [[u]] = (−2, 1, −2). Qual é ‖[[u]]‖?",
+      "alternativas": [
+        {"t": "3", "certa": true},
+        {"t": "9", "certa": false, "erro": "Você parou na soma dos quadrados, 4 + 1 + 4 = 9. Esse é ‖[[u]]‖², o quadrado da norma; falta tirar a raiz."},
+        {"t": "−3", "certa": false, "erro": "Você somou as coordenadas: −2 + 1 − 2 = −3. Norma soma os quadrados, e um comprimento nunca é negativo."},
+        {"t": "√5", "certa": false, "erro": "Você usou só duas coordenadas: √((−2)² + 1²) = √5. O vetor tem três, e a terceira também entra."},
+        {"t": "5", "certa": false, "erro": "Você somou os valores absolutos: 2 + 1 + 2 = 5. Isso mede um caminho em escada pelos eixos, não a seta."}
+      ],
+      "dica": "Eleve cada coordenada ao quadrado, some e tire a raiz quadrada.",
+      "resposta": "‖[[u]]‖ = 3 (não é unitário)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-2, 1, -2], "rot": "u", "cor": 1},
+          {"tipo": "segmento", "de": [0, 0, 0], "ate": [-2, 0, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [-2, 0, 0], "ate": [-2, 1, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [0, 0, 0], "ate": [-2, 1, 0], "cor": 3},
+          {"tipo": "segmento", "de": [-2, 1, 0], "ate": [-2, 1, -2], "tracejado": true}
+        ],
+        "legenda": "O tracejado faz o caminho em escada (2, 1 e 2). A diagonal ocre do chão mede √5 e, com a descida de 2, forma o triângulo cuja hipotenusa é [[u]]."
+      },
+      "jeitos": {
+        "visual": "Na figura, a seta [[u]] sai da origem e vai até (−2, 1, −2). O tracejado mostra o caminho em escada: 2 no sentido negativo de x, 1 em y e 2 para baixo em z. No chão, os dois primeiros trechos formam um triângulo retângulo, cuja hipotenusa é a linha ocre, de comprimento √5. Essa linha e a descida de 2 formam outro triângulo retângulo, e a hipotenusa dele é a própria seta: √(5 + 4) = 3.",
+        "receita": [
+          "Quadrados: (−2)² = 4, 1² = 1, (−2)² = 4.",
+          "Soma: 4 + 1 + 4 = 9.",
+          "Raiz: ‖[[u]]‖ = √9 = 3.",
+          "Como 3 ≠ 1, [[u]] não é unitário."
+        ],
+        "cotidiano": "É medir a diagonal de uma caixa de sapato com uma trena esticada de um canto ao canto oposto. Os lados da caixa medem 2, 1 e 2. Você não soma os lados, porque a trena atravessa a caixa por dentro. O caminho direto é √(2² + 1² + 2²) = 3, menor que os 5 do caminho pelas bordas.",
+        "trabalho": "No Excel, com −2, 1 e −2 nas células A1:C1, a norma é `=RAIZ(SOMAQUAD(A1:C1))`. SOMAQUAD soma os quadrados e dá 9; RAIZ devolve 3. Em SQL seria `SQRT(x*x + y*y + z*z)`. O sinal das coordenadas some no quadrado: uma saída de 2 pesa o mesmo que uma entrada de 2.",
+        "conversa": [
+          {"quem": "Você", "fala": "Somei as coordenadas e deu −3."},
+          {"quem": "Monitor", "fala": "Um comprimento pode ser negativo?"},
+          {"quem": "Você", "fala": "Não."},
+          {"quem": "Monitor", "fala": "Então a soma das coordenadas não é o tamanho. O que o Pitágoras faz com cada lado?"},
+          {"quem": "Você", "fala": "Eleva ao quadrado. 4 + 1 + 4 = 9."},
+          {"quem": "Monitor", "fala": "E depois?"},
+          {"quem": "Você", "fala": "Raiz de 9. Dá 3."}
+        ],
+        "erro": "Três tropeços aparecem aqui: somar as coordenadas com sinal (−3), somar os valores absolutos (5) ou esquecer a raiz e parar no 9. A norma é um comprimento: nunca é negativa e nunca passa da soma dos valores absolutos das coordenadas. Se o seu número passou de 5, faltou a raiz.",
+        "confira": "Teste pelo versor: um vetor de norma 3, dividido por 3, tem de virar unitário. [[u]]/3 = (−2/3, 1/3, −2/3). Quadrados: 4/9 + 1/9 + 4/9 = 9/9 = 1. A norma de [[u]]/3 é 1, então a de [[u]] é mesmo 3.",
+        "atalho": "Norma nunca é negativa, então −3 sai. Com mais de uma coordenada diferente de zero, ela fica acima de 2 (a maior coordenada em valor absoluto) e abaixo de 5 (a soma dos valores absolutos). Isso derruba 9 e 5. Entre √5 e 3, lembre que são três coordenadas, não duas."
+      }
+    },
+    {
+      "id": "ga-s1-l1q9b",
+      "semana": 1,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Vetor unitário",
+      "origem": "Lista 1 · Q9b",
+      "enunciado": "Calcule as normas dos seguintes vetores. Quais são unitários?\nItem b: [[v]] = (0, 1/√2, 1/√2). Qual é ‖[[v]]‖?",
+      "alternativas": [
+        {"t": "√2", "certa": false, "erro": "Você somou as coordenadas: 0 + 1/√2 + 1/√2 = 2/√2 = √2. A norma soma os quadrados e depois tira a raiz."},
+        {"t": "1/√2", "certa": false, "erro": "Você calculou (1/√2)² como 1/4, somou 1/4 + 1/4 = 1/2 e tirou a raiz. O quadrado de 1/√2 é 1/2, porque (√2)² = 2."},
+        {"t": "1/2", "certa": false, "erro": "Dois deslizes juntos: (1/√2)² virou 1/4, a soma deu 1/4 + 1/4 = 1/2 e a raiz ficou de fora. O certo é 1/2 + 1/2 = 1, e √1 = 1."},
+        {"t": "1", "certa": true},
+        {"t": "2", "certa": false, "erro": "Você trocou 1/√2 por √2 ao racionalizar: (√2)² + (√2)² = 4, raiz 2. O certo é 1/√2 = √2/2."}
+      ],
+      "dica": "Quanto vale (1/√2)²? Lembre que (√2)² = 2.",
+      "resposta": "‖[[v]]‖ = 1 ([[v]] é unitário)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 1, 0], [0, 0.966, 0.259], [0, 0.866, 0.5], [0, 0.707, 0.707], [0, 0.5, 0.866], [0, 0.259, 0.966], [0, 0, 1], [0, -0.259, 0.966], [0, -0.5, 0.866], [0, -0.707, 0.707], [0, -0.866, 0.5], [0, -0.966, 0.259], [0, -1, 0], [0, -0.966, -0.259], [0, -0.866, -0.5], [0, -0.707, -0.707], [0, -0.5, -0.866], [0, -0.259, -0.966], [0, 0, -1], [0, 0.259, -0.966], [0, 0.5, -0.866], [0, 0.707, -0.707], [0, 0.866, -0.5], [0, 0.966, -0.259]], "cor": 3},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [0, 0.707, 0.707], "rot": "v", "cor": 1},
+          {"tipo": "segmento", "de": [0, 0, 0], "ate": [0, 0.707, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [0, 0.707, 0], "ate": [0, 0.707, 0.707], "tracejado": true}
+        ],
+        "legenda": "[[v]] fica no plano yz, porque x = 0. A ponta cai sobre o círculo ocre de raio 1."
+      },
+      "jeitos": {
+        "visual": "Na figura, [[v]] fica inteira no plano yz, porque x = 0. Ela sobe na diagonal, a meio caminho entre o eixo y e o eixo z, fazendo 45° com cada um. O círculo ocre tem raio 1, e a ponta da seta cai exatamente sobre ele. Ser unitário é isso: o comprimento da seta é igual ao raio desse círculo.",
+        "receita": [
+          "Quadrados: 0² = 0, (1/√2)² = 1/2, (1/√2)² = 1/2.",
+          "Soma: 0 + 1/2 + 1/2 = 1.",
+          "Raiz: ‖[[v]]‖ = √1 = 1.",
+          "Norma 1: [[v]] é unitário."
+        ],
+        "cotidiano": "Pense numa rampa que sobe na diagonal de um quadrado. Andar 1/√2 metro para a frente (cerca de 71 cm) e subir outro tanto dá um percurso de exatamente 1 metro pela rampa. Cada trecho é menor que 1, mas, pelo Pitágoras, os dois juntos formam 1 metro de hipotenusa.",
+        "trabalho": "É parecido com normalizar uma série no Excel, dividindo pelo total para comparar perfis sem olhar o tamanho. A diferença está na régua: no vetor unitário, quem dá 1 é a soma dos quadrados, não a soma simples. Aqui as coordenadas somam √2, mas os quadrados somam 1/2 + 1/2 = 1.",
+        "conversa": [
+          {"quem": "Você", "fala": "Somei 1/√2 + 1/√2 e deu 2/√2. Não é 1."},
+          {"quem": "Monitor", "fala": "A norma soma as coordenadas ou os quadrados delas?"},
+          {"quem": "Você", "fala": "Os quadrados. Quanto é (1/√2)²?"},
+          {"quem": "Monitor", "fala": "É 1 dividido por (√2)². E (√2)² dá quanto?"},
+          {"quem": "Você", "fala": "2. Então cada quadrado vale 1/2, a soma dá 1 e a raiz dá 1."},
+          {"quem": "Monitor", "fala": "Então [[v]] é unitário."}
+        ],
+        "erro": "O tropeço está no quadrado de 1/√2. Quem lembra que (√2)² = 2 chega fácil em 1/2. Quem eleva o 2 de dentro da raiz ao quadrado acha 1/4 e se perde. Outro deslize é somar as coordenadas, que dá √2 e parece razoável. Na dúvida, volte à definição: norma é a raiz da soma dos quadrados.",
+        "confira": "Use decimais na calculadora: 1/√2 ≈ 0,7071. Ao quadrado, ≈ 0,5. Dois quadrados somam ≈ 1,0, e a raiz dá ≈ 1. Outro caminho: [[v]] é (0, 1, 1) dividido por √2, e a norma de (0, 1, 1) é √2. Dividir √2 por √2 dá 1.",
+        "atalho": "Se um vetor tem n coordenadas não nulas e todas valem ±1/√n, ele é unitário, porque os quadrados somam n vezes 1/n. Aqui são duas coordenadas iguais a 1/√2: n = 2, encaixa. A resposta é 1 sem fazer conta."
+      }
+    },
+    {
+      "id": "ga-s1-l1q9c",
+      "semana": 1,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Norma com raízes",
+      "origem": "Lista 1 · Q9c",
+      "enunciado": "Calcule as normas dos seguintes vetores. Quais são unitários?\nItem c: [[w]] = (1/√6, −1/√6, −2/√6). Qual é ‖[[w]]‖?",
+      "alternativas": [
+        {"t": "−2/√6", "certa": false, "erro": "Você somou as coordenadas: (1 − 1 − 2)/√6 = −2/√6. Norma soma os quadrados, e o resultado nunca é negativo."},
+        {"t": "√6", "certa": false, "erro": "Você elevou só os numeradores e esqueceu o √6 de baixo: 1 + 1 + 4 = 6, raiz √6. Cada quadrado tem denominador 6."},
+        {"t": "1", "certa": true},
+        {"t": "√(2/3)", "certa": false, "erro": "Você elevou só o denominador da terceira coordenada: (−2/√6)² virou 2/6. O 2 de cima também vai ao quadrado, então é 4/6."},
+        {"t": "4/√6", "certa": false, "erro": "Você somou os valores absolutos: (1 + 1 + 2)/√6 = 4/√6. Isso mede um caminho em escada pelos eixos, não a seta."}
+      ],
+      "dica": "Todas as coordenadas têm √6 embaixo. Eleve ao quadrado em cima e embaixo e some as frações de denominador 6.",
+      "resposta": "‖[[w]]‖ = 1 ([[w]] é unitário)",
+      "jeitos": {
+        "visual": "Imagine o vetor (1, −1, −2), uma seta que anda 1 em x, recua 1 em y e desce 2 em z. O comprimento dela é √(1 + 1 + 4) = √6. Agora encolha essa seta dividindo cada coordenada por √6. A direção não muda, e o tamanho cai para √6/√6 = 1. O [[w]] da questão é exatamente essa seta encolhida.",
+        "receita": [
+          "Quadrados: (1/√6)² = 1/6, (−1/√6)² = 1/6, (−2/√6)² = 4/6.",
+          "Soma: 1/6 + 1/6 + 4/6 = 6/6 = 1.",
+          "Raiz: ‖[[w]]‖ = √1 = 1.",
+          "Norma 1: [[w]] é unitário."
+        ],
+        "cotidiano": "É uma receita escrita em proporção. 'Uma parte de A, uma de B, duas de C' não diz o tamanho da porção; dividir tudo pelo mesmo número ajusta a porção sem mudar o sabor. Aqui a proporção é (1, −1, −2), e a divisão por √6 ajusta o tamanho para exatamente 1.",
+        "trabalho": "Quando você compara clientes por três indicadores, é comum normalizar cada linha antes, para o porte do cliente não dominar a comparação. [[w]] é o perfil (1, −1, −2) já normalizado: dividido pela própria norma, √6. É a mesma etapa feita antes de calcular a similaridade por cosseno, uma medida de quão parecidos dois perfis são.",
+        "conversa": [
+          {"quem": "Você", "fala": "Somei os quadrados e deu 1/6 + 1/6 + 2/6 = 4/6."},
+          {"quem": "Monitor", "fala": "Quanto é (−2/√6)²?"},
+          {"quem": "Você", "fala": "2/6?"},
+          {"quem": "Monitor", "fala": "Em cima tem 2. Ao quadrado vira quanto?"},
+          {"quem": "Você", "fala": "4. Então é 4/6, e a soma fica 6/6."},
+          {"quem": "Monitor", "fala": "E a raiz de 1?"},
+          {"quem": "Você", "fala": "1. É unitário."}
+        ],
+        "erro": "O deslize típico é na terceira coordenada: elevar só o denominador e esquecer que o 2 do numerador também vai ao quadrado. A soma dá 4/6 e a norma sai √(2/3). O sinal de menos não importa no quadrado, mas o número de cima importa. Escreva cada quadrado como fração completa antes de somar.",
+        "confira": "Multiplique [[w]] por √6: sai (1, −1, −2), só com números inteiros. A norma desse vetor é √(1 + 1 + 4) = √6. Como [[w]] é esse vetor dividido por √6, a norma de [[w]] é √6/√6 = 1.",
+        "atalho": "Quando todas as coordenadas têm o mesmo denominador √k, some só os quadrados dos numeradores e compare com k. Aqui: 1 + 1 + 4 = 6, igual ao 6 de baixo. Deu igual, então a norma é 1."
+      }
+    }
+  ]
+}

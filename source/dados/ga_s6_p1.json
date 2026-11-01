@@ -1,0 +1,401 @@
+{
+  "disciplina": "ga",
+  "semanas": [
+    {
+      "semana": 6,
+      "titulo": "Cônicas e quádricas: curvas e superfícies do segundo grau",
+      "chamada": "Ler uma equação do segundo grau e dizer que curva ou superfície ela desenha, onde fica o centro e onde ficam os focos.",
+      "fonte": "Prévia pela ementa do PPC — trocar quando o material da semana chegar",
+      "previa": true,
+      "blocos": [
+        {
+          "titulo": "Cônica: o corte de um cone",
+          "texto": "Pegue um cone duplo, duas casquinhas de sorvete encostadas pela ponta, e corte com um plano. Conforme a inclinação do plano, a borda do corte é uma circunferência, uma elipse, uma parábola ou uma hipérbole. Na geometria analítica, cada uma vira uma equação do segundo grau em x e y. Cada cônica também tem uma definição por distâncias, usando pontos especiais (os focos) e, na parábola, uma reta especial (a diretriz). As fórmulas da semana saem dessas distâncias. Ler a equação é descobrir qual cônica ela é, onde está o centro ou o vértice e onde ficam os focos."
+        },
+        {
+          "titulo": "Parábola: foco e diretriz",
+          "texto": "A parábola é o conjunto dos pontos que ficam à mesma distância de um ponto, o foco, e de uma reta, a diretriz. O vértice fica no meio do caminho entre os dois. Com vértice na origem e eixo sobre o eixo x, a equação é y² = 4px: o foco é (p, 0) e a diretriz é x = −p. Com eixo sobre o eixo y, fica x² = 4py, com foco (0, p) e diretriz y = −p. A curva abre para o lado do foco. Atenção: há livros que escrevem y² = 2px e chamam de p a distância do foco à diretriz. Confira a convenção do material da disciplina."
+        },
+        {
+          "titulo": "Elipse: soma constante",
+          "texto": "Na elipse, a soma das distâncias de cada ponto aos dois focos é sempre a mesma e vale 2a, o comprimento do eixo maior. Com centro na origem e focos no eixo x, a equação é x²/a² + y²/b² = 1, com a > b. Os focos são (±c, 0) e a relação é a² = b² + c². O maior denominador mostra onde está o eixo maior: se ele ficar embaixo do y², os focos vão para o eixo y. A excentricidade e = c/a mede o achatamento e fica entre 0 e 1. Quando a = b, o c vale zero, os focos se juntam no centro e a elipse vira circunferência."
+        },
+        {
+          "titulo": "Hipérbole: diferença constante",
+          "texto": "Na hipérbole, o que fica constante é a diferença das distâncias aos dois focos, em valor absoluto, e ela vale 2a. Com centro na origem e focos no eixo x, a equação é x²/a² − y²/b² = 1. Os focos são (±c, 0), mas agora c² = a² + b², e o c é o maior dos três. Longe do centro, os ramos se aproximam de duas retas, as assíntotas, y = ±(b/a)x. O termo com sinal positivo indica o eixo em que ficam os focos. A excentricidade e = c/a passa de 1."
+        },
+        {
+          "titulo": "Centro fora da origem: completar quadrado",
+          "texto": "A equação 4x² + y² − 8x + 6y + 9 = 0 esconde o centro. Agrupe por letra, com o coeficiente do quadrado em evidência: 4(x² − 2x) + (y² + 6y) = −9. Complete cada quadrado, somando e tirando o mesmo: x² − 2x = (x − 1)² − 1. Arrumando, sai 4(x − 1)² + (y + 3)² = 4, uma elipse de centro (1, −3). Quadrados com o mesmo sinal dão elipse; sinais opostos, hipérbole; um quadrado só, com a outra letra no primeiro grau, parábola. Com os dois quadrados positivos, lado direito zero dá um ponto e negativo, nenhum. Com sinais opostos, zero dá um par de retas; negativo, hipérbole com focos no outro eixo."
+        },
+        {
+          "titulo": "Quádricas: as cônicas no espaço",
+          "texto": "No espaço, a equação do segundo grau descreve uma superfície, a quádrica. Para reconhecer, olhe os sinais e corte por planos: cada corte, o traço, é uma cônica. Igualada a 1 e com os três quadrados, é elipsoide com todos os sinais positivos, hiperboloide de uma folha com um negativo e de duas folhas com dois negativos. Igualada a zero, com sinais mistos, é cone. Com uma variável no primeiro grau, é paraboloide: elíptico se os quadrados têm o mesmo sinal, hiperbólico (a sela) se têm sinais opostos. O ponto de sela é o mais baixo numa direção e o mais alto na outra. Se falta uma variável, é cilindro, feito de retas paralelas ao eixo dela, as geratrizes."
+        }
+      ],
+      "formulas": [
+        {"nome": "Parábola de eixo horizontal", "expr": "y² = 4px; foco (p, 0); diretriz x = −p", "quando": "vértice na origem e o y ao quadrado"},
+        {"nome": "Parábola de eixo vertical", "expr": "x² = 4py; foco (0, p); diretriz y = −p", "quando": "vértice na origem e o x ao quadrado"},
+        {"nome": "Parábola transladada", "expr": "(y − k)² = 4p(x − h); vértice (h, k); foco (h + p, k); diretriz x = h − p", "quando": "vértice fora da origem"},
+        {"nome": "Elipse", "expr": "x²/a² + y²/b² = 1, com a > b; focos (±c, 0)", "quando": "centro na origem e eixo maior no eixo x"},
+        {"nome": "Elipse de eixo maior vertical", "expr": "x²/b² + y²/a² = 1, com a > b; focos (0, ±c)", "quando": "centro na origem e o maior denominador embaixo do y²"},
+        {"nome": "Relação da elipse", "expr": "a² = b² + c²", "quando": "achar c, a distância do centro ao foco, numa elipse"},
+        {"nome": "Excentricidade", "expr": "e = c/a", "quando": "medir o achatamento; na elipse 0 ≤ e < 1, na hipérbole e > 1"},
+        {"nome": "Hipérbole", "expr": "x²/a² − y²/b² = 1; focos (±c, 0)", "quando": "centro na origem e focos no eixo x"},
+        {"nome": "Relação da hipérbole", "expr": "c² = a² + b²", "quando": "achar c numa hipérbole"},
+        {"nome": "Assíntotas", "expr": "y = ±(b/a)·x", "quando": "hipérbole x²/a² − y²/b² = 1"},
+        {"nome": "Circunferência", "expr": "(x − h)² + (y − k)² = r²", "quando": "centro (h, k) e raio r; é a elipse com a = b"},
+        {"nome": "Completar quadrado", "expr": "x² + 2dx = (x + d)² − d²", "quando": "tirar o centro de uma equação geral"},
+        {"nome": "Cônica transladada", "expr": "(x − h)²/a² ± (y − k)²/b² = 1; centro (h, k)", "quando": "elipse (+) ou hipérbole (−) com centro fora da origem"},
+        {"nome": "Elipsoide", "expr": "x²/a² + y²/b² + z²/c² = 1", "quando": "três sinais positivos, igual a 1 (aqui a, b e c são semieixos)"},
+        {"nome": "Hiperboloide de uma folha", "expr": "x²/a² + y²/b² − z²/c² = 1", "quando": "um sinal negativo, igual a 1"},
+        {"nome": "Hiperboloide de duas folhas", "expr": "−x²/a² − y²/b² + z²/c² = 1", "quando": "dois sinais negativos, igual a 1"},
+        {"nome": "Cone elíptico", "expr": "x²/a² + y²/b² − z²/c² = 0", "quando": "sinais mistos, igual a zero"},
+        {"nome": "Paraboloide elíptico", "expr": "z = x²/a² + y²/b²", "quando": "uma variável no primeiro grau, quadrados com o mesmo sinal"},
+        {"nome": "Paraboloide hiperbólico", "expr": "z = x²/a² − y²/b²", "quando": "uma variável no primeiro grau, quadrados com sinais opostos (sela)"},
+        {"nome": "Cilindro elíptico", "expr": "x²/a² + y²/b² = 1, sem z", "quando": "falta uma variável; a superfície corre ao longo do eixo dela"}
+      ],
+      "jeitos": {
+        "visual": "Desenhe dois pontos, os focos, e imagine um ponto que anda em volta deles. Se a soma das duas distâncias fica fixa, o rastro fecha uma oval: a elipse. Se fica fixa a diferença, o rastro abre em dois ramos guiados por duas retas em X: a hipérbole. Troque um dos focos por uma reta e exija distâncias iguais: sai um U, a parábola. No espaço, empilhe essas curvas em fatias horizontais e verticais, como as curvas de nível de um mapa, e a superfície aparece.",
+        "cotidiano": "O farol do carro tem um espelho curvo cujo corte é uma parábola: a lâmpada fica no foco e a luz sai em feixe paralelo. A órbita da Terra é uma elipse quase redonda, com o Sol num dos focos. A luz de um abajur de cúpula aberta, projetada na parede ao lado, desenha uma hipérbole. No espaço, a bola de rugby lembra um elipsoide, a torre de resfriamento de uma usina é um hiperboloide de uma folha, a casquinha de sorvete é um cone e a batata chips em forma de sela é um paraboloide hiperbólico.",
+        "receita": "Para reconhecer uma cônica pela equação geral: 1) agrupe os termos de x e os de y; 2) ponha em evidência o coeficiente de cada quadrado; 3) complete os quadrados e compense do outro lado; 4) se sobrou um quadrado só e a outra letra no primeiro grau, é parábola: ponha o coeficiente dessa letra em evidência e leia o vértice; 5) com dois quadrados, divida tudo para o lado direito ficar 1 e leia os sinais: iguais, elipse (circunferência se os denominadores forem iguais); opostos, hipérbole; 6) leia o centro (h, k) e os semieixos e calcule c por a² = b² + c² na elipse ou c² = a² + b² na hipérbole.",
+        "trabalho": "Reconhecer uma cônica é classificar por regra, como um `CASE` no SQL: quadrados com o mesmo sinal vão para elipse, com sinais opostos vão para hipérbole, e um quadrado só vai para parábola. Completar quadrado é um lançamento de ajuste: o que você soma de um lado lança também do outro, senão a equação deixa de fechar, como um balancete com débito sem crédito. E a excentricidade e = c/a é uma razão com base fixa, parecida com a análise vertical da DRE, em que tudo se divide pelo faturamento bruto.",
+        "erro": "Os tropeços mais comuns: usar a² = b² + c² na hipérbole, onde a relação é c² = a² + b²; achar que o eixo maior está sempre em x, quando quem manda é o maior denominador; esquecer a raiz e usar c² no lugar de c; ler o centro com o sinal trocado, porque (x + 2)² quer dizer h = −2; completar o quadrado sem pôr o coeficiente em evidência. Nas quádricas, o erro clássico é contar mal os sinais negativos e trocar o hiperboloide de uma folha pelo de duas folhas."
+      },
+      "lab": "No laboratório, fixe a = 5 numa elipse e aumente b de 1 até 5: os focos caminham para o centro e, com b = 5, a curva vira circunferência."
+    }
+  ],
+  "questoes": [
+    {
+      "id": "ga-s6-p01",
+      "semana": 6,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Foco e diretriz da parábola",
+      "origem": "Prévia · ementa",
+      "enunciado": "Quais são o foco e a diretriz da parábola x² = 12y?",
+      "alternativas": [
+        {"t": "Foco (0, 12) e diretriz y = −12", "certa": false, "erro": "Você tomou o 12 como se fosse p. Na forma x² = 4py, o 12 é 4p, então p = 12/4 = 3."},
+        {"t": "Foco (3, 0) e diretriz x = −3", "certa": false, "erro": "Esse é o par da parábola y² = 12x. Em x² = 12y quem está ao quadrado é o x, então a curva abre na vertical e o foco fica sobre o eixo y."},
+        {"t": "Foco (0, 3) e diretriz y = −3", "certa": true},
+        {"t": "Foco (0, 6) e diretriz y = −6", "certa": false, "erro": "Você usou a forma x² = 2py (2p = 12, p = 6) e depois leu o foco como (0, p), que é da forma x² = 4py. Na forma x² = 2py o foco é (0, p/2) = (0, 3): as duas convenções dão o mesmo ponto."},
+        {"t": "Foco (0, −3) e diretriz y = 3", "certa": false, "erro": "Sinais trocados. Com o 12 positivo, a parábola abre para cima, e o foco fica do lado de dentro da curva, em y = 3."}
+      ],
+      "dica": "Compare x² = 12y com x² = 4py e descubra quanto vale p.",
+      "resposta": "Foco (0, 3); diretriz y = −3",
+      "figura": {
+        "modo": "2d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-7.2, 4.32], [-6.84, 3.899], [-6.48, 3.499], [-6.12, 3.121], [-5.76, 2.765], [-5.4, 2.43], [-5.04, 2.117], [-4.68, 1.825], [-4.32, 1.555], [-3.96, 1.307], [-3.6, 1.08], [-3.24, 0.875], [-2.88, 0.691], [-2.52, 0.529], [-2.16, 0.389], [-1.8, 0.27], [-1.44, 0.173], [-1.08, 0.097], [-0.72, 0.043], [-0.36, 0.011], [0, 0], [0.36, 0.011], [0.72, 0.043], [1.08, 0.097], [1.44, 0.173], [1.8, 0.27], [2.16, 0.389], [2.52, 0.529], [2.88, 0.691], [3.24, 0.875], [3.6, 1.08], [3.96, 1.307], [4.32, 1.555], [4.68, 1.825], [5.04, 2.117], [5.4, 2.43], [5.76, 2.765], [6.12, 3.121], [6.48, 3.499], [6.84, 3.899], [7.2, 4.32]], "cor": 1, "aberto": true},
+          {"tipo": "segmento", "de": [-7.5, -3], "ate": [7.5, -3], "cor": 3, "tracejado": true},
+          {"tipo": "ponto", "em": [0, 0], "rot": "V"},
+          {"tipo": "ponto", "em": [0, 3], "rot": "F"},
+          {"tipo": "ponto", "em": [6, 3], "rot": "P"},
+          {"tipo": "segmento", "de": [6, 3], "ate": [0, 3], "cor": 2},
+          {"tipo": "segmento", "de": [6, 3], "ate": [6, -3], "cor": 2}
+        ],
+        "legenda": "O ponto P = (6, 3) está a 6 do foco F e a 6 da diretriz tracejada y = −3: é isso que põe P na parábola."
+      },
+      "jeitos": {
+        "visual": "O eixo y é o eixo de simetria da curva, e o vértice fica na origem. Subindo 3 você chega no foco F; descendo 3, na diretriz, a reta horizontal y = −3. A parábola abre para o lado do foco, como um U. Na figura, o ponto P = (6, 3) mostra a regra: os dois segmentos coral, um até F e outro até a diretriz, medem 6 cada.",
+        "receita": [
+          "Compare com a forma padrão: x² = 12y e x² = 4py.",
+          "Iguale os coeficientes: 4p = 12, então p = 3.",
+          "O x está ao quadrado, então o eixo da parábola é o eixo y e o foco é (0, p) = (0, 3).",
+          "A diretriz fica do outro lado do vértice, à mesma distância: y = −p = −3.",
+          "Como p > 0, a curva abre para cima, na direção do foco."
+        ],
+        "cotidiano": "Pense num poste e num muro reto. Você quer plantar arbustos sempre à mesma distância do poste e do muro. O primeiro arbusto fica no meio do caminho entre os dois: é o vértice. Os outros vão se abrindo em volta do poste, sem nunca chegar no muro. O poste é o foco, o muro é a diretriz e a fileira de arbustos é a parábola.",
+        "trabalho": "No Excel dá para desenhar essa parábola num gráfico de dispersão. Ponha na coluna A os valores de x, de −6 a 6, e na coluna B a fórmula `=A2^2/12`, que dá o y de cada ponto. Para conferir o foco, crie a coluna C com a distância até (0, 3), `=RAIZ(A2^2+(B2-3)^2)`, e a coluna D com a distância até a diretriz, `=B2+3`. As colunas C e D batem linha a linha, como um extrato conciliado com o razão.",
+        "conversa": [
+          {"quem": "Você", "fala": "Se a equação tem 12, o foco não é (0, 12)?"},
+          {"quem": "Monitor", "fala": "O 12 ali é 4p, não p. Quanto vale p?"},
+          {"quem": "Você", "fala": "12 dividido por 4 dá 3. Então o foco é (0, 3)."},
+          {"quem": "Monitor", "fala": "E a diretriz?"},
+          {"quem": "Você", "fala": "Fica do outro lado do vértice, à mesma distância: y = −3."},
+          {"quem": "Monitor", "fala": "Teste com o ponto (6, 3): ele está a 6 do foco e a 6 da diretriz."}
+        ],
+        "erro": "O tropeço mais comum é ler o número da equação direto como p. Na forma x² = 4py, o número ao lado do y é quatro vezes p. Outro deslize é misturar convenções: alguns livros escrevem x² = 2py e chamam de p a distância do foco à diretriz. Quem calcula p = 6 nessa forma e depois usa o foco (0, p) da outra marca (0, 6).",
+        "confira": "Escolha um ponto da curva e meça. Com x = 6, y = 36/12 = 3, então P = (6, 3) está na parábola. Distância de P ao foco (0, 3): 6. Distância de P à diretriz y = −3: 3 − (−3) = 6. Iguais, como a definição exige. Com o foco errado em (0, 12), a distância de P ao foco daria √117 e à diretriz y = −12 daria 15: não bate.",
+        "atalho": "Duas perguntas eliminam quase tudo. Qual variável está ao quadrado? O x, então o foco fica no eixo y: sai a alternativa com foco (3, 0). Para que lado abre? O 12 é positivo, então para cima: sai o foco (0, −3). Sobram três; divida 12 por 4 e fique com p = 3."
+      }
+    },
+    {
+      "id": "ga-s6-p02",
+      "semana": 6,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Focos e excentricidade da elipse",
+      "origem": "Prévia · ementa",
+      "enunciado": "Dada a elipse x²/169 + y²/144 = 1, quais são os focos e a excentricidade?",
+      "alternativas": [
+        {"t": "Focos (±5, 0) e e = 5/13", "certa": true},
+        {"t": "Focos (±√313, 0) e e = √313/13", "certa": false, "erro": "Você somou 169 + 144 = 313, que é a relação da hipérbole. Na elipse, c² = a² − b² = 169 − 144 = 25."},
+        {"t": "Focos (0, ±5) e e = 5/13", "certa": false, "erro": "O c está certo, mas o eixo não. O maior denominador, 169, está embaixo do x², então o eixo maior e os focos ficam no eixo x."},
+        {"t": "Focos (±5, 0) e e = 5/12", "certa": false, "erro": "Você dividiu c por b = 12. A excentricidade é c/a, com a = 13, o semieixo maior."},
+        {"t": "Focos (±25, 0) e e = 25/13", "certa": false, "erro": "Faltou a raiz: 25 é c², não c. E uma excentricidade maior que 1 já denuncia o erro, porque na elipse ela fica entre 0 e 1."}
+      ],
+      "dica": "Na elipse, o semieixo maior a é o maior dos três números a, b e c.",
+      "resposta": "Focos (−5, 0) e (5, 0); e = 5/13",
+      "figura": {
+        "modo": "2d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[13, 0], [12.84, 1.877], [12.364, 3.708], [11.583, 5.448], [10.517, 7.053], [9.192, 8.485], [7.641, 9.708], [5.902, 10.692], [4.017, 11.413], [2.034, 11.852], [0, 12], [-2.034, 11.852], [-4.017, 11.413], [-5.902, 10.692], [-7.641, 9.708], [-9.192, 8.485], [-10.517, 7.053], [-11.583, 5.448], [-12.364, 3.708], [-12.84, 1.877], [-13, 0], [-12.84, -1.877], [-12.364, -3.708], [-11.583, -5.448], [-10.517, -7.053], [-9.192, -8.485], [-7.641, -9.708], [-5.902, -10.692], [-4.017, -11.413], [-2.034, -11.852], [0, -12], [2.034, -11.852], [4.017, -11.413], [5.902, -10.692], [7.641, -9.708], [9.192, -8.485], [10.517, -7.053], [11.583, -5.448], [12.364, -3.708], [12.84, -1.877]], "cor": 1},
+          {"tipo": "ponto", "em": [-5, 0], "rot": "F₁"},
+          {"tipo": "ponto", "em": [5, 0], "rot": "F₂"},
+          {"tipo": "ponto", "em": [0, 12], "rot": "B"},
+          {"tipo": "segmento", "de": [0, 0], "ate": [0, 12], "cor": 3, "tracejado": true},
+          {"tipo": "segmento", "de": [0, 0], "ate": [5, 0], "cor": 3, "tracejado": true},
+          {"tipo": "segmento", "de": [0, 12], "ate": [5, 0], "cor": 3, "tracejado": true}
+        ],
+        "legenda": "O triângulo tracejado tem catetos b = 12 e c = 5 e hipotenusa a = 13, do topo B até o foco F₂: é a relação a² = b² + c²."
+      },
+      "jeitos": {
+        "visual": "A elipse é uma oval deitada, porque o maior denominador está embaixo do x². Ela cruza o eixo x em ±13 e o eixo y em ±12. Na figura, ligue o topo B = (0, 12) ao foco F₂: esse segmento mede a = 13. Junto com o pedaço do eixo y (b = 12) e o pedaço do eixo x até o foco (c = 5), ele forma um triângulo retângulo. Daí sai c = 5, e os focos ficam bem perto do centro.",
+        "receita": [
+          "Leia os denominadores: a² = 169 e b² = 144, porque o maior é o a².",
+          "Tire as raízes: a = 13 e b = 12.",
+          "Relação da elipse: c² = a² − b² = 169 − 144 = 25, então c = 5.",
+          "O a² está embaixo do x², logo os focos ficam no eixo x: (−5, 0) e (5, 0).",
+          "Excentricidade: e = c/a = 5/13, que fica entre 0 e 1, como deve ser numa elipse."
+        ],
+        "cotidiano": "O jardineiro desenha um canteiro oval com duas estacas e um barbante amarrado nelas. Ele estica o barbante com a ponta de um graveto e dá a volta: o rastro é uma elipse. Aqui o barbante mede 26, o eixo maior, e as estacas ficam em ±5, nos focos. Se ele aproximar as estacas, o canteiro fica mais redondo; com as duas no mesmo lugar, vira um círculo.",
+        "trabalho": "A excentricidade é uma razão, e toda razão depende da base certa. Na análise vertical da DRE, cada linha se divide pelo faturamento bruto; dividir pelo lucro daria outro número, sem o mesmo sentido. Aqui a base é o semieixo maior: e = c/a = 5/13 ≈ 0,385. Quem divide por b = 12 usa a base errada e chega a 5/12, como uma margem calculada sobre a linha errada.",
+        "conversa": [
+          {"quem": "Você", "fala": "c² = 169 + 144, então c = √313?"},
+          {"quem": "Monitor", "fala": "Essa soma é da hipérbole. Na elipse, quem é maior: a ou c?"},
+          {"quem": "Você", "fala": "O a, porque o foco fica dentro da elipse."},
+          {"quem": "Monitor", "fala": "Então c² = a² − b²."},
+          {"quem": "Você", "fala": "169 − 144 = 25, c = 5. E e = 5/13."},
+          {"quem": "Monitor", "fala": "Foco a 5 do centro, sobre o eixo x, porque o 169 está embaixo do x²."}
+        ],
+        "erro": "A confusão é entre as duas relações. Na elipse, o a faz o papel da hipotenusa: a² = b² + c², então c² sai de uma subtração. Na hipérbole, o c é o maior e c² = a² + b². Quem soma aqui acha √313, um foco fora da elipse, o que não pode acontecer. Outro tropeço é dividir por b na excentricidade.",
+        "confira": "Pegue o ponto (0, 12), topo da elipse. Distância até (5, 0): √(25 + 144) = √169 = 13. Até (−5, 0): também 13. Soma 26 = 2a, como a definição de elipse pede. Com o foco em ±√313 ≈ ±17,7, o foco cairia fora da curva, que só vai até 13 no eixo x.",
+        "atalho": "Excentricidade de elipse fica entre 0 e 1: isso elimina 25/13 na hora. O maior denominador está no x², então o foco está no eixo x: sai (0, ±5). O c da elipse é menor que a = 13, e √313 passa de 17: sai mais uma. Fica a decisão entre dividir c por 13 ou por 12, e a excentricidade usa o a."
+      }
+    },
+    {
+      "id": "ga-s6-p03",
+      "semana": 6,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Focos e assíntotas da hipérbole",
+      "origem": "Prévia · ementa",
+      "enunciado": "Para a hipérbole x²/64 − y²/36 = 1, quais são os focos e as assíntotas?",
+      "alternativas": [
+        {"t": "Focos (±2√7, 0); assíntotas y = ±(3/4)x", "certa": false, "erro": "Você usou a relação da elipse: 64 − 36 = 28 e √28 = 2√7. Na hipérbole, c² = a² + b² = 100."},
+        {"t": "Focos (±10, 0); assíntotas y = ±(4/3)x", "certa": false, "erro": "O c está certo, mas a fração está de cabeça para baixo. Com o x² na frente, a assíntota é y = ±(b/a)x = ±(6/8)x."},
+        {"t": "Focos (±8, 0); assíntotas y = ±(3/4)x", "certa": false, "erro": "(±8, 0) são os vértices, onde a curva corta o eixo x. Os focos ficam mais longe do centro, a c = 10."},
+        {"t": "Focos (±10, 0); assíntotas y = ±(9/16)x", "certa": false, "erro": "Você dividiu 36 por 64 sem tirar a raiz. A inclinação usa os semieixos, 6/8, e não os quadrados."},
+        {"t": "Focos (±10, 0); assíntotas y = ±(3/4)x", "certa": true}
+      ],
+      "dica": "Na hipérbole o c é o maior dos três; e a inclinação das assíntotas sai dos semieixos, não dos quadrados.",
+      "resposta": "Focos (−10, 0) e (10, 0); assíntotas y = (3/4)x e y = −(3/4)x",
+      "figura": {
+        "modo": "2d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[15.767, -10.19], [14.917, -9.443], [14.129, -8.735], [13.402, -8.064], [12.731, -7.427], [12.113, -6.822], [11.547, -6.245], [11.03, -5.695], [10.56, -5.169], [10.134, -4.665], [9.75, -4.18], [9.408, -3.714], [9.106, -3.263], [8.842, -2.825], [8.616, -2.4], [8.426, -1.985], [8.272, -1.578], [8.153, -1.177], [8.068, -0.782], [8.017, -0.39], [8, 0], [8.017, 0.39], [8.068, 0.782], [8.153, 1.177], [8.272, 1.578], [8.426, 1.985], [8.616, 2.4], [8.842, 2.825], [9.106, 3.263], [9.408, 3.714], [9.75, 4.18], [10.134, 4.665], [10.56, 5.169], [11.03, 5.695], [11.547, 6.245], [12.113, 6.822], [12.731, 7.427], [13.402, 8.064], [14.129, 8.735], [14.917, 9.443], [15.767, 10.19]], "cor": 1, "aberto": true},
+          {"tipo": "poligono", "pts": [[-15.767, -10.19], [-14.917, -9.443], [-14.129, -8.735], [-13.402, -8.064], [-12.731, -7.427], [-12.113, -6.822], [-11.547, -6.245], [-11.03, -5.695], [-10.56, -5.169], [-10.134, -4.665], [-9.75, -4.18], [-9.408, -3.714], [-9.106, -3.263], [-8.842, -2.825], [-8.616, -2.4], [-8.426, -1.985], [-8.272, -1.578], [-8.153, -1.177], [-8.068, -0.782], [-8.017, -0.39], [-8, 0], [-8.017, 0.39], [-8.068, 0.782], [-8.153, 1.177], [-8.272, 1.578], [-8.426, 1.985], [-8.616, 2.4], [-8.842, 2.825], [-9.106, 3.263], [-9.408, 3.714], [-9.75, 4.18], [-10.134, 4.665], [-10.56, 5.169], [-11.03, 5.695], [-11.547, 6.245], [-12.113, 6.822], [-12.731, 7.427], [-13.402, 8.064], [-14.129, 8.735], [-14.917, 9.443], [-15.767, 10.19]], "cor": 1, "aberto": true},
+          {"tipo": "poligono", "pts": [[8, 6], [-8, 6], [-8, -6], [8, -6]], "cor": 3},
+          {"tipo": "segmento", "de": [-16, -12], "ate": [16, 12], "cor": 3, "tracejado": true},
+          {"tipo": "segmento", "de": [-16, 12], "ate": [16, -12], "cor": 3, "tracejado": true},
+          {"tipo": "ponto", "em": [-10, 0], "rot": "F₁"},
+          {"tipo": "ponto", "em": [10, 0], "rot": "F₂"}
+        ],
+        "legenda": "Os ramos azuis encostam aos poucos nas retas tracejadas, que prolongam as diagonais da caixa ocre de 16 por 12."
+      },
+      "jeitos": {
+        "visual": "Desenhe uma caixa centrada na origem que vai de −8 a 8 no eixo x e de −6 a 6 no eixo y. As duas diagonais dessa caixa, prolongadas, são as assíntotas, com inclinação 6/8 = 3/4. Os ramos nascem nos vértices (±8, 0) e vão se encostando nas diagonais. Na figura, a metade da diagonal da caixa mede √(64 + 36) = 10: é a distância do centro a cada foco.",
+        "receita": [
+          "Leia a forma: x²/a² − y²/b² = 1 com a² = 64 e b² = 36.",
+          "Semieixos: a = 8 e b = 6.",
+          "Relação da hipérbole: c² = a² + b² = 64 + 36 = 100, então c = 10.",
+          "O x² é o termo positivo, então os focos ficam no eixo x: (−10, 0) e (10, 0).",
+          "Assíntotas: y = ±(b/a)x = ±(6/8)x = ±(3/4)x."
+        ],
+        "cotidiano": "Pense em duas estradas retas que se cruzam em X na origem. Um carro vem de muito longe quase colado a uma delas, faz a curva perto do cruzamento sem passar por ele e vai embora quase colado à outra. O trajeto do carro é um ramo da hipérbole, e as estradas são as assíntotas. Quanto mais longe do cruzamento, mais o carro se aproxima da estrada, sem nunca encostar.",
+        "trabalho": "Assíntota aparece em custo. O custo médio por unidade é o custo fixo dividido pela quantidade, mais o custo variável unitário. Quando a quantidade cresce, o custo médio cai e se aproxima do custo variável, sem nunca chegar nele. Esse gráfico é um ramo de hipérbole, e a linha do custo variável é a assíntota. Aqui a ideia é a mesma: para x grande, y fica cada vez mais perto de (3/4)x.",
+        "conversa": [
+          {"quem": "Você", "fala": "Usei c² = a² − b², como na elipse, e deu √28."},
+          {"quem": "Monitor", "fala": "Na hipérbole o foco fica além do vértice. O c pode ser menor que a = 8?"},
+          {"quem": "Você", "fala": "Não. Então c² = 64 + 36 = 100 e c = 10."},
+          {"quem": "Monitor", "fala": "E as assíntotas, como você montou?"},
+          {"quem": "Você", "fala": "y = ±(8/6)x."},
+          {"quem": "Monitor", "fala": "Inverteu. A forma é y = ±(b/a)x, com o b do y² em cima: 6/8 = 3/4."}
+        ],
+        "erro": "Duas armadilhas. A primeira é trazer da elipse a relação c² = a² − b²; na hipérbole é soma, e o foco sempre fica além do vértice. A segunda é inverter a fração da assíntota. Com o x² positivo, a inclinação é b/a: o semieixo do y em cima, o do x embaixo. Como perceber: aqui a = 8 é maior que b = 6, então a inclinação certa fica abaixo de 1.",
+        "confira": "Teste um ponto da curva. Com x = 16, 256/64 = 4, então y²/36 = 3 e y = 6√3 ≈ 10,39. A distância desse ponto até (10, 0) é √(36 + 108) = 12, e até (−10, 0) é √(676 + 108) = 28. Diferença 28 − 12 = 16 = 2a, como a definição pede. Para as assíntotas, troque o 1 por 0: x²/64 = y²/36 dá y = ±(6/8)x.",
+        "atalho": "Na hipérbole, c passa de a. Isso tira os focos (±8, 0) e (±2√7, 0), porque 2√7 ≈ 5,3 fica abaixo de 8. Sobram três alternativas com foco (±10, 0). Para decidir a inclinação, use os semieixos 6 e 8, sem os quadrados, com o do y em cima: 6/8 = 3/4."
+      }
+    },
+    {
+      "id": "ga-s6-p04",
+      "semana": 6,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Completar quadrado na elipse",
+      "origem": "Prévia · ementa",
+      "enunciado": "Que cônica é 9x² + 4y² + 36x − 8y + 4 = 0, e onde fica o seu centro?",
+      "alternativas": [
+        {"t": "Circunferência de centro (−2, 1)", "certa": false, "erro": "O centro está certo, mas os coeficientes de x² e y² são diferentes (9 e 4). Circunferência exige o mesmo coeficiente nos dois quadrados."},
+        {"t": "Elipse de centro (2, −1)", "certa": false, "erro": "Sinais do centro trocados. (x + 2)² quer dizer x − (−2), então h = −2; e (y − 1)² dá k = 1."},
+        {"t": "Elipse de centro (−18, 4)", "certa": false, "erro": "Você completou o quadrado sem pôr o 9 e o 4 em evidência: tirou a metade de 36 e de −8 direto. Primeiro escreva 9(x² + 4x) e 4(y² − 2y); só então tire a metade de 4 e de −2."},
+        {"t": "Elipse de centro (−2, 1)", "certa": true},
+        {"t": "Hipérbole de centro (−2, 1)", "certa": false, "erro": "Hipérbole precisa de quadrados com sinais opostos. Aqui 9x² e 4y² têm o mesmo sinal; coeficientes diferentes só deixam a curva oval, não abrem ramos."}
+      ],
+      "dica": "Ponha o 9 em evidência nos termos de x e o 4 nos de y antes de completar os quadrados.",
+      "resposta": "Elipse (x + 2)²/4 + (y − 1)²/9 = 1, de centro (−2, 1)",
+      "figura": {
+        "modo": "2d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 1], [-0.025, 1.469], [-0.098, 1.927], [-0.218, 2.362], [-0.382, 2.763], [-0.586, 3.121], [-0.824, 3.427], [-1.092, 3.673], [-1.382, 3.853], [-1.687, 3.963], [-2, 4], [-2.313, 3.963], [-2.618, 3.853], [-2.908, 3.673], [-3.176, 3.427], [-3.414, 3.121], [-3.618, 2.763], [-3.782, 2.362], [-3.902, 1.927], [-3.975, 1.469], [-4, 1], [-3.975, 0.531], [-3.902, 0.073], [-3.782, -0.362], [-3.618, -0.763], [-3.414, -1.121], [-3.176, -1.427], [-2.908, -1.673], [-2.618, -1.853], [-2.313, -1.963], [-2, -2], [-1.687, -1.963], [-1.382, -1.853], [-1.092, -1.673], [-0.824, -1.427], [-0.586, -1.121], [-0.382, -0.763], [-0.218, -0.362], [-0.098, 0.073], [-0.025, 0.531]], "cor": 1},
+          {"tipo": "ponto", "em": [-2, 1], "rot": "C"},
+          {"tipo": "ponto", "em": [-2, -1.236], "rot": "F₁"},
+          {"tipo": "ponto", "em": [-2, 3.236], "rot": "F₂"}
+        ],
+        "legenda": "Centro C = (−2, 1). A oval é mais alta que larga porque o 9 ficou embaixo de (y − 1)²; os focos estão na vertical, a √5 do centro."
+      },
+      "jeitos": {
+        "visual": "Pense na equação como uma elipse que foi empurrada para fora da origem. Completar o quadrado é descobrir o tamanho do empurrão: 2 para a esquerda e 1 para cima. Na figura, o centro C = (−2, 1) é o meio da oval. Ela vai 2 para cada lado na horizontal e 3 para cima e para baixo, por isso fica em pé, com os focos na vertical.",
+        "receita": [
+          "Agrupe: 9(x² + 4x) + 4(y² − 2y) = −4.",
+          "Complete: x² + 4x = (x + 2)² − 4 e y² − 2y = (y − 1)² − 1.",
+          "Substitua: 9(x + 2)² − 36 + 4(y − 1)² − 4 = −4.",
+          "Passe as constantes: 9(x + 2)² + 4(y − 1)² = 36.",
+          "Divida por 36: (x + 2)²/4 + (y − 1)²/9 = 1.",
+          "Quadrados com o mesmo sinal e denominadores diferentes: elipse de centro (−2, 1)."
+        ],
+        "cotidiano": "Completar o quadrado é como pegar 36 reais emprestados para fechar um pacote e devolver na mesma hora. Dentro do parêntese faltava o 4 para virar (x + 2)²; como o 9 está multiplicando, o empréstimo real é 9 × 4 = 36. Você soma 36 para montar o quadrado e tira 36 para o saldo da equação não mudar. Quem esquece o 9 devolve só 4, e a conta não fecha.",
+        "trabalho": "É um lançamento de ajuste com débito e crédito. Para montar 9(x + 2)², você acrescenta 36 a um lado da equação; para ela continuar verdadeira, lança os mesmos 36 no outro lado. Com o y, o ajuste é 4 × 1 = 4. Se um dos lançamentos fica sem contrapartida, a equação final descreve outra curva, como um balancete que deixa de bater por um ajuste lançado pela metade.",
+        "conversa": [
+          {"quem": "Você", "fala": "Metade de 36 é 18, então fica (x + 18)²?"},
+          {"quem": "Monitor", "fala": "Tirar a metade só funciona com o x² sozinho. Aqui ele vem com 9. O que você faz primeiro?"},
+          {"quem": "Você", "fala": "Ponho o 9 em evidência: 9(x² + 4x). Aí a metade de 4 é 2."},
+          {"quem": "Monitor", "fala": "Isso dá (x + 2)². E no y?"},
+          {"quem": "Você", "fala": "4(y² − 2y), e a metade de −2 é −1: (y − 1)². Centro (−2, 1)."},
+          {"quem": "Monitor", "fala": "E a curva, qual é?"},
+          {"quem": "Você", "fala": "Quadrados com o mesmo sinal e 4 diferente de 9: elipse."}
+        ],
+        "erro": "A armadilha central é completar o quadrado com o coeficiente ainda grudado no x². A metade de 36 só serviria se a expressão fosse x² + 36x. Com 9x² + 36x, primeiro vem o 9 em evidência. O segundo tropeço é o sinal do centro: (x + 2)² aponta para x = −2. Como perceber: o centro tem de zerar os dois parênteses.",
+        "confira": "Substitua pontos que deveriam estar na curva. O ponto (0, 1) fica 2 à direita do centro: 9·0 + 4·1 + 36·0 − 8·1 + 4 = 0. O ponto (−2, 4) fica 3 acima do centro: 9·4 + 4·16 − 72 − 32 + 4 = 0. Os dois zeram a equação original. Com o centro (2, −1), o ponto (4, −1) daria 144 + 4 + 144 + 8 + 4 = 304, longe de zero.",
+        "atalho": "Antes de qualquer conta, olhe os sinais de 9x² e 4y²: são iguais, então não é hipérbole. Os coeficientes são diferentes, então não é circunferência. Sobram três elipses. Para o centro, divida o termo de primeiro grau pelo dobro do coeficiente do quadrado e troque o sinal: h = −36/18 = −2 e k = 8/8 = 1."
+      }
+    },
+    {
+      "id": "ga-s6-p05",
+      "semana": 6,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Elipse pela excentricidade",
+      "origem": "Prévia · ementa",
+      "enunciado": "Uma elipse tem centro na origem, focos no eixo x, eixo maior de comprimento 20 e excentricidade 3/5. Qual é a sua equação?",
+      "alternativas": [
+        {"t": "x²/64 + y²/100 = 1", "certa": false, "erro": "Os números estão certos, mas trocados de lugar. Com os focos no eixo x, o a² = 100 fica embaixo do x²."},
+        {"t": "x²/100 + y²/64 = 1", "certa": true},
+        {"t": "x²/400 + y²/256 = 1", "certa": false, "erro": "Você usou a = 20, o eixo inteiro. O eixo maior mede 2a, então a = 10. Com a = 20 viriam c = 12 e b² = 400 − 144 = 256."},
+        {"t": "x²/100 + y²/136 = 1", "certa": false, "erro": "Você somou: b² = 100 + 36 = 136. Essa soma é da hipérbole; na elipse, b² = a² − c² = 64. E com 136 embaixo do y², o eixo maior iria para o eixo y."},
+        {"t": "x²/100 + y²/36 = 1", "certa": false, "erro": "Você pôs c² = 36 no lugar de b². O c mede a distância do centro ao foco; o b vem de b² = a² − c² = 100 − 36 = 64."}
+      ],
+      "dica": "O eixo maior mede 2a. Com o a em mãos, a excentricidade c/a entrega o c.",
+      "resposta": "x²/100 + y²/64 = 1",
+      "figura": {
+        "modo": "2d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[10, 0], [9.877, 1.251], [9.511, 2.472], [8.91, 3.632], [8.09, 4.702], [7.071, 5.657], [5.878, 6.472], [4.54, 7.128], [3.09, 7.608], [1.564, 7.902], [0, 8], [-1.564, 7.902], [-3.09, 7.608], [-4.54, 7.128], [-5.878, 6.472], [-7.071, 5.657], [-8.09, 4.702], [-8.91, 3.632], [-9.511, 2.472], [-9.877, 1.251], [-10, 0], [-9.877, -1.251], [-9.511, -2.472], [-8.91, -3.632], [-8.09, -4.702], [-7.071, -5.657], [-5.878, -6.472], [-4.54, -7.128], [-3.09, -7.608], [-1.564, -7.902], [0, -8], [1.564, -7.902], [3.09, -7.608], [4.54, -7.128], [5.878, -6.472], [7.071, -5.657], [8.09, -4.702], [8.91, -3.632], [9.511, -2.472], [9.877, -1.251]], "cor": 1},
+          {"tipo": "segmento", "de": [-10, 0], "ate": [10, 0], "cor": 3, "tracejado": true},
+          {"tipo": "ponto", "em": [-10, 0], "rot": "A₁"},
+          {"tipo": "ponto", "em": [10, 0], "rot": "A₂"},
+          {"tipo": "ponto", "em": [-6, 0], "rot": "F₁"},
+          {"tipo": "ponto", "em": [6, 0], "rot": "F₂"}
+        ],
+        "legenda": "O segmento tracejado de A₁ = (−10, 0) a A₂ = (10, 0) é o eixo maior, de comprimento 20; os focos ficam a 6 do centro."
+      },
+      "jeitos": {
+        "visual": "Comece pelo segmento tracejado da figura, de A₁ = (−10, 0) a A₂ = (10, 0): é o eixo maior, com 20 de comprimento. O centro divide esse segmento ao meio, então cada metade, o a, mede 10. A excentricidade diz onde ficam os focos: a 3/5 de 10 do centro, ou seja, em ±6. A altura da oval vem depois, do b = 8.",
+        "receita": [
+          "Eixo maior = 2a = 20, então a = 10 e a² = 100.",
+          "Excentricidade: c/a = 3/5, então c = (3/5) · 10 = 6.",
+          "Relação da elipse: b² = a² − c² = 100 − 36 = 64.",
+          "Focos no eixo x: o a² fica embaixo do x².",
+          "Equação: x²/100 + y²/64 = 1."
+        ],
+        "cotidiano": "Pense numa foto ampliada. A excentricidade é o formato da foto: diz que o foco fica a 3/5 do caminho entre o centro e a ponta. O eixo maior é o tamanho da ampliação. Com o mesmo formato, uma elipse de eixo maior 10 teria o foco a 3 do centro; a de eixo maior 20 tem o foco a 6. O formato fica igual, só a escala muda.",
+        "trabalho": "A conta e = c/a funciona como um percentual sobre uma base. Se a margem de contribuição é 60% da receita e a receita é 10, a margem é 6. Aqui c é 3/5 = 60% de a = 10, então c = 6. O erro de base é o mesmo da DRE: aplicar o percentual sobre o eixo inteiro, 20, é como aplicar a margem sobre um valor que não é a receita.",
+        "conversa": [
+          {"quem": "Você", "fala": "Eixo maior 20, então a = 20?"},
+          {"quem": "Monitor", "fala": "O eixo maior vai de um vértice ao outro. Quanto mede do centro até um vértice?"},
+          {"quem": "Você", "fala": "A metade: 10. Então a = 10."},
+          {"quem": "Monitor", "fala": "E o c?"},
+          {"quem": "Você", "fala": "3/5 de 10 é 6. Aí b² = 100 − 36 = 64."},
+          {"quem": "Monitor", "fala": "E quem fica embaixo do x²?"},
+          {"quem": "Você", "fala": "O 100, porque os focos estão no eixo x."}
+        ],
+        "erro": "O tropeço principal é tomar o comprimento do eixo maior como a. O a é o semieixo, a metade. Com a = 20 tudo sai dobrado e as contas parecem fechar, porque c/a continua 3/5. Como perceber: a elipse x²/400 + y²/256 = 1 corta o eixo x em ±20, e aí o eixo maior mediria 40, não 20.",
+        "confira": "Faça o caminho de volta. Em x²/100 + y²/64 = 1, a = 10, b = 8 e c = √(100 − 64) = 6. Eixo maior: 2 · 10 = 20. Excentricidade: 6/10 = 3/5. As duas condições batem. Um teste extra: o ponto (0, 8) está a √(36 + 64) = 10 de cada foco, e 10 + 10 = 20, o comprimento do eixo maior.",
+        "atalho": "Focos no eixo x pedem o maior denominador embaixo do x²: isso elimina x²/64 + y²/100 e x²/100 + y²/136. A elipse precisa cortar o eixo x em ±10 para o eixo maior medir 20: sai a de 400. Entre 64 e 36 embaixo do y², lembre que o 36 é o c², não o b²."
+      }
+    },
+    {
+      "id": "ga-s6-p06",
+      "semana": 6,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Parábola fora da origem",
+      "origem": "Prévia · ementa",
+      "enunciado": "Quais são o vértice V, o foco F e a diretriz da parábola y² − 4y − 8x − 4 = 0?",
+      "alternativas": [
+        {"t": "V = (−1, 2), F = (1, 2), diretriz x = −3", "certa": true},
+        {"t": "V = (0, 0), F = (2, 0), diretriz x = −2", "certa": false, "erro": "Você leu só o y² − 8x e esqueceu os termos −4y e −4. Eles empurram o vértice para (−1, 2), e o foco anda junto."},
+        {"t": "V = (−1, 2), F = (3, 2), diretriz x = −5", "certa": false, "erro": "Você fez 2p = 8 e achou p = 4, como na forma y² = 2px, mas depois somou p inteiro ao vértice, como na forma y² = 4px. Em (y − 2)² = 8(x + 1), 4p = 8 e p = 2."},
+        {"t": "V = (1, −2), F = (3, −2), diretriz x = −1", "certa": false, "erro": "Sinais do vértice trocados. (y − 2)² aponta para y = 2, e (x + 1) aponta para x = −1."},
+        {"t": "V = (−1, 2), F = (−1, 4), diretriz y = 0", "certa": false, "erro": "Você andou o p na vertical. Como o quadrado é de (y − 2), a parábola abre na horizontal, e o foco fica 2 à direita do vértice, não acima."}
+      ],
+      "dica": "Deixe só os termos com y do lado esquerdo, complete o quadrado e ponha o 8 em evidência do lado direito.",
+      "resposta": "V = (−1, 2); F = (1, 2); diretriz x = −3",
+      "figura": {
+        "modo": "2d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[5.125, -5], [4.528, -4.65], [3.961, -4.3], [3.425, -3.95], [2.92, -3.6], [2.445, -3.25], [2.001, -2.9], [1.588, -2.55], [1.205, -2.2], [0.853, -1.85], [0.531, -1.5], [0.24, -1.15], [-0.02, -0.8], [-0.25, -0.45], [-0.449, -0.1], [-0.617, 0.25], [-0.755, 0.6], [-0.862, 0.95], [-0.939, 1.3], [-0.985, 1.65], [-1, 2], [-0.985, 2.35], [-0.939, 2.7], [-0.862, 3.05], [-0.755, 3.4], [-0.617, 3.75], [-0.449, 4.1], [-0.25, 4.45], [-0.02, 4.8], [0.24, 5.15], [0.531, 5.5], [0.853, 5.85], [1.205, 6.2], [1.588, 6.55], [2.001, 6.9], [2.445, 7.25], [2.92, 7.6], [3.425, 7.95], [3.961, 8.3], [4.528, 8.65], [5.125, 9]], "cor": 1, "aberto": true},
+          {"tipo": "segmento", "de": [-3, -5.5], "ate": [-3, 9.5], "cor": 3, "tracejado": true},
+          {"tipo": "ponto", "em": [-1, 2], "rot": "V"},
+          {"tipo": "ponto", "em": [1, 2], "rot": "F"},
+          {"tipo": "ponto", "em": [1, 6], "rot": "P"},
+          {"tipo": "segmento", "de": [1, 6], "ate": [1, 2], "cor": 2},
+          {"tipo": "segmento", "de": [1, 6], "ate": [-3, 6], "cor": 2}
+        ],
+        "legenda": "V e F ficam na reta y = 2; o ponto P = (1, 6) está a 4 do foco e a 4 da diretriz tracejada x = −3."
+      },
+      "jeitos": {
+        "visual": "Imagine a parábola simples y² = 8x, com vértice na origem e abertura para a direita. Agora pegue o desenho inteiro e arraste 1 para a esquerda e 2 para cima. O formato não muda; vértice, foco e diretriz andam juntos. Na figura, V = (−1, 2) e F = (1, 2) ficam na mesma horizontal, e a diretriz tracejada x = −3 fica 2 à esquerda do vértice.",
+        "receita": [
+          "Separe: y² − 4y = 8x + 4.",
+          "Complete o quadrado: y² − 4y + 4 = 8x + 4 + 4, ou seja, (y − 2)² = 8x + 8.",
+          "Ponha o 8 em evidência: (y − 2)² = 8(x + 1). Vértice V = (−1, 2).",
+          "Compare com (y − k)² = 4p(x − h): 4p = 8, então p = 2.",
+          "O quadrado é de y, então a parábola abre na horizontal; com p > 0, para a direita.",
+          "Foco: (−1 + 2, 2) = (1, 2). Diretriz: x = −1 − 2 = −3."
+        ],
+        "cotidiano": "É como mudar um quadro de lugar na parede. O desenho não muda, só a posição. Na parábola y² = 8x, o foco fica 2 à frente do vértice; quando o quadro é pendurado com o vértice em (−1, 2), o foco continua 2 à frente, agora em (1, 2). Mudar o vértice e deixar o foco em (2, 0) é pendurar a moldura num prego e a gravura em outro.",
+        "trabalho": "Trocar x por x + 1 e y por y − 2 é como somar a mesma constante a uma coluna inteira da planilha antes de fazer o gráfico: todos os pontos andam juntos e o desenho continua igual. Por isso o p, que mede a abertura, é o mesmo da parábola y² = 8x. O que muda são os endereços: vértice, foco e diretriz recebem o mesmo deslocamento, −1 no x e +2 no y.",
+        "conversa": [
+          {"quem": "Você", "fala": "Completei e deu (y − 2)² = 8x + 8. O vértice é (0, 2)?"},
+          {"quem": "Monitor", "fala": "Ainda não está no formato. Do lado direito tem de ficar 4p vezes (x − h). O que falta?"},
+          {"quem": "Você", "fala": "Pôr o 8 em evidência: 8(x + 1). Então o vértice é (−1, 2)."},
+          {"quem": "Monitor", "fala": "E o foco?"},
+          {"quem": "Você", "fala": "4p = 8, p = 2. Somo 2 no y e fica (−1, 4)?"},
+          {"quem": "Monitor", "fala": "Quem está ao quadrado é o (y − 2). A parábola abre para que lado?"},
+          {"quem": "Você", "fala": "Na horizontal, para a direita. Então o foco é (1, 2) e a diretriz, x = −3."}
+        ],
+        "erro": "Há três armadilhas em fila. Parar em (y − 2)² = 8x + 8 sem pôr o 8 em evidência e ler o vértice como (0, 2). Andar o p na direção errada: o quadrado em y faz a parábola abrir na horizontal, então o foco anda no x. E ler os sinais do vértice ao contrário. Como perceber: o vértice tem de zerar os dois lados de (y − 2)² = 8(x + 1).",
+        "confira": "Pegue um ponto da curva com a mesma abscissa do foco. Com x = 1, (y − 2)² = 16, então y = 6 serve. O ponto P = (1, 6) está a 4 do foco (1, 2) e a 1 − (−3) = 4 da diretriz. Na equação original: 36 − 24 − 8 − 4 = 0. O ponto está na curva e as distâncias batem.",
+        "atalho": "Três filtros rápidos. O quadrado está em y, então a diretriz é vertical, da forma x = constante: sai a alternativa com y = 0. Os termos −4y e −4 tiram o vértice da origem: sai V = (0, 0). O termo −4y dá k = 2, positivo: sai V = (1, −2). Sobram duas; nelas, p = 8/4 = 2 decide."
+      }
+    }
+  ]
+}

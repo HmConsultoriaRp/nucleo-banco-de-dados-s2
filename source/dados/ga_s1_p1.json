@@ -1,0 +1,272 @@
+{
+  "disciplina": "ga",
+  "semanas": [
+    {
+      "semana": 1,
+      "titulo": "Vetores: somar, esticar e medir",
+      "chamada": "Vetor é um deslocamento com direção, sentido e tamanho. Com ele você soma caminhos, muda a escala e mede distâncias no espaço.",
+      "fonte": "Lista 1 — Prof. Danilo Adrian Marques",
+      "previa": false,
+      "blocos": [
+        {"titulo": "Vetor: uma seta sem endereço fixo", "texto": "Um segmento orientado é um segmento com começo e fim definidos, desenhado como seta. Vetor é o que várias setas têm em comum quando possuem a mesma direção (estão na mesma reta ou em retas paralelas), o mesmo sentido (a ponta aponta para o mesmo lado) e o mesmo comprimento. Por isso o vetor não tem lugar fixo: você pode deslizar a seta pelo espaço, sem girar nem esticar, e ela continua representando o mesmo vetor. Pense nele como um deslocamento, 'ande tanto para cá', que vale a partir de qualquer ponto."},
+        {"titulo": "Componentes e o vetor entre dois pontos", "texto": "No espaço, um vetor se escreve com três números, as componentes: [[u]] = (x, y, z) diz quanto ele anda em cada eixo. Ponto e vetor se escrevem do mesmo jeito, mas são coisas diferentes: o ponto é um lugar, o vetor é um deslocamento. O vetor que leva de A até B é [[AB]] = B − A, destino menos origem. Com A = (1, 1, 3) e B = (−3, 1, 5), [[AB]] = (−4, 0, 2). Ponto mais vetor dá outro ponto: A + [[AB]] = B. O vetor nulo, [[0]] = (0, 0, 0), é o deslocamento de ficar parado."},
+        {"titulo": "Soma: regra do polígono e do paralelogramo", "texto": "Somar vetores é somar coordenada com coordenada: (1, 1, −1) + (1, 2, −4) = (2, 3, −5). No desenho há duas regras, e as duas dão o mesmo resultado. Regra do polígono: encoste o começo de cada seta na ponta da anterior; a soma vai do começo da primeira até a ponta da última, ou seja, [[AB]] + [[BC]] = [[AC]]. Regra do paralelogramo: com duas setas saindo do mesmo ponto, a soma é a diagonal do paralelogramo que elas formam, a que parte desse mesmo ponto. Se o caminho fecha e volta ao ponto de partida, a soma é o vetor nulo."},
+        {"titulo": "Escalar, oposto e subtração", "texto": "Multiplicar um vetor por um número real k, chamado escalar, multiplica as três coordenadas: 3·(1, 2, −4) = (3, 6, −12). Se k > 0, o sentido se mantém; se k < 0, a seta vira; o comprimento fica multiplicado por |k|. O oposto de [[u]] é −[[u]], a mesma seta com a ponta trocada, e [[BA]] = −[[AB]]. Subtrair é somar o oposto: [[u]] − [[v]] = [[u]] + (−[[v]]). Equações com vetores se resolvem como as de números: o termo que muda de lado troca de sinal."},
+        {"titulo": "Combinação linear e ponto médio", "texto": "Uma combinação linear de [[u]], [[v]] e [[w]] é qualquer vetor da forma a₁[[u]] + a₂[[v]] + a₃[[w]], com a₁, a₂ e a₃ números reais. Descobrir os coeficientes que geram um vetor dado vira um sistema com uma equação por coordenada. O ponto médio M do segmento AB é a média das coordenadas: M = (A + B)/2. Com A = (1, −2, 3) e C = (−1, 1, −2), o ponto médio de AC é (0, −1/2, 1/2). Num paralelogramo, as duas diagonais se cruzam exatamente nesse ponto do meio."},
+        {"titulo": "Norma, versor e distância", "texto": "A norma ‖[[u]]‖ é o comprimento da seta. Pelo teorema de Pitágoras aplicado duas vezes, ‖[[u]]‖ = √(x² + y² + z²). Para (−2, 1, −2): √(4 + 1 + 4) = 3. Vetor unitário é o que tem norma 1. O versor de [[u]], para [[u]] não nulo, é o vetor unitário com a mesma direção e o mesmo sentido: [[u]]/‖[[u]]‖, aqui (−2/3, 1/3, −2/3). A distância entre dois pontos é a norma do vetor que os liga: d(A, B) = ‖B − A‖. Norma e distância nunca são negativas."}
+      ],
+      "formulas": [
+        {"nome": "Vetor entre dois pontos", "expr": "[[AB]] = B − A = (x₂ − x₁, y₂ − y₁, z₂ − z₁)", "quando": "A = (x₁, y₁, z₁) é a origem e B = (x₂, y₂, z₂) é o destino"},
+        {"nome": "Ponto mais vetor", "expr": "B = A + [[AB]]", "quando": "achar um ponto andando um deslocamento a partir de outro"},
+        {"nome": "Soma", "expr": "[[u]] + [[v]] = (x₁ + x₂, y₁ + y₂, z₁ + z₂)", "quando": "juntar dois deslocamentos"},
+        {"nome": "Soma em cadeia", "expr": "[[AB]] + [[BC]] = [[AC]]", "quando": "setas encostadas ponta com começo (regra do polígono)"},
+        {"nome": "Produto por escalar", "expr": "k·[[u]] = (k·x, k·y, k·z)", "quando": "esticar, encolher ou virar um vetor"},
+        {"nome": "Oposto", "expr": "[[BA]] = −[[AB]]", "quando": "inverter o sentido de um vetor"},
+        {"nome": "Combinação linear", "expr": "a₁[[u]] + a₂[[v]] + a₃[[w]]", "quando": "escrever um vetor a partir de outros; uma equação por coordenada"},
+        {"nome": "Quarto vértice do paralelogramo", "expr": "D = A + C − B", "quando": "paralelogramo ABCD com A, B e C conhecidos"},
+        {"nome": "Ponto médio", "expr": "M = ((x₁ + x₂)/2, (y₁ + y₂)/2, (z₁ + z₂)/2)", "quando": "meio do segmento AB"},
+        {"nome": "Norma", "expr": "‖[[u]]‖ = √(x² + y² + z²)", "quando": "tamanho de um vetor"},
+        {"nome": "Versor", "expr": "[[u]]/‖[[u]]‖", "quando": "vetor unitário com a direção e o sentido de [[u]], para [[u]] ≠ [[0]]"},
+        {"nome": "Distância", "expr": "d(A, B) = ‖B − A‖ = √((x₂ − x₁)² + (y₂ − y₁)² + (z₂ − z₁)²)", "quando": "distância entre dois pontos"},
+        {"nome": "Relação fundamental", "expr": "cos² θ + sen² θ = 1", "quando": "norma de (cos θ, sen θ)"}
+      ],
+      "jeitos": {
+        "visual": "Desenhe uma seta num papel quadriculado. Ela pode começar em qualquer quadradinho: deslizar a seta, sem girar e sem esticar, não muda o vetor. Para somar, encoste o começo da segunda seta na ponta da primeira e ligue o início ao fim. Multiplicar por 2 dobra a seta; multiplicar por −1 vira a ponta para o outro lado. A norma é o comprimento da seta, como se você medisse com régua. A distância entre dois pontos é o comprimento da seta que vai de um ao outro.",
+        "cotidiano": "Um vetor é uma instrução de deslocamento: 'ande 3 quadras para leste, 1 para norte e suba 3 andares'. A instrução não diz de onde você sai, só como você se move, e vale a partir de qualquer esquina. Duas instruções seguidas se juntam somando cada direção separadamente. Repetir a instrução três vezes é multiplicar por 3. E a distância que um drone voaria em linha reta entre a saída e a chegada é a norma do deslocamento total.",
+        "receita": "Quase toda conta da semana segue quatro passos.\n1. Transforme pontos em vetores: [[AB]] = B − A, destino menos origem.\n2. Opere coordenada a coordenada: soma com soma; o escalar multiplica as três.\n3. Se houver incógnita, iguale coordenada com coordenada e resolva uma equação por vez.\n4. Para tamanho e distância, eleve ao quadrado, some e tire a raiz.\nA cada passo, confira os sinais antes de seguir.",
+        "trabalho": "Um vetor se comporta como uma linha de tabela com colunas numéricas, por exemplo (receita, custo, despesa) de um mês. Somar vetores é somar meses coluna a coluna, como num acumulado. Multiplicar por escalar é aplicar o mesmo reajuste a todas as colunas. Combinação linear é um rateio: pesos aplicados a perfis fixos, a conta do SOMARPRODUTO. E a distância entre dois vetores mede quão diferentes são duas linhas, a base para agrupar clientes parecidos.",
+        "erro": "Os tropeços da Lista 1 quase sempre moram no sinal. Fazer A − B quando o pedido é [[AB]] = B − A. Tratar 1 − (−2) como 1 − 2. Abrir um parêntese com menos na frente e trocar o sinal só do primeiro termo. Fora do sinal, o erro clássico é a norma: somar as coordenadas em vez dos quadrados, ou esquecer a raiz no fim. Norma e distância nunca saem negativas; se sair, volte e procure o sinal perdido."
+      },
+      "lab": "No laboratório, digite as coordenadas de [[u]] e [[v]] na operação u + v e compare a seta da soma com a conta feita coordenada a coordenada; depois, em k·u, use um k negativo e veja a seta virar."
+    }
+  ],
+  "questoes": [
+    {
+      "id": "ga-s1-l1q1a",
+      "semana": 1,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Soma de vetores",
+      "origem": "Lista 1 · Q1a",
+      "enunciado": "Dados os vetores [[u]] = (1, 1, −1), [[v]] = (2, 3, 4) e [[w]] = (1, 2, −4), determine [[u]] + [[w]].",
+      "alternativas": [
+        {"t": "(0, −1, 3)", "certa": false, "erro": "Você fez [[u]] − [[w]] = (1 − 1, 1 − 2, −1 + 4). O sinal de mais pede somar cada coordenada, não subtrair."},
+        {"t": "(2, 3, −5)", "certa": true},
+        {"t": "(3, 4, 3)", "certa": false, "erro": "Essa é [[u]] + [[v]] = (1 + 2, 1 + 3, −1 + 4). A soma pedida usa [[w]], não [[v]]."},
+        {"t": "(2, 3, 3)", "certa": false, "erro": "Na terceira coordenada você fez −1 + 4. O −4 de [[w]] perdeu o sinal: −1 + (−4) = −5."},
+        {"t": "(1, 2, 4)", "certa": false, "erro": "Você multiplicou as coordenadas correspondentes: 1·1, 1·2 e (−1)·(−4). Somar vetores é somar, posição por posição."}
+      ],
+      "dica": "Some a primeira coordenada de [[u]] com a primeira de [[w]], a segunda com a segunda e a terceira com a terceira.",
+      "resposta": "[[u]] + [[w]] = (2, 3, −5)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 1, -1], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 2, -4], "rot": "w", "cor": 2},
+          {"tipo": "vetor", "de": [1, 1, -1], "ate": [2, 3, -5], "rot": "", "cor": 2},
+          {"tipo": "segmento", "de": [1, 2, -4], "ate": [2, 3, -5], "tracejado": true},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [2, 3, -5], "rot": "u + w", "cor": 4}
+        ],
+        "legenda": "A cópia de [[w]] começa na ponta de [[u]]. A seta escura, diagonal do paralelogramo, é [[u]] + [[w]] e termina em (2, 3, −5)."
+      },
+      "jeitos": {
+        "visual": "Na figura, [[u]] (azul) e [[w]] (coral) saem da origem. Uma cópia de [[w]] começa na ponta de [[u]], e onde essa cópia termina é onde a soma termina. A seta escura vai da origem até lá: ela é a diagonal do paralelogramo formado pelos dois vetores. Repare como ela desce bastante no eixo z. [[u]] desce 1, [[w]] desce 4, e as duas descidas se acumulam.",
+        "receita": [
+          "Escreva um embaixo do outro: [[u]] = (1, 1, −1) e [[w]] = (1, 2, −4).",
+          "Primeira coordenada: 1 + 1 = 2.",
+          "Segunda coordenada: 1 + 2 = 3.",
+          "Terceira coordenada: −1 + (−4) = −5.",
+          "Junte as três: [[u]] + [[w]] = (2, 3, −5)."
+        ],
+        "cotidiano": "Pense em dois trechos de caminhada dentro de um prédio. No primeiro você anda 1 passo para leste, 1 para norte e desce 1 andar. No segundo, 1 para leste, 2 para norte e desce 4 andares. Ao final, andou 2 para leste, 3 para norte e desceu 5 andares. Cada direção acumula sozinha, sem se misturar com as outras.",
+        "trabalho": "É a soma de duas colunas no Excel, linha a linha. Se [[u]] e [[w]] fossem os movimentos de dois dias em três contas (caixa, banco, aplicação), o acumulado seria `=A1+B1`, `=A2+B2` e `=A3+B3`. Na terceira conta houve duas saídas, −1 e −4; juntas dão −5. Duas saídas não se anulam, se somam.",
+        "conversa": [
+          {"quem": "Você", "fala": "Deu (2, 3, 3)?"},
+          {"quem": "Monitor", "fala": "Confira a terceira coordenada. Quanto vale a terceira de [[w]]?"},
+          {"quem": "Você", "fala": "−4. Eu fiz −1 + 4."},
+          {"quem": "Monitor", "fala": "E quanto é −1 mais −4?"},
+          {"quem": "Você", "fala": "−5. Então a soma é (2, 3, −5)."},
+          {"quem": "Monitor", "fala": "Isso. Somar um número negativo é descer mais, não subir."}
+        ],
+        "erro": "O tropeço mais comum aqui é de sinal, não de geometria. Na terceira coordenada aparecem dois negativos, −1 e −4, e muita gente escreve −1 + 4 = 3 por hábito. Outro deslize é pegar [[v]] no lugar de [[w]], já que o enunciado dá três vetores e só dois entram na conta. Releia quais letras aparecem na operação antes de começar.",
+        "confira": "Faça o caminho de volta: a resposta menos [[w]] tem de devolver [[u]]. (2 − 1, 3 − 2, −5 − (−4)) = (1, 1, −1), que é o [[u]]. Outra prova rápida: a soma das coordenadas de [[u]] dá 1 e a de [[w]] dá −1, então a soma das coordenadas da resposta tem de dar 0. E 2 + 3 − 5 = 0.",
+        "atalho": "Olhe só a terceira coordenada: −1 junto com −4 só pode dar −5. Das cinco alternativas, apenas uma termina em −5. Se numa prova aparecerem duas com esse final, desempate pela primeira coordenada, que tem de ser 1 + 1 = 2."
+      }
+    },
+    {
+      "id": "ga-s1-l1q1b",
+      "semana": 1,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Expressão com escalar",
+      "origem": "Lista 1 · Q1b",
+      "enunciado": "Dados os vetores [[u]] = (1, 1, −1), [[v]] = (2, 3, 4) e [[w]] = (1, 2, −4), determine (−[[u]] + [[v]]) − 3[[w]].",
+      "alternativas": [
+        {"t": "(4, 8, −7)", "certa": false, "erro": "Você somou 3[[w]] em vez de subtrair: (1, 2, 5) + (3, 6, −12) = (4, 8, −7). O sinal entre o parêntese e o 3[[w]] é de menos."},
+        {"t": "(0, −2, 15)", "certa": false, "erro": "Você usou [[u]] + [[v]] = (3, 4, 3) e esqueceu o sinal de menos na frente de [[u]]. Com −[[u]] + [[v]] o parêntese vale (1, 2, 5)."},
+        {"t": "(−2, −4, −7)", "certa": false, "erro": "Na terceira coordenada você fez 5 − 12. A terceira de 3[[w]] é −12, e 5 − (−12) = 17."},
+        {"t": "(−2, −4, 17)", "certa": true},
+        {"t": "(0, 0, 9)", "certa": false, "erro": "Você subtraiu [[w]] uma vez só: (1, 2, 5) − (1, 2, −4) = (0, 0, 9). Faltou multiplicar [[w]] por 3."}
+      ],
+      "dica": "Resolva o parêntese primeiro e calcule 3[[w]] à parte. Só depois subtraia, coordenada por coordenada.",
+      "resposta": "(−[[u]] + [[v]]) − 3[[w]] = (−2, −4, 17)",
+      "jeitos": {
+        "visual": "Pense em setas. −[[u]] é o [[u]] virado de ponta-cabeça: (−1, −1, 1). Encoste [[v]] na ponta dele e você chega em (1, 2, 5). Agora 3[[w]] é o [[w]] esticado três vezes, apontando bem para baixo no eixo z, até −12. Subtrair essa seta é andar no sentido contrário dela: em vez de descer 12, você sobe 12. Por isso o z sai de 5 e chega a 17.",
+        "receita": [
+          "Inverta [[u]]: −[[u]] = (−1, −1, 1).",
+          "Some com [[v]]: (−1 + 2, −1 + 3, 1 + 4) = (1, 2, 5).",
+          "Estique [[w]]: 3[[w]] = (3·1, 3·2, 3·(−4)) = (3, 6, −12).",
+          "Subtraia: (1 − 3, 2 − 6, 5 − (−12)) = (−2, −4, 17)."
+        ],
+        "cotidiano": "Pense num termômetro que marca 5 graus. Alguém registrou uma queda de 12 graus por engano, e você precisa retirar esse registro. Retirar uma queda de 12 é o mesmo que esquentar 12: o termômetro vai para 17. Na terceira coordenada acontece isso. 3[[w]] traz −12, e o sinal de menos na frente transforma a queda em subida.",
+        "trabalho": "Lembra o estorno de um lançamento. Se uma saída de 12 foi lançada por engano, estornar é lançar o oposto, uma entrada de 12. O saldo vai de 5 para 17. A expressão faz a mesma coisa na coordenada z: subtrair 3[[w]], que tem z = −12, devolve 12 ao saldo. No Excel seria `=5-(-12)`, que dá 17.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei (−2, −4, −7)."},
+          {"quem": "Monitor", "fala": "As duas primeiras coordenadas estão certas. Na terceira, que conta você fez?"},
+          {"quem": "Você", "fala": "5 menos 12."},
+          {"quem": "Monitor", "fala": "Quanto vale a terceira coordenada de 3[[w]]?"},
+          {"quem": "Você", "fala": "−12. Então é 5 − (−12)."},
+          {"quem": "Monitor", "fala": "E isso dá quanto?"},
+          {"quem": "Você", "fala": "17. A resposta é (−2, −4, 17)."}
+        ],
+        "erro": "Aqui se acumulam três sinais de menos: o da frente de [[u]], o da subtração e o −4 dentro de [[w]]. O erro clássico é perder um deles. Quem perde o primeiro chega em (0, −2, 15). Quem perde o terceiro fica com z = −7. Um jeito de não tropeçar é calcular cada pedaço numa linha separada, com os parênteses escritos, antes de juntar.",
+        "confira": "Monte a conta sem o passo intermediário: (−[[u]] + [[v]]) − 3[[w]] = −[[u]] + [[v]] − 3[[w]]. Na coordenada x: −1 + 2 − 3 = −2. Na y: −1 + 3 − 6 = −4. Na z: −(−1) + 4 − 3·(−4) = 1 + 4 + 12 = 17. Chegou de novo em (−2, −4, 17), agora por outra ordem de contas.",
+        "atalho": "Comece pelo z, que concentra os sinais: 1 + 4 + 12 = 17. Apenas uma alternativa termina em 17. Se quiser mais segurança, confira também o x: −1 + 2 − 3 = −2."
+      }
+    },
+    {
+      "id": "ga-s1-l1q1c",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Parêntese e escalar",
+      "origem": "Lista 1 · Q1c",
+      "enunciado": "Dados os vetores [[u]] = (1, 1, −1), [[v]] = (2, 3, 4) e [[w]] = (1, 2, −4), determine 2[[v]] − 3([[w]] − [[u]]).",
+      "alternativas": [
+        {"t": "(4, 3, 17)", "certa": true},
+        {"t": "(4, 9, −1)", "certa": false, "erro": "Você inverteu a ordem dentro do parêntese e fez [[u]] − [[w]] = (0, −1, 3). Aí 2[[v]] − 3·(0, −1, 3) = (4, 9, −1)."},
+        {"t": "(2, 1, 19)", "certa": false, "erro": "Você multiplicou só o [[w]] por 3 e deixou o [[u]] com coeficiente 1: 2[[v]] − 3[[w]] + [[u]] = (2, 1, 19). O 3 vale para o parêntese inteiro."},
+        {"t": "(−2, −3, 23)", "certa": false, "erro": "Ao abrir o parêntese, você não trocou o sinal do [[u]]: fez 2[[v]] − 3[[w]] − 3[[u]]. Menos vezes menos dá mais, então o certo é + 3[[u]]."},
+        {"t": "(2, 0, 13)", "certa": false, "erro": "Você esqueceu o 2 na frente de [[v]]: [[v]] − 3([[w]] − [[u]]) = (2, 3, 4) − (0, 3, −9) = (2, 0, 13)."}
+      ],
+      "dica": "Calcule primeiro o que está dentro do parêntese, [[w]] − [[u]], e só depois multiplique o resultado por 3.",
+      "resposta": "2[[v]] − 3([[w]] − [[u]]) = (4, 3, 17)",
+      "jeitos": {
+        "visual": "Ponha [[u]] e [[w]] saindo da origem. [[w]] − [[u]] é a seta que vai da ponta de [[u]] até a ponta de [[w]]. Ela vale (0, 1, −3): não anda em x, anda 1 em y e desce 3 em z. Essa seta é esticada três vezes e virada ao contrário pelo sinal de menos, virando (0, −3, 9). Por fim, encoste essa seta virada na ponta de 2[[v]] = (4, 6, 8).",
+        "receita": [
+          "Parêntese: [[w]] − [[u]] = (1 − 1, 2 − 1, −4 − (−1)) = (0, 1, −3).",
+          "Vezes 3: 3([[w]] − [[u]]) = (0, 3, −9).",
+          "Dobre [[v]]: 2[[v]] = (4, 6, 8).",
+          "Subtraia: (4 − 0, 6 − 3, 8 − (−9)) = (4, 3, 17)."
+        ],
+        "cotidiano": "É a ordem dos passos numa receita. 'Misture farinha e ovos, depois triplique a mistura' é diferente de 'triplique a farinha e junte os ovos'. O parêntese manda fazer a diferença [[w]] − [[u]] antes, e só então o 3 age sobre o resultado inteiro. Quem triplica só o [[w]] mudou a receita sem perceber.",
+        "trabalho": "No Excel, a fórmula `=2*B1-3*(C1-A1)` só dá certo com os parênteses. Sem eles, `=2*B1-3*C1-A1` subtrai A1 uma vez, quando deveria somar 3 vezes A1. Em SQL acontece igual: `2*v - 3*(w - u)` não é o mesmo que `2*v - 3*w - u`. A regra de prioridade das operações vale para vetores, coordenada a coordenada.",
+        "conversa": [
+          {"quem": "Você", "fala": "Abri o parêntese assim: 2[[v]] − 3[[w]] − [[u]]."},
+          {"quem": "Monitor", "fala": "O 3 multiplica só o [[w]] ou o parêntese inteiro?"},
+          {"quem": "Você", "fala": "O parêntese inteiro. Fica 2[[v]] − 3[[w]] + 3[[u]]."},
+          {"quem": "Monitor", "fala": "E por que o [[u]] ficou com sinal de mais?"},
+          {"quem": "Você", "fala": "Porque o menos de fora encontra o menos de dentro."},
+          {"quem": "Monitor", "fala": "Agora faça a conta assim e compare com quem resolve o parêntese primeiro. Os dois caminhos têm de dar (4, 3, 17)."}
+        ],
+        "erro": "O ponto delicado é o parêntese com menos e com 3 na frente. Ao distribuir, o 3 e o sinal atingem os dois vetores de dentro: −3([[w]] − [[u]]) = −3[[w]] + 3[[u]]. Quem multiplica só o [[w]] chega a (2, 1, 19); quem esquece de trocar o sinal do [[u]] chega a (−2, −3, 23). Calcular o parêntese primeiro, como um número, evita a distribuição.",
+        "confira": "Abra tudo e calcule de novo: 2[[v]] − 3[[w]] + 3[[u]]. Na coordenada x: 2·2 − 3·1 + 3·1 = 4. Na y: 2·3 − 3·2 + 3·1 = 3. Na z: 2·4 − 3·(−4) + 3·(−1) = 8 + 12 − 3 = 17. Mesmo resultado, (4, 3, 17), por um caminho que não passa pelo parêntese.",
+        "atalho": "A coordenada x é a mais rápida. [[w]] e [[u]] têm o mesmo x, 1, então o parêntese zera ali e sobra 2·2 = 4. Isso elimina as alternativas que começam com 2 ou −2. Entre as duas que começam com 4, olhe o z: tem de ser positivo, porque 8 menos um número negativo cresce."
+      }
+    },
+    {
+      "id": "ga-s1-l1q1d",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Sinal antes do parêntese",
+      "origem": "Lista 1 · Q1d",
+      "enunciado": "Dados os vetores [[u]] = (1, 1, −1), [[v]] = (2, 3, 4) e [[w]] = (1, 2, −4), determine [[w]] − ([[u]] − 2[[v]]).",
+      "alternativas": [
+        {"t": "(−4, −5, −11)", "certa": false, "erro": "Ao abrir o parêntese, você trocou só o sinal do [[u]] e manteve o −2[[v]]: [[w]] − [[u]] − 2[[v]] = (−4, −5, −11). O certo é + 2[[v]]."},
+        {"t": "(2, 4, 1)", "certa": false, "erro": "Você esqueceu o 2 de 2[[v]]: [[w]] − [[u]] + [[v]] = (1 − 1 + 2, 2 − 1 + 3, −4 + 1 + 4) = (2, 4, 1)."},
+        {"t": "(−4, −7, −5)", "certa": false, "erro": "Você inverteu a ordem e calculou ([[u]] − 2[[v]]) − [[w]]. O resultado é a resposta com todos os sinais trocados."},
+        {"t": "(4, 7, −13)", "certa": false, "erro": "Na terceira coordenada você fez −4 − 9. O parêntese tem z = −9, e −4 − (−9) = 5."},
+        {"t": "(4, 7, 5)", "certa": true}
+      ],
+      "dica": "O sinal de menos antes do parêntese troca o sinal de tudo que está dentro, inclusive do −2[[v]].",
+      "resposta": "[[w]] − ([[u]] − 2[[v]]) = (4, 7, 5)",
+      "jeitos": {
+        "visual": "Desenhe [[u]] − 2[[v]] como uma seta só: (−3, −5, −9), que aponta para trás, para o lado negativo de y e para baixo. O sinal de menos na frente do parêntese vira essa seta ao contrário: (3, 5, 9). Agora encoste a seta virada na ponta de [[w]] = (1, 2, −4). No eixo z, você parte de −4, sobe 9 e para em 5.",
+        "receita": [
+          "Dobre [[v]]: 2[[v]] = (4, 6, 8).",
+          "Parêntese: [[u]] − 2[[v]] = (1 − 4, 1 − 6, −1 − 8) = (−3, −5, −9).",
+          "Subtraia de [[w]]: (1 − (−3), 2 − (−5), −4 − (−9)).",
+          "Resultado: (1 + 3, 2 + 5, −4 + 9) = (4, 7, 5)."
+        ],
+        "cotidiano": "É como cancelar um pacote de compras inteiro. O pacote tinha um item comprado ([[u]]) e um item devolvido duas vezes (−2[[v]]). Cancelar o pacote desfaz a compra e também desfaz a devolução. Quem cancela só a compra e mantém a devolução fica com a conta errada.",
+        "trabalho": "Pense num ajuste de conciliação que precisa ser revertido. O ajuste lançou [[u]] e estornou 2[[v]]. Reverter o ajuste é fazer o contrário das duas partes: tirar [[u]] e devolver 2[[v]]. Em SQL, `w - (u - 2*v)` equivale a `w - u + 2*v`. Quem escreve `w - u - 2*v` reverte só metade do ajuste.",
+        "conversa": [
+          {"quem": "Você", "fala": "Abri o parêntese e ficou [[w]] − [[u]] − 2[[v]]."},
+          {"quem": "Monitor", "fala": "Antes de abrir, o 2[[v]] estava com qual sinal dentro do parêntese?"},
+          {"quem": "Você", "fala": "Menos."},
+          {"quem": "Monitor", "fala": "E o menos de fora age sobre esse menos. Fica?"},
+          {"quem": "Você", "fala": "Mais. Então é [[w]] − [[u]] + 2[[v]]."},
+          {"quem": "Monitor", "fala": "Calcule só a coordenada z com isso."},
+          {"quem": "Você", "fala": "−4 − (−1) + 8 = 5. Bate com o (4, 7, 5)."}
+        ],
+        "erro": "O tropeço é abrir o parêntese e trocar só o sinal do primeiro termo. O menos de fora vale para todos os termos de dentro. Com a troca pela metade, aparece (−4, −5, −11), longe da resposta. Outro deslize é inverter a ordem e calcular ([[u]] − 2[[v]]) − [[w]], que entrega (−4, −7, −5): a resposta certa com todos os sinais trocados.",
+        "confira": "Prove somando. Se o resultado é [[w]] − ([[u]] − 2[[v]]), então resultado + ([[u]] − 2[[v]]) tem de voltar a [[w]]. (4, 7, 5) + (−3, −5, −9) = (1, 2, −4). É exatamente o [[w]] do enunciado, então a conta fecha.",
+        "atalho": "Na coordenada x: 1 − (1 − 4) = 4. Elimine quem começa com −4 ou 2. Restam duas alternativas que começam com (4, 7, ...). O z decide: −4 − (−1 − 8) = −4 + 9 = 5, positivo."
+      }
+    },
+    {
+      "id": "ga-s1-l1q2",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Equação vetorial",
+      "origem": "Lista 1 · Q2",
+      "enunciado": "Dados os vetores [[u₁]] = (−1, −2, 3), [[u₂]] = (2, 1, 2) e [[u₃]] = (−1, 2, 1), determine as componentes do vetor [[v]] tal que ([[u₁]] + [[u₂]]) − ([[v]] − [[u₃]]) = [[0]].",
+      "alternativas": [
+        {"t": "(2, −3, 4)", "certa": false, "erro": "Você isolou [[v]] = [[u₁]] + [[u₂]] − [[u₃]]. O [[u₃]] tem dois sinais de menos na equação, um dentro e outro fora do parêntese, e por isso entra somando."},
+        {"t": "(0, −1, −6)", "certa": false, "erro": "Você chegou em −[[v]] = −([[u₁]] + [[u₂]] + [[u₃]]) e escreveu o lado direito como se fosse [[v]]. Faltou multiplicar os dois lados por −1."},
+        {"t": "(0, 1, 6)", "certa": true},
+        {"t": "(1, −1, 5)", "certa": false, "erro": "Esse é só [[u₁]] + [[u₂]]. Você esqueceu o [[u₃]], que está dentro do segundo parêntese."},
+        {"t": "(−2, 3, −4)", "certa": false, "erro": "Você escreveu [[v]] − [[u₃]] = −([[u₁]] + [[u₂]]), trocando um sinal a mais. A equação diz que os dois parênteses são iguais, com o mesmo sinal."}
+      ],
+      "dica": "Trate como uma equação de números: abra o parêntese com cuidado no sinal e deixe [[v]] sozinho de um lado.",
+      "resposta": "[[v]] = (0, 1, 6)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, -2, 3], "rot": "u₁", "cor": 1},
+          {"tipo": "vetor", "de": [-1, -2, 3], "ate": [1, -1, 5], "rot": "u₂", "cor": 2},
+          {"tipo": "vetor", "de": [1, -1, 5], "ate": [0, 1, 6], "rot": "u₃", "cor": 3},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [0, 1, 6], "rot": "v", "cor": 4}
+        ],
+        "legenda": "[[u₁]], [[u₂]] e [[u₃]] encostados em fila. A seta escura, da origem até a ponta da última, é [[v]] = (0, 1, 6)."
+      },
+      "jeitos": {
+        "visual": "Na figura, as três setas coloridas estão em fila: [[u₁]] (azul) sai da origem, [[u₂]] (coral) começa onde [[u₁]] termina e [[u₃]] (ocre) começa na ponta de [[u₂]]. A seta escura liga a origem à ponta da última. Essa é a regra do polígono: a soma de setas encadeadas é a seta que vai do início ao fim. A equação, depois de arrumada, pede exatamente essa seta.",
+        "receita": [
+          "Abra o segundo parêntese: ([[u₁]] + [[u₂]]) − [[v]] + [[u₃]] = [[0]].",
+          "Passe [[v]] para o outro lado: [[v]] = [[u₁]] + [[u₂]] + [[u₃]].",
+          "Primeiras coordenadas: −1 + 2 + (−1) = 0.",
+          "Segundas: −2 + 1 + 2 = 1. Terceiras: 3 + 2 + 1 = 6.",
+          "Logo [[v]] = (0, 1, 6)."
+        ],
+        "cotidiano": "Pense numa compra com cupom de desconto. O preço já com o cupom é [[v]] − [[u₃]], e ele tem de bater com o valor combinado, [[u₁]] + [[u₂]]. Quanto era o preço cheio, [[v]]? É o valor combinado mais o desconto que o cupom tirou: [[u₁]] + [[u₂]] + [[u₃]]. Quem subtrai o [[u₃]] de novo está dando o desconto duas vezes.",
+        "trabalho": "É o fechamento de uma conciliação. O saldo esperado ([[u₁]] + [[u₂]]) menos o saldo apurado ([[v]] − [[u₃]]) tem de dar diferença zero. Diferença zero quer dizer que os dois saldos são iguais. Então [[v]] − [[u₃]] = [[u₁]] + [[u₂]], e o valor que falta, [[v]], é o esperado mais o ajuste [[u₃]]. Coordenada a coordenada, é a mesma conta feita em três contas contábeis.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei [[v]] = [[u₁]] + [[u₂]] − [[u₃]]."},
+          {"quem": "Monitor", "fala": "Qual é o sinal de [[u₃]] dentro do parêntese ([[v]] − [[u₃]])?"},
+          {"quem": "Você", "fala": "Menos."},
+          {"quem": "Monitor", "fala": "E tem outro menos antes do parêntese. Ao abrir, [[u₃]] fica com que sinal?"},
+          {"quem": "Você", "fala": "Mais. Passando [[v]] para o outro lado, fica [[u₁]] + [[u₂]] + [[u₃]]."},
+          {"quem": "Monitor", "fala": "Substitua na equação e veja se dá [[0]]."}
+        ],
+        "erro": "O erro mais frequente é o duplo sinal de [[u₃]]: dentro do parêntese ele tem menos, e o menos de fora inverte esse sinal. Quem não percebe escreve [[v]] = [[u₁]] + [[u₂]] − [[u₃]] = (2, −3, 4). Outro tropeço é isolar −[[v]] e parar ali, chegando a (0, −1, −6), o oposto da resposta.",
+        "confira": "Substitua [[v]] = (0, 1, 6) na equação original. [[u₁]] + [[u₂]] = (1, −1, 5). [[v]] − [[u₃]] = (0 + 1, 1 − 2, 6 − 1) = (1, −1, 5). Os dois parênteses são iguais, então a diferença entre eles é (0, 0, 0). A equação fecha.",
+        "atalho": "O z dos três vetores é positivo (3, 2 e 1), e a resposta certa soma os três: 6. Só uma alternativa termina em 6. Para ter certeza, confirme o x: −1 + 2 − 1 = 0."
+      }
+    }
+  ]
+}

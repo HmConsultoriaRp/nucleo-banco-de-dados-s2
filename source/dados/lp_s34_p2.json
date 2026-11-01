@@ -1,0 +1,265 @@
+{
+  "disciplina": "lp",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "lp-s3-p07",
+      "semana": 3,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Tradução do 'somente se'",
+      "origem": "Prévia · ementa",
+      "enunciado": "Sejam p: “o lançamento foi conciliado” e q: “o mês foi fechado”. Qual frase traduz q → p?",
+      "alternativas": [
+        {"t": "Se o lançamento foi conciliado, então o mês foi fechado.", "certa": false, "erro": "Essa frase é p → q. Na fórmula q → p, o antecedente é q, o fechamento do mês."},
+        {"t": "O mês foi fechado somente se o lançamento foi conciliado.", "certa": true},
+        {"t": "O mês foi fechado se, e somente se, o lançamento foi conciliado.", "certa": false, "erro": "O 'se, e somente se' é o ↔, que vale nos dois sentidos. q → p garante só um."},
+        {"t": "O mês foi fechado e o lançamento foi conciliado.", "certa": false, "erro": "Isso é q ∧ p, que afirma os dois fatos. A condicional não afirma que o mês foi fechado; diz o que precisa valer se ele for."},
+        {"t": "Se o mês não foi fechado, então o lançamento não foi conciliado.", "certa": false, "erro": "Essa frase é ¬q → ¬p. Ela proíbe conciliar sem fechar, e q → p não proíbe isso: conciliar e deixar o mês aberto é permitido."}
+      ],
+      "dica": "Em “A somente se B”, o B é a condição que precisa estar presente para A acontecer.",
+      "resposta": "“O mês foi fechado somente se o lançamento foi conciliado.”",
+      "jeitos": {
+        "visual": "Desenhe uma porta com leitor de crachá. Para passar pela porta (fechar o mês, q), você precisa do crachá (lançamento conciliado, p). A seta q → p aponta da porta para o crachá: quem passou tinha crachá. Ter crachá não obriga ninguém a passar, então p não leva a q. O 'somente se' descreve exatamente isso: o mês foi fechado somente se o lançamento foi conciliado.",
+        "receita": [
+          "Em q → p, o antecedente é q (o mês foi fechado) e o consequente é p (o lançamento foi conciliado).",
+          "A forma direta seria 'se o mês foi fechado, então o lançamento foi conciliado'. Ela não está entre as alternativas.",
+          "'A somente se B' é outra forma de escrever A → B.",
+          "Com A = q e B = p: 'o mês foi fechado somente se o lançamento foi conciliado'.",
+          "As outras alternativas são p → q, q ↔ p, q ∧ p e ¬q → ¬p.",
+          "Resposta: 'O mês foi fechado somente se o lançamento foi conciliado'."
+        ],
+        "cotidiano": "'Você só entra no show se tiver ingresso.' Quem entrou tinha ingresso: entrar → ingresso. Ter ingresso não garante que a pessoa foi; ela pode ter ficado em casa. O 'só se' aponta a condição necessária, e a seta vai de quem precisa (entrar) para o que é preciso (ingresso). Inverter a seta seria dizer que todo dono de ingresso entrou.",
+        "trabalho": "É uma regra de fechamento típica: o mês só fecha se a conciliação estiver feita. Para auditar q → p, procure o caso proibido, mês fechado com lançamento não conciliado: `WHERE mes_fechado = 1 AND conciliado = 0`. Lançamento conciliado num mês ainda aberto não viola a regra, só mostra trabalho adiantado. Quem traduz ao contrário passa a acusar o trabalho adiantado e deixa passar o fechamento indevido.",
+        "conversa": [
+          {"quem": "Você", "fala": "q → p é 'se q, então p'. Mas nenhuma alternativa começa com 'Se o mês foi fechado'."},
+          {"quem": "Monitor", "fala": "A frase 'A somente se B' quer dizer o quê?"},
+          {"quem": "Você", "fala": "Que A só acontece se B acontecer."},
+          {"quem": "Monitor", "fala": "Então, quando A acontece, B aconteceu. Isso é A → B ou B → A?"},
+          {"quem": "Você", "fala": "A → B. Então 'o mês foi fechado somente se o lançamento foi conciliado' é q → p."},
+          {"quem": "Monitor", "fala": "E a alternativa que começa com 'Se o lançamento foi conciliado'?"},
+          {"quem": "Você", "fala": "Essa é p → q, a seta ao contrário."}
+        ],
+        "erro": "A armadilha é procurar a palavra 'se' e achar que o que vem logo depois dela é o antecedente. Em 'A somente se B', o B vem depois do 'se' e é o consequente. Quem segue o 'se' marca 'Se o lançamento foi conciliado, então o mês foi fechado', que é p → q. Guarde a diferença: 'se' sozinho introduz o antecedente; 'somente se' introduz o consequente.",
+        "confira": "Teste o caso que derruba q → p: q = V e p = F, mês fechado sem conciliação. A frase com 'somente se' é quebrada por esse caso, e é a única das alternativas quebrada só por ele. A frase que começa com 'Se o lançamento foi conciliado' é quebrada por outro caso: conciliado e mês aberto.",
+        "atalho": "Ache primeiro o caso proibido de q → p: mês fechado e lançamento não conciliado. Leia cada alternativa e pergunte se ela proíbe exatamente esse caso e nenhum outro. O ↔ proíbe dois casos, o ∧ proíbe três, e as duas frases que começam com 'Se' proíbem o caso errado."
+      }
+    },
+    {
+      "id": "lp-s3-p08",
+      "semana": 3,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Parênteses e nao no VisuAlg",
+      "origem": "Prévia · ementa",
+      "enunciado": "O que este algoritmo escreve, linha por linha?",
+      "codigo": "algoritmo \"tres_testes\"\nvar\n   p, q, r: logico\ninicio\n   p <- verdadeiro\n   q <- falso\n   r <- falso\n   escreval(p ou (q e r))\n   escreval((p ou q) e r)\n   escreval(nao q e r)\nfimalgoritmo",
+      "entradas": [],
+      "saida": "VERDADEIRO\nFALSO\nFALSO",
+      "alternativas": [
+        {"t": "VERDADEIRO, VERDADEIRO, FALSO", "certa": false, "erro": "Você calculou a 2ª linha como se os parênteses estivessem no mesmo lugar da 1ª. Em `(p ou q) e r`, o `ou` vem primeiro (VERDADEIRO) e o `e` com r falso dá FALSO."},
+        {"t": "FALSO, FALSO, FALSO", "certa": false, "erro": "Na 1ª linha você fez `p ou q` primeiro e depois o `e` com r. O parêntese manda fazer `q e r` antes: FALSO, e `p ou FALSO` dá VERDADEIRO."},
+        {"t": "VERDADEIRO, FALSO, VERDADEIRO", "certa": false, "erro": "Você estendeu o `nao` da 3ª linha a `q e r`. Ele pega só o q: `nao q` é VERDADEIRO, e VERDADEIRO `e` r dá FALSO."},
+        {"t": "VERDADEIRO, FALSO, FALSO", "certa": true},
+        {"t": "FALSO, FALSO, VERDADEIRO", "certa": false, "erro": "Você trocou as regras do `e` e do `ou`. Com elas invertidas, a 1ª linha sai FALSO e a 3ª sai VERDADEIRO."}
+      ],
+      "dica": "Faça primeiro o que está entre parênteses e lembre que o `nao` gruda só na variável logo depois dele.",
+      "resposta": "VERDADEIRO, FALSO e FALSO, um valor em cada linha",
+      "jeitos": {
+        "visual": "Imagine três caixas de correio com as etiquetas p, q e r. Só a do p tem carta (VERDADEIRO). Na 1ª linha, o parêntese abre primeiro as caixas q e r juntas com `e`: as duas vazias, nada. Depois o `ou` junta com o p, que tem carta: sai VERDADEIRO. Na 2ª, o parêntese junta p e q com `ou`: tem carta. Mas o `e` com r pede carta também no r, e o r está vazio. O teste de mesa mostra cada linha sendo resolvida.",
+        "receita": [
+          "Valores: p VERDADEIRO, q FALSO, r FALSO.",
+          "Linha 1: `q e r` = FALSO; `p ou FALSO` = VERDADEIRO.",
+          "Linha 2: `p ou q` = VERDADEIRO; VERDADEIRO `e` r = FALSO.",
+          "Linha 3: `nao q` = VERDADEIRO; VERDADEIRO `e` r = FALSO.",
+          "Saída: VERDADEIRO, FALSO, FALSO, cada um numa linha, porque o comando é `escreval`."
+        ],
+        "cotidiano": "Pense num pedido de lanche: 'quero suco, ou então pão com queijo'. Se só tem suco, você está atendido. Agora: 'quero suco ou pão, e também queijo'. Sem queijo, nada feito, mesmo com suco na mesa. As mesmas palavras, com a pausa em outro lugar, mudam o pedido. O parêntese é essa pausa.",
+        "trabalho": "No SQL acontece igual. `WHERE vip = 1 OR (atrasado = 1 AND bloqueado = 1)` traz todo cliente VIP. `WHERE (vip = 1 OR atrasado = 1) AND bloqueado = 1` traz só os bloqueados, e um VIP sem bloqueio some da lista. E `NOT atrasado AND bloqueado` nega só o atraso, como o `nao q e r` da 3ª linha. Num relatório de auditoria, um parêntese no lugar errado muda a lista sem dar mensagem de erro.",
+        "conversa": [
+          {"quem": "Você", "fala": "As linhas 1 e 2 têm as mesmas letras. Não dão o mesmo?"},
+          {"quem": "Monitor", "fala": "Na 1ª, o que se calcula primeiro?"},
+          {"quem": "Você", "fala": "O parêntese: `q e r`, que dá FALSO. Com o `ou` do p, VERDADEIRO."},
+          {"quem": "Monitor", "fala": "E na 2ª?"},
+          {"quem": "Você", "fala": "`p ou q` primeiro: VERDADEIRO. Depois o `e` com r... FALSO."},
+          {"quem": "Monitor", "fala": "Mesmas letras, ordem diferente, resultado diferente. E a 3ª?"},
+          {"quem": "Você", "fala": "`nao q` é VERDADEIRO, mas o `e` com r derruba: FALSO."}
+        ],
+        "erro": "O tropeço é ignorar os parênteses e ler as linhas 1 e 2 como iguais. Elas usam as mesmas variáveis e os mesmos operadores, mas o parêntese decide quem é calculado primeiro, e aqui isso troca VERDADEIRO por FALSO. O outro tropeço é o alcance do `nao`: ele é unário, pega só o que está colado nele. Para negar um bloco, o algoritmo teria de escrever `nao (q e r)`.",
+        "confira": "Rode o teste de mesa do site e acompanhe a 3ª linha: o interpretador calcula `nao q` antes do `e`. Para a prova sem computador, troque o r para VERDADEIRO e refaça: a 2ª e a 3ª linhas passam de FALSO a VERDADEIRO. Nas leituras erradas, `p ou (q e r)` e `nao (q e r)`, essas linhas já davam VERDADEIRO e não mudariam. A mudança mostra que os parênteses estão no lugar certo.",
+        "atalho": "As linhas 2 e 3 terminam com um `e` cujo lado direito é r, e r é FALSO. Um `e` com um lado FALSO dá FALSO, então as duas são FALSO sem mais conta. Na 1ª, o p é VERDADEIRO e está fora do parêntese, ligado por `ou`: VERDADEIRO. Só uma alternativa tem VERDADEIRO, FALSO, FALSO."
+      }
+    },
+    {
+      "id": "lp-s3-p09",
+      "semana": 3,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Contar linhas falsas",
+      "origem": "Prévia · ementa",
+      "enunciado": "Monte a tabela-verdade de (p ∨ q) → ¬r. Em quantas das 8 linhas a fórmula é falsa?",
+      "alternativas": [
+        {"t": "3", "certa": true},
+        {"t": "5", "certa": false, "erro": "Cinco é o número de linhas verdadeiras. A pergunta pede as falsas: 8 − 5 = 3."},
+        {"t": "4", "certa": false, "erro": "Você contou as linhas com r verdadeiro, que deixam ¬r falso. Faltou exigir o antecedente p ∨ q verdadeiro, e ele é F na linha p = q = F."},
+        {"t": "1", "certa": false, "erro": "Você leu ∨ como ∧. Com p ∧ q, o antecedente só é V em uma combinação de p e q, e aí sobra 1 linha falsa."},
+        {"t": "2", "certa": false, "erro": "Você leu ∨ como ⊕. O ou exclusivo descarta a combinação p = q = V, mas o ∨ inclusivo aceita: são 3 combinações, não 2."}
+      ],
+      "dica": "Conte as linhas em que o antecedente é V e o consequente é F ao mesmo tempo, a única situação em que a seta falha.",
+      "resposta": "3 linhas falsas: r verdadeiro e pelo menos um entre p e q verdadeiro",
+      "tabela": {"onde": "explicacao", "cab": ["p", "q", "r", "p ∨ q", "¬r", "(p ∨ q) → ¬r"], "linhas": [["V", "V", "V", "V", "F", "F"], ["V", "V", "F", "V", "V", "V"], ["V", "F", "V", "V", "F", "F"], ["V", "F", "F", "V", "V", "V"], ["F", "V", "V", "V", "F", "F"], ["F", "V", "F", "V", "V", "V"], ["F", "F", "V", "F", "F", "V"], ["F", "F", "F", "F", "V", "V"]]},
+      "jeitos": {
+        "visual": "Na tabela ao lado, pinte de cinza as linhas com r verdadeiro: são a 1ª, a 3ª, a 5ª e a 7ª, onde ¬r vale F. Só nelas a seta pode falhar. Agora olhe a coluna p ∨ q dentro do cinza: ela é V na 1ª, na 3ª e na 5ª, e F na 7ª. A 7ª se salva, porque um antecedente F deixa a seta V. Sobram três linhas com F na coluna final.",
+        "receita": [
+          "A seta (p ∨ q) → ¬r só é F quando p ∨ q é V e ¬r é F.",
+          "¬r é F quando r é V: 4 das 8 linhas.",
+          "Nessas 4, p ∨ q é V quando pelo menos um entre p e q é V: V V, V F e F V.",
+          "A combinação p = q = F deixa o antecedente F e a seta V.",
+          "Linhas falsas: 3 combinações de p e q × 1 valor de r = 3."
+        ],
+        "cotidiano": "A regra da portaria é: 'se chegou visitante ou entregador, a porta não fica destrancada'. Ela só é quebrada quando alguém chegou e a porta está destrancada. Com a porta destrancada, a regra quebra se chegou só o visitante, só o entregador, ou os dois: 3 casos. Se ninguém chegou, a porta destrancada não quebra a regra.",
+        "trabalho": "Pense num alerta de auditoria: 'se o título é de cliente novo ou de valor alto, ele não pode estar liberado sem análise'. A consulta de violações é a negação da regra: `WHERE (novo = 1 OR alto = 1) AND liberado_sem_analise = 1`. Das 8 combinações possíveis das três colunas, ela aceita exatamente 3. Se o seu teste aceitar 4, o filtro está pegando também o título liberado que não é novo nem alto.",
+        "conversa": [
+          {"quem": "Você", "fala": "A fórmula tem ¬r. Então é falsa quando r é verdadeiro: 4 linhas."},
+          {"quem": "Monitor", "fala": "¬r falso basta para a seta ser falsa?"},
+          {"quem": "Você", "fala": "Não. A seta precisa de antecedente V também."},
+          {"quem": "Monitor", "fala": "E quando p e q são os dois F?"},
+          {"quem": "Você", "fala": "p ∨ q é F. Aí a seta é V, mesmo com ¬r F."},
+          {"quem": "Monitor", "fala": "Então, das 4 linhas, quantas sobram?"},
+          {"quem": "Você", "fala": "3."}
+        ],
+        "erro": "O erro mais comum é olhar só para o consequente. ¬r falso não basta: a seta precisa ainda de antecedente verdadeiro, e a linha com p e q falsos escapa. Quem esquece isso responde 4. Outros trocam o ∨ por outro conectivo: lendo ∧ sobra 1 linha, lendo ⊕ sobram 2. E há quem conte as linhas verdadeiras, 5, e marque sem reler a pergunta.",
+        "confira": "Conte as verdadeiras por outro caminho e veja se a soma fecha em 8. A seta é V quando o antecedente é F (p = q = F: 2 linhas, uma para cada r) ou quando o consequente é V (r = F: 4 linhas). Uma linha está nas duas contas: p = q = F com r = F. Então V = 2 + 4 − 1 = 5 e F = 8 − 5 = 3.",
+        "atalho": "Uma seta falha só com antecedente V e consequente F. Conte as duas partes separadas e multiplique: o antecedente p ∨ q é V em 3 das 4 combinações de p e q; o consequente ¬r é F em 1 dos 2 valores de r. 3 × 1 = 3."
+      }
+    },
+    {
+      "id": "lp-s3-p10",
+      "semana": 3,
+      "nivel": 3,
+      "minutos": 4,
+      "tema": "Deduzir os valores",
+      "origem": "Prévia · ementa",
+      "enunciado": "Sabe-se que a proposição p → q é falsa e que q ∨ r é verdadeira. Quais são os valores lógicos de p, q e r?",
+      "alternativas": [
+        {"t": "p = F, q = V, r = V", "certa": false, "erro": "Você inverteu a linha falsa da seta. p → q é F com p = V e q = F, não o contrário; com p = F a seta seria V."},
+        {"t": "p = V, q = F, r = F", "certa": false, "erro": "Com q = F e r = F, q ∨ r seria F. Para o ∨ ser V com q falso, o r tem de ser V."},
+        {"t": "p = F, q = F, r = V", "certa": false, "erro": "Com p = F a seta seria V, qualquer que fosse o q. A condicional falsa exige p verdadeiro."},
+        {"t": "p = V, q = F, r indeterminado", "certa": false, "erro": "O r não fica livre: o q já é F, e o q ∨ r só é V se o r for V."},
+        {"t": "p = V, q = F, r = V", "certa": true}
+      ],
+      "dica": "Comece pela informação mais forte: uma condicional falsa só acontece de um jeito.",
+      "resposta": "p = V, q = F, r = V",
+      "tabela": {"onde": "explicacao", "cab": ["p", "q", "r", "p → q", "q ∨ r", "atende às duas?"], "linhas": [["V", "F", "V", "F", "V", "sim"], ["V", "F", "F", "F", "F", "não"]]},
+      "jeitos": {
+        "visual": "Imagine a tabela de 8 linhas e apague todas em que p → q é V. Sobram só duas, as de p = V e q = F, uma com r = V e outra com r = F, como na tabela ao lado. Agora apague a que tem q ∨ r falso: é a de r = F. Fica uma linha só, e ela é a resposta. Duas informações, duas passadas de borracha.",
+        "receita": [
+          "p → q é F só quando p = V e q = F.",
+          "Então p = V e q = F.",
+          "q ∨ r é V. Com q = F, quem garante o V é o r.",
+          "Logo r = V.",
+          "Conferindo: V → F = F e F ∨ V = V. Resposta: p = V, q = F, r = V."
+        ],
+        "cotidiano": "Um amigo prometeu: 'se eu receber, te pago'. Você descobriu que a promessa foi quebrada. Isso só acontece de um jeito: ele recebeu e não pagou. Depois você sabe que 'ele pagou ou alguém pagou por ele' é verdade. Como ele não pagou, alguém pagou por ele. Cada informação fechou uma porta e deixou uma só aberta.",
+        "trabalho": "É o raciocínio de investigar uma exceção. A regra 'se a NF é de importação, então tem DI' foi violada: logo, a nota é de importação e não tem DI. Um segundo controle diz 'a nota tem DI ou tem justificativa registrada', e ele passou. Sem DI, a justificativa tem de estar lá. Cada controle que passa ou falha trava um campo, e você chega ao valor de cada um sem abrir o documento.",
+        "conversa": [
+          {"quem": "Você", "fala": "p → q falsa. Pensei em p = F e q = V."},
+          {"quem": "Monitor", "fala": "Com p = F, quanto vale p → q?"},
+          {"quem": "Você", "fala": "V. Antecedente falso deixa a seta verdadeira."},
+          {"quem": "Monitor", "fala": "Então qual é a única linha em que a seta é F?"},
+          {"quem": "Você", "fala": "p = V e q = F. E como q ∨ r é V, o r tem de ser V."},
+          {"quem": "Monitor", "fala": "Confira as duas informações com esses valores."},
+          {"quem": "Você", "fala": "V → F dá F e F ∨ V dá V. Bate."}
+        ],
+        "erro": "A armadilha é inverter a linha falsa da condicional e achar que p → q é F quando p é F e q é V. Essa linha dá V. Outro tropeço é parar depois de achar p e q e deixar o r em aberto, ou chutar r = F: com q falso, o ∨ só fica verdadeiro se o r for verdadeiro.",
+        "confira": "Substitua de volta nas duas proposições. p → q = V → F = F, como o enunciado diz. q ∨ r = F ∨ V = V, também como diz. Agora tente mudar qualquer um dos três valores: trocar o p ou o q deixa a seta V, e trocar o r deixa o ∨ F. Nenhuma troca sobrevive, então a resposta é única.",
+        "atalho": "Toda alternativa com p = F cai na hora, porque a seta seria V. Sobram três com p = V e q = F. Entre elas, o r precisa ser V para o q ∨ r valer, então fica a única com r = V."
+      }
+    },
+    {
+      "id": "lp-s3-p11",
+      "semana": 3,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Traduzir com precedência",
+      "origem": "Prévia · ementa",
+      "enunciado": "Sejam p: “o pagamento foi aprovado”, q: “o estoque tem saldo”, r: “o pedido é enviado” e s: “o pedido entra na fila”. Qual fórmula traduz “Se o pagamento foi aprovado e o estoque tem saldo, então o pedido é enviado ou entra na fila”?",
+      "alternativas": [
+        {"t": "p ∧ (q → r ∨ s)", "certa": false, "erro": "Aqui o 'se ... então' ficou só dentro da segunda parte. Com p falso a fórmula dá F, mas a frase é V quando o pagamento não foi aprovado."},
+        {"t": "(p ∨ q) → (r ∧ s)", "certa": false, "erro": "Os conectivos trocaram de lugar. A frase exige pagamento E saldo, e aceita envio OU fila."},
+        {"t": "p ∧ q ↔ r ∨ s", "certa": false, "erro": "'Se ... então' é →, não ↔. O ↔ também acusaria o pedido enviado sem pagamento aprovado, e a frase não proíbe esse caso."},
+        {"t": "p ∧ q → r ∨ s", "certa": true},
+        {"t": "p ∧ q → r ∧ s", "certa": false, "erro": "O 'ou' da frase virou ∧. Do jeito que está, o pedido teria de ser enviado e também entrar na fila."}
+      ],
+      "dica": "Monte com parênteses, (condição) → (resultado), e depois veja quais parênteses a precedência deixa tirar.",
+      "resposta": "p ∧ q → r ∨ s, que a precedência lê como (p ∧ q) → (r ∨ s)",
+      "jeitos": {
+        "visual": "Divida a frase em dois blocos, como duas caixas ligadas por uma seta. Caixa da esquerda, depois do 'se': pagamento aprovado e estoque com saldo, p ∧ q. Caixa da direita, depois do 'então': enviado ou na fila, r ∨ s. A seta liga as duas: (p ∧ q) → (r ∨ s). Como ∧ e ∨ são resolvidos antes da seta, as caixas se formam sozinhas, e os parênteses podem sair.",
+        "receita": [
+          "A estrutura é 'se A, então B': A → B.",
+          "A = 'pagamento aprovado e estoque com saldo' = p ∧ q.",
+          "B = 'enviado ou na fila' = r ∨ s.",
+          "Juntando: (p ∧ q) → (r ∨ s).",
+          "Como ∧ e ∨ vêm antes de → na precedência, os parênteses podem sair: p ∧ q → r ∨ s."
+        ],
+        "cotidiano": "Lembre de um bilhete na geladeira: 'se tiver ovos e farinha, faça bolo ou panqueca'. A condição tem duas exigências juntas; a saída tem duas opções. Quem lê 'tem ovos, e se tiver farinha faça bolo ou panqueca' muda o sentido: os ovos deixam de ser condição e viram uma afirmação sobre a geladeira.",
+        "trabalho": "No Excel, a mesma regra seria `=SE(E(aprovado; saldo); OU(enviado; fila); VERDADEIRO)`, que só devolve FALSO quando as duas condições valem e o pedido não saiu nem entrou na fila. Em SQL, a busca por violações é `WHERE aprovado AND saldo AND NOT enviado AND NOT fila`. Repare no NOT duas vezes: é a negação do 'enviado ou na fila', assunto da próxima semana.",
+        "conversa": [
+          {"quem": "Você", "fala": "Sem parênteses, p ∧ q → r ∨ s não fica ambíguo?"},
+          {"quem": "Monitor", "fala": "Pela precedência, quem é resolvido antes: ∧, ∨ ou →?"},
+          {"quem": "Você", "fala": "∧ e ∨ antes da seta."},
+          {"quem": "Monitor", "fala": "Então como ela fica com todos os parênteses?"},
+          {"quem": "Você", "fala": "(p ∧ q) → (r ∨ s). É a frase."},
+          {"quem": "Monitor", "fala": "E a p ∧ (q → r ∨ s)?"},
+          {"quem": "Você", "fala": "Ali o parêntese muda tudo: o p fica fora da condição."}
+        ],
+        "erro": "Dois tropeços aparecem juntos aqui. O primeiro é desconfiar da fórmula sem parênteses e procurar uma 'mais completa': a precedência já agrupa p ∧ q e r ∨ s antes da seta. O segundo é pôr um parêntese que muda o sentido, como em p ∧ (q → r ∨ s), onde o pagamento aprovado vira afirmação, e não condição. Leia sempre a fórmula reescrevendo os parênteses escondidos.",
+        "confira": "Teste um caso que separa as fórmulas: pagamento recusado (p = F), estoque com saldo, pedido nem enviado nem na fila. A frase é V, porque a condição não aconteceu. p ∧ q → r ∨ s dá F → F = V. Já p ∧ (q → r ∨ s) dá F, porque começa com p falso. Um único caso derruba a leitura errada.",
+        "atalho": "Elimine pelos conectivos: a condição tem 'e' e o resultado tem 'ou', então descarte as fórmulas com ∨ na esquerda ou ∧ na direita. 'Se ... então' é →, e isso tira o ↔. Sobram duas; fique com a que não deixa o p fora da condição."
+      }
+    },
+    {
+      "id": "lp-s3-p12",
+      "semana": 3,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Fórmula pela coluna",
+      "origem": "Prévia · ementa",
+      "enunciado": "A tabela abaixo traz a coluna final de uma fórmula com as letras p, q e r. Qual fórmula tem exatamente essa coluna?",
+      "tabela": {"onde": "enunciado", "cab": ["p", "q", "r", "fórmula"], "linhas": [["V", "V", "V", "F"], ["V", "V", "F", "V"], ["V", "F", "V", "F"], ["V", "F", "F", "V"], ["F", "V", "V", "F"], ["F", "V", "F", "V"], ["F", "F", "V", "F"], ["F", "F", "F", "F"]]},
+      "alternativas": [
+        {"t": "(p ∨ q) → ¬r", "certa": false, "erro": "Bate nas seis primeiras linhas. Nas duas últimas, com p e q falsos, a seta tem antecedente F e dá V; a tabela tem F."},
+        {"t": "(p ∨ q) ↔ ¬r", "certa": false, "erro": "Erra só a linha F F V: ali p ∨ q é F e ¬r é F, e o ↔ de dois F dá V. A tabela tem F."},
+        {"t": "(p ∨ q) ∧ ¬r", "certa": true},
+        {"t": "(p ⊕ q) ∧ ¬r", "certa": false, "erro": "Erra a linha V V F: o ⊕ de dois V é F, e a tabela tem V ali. O 'ou' da coluna é inclusivo."},
+        {"t": "p ∨ (q ∧ ¬r)", "certa": false, "erro": "Aqui o p ficou fora do parêntese. Com p verdadeiro a fórmula dá V em qualquer linha, e a tabela tem F em V V V e em V F V."}
+      ],
+      "dica": "Olhe só as linhas com V e veja o que elas têm em comum quanto ao r e quanto ao par p, q.",
+      "resposta": "(p ∨ q) ∧ ¬r",
+      "jeitos": {
+        "visual": "Na tabela, marque com um círculo as três linhas com V: V V F, V F F e F V F. Todas têm r = F, e nenhuma tem p e q falsos ao mesmo tempo. Agora olhe a linha F F F: o r também é F, mas o resultado é F, porque ali p e q estão os dois desligados. A coluna acende exatamente quando 'pelo menos um entre p e q' e 'r desligado' acontecem juntos.",
+        "receita": [
+          "As linhas V são V V F, V F F e F V F: todas com r = F.",
+          "Com r = V, tudo é F: a fórmula tem um ¬r ligado por ∧.",
+          "Entre as linhas com r = F, só F F F dá F: é o caso de p e q falsos, então a outra parte é p ∨ q.",
+          "Montagem: (p ∨ q) ∧ ¬r.",
+          "Conferindo as alternativas linha a linha, só ela bate nas 8."
+        ],
+        "cotidiano": "É a regra de um cofre: abre se você tiver a chave ou a senha, e se o alarme estiver desligado. Com o alarme ligado, nada abre. Com o alarme desligado, abre para quem tem chave, senha ou as duas. Quem não tem nenhuma das duas fica do lado de fora mesmo com o alarme desligado. A tabela é esse cofre testado em todas as situações.",
+        "trabalho": "É engenharia reversa de filtro: você tem o resultado de um relatório e quer descobrir a regra que o gerou. As linhas que passaram (V) têm 'bloqueado = 0' e pelo menos uma das marcas 'vip' ou 'atrasado'. Em SQL: `WHERE (vip = 1 OR atrasado = 1) AND NOT bloqueado`. Testar a regra candidata nas 8 combinações é como rodar o filtro numa base de teste com uma linha para cada caso.",
+        "conversa": [
+          {"quem": "Você", "fala": "A primeira alternativa bate nas seis primeiras linhas. Marquei ela."},
+          {"quem": "Monitor", "fala": "E nas duas últimas?"},
+          {"quem": "Você", "fala": "p ∨ q é F. Com a seta, antecedente falso dá V."},
+          {"quem": "Monitor", "fala": "E a tabela?"},
+          {"quem": "Você", "fala": "F nas duas. Então não é a seta."},
+          {"quem": "Monitor", "fala": "Que conectivo dá F quando um lado é F, qualquer que seja o outro?"},
+          {"quem": "Você", "fala": "O ∧. Fica (p ∨ q) ∧ ¬r."}
+        ],
+        "erro": "A armadilha é conferir poucas linhas. Três das alternativas erradas acertam a maior parte da coluna: a seta erra só as duas últimas, o ↔ erra uma, e o ⊕ erra uma. Quem confere metade da tabela e para marca a errada. A outra armadilha é o parêntese no lugar errado: em p ∨ (q ∧ ¬r), o p fica sozinho e acende a fórmula sempre que é V.",
+        "confira": "Faça a tabela da sua escolha inteira e compare com a do enunciado nas 8 linhas, uma por uma. No laboratório da semana, digite (p ∨ q) ∧ ¬r num campo e (p ∨ q) → ¬r no outro: o site mostra em que linha as duas colunas deixam de bater. Se a sua fórmula bate nas 8, ela é a resposta.",
+        "atalho": "Use as linhas que separam as fórmulas. Na F F F a resposta é F: isso elimina a seta. Na F F V é F: elimina o ↔. Na V V F é V: elimina o ⊕. Na V V V é F: elimina p ∨ (q ∧ ¬r). Quatro linhas, quatro eliminações."
+      }
+    }
+  ]
+}

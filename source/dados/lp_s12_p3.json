@@ -1,0 +1,255 @@
+{
+  "disciplina": "lp",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "lp-s2-p01",
+      "semana": 2,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Decimal para binário",
+      "origem": "Prévia · ementa",
+      "enunciado": "Converta o número 25, em decimal, para binário.",
+      "alternativas": [
+        {"t": "10011", "certa": false, "erro": "Você leu os restos de cima para baixo. O primeiro resto é o bit da direita, então a leitura é de baixo para cima. 10011 vale 19."},
+        {"t": "11001", "certa": true},
+        {"t": "1100", "certa": false, "erro": "Você pulou o primeiro resto (25 ÷ 2 dá 12 com resto 1) e converteu só o 12. Faltou o bit da direita."},
+        {"t": "10101", "certa": false, "erro": "Você converteu cada algarismo separado: 2 = 10 e 5 = 101. O 25 precisa ser convertido inteiro. 10101 vale 21."},
+        {"t": "11010", "certa": false, "erro": "Esse é 26 (16 + 8 + 2). Você pôs o último 1 na posição de peso 2; 25 é ímpar e termina em 1."}
+      ],
+      "dica": "Divida por 2 até o quociente dar 0 e leia os restos de baixo para cima.",
+      "resposta": "(25)₁₀ = (11001)₂",
+      "tabela": {"onde": "explicacao", "cab": ["Divisão", "Quociente", "Resto"], "linhas": [["25 ÷ 2", "12", "1"], ["12 ÷ 2", "6", "0"], ["6 ÷ 2", "3", "0"], ["3 ÷ 2", "1", "1"], ["1 ÷ 2", "0", "1"]]},
+      "jeitos": {
+        "visual": "Olhe a tabela de divisões de cima para baixo: os restos saem 1, 0, 0, 1, 1. Agora leia a coluna dos restos de baixo para cima, como quem sobe uma escada: 1, 1, 0, 0, 1. O último resto, da divisão 1 ÷ 2, é o bit mais pesado e fica na ponta esquerda. O primeiro resto, do 25 ÷ 2, é o bit da direita.",
+        "receita": [
+          "25 ÷ 2 = 12, resto 1.",
+          "12 ÷ 2 = 6, resto 0.",
+          "6 ÷ 2 = 3, resto 0.",
+          "3 ÷ 2 = 1, resto 1.",
+          "1 ÷ 2 = 0, resto 1. O quociente zerou: pare.",
+          "Restos de baixo para cima: 11001."
+        ],
+        "cotidiano": "Pense em guardar 25 bolinhas em caixas que dobram de tamanho: 1, 2, 4, 8, 16. Comece pela maior que cabe. A de 16 entra, sobram 9. A de 8 entra, sobra 1. As de 4 e de 2 não entram e ficam vazias. A de 1 entra. Marcando 1 para caixa usada e 0 para vazia, da maior para a menor: 1, 1, 0, 0, 1.",
+        "trabalho": "No Excel em português, `=DECABIN(25)` devolve 11001, e `=BINADEC(11001)` faz o caminho de volta e devolve 25. No MySQL, `CONV(25, 10, 2)` também dá 11001. Vale usar essas funções para conferir uma conversão feita à mão, mas numa prova sem computador o caminho é a divisão por 2. A DECABIN só aceita números de −512 a 511.",
+        "conversa": [
+          {"quem": "Você", "fala": "Fiz as divisões e anotei os restos: 1, 0, 0, 1, 1. Então é 10011."},
+          {"quem": "Monitor", "fala": "Quanto vale 10011? Some os pesos."},
+          {"quem": "Você", "fala": "16 + 2 + 1 = 19. Não deu 25."},
+          {"quem": "Monitor", "fala": "Os restos estão certos; a ordem de leitura é que inverte. Qual resto é o bit da direita?"},
+          {"quem": "Você", "fala": "O primeiro, do 25 ÷ 2. Então leio de baixo para cima: 11001."},
+          {"quem": "Monitor", "fala": "16 + 8 + 1 = 25. Agora bate."}
+        ],
+        "erro": "Quase todo erro aqui é de ordem. As divisões saem certas, mas os restos são copiados na ordem em que apareceram, e o número sai espelhado. A regra que segura: o primeiro resto diz se o número é par ou ímpar, então ele é o bit da direita. 25 é ímpar, e a resposta termina em 1. Outro tropeço é converter algarismo por algarismo, o que não faz sentido entre bases.",
+        "confira": "Volte para o decimal somando os pesos das posições com 1. Em 11001, da direita para a esquerda, os pesos são 1, 2, 4, 8, 16. Os 1 estão nas posições de peso 1, 8 e 16: 1 + 8 + 16 = 25. Voltou ao número do enunciado, então a conversão está certa. Faça o mesmo com as outras alternativas: nenhuma delas dá 25.",
+        "atalho": "25 é ímpar, então o bit da direita é 1: elimina 1100 e 11010. 25 fica entre 16 e 32, então o binário tem 5 algarismos e começa em 1: as três que sobram passam. Depois de tirar o 16, sobram 9, que precisa do 8: o segundo bit é 1. Só 11001 tem isso."
+      }
+    },
+    {
+      "id": "lp-s2-p02",
+      "semana": 2,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Binário para decimal",
+      "origem": "Prévia · ementa",
+      "enunciado": "Qual é o valor decimal do número binário 110100?",
+      "alternativas": [
+        {"t": "11", "certa": false, "erro": "Você deu o peso 2⁰ ao bit da esquerda, lendo o número espelhado. O peso 1 é sempre o da direita."},
+        {"t": "3", "certa": false, "erro": "Você contou quantos bits valem 1. Cada 1 vale o peso da sua posição, e não 1."},
+        {"t": "26", "certa": false, "erro": "Você deu ao bit da esquerda o peso 16, como se o número tivesse 5 posições. São 6, e o da esquerda pesa 32."},
+        {"t": "104", "certa": false, "erro": "Você começou os pesos em 2¹ na direita. A posição da direita é a 0 e pesa 1; com isso, o bit da esquerda pesa 32, e não 64."},
+        {"t": "52", "certa": true}
+      ],
+      "dica": "Escreva os pesos 32, 16, 8, 4, 2, 1 em cima dos bits e some só os que estão sobre um 1.",
+      "resposta": "(110100)₂ = 32 + 16 + 4 = 52",
+      "tabela": {"onde": "explicacao", "cab": ["Peso", "32", "16", "8", "4", "2", "1"], "linhas": [["Bit", "1", "1", "0", "1", "0", "0"], ["Parcela", "32", "16", "0", "4", "0", "0"]]},
+      "jeitos": {
+        "visual": "Na tabela, cada bit tem o seu peso logo acima. Leia a linha das parcelas: onde o bit é 1, o peso desce inteiro; onde é 0, desce zero. Ficam 32, 16 e 4. Pense numa fileira de seis lâmpadas com etiquetas de valor: as acesas são a primeira, a segunda e a quarta, contando da esquerda, e a soma das etiquetas acesas é o número.",
+        "receita": [
+          "Conte as posições: 6 bits, posições 5 a 0.",
+          "Pesos da esquerda para a direita: 32, 16, 8, 4, 2, 1.",
+          "Os bits 1 estão nas posições de peso 32, 16 e 4.",
+          "32 + 16 + 4 = 52."
+        ],
+        "cotidiano": "É o mesmo raciocínio de ler 352 no decimal: o 3 vale 300 por estar na casa das centenas. No binário, as casas valem 1, 2, 4, 8, 16, 32, em vez de 1, 10, 100. Um 1 na sexta casa, contando da direita, não vale 1: vale 32, como um 3 na terceira casa do decimal vale 300.",
+        "trabalho": "No Excel em português, `=BINADEC(110100)` devolve 52. No MySQL, `CONV('110100', 2, 10)` também. O peso por posição lembra o código de uma conta contábil, em que cada posição diz grupo, subgrupo e conta: mudar um algarismo de lugar muda o significado. No binário, mudar um bit de lugar muda o valor.",
+        "conversa": [
+          {"quem": "Você", "fala": "Tem três 1 no número. Então vale 3?"},
+          {"quem": "Monitor", "fala": "No decimal, 300 vale 3 só porque tem um 3?"},
+          {"quem": "Você", "fala": "Não, vale 300 por causa da posição."},
+          {"quem": "Monitor", "fala": "No binário é igual. Os 1 estão nas posições de peso 32, 16 e 4."},
+          {"quem": "Você", "fala": "32 + 16 + 4 = 52."}
+        ],
+        "erro": "Os erros vêm de errar os pesos. Começar a contar pela esquerda espelha o número e dá 11. Começar o expoente em 1, e não em 0, dobra tudo e dá 104. Contar uma posição a menos dá 26, a metade. Antes de somar, escreva os pesos em cima dos bits e confira: o da direita é sempre 1 e, com 6 bits, o da esquerda é 2⁵ = 32.",
+        "confira": "Faça o caminho inverso, por divisões sucessivas. 52 ÷ 2 = 26 resto 0; 26 ÷ 2 = 13 resto 0; 13 ÷ 2 = 6 resto 1; 6 ÷ 2 = 3 resto 0; 3 ÷ 2 = 1 resto 1; 1 ÷ 2 = 0 resto 1. De baixo para cima: 110100, o número do enunciado. A ida e a volta batem.",
+        "atalho": "O bit da direita é 0, então o número é par: elimina 11 e 3. Com 6 bits começando em 1, o valor fica entre 32 e 63: elimina 26 e 104. Sobra 52, sem fazer a soma."
+      }
+    },
+    {
+      "id": "lp-s2-p03",
+      "semana": 2,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Binário para hexadecimal",
+      "origem": "Prévia · ementa",
+      "enunciado": "Converta o número binário 10110110 para hexadecimal.",
+      "alternativas": [
+        {"t": "6B", "certa": false, "erro": "Os grupos estão certos, mas na ordem trocada. O grupo da esquerda, 1011, vira o algarismo da esquerda."},
+        {"t": "266", "certa": false, "erro": "Você agrupou de 3 em 3 (10 | 110 | 110), que é o caminho do octal. Hexadecimal agrupa de 4 em 4."},
+        {"t": "B6", "certa": true},
+        {"t": "116", "certa": false, "erro": "Você converteu 1011 para 11 e escreveu o 11 com dois algarismos decimais. Em hexadecimal, 11 é um algarismo só: B."},
+        {"t": "182", "certa": false, "erro": "182 é o valor em decimal. A pergunta pede a escrita em hexadecimal."}
+      ],
+      "dica": "Separe os bits de 4 em 4 a partir da direita e troque cada grupo por um algarismo de 0 a F.",
+      "resposta": "(10110110)₂ = (B6)₁₆",
+      "tabela": {"onde": "explicacao", "cab": ["Grupo de 4 bits", "1011", "0110"], "linhas": [["Valor", "8 + 2 + 1 = 11", "4 + 2 = 6"], ["Algarismo hexadecimal", "B", "6"]]},
+      "jeitos": {
+        "visual": "Corte o número com uma tesoura a cada 4 bits, começando da direita: 1011 | 0110. Cada pedaço vira um algarismo. Na tabela, o pedaço da esquerda soma 11 e o da direita soma 6. Como o hexadecimal tem algarismos até 15, o 11 cabe numa casa só e se escreve B. Cole os dois algarismos na mesma ordem dos pedaços: B6.",
+        "receita": [
+          "Agrupe de 4 em 4 a partir da direita: 1011 | 0110.",
+          "1011 = 8 + 0 + 2 + 1 = 11.",
+          "0110 = 0 + 4 + 2 + 0 = 6.",
+          "11 em hexadecimal é B; 6 continua 6.",
+          "Junte na ordem: B6."
+        ],
+        "cotidiano": "Pense num número de telefone ditado em blocos: separar em grupos não muda o número, só facilita a leitura. O hexadecimal faz isso com os bits e vai um passo além: troca cada bloco de 4 por um símbolo só. Com 8 bits, dois símbolos bastam, e quem lê B6 erra bem menos do que quem lê oito zeros e uns seguidos.",
+        "trabalho": "No Excel em português, `=BINAHEX(10110110)` devolve B6 e `=HEXADEC(\"B6\")` devolve 182. No MySQL, `HEX(182)` também dá B6. O hexadecimal aparece no seu dia a dia nos códigos de cor do Power BI, em identificadores longos de sistemas e no conteúdo de arquivos vistos byte a byte. Dois algarismos hexadecimais são sempre um byte.",
+        "conversa": [
+          {"quem": "Você", "fala": "1011 é 11 e 0110 é 6. Então 116."},
+          {"quem": "Monitor", "fala": "Um grupo de 4 bits vira quantos algarismos hexadecimais?"},
+          {"quem": "Você", "fala": "Um."},
+          {"quem": "Monitor", "fala": "E o 11 escrito como 11 ocupa quantos?"},
+          {"quem": "Você", "fala": "Dois. No hexadecimal, 11 é B. Fica B6."},
+          {"quem": "Monitor", "fala": "Depois do 9 vêm A, B, C, D, E e F."}
+        ],
+        "erro": "O primeiro erro é escrever o valor do grupo com algarismos decimais: o 11 continua 11, quando deveria virar B. O segundo é agrupar de 3 em 3, que serve para o octal. O terceiro é inverter a ordem dos grupos. Para não cair, guarde a regra fixa: 4 bits viram 1 algarismo, de 0 a F, e os grupos ficam na mesma ordem em que estavam no binário.",
+        "confira": "Converta os dois lados para decimal e compare. O binário 10110110 vale 128 + 32 + 16 + 4 + 2 = 182. O hexadecimal B6 vale 11 × 16 + 6 = 176 + 6 = 182. Os dois dão 182, então representam o mesmo número. Se você testar 6B, chega em 6 × 16 + 11 = 107, outro número.",
+        "atalho": "8 bits viram exatamente 2 algarismos hexadecimais: elimina 266, 116 e 182, que têm três. Entre B6 e 6B, olhe o grupo da esquerda, 1011: ele tem o bit de peso 8 ligado, então vale pelo menos 8. O algarismo da esquerda é grande: B."
+      }
+    },
+    {
+      "id": "lp-s2-p04",
+      "semana": 2,
+      "nivel": 1,
+      "minutos": 1,
+      "tema": "Valores em 8 bits",
+      "origem": "Prévia · ementa",
+      "enunciado": "Sem sinal, quantos valores diferentes cabem em 8 bits, e qual é o maior deles?",
+      "alternativas": [
+        {"t": "256 valores; o maior é 255", "certa": true},
+        {"t": "256 valores; o maior é 256", "certa": false, "erro": "O 0 também é um dos 256 valores. Se a contagem começa em 0, a última posição é a 255."},
+        {"t": "255 valores; o maior é 255", "certa": false, "erro": "Você esqueceu o 0. De 0 a 255 há 256 valores."},
+        {"t": "64 valores; o maior é 63", "certa": false, "erro": "Você fez 8², elevando o número de bits ao quadrado. A base é 2 e o expoente é 8."},
+        {"t": "16 valores; o maior é 15", "certa": false, "erro": "Você fez 2 × 8. Cada bit dobra as combinações, não soma 2."}
+      ],
+      "dica": "Cada bit dobra as combinações, e o zero também é um dos valores.",
+      "resposta": "256 valores (2⁸), de 0 a 255.",
+      "tabela": {"onde": "explicacao", "cab": ["Bits (n)", "Valores (2ⁿ)", "Maior (2ⁿ − 1)"], "linhas": [["1", "2", "1"], ["2", "4", "3"], ["3", "8", "7"], ["4", "16", "15"], ["5", "32", "31"], ["6", "64", "63"], ["7", "128", "127"], ["8", "256", "255"]]},
+      "jeitos": {
+        "visual": "Na tabela, cada linha dobra a anterior na coluna dos valores: 2, 4, 8, até 256. A coluna do maior fica sempre uma unidade abaixo, porque a contagem começa em 0. Agora imagine 8 lâmpadas: todas apagadas é 00000000, o 0. Todas acesas é 11111111, o maior: 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255.",
+        "receita": [
+          "Valores em n bits: 2ⁿ.",
+          "Com 8 bits: 2⁸ = 256 valores.",
+          "Sem sinal, o primeiro é 0 (00000000).",
+          "O último é 256 − 1 = 255 (11111111).",
+          "Resposta: 256 valores, e o maior é 255."
+        ],
+        "cotidiano": "Num prédio com térreo numerado 0 e três andares acima, o painel do elevador tem 4 botões: 0, 1, 2 e 3. São 4 andares, e o maior número é 3. Com 256 botões, a lógica é a mesma: o maior é 255. Quem numera a partir do 1 e chega ao 256 esqueceu o térreo.",
+        "trabalho": "No MySQL, o tipo TINYINT ocupa 1 byte. Na versão UNSIGNED, guarda de 0 a 255: os 256 valores de 8 bits. Por isso uma coluna TINYINT UNSIGNED serve para uma nota de 0 a 10 ou para o número de parcelas, mas não para uma quantidade de itens que pode passar de 255. O mesmo 255 aparece como máximo de cada canal de cor RGB.",
+        "conversa": [
+          {"quem": "Você", "fala": "2⁸ = 256. Então o maior número é 256."},
+          {"quem": "Monitor", "fala": "Com 1 bit, quantos valores, e qual é o maior?"},
+          {"quem": "Você", "fala": "Dois valores, 0 e 1. O maior é 1."},
+          {"quem": "Monitor", "fala": "2¹ = 2 valores, e o maior é 2 − 1. Com 8 bits?"},
+          {"quem": "Você", "fala": "256 valores, e o maior é 255."}
+        ],
+        "erro": "O tropeço é confundir quantidade com maior valor. 2⁸ = 256 conta quantas combinações existem; como uma delas é o zero, o maior valor é 255. Outra troca comum é usar 8² ou 2 × 8. Não é o número de bits que se multiplica por si: cada bit dobra o total, então são oito dobras seguidas a partir de 1.",
+        "confira": "Escreva o maior número de 8 bits, 11111111, e some 1. Todos os bits viram 0 e o vai-um cria uma nona posição: 100000000, que vale 2⁸ = 256. Então 11111111 vale 256 − 1 = 255, e é o último que cabe. Contando o zero, de 0 a 255 há 256 valores.",
+        "atalho": "Quantidade de valores em bits é sempre potência de 2, e o maior sem sinal é sempre ímpar, uma unidade abaixo. Isso elimina 256 com maior 256 e 255 valores. Entre 256, 64 e 16, lembre que 8 bits são um byte, e um byte vai até 255."
+      }
+    },
+    {
+      "id": "lp-s2-p05",
+      "semana": 2,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Soma binária",
+      "origem": "Prévia · ementa",
+      "enunciado": "Calcule a soma binária 1011 + 0111.",
+      "alternativas": [
+        {"t": "1100", "certa": false, "erro": "Você somou coluna a coluna sem levar o vai-um: 1 + 1 virou 0 e o 1 que sobe sumiu. 1100 vale 12, e 11 + 7 = 18."},
+        {"t": "0010", "certa": false, "erro": "Você descartou o vai-um que sai da última coluna. Num registrador de 4 bits isso acontece (é o estouro), mas a soma pedida tem 5 bits."},
+        {"t": "1111", "certa": false, "erro": "Você fez 1 + 1 = 1, como na operação lógica ou. Na soma, 1 + 1 = 10: fica 0 e vai 1."},
+        {"t": "10010", "certa": true},
+        {"t": "10000", "certa": false, "erro": "Na segunda coluna, 1 + 1 + o vai-um dá 3, que em binário é 11: fica 1 e vai 1. Você escreveu 0."}
+      ],
+      "dica": "Some da direita para a esquerda: coluna que dá 2 fica 0 e leva 1, coluna que dá 3 fica 1 e leva 1.",
+      "resposta": "1011 + 0111 = 10010 (11 + 7 = 18)",
+      "tabela": {"onde": "explicacao", "cab": ["Coluna", "Bits", "Soma", "Fica", "Vai"], "linhas": [["1ª (direita)", "1 + 1", "2", "0", "1"], ["2ª", "1 + 1 + 1", "3", "1", "1"], ["3ª", "0 + 1 + 1", "2", "0", "1"], ["4ª", "1 + 0 + 1", "2", "0", "1"], ["Sobra", "vai-um", "1", "1", "—"]]},
+      "jeitos": {
+        "visual": "Monte a conta armada, um número em cima do outro, com uma fileira de quadradinhos acima para os vai-uns. Na tabela, siga as colunas da direita para a esquerda: todas as quatro mandam um 1 para a coluna seguinte. O resultado sai na coluna Fica, lida de baixo para cima: 1, 0, 0, 1, 0. A última linha é o vai-um que sobrou da quarta coluna e virou o quinto bit.",
+        "receita": [
+          "1ª coluna: 1 + 1 = 10. Fica 0, vai 1.",
+          "2ª coluna: 1 + 1 + 1 = 11. Fica 1, vai 1.",
+          "3ª coluna: 0 + 1 + 1 = 10. Fica 0, vai 1.",
+          "4ª coluna: 1 + 0 + 1 = 10. Fica 0, vai 1.",
+          "O vai-um que sobrou vira o bit da esquerda: 10010."
+        ],
+        "cotidiano": "É a conta armada que você aprendeu na escola, só que o vai-um aparece muito mais cedo. No decimal, ele surge quando a coluna passa de 9; no binário, quando passa de 1. Somar 1 + 1 em binário é como somar 5 + 5 no decimal: a casa enche, você escreve 0 e leva 1 para a vizinha.",
+        "trabalho": "Para conferir no Excel, converta, some e volte: `=DECABIN(BINADEC(1011)+BINADEC(111))` devolve 10010. O raciocínio de coluna e vai-um é o mesmo de somar valores com centavos: quando os centavos passam de 99, sobe 1 real. A ULA faz essa conta armada bit a bit, com um pedaço de circuito para cada coluna.",
+        "conversa": [
+          {"quem": "Você", "fala": "1 + 1 em binário é 2. Mas não existe o algarismo 2..."},
+          {"quem": "Monitor", "fala": "No decimal, como você escreve 9 + 1?"},
+          {"quem": "Você", "fala": "10. Fica 0 e vai 1."},
+          {"quem": "Monitor", "fala": "No binário, 1 + 1 já enche a casa. Escreve 0 e leva 1."},
+          {"quem": "Você", "fala": "E quando caem 1 + 1 + o vai-um?"},
+          {"quem": "Monitor", "fala": "Dá 3, que é 11 em binário: fica 1, vai 1. Seguindo assim, sai 10010."}
+        ],
+        "erro": "O tropeço que mais aparece é na coluna com três 1: os dois bits e o vai-um. Quem só conhece a regra 1 + 1 = 10 escreve 0 e erra, porque 1 + 1 + 1 = 11. O segundo é esquecer o último vai-um, que não tem coluna embaixo e precisa virar um bit novo à esquerda. Some falando baixo: quanto deu, quanto fica, quanto vai.",
+        "confira": "Converta tudo para decimal. 1011 = 8 + 2 + 1 = 11. 0111 = 4 + 2 + 1 = 7. 11 + 7 = 18. Agora 10010 = 16 + 2 = 18. Bateu, então a soma binária está certa. O mesmo teste denuncia as erradas: 1100 vale 12, 0010 vale 2, 1111 vale 15 e 10000 vale 16.",
+        "atalho": "Os dois números são ímpares (terminam em 1), e ímpar mais ímpar dá par: o resultado termina em 0. Elimina 1111. Depois, 11 + 7 = 18 passa de 15, o maior número de 4 bits, então a resposta tem 5 bits: sobram 10010 e 10000. Como 18 = 16 + 2, o bit de peso 2 está ligado: 10010."
+      }
+    },
+    {
+      "id": "lp-s2-p06",
+      "semana": 2,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Complemento de 2",
+      "origem": "Prévia · ementa",
+      "enunciado": "Em 8 bits, usando complemento de 2, como se representa o número −20?",
+      "alternativas": [
+        {"t": "10010100", "certa": false, "erro": "Você só ligou o bit da esquerda no 20 (00010100). Isso é sinal-magnitude, outro sistema. Em complemento de 2, 10010100 vale −108."},
+        {"t": "11101011", "certa": false, "erro": "Você inverteu os bits e parou. Isso é o complemento de 1. Faltou somar 1."},
+        {"t": "11101100", "certa": true},
+        {"t": "00010100", "certa": false, "erro": "Esse é o +20. Para chegar ao −20, ainda falta inverter os bits e somar 1."},
+        {"t": "11101000", "certa": false, "erro": "No atalho de copiar até o primeiro 1 da direita, você inverteu também esse 1. Ele deve ser copiado como está. 11101000 vale −24."}
+      ],
+      "dica": "Escreva 20 com 8 bits, inverta todos os bits e some 1.",
+      "resposta": "−20 = 11101100 em 8 bits, complemento de 2.",
+      "jeitos": {
+        "visual": "Escreva 20 em 8 bits: 00010100. Embaixo, desenhe cada bit virado, onde era 0 fica 1 e onde era 1 fica 0: 11101011. Agora some 1, como um contador que avança uma casa: o último bit é 1, vira 0 e vai um; o penúltimo também é 1, vira 0 e vai um; o antepenúltimo é 0 e vira 1. Resultado: 11101100.",
+        "receita": [
+          "20 em binário com 8 bits: 00010100.",
+          "Inverta todos os bits: 11101011.",
+          "Some 1: 11101011 + 1 = 11101100.",
+          "Confira o sinal: o bit da esquerda é 1, então o número é negativo.",
+          "−20 = 11101100."
+        ],
+        "cotidiano": "Pense no odômetro de 3 rodas zerado. Se você o girar uma posição para trás, ele mostra 999, e não −001. Girando 20 posições para trás, mostra 980. O complemento de 2 é esse odômetro em binário, com 8 rodas: andar 20 para trás a partir de 00000000 cai em 11101100, que vale 256 − 20 = 236 se for lido sem sinal.",
+        "trabalho": "O Excel usa complemento de 2 com 10 bits: `=DECABIN(-20)` devolve 1111101100. Os 8 bits da direita são exatamente 11101100; os dois 1 a mais à esquerda só estendem o sinal. No MySQL, o TINYINT com sinal ocupa 1 byte e tem a mesma faixa do complemento de 2 em 8 bits, de −128 a 127: é nela que cabe um estorno de −20 numa coluna inteira pequena.",
+        "conversa": [
+          {"quem": "Você", "fala": "Para ficar negativo, não basta trocar o primeiro bit para 1? Daria 10010100."},
+          {"quem": "Monitor", "fala": "Some 10010100 com o +20, que é 00010100, e veja se dá zero."},
+          {"quem": "Você", "fala": "Dá 10101000. Não zerou."},
+          {"quem": "Monitor", "fala": "Um número somado ao seu negativo tem de dar zero. Tente inverter tudo e somar 1."},
+          {"quem": "Você", "fala": "11101011 + 1 = 11101100. Somando com 00010100 dá 100000000; sem o nono bit, zero."},
+          {"quem": "Monitor", "fala": "Esse é o −20 em complemento de 2."}
+        ],
+        "erro": "Há três armadilhas. A primeira é ligar só o bit de sinal, o que dá sinal-magnitude, e não complemento de 2. A segunda é inverter e esquecer o +1. A terceira é escrever o 20 sem completar os 8 bits: 10100 invertido dá 01011, e o resultado sai curto e errado. Antes de inverter, complete sempre com zeros à esquerda até o tamanho do campo.",
+        "confira": "Some a sua resposta com +20 em 8 bits. 11101100 + 00010100 = 100000000. Descartado o nono bit, que não cabe no campo, sobra 00000000. Um número mais o seu oposto dá zero, e esse teste prova o −20. Outro caminho: leia 11101100 com o peso −128 na esquerda: −128 + 64 + 32 + 8 + 4 = −20.",
+        "atalho": "Negativo em complemento de 2 começa com 1: elimina 00010100. O último bit de −20 é igual ao de 20, porque os dois são pares: 0. Elimina 11101011. Entre as três que sobram, use o atalho de copiar da direita até o primeiro 1 e inverter o resto: copie 100, inverta 00010, e sai 11101100."
+      }
+    }
+  ]
+}

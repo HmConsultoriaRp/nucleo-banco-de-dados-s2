@@ -1,0 +1,254 @@
+{
+  "disciplina": "lp",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "lp-s2-p07",
+      "semana": 2,
+      "nivel": 2,
+      "minutos": 2,
+      "tema": "Cor RGB em hexadecimal",
+      "origem": "Prévia · ementa",
+      "enunciado": "No código de cor #FF8000, cada par de algarismos hexadecimais é um canal, na ordem vermelho, verde e azul (RGB), com valores de 0 a 255. Quais são os valores dos três canais em decimal?",
+      "alternativas": [
+        {"t": "(255, 80, 0)", "certa": false, "erro": "Você converteu o FF, mas copiou o 80 como se já fosse decimal. Em hexadecimal, 80 = 8 × 16 + 0 = 128."},
+        {"t": "(255, 128, 0)", "certa": true},
+        {"t": "(0, 128, 255)", "certa": false, "erro": "Os valores estão certos, mas na ordem invertida. O primeiro par é o vermelho; o último, o azul."},
+        {"t": "(256, 128, 0)", "certa": false, "erro": "Você fez FF = 16 × 16. O F vale 15: FF = 15 × 16 + 15 = 255, o maior valor que cabe em 8 bits."},
+        {"t": "(15, 8, 0)", "certa": false, "erro": "Você converteu só o primeiro algarismo de cada par. Cada canal tem dois algarismos, e o da esquerda vale 16 vezes mais."}
+      ],
+      "dica": "Separe o código em três pares e lembre que, em cada par, o algarismo da esquerda vale 16 vezes o seu valor.",
+      "resposta": "Vermelho 255, verde 128, azul 0: um laranja.",
+      "jeitos": {
+        "visual": "Corte o código em três fatias de dois algarismos: FF | 80 | 00. Pinte a primeira de vermelho, a segunda de verde e a terceira de azul. Cada fatia é um byte, com valor de 0 a 255. A fatia vermelha está no máximo, a verde na metade e a azul apagada. Vermelho cheio com meio verde dá laranja, a cor que a tela mostra.",
+        "receita": [
+          "Separe os pares: FF, 80, 00.",
+          "FF = 15 × 16 + 15 = 240 + 15 = 255.",
+          "80 = 8 × 16 + 0 = 128.",
+          "00 = 0.",
+          "Na ordem RGB: (255, 128, 0)."
+        ],
+        "cotidiano": "Pense em três reguladores de luz, um vermelho, um verde e um azul, cada um com 256 posições, de 0 a 255. O código #FF8000 é uma instrução curta: o primeiro regulador no máximo, o segundo na metade, o terceiro desligado. Cada par do código diz a posição de um regulador, sempre na mesma ordem.",
+        "trabalho": "No Power BI, você pode digitar a cor de uma série no campo de código hexadecimal, e os arquivos de tema guardam as cores como #RRGGBB. No Excel das versões recentes, a janela Mais Cores aceita o mesmo código ou os três valores de 0 a 255. Num relatório com a identidade visual do cliente, #FF8000 e (255, 128, 0) são a mesma cor escrita de dois jeitos.",
+        "conversa": [
+          {"quem": "Você", "fala": "FF é 255. O 80 eu deixo como 80."},
+          {"quem": "Monitor", "fala": "O FF você converteu. Por que o 80 ficaria igual?"},
+          {"quem": "Você", "fala": "Porque não tem letra. Parece decimal."},
+          {"quem": "Monitor", "fala": "Está no mesmo código hexadecimal. O 8 da esquerda vale 8 × 16."},
+          {"quem": "Você", "fala": "128. Então (255, 128, 0)."}
+        ],
+        "erro": "O erro mais traiçoeiro é o par sem letra. O FF claramente pede conversão, mas o 80 parece decimal e muita gente copia. Num código de cor, todo par é hexadecimal, tenha letra ou não. O segundo erro é calcular FF como 16 × 16 = 256, que nem cabe no canal. O maior algarismo é F = 15, então o maior par é 15 × 16 + 15 = 255.",
+        "confira": "Converta de volta para hexadecimal dividindo por 16. 255 ÷ 16 = 15 resto 15: F e F, FF. 128 ÷ 16 = 8 resto 0: 80. O 0 vira 00. Juntando, #FF8000, exatamente o código do enunciado. Teste também o limite: nenhum canal passa de 255, o que elimina na hora qualquer alternativa com 256.",
+        "atalho": "Nenhum canal passa de 255: elimina a alternativa com 256. O primeiro par é o vermelho e FF é o máximo, então o primeiro número é 255: elimina (0, 128, 255) e (15, 8, 0). Entre 80 e 128 para o verde, um 8 na casa dos 16 dá 128."
+      }
+    },
+    {
+      "id": "lp-s2-p08",
+      "semana": 2,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Octal para hexadecimal",
+      "origem": "Prévia · ementa",
+      "enunciado": "Converta o número 57, escrito em octal (base 8), para hexadecimal.",
+      "alternativas": [
+        {"t": "B3", "certa": false, "erro": "Você agrupou 101111 de 4 em 4 a partir da esquerda: 1011 | 11. O agrupamento começa sempre pela direita: 10 | 1111."},
+        {"t": "39", "certa": false, "erro": "Você tratou 57 como decimal: 57 = 3 × 16 + 9. O 57 do enunciado está em octal e vale 47."},
+        {"t": "47", "certa": false, "erro": "47 é o valor em decimal (5 × 8 + 7). Faltou o último passo: escrever em hexadecimal."},
+        {"t": "57", "certa": false, "erro": "Você escreveu cada algarismo octal com 4 bits (0101 0111), como se fosse hexadecimal. O octal usa 3 bits por algarismo."},
+        {"t": "2F", "certa": true}
+      ],
+      "dica": "Passe pelo binário: cada algarismo octal vira 3 bits; depois reagrupe de 4 em 4 a partir da direita.",
+      "resposta": "(57)₈ = (101111)₂ = (2F)₁₆",
+      "tabela": {"onde": "explicacao", "cab": ["Etapa", "Resultado"], "linhas": [["Octal, 3 bits por algarismo", "5 = 101 · 7 = 111"], ["Binário", "101111"], ["Grupos de 4 pela direita", "0010 | 1111"], ["Hexadecimal", "2 | F"]]},
+      "jeitos": {
+        "visual": "Escreva o 5 e o 7 lado a lado e, embaixo de cada um, os seus 3 bits: 101 e 111. Junte numa fita só: 101111. Agora redesenhe as divisórias de 4 em 4, a partir da direita: 10 | 1111. O pedaço da esquerda ficou curto; complete com zeros: 0010. A tabela mostra as quatro etapas, e cada pedaço de 4 vira um algarismo: 2 e F.",
+        "receita": [
+          "5 em 3 bits: 101. 7 em 3 bits: 111.",
+          "Junte: 101111.",
+          "Reagrupe de 4 em 4 a partir da direita: 0010 | 1111.",
+          "0010 = 2 e 1111 = 15 = F.",
+          "(57)₈ = (2F)₁₆."
+        ],
+        "cotidiano": "É como trocar dinheiro entre duas moedas estrangeiras passando pelo real. Você não sabe a cotação direta entre elas, mas sabe as duas em reais. O binário é a moeda de passagem: do octal para o binário é direto, 3 bits por algarismo, e do binário para o hexadecimal também, 4 bits por algarismo. No meio do caminho, nenhuma conta difícil.",
+        "trabalho": "No Excel em português, `=OCTAHEX(57)` devolve 2F e `=OCTADEC(57)` devolve 47. O octal ainda aparece nas permissões de arquivo de servidores Linux: 755 é 111 101 101 em binário, três grupos de 3 bits, e cada bit liga ou desliga ler, gravar e executar. Cada algarismo octal é exatamente um grupo de permissões.",
+        "conversa": [
+          {"quem": "Você", "fala": "Octal e hexadecimal são parecidos. 57 em octal não é 57 em hexadecimal?"},
+          {"quem": "Monitor", "fala": "Quanto vale 57 em octal, em decimal?"},
+          {"quem": "Você", "fala": "5 × 8 + 7 = 47."},
+          {"quem": "Monitor", "fala": "E 57 em hexadecimal?"},
+          {"quem": "Você", "fala": "5 × 16 + 7 = 87. São números diferentes."},
+          {"quem": "Monitor", "fala": "Então passe pelo binário: 101111, reagrupado de 4 em 4 pela direita, dá 2F."}
+        ],
+        "erro": "Duas armadilhas dominam. A primeira é usar 4 bits para cada algarismo octal, o que copia o número sem mudar nada e dá 57. Octal são 3 bits. A segunda é reagrupar a partir da esquerda: 1011 | 11 leva a B3. Os bits que sobram ficam sempre na esquerda, onde completar com zeros não muda o valor; na direita, mudaria.",
+        "confira": "Converta as duas pontas para decimal. (57)₈ = 5 × 8 + 7 = 47. (2F)₁₆ = 2 × 16 + 15 = 32 + 15 = 47. Mesmo valor, então a conversão está certa. Se você testar B3, chega em 11 × 16 + 3 = 179, bem longe de 47.",
+        "atalho": "57 em octal é menor que 100 em octal, que vale 64. Em hexadecimal, 64 se escreve 40, então a resposta começa com 0, 1, 2 ou 3: elimina B3, 57 e 47. Entre 39 e 2F, o 39 é o que sai de ler 57 como decimal. Para fechar, 5 × 8 + 7 = 47, e 47 ÷ 16 = 2 resto 15: 2F."
+      }
+    },
+    {
+      "id": "lp-s2-p09",
+      "semana": 2,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Somar com negativo",
+      "origem": "Prévia · ementa",
+      "enunciado": "Num registrador de 8 bits em complemento de 2, a CPU soma 00001111 com 11110110 e descarta o vai-um que sai do oitavo bit. Qual é o resultado guardado, e que valor decimal ele representa?",
+      "alternativas": [
+        {"t": "00000101, que vale 5", "certa": true},
+        {"t": "100000101, que vale 261", "certa": false, "erro": "Você manteve o vai-um do oitavo bit. O registrador tem 8 bits; o nono é descartado, como o enunciado diz."},
+        {"t": "11111001, que vale −7", "certa": false, "erro": "Você somou sem levar o vai-um: cada coluna com 1 + 1 virou 0 e o 1 sumiu. Isso é o ou exclusivo, e não a soma."},
+        {"t": "00011001, que vale 25", "certa": false, "erro": "Você leu 11110110 como +10 e fez 15 + 10. O bit da esquerda é 1, então o número é negativo: −10."},
+        {"t": "10000101, que vale −123", "certa": false, "erro": "Você pôs o vai-um que sobrou no bit da esquerda. Em complemento de 2, o vai-um que sai do campo é jogado fora, sem mexer no sinal."}
+      ],
+      "dica": "Descubra quanto vale cada parcela com sinal, depois some coluna a coluna e jogue fora o nono bit.",
+      "resposta": "00000101 = 5, porque 15 + (−10) = 5.",
+      "tabela": {"onde": "explicacao", "cab": ["Linha", "Bits"], "linhas": [["15", "00001111"], ["−10", "11110110"], ["Soma com 9 bits", "100000101"], ["Guardado (8 bits)", "00000101 = 5"]]},
+      "jeitos": {
+        "visual": "Na tabela, as duas parcelas ficam uma sobre a outra, e a segunda começa com 1: é negativa. Some coluna a coluna: a partir da segunda coluna, os vai-uns correm em cadeia até sair pela esquerda. O nono bit, que caiu fora do registrador, é cortado, como uma régua de 8 casas corta o que passa dela. Dentro das 8 casas sobra 00000101.",
+        "receita": [
+          "Valor da 1ª parcela: 00001111 = 8 + 4 + 2 + 1 = 15.",
+          "Valor da 2ª: 11110110 começa com 1. Inverta e some 1: 00001001 + 1 = 00001010 = 10. Então vale −10.",
+          "Some os bits: 00001111 + 11110110 = 100000101.",
+          "Descarte o nono bit: 00000101.",
+          "00000101 = 4 + 1 = 5, que confere com 15 + (−10)."
+        ],
+        "cotidiano": "Num relógio de 12 horas, atrasar 3 horas é o mesmo que adiantar 9: o ponteiro dá a volta e para no mesmo lugar. Se são 5 horas e você adianta 9, o ponteiro passa do 12 e para nas 2, o mesmo que 5 − 3. Em 8 bits, o relógio tem 256 marcas, e somar 246 é o mesmo que tirar 10. Partindo de 15 e andando 246, o ponteiro dá a volta e para em 5.",
+        "trabalho": "É assim que a CPU faz débito e crédito com um circuito só. Um saldo de 15 com um estorno de −10 não pede um circuito de subtração: a ULA soma 15 com o complemento de 2 de 10 e descarta o que sai do campo. Na memória do computador, um inteiro de 8 bits com sinal guarda o −10 exatamente como 11110110, e somar os dois valores dá 5 sem nenhuma regra especial para negativos.",
+        "conversa": [
+          {"quem": "Você", "fala": "11110110 é 246. 15 + 246 = 261, que não cabe em 8 bits."},
+          {"quem": "Monitor", "fala": "Sem sinal, seria isso. Mas o registrador está em complemento de 2. Quanto vale 11110110 com sinal?"},
+          {"quem": "Você", "fala": "Começa com 1, então é negativo. Invertendo e somando 1 dá 10. É −10."},
+          {"quem": "Monitor", "fala": "Então a conta é 15 + (−10). E o 261?"},
+          {"quem": "Você", "fala": "261 em binário é 100000101. Descartando o nono bit, fica 00000101, que é 5."},
+          {"quem": "Monitor", "fala": "Os mesmos bits servem para as duas leituras; o que muda é como você interpreta."}
+        ],
+        "erro": "A armadilha central é achar que o vai-um que sai do campo é um erro ou precisa ser guardado. Em complemento de 2, somar um positivo com um negativo costuma gerar esse nono bit, e descartá-lo é justamente o que faz a conta fechar. O outro tropeço é ler 11110110 como +10, esquecendo o sinal. Olhe sempre o bit da esquerda antes de dar valor a um número com sinal.",
+        "confira": "Confira por decimal, com os pesos do complemento de 2. A segunda parcela: −128 + 64 + 32 + 16 + 4 + 2 = −10. A primeira: 15. A soma esperada é 5, que em 8 bits se escreve 00000101, o mesmo que a soma bit a bit deu. Os dois caminhos, por bits e por valores, chegam ao mesmo resultado.",
+        "atalho": "O resultado tem de caber em 8 bits: elimina a alternativa com 9 bits. A segunda parcela começa com 1, então é negativa: elimina o 25, que a lê como +10. Inverta e some 1 para achar quanto ela vale sem o sinal: 10. Como 15 − 10 = 5 é positivo, o resultado começa com 0: elimina −7 e −123 e sobra 00000101."
+      }
+    },
+    {
+      "id": "lp-s2-p10",
+      "semana": 2,
+      "nivel": 3,
+      "minutos": 4,
+      "tema": "Bits para um código",
+      "origem": "Prévia · ementa",
+      "enunciado": "Um cadastro precisa dar um código binário diferente para cada um de 1.000 produtos, todos os códigos com o mesmo número de bits. Qual é o menor número de bits que resolve?",
+      "alternativas": [
+        {"t": "9", "certa": false, "erro": "Com 9 bits há 2⁹ = 512 códigos, menos que os 1.000 produtos. Faltariam 488 códigos."},
+        {"t": "12", "certa": false, "erro": "Você escreveu os códigos de 0 a 999 com 4 bits por algarismo decimal (3 × 4 = 12). Funciona, mas não é o menor: desperdiça combinações."},
+        {"t": "32", "certa": false, "erro": "Você procurou n com n² ≥ 1.000. A quantidade de códigos em n bits é 2ⁿ, e não n²."},
+        {"t": "10", "certa": true},
+        {"t": "1.000", "certa": false, "erro": "Um bit por produto, cada um ligado só para o seu item, funciona, mas é o maior jeito, não o menor. Com os bits combinados, bem menos bastam."}
+      ],
+      "dica": "Procure a menor potência de 2 que chega a 1.000.",
+      "resposta": "10 bits, porque 2⁹ = 512 não basta e 2¹⁰ = 1.024 basta.",
+      "tabela": {"onde": "explicacao", "cab": ["n", "2ⁿ", "Basta para 1.000?"], "linhas": [["8", "256", "não"], ["9", "512", "não"], ["10", "1.024", "sim"], ["11", "2.048", "sim, com folga"]]},
+      "jeitos": {
+        "visual": "Na tabela, cada linha dobra a quantidade de códigos. Imagine as 1.000 caixas de produto em fila e cada linha como um rolo de etiquetas. Com 9 bits, o rolo tem 512 etiquetas: perto da metade das caixas fica sem. Com 10 bits, tem 1.024: todas recebem uma e sobram 24. Esse é o primeiro tamanho em que nenhuma caixa fica sem etiqueta.",
+        "receita": [
+          "Quantidade de códigos com n bits: 2ⁿ.",
+          "2⁹ = 512, menor que 1.000: não basta.",
+          "2¹⁰ = 1.024, maior que 1.000: basta.",
+          "O menor n é 10."
+        ],
+        "cotidiano": "Pense em placas de carro: cada posição a mais multiplica as placas possíveis. Se as combinações acabassem, a saída seria aumentar a placa em uma posição, e não inventar um símbolo novo para cada carro. No binário, cada posição tem só dois símbolos, então cada bit a mais dobra os códigos: 512 com 9 posições, 1.024 com 10. Para 1.000 produtos, 10 posições é o mínimo.",
+        "trabalho": "No banco de dados a conta tem um passo a mais, porque os tipos inteiros vêm em bytes inteiros. Os 10 bits mínimos não cabem num TINYINT (8 bits, 256 valores sem sinal), então o menor tipo inteiro que serve é o SMALLINT, de 2 bytes, que vai até 65.535 sem sinal. Escolher o menor tipo que cabe economiza espaço em tabelas grandes e nos índices.",
+        "conversa": [
+          {"quem": "Você", "fala": "1.000 dividido por 2 dá 500. São 500 bits?"},
+          {"quem": "Monitor", "fala": "Com 2 bits, quantos códigos você faz?"},
+          {"quem": "Você", "fala": "00, 01, 10, 11. Quatro."},
+          {"quem": "Monitor", "fala": "Com 3 bits, oito. Cada bit dobra. Quantas dobras, a partir de 1, até passar de 1.000?"},
+          {"quem": "Você", "fala": "2, 4, 8, 16, 32, 64, 128, 256, 512, 1.024. Dez dobras."},
+          {"quem": "Monitor", "fala": "Então 10 bits."}
+        ],
+        "erro": "O erro mais comum é parar em 9, porque 512 parece perto de 1.000. Ficar perto não basta: o código tem de cobrir todos os itens. Outro é usar n² em vez de 2ⁿ, o que leva a 32. E há quem codifique cada algarismo decimal com 4 bits e chegue a 12, um método que existe, mas gasta mais bits que o necessário.",
+        "confira": "Tire a prova escrevendo o maior código. Numere os produtos de 0 a 999 e passe o 999 para binário: 999 = 512 + 256 + 128 + 64 + 32 + 4 + 2 + 1 = 1111100111, com 10 algarismos. Todos os outros códigos são menores e cabem nos mesmos 10 bits. E 9 bits não dão conta, porque 999 passa de 511, o maior número que 9 bits escrevem.",
+        "atalho": "Guarde uma âncora: 2¹⁰ = 1.024, perto de mil. Sempre que a quantidade ficar entre 513 e 1.024, a resposta é 10 bits. Isso elimina o 9, que fica abaixo, e o 12, o 32 e o 1.000, que sobram demais."
+      }
+    },
+    {
+      "id": "lp-s2-p11",
+      "semana": 2,
+      "nivel": 3,
+      "minutos": 4,
+      "tema": "Cor cinza em hexadecimal",
+      "origem": "Prévia · ementa",
+      "enunciado": "Um tom de cinza tem os três canais iguais: vermelho = verde = azul = 200, em decimal. Qual é o código dessa cor no formato #RRGGBB?",
+      "alternativas": [
+        {"t": "#8C8C8C", "certa": false, "erro": "Você calculou o C e o 8, mas escreveu na ordem trocada. O quociente da divisão por 16 é o algarismo da esquerda: C8."},
+        {"t": "#C8C8C8", "certa": true},
+        {"t": "#C5C5C5", "certa": false, "erro": "Você fez 200 ÷ 16 = 12,5 e usou o 5 da parte decimal. O algarismo da direita é o resto inteiro: 200 − 12 × 16 = 8."},
+        {"t": "#131313", "certa": false, "erro": "Você passou 200 para binário lendo os restos de cima para baixo: saiu 00010011, que dá 13. O certo é 11001000, que dá C8."},
+        {"t": "#C8", "certa": false, "erro": "C8 é um canal só. O formato #RRGGBB tem três pares, um por canal, mesmo quando os três são iguais."}
+      ],
+      "dica": "Divida 200 por 16 e use o quociente inteiro como algarismo da esquerda e o resto como o da direita.",
+      "resposta": "#C8C8C8",
+      "jeitos": {
+        "visual": "Desenhe o 200 como 200 bolinhas. Agrupe em pacotes de 16: formam-se 12 pacotes completos e sobram 8 bolinhas soltas. O algarismo da esquerda conta os pacotes, 12, que em hexadecimal é C. O da direita conta as soltas, 8. Cada canal é C8. Agora desenhe três caixas lado a lado, vermelho, verde e azul, e escreva C8 em cada uma: #C8C8C8.",
+        "receita": [
+          "200 ÷ 16 = 12, resto 200 − 192 = 8.",
+          "O quociente 12 vira o algarismo C; o resto 8 continua 8.",
+          "O par de cada canal é C8.",
+          "Os três canais são iguais: C8, C8, C8.",
+          "Código: #C8C8C8."
+        ],
+        "cotidiano": "É como pagar 200 usando só notas de 16 e moedas de 1. Você entrega 12 notas, que somam 192, e 8 moedas. O número de notas é o algarismo da esquerda e o de moedas, o da direita. Ninguém entrega meia nota: por isso a parte decimal de 200 ÷ 16 não serve como algarismo.",
+        "trabalho": "Cinzas aparecem muito em relatório: linhas de grade, textos de apoio, fundos de tabela. No Power BI ou no Excel, um cinza neutro é sempre um código com os três pares iguais, como #C8C8C8 ou #808080. Trocar os três pares pelo mesmo valor mais alto clareia o cinza; mais baixo, escurece. No Excel, `=DECAHEX(200)` devolve C8, e é só repetir o par três vezes.",
+        "conversa": [
+          {"quem": "Você", "fala": "200 ÷ 16 dá 12,5. Então C e 5: C5."},
+          {"quem": "Monitor", "fala": "Quanto é 12 × 16?"},
+          {"quem": "Você", "fala": "192."},
+          {"quem": "Monitor", "fala": "E quanto falta de 192 para 200?"},
+          {"quem": "Você", "fala": "8. O 0,5 era meio pacote de 16, ou seja, 8. O par é C8."},
+          {"quem": "Monitor", "fala": "Para a cor, repita o par nos três canais: #C8C8C8."}
+        ],
+        "erro": "O tropeço mais sorrateiro vem da calculadora: 200 ÷ 16 = 12,5, e o 5 da parte decimal parece o segundo algarismo. Não é: o 0,5 é meio pacote de 16, ou seja, 8 unidades. Use sempre quociente inteiro e resto. Os outros erros são inverter os algarismos, o que dá 8C, e escrever um par só, esquecendo que o formato pede um par por canal.",
+        "confira": "Converta o par de volta: C8 = 12 × 16 + 8 = 192 + 8 = 200. Bateu com o enunciado. Confira também por binário: 200 = 128 + 64 + 8 = 11001000, que em grupos de 4 é 1100 | 1000, ou seja, C | 8. Os dois caminhos dão C8, e os três canais iguais dão #C8C8C8.",
+        "atalho": "O formato #RRGGBB tem 6 algarismos: elimina #C8. 200 passa de 128, que em hexadecimal é 80, então o primeiro algarismo do par é 8 ou mais: elimina #131313. Entre C8, 8C e C5, o 8C vale 140, pouco, e o C5 vale 197, quase. Fica C8, que dá exatamente 200."
+      }
+    },
+    {
+      "id": "lp-s2-p12",
+      "semana": 2,
+      "nivel": 3,
+      "minutos": 4,
+      "tema": "Estouro em 8 bits",
+      "origem": "Prévia · ementa",
+      "enunciado": "Um processador soma 100 + 50 num registrador de 8 bits em complemento de 2 e descarta o que não cabe. Que valor decimal o registrador passa a representar?",
+      "alternativas": [
+        {"t": "150", "certa": false, "erro": "150 é a soma na matemática, mas não cabe: em 8 bits com sinal, o maior valor é 127. O padrão de bits que sai é lido como negativo."},
+        {"t": "−22", "certa": false, "erro": "Você leu 10010110 como sinal-magnitude: bit 1 de sinal e 0010110 = 22. Em complemento de 2, o bit da esquerda vale −128."},
+        {"t": "−106", "certa": true},
+        {"t": "127", "certa": false, "erro": "Você supôs que o valor trava no máximo. Alguns sistemas fazem isso, mas a soma comum do processador, que descarta o que não cabe, não trava: ela dá a volta."},
+        {"t": "106", "certa": false, "erro": "Você chegou ao módulo certo e perdeu o sinal. O bit da esquerda de 10010110 é 1, então o valor é negativo."}
+      ],
+      "dica": "Some em binário e leia o resultado com o bit da esquerda valendo −128.",
+      "resposta": "−106: 100 + 50 = 150 = 10010110, que em complemento de 2 vale 150 − 256.",
+      "tabela": {"onde": "explicacao", "cab": ["Linha", "Bits"], "linhas": [["100", "01100100"], ["50", "00110010"], ["Soma", "10010110"], ["Lido com sinal", "−128 + 16 + 4 + 2 = −106"]]},
+      "jeitos": {
+        "visual": "Imagine a faixa de 8 bits com sinal como um relógio de 256 marcas: de 0 a 127 subindo por um lado e, logo depois do 127, o ponteiro salta para −128 e segue −127, −126, até −1, antes de voltar ao 0. Partindo de 100 e andando 50 marcas, o ponteiro chega ao 127 depois de 27 passos e anda mais 23 do lado negativo: para no −106.",
+        "receita": [
+          "100 em 8 bits: 01100100. 50 em 8 bits: 00110010.",
+          "Some: 01100100 + 00110010 = 10010110.",
+          "O bit da esquerda é 1: em complemento de 2, o valor é negativo.",
+          "Leia com os pesos: −128 + 16 + 4 + 2 = −106.",
+          "Pelo atalho: 150 − 256 = −106."
+        ],
+        "cotidiano": "Pense num placar de dois dígitos combinado assim: de 00 a 49 são pontos a favor, e de 50 a 99 representam −50 a −1. Se o time está com 40 e faz mais 20, o placar mostra 60, que nessa combinação significa −40. A soma não errou: o placar é que não tem dígitos para 60 pontos a favor. É o que acontece com 150 em 8 bits.",
+        "trabalho": "No MySQL, uma coluna TINYINT com sinal vai de −128 a 127, a mesma faixa deste registrador. Mas o banco não deixa dar a volta: em modo estrito, gravar 150 num TINYINT dá erro de valor fora da faixa; sem o modo estrito, o valor é cortado para 127. A CPU não faz nenhum dos dois: soma, descarta o que não cabe e só liga um bit de aviso de estouro; se o programa não olhar esse aviso, o −106 segue em silêncio. Por isso o tipo da coluna precisa de folga para o maior valor esperado.",
+        "conversa": [
+          {"quem": "Você", "fala": "100 + 50 = 150. Não tem o que errar."},
+          {"quem": "Monitor", "fala": "Em 8 bits com sinal, qual é o maior número?"},
+          {"quem": "Você", "fala": "127. Então 150 não cabe."},
+          {"quem": "Monitor", "fala": "Os bits da soma são 10010110. Começa com 1. Como se lê em complemento de 2?"},
+          {"quem": "Você", "fala": "O bit da esquerda vale −128: −128 + 16 + 4 + 2 = −106."},
+          {"quem": "Monitor", "fala": "Dois positivos somados deram negativo: esse é o sinal do estouro."}
+        ],
+        "erro": "A armadilha é responder 150 porque a conta de cabeça está certa. A questão pergunta o que o registrador representa, e 150 não existe em 8 bits com sinal. O outro tropeço é ler os bits com a regra errada: tratar o primeiro bit só como sinal, sem peso, dá −22. Dois positivos que, somados, viram negativo são a assinatura do estouro.",
+        "confira": "Faça o caminho inverso: escreva −106 em complemento de 2 e compare com a soma. 106 = 64 + 32 + 8 + 2 = 01101010. Invertendo, 10010101; somando 1, 10010110. São exatamente os bits de 100 + 50, então o registrador guarda o −106. O mesmo teste derruba o −22: escrito em complemento de 2, ele vira 11101010, outro padrão.",
+        "atalho": "Dois positivos que passam de 127 em 8 bits sempre viram negativo: elimina 150, 127 e 106. Entre −22 e −106, faça 150 − 256 = −106. Uma conta só, sem converter nada para binário."
+      }
+    }
+  ]
+}

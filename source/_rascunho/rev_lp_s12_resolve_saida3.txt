@@ -1,0 +1,253 @@
+﻿ok     s1p04 certa  | 128
+ok     lp-s1-p04 conjunto das erradas  | ['127', '14', '256', '49']
+ok     lp-s1-p04 erro de '127' reproduz o valor  | 2^7-1
+ok     lp-s1-p04 '127' difere da certa  | (127, 128)
+ok     lp-s1-p04 erro de '256' reproduz o valor  | 2^8
+ok     lp-s1-p04 '256' difere da certa  | (256, 128)
+ok     lp-s1-p04 erro de '14' reproduz o valor  | 2*7
+ok     lp-s1-p04 '14' difere da certa  | (14, 128)
+ok     lp-s1-p04 erro de '49' reproduz o valor  | 7^2
+ok     lp-s1-p04 '49' difere da certa  | (49, 128)
+ok     s1p04 tabela 1..7 bits
+ok     s1p04 A = 65
+ok     s1p05 setembro 25
+ok     s1p05 37 = 100101
+ok     s1p06 ordem unica  | [(3, 2, 1, 4)]
+ok     s1p06 certa
+ok     s1p06 errada viola dependencia 1, 2, 3, 4
+ok     s1p06 errada viola dependencia 2, 3, 1, 4
+ok     s1p06 errada viola dependencia 3, 1, 2, 4
+ok     s1p06 errada viola dependencia 3, 2, 4, 1
+ok     s1p06 atalho: 3 comecam com 3, 2 terminam com 4
+ok     s1p07 certa
+ok     s1p07 atalho: duas com 1500 no de endereco
+ok     s1p08 certa  | 24576
+ok     lp-s1-p08 conjunto das erradas  | ['24', '24.000', '3.072', '384']
+ok     lp-s1-p08 erro de '3.072' reproduz o valor  | bytes
+ok     lp-s1-p08 '3.072' difere da certa  | (3072, 24576)
+ok     lp-s1-p08 erro de '24.000' reproduz o valor  | 1000
+ok     lp-s1-p08 '24.000' difere da certa  | (24000, 24576)
+ok     lp-s1-p08 erro de '384' reproduz o valor  | 3072/8
+ok     lp-s1-p08 '384' difere da certa  | (384, 24576)
+ok     lp-s1-p08 erro de '24' reproduz o valor  | 3*8
+ok     lp-s1-p08 '24' difere da certa  | (24, 24576)
+ok     s1p08 confira volta
+ok     s1p08 trabalho 8 s (mesmo prefixo)
+ok     s1p08 trabalho >= 8 s (MB = 2^20, Mbps = 10^6)
+ok     s1p09 certa
+ok     s1p09 atalho sobram tres  | ['I engenharia de software; II inteligência artificial; III teoria da computação; IV computação gráfica', 'I banco de dados; II inteligência artificial; III teoria da computação; IV computação gráfica', 'I banco de dados; II segurança; III teoria da computação; IV computação gráfica']
+ok     s1p09 atalho fecha em uma
+ok     s1p10 certa  | 1024
+ok     lp-s1-p10 conjunto das erradas  | ['1.000', '128', '32.768', '4.096']
+ok     lp-s1-p10 erro de '128' reproduz o valor  | 4096/32
+ok     lp-s1-p10 '128' difere da certa  | (128, 1024)
+ok     lp-s1-p10 erro de '4.096' reproduz o valor  | bytes
+ok     lp-s1-p10 '4.096' difere da certa  | (4096, 1024)
+ok     lp-s1-p10 erro de '1.000' reproduz o valor  | 4000/4
+ok     lp-s1-p10 '1.000' difere da certa  | (1000, 1024)
+ok     lp-s1-p10 erro de '32.768' reproduz o valor  | bits
+ok     lp-s1-p10 '32.768' difere da certa  | (32768, 1024)
+ok     s1p10 confira bits
+ok     s1p10 BIGINT 512
+ok     s1p10 atalho: so 1.000 nao e potencia de 2
+ok     s1p11 certa  | 13
+ok     lp-s1-p11 conjunto das erradas  | ['104', '11', '12', '22']
+ok     lp-s1-p11 erro de '11' reproduz o valor  | caracteres
+ok     lp-s1-p11 '11' difere da certa  | (11, 13)
+ok     lp-s1-p11 erro de '22' reproduz o valor  | 2 por letra
+ok     lp-s1-p11 '22' difere da certa  | (22, 13)
+ok     lp-s1-p11 erro de '12' reproduz o valor  | so o ã
+ok     lp-s1-p11 '12' difere da certa  | (12, 13)
+ok     lp-s1-p11 erro de '104' reproduz o valor  | bits
+ok     lp-s1-p11 '104' difere da certa  | (104, 13)
+ok     s1p11 9 + 2
+ok     s1p11 mojibake cp1252
+ok     s1p11 mojibake latin-1
+ok     s1p11 confira: 'a' termina no 8
+ok     s1p11 confira: ç em 9-10, ã em 11-12, o em 13  | {'C': [(1, 1)], 'o': [(2, 2), (13, 13)], 'n': [(3, 3)], 'c': [(4, 4)], 'i': [(5, 5), (7, 7)], 'l': [(6, 6)], 'a': [(8, 8)], 'ç': [(9, 10)], 'ã': [(11, 12)]}
+ok     s1p11 bytes de ç e ã
+ok     s1p12 certa  | 17
+ok     lp-s1-p12 conjunto das erradas  | ['0', '12', '32', '5']
+ok     lp-s1-p12 erro de '12' reproduz o valor  | uma soma so
+ok     lp-s1-p12 '12' difere da certa  | (12, 17)
+ok     lp-s1-p12 erro de '32' reproduz o valor  | enderecos
+ok     lp-s1-p12 '32' difere da certa  | (32, 17)
+ok     lp-s1-p12 erro de '0' reproduz o valor  | valor antigo
+ok     lp-s1-p12 '0' difere da certa  | (0, 17)
+ok     lp-s1-p12 erro de '5' reproduz o valor  | substituir
+ok     lp-s1-p12 '5' difere da certa  | (5, 17)
+ok     s1p12 confira de tras para frente
+ok     s1p12 tabela enunciado
+ok     s2p01 certa  | 11001
+ok     s2p01 tabela
+ok     lp-s2-p01 conjunto das erradas  | ['10011', '10101', '1100', '11010']
+ok     lp-s2-p01 erro de '10011' reproduz o valor  | restos de cima para baixo = 19
+ok     lp-s2-p01 '10011' difere da certa  | ('10011', '11001')
+ok     lp-s2-p01 erro de '1100' reproduz o valor  | so o 12
+ok     lp-s2-p01 '1100' difere da certa  | ('1100', '11001')
+ok     lp-s2-p01 erro de '10101' reproduz o valor  | algarismo a algarismo = 21
+ok     lp-s2-p01 '10101' difere da certa  | ('10101', '11001')
+ok     lp-s2-p01 erro de '11010' reproduz o valor  | 26
+ok     lp-s2-p01 '11010' difere da certa  | ('11010', '11001')
+ok     s2p01 atalho
+ok     s2p01 confira
+ok     s2p02 certa  | 52
+ok     lp-s2-p02 conjunto das erradas  | ['104', '11', '26', '3']
+ok     lp-s2-p02 erro de '11' reproduz o valor  | espelhado
+ok     lp-s2-p02 '11' difere da certa  | (11, 52)
+ok     lp-s2-p02 erro de '3' reproduz o valor  | contou uns
+ok     lp-s2-p02 '3' difere da certa  | (3, 52)
+ok     lp-s2-p02 erro de '26' reproduz o valor  | uma posicao a menos
+ok     lp-s2-p02 '26' difere da certa  | (26, 52)
+ok     lp-s2-p02 erro de '104' reproduz o valor  | comecou em 2^1
+ok     lp-s2-p02 '104' difere da certa  | (104, 52)
+ok     s2p02 confira 52 de volta
+ok     s2p02 atalho
+ok     s2p03 certa  | B6
+ok     lp-s2-p03 conjunto das erradas  | ['116', '182', '266', '6B']
+ok     lp-s2-p03 erro de '6B' reproduz o valor  | grupos trocados
+ok     lp-s2-p03 '6B' difere da certa  | ('6B', 'B6')
+ok     lp-s2-p03 erro de '266' reproduz o valor  | octal
+ok     lp-s2-p03 '266' difere da certa  | ('266', 'B6')
+ok     lp-s2-p03 erro de '116' reproduz o valor  | 11 e 6 decimais
+ok     lp-s2-p03 '116' difere da certa  | ('116', 'B6')
+ok     lp-s2-p03 erro de '182' reproduz o valor  | decimal
+ok     lp-s2-p03 '182' difere da certa  | ('182', 'B6')
+ok     s2p03 6B = 107 e B6 = 182
+ok     s2p04 certa
+ok     s2p04 erradas
+ok     s2p04 tabela
+ok     s2p04 11111111 + 1
+ok     s2p05 certa  | 10010
+ok     lp-s2-p05 conjunto das erradas  | ['0010', '10000', '1100', '1111']
+ok     lp-s2-p05 erro de '1100' reproduz o valor  | sem vai-um (xor) = 12
+ok     lp-s2-p05 '1100' difere da certa  | ('1100', '10010')
+ok     lp-s2-p05 erro de '0010' reproduz o valor  | descarta 5o bit
+ok     lp-s2-p05 '0010' difere da certa  | ('0010', '10010')
+ok     lp-s2-p05 erro de '1111' reproduz o valor  | ou logico
+ok     lp-s2-p05 '1111' difere da certa  | ('1111', '10010')
+ok     lp-s2-p05 erro de '10000' reproduz o valor  | escreveu 0 na 2a coluna
+ok     lp-s2-p05 '10000' difere da certa  | ('10000', '10010')
+ok     s2p05 tabela colunas  | [(2, 0, 1), (3, 1, 1), (2, 0, 1), (2, 0, 1)]
+ok     s2p05 decimal
+ok     s2p06 certa  | 11101100
+ok     lp-s2-p06 conjunto das erradas  | ['00010100', '10010100', '11101000', '11101011']
+ok     lp-s2-p06 erro de '10010100' reproduz o valor  | sinal-magnitude, -108
+ok     lp-s2-p06 '10010100' difere da certa  | ('10010100', '11101100')
+ok     lp-s2-p06 erro de '11101011' reproduz o valor  | complemento de 1
+ok     lp-s2-p06 '11101011' difere da certa  | ('11101011', '11101100')
+ok     lp-s2-p06 erro de '00010100' reproduz o valor  | +20
+ok     lp-s2-p06 '00010100' difere da certa  | ('00010100', '11101100')
+ok     lp-s2-p06 erro de '11101000' reproduz o valor  | atalho errado, -24
+ok     lp-s2-p06 '11101000' difere da certa  | ('11101000', '11101100')
+ok     s2p06 atalho certo
+ok     s2p06 Excel 10 bits
+ok     s2p06 conversa 10010100 + 00010100
+ok     s2p06 soma com +20 da 2^8
+ok     s2p06 sem sinal 236, odometro 980
+ok     s2p06 pesos
+ok     s2p06 erro 10100 invertido
+ok     s2p07 certa  | (255, 128, 0)
+ok     lp-s2-p07 conjunto das erradas  | ['(0, 128, 255)', '(15, 8, 0)', '(255, 80, 0)', '(256, 128, 0)']
+ok     lp-s2-p07 erro de '(255, 80, 0)' reproduz o valor  | copiou 80
+ok     lp-s2-p07 '(255, 80, 0)' difere da certa  | ((255, 80, 0), (255, 128, 0))
+ok     lp-s2-p07 erro de '(0, 128, 255)' reproduz o valor  | ordem invertida
+ok     lp-s2-p07 '(0, 128, 255)' difere da certa  | ((0, 128, 255), (255, 128, 0))
+ok     lp-s2-p07 erro de '(256, 128, 0)' reproduz o valor  | FF = 16x16
+ok     lp-s2-p07 '(256, 128, 0)' difere da certa  | ((256, 128, 0), (255, 128, 0))
+ok     lp-s2-p07 erro de '(15, 8, 0)' reproduz o valor  | so 1o algarismo
+ok     lp-s2-p07 '(15, 8, 0)' difere da certa  | ((15, 8, 0), (255, 128, 0))
+ok     s2p07 FF = 15*16+15
+ok     s2p08 certa  | 2F
+ok     lp-s2-p08 conjunto das erradas  | ['39', '47', '57', 'B3']
+ok     lp-s2-p08 erro de 'B3' reproduz o valor  | agrupou pela esquerda
+ok     lp-s2-p08 'B3' difere da certa  | ('B3', '2F')
+ok     lp-s2-p08 erro de '39' reproduz o valor  | 57 decimal
+ok     lp-s2-p08 '39' difere da certa  | ('39', '2F')
+ok     lp-s2-p08 erro de '47' reproduz o valor  | decimal
+ok     lp-s2-p08 '47' difere da certa  | ('47', '2F')
+ok     lp-s2-p08 erro de '57' reproduz o valor  | 4 bits por algarismo
+ok     lp-s2-p08 '57' difere da certa  | ('57', '2F')
+ok     s2p08 binario e grupos
+ok     s2p08 confira
+ok     s2p08 atalho
+ok     s2p08 755
+ok     s2p09 certa  | 00000101, que vale 5
+ok     lp-s2-p09 conjunto das erradas  | ['00011001, que vale 25', '100000101, que vale 261', '10000101, que vale −123', '11111001, que vale −7']
+ok     lp-s2-p09 erro de '100000101, que vale 261' reproduz o valor  | manteve 9o bit
+ok     lp-s2-p09 '100000101, que vale 261' difere da certa  | (261, 5)
+ok     lp-s2-p09 erro de '11111001, que vale −7' reproduz o valor  | xor
+ok     lp-s2-p09 '11111001, que vale −7' difere da certa  | (-7, 5)
+ok     lp-s2-p09 erro de '00011001, que vale 25' reproduz o valor  | leu +10
+ok     lp-s2-p09 '00011001, que vale 25' difere da certa  | (25, 5)
+ok     lp-s2-p09 erro de '10000101, que vale −123' reproduz o valor  | vai-um no sinal
+ok     lp-s2-p09 '10000101, que vale −123' difere da certa  | (-123, 5)
+ok     s2p09 -10
+ok     s2p09 cadeia de vai-um a partir da 2a coluna
+ok     s2p09 relogio
+ok     s2p09 pesos
+ok     s2p10 certa  | 10
+ok     lp-s2-p10 conjunto das erradas  | ['1.000', '12', '32', '9']
+ok     lp-s2-p10 erro de '9' reproduz o valor  | 512
+ok     lp-s2-p10 '9' difere da certa  | (9, 10)
+ok     lp-s2-p10 erro de '12' reproduz o valor  | BCD
+ok     lp-s2-p10 '12' difere da certa  | (12, 10)
+ok     lp-s2-p10 erro de '32' reproduz o valor  | n^2
+ok     lp-s2-p10 '32' difere da certa  | (32, 10)
+ok     lp-s2-p10 erro de '1.000' reproduz o valor  | um bit por produto
+ok     lp-s2-p10 '1.000' difere da certa  | (1000, 10)
+ok     s2p10 999 em binario
+ok     s2p10 sobram 24
+ok     s2p10 faixa 513..1024
+ok     s2p10 SMALLINT unsigned
+ok     s2p11 certa  | #C8C8C8
+ok     lp-s2-p11 conjunto das erradas  | ['#131313', '#8C8C8C', '#C5C5C5', '#C8']
+ok     lp-s2-p11 erro de '#8C8C8C' reproduz o valor  | trocou
+ok     lp-s2-p11 '#8C8C8C' difere da certa  | ('#8C8C8C', '#C8C8C8')
+ok     lp-s2-p11 erro de '#C5C5C5' reproduz o valor  | parte decimal
+ok     lp-s2-p11 '#C5C5C5' difere da certa  | ('#C5C5C5', '#C8C8C8')
+ok     lp-s2-p11 erro de '#131313' reproduz o valor  | restos de cima
+ok     lp-s2-p11 '#131313' difere da certa  | ('#131313', '#C8C8C8')
+ok     lp-s2-p11 erro de '#C8' reproduz o valor  | um par so
+ok     lp-s2-p11 '#C8' difere da certa  | ('#C8', '#C8C8C8')
+ok     s2p11 binario
+ok     s2p12 certa  | -106
+ok     lp-s2-p12 conjunto das erradas  | ['106', '127', '150', '−22']
+ok     lp-s2-p12 erro de '150' reproduz o valor  | matematica
+ok     lp-s2-p12 '150' difere da certa  | (150, -106)
+ok     lp-s2-p12 erro de '−22' reproduz o valor  | sinal-magnitude
+ok     lp-s2-p12 '−22' difere da certa  | (-22, -106)
+ok     lp-s2-p12 erro de '127' reproduz o valor  | saturacao
+ok     lp-s2-p12 '127' difere da certa  | (127, -106)
+ok     lp-s2-p12 erro de '106' reproduz o valor  | modulo
+ok     lp-s2-p12 '106' difere da certa  | (106, -106)
+ok     s2p12 bits
+ok     s2p12 relogio
+ok     s2p12 placar
+ok     s2p12 confira inverso
+ok     s2p12 confira -22
+ok     teo 352
+ok     teo 1011 = 11
+ok     teo 13 = 1101 (restos)
+ok     teo D7 / 327 / 215
+ok     teo 0110 + 0011
+ok     teo -5
+ok     teo 256^3
+ok     teo 21
+ok     teo euro 3 bytes, emoji 4
+ok     teo faixa 8 bits
+ok     teo palavras 32/64 bits
+ok     lab s1: 7 da direita = 127
+ok     lab s2: 5, inverter, +1
+ok     lab s2: 128 com sinal
+ok     ids = pedido  | set()
+ok     4 por nivel por semana  | {(1, 1): 4, (1, 2): 4, (1, 3): 4, (2, 1): 4, (2, 2): 4, (2, 3): 4}
+ok     posicoes <= 30%  | {'A': 5, 'B': 5, 'C': 5, 'D': 5, 'E': 4}
+ok     origem
+ok     teoria s1 e s2 na p1
+ok     lp_s12_p1.json sem BOM e sem byte de controle
+ok     lp_s12_p2.json sem BOM e sem byte de controle
+ok     lp_s12_p3.json sem BOM e sem byte de controle
+ok     lp_s12_p4.json sem BOM e sem byte de controle
+
+FALHAS: nenhuma

@@ -1,0 +1,311 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s1-l1q3",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Prolongar um segmento",
+      "origem": "Lista 1 · Q3",
+      "enunciado": "Dados os pontos A = (1, 1, 3) e B = (−3, 1, 5), até que ponto se deve prolongar o segmento AB, no sentido de A para B, para que seu comprimento triplique?",
+      "alternativas": [
+        {"t": "(−7, 1, 7)", "certa": false, "erro": "Esse é A + 2·[[AB]] (ou B + [[AB]]): o segmento ficou com o dobro do tamanho, não o triplo."},
+        {"t": "(−15, 1, 11)", "certa": false, "erro": "Você partiu de B e somou 3·[[AB]]. Aí o segmento inteiro, contado de A, mede 4 vezes o original."},
+        {"t": "(−11, 1, 9)", "certa": true},
+        {"t": "(13, 1, −3)", "certa": false, "erro": "Você fez A − 3·[[AB]] e andou no sentido de B para A. O enunciado pede o sentido de A para B."},
+        {"t": "(−12, 0, 6)", "certa": false, "erro": "Esse é o vetor 3·[[AB]], não um ponto. Faltou somar esse deslocamento ao ponto de partida A."}
+      ],
+      "dica": "Ache o vetor [[AB]] = B − A. Triplicar o comprimento a partir de A é andar três vezes esse vetor.",
+      "resposta": "P = (−11, 1, 9)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "ponto", "em": [1, 1, 3], "rot": "A"},
+          {"tipo": "ponto", "em": [-3, 1, 5], "rot": "B"},
+          {"tipo": "ponto", "em": [-7, 1, 7], "rot": ""},
+          {"tipo": "ponto", "em": [-11, 1, 9], "rot": "P"},
+          {"tipo": "vetor", "de": [1, 1, 3], "ate": [-3, 1, 5], "rot": "AB", "cor": 1},
+          {"tipo": "vetor", "de": [-3, 1, 5], "ate": [-7, 1, 7], "rot": "", "cor": 1},
+          {"tipo": "vetor", "de": [-7, 1, 7], "ate": [-11, 1, 9], "rot": "", "cor": 1}
+        ],
+        "legenda": "Três passos iguais a [[AB]], encostados um no outro, levam de A até P."
+      },
+      "jeitos": {
+        "visual": "Imagine A e B como dois postes na mesma rua. O passo que leva de A até B é [[AB]] = (−4, 0, 2). Para o segmento ficar três vezes mais comprido saindo de A, você dá esse mesmo passo três vezes seguidas: A → B → um ponto intermediário → P. Na figura, as três setas azuis são iguais e ficam encostadas uma na outra. O fim da terceira seta é a resposta.",
+        "receita": [
+          "Calcule o passo: [[AB]] = B − A = (−3 − 1, 1 − 1, 5 − 3) = (−4, 0, 2).",
+          "O segmento novo começa em A e mede 3 vezes o original: P = A + 3·[[AB]].",
+          "Multiplique: 3·[[AB]] = (−12, 0, 6).",
+          "Some ao ponto de partida: P = (1 − 12, 1 + 0, 3 + 6) = (−11, 1, 9)."
+        ],
+        "cotidiano": "Pense numa trena. Você mediu de A até B. Para marcar três vezes essa distância na mesma direção, você conta três trenas a partir de A, e não a partir de B. Quem recomeça de B ganha uma trena a mais sem perceber.",
+        "trabalho": "É a mesma conta de projetar uma série com variação constante. Se de um mês para o outro o valor muda (−4, 0, 2), três meses depois do ponto inicial a mudança acumulada é 3 × (−4, 0, 2). Valor final = valor inicial + 3 × variação. O tropeço clássico é aplicar as três variações a partir do segundo mês, e não do primeiro.",
+        "conversa": [
+          {"quem": "Você", "fala": "Se é para triplicar, não é só multiplicar o B por 3?"},
+          {"quem": "Monitor", "fala": "3·B dá (−9, 3, 15). Esse ponto nem fica na reta de A e B. Quem cresce é o deslocamento, não o ponto."},
+          {"quem": "Você", "fala": "Então multiplico o [[AB]]?"},
+          {"quem": "Monitor", "fala": "Isso. [[AB]] = (−4, 0, 2), três vezes dá (−12, 0, 6). E o segmento sai de onde?"},
+          {"quem": "Você", "fala": "De A. Então A + (−12, 0, 6) = (−11, 1, 9)."},
+          {"quem": "Monitor", "fala": "É esse o ponto. O segmento AP mede três vezes o AB."}
+        ],
+        "erro": "A armadilha é começar em B. Como o enunciado fala em prolongar, dá vontade de partir de onde o segmento termina e somar 3·[[AB]] a B. Só que o comprimento total passa a ser 4 vezes o original. Prolongar até triplicar quer dizer: o segmento inteiro, contado de A, mede 3 vezes o AB.",
+        "confira": "Calcule [[AP]] = P − A = (−12, 0, 6). Ele é exatamente 3·(−4, 0, 2): mesmo sentido e três vezes o tamanho. Se o seu ponto der um [[AP]] que não é múltiplo positivo de (−4, 0, 2), ele está fora da reta ou do lado errado.",
+        "atalho": "A coordenada y não muda de A para B (vale 1 nos dois). Elimine qualquer alternativa com y diferente de 1. Depois olhe o z: ele sobe 2 a cada passo, então termina em 3 + 6 = 9. Só uma alternativa tem y = 1 e z = 9."
+      }
+    },
+    {
+      "id": "ga-s1-l1q4",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Quarto vértice do paralelogramo",
+      "origem": "Lista 1 · Q4",
+      "enunciado": "Encontre as coordenadas do vértice oposto a B no paralelogramo ABCD, sendo dados A = (1, −2, 3), B = (1, 1, −3) e C = (−1, 1, −2).",
+      "alternativas": [
+        {"t": "(−1, −2, 4)", "certa": true},
+        {"t": "(3, −2, 2)", "certa": false, "erro": "Você somou [[CB]] = B − C a A, quando o lado AD é igual a [[BC]] = C − B. Com o sentido trocado, A + (2, 0, −1) = (3, −2, 2)."},
+        {"t": "(−1, 4, −8)", "certa": false, "erro": "Você fez D = C + [[AB]]. Mas [[DC]] = [[AB]], então de C até D você anda contra [[AB]]: D = C − [[AB]]."},
+        {"t": "(0, −1/2, 1/2)", "certa": false, "erro": "Esse é o ponto médio de AC, (A + C)/2, onde as diagonais se cruzam. É o centro do paralelogramo, não um vértice."},
+        {"t": "(−1, −2, −2)", "certa": false, "erro": "Na terceira coordenada você fez 3 + (−2) − 3. O z de B é −3, e subtrair −3 é somar 3: 3 − 2 + 3 = 4."}
+      ],
+      "dica": "Num paralelogramo ABCD, o lado AD é paralelo e igual ao lado BC. Ande a partir de A com o mesmo vetor que leva B até C.",
+      "resposta": "D = (−1, −2, 4)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[1, -2, 3], [1, 1, -3], [-1, 1, -2], [-1, -2, 4]], "cor": 3},
+          {"tipo": "ponto", "em": [1, -2, 3], "rot": "A"},
+          {"tipo": "ponto", "em": [1, 1, -3], "rot": "B"},
+          {"tipo": "ponto", "em": [-1, 1, -2], "rot": "C"},
+          {"tipo": "ponto", "em": [-1, -2, 4], "rot": "D"},
+          {"tipo": "vetor", "de": [1, 1, -3], "ate": [-1, 1, -2], "rot": "BC", "cor": 1},
+          {"tipo": "vetor", "de": [1, -2, 3], "ate": [-1, -2, 4], "rot": "AD", "cor": 1},
+          {"tipo": "segmento", "de": [1, -2, 3], "ate": [-1, 1, -2], "tracejado": true},
+          {"tipo": "segmento", "de": [1, 1, -3], "ate": [-1, -2, 4], "tracejado": true},
+          {"tipo": "ponto", "em": [0, -0.5, 0.5], "rot": "M"}
+        ],
+        "legenda": "As setas [[BC]] e [[AD]] são iguais. As diagonais tracejadas se cruzam em M, ponto médio de AC e de BD."
+      },
+      "jeitos": {
+        "visual": "Na figura, o paralelogramo tem as letras em sequência: A, B, C, D. Lados opostos são setas iguais. A seta azul [[BC]] = (−2, 0, 1) leva B até C. A outra seta azul, com o mesmo tamanho, direção e sentido, sai de A e chega em D. Os tracejados são as diagonais AC e BD; elas se cruzam no ponto M, bem no meio de cada uma.",
+        "receita": [
+          "Na ordem ABCD, B e D são vértices opostos, e [[AD]] = [[BC]].",
+          "Calcule [[BC]] = C − B = (−1 − 1, 1 − 1, −2 − (−3)) = (−2, 0, 1).",
+          "Ande a partir de A: D = A + [[BC]] = (1 − 2, −2 + 0, 3 + 1).",
+          "Logo D = (−1, −2, 4)."
+        ],
+        "cotidiano": "Imagine quatro lojas nos cantos de um quarteirão em forma de paralelogramo. Para ir de B até C, você anda 2 quadras para oeste e sobe 1 andar. A rua do lado oposto é paralela e do mesmo tamanho: saindo de A, você faz o mesmo trajeto e chega em D. O que se copia é o caminho, não a posição.",
+        "trabalho": "É a lógica de replicar uma variação. Se de B para C um indicador mudou (−2, 0, 1), e A está para D como B está para C, então D é A com a mesma variação. No Excel, com A, B e C em três colunas, a coluna de D seria `=A2+C2-B2`. A fórmula D = A + C − B resume o paralelogramo inteiro numa linha.",
+        "conversa": [
+          {"quem": "Você", "fala": "Fiz D = C + [[AB]] e deu (−1, 4, −8)."},
+          {"quem": "Monitor", "fala": "Desenhe ABCD na ordem. O lado DC é igual a qual lado?"},
+          {"quem": "Você", "fala": "Ao AB. Ir de D até C é o mesmo que ir de A até B."},
+          {"quem": "Monitor", "fala": "Então, saindo de C, para chegar em D você anda a favor de [[AB]] ou contra?"},
+          {"quem": "Você", "fala": "Contra. É D = C − [[AB]] = (−1, −2, 4)."},
+          {"quem": "Monitor", "fala": "Agora calcule D = A + [[BC]] e veja se dá o mesmo ponto."}
+        ],
+        "erro": "A ordem das letras manda. Em ABCD, os vizinhos de B são A e C, e o oposto é D. A armadilha é somar o vetor no sentido errado, usando [[CB]] no lugar de [[BC]], ou somar [[AB]] a C em vez de subtrair. Outra é parar no ponto médio de AC, que é o centro da figura e não um vértice. Desenhe as quatro letras em roda antes de calcular.",
+        "confira": "As diagonais de um paralelogramo se cortam ao meio. O ponto médio de AC é ((1 − 1)/2, (−2 + 1)/2, (3 − 2)/2) = (0, −1/2, 1/2). O ponto médio de BD, com D = (−1, −2, 4), é ((1 − 1)/2, (1 − 2)/2, (−3 + 4)/2) = (0, −1/2, 1/2). Os dois coincidem, então D está certo.",
+        "atalho": "Use D = A + C − B direto, coordenada a coordenada. O x é 1 − 1 − 1 = −1, o que elimina (3, −2, 2) e (0, −1/2, 1/2). O y é −2 + 1 − 1 = −2, o que tira (−1, 4, −8). Sobram duas, e o z decide: 3 − 2 + 3 = 4."
+      }
+    },
+    {
+      "id": "ga-s1-l1q5a",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Vetor no paralelepípedo",
+      "origem": "Lista 1 · Q5a",
+      "enunciado": "Seja ABCDEFGH um paralelepípedo. Sendo [[u]] = [[AB]], [[v]] = [[AD]] e [[w]] = [[AE]], exprima [[HB]] em função de [[u]], [[v]] e [[w]].",
+      "alternativas": [
+        {"t": "−[[u]] + [[v]] + [[w]]", "certa": false, "erro": "Esse é [[BH]]: você fez H − B. O vetor [[HB]] sai de H e chega em B, então é B − H, com todos os sinais trocados."},
+        {"t": "[[u]] + [[v]] + [[w]]", "certa": false, "erro": "Essa é a diagonal [[AG]], que vai de A até o vértice G. O vetor pedido começa em H, não em A."},
+        {"t": "[[u]] − [[v]] + [[w]]", "certa": false, "erro": "Esse é [[DF]]: você subiu em vez de descer. H está em cima e B embaixo, então de H até B o [[w]] entra com menos."},
+        {"t": "[[u]] − [[v]] − [[w]]", "certa": true},
+        {"t": "[[u]] + [[v]] − [[w]]", "certa": false, "erro": "Esse é [[EC]]. H fica no fundo, do lado de D, e B na frente: de H até B você anda contra [[v]], então ele entra com menos."}
+      ],
+      "dica": "Escolha um caminho pelas arestas que sai de H e chega em B. Cada aresta vale [[u]], [[v]] ou [[w]], com sinal de menos quando você anda contra a seta.",
+      "resposta": "[[HB]] = [[u]] − [[v]] − [[w]]",
+      "figura": {
+        "modo": "3d",
+        "onde": "enunciado",
+        "itens": [
+          {"tipo": "segmento", "de": [3, 0, 0], "ate": [3, 2, 0]},
+          {"tipo": "segmento", "de": [3, 2, 0], "ate": [0, 2, 0]},
+          {"tipo": "segmento", "de": [0, 0, 2], "ate": [3, 0, 2]},
+          {"tipo": "segmento", "de": [3, 0, 2], "ate": [3, 2, 2]},
+          {"tipo": "segmento", "de": [3, 2, 2], "ate": [0, 2, 2]},
+          {"tipo": "segmento", "de": [0, 2, 2], "ate": [0, 0, 2]},
+          {"tipo": "segmento", "de": [3, 0, 0], "ate": [3, 0, 2]},
+          {"tipo": "segmento", "de": [3, 2, 0], "ate": [3, 2, 2]},
+          {"tipo": "segmento", "de": [0, 2, 0], "ate": [0, 2, 2]},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [3, 0, 0], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [0, 2, 0], "rot": "v", "cor": 2},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [0, 0, 2], "rot": "w", "cor": 3},
+          {"tipo": "ponto", "em": [0, 0, 0], "rot": "A"},
+          {"tipo": "ponto", "em": [3, 0, 0], "rot": "B"},
+          {"tipo": "ponto", "em": [3, 2, 0], "rot": "C"},
+          {"tipo": "ponto", "em": [0, 2, 0], "rot": "D"},
+          {"tipo": "ponto", "em": [0, 0, 2], "rot": "E"},
+          {"tipo": "ponto", "em": [3, 0, 2], "rot": "F"},
+          {"tipo": "ponto", "em": [3, 2, 2], "rot": "G"},
+          {"tipo": "ponto", "em": [0, 2, 2], "rot": "H"}
+        ],
+        "legenda": "Paralelepípedo ABCDEFGH com [[u]] = [[AB]] (azul), [[v]] = [[AD]] (coral) e [[w]] = [[AE]] (ocre). Gire para achar H e B."
+      },
+      "jeitos": {
+        "visual": "Gire a figura até ver H no alto, em cima de D, e B embaixo, na ponta de [[u]]. Um caminho pelas arestas: de H desça até D (contra a seta ocre [[w]]), de D vá até A (contra a seta coral [[v]]) e de A siga até B (a favor da seta azul [[u]]). São três trechos: −[[w]], −[[v]] e +[[u]]. A ordem em que você anda não muda o saldo.",
+        "receita": [
+          "Escreva cada ponto a partir de A: B = A + [[u]] e H = A + [[v]] + [[w]], porque H fica em cima de D.",
+          "O vetor pedido é destino menos origem: [[HB]] = B − H.",
+          "Substitua: B − H = (A + [[u]]) − (A + [[v]] + [[w]]).",
+          "O A se cancela: [[HB]] = [[u]] − [[v]] − [[w]]."
+        ],
+        "cotidiano": "Pense numa sala em forma de caixa. Você está no teto, no canto do fundo à esquerda (H), e quer chegar ao chão, no canto da frente à direita (B). Você desce a parede, anda do fundo para a frente e caminha para a direita. Descer é andar contra a subida [[w]], vir para a frente é andar contra [[v]], ir para a direita é andar a favor de [[u]].",
+        "trabalho": "No Power BI, a variação entre dois cenários costuma ser quebrada por fator: quanto veio do preço, quanto do volume, quanto do mix. Aqui a variação de H para B se quebra em três fatores. B tem só [[u]]; H tem [[v]] e [[w]]. Destino menos origem, fator a fator: [[u]] entra com +1, [[v]] com −1 e [[w]] com −1.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei [[HB]] = −[[u]] + [[v]] + [[w]]."},
+          {"quem": "Monitor", "fala": "Que conta você fez para chegar nisso?"},
+          {"quem": "Você", "fala": "H − B. Então meu vetor vai de B até H."},
+          {"quem": "Monitor", "fala": "E o enunciado pede de H até B. Qual é a conta certa?"},
+          {"quem": "Você", "fala": "B − H. Troco todos os sinais: [[u]] − [[v]] − [[w]]."},
+          {"quem": "Monitor", "fala": "Confira pelas arestas: de H para B você sobe ou desce?"},
+          {"quem": "Você", "fala": "Desce. Por isso o −[[w]]."}
+        ],
+        "erro": "Trocar origem e destino é o deslize número um: [[HB]] é B − H, não H − B. Quem inverte chega em −[[u]] + [[v]] + [[w]], que é [[BH]]. O outro tropeço é localizar H errado. H fica em cima de D, não em cima de A nem de C. Por isso H = A + [[v]] + [[w]], sem [[u]].",
+        "confira": "Use as coordenadas da figura: [[u]] = (3, 0, 0), [[v]] = (0, 2, 0) e [[w]] = (0, 0, 2). B = (3, 0, 0) e H = (0, 2, 2), então B − H = (3, −2, −2). Agora [[u]] − [[v]] − [[w]] = (3 − 0 − 0, 0 − 2 − 0, 0 − 0 − 2) = (3, −2, −2). Os dois batem.",
+        "atalho": "Olhe a altura primeiro: H está em cima e B embaixo. Para ir de H até B você desce, então [[w]] entra com menos. Isso elimina três alternativas. Entre as duas que restam, veja a profundidade: H está no fundo e B na frente, então [[v]] também entra com menos."
+      }
+    },
+    {
+      "id": "ga-s1-l1q5b",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Diagonal de uma face",
+      "origem": "Lista 1 · Q5b",
+      "enunciado": "Seja ABCDEFGH um paralelepípedo. Sendo [[u]] = [[AB]], [[v]] = [[AD]] e [[w]] = [[AE]], exprima [[CH]] em função de [[u]], [[v]] e [[w]].",
+      "alternativas": [
+        {"t": "[[u]] − [[w]]", "certa": false, "erro": "Esse é [[HC]]: você fez C − H. O vetor [[CH]] parte de C e termina em H, então é H − C."},
+        {"t": "−[[u]] + [[w]]", "certa": true},
+        {"t": "−[[u]] + [[v]] + [[w]]", "certa": false, "erro": "Esse é [[BH]]: você tratou C como se estivesse na frente, no lugar de B. C = A + [[u]] + [[v]] tem [[v]], e ele se cancela com o [[v]] de H."},
+        {"t": "[[u]] + [[w]]", "certa": false, "erro": "Você somou [[u]] em vez de subtrair. De C para H você anda da direita para a esquerda, contra a seta [[u]]."},
+        {"t": "−[[u]] − [[v]] + [[w]]", "certa": false, "erro": "Esse vetor vai de C até E. H fica em cima de D, no fundo; por isso o [[v]] não entra com menos, ele se cancela."}
+      ],
+      "dica": "C e H estão na mesma face, a do fundo. Ache um caminho de C até H andando só pelas arestas dessa face.",
+      "resposta": "[[CH]] = −[[u]] + [[w]]",
+      "figura": {
+        "modo": "3d",
+        "onde": "enunciado",
+        "itens": [
+          {"tipo": "segmento", "de": [3, 0, 0], "ate": [3, 2, 0]},
+          {"tipo": "segmento", "de": [3, 2, 0], "ate": [0, 2, 0]},
+          {"tipo": "segmento", "de": [0, 0, 2], "ate": [3, 0, 2]},
+          {"tipo": "segmento", "de": [3, 0, 2], "ate": [3, 2, 2]},
+          {"tipo": "segmento", "de": [3, 2, 2], "ate": [0, 2, 2]},
+          {"tipo": "segmento", "de": [0, 2, 2], "ate": [0, 0, 2]},
+          {"tipo": "segmento", "de": [3, 0, 0], "ate": [3, 0, 2]},
+          {"tipo": "segmento", "de": [3, 2, 0], "ate": [3, 2, 2]},
+          {"tipo": "segmento", "de": [0, 2, 0], "ate": [0, 2, 2]},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [3, 0, 0], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [0, 2, 0], "rot": "v", "cor": 2},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [0, 0, 2], "rot": "w", "cor": 3},
+          {"tipo": "ponto", "em": [0, 0, 0], "rot": "A"},
+          {"tipo": "ponto", "em": [3, 0, 0], "rot": "B"},
+          {"tipo": "ponto", "em": [3, 2, 0], "rot": "C"},
+          {"tipo": "ponto", "em": [0, 2, 0], "rot": "D"},
+          {"tipo": "ponto", "em": [0, 0, 2], "rot": "E"},
+          {"tipo": "ponto", "em": [3, 0, 2], "rot": "F"},
+          {"tipo": "ponto", "em": [3, 2, 2], "rot": "G"},
+          {"tipo": "ponto", "em": [0, 2, 2], "rot": "H"}
+        ],
+        "legenda": "Paralelepípedo ABCDEFGH com [[u]] = [[AB]] (azul), [[v]] = [[AD]] (coral) e [[w]] = [[AE]] (ocre). Gire para achar C e H."
+      },
+      "jeitos": {
+        "visual": "Gire a figura até ver a face do fundo, a que tem D, C, G e H. CH é a diagonal dessa face: começa embaixo, do lado de B (em C), e termina em cima, do lado de A (em H). Nessa face só existem duas direções: a da seta azul [[u]] e a da seta ocre [[w]]. De C até H você anda contra [[u]] e sobe a favor de [[w]]. A seta coral [[v]] nem entra no caminho.",
+        "receita": [
+          "Posição de C: C = A + [[u]] + [[v]] (vá até B e depois para o fundo).",
+          "Posição de H: H = A + [[v]] + [[w]] (vá até D e depois suba).",
+          "[[CH]] = H − C = ([[v]] + [[w]]) − ([[u]] + [[v]]).",
+          "O [[v]] se cancela: [[CH]] = −[[u]] + [[w]]."
+        ],
+        "cotidiano": "Pense numa parede com uma tomada num canto de baixo e uma janela no canto oposto, lá em cima. Para ir da tomada até a janela pela parede, você anda de lado e sobe. Não precisa sair da parede, então a profundidade da sala não entra na conta. É o que acontece com o [[v]] aqui: C e H estão na mesma parede do fundo.",
+        "trabalho": "Lembra uma conciliação entre duas posições. C é formada por [[u]] + [[v]]; H, por [[v]] + [[w]]. O [[v]] aparece nas duas e se anula, como um lançamento que consta nos dois extratos. A diferença H − C fica só com o que não casou: o [[w]] que H tem a mais e o [[u]] que C tinha e H não tem, com sinal negativo.",
+        "conversa": [
+          {"quem": "Você", "fala": "Pensei em ir de C até G e depois até H. Dá [[w]] e depois [[u]]?"},
+          {"quem": "Monitor", "fala": "De G até H, você anda a favor de [[u]] ou contra?"},
+          {"quem": "Você", "fala": "[[u]] vai de A para B. De G para H é o caminho de volta. Então é −[[u]]."},
+          {"quem": "Monitor", "fala": "Então o caminho todo dá quanto?"},
+          {"quem": "Você", "fala": "[[w]] − [[u]]."},
+          {"quem": "Monitor", "fala": "É o mesmo que −[[u]] + [[w]]. A ordem das parcelas não muda a soma."}
+        ],
+        "erro": "Dois tropeços aparecem. O primeiro é fazer C − H em vez de H − C e chegar em [[u]] − [[w]], que é o vetor [[HC]]. O segundo é achar que H fica sobre A ou que C fica no lugar de B, e aí sobra um [[v]] perdido na resposta. C está no chão do fundo e H no teto do fundo; os dois têm [[v]], e ele se cancela.",
+        "confira": "Com as coordenadas da figura: C = (3, 2, 0) e H = (0, 2, 2), então H − C = (−3, 0, 2). Agora −[[u]] + [[w]] = (−3, 0, 0) + (0, 0, 2) = (−3, 0, 2). Iguais. Repare que o y de C e o de H são o mesmo, 2: é a prova numérica de que [[v]] não entra.",
+        "atalho": "C e H têm a mesma profundidade, porque os dois estão na face do fundo. Logo o [[v]] não pode aparecer na resposta, e isso elimina duas alternativas. Das três que restam, H está mais alto que C (+[[w]]) e do lado de A (−[[u]])."
+      }
+    },
+    {
+      "id": "ga-s1-l1q6a",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Soma em cadeia no hexágono",
+      "origem": "Lista 1 · Q6a",
+      "enunciado": "Determine a soma dos vetores indicados em cada caso (todas as figuras são hexágonos regulares).\nItem a: na figura estão [[AB]], [[BE]], [[EF]] e [[FC]].",
+      "alternativas": [
+        {"t": "[[CA]]", "certa": false, "erro": "Você ligou o fim ao começo. A soma de setas encadeadas vai do início da primeira (A) até o fim da última (C), não o contrário."},
+        {"t": "[[AF]]", "certa": false, "erro": "Esse é [[AB]] + [[BE]] + [[EF]]: faltou a última seta, [[FC]], que atravessa o hexágono."},
+        {"t": "[[0]] (vetor nulo)", "certa": false, "erro": "O caminho não fecha. Ele começa em A e termina em C, que são pontos diferentes."},
+        {"t": "[[BC]]", "certa": false, "erro": "Você começou a cadeia em B e deixou [[AB]] de fora. [[BE]] + [[EF]] + [[FC]] dá [[BC]]; com [[AB]], a cadeia começa em A."},
+        {"t": "[[AC]]", "certa": true}
+      ],
+      "dica": "Veja se cada seta começa onde a anterior termina. Numa fila de setas assim, a soma vai do primeiro ponto ao último.",
+      "resposta": "[[AC]]",
+      "figura": {
+        "modo": "2d",
+        "onde": "enunciado",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 2], [1.732, 1], [1.732, -1], [0, -2], [-1.732, -1], [-1.732, 1]], "cor": 3},
+          {"tipo": "ponto", "em": [0, 2], "rot": "B"},
+          {"tipo": "ponto", "em": [1.732, 1], "rot": "A"},
+          {"tipo": "ponto", "em": [1.732, -1], "rot": "F"},
+          {"tipo": "ponto", "em": [0, -2], "rot": "E"},
+          {"tipo": "ponto", "em": [-1.732, -1], "rot": "D"},
+          {"tipo": "ponto", "em": [-1.732, 1], "rot": "C"},
+          {"tipo": "vetor", "de": [1.732, 1], "ate": [0, 2], "rot": "", "cor": 2},
+          {"tipo": "vetor", "de": [0, 2], "ate": [0, -2], "rot": "", "cor": 2},
+          {"tipo": "vetor", "de": [0, -2], "ate": [1.732, -1], "rot": "", "cor": 2},
+          {"tipo": "vetor", "de": [1.732, -1], "ate": [-1.732, 1], "rot": "", "cor": 2}
+        ],
+        "legenda": "Hexágono regular com as setas [[AB]], [[BE]], [[EF]] e [[FC]]."
+      },
+      "jeitos": {
+        "visual": "Siga as setas coral com o dedo: sai de A, sobe até B, desce reto até E, vai para F e atravessa o hexágono até C. Cada seta começa onde a anterior parou. Quando é assim, o caminho inteiro equivale a um salto direto do primeiro ponto ao último. Você saiu de A e terminou em C. A soma é a seta de A até C, a linha horizontal logo abaixo de B.",
+        "receita": [
+          "Confira o encadeamento: [[AB]] termina em B, onde começa [[BE]]; [[BE]] termina em E, onde começa [[EF]]; [[EF]] termina em F, onde começa [[FC]].",
+          "Numa cadeia, as paradas do meio se cancelam: [[AB]] + [[BE]] = [[AE]].",
+          "[[AE]] + [[EF]] = [[AF]].",
+          "[[AF]] + [[FC]] = [[AC]]."
+        ],
+        "cotidiano": "É um trajeto de ônibus com baldeações. Você sai de casa (A), troca de linha em B, em E e em F, e desce em C. Para quem olha só o começo e o fim, o resultado é ter ido de A até C. As baldeações mudam o caminho, não o ponto de chegada.",
+        "trabalho": "Funciona como transferências em sequência entre contas. O dinheiro sai de A, passa por B, E e F e termina em C. Nas contas do meio, cada entrada é seguida de uma saída igual, então o saldo delas não muda. No consolidado, o efeito é uma transferência de A para C. É por isso que, numa consolidação, as transferências internas se anulam.",
+        "conversa": [
+          {"quem": "Você", "fala": "Tenho que somar coordenada por coordenada? Não tenho números."},
+          {"quem": "Monitor", "fala": "Não precisa. Onde termina [[AB]] e onde começa [[BE]]?"},
+          {"quem": "Você", "fala": "Os dois em B."},
+          {"quem": "Monitor", "fala": "E as outras setas?"},
+          {"quem": "Você", "fala": "Também. Cada uma começa onde a outra termina."},
+          {"quem": "Monitor", "fala": "Então a soma vai de A até o fim da última seta. Que ponto é esse?"},
+          {"quem": "Você", "fala": "C. A soma é [[AC]]."}
+        ],
+        "erro": "Dois deslizes são comuns. Um é inverter o sentido e responder [[CA]]: a soma vai do começo para o fim, não o contrário. O outro é esquecer uma seta, em especial a última, [[FC]], que cruza o hexágono e se confunde com uma diagonal do desenho. Conte as setas antes e depois de montar a cadeia: são quatro.",
+        "confira": "Coloque o centro na origem e lado 2: A = (√3, 1), B = (0, 2), C = (−√3, 1), E = (0, −2), F = (√3, −1). As setas valem [[AB]] = (−√3, 1), [[BE]] = (0, −4), [[EF]] = (√3, 1) e [[FC]] = (−2√3, 2). Somando, x dá −2√3 e y dá 0. E C − A = (−2√3, 0), a mesma seta.",
+        "atalho": "Quando as setas formam uma fila contínua, nem precisa somar: a resposta é do primeiro ponto ao último. Leia só a letra onde a cadeia começa (A) e onde termina (C). Qualquer alternativa que não comece em A e termine em C cai."
+      }
+    }
+  ]
+}

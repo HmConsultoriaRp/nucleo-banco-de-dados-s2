@@ -1,0 +1,314 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s3-c03",
+      "semana": 3,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Vetores coplanares",
+      "origem": "Construída · conferida",
+      "enunciado": "Para que valor de k os vetores [[u]] = (1, k, 3), [[v]] = (1, 3, −2) e [[w]] = (2, 5, 1) são coplanares?",
+      "alternativas": [
+        {"t": "k = −2", "certa": false, "erro": "Faltou o sinal de menos do termo do meio do determinante: a conta virou 13 + 5k − 3 = 0, e k = −2."},
+        {"t": "k = 5/3", "certa": false, "erro": "Você impôs [[u]]·[[v]] = 0, ou seja, [[u]] ⊥ [[v]]: 1 + 3k − 6 = 0. Coplanaridade pede produto misto zero, não ângulo reto."},
+        {"t": "k = 13/5", "certa": false, "erro": "Você esqueceu o terceiro termo da expansão, 3·(5 − 6) = −3. Ficou 13 − 5k = 0."},
+        {"t": "k = 1/2", "certa": false, "erro": "De 10 − 5k = 0 sai k = 10/5 = 2. Você dividiu ao contrário e fez 5/10."},
+        {"t": "k = 2", "certa": true}
+      ],
+      "dica": "Monte o determinante com [[u]], [[v]] e [[w]] nas linhas e iguale a zero.",
+      "resposta": "k = 2",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 0, 0], [2, 5, 1], [1, 2, 3], [-1, -3, 2]], "cor": 3},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 3, -2], "rot": "v", "cor": 2},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [2, 5, 1], "rot": "w", "cor": 2},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 2, 3], "rot": "u", "cor": 1}
+        ],
+        "legenda": "Com k = 2, [[u]] = [[w]] − [[v]]: [[u]] cai na folha ocre, que é o plano de [[v]] e [[w]]."
+      },
+      "jeitos": {
+        "visual": "Pense em [[v]] e [[w]] como duas varetas que prendem uma folha de papel no espaço. [[u]] = (1, k, 3) tem uma coordenada ajustável. Mexer no k inclina [[u]] para dentro ou para fora da folha. Para um único valor, [[u]] deita na folha, e a caixa que os três formariam fica achatada, com volume zero. Na figura, com k = 2, [[u]] cai na folha ocre.",
+        "receita": [
+          "Linhas do determinante: (1, k, 3), (1, 3, −2), (2, 5, 1).",
+          "Primeiro termo: 1·(3·1 − (−2)·5) = 1·(3 + 10) = 13.",
+          "Segundo termo, com o menos: −k·(1·1 − (−2)·2) = −k·(1 + 4) = −5k.",
+          "Terceiro termo: 3·(1·5 − 3·2) = 3·(−1) = −3.",
+          "Soma: 13 − 5k − 3 = 10 − 5k. Coplanares quando 10 − 5k = 0, ou seja, k = 2."
+        ],
+        "cotidiano": "Três réguas encostadas numa mesa ficam todas no plano da mesa, e uma caixa feita com elas não tem altura. Se uma régua levanta a ponta, aparece volume. O k é o quanto você levanta a ponta de [[u]]. A pergunta é: com que k a régua volta a deitar na mesa? Resposta: quando o produto misto, que mede o volume, é zero.",
+        "trabalho": "Coplanar quer dizer que um dos vetores é combinação dos outros dois. Com k = 2, [[u]] = [[w]] − [[v]], como uma coluna de tabela calculada a partir de outras duas (margem = receita − custo). Essa coluna não acrescenta informação nova. Em álgebra, isso aparece como determinante zero; no Excel, =MATRIZ.DETERM(...) dá 0 com k = 2.",
+        "conversa": [
+          {"quem": "Você", "fala": "Coplanar é quando os vetores são perpendiculares?"},
+          {"quem": "Monitor", "fala": "Três vetores desenhados no chão da sala são coplanares. Eles precisam ser perpendiculares?"},
+          {"quem": "Você", "fala": "Não. Podem apontar para qualquer lado no chão."},
+          {"quem": "Monitor", "fala": "Então a condição é outra. O que mede se a caixa deles tem volume?"},
+          {"quem": "Você", "fala": "O produto misto. Igualo a zero: 10 − 5k = 0."},
+          {"quem": "Monitor", "fala": "E dá k = 2. Confira se [[u]] vira combinação de [[v]] e [[w]]."}
+        ],
+        "erro": "Dois erros pesam aqui. O primeiro é o sinal do termo do meio: na expansão pela primeira linha, a segunda entrada sempre vem com menos, e quem esquece chega em k = −2. O segundo é confundir coplanar com perpendicular e impor produto escalar zero. Coplanaridade é sobre volume, e volume é o produto misto.",
+        "confira": "Com k = 2, teste se [[u]] = (1, 2, 3) é combinação de [[v]] e [[w]]. Tente [[w]] − [[v]] = (2 − 1, 5 − 3, 1 + 2) = (1, 2, 3). É exatamente [[u]], então os três estão no mesmo plano. Outra prova: [[v]] × [[w]] = (13, −5, −1), e o produto com (1, 2, 3) dá 13 − 10 − 3 = 0.",
+        "atalho": "Calcule [[v]] × [[w]] = (13, −5, −1) uma vez. O produto misto vira 13·1 − 5·k − 1·3 = 10 − 5k, uma equação de primeiro grau em k, resolvida em um passo. Se sobrar tempo, substitua o k escolhido para ver se zera."
+      }
+    },
+    {
+      "id": "ga-s3-c04",
+      "semana": 3,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Volume do paralelepípedo",
+      "origem": "Construída · conferida",
+      "enunciado": "Os vetores [[u]] = (1, 2, −1), [[v]] = (3, 1, 0) e [[w]] = (0, 1, 4) saem do mesmo vértice e são arestas de um paralelepípedo. Qual é o volume desse paralelepípedo?",
+      "alternativas": [
+        {"t": "−23", "certa": false, "erro": "Esse é o produto misto [[u]]·([[v]] × [[w]]), com sinal. Volume é o módulo: 23."},
+        {"t": "13", "certa": false, "erro": "13 é ‖[[v]] × [[w]]‖, a área da base formada por [[v]] e [[w]]. Faltou multiplicar pela altura, o que o produto escalar com [[u]] faz."},
+        {"t": "23", "certa": true},
+        {"t": "23/6", "certa": false, "erro": "Você dividiu por 6, como no tetraedro. O paralelepípedo é o sólido inteiro: volume = |produto misto|."},
+        {"t": "25", "certa": false, "erro": "A segunda coordenada de [[v]] × [[w]] saiu +12 em vez de −12. Com (4, 12, 3), o produto com [[u]] dá 4 + 24 − 3 = 25."}
+      ],
+      "dica": "O volume do paralelepípedo é o módulo do produto misto das três arestas.",
+      "resposta": "23",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 2, -1], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [3, 1, 0], "rot": "v", "cor": 2},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [0, 1, 4], "rot": "w", "cor": 2},
+          {"tipo": "segmento", "de": [1, 2, -1], "ate": [4, 3, -1], "tracejado": true},
+          {"tipo": "segmento", "de": [1, 2, -1], "ate": [1, 3, 3], "tracejado": true},
+          {"tipo": "segmento", "de": [3, 1, 0], "ate": [4, 3, -1], "tracejado": true},
+          {"tipo": "segmento", "de": [3, 1, 0], "ate": [3, 2, 4], "tracejado": true},
+          {"tipo": "segmento", "de": [0, 1, 4], "ate": [1, 3, 3], "tracejado": true},
+          {"tipo": "segmento", "de": [0, 1, 4], "ate": [3, 2, 4], "tracejado": true},
+          {"tipo": "segmento", "de": [4, 3, -1], "ate": [4, 4, 3], "tracejado": true},
+          {"tipo": "segmento", "de": [1, 3, 3], "ate": [4, 4, 3], "tracejado": true},
+          {"tipo": "segmento", "de": [3, 2, 4], "ate": [4, 4, 3], "tracejado": true}
+        ],
+        "legenda": "As três setas saem do mesmo vértice. As linhas tracejadas fecham a caixa."
+      },
+      "jeitos": {
+        "visual": "Na figura, [[v]] e [[w]] formam o piso inclinado da caixa e [[u]] é a aresta que sai do mesmo canto. As linhas tracejadas completam o paralelepípedo, uma caixa de faces em forma de paralelogramo. O volume é piso vezes altura. O piso mede ‖[[v]] × [[w]]‖ = 13. A altura não é o comprimento de [[u]]: é quanto [[u]] se afasta do piso na direção perpendicular, 23/13. E 13 × 23/13 = 23.",
+        "receita": [
+          "[[v]] × [[w]] = (1·4 − 0·1, 0·0 − 3·4, 3·1 − 1·0) = (4, −12, 3).",
+          "[[u]]·([[v]] × [[w]]) = 1·4 + 2·(−12) + (−1)·3 = 4 − 24 − 3 = −23.",
+          "Volume é tamanho, sem sinal: |−23| = 23."
+        ],
+        "cotidiano": "O sinal do produto misto é como o sentido em que você conta uma fila: da frente para trás ou de trás para a frente, o tamanho da fila é o mesmo. −23 diz que [[u]] está do lado oposto ao de [[v]] × [[w]]. O espaço que a caixa ocupa, 23 unidades cúbicas, não depende desse lado.",
+        "trabalho": "No Excel, a conta inteira é =ABS(MATRIZ.DETERM(A1:C3)), com [[u]], [[v]] e [[w]] nas três linhas. O ABS faz o papel do módulo, como quando você quer o tamanho de uma diferença de conciliação sem se importar com qual lado ficou maior. Sem ABS, a célula mostra −23, e um relatório de volume com número negativo chamaria atenção à toa.",
+        "conversa": [
+          {"quem": "Você", "fala": "Deu −23. Volume negativo?"},
+          {"quem": "Monitor", "fala": "O que o sinal do produto misto conta?"},
+          {"quem": "Você", "fala": "Se [[u]] fica do mesmo lado de [[v]] × [[w]] ou do lado oposto."},
+          {"quem": "Monitor", "fala": "E isso muda o tamanho da caixa?"},
+          {"quem": "Você", "fala": "Não. O volume é 23."},
+          {"quem": "Monitor", "fala": "Isso. E não divida por 6: aqui o sólido é a caixa inteira, não o tetraedro."}
+        ],
+        "erro": "Três escorregões cercam esta conta. Deixar o sinal e responder −23. Dividir por 6 por reflexo de tetraedro. E parar em ‖[[v]] × [[w]]‖ = 13, que é só a área do piso. O volume pede o produto misto inteiro, em módulo.",
+        "confira": "Refaça por Sarrus com as linhas (1, 2, −1), (3, 1, 0) e (0, 1, 4). Descendo: 4 + 0 − 3 = 1. Subindo: 0 + 0 + 24 = 24. Resultado: 1 − 24 = −23, módulo 23. Ou mude a ordem em ciclo: [[v]]·([[w]] × [[u]]) também dá −23, e o módulo continua 23.",
+        "atalho": "Volume é positivo, então −23 sai. O tetraedro não está no enunciado, então 23/6 sai. Entre 23, 25 e 13, faça só o produto vetorial com cuidado na coordenada do meio, (4, −12, 3), e o produto com [[u]] em uma linha."
+      }
+    },
+    {
+      "id": "ga-s3-c05",
+      "semana": 3,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Tetraedro por quatro pontos",
+      "origem": "Construída · conferida",
+      "enunciado": "Calcule o volume do tetraedro de vértices A = (1, 0, 2), B = (4, 0, 3), C = (1, 4, 0) e D = (1, 1, 6).",
+      "alternativas": [
+        {"t": "9", "certa": true},
+        {"t": "54", "certa": false, "erro": "54 é o produto misto de [[AB]], [[AC]] e [[AD]], o volume do paralelepípedo. O tetraedro é 1/6 dele."},
+        {"t": "27", "certa": false, "erro": "Você dividiu por 2, como na área do triângulo. No espaço, o fator do tetraedro é 1/6."},
+        {"t": "29/2", "certa": false, "erro": "Você usou as coordenadas de B, C e D como vetores, sem subtrair A. O determinante dá 87, e 87/6 = 29/2. Os vetores precisam sair do mesmo vértice."},
+        {"t": "−9", "certa": false, "erro": "Com a ordem [[AC]], [[AB]], [[AD]] o produto misto dá −54. O sinal muda com a ordem, mas volume é sempre positivo."}
+      ],
+      "dica": "Monte [[AB]], [[AC]] e [[AD]], calcule o produto misto e divida o módulo por 6.",
+      "resposta": "9",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "ponto", "em": [1, 0, 2], "rot": "A"},
+          {"tipo": "ponto", "em": [4, 0, 3], "rot": "B"},
+          {"tipo": "ponto", "em": [1, 4, 0], "rot": "C"},
+          {"tipo": "ponto", "em": [1, 1, 6], "rot": "D"},
+          {"tipo": "vetor", "de": [1, 0, 2], "ate": [4, 0, 3], "rot": "AB", "cor": 1},
+          {"tipo": "vetor", "de": [1, 0, 2], "ate": [1, 4, 0], "rot": "AC", "cor": 1},
+          {"tipo": "vetor", "de": [1, 0, 2], "ate": [1, 1, 6], "rot": "AD", "cor": 1},
+          {"tipo": "segmento", "de": [4, 0, 3], "ate": [1, 4, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [4, 0, 3], "ate": [1, 1, 6], "tracejado": true},
+          {"tipo": "segmento", "de": [1, 4, 0], "ate": [1, 1, 6], "tracejado": true}
+        ],
+        "legenda": "As três setas saem de A. [[AC]] e [[AD]] começam com 0, o que encurta a conta."
+      },
+      "jeitos": {
+        "visual": "Na figura, as três setas saem de A. Repare que [[AC]] = (0, 4, −2) e [[AD]] = (0, 1, 4) começam com zero: as duas ficam num plano paralelo ao plano yz. [[AB]] = (3, 0, 1) é a única que avança em x. O tetraedro é a ponta da caixa formada por essas três setas e ocupa 1/6 dela.",
+        "receita": [
+          "[[AB]] = (3, 0, 1), [[AC]] = (0, 4, −2), [[AD]] = (0, 1, 4).",
+          "Abra o determinante pela primeira coluna, que tem dois zeros: 3·(4·4 − (−2)·1) = 3·(16 + 2) = 54.",
+          "Produto misto: 54. Volume do paralelepípedo: 54.",
+          "Volume do tetraedro: 54/6 = 9."
+        ],
+        "cotidiano": "Uma caixa de 54 litros pode ser repartida em seis peças em forma de pirâmide de base triangular, todas com o mesmo volume. Cada peça tem 54/6 = 9 litros. O tetraedro ABCD tem o volume de uma dessas peças. Quem responde 54 entregou a caixa inteira quando a pergunta era uma peça.",
+        "trabalho": "Numa planilha, a conta fica em duas células: =MATRIZ.DETERM(A1:C3), com [[AB]], [[AC]] e [[AD]] nas linhas, e =ABS(célula)/6. O erro mais comum é digitar os pontos B, C e D nas linhas em vez das diferenças B − A, C − A e D − A. A fórmula não reclama, só devolve 87/6. Uma coluna auxiliar com as subtrações evita isso.",
+        "conversa": [
+          {"quem": "Você", "fala": "Posso usar os pontos B, C e D direto no determinante?"},
+          {"quem": "Monitor", "fala": "O que eles representariam como vetores?"},
+          {"quem": "Você", "fala": "Setas saindo da origem até B, C e D."},
+          {"quem": "Monitor", "fala": "E o tetraedro tem vértice na origem?"},
+          {"quem": "Você", "fala": "Não, em A. Preciso de setas saindo de A: B − A, C − A, D − A."},
+          {"quem": "Monitor", "fala": "Com elas, o produto misto dá 54. Dividido por 6, 9."}
+        ],
+        "erro": "O tropeço principal é montar o determinante com os pontos, e não com os vetores que saem de um vértice. Isso calcula o tetraedro com vértice na origem, que é outro sólido. Depois vêm os de sempre: esquecer o 1/6, usar 1/2 ou deixar o sinal negativo quando a ordem dos vetores muda.",
+        "confira": "Troque o vértice de partida para D: [[DA]] = (0, −1, −4), [[DB]] = (3, −1, −3), [[DC]] = (0, 3, −6). O produto misto dá −54, módulo 54, e o volume continua 9. Mesmo sólido, mesmo volume, com qualquer vértice como origem.",
+        "atalho": "Os zeros da primeira coluna de [[AB]], [[AC]] e [[AD]] deixam o determinante com um termo só: 3·(16 + 2) = 54. Daí 54/6 = 9 sai de cabeça. Descarte −9 (volume negativo) e 54 (caixa inteira) logo de início."
+      }
+    },
+    {
+      "id": "ga-s3-c06",
+      "semana": 3,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Altura do paralelepípedo",
+      "origem": "Construída · conferida",
+      "enunciado": "Um paralelepípedo tem arestas [[u]] = (−1, −3, 4), [[v]] = (1, 0, 2) e [[w]] = (0, 1, 2) saindo do mesmo vértice. Qual é a altura dele em relação à base formada por [[v]] e [[w]]?",
+      "alternativas": [
+        {"t": "12", "certa": false, "erro": "12 é o volume, |[[u]]·([[v]] × [[w]])|. Faltou dividir pela área da base, ‖[[v]] × [[w]]‖ = 3."},
+        {"t": "√26", "certa": false, "erro": "√26 é o comprimento de [[u]]. A aresta [[u]] é inclinada; a altura é só a parte dela perpendicular à base."},
+        {"t": "36", "certa": false, "erro": "Você multiplicou o volume pela área da base, 12 × 3. Altura é volume dividido pela área."},
+        {"t": "4/3", "certa": false, "erro": "Você dividiu por ‖[[v]] × [[w]]‖² = 9 em vez de ‖[[v]] × [[w]]‖ = 3. Esse 9 é o quadrado da área."},
+        {"t": "4", "certa": true}
+      ],
+      "dica": "Volume = área da base × altura. Calcule as duas primeiras e isole a altura.",
+      "resposta": "4",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 0, 0], [1, 0, 2], [1, 1, 4], [0, 1, 2]], "cor": 3},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 0, 2], "rot": "v", "cor": 2},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [0, 1, 2], "rot": "w", "cor": 2},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, -3, 4], "rot": "u", "cor": 1},
+          {"tipo": "segmento", "de": [-1, -3, 4], "ate": [1.667, -0.333, 2.667], "cor": 4, "tracejado": true}
+        ],
+        "legenda": "O piso ocre é o paralelogramo de [[v]] e [[w]]. O segmento escuro vai da ponta de [[u]] até o plano do piso, em ângulo reto: é a altura."
+      },
+      "jeitos": {
+        "visual": "Na figura, o piso ocre é inclinado, formado por [[v]] e [[w]]. A aresta azul [[u]] sai torta do mesmo canto. A altura não é o comprimento dessa aresta: é a distância da ponta dela até o plano do piso, medida em ângulo reto, o segmento escuro. Volume é piso vezes altura, então altura é volume dividido pelo piso: 12 ÷ 3 = 4.",
+        "receita": [
+          "Base: [[v]] × [[w]] = (0·2 − 2·1, 2·0 − 1·2, 1·1 − 0·0) = (−2, −2, 1). Área = √(4 + 4 + 1) = 3.",
+          "Volume: [[u]]·([[v]] × [[w]]) = (−1)(−2) + (−3)(−2) + 4·1 = 2 + 6 + 4 = 12.",
+          "Altura = volume ÷ área da base = 12 ÷ 3 = 4."
+        ],
+        "cotidiano": "Empilhe as folhas de uma resma e depois empurre a pilha de lado, deixando-a inclinada. A pilha fica torta, mas a altura continua sendo a soma das espessuras das folhas, medida em pé. A lateral inclinada mede mais do que essa altura. Aqui a lateral inclinada é [[u]], com √26, e a altura de verdade é 4.",
+        "trabalho": "A conta é a mesma de achar preço unitário: valor total ÷ quantidade. Volume = área × altura, então altura = volume ÷ área. No Excel, com [[v]] × [[w]] em E1:G1: =ABS(MATRIZ.DETERM(A1:C3))/RAIZ(SOMAQUAD(E1:G1)). Quem divide pelo quadrado da área faz como quem divide o valor total pela quantidade ao quadrado: o número sai pequeno demais.",
+        "conversa": [
+          {"quem": "Você", "fala": "A altura não é o comprimento de [[u]]? Dá √26."},
+          {"quem": "Monitor", "fala": "Se [[u]] estivesse quase deitado no piso, o comprimento continuaria √26. E a altura?"},
+          {"quem": "Você", "fala": "Seria quase zero."},
+          {"quem": "Monitor", "fala": "Então altura é outra coisa. Qual a conta?"},
+          {"quem": "Você", "fala": "Volume dividido pela área da base: 12 ÷ 3 = 4."},
+          {"quem": "Monitor", "fala": "Isso. E 4 é menor que √26, como tem de ser."}
+        ],
+        "erro": "O erro mais comum é tomar a aresta inclinada como altura e responder ‖[[u]]‖ = √26. O segundo é dividir pelo quadrado da área, 9, por confusão com a fórmula do vetor projeção, que tem a norma ao quadrado embaixo. A altura é o módulo do produto misto dividido pela norma do produto vetorial, sem quadrado.",
+        "confira": "Projete [[u]] na direção perpendicular ao piso, [[n]] = (−2, −2, 1). O comprimento da projeção é |[[u]]·[[n]]| / ‖[[n]]‖ = 12/3 = 4. Ou faça o caminho de volta: área 3 vezes altura 4 dá 12, que é o volume calculado. E 4 não passa de ‖[[u]]‖ = √26 ≈ 5,1, como nenhuma altura pode passar da aresta.",
+        "atalho": "A altura nunca passa do comprimento da aresta inclinada, √26 ≈ 5,1. Isso descarta 12 e 36. Entre 4, 4/3 e √26, lembre que a altura é volume ÷ área, e a área é uma norma (3), não uma norma ao quadrado (9). Fica 4."
+      }
+    },
+    {
+      "id": "ga-s3-c07",
+      "semana": 3,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Vetor repetido no produto misto",
+      "origem": "Construída · conferida",
+      "enunciado": "Com [[u]] = (3, −2, 5) e [[v]] = (1, 4, −1), quanto vale [[u]]·([[u]] × [[v]])?",
+      "alternativas": [
+        {"t": "32", "certa": false, "erro": "A segunda coordenada de [[u]] × [[v]] saiu −8 em vez de 8. Com (−18, −8, 14), o produto com [[u]] dá −54 + 16 + 70 = 32."},
+        {"t": "0", "certa": true},
+        {"t": "4", "certa": false, "erro": "Você somou as coordenadas de [[u]] × [[v]] = (−18, 8, 14): −18 + 8 + 14 = 4. Faltou multiplicar cada uma pela coordenada correspondente de [[u]]."},
+        {"t": "√584", "certa": false, "erro": "√584 é ‖[[u]] × [[v]]‖, a área do paralelogramo de [[u]] e [[v]]. A questão pede o produto escalar com [[u]], não a norma."},
+        {"t": "108", "certa": false, "erro": "A primeira coordenada saiu com a ordem invertida: 5·4 − (−2)(−1) = 18 em vez de −18. Com (18, 8, 14), a conta dá 54 − 16 + 70 = 108."}
+      ],
+      "dica": "Antes de fazer conta, pense: para que lado aponta [[u]] × [[v]] em relação a [[u]]?",
+      "resposta": "0",
+      "jeitos": {
+        "visual": "O produto vetorial [[u]] × [[v]] é uma seta espetada em pé no plano de [[u]] e [[v]], perpendicular aos dois. Agora pergunte quanto [[u]] anda na direção dessa seta. Nada: [[u]] está deitado no plano, e a seta está em pé. Produto escalar de vetores perpendiculares é zero. Em volume: a caixa de arestas [[u]], [[u]] e [[v]] tem duas arestas iguais, então é achatada.",
+        "receita": [
+          "[[u]] × [[v]] = ((−2)(−1) − 5·4, 5·1 − 3·(−1), 3·4 − (−2)·1) = (2 − 20, 5 + 3, 12 + 2) = (−18, 8, 14).",
+          "Produto com [[u]] = (3, −2, 5): 3·(−18) + (−2)·8 + 5·14 = −54 − 16 + 70.",
+          "Resultado: 0. Faz sentido: [[u]] × [[v]] é perpendicular a [[u]], e vetor repetido zera o produto misto."
+        ],
+        "cotidiano": "É como medir quanto uma porta fechada avança para dentro da parede. A porta está no plano da parede; a direção para dentro é perpendicular a ele. O avanço é zero. Aqui a parede é o plano de [[u]] e [[v]], e a direção perpendicular é [[u]] × [[v]]. Como [[u]] está na parede, o avanço dele nessa direção é zero.",
+        "trabalho": "Determinante com duas linhas iguais é zero. Numa planilha, monte as linhas [[u]], [[u]] e [[v]] e use =MATRIZ.DETERM: dá 0. É a mesma ideia de uma tabela com uma linha duplicada: a cópia não acrescenta informação. Se a sua conta à mão der diferente de zero, o erro está na digitação ou num sinal do produto vetorial.",
+        "conversa": [
+          {"quem": "Você", "fala": "Calculei e deu 32. Revisei duas vezes."},
+          {"quem": "Monitor", "fala": "Sem conta: [[u]] × [[v]] é perpendicular a quem?"},
+          {"quem": "Você", "fala": "A [[u]] e a [[v]]."},
+          {"quem": "Monitor", "fala": "Então [[u]]·([[u]] × [[v]]) tem de dar quanto?"},
+          {"quem": "Você", "fala": "Zero. Meu 32 tem erro de sinal em alguma coordenada."},
+          {"quem": "Monitor", "fala": "Confira a segunda: 5·1 − 3·(−1) = 8, positivo."}
+        ],
+        "erro": "A armadilha é fazer a conta inteira, errar um sinal e confiar no número. Esta questão tem resposta conhecida antes da conta: [[u]] aparece duas vezes, e o produto misto é zero. Um resultado diferente de zero denuncia um sinal errado no produto vetorial, e não uma falha da regra.",
+        "confira": "Use o zero como teste do próprio produto vetorial. Faça também [[v]]·([[u]] × [[v]]) = 1·(−18) + 4·8 + (−1)·14 = −18 + 32 − 14 = 0. Os produtos com [[u]] e com [[v]] zeram, então (−18, 8, 14) está certo e é perpendicular aos dois.",
+        "atalho": "Vetor repetido no produto misto: resposta 0, sem conta. Leva dez segundos para marcar. As outras quatro alternativas são números que só aparecem quando a conta tem erro ou quando se calcula outra coisa, como a norma. Se sobrar tempo, use a conta só para conferir o produto vetorial."
+      }
+    },
+    {
+      "id": "ga-s3-c08",
+      "semana": 3,
+      "nivel": 3,
+      "minutos": 4,
+      "tema": "Leitura geométrica do produto misto",
+      "origem": "Construída · conferida",
+      "enunciado": "Os vetores [[v]] e [[w]] estão no plano xy e formam um paralelogramo de área 6. O vetor [[u]] = (2, −1, 4). Quanto vale |[[u]]·([[v]] × [[w]])|?",
+      "alternativas": [
+        {"t": "6√21", "certa": false, "erro": "Você multiplicou a área pelo comprimento de [[u]], √21. Só a parte de [[u]] perpendicular ao plano xy conta: a coordenada z, 4."},
+        {"t": "4", "certa": false, "erro": "Você dividiu 24 por 6, como no volume do tetraedro. O módulo do produto misto é o volume do paralelepípedo inteiro: 6 × 4."},
+        {"t": "24", "certa": true},
+        {"t": "12", "certa": false, "erro": "Você usou a área do triângulo, 3, em vez da do paralelogramo. ‖[[v]] × [[w]]‖ é a área do paralelogramo, 6."},
+        {"t": "6√5", "certa": false, "erro": "Você usou o comprimento da sombra de [[u]] no plano xy, ‖(2, −1)‖ = √5. Essa parte de [[u]] é paralela à base e não dá altura nenhuma."}
+      ],
+      "dica": "|[[u]]·([[v]] × [[w]])| é área da base vezes altura. Que coordenada de [[u]] mede a altura em relação ao plano xy?",
+      "resposta": "24",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 0, 0], [3, 0, 0], [4, 2, 0], [1, 2, 0]], "cor": 3},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [2, -1, 4], "rot": "u", "cor": 1},
+          {"tipo": "segmento", "de": [2, -1, 4], "ate": [2, -1, 0], "cor": 4, "tracejado": true},
+          {"tipo": "segmento", "de": [0, 0, 0], "ate": [2, -1, 0], "tracejado": true}
+        ],
+        "legenda": "Um exemplo de base: o paralelogramo ocre, de área 6, no plano xy. O segmento escuro desce da ponta de [[u]] até o chão e mede 4: é a altura."
+      },
+      "jeitos": {
+        "visual": "Na figura, o paralelogramo ocre está deitado no chão, o plano xy. A seta azul [[u]] sai de um canto e sobe inclinada. O volume da caixa é piso vezes altura, e a altura é quanto a ponta de [[u]] está acima do chão: a coordenada z, 4. O tracejado no chão é a sombra de [[u]]; ela anda para os lados, mas não levanta a caixa.",
+        "receita": [
+          "[[v]] e [[w]] estão no plano xy, então [[v]] × [[w]] é perpendicular a esse plano: aponta na direção do eixo z.",
+          "‖[[v]] × [[w]]‖ é a área do paralelogramo, 6. Então [[v]] × [[w]] = (0, 0, 6) ou (0, 0, −6).",
+          "[[u]]·([[v]] × [[w]]) = 2·0 + (−1)·0 + 4·(±6) = ±24.",
+          "Em módulo: 24. É o volume do paralelepípedo de arestas [[u]], [[v]] e [[w]]."
+        ],
+        "cotidiano": "Pense num aquário com fundo de 6 decímetros quadrados apoiado na mesa e com as paredes laterais inclinadas, todas paralelas à mesma aresta torta. O volume depende da altura medida em pé, 4 decímetros, e não do comprimento da aresta torta. 6 × 4 = 24 decímetros cúbicos, ou 24 litros.",
+        "trabalho": "É como separar um valor em duas parcelas e ver qual delas cai numa conta. [[u]] = (2, −1, 4) tem uma parte que corre junto da base, (2, −1, 0), e uma parte que sobe, (0, 0, 4). Só a parte que sobe entra no volume, do mesmo jeito que só a parcela lançada numa conta entra no saldo dela. A outra parcela existe, mas vai para outra linha.",
+        "conversa": [
+          {"quem": "Você", "fala": "Não tenho [[v]] e [[w]]. Como faço o produto vetorial?"},
+          {"quem": "Monitor", "fala": "Você sabe para onde ele aponta e quanto mede?"},
+          {"quem": "Você", "fala": "Perpendicular ao plano xy, então no eixo z. E mede a área, 6."},
+          {"quem": "Monitor", "fala": "Então [[v]] × [[w]] = (0, 0, ±6). E o produto com [[u]]?"},
+          {"quem": "Você", "fala": "4 × 6 = 24, com sinal ±. Em módulo, 24."},
+          {"quem": "Monitor", "fala": "Isso. Repare que o 2 e o −1 de [[u]] nem entraram."}
+        ],
+        "erro": "A armadilha é usar o comprimento inteiro de [[u]], √21, como altura. A aresta é inclinada, e só a componente perpendicular à base conta. Também aparece quem usa a sombra de [[u]] no chão, √5, que é justamente a parte que não conta. E quem divide por 6 está pensando em tetraedro.",
+        "confira": "Escolha [[v]] e [[w]] concretos com área 6 no plano xy, como os da figura: [[v]] = (3, 0, 0) e [[w]] = (1, 2, 0). [[v]] × [[w]] = (0, 0, 6), e [[u]]·(0, 0, 6) = 24. Troque por [[v]] = (2, 0, 0) e [[w]] = (0, 3, 0): o produto vetorial continua (0, 0, 6), e o resultado, 24.",
+        "atalho": "Com a base no plano xy, a altura é o |z| da ponta de [[u]]. Volume = 6 × 4 = 24, sem montar determinante. Descarte as alternativas com raiz: o 2 e o −1 de [[u]] não entram na conta, e √21 e √5 dependem deles."
+      }
+    }
+  ]
+}

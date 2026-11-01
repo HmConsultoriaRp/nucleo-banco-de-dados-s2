@@ -1,0 +1,264 @@
+{
+  "disciplina": "ga",
+  "semanas": [
+    {
+      "semana": 2,
+      "titulo": "Produto escalar e produto vetorial",
+      "chamada": "Duas multiplicações de vetores: uma devolve um número que mede o quanto eles andam juntos; a outra devolve um vetor de pé sobre os dois, com o tamanho da área entre eles.",
+      "fonte": "Lista 2 — Prof. Danilo Adrian Marques",
+      "previa": false,
+      "blocos": [
+        {
+          "titulo": "Produto escalar: multiplica e soma",
+          "texto": "O produto escalar de [[u]] = (x₁, y₁, z₁) com [[v]] = (x₂, y₂, z₂) é um **número**: [[u]] · [[v]] = x₁x₂ + y₁y₂ + z₁z₂. Multiplica coordenada com coordenada e soma tudo. Com os vetores da Lista 2, [[u]] · [[w]] = 1·(−2) + 4·(−1/2) + 3·5 = −2 − 2 + 15 = 11. O nome vem daí: o resultado é um escalar, um número comum, sem direção. A ordem não muda nada: [[u]] · [[v]] = [[v]] · [[u]]. Quem para em (−2, −2, 15) ainda não terminou: falta somar."
+        },
+        {
+          "titulo": "O sinal conta o ângulo",
+          "texto": "A mesma conta tem uma leitura geométrica: [[u]] · [[v]] = ‖[[u]]‖ ‖[[v]]‖ cos θ, em que θ é o ângulo entre os dois vetores, de 0° a 180°. Com vetores não nulos, as normas são positivas, então quem decide o sinal é o cosseno. Positivo: ângulo agudo, menor que 90°. Negativo: ângulo obtuso. Zero: ângulo reto. Para achar o ângulo, isole o cosseno: cos θ = ([[u]] · [[v]]) / (‖[[u]]‖ ‖[[v]]‖). Exemplo da lista: [[v]] · [[z]] = 6, ‖[[v]]‖ = √3 e ‖[[z]]‖ = √14, então cos θ ≈ 0,9258 e θ ≈ 22,21°."
+        },
+        {
+          "titulo": "Ortogonal e norma ao quadrado",
+          "texto": "Dois vetores não nulos são **ortogonais** (perpendiculares, símbolo ⊥) quando o produto escalar dá zero. É o teste mais rápido de ângulo reto: [[u]] · [[v]] = −1 + 4 − 3 = 0, logo [[u]] ⊥ [[v]]. Outra ligação útil: um vetor com ele mesmo dá o quadrado do tamanho. [[u]] · [[u]] = 1 + 16 + 9 = 26 = ‖[[u]]‖², então ‖[[u]]‖ = √26. A norma, o comprimento do vetor, é a raiz do produto escalar do vetor com ele mesmo. Por isso [[u]] · [[u]] nunca é negativo."
+        },
+        {
+          "titulo": "Projeção: a sombra de um vetor sobre outro",
+          "texto": "Projetar [[z]] sobre [[v]] é achar a parte de [[z]] que anda na direção de [[v]]. Chame essa parte de [[p]]. A fórmula: [[p]] = (([[z]] · [[v]]) / ([[v]] · [[v]])) [[v]]. Com os dados da lista, [[z]] · [[v]] = 6 e [[v]] · [[v]] = 3, então [[p]] = 2[[v]] = (−2, 2, −2). O que sobra, [[q]] = [[z]] − [[p]] = (1, 0, −1), é perpendicular a [[v]]: 1·(−1) + 0·1 + (−1)·(−1) = 0. Assim [[z]] = [[p]] + [[q]], com [[p]] ∥ [[v]] e [[q]] ⊥ [[v]]. Na questão 9 da lista os papéis mudam: [[v]] é projetado sobre [[u]], e as partes se chamam [[v₁]] e [[v₂]]."
+        },
+        {
+          "titulo": "Produto vetorial: a conta pelo determinante",
+          "texto": "O produto vetorial [[u]] × [[v]] devolve um **vetor**. Monte um determinante com [[i]], [[j]], [[k]] na primeira linha, [[u]] na segunda e [[v]] na terceira. Cada componente sai de um 2×2, diagonal principal menos diagonal secundária: x = y₁z₂ − z₁y₂; y = −(x₁z₂ − z₁x₂); z = x₁y₂ − y₁x₂. O menos do meio vem da regra do determinante, e é ali que mais gente erra. Com [[u]] = (1, 4, 3) e [[v]] = (−1, 1, −1): x = 4·(−1) − 3·1 = −7; y = −(1·(−1) − 3·(−1)) = −2; z = 1·1 − 4·(−1) = 5. Resultado: (−7, −2, 5)."
+        },
+        {
+          "titulo": "Direção, tamanho e propriedades do vetorial",
+          "texto": "[[u]] × [[v]] é perpendicular a [[u]] e a [[v]] ao mesmo tempo: (−7, −2, 5) · (1, 4, 3) = 0 e (−7, −2, 5) · (−1, 1, −1) = 0. O sentido segue a regra da mão direita: dedos de [[u]] para [[v]], o polegar aponta [[u]] × [[v]]. O tamanho é ‖[[u]] × [[v]]‖ = ‖[[u]]‖ ‖[[v]]‖ sen θ, a área do paralelogramo formado pelos dois; o triângulo é a metade. Aqui, √78 ≈ 8,83 e √78/2 ≈ 4,42. Trocar a ordem troca o sentido: [[v]] × [[u]] = −([[u]] × [[v]]). E [[u]] × [[u]] = (0, 0, 0), como acontece com qualquer par de vetores paralelos."
+        }
+      ],
+      "formulas": [
+        {"nome": "Produto escalar (coordenadas)", "expr": "[[u]] · [[v]] = x₁x₂ + y₁y₂ + z₁z₂", "quando": "vetores dados em coordenadas; o resultado é um número"},
+        {"nome": "Produto escalar (ângulo)", "expr": "[[u]] · [[v]] = ‖[[u]]‖ ‖[[v]]‖ cos θ", "quando": "a questão dá as normas e o ângulo entre os vetores"},
+        {"nome": "Ângulo entre vetores", "expr": "cos θ = ([[u]] · [[v]]) / (‖[[u]]‖ ‖[[v]]‖)", "quando": "achar θ, entre 0° e 180°; o sinal do escalar diz se é agudo, reto ou obtuso"},
+        {"nome": "Ortogonalidade", "expr": "[[u]] ⊥ [[v]] ↔ [[u]] · [[v]] = 0", "quando": "testar ângulo reto entre vetores não nulos"},
+        {"nome": "Norma ao quadrado", "expr": "‖[[u]]‖² = [[u]] · [[u]]", "quando": "ligar comprimento e produto escalar; abrir ‖[[u]] + [[v]]‖²"},
+        {"nome": "Projeção ortogonal", "expr": "[[v₁]] = (([[v]] · [[u]]) / ([[u]] · [[u]])) [[u]]", "quando": "parte de [[v]] na direção de [[u]]"},
+        {"nome": "Decomposição", "expr": "[[v]] = [[v₁]] + [[v₂]], com [[v₁]] ∥ [[u]] e [[v₂]] = [[v]] − [[v₁]] ⊥ [[u]]", "quando": "separar [[v]] numa parte paralela e noutra perpendicular a [[u]]"},
+        {"nome": "Produto vetorial", "expr": "[[u]] × [[v]] = (y₁z₂ − z₁y₂, −(x₁z₂ − z₁x₂), x₁y₂ − y₁x₂)", "quando": "determinante com [[i]], [[j]], [[k]] na primeira linha; o resultado é um vetor ⊥ aos dois"},
+        {"nome": "Norma do produto vetorial", "expr": "‖[[u]] × [[v]]‖ = ‖[[u]]‖ ‖[[v]]‖ sen θ", "quando": "tamanho do vetorial a partir das normas e do ângulo"},
+        {"nome": "Área do paralelogramo", "expr": "A = ‖[[u]] × [[v]]‖", "quando": "paralelogramo de lados [[u]] e [[v]]"},
+        {"nome": "Área do triângulo", "expr": "A = ‖[[AB]] × [[AC]]‖ / 2", "quando": "triângulo ABC: metade do paralelogramo"},
+        {"nome": "Anticomutatividade", "expr": "[[v]] × [[u]] = −([[u]] × [[v]])", "quando": "trocar a ordem inverte o sentido e mantém o tamanho"},
+        {"nome": "Vetores paralelos", "expr": "[[u]] × [[u]] = (0, 0, 0); se [[u]] ∥ [[v]], [[u]] × [[v]] = (0, 0, 0)", "quando": "testar paralelismo"}
+      ],
+      "jeitos": {
+        "visual": "Ponha [[u]] e [[v]] saindo do mesmo ponto. Acenda uma luz que cai a 90° sobre a reta de [[u]]: a sombra de [[v]] nessa reta é a projeção. O produto escalar é o tamanho dessa sombra vezes o tamanho de [[u]], com sinal. Sombra para a frente, positivo; para trás, negativo; sem sombra, zero e ângulo reto. Agora olhe o paralelogramo que os dois desenham. O produto vetorial é uma seta espetada nele, de pé, com comprimento igual à área.",
+        "cotidiano": "Empurrar um carrinho de mercado. Empurrando na direção em que ele anda, toda a força ajuda. Empurrando torto, só a parte da força que acompanha o caminho conta, e o produto escalar mede essa parte. Empurrando de lado, a 90°, nada ajuda. O vetorial aparece numa porta: a distância da dobradiça até a maçaneta e o seu empurrão fazem a porta girar em torno da dobradiça, que fica em pé, perpendicular aos dois.",
+        "receita": "Escalar: multiplique x com x, y com y, z com z e some os três produtos. Ângulo: divida o escalar pelo produto das normas e ache o ângulo cujo cosseno é esse número. Vetorial: monte o determinante com [[i]], [[j]], [[k]] em cima, [[u]] no meio e [[v]] embaixo; tampe uma coluna por vez e faça diagonal principal menos secundária, trocando o sinal do componente do meio. Prova: o vetorial, multiplicado no escalar por [[u]] e por [[v]], tem de dar zero nos dois.",
+        "trabalho": "O produto escalar é o SOMARPRODUTO do Excel: com quantidades numa coluna e preços na outra, `=SOMARPRODUTO(A1:A3;B1:B3)` faz x₁x₂ + y₁y₂ + z₁z₂. Em SQL, é um JOIN pela posição seguido de SUM(a.valor * b.valor). A norma é `=RAIZ(SOMAQUAD(A1:A3))`, a raiz do escalar do vetor com ele mesmo. O produto vetorial não tem função pronta, mas cada componente é um determinante 2×2, que a função MATRIZ.DETERM calcula.",
+        "erro": "Três tropeços dominam a semana. Primeiro, confundir os produtos: o escalar dá número e o vetorial dá vetor. Se a pergunta tem × e a sua resposta é um número solto, você fez a conta do produto escalar. Segundo, esquecer o sinal de menos do componente do meio no determinante. Terceiro, parar no meio do escalar: (−1, 4, −3) é a lista de produtos, não o resultado; falta somar. E na fração −1/2, menos vezes menos continua dando mais."
+      },
+      "lab": "No laboratório, abra aos poucos o ângulo entre [[u]] e [[v]], de 0° a 180°, e veja o produto escalar trocar de sinal ao passar por 90°, enquanto a área ‖[[u]] × [[v]]‖ chega ao máximo nesse mesmo ângulo."
+    }
+  ],
+  "questoes": [
+    {
+      "id": "ga-s2-l2q1a",
+      "semana": 2,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Produto escalar e ortogonalidade",
+      "origem": "Lista 2 · Q1a",
+      "enunciado": "Sendo [[u]] = (1, 4, 3), [[v]] = (−1, 1, −1), [[w]] = (−2, −1/2, 5) e [[z]] = (−1, 2, −3). Calcular: a) [[u]] · [[v]]. Qual é o resultado e o que ele diz sobre os dois vetores?",
+      "alternativas": [
+        {"t": "(−1, 4, −3); os vetores são ortogonais", "certa": false, "erro": "Você multiplicou coordenada com coordenada e parou aí. O produto escalar termina com a soma, −1 + 4 − 3 = 0, que é um número, não um vetor."},
+        {"t": "0; os vetores são ortogonais", "certa": true},
+        {"t": "0; os vetores são paralelos", "certa": false, "erro": "A conta está certa, a leitura não. Produto escalar zero quer dizer ângulo de 90°. Paralelos teriam produto vetorial zero, e aqui [[u]] × [[v]] = (−7, −2, 5)."},
+        {"t": "6; o ângulo entre eles é agudo", "certa": false, "erro": "Você escreveu 3·(−1) como +3 e somou −1 + 4 + 3 = 6. O último produto é −3, e o total cai para 0."},
+        {"t": "(−7, −2, 5); os vetores são ortogonais", "certa": false, "erro": "Esse é o produto vetorial [[u]] × [[v]], o item k da lista. O sinal · pede o produto escalar, que dá um número."}
+      ],
+      "dica": "Multiplique x com x, y com y, z com z e some. Depois pense no que esse total diz sobre o ângulo entre os vetores.",
+      "resposta": "[[u]] · [[v]] = 0, então [[u]] ⊥ [[v]]",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 4, 3], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, 1, -1], "rot": "v", "cor": 2}
+        ],
+        "legenda": "[[u]] e [[v]] saem da origem. Gire até olhar o plano das duas setas de frente: o ângulo entre elas é reto."
+      },
+      "jeitos": {
+        "visual": "Na figura, [[u]] = (1, 4, 3) é a seta longa que sobe e se afasta; [[v]] = (−1, 1, −1) é a curta que desce. Gire até olhar o plano das duas de frente: entre elas fica um canto reto. Agora imagine uma luz caindo a 90° sobre a reta de [[u]]. A sombra de [[v]] nessa reta vira um ponto, de comprimento zero. O produto escalar é essa sombra vezes o tamanho de [[u]], e por isso dá 0.",
+        "receita": [
+          "Escreva os dois um embaixo do outro: [[u]] = (1, 4, 3) e [[v]] = (−1, 1, −1).",
+          "Multiplique coluna a coluna: 1·(−1) = −1; 4·1 = 4; 3·(−1) = −3.",
+          "Some os três produtos: −1 + 4 − 3 = 0.",
+          "Leia o resultado: [[u]] · [[v]] = ‖[[u]]‖ ‖[[v]]‖ cos θ = 0. As normas não são zero, então cos θ = 0 e θ = 90°.",
+          "Conclusão: [[u]] · [[v]] = 0 e [[u]] ⊥ [[v]]."
+        ],
+        "cotidiano": "Duas ruas que se cruzam em ângulo reto. Você anda quatro quadras pela primeira. Quanto avançou no sentido da segunda? Nada. O produto escalar mede quanto um vetor anda na direção do outro, vezes o tamanho do outro. Ruas perpendiculares dão zero. Se fossem quase paralelas, o número sairia grande e positivo; se apontassem para lados opostos, negativo.",
+        "trabalho": "Pense numa conferência com três linhas. Os valores 1, 4 e 3 vêm de [[u]]; os sinais −1, +1 e −1 vêm de [[v]], como débito e crédito. `=SOMARPRODUTO({1;4;3};{-1;1;-1})` devolve −1 + 4 − 3 = 0: débitos e créditos se anulam. Produto escalar zero é esse fechamento exato entre parcelas positivas e negativas. Na geometria, o nome dele é ângulo reto.",
+        "conversa": [
+          {"quem": "Você", "fala": "Deu zero. Acho que errei, vetor nenhum some assim."},
+          {"quem": "Monitor", "fala": "Ninguém sumiu. Quais foram os três produtos?"},
+          {"quem": "Você", "fala": "−1, 4 e −3. A soma dá 0 mesmo."},
+          {"quem": "Monitor", "fala": "Na fórmula ‖[[u]]‖ ‖[[v]]‖ cos θ, qual fator pode ser zero?"},
+          {"quem": "Você", "fala": "As normas não, os dois vetores têm tamanho. Sobra o cosseno."},
+          {"quem": "Monitor", "fala": "Cosseno zero, θ = 90°. Os dois são ortogonais, e a questão 2 da lista pergunta justamente isso."}
+        ],
+        "erro": "O tropeço mais comum é desconfiar do zero e refazer a conta até aparecer outro número. Zero não é sinal de erro: ele diz que os vetores formam 90°. O segundo tropeço é ler zero como paralelos. Paralelismo se testa com o produto vetorial, que zera quando os vetores estão na mesma reta. Aqui o vetorial dá (−7, −2, 5), longe de zero.",
+        "confira": "Prove o ângulo reto pelo outro produto. Se θ = 90°, sen θ = 1 e ‖[[u]] × [[v]]‖ deve ser igual a ‖[[u]]‖ ‖[[v]]‖ = √26 · √3 = √78. O item k dá [[u]] × [[v]] = (−7, −2, 5), e 49 + 4 + 25 = 78, então a norma é √78. Os dois caminhos concordam.",
+        "atalho": "Produto escalar é número: as duas alternativas que começam com vetor saem na hora. Entre os números, olhe os sinais dos produtos. O primeiro e o último são negativos (−1 e −3) e somam −4, que cancela o 4 do meio. Resultado 0. Entre as duas alternativas com 0, fica a que fala em ortogonais, porque zero no escalar é 90°."
+      }
+    },
+    {
+      "id": "ga-s2-l2q1b",
+      "semana": 2,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Produto escalar com fração",
+      "origem": "Lista 2 · Q1b",
+      "enunciado": "Sendo [[u]] = (1, 4, 3), [[v]] = (−1, 1, −1), [[w]] = (−2, −1/2, 5) e [[z]] = (−1, 2, −3). Calcular: b) [[u]] · [[w]]. Qual é o valor?",
+      "alternativas": [
+        {"t": "15", "certa": false, "erro": "Você perdeu o sinal da fração e fez 4·(1/2) = 2. O certo é 4·(−1/2) = −2, e o total fica −2 − 2 + 15 = 11."},
+        {"t": "(−2, −2, 15)", "certa": false, "erro": "Esses são os três produtos, um por coordenada. Falta somar: −2 − 2 + 15 = 11. Produto escalar é um número."},
+        {"t": "5", "certa": false, "erro": "Você leu −1/2 como −2 e fez 4·(−2) = −8. Aí −2 − 8 + 15 = 5. O y de [[w]] é −1/2, e 4·(−1/2) = −2."},
+        {"t": "11", "certa": true},
+        {"t": "19", "certa": false, "erro": "Você multiplicou os valores sem os sinais: 2 + 2 + 15 = 19. Os dois primeiros produtos são negativos."}
+      ],
+      "dica": "Cuidado com o produto do meio: 4 vezes −1/2 é a metade de 4, com sinal de menos.",
+      "resposta": "[[u]] · [[w]] = 11",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 4, 3], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-2, -0.5, 5], "rot": "w", "cor": 2}
+        ],
+        "legenda": "[[u]] e [[w]] sobem juntos e abrem um ângulo menor que 90°: o produto escalar sai positivo."
+      },
+      "jeitos": {
+        "visual": "Na figura, as duas setas saem da origem e sobem: [[u]] chega a z = 3 e [[w]] chega a z = 5. A abertura entre elas é de cerca de 66,49°, menor que um canto reto. Projete [[w]] sobre a reta de [[u]]: a sombra cai para a frente, no mesmo sentido de [[u]]. Sombra para a frente quer dizer número positivo. O trecho vertical em comum é o que mais pesa: 3·5 = 15.",
+        "receita": [
+          "Alinhe as coordenadas: [[u]] = (1, 4, 3) e [[w]] = (−2, −1/2, 5).",
+          "Produto do x: 1·(−2) = −2.",
+          "Produto do y: 4·(−1/2) = −4/2 = −2.",
+          "Produto do z: 3·5 = 15.",
+          "Some: −2 + (−2) + 15 = 11."
+        ],
+        "cotidiano": "Pedalar com vento. Vento soprando no mesmo rumo que você ajuda muito; de lado, não ajuda; de frente, atrapalha. O produto escalar funciona como um medidor dessa ajuda. [[u]] e [[w]] não apontam para o mesmo lado, mas a abertura entre eles é menor que 90°: vento meio de lado, ainda a favor. Por isso o resultado é positivo, embora menor que o produto dos dois tamanhos, que passa de 27.",
+        "trabalho": "Na planilha, ponha [[u]] em A1:A3 e [[w]] em B1:B3, digitando `-0,5` no lugar de −1/2. `=SOMARPRODUTO(A1:A3;B1:B3)` devolve 11. A função faz o mesmo que uma coluna auxiliar com `=A1*B1` e um `=SOMA` no fim. Se essa coluna mostrar −2, −2 e 15, os dados estão certos. Se aparecer 2 positivo no meio, o sinal da fração se perdeu na digitação.",
+        "conversa": [
+          {"quem": "Você", "fala": "Travei no meio. 4 vezes −1/2 dá quanto?"},
+          {"quem": "Monitor", "fala": "Quanto é a metade de 4?"},
+          {"quem": "Você", "fala": "2. Com o sinal, −2."},
+          {"quem": "Monitor", "fala": "Agora junte com os outros dois produtos."},
+          {"quem": "Você", "fala": "−2 do x, −2 do y e 15 do z. Total 11."},
+          {"quem": "Monitor", "fala": "Confere. Multiplicar por −1/2 é dividir por 2 e trocar o sinal."}
+        ],
+        "erro": "A fração do meio concentra os erros. Um grupo perde o sinal e escreve 4·(1/2) = 2, chegando a 15. Outro lê −1/2 como −2 e faz 4·(−2) = −8, chegando a 5. Para não cair, troque a fração por uma frase: multiplicar por −1/2 é pegar a metade e trocar o sinal. A metade de 4 é 2; com o sinal, −2.",
+        "confira": "Tire a fração dobrando [[w]]: 2[[w]] = (−4, −1, 10). Agora tudo é inteiro: [[u]] · 2[[w]] = −4 − 4 + 30 = 22. Como você dobrou um dos vetores, o produto escalar dobrou junto. Divida por 2: 22/2 = 11. Mesmo resultado por um caminho sem fração.",
+        "atalho": "O produto do z, 3·5 = 15, é o maior e é positivo. Nos outros dois, um número positivo de [[u]] multiplica um negativo de [[w]], então os dois produtos são negativos e o total fica abaixo de 15. Isso elimina 15, 19 e o vetor. Entre 5 e 11, faça só a conta do meio: a metade de 4 é 2, então 15 − 2 − 2 = 11."
+      }
+    },
+    {
+      "id": "ga-s2-l2q1c",
+      "semana": 2,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Produto escalar negativo",
+      "origem": "Lista 2 · Q1c",
+      "enunciado": "Sendo [[u]] = (1, 4, 3), [[v]] = (−1, 1, −1), [[w]] = (−2, −1/2, 5) e [[z]] = (−1, 2, −3). Calcular: c) [[u]] · [[z]]. Qual é o valor?",
+      "alternativas": [
+        {"t": "−2", "certa": true},
+        {"t": "16", "certa": false, "erro": "Você fez 3·(−3) = +9 e somou −1 + 8 + 9 = 16. Positivo vezes negativo dá negativo: o último produto é −9."},
+        {"t": "(−1, 8, −9)", "certa": false, "erro": "Você calculou os três produtos e não somou. O produto escalar é a soma deles: −1 + 8 − 9 = −2."},
+        {"t": "18", "certa": false, "erro": "Você ignorou todos os sinais: 1 + 8 + 9 = 18. O primeiro e o último produtos são negativos."},
+        {"t": "6", "certa": false, "erro": "Você somou as coordenadas em vez de multiplicar: (1 − 1) + (4 + 2) + (3 − 3) = 6. Essa é a soma dos componentes de [[u]] + [[z]], outra conta."}
+      ],
+      "dica": "Dois dos três produtos são negativos. Veja se o positivo dá conta de compensar os dois.",
+      "resposta": "[[u]] · [[z]] = −2",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 4, 3], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, 2, -3], "rot": "z", "cor": 2}
+        ],
+        "legenda": "[[u]] sobe e [[z]] desce; o ângulo entre eles passa um pouco de 90°."
+      },
+      "jeitos": {
+        "visual": "Na figura, [[u]] sobe (z = 3) e [[z]] desce (z = −3). No plano do chão, os dois vão para o mesmo lado do eixo y, porque têm y positivo. Uma parte puxa junto, outra puxa contra. O ângulo entre eles fica em cerca de 96,02°, só um pouco além do reto. A sombra de [[z]] sobre a reta de [[u]] cai um pouquinho para trás: produto escalar negativo e pequeno.",
+        "receita": [
+          "Coordenadas: [[u]] = (1, 4, 3) e [[z]] = (−1, 2, −3).",
+          "x: 1·(−1) = −1.",
+          "y: 4·2 = 8.",
+          "z: 3·(−3) = −9.",
+          "Some: −1 + 8 − 9 = −2."
+        ],
+        "cotidiano": "Um placar entre dois amigos em três votações. Em cada uma, o voto de um multiplica o do outro: sinais iguais somam ponto, sinais opostos tiram. No x eles discordam de leve (−1). No y concordam forte (+8). No z discordam forte (−9). O placar fecha em −2: discordam um pouco mais do que concordam. Em vetores, isso é um ângulo levemente maior que 90°.",
+        "trabalho": "Em banco de dados, o produto escalar é um JOIN seguido de SUM. Guarde cada vetor numa tabela com as colunas pos e valor. A consulta `SELECT SUM(a.valor * b.valor) FROM vet_u a JOIN vet_z b ON a.pos = b.pos` casa x com x, y com y, z com z, multiplica e soma: −1 + 8 − 9 = −2. Sem o SUM, a consulta devolveria três linhas com os produtos soltos.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei 16. Fiz −1 + 8 + 9."},
+          {"quem": "Monitor", "fala": "De onde veio o 9 positivo?"},
+          {"quem": "Você", "fala": "Do z: 3 vezes −3."},
+          {"quem": "Monitor", "fala": "Positivo vezes negativo dá o quê?"},
+          {"quem": "Você", "fala": "Negativo. Então é −9, e a soma fica −1 + 8 − 9 = −2."},
+          {"quem": "Monitor", "fala": "Isso. E o sinal negativo diz que o ângulo passou de 90°, mesmo que por pouco."}
+        ],
+        "erro": "O ponto fraco é o sinal do último produto. Quem escreve +9 chega a 16 e conclui que os vetores apontam quase para o mesmo lado. Outro tropeço é achar que −2 está errado por ser negativo. Produto escalar pode ser negativo: ele só avisa que o ângulo é obtuso. Quem nunca é negativa é a norma.",
+        "confira": "Calcule o ângulo e compare com a figura. ‖[[u]]‖ = √26 ≈ 5,10 e ‖[[z]]‖ = √14 ≈ 3,74. Então cos θ = −2/(5,10 · 3,74) ≈ −0,105, o que dá cerca de 96°. Uma seta subindo e outra descendo, quase em ângulo reto, combina com isso. Com 16, o cosseno daria 0,84 e as setas teriam de estar bem próximas, o que a figura desmente.",
+        "atalho": "Tire o vetor, que não é número. Dos números restantes, só um é negativo. Antes de somar tudo, veja o sinal: os produtos são −1, +8 e −9, e o −9 sozinho já pesa mais que o +8. O total tem de ser negativo. Sobra −2."
+      }
+    },
+    {
+      "id": "ga-s2-l2q1d",
+      "semana": 2,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Escalar com soma de frações",
+      "origem": "Lista 2 · Q1d",
+      "enunciado": "Sendo [[u]] = (1, 4, 3), [[v]] = (−1, 1, −1), [[w]] = (−2, −1/2, 5) e [[z]] = (−1, 2, −3). Calcular: d) [[v]] · [[w]]. Qual é o valor?",
+      "alternativas": [
+        {"t": "−5/2", "certa": false, "erro": "Você trocou o sinal do produto com a fração: 1·(−1/2) virou +1/2. Aí 2 + 1/2 − 5 = −5/2. O certo é 2 − 1/2 − 5."},
+        {"t": "(2, −1/2, −5)", "certa": false, "erro": "Esses são os três produtos, ainda separados. Somando: 2 − 1/2 − 5 = −7/2."},
+        {"t": "−15/2", "certa": false, "erro": "Você fez (−1)·(−2) = −2. Menos vezes menos dá mais: o primeiro produto é +2. Com o erro, −2 − 1/2 − 5 = −15/2."},
+        {"t": "−2", "certa": false, "erro": "A soma 2 − 5 = −3 estava certa. O tropeço foi juntar −3 − 1/2 como (−3 − 1)/2 = −2. Antes, escreva −3 como −6/2: −6/2 − 1/2 = −7/2."},
+        {"t": "−7/2", "certa": true}
+      ],
+      "dica": "Faça os três produtos e deixe a fração por último: some primeiro os inteiros.",
+      "resposta": "[[v]] · [[w]] = −7/2",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, 1, -1], "rot": "v", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-2, -0.5, 5], "rot": "w", "cor": 2}
+        ],
+        "legenda": "[[v]] desce e [[w]] sobe: a abertura entre eles passa de 90°."
+      },
+      "jeitos": {
+        "visual": "Na figura, [[v]] é curto e desce (z = −1); [[w]] é longo e sobe (z = 5). A abertura entre os dois é de cerca de 111,94°, maior que um canto reto. Projete [[w]] na reta de [[v]]: a sombra cai do lado oposto ao sentido de [[v]]. Sombra para trás, produto escalar negativo. O produto que mais pesa é o do z, uma seta descendo e outra subindo: (−1)·5 = −5.",
+        "receita": [
+          "Coordenadas: [[v]] = (−1, 1, −1) e [[w]] = (−2, −1/2, 5).",
+          "x: (−1)·(−2) = 2.",
+          "y: 1·(−1/2) = −1/2.",
+          "z: (−1)·5 = −5.",
+          "Some os inteiros: 2 − 5 = −3.",
+          "Junte a fração: −3 − 1/2 = −6/2 − 1/2 = −7/2."
+        ],
+        "cotidiano": "Na padaria, um amigo devolve 2 reais que você tinha emprestado. Depois você paga 50 centavos de uma bala e 5 reais de um pão. No fim da ida, o saldo ficou 3 reais e 50 centavos no negativo: −3,50, que é −7/2. Cada movimento é um dos produtos, já com o sinal certo. O produto escalar é esse saldo: tudo somado, com sinal.",
+        "trabalho": "No Excel, a fração vira decimal: `=SOMARPRODUTO({-1;1;-1};{-2;-0,5;5})` devolve −3,5. A lista escreve −7/2. É o mesmo número, porque 7 dividido por 2 dá 3,5. Na prova, deixe em fração, que é exata e é o formato do gabarito. Para conferir, `=-7/2` numa célula também mostra −3,5.",
+        "conversa": [
+          {"quem": "Você", "fala": "Somei 2 − 1/2 − 5 e deu −2. Fiz −3 − 1/2 = −4/2."},
+          {"quem": "Monitor", "fala": "Quanto vale −3 em meios?"},
+          {"quem": "Você", "fala": "−6/2."},
+          {"quem": "Monitor", "fala": "Então −3 − 1/2 é −6/2 − 1/2. Quanto dá?"},
+          {"quem": "Você", "fala": "−7/2. Eu tinha juntado o 3 com o 1 no numerador."},
+          {"quem": "Monitor", "fala": "Esse é o tropeço de sempre com fração. Antes de somar, ponha tudo no mesmo denominador."}
+        ],
+        "erro": "Quase ninguém erra os produtos aqui; o erro vem na soma com fração. Quem faz −3 − 1/2 = (−3 − 1)/2 chega a −2, porque somou um inteiro com um numerador. O inteiro precisa virar meios antes: −3 = −6/2. O outro ponto de atenção é o primeiro produto, (−1)·(−2): menos com menos dá +2, não −2.",
+        "confira": "Refaça com decimais: (−1)·(−2) = 2; 1·(−0,5) = −0,5; (−1)·5 = −5. Soma: 2 − 0,5 − 5 = −3,5, e −7/2 = −3,5. Outra prova, sem fração nenhuma: 2[[w]] = (−4, −1, 10) e [[v]] · 2[[w]] = 4 − 1 − 10 = −7, que é o dobro de −7/2.",
+        "atalho": "Só um produto tem fração, 1·(−1/2), e ele deixa meio no resultado. Logo o total não pode ser inteiro: −2 cai. O vetor cai por não ser número. Entre −5/2, −15/2 e −7/2, confira dois sinais: (−1)·(−2) é +2, e 1·(−1/2) é −1/2. A soma é 2 − 1/2 − 5 = −7/2."
+      }
+    }
+  ]
+}

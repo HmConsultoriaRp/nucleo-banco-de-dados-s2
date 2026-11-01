@@ -1,0 +1,287 @@
+{
+  "disciplina": "lp",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "lp-s6-p07",
+      "semana": 6,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Interrompa no primeiro achado",
+      "origem": "Prévia · ementa",
+      "enunciado": "O algoritmo procura o primeiro múltiplo de 7 entre 20 e 40 e conta as voltas que deu. O que ele escreve na tela?",
+      "codigo": "algoritmo \"primeiro_multiplo_de_7\"\nvar\n   i, c, achou: inteiro\ninicio\n   c <- 0\n   achou <- 0\n   para i de 20 ate 40 faca\n      c <- c + 1\n      se i mod 7 = 0 entao\n         achou <- i\n         interrompa\n      fimse\n   fimpara\n   escreval(achou, \" \", c)\nfimalgoritmo",
+      "entradas": [],
+      "saida": "21 2",
+      "alternativas": [
+        {"t": "35 21", "certa": false, "erro": "Você deixou o laço correr até o 40, como se o `interrompa` não existisse. Aí achou fica com o último múltiplo, 35, e c chega a 40 − 20 + 1 = 21."},
+        {"t": "21 2", "certa": true},
+        {"t": "21 1", "certa": false, "erro": "Você não contou a volta do 21. A linha `c <- c + 1` vem antes do `se`, então essa volta também soma 1 antes do `interrompa`."},
+        {"t": "Nada, porque o `interrompa` encerra o programa", "certa": false, "erro": "O `interrompa` sai só do laço em que está. A execução segue na linha depois do `fimpara`, e o `escreval` roda."},
+        {"t": "21 21", "certa": false, "erro": "Você acertou o achado, mas calculou o c pela conta de voltas do `para` inteiro, 40 − 20 + 1 = 21. O `interrompa` corta o laço no i = 21: só duas voltas começaram, e c fica em 2."}
+      ],
+      "dica": "Siga o i a partir de 20 e pare na primeira volta em que o resto da divisão por 7 der zero. Conte quantas voltas começaram até ali.",
+      "resposta": "21 2",
+      "jeitos": {
+        "visual": "Pense numa fileira de caixas numeradas de 20 a 40 e você abrindo uma por uma, com um contador de cliques na mão. Abre a 20: clique, nada dentro. Abre a 21: clique, achou um múltiplo de 7. O `interrompa` é a ordem de parar de abrir e ir embora; as caixas de 22 a 40 nem são tocadas. Na mão ficam dois cliques. No teste de mesa, o i para em 21 e a próxima linha executada é o `escreval`.",
+        "receita": [
+          "c = 0 e achou = 0.",
+          "i = 20: c = 1. 20 mod 7 = 6, o `se` é falso.",
+          "i = 21: c = 2. 21 mod 7 = 0, o `se` é verdadeiro.",
+          "achou = 21, e o `interrompa` tira a execução do `para` na hora.",
+          "A próxima linha é o `escreval`: mostra 21 2."
+        ],
+        "cotidiano": "É procurar a chave certa num molho: você testa uma por uma na fechadura e, quando uma abre, para. Ninguém continua testando as outras com a porta já aberta. Se perguntarem quantas chaves você testou, a resposta inclui a que abriu. O `interrompa` é parar de testar; o contador conta todas as tentativas, inclusive a certa.",
+        "trabalho": "É o comportamento do PROCV com correspondência exata: ele percorre a coluna de cima para baixo e devolve a primeira linha que bate, ignorando as seguintes. Em SQL, a ideia aparece em `ORDER BY ... LIMIT 1`. Num laço, quem faz esse papel é o `interrompa`. Sem ele, o laço continua e a variável fica com a última ocorrência, como um PROCV que devolvesse o último lançamento em vez do primeiro.",
+        "conversa": [
+          {"quem": "Você", "fala": "Os múltiplos de 7 entre 20 e 40 são 21, 28 e 35. Então achou = 35."},
+          {"quem": "Monitor", "fala": "E o que acontece logo depois de `achou <- 21`?"},
+          {"quem": "Você", "fala": "Vem o `interrompa`."},
+          {"quem": "Monitor", "fala": "Ele deixa o laço seguir para o 22?"},
+          {"quem": "Você", "fala": "Não, ele sai do `para`. Então achou fica 21. E o c?"},
+          {"quem": "Monitor", "fala": "Quantas vezes a linha `c <- c + 1` rodou?"},
+          {"quem": "Você", "fala": "Duas, no 20 e no 21. Sai 21 2."}
+        ],
+        "erro": "O erro mais comum é ignorar o `interrompa`, listar todos os múltiplos e ficar com o último, 35. O segundo é achar que ele encerra o algoritmo inteiro, quando ele sai só do laço em que está. O terceiro é sutil: a contagem acontece antes do teste, então a volta que acha o 21 também conta. Leia a ordem das linhas dentro do laço antes de contar.",
+        "confira": "Faça a conta sem o laço: o primeiro múltiplo de 7 a partir de 20 é 7 × 3 = 21, porque 7 × 2 = 14 fica antes de 20. As voltas de 20 até 21 são 21 − 20 + 1 = 2. Rode no site para fechar: na coluna c do teste de mesa, o último valor antes do `escreval` é 2.",
+        "atalho": "Comece pelo primeiro número: com o `interrompa` logo depois do achado, achou guarda o primeiro múltiplo, 21. Isso elimina 35 21. Agora o segundo: o contador fica antes do `se`, então conta a volta do achado. De 20 a 21 são duas voltas. Sobra 21 2."
+      }
+    },
+    {
+      "id": "lp-s6-p08",
+      "semana": 6,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Preencher e somar vetor",
+      "origem": "Prévia · ementa",
+      "enunciado": "O que este algoritmo escreve na tela?",
+      "codigo": "algoritmo \"vetor_triplos\"\nvar\n   v: vetor[1..5] de inteiro\n   i, s: inteiro\ninicio\n   para i de 1 ate 5 faca\n      v[i] <- i * 3\n   fimpara\n   s <- 0\n   para i de 2 ate 4 faca\n      s <- s + v[i]\n   fimpara\n   escreval(v[5], \" \", s)\nfimalgoritmo",
+      "entradas": [],
+      "saida": "15 27",
+      "alternativas": [
+        {"t": "15 45", "certa": false, "erro": "Você somou o vetor inteiro, 3 + 6 + 9 + 12 + 15. O segundo `para` vai só de 2 a 4: as posições 1 e 5 ficam fora da soma."},
+        {"t": "15 9", "certa": false, "erro": "Você somou os índices, 2 + 3 + 4. O laço soma `v[i]`, o valor guardado em cada posição, e não o número da posição."},
+        {"t": "15 15", "certa": false, "erro": "Você parou antes da posição 4, como se o `ate` excluísse o limite: 6 + 9 = 15. A posição 4 entra e soma mais 12."},
+        {"t": "5 27", "certa": false, "erro": "Você escreveu o índice no lugar do conteúdo. `v[5]` é o que está guardado na posição 5, que é 5 × 3 = 15."},
+        {"t": "15 27", "certa": true}
+      ],
+      "dica": "Primeiro monte o vetor inteiro, posição por posição. Só depois veja quais posições o segundo laço visita.",
+      "resposta": "15 27 (`v[5]` = 15; `v[2] + v[3] + v[4]` = 6 + 9 + 12 = 27)",
+      "jeitos": {
+        "visual": "Desenhe cinco gavetas lado a lado, com etiquetas de 1 a 5. O primeiro laço passa em cada uma e guarda nela o triplo da etiqueta: 3, 6, 9, 12, 15. O segundo laço abre só as gavetas 2, 3 e 4 e soma o que está dentro: 6 + 9 + 12 = 27. A gaveta 5 guarda 15. No teste de mesa do site, o vetor aparece numa coluna só, entre colchetes, e você vê as cinco posições sendo preenchidas uma a uma.",
+        "receita": [
+          "Primeiro laço: `v[1]` = 3, `v[2]` = 6, `v[3]` = 9, `v[4]` = 12, `v[5]` = 15.",
+          "s recebe 0.",
+          "Segundo laço, i = 2: s = 0 + 6 = 6.",
+          "i = 3: s = 6 + 9 = 15. i = 4: s = 15 + 12 = 27.",
+          "O laço termina. `escreval` mostra `v[5]`, que é 15, e s, que é 27."
+        ],
+        "cotidiano": "Um vetor é uma fileira de cinco cofres numerados de 1 a 5, cada um com uma quantia dentro. O número na porta do cofre é o índice; a quantia é o conteúdo. Juntar o dinheiro dos cofres 2, 3 e 4 dá 6 + 9 + 12 = 27 reais. Somar os números das portas, 2 + 3 + 4 = 9, é outra conta, e não diz nada sobre o dinheiro guardado.",
+        "trabalho": "No Excel, o vetor é uma coluna de cinco células, e o índice é a posição na coluna. Com 3, 6, 9, 12 e 15 em A1:A5, `=ÍNDICE(A1:A5;5)` devolve 15 e `=SOMA(A2:A4)` devolve 27. Num banco de dados, é como uma tabela cuja chave é o número da posição: o laço de 2 a 4 equivale a `WHERE posicao BETWEEN 2 AND 4`, que inclui as duas pontas.",
+        "conversa": [
+          {"quem": "Você", "fala": "O segundo laço vai de 2 a 4, então s = 2 + 3 + 4 = 9."},
+          {"quem": "Monitor", "fala": "A linha dentro do laço soma i ou soma `v[i]`?"},
+          {"quem": "Você", "fala": "Soma `v[i]`."},
+          {"quem": "Monitor", "fala": "E o que está guardado em `v[2]`?"},
+          {"quem": "Você", "fala": "O primeiro laço pôs 2 × 3 = 6. Então é 6 + 9 + 12 = 27."},
+          {"quem": "Monitor", "fala": "E o primeiro número da saída, `v[5]`, segue a mesma lógica: é o conteúdo da posição 5."},
+          {"quem": "Você", "fala": "15. Fica 15 27."}
+        ],
+        "erro": "A armadilha central é trocar índice por conteúdo. O i diz qual gaveta abrir; `v[i]` é o que está dentro dela. Quem soma os índices chega a 9, e quem escreve o índice no lugar do valor põe 5 na primeira posição da saída. A outra armadilha é ver um vetor e somar tudo por reflexo, sem olhar os limites do segundo laço: de 2 até 4, com as duas pontas incluídas.",
+        "confira": "Calcule de outro jeito: cada posição guarda 3 vezes o índice, então a soma das posições 2 a 4 é 3 × (2 + 3 + 4) = 3 × 9 = 27. Esse 9 é a soma dos índices: ele aparece na conta, mas multiplicado por 3. Para o primeiro número da saída, faça a conta da posição direto: 5 × 3 = 15.",
+        "atalho": "O primeiro número sai de uma conta só, 5 × 3 = 15, o que elimina 5 27. No segundo, conte as parcelas: de 2 até 4 são três posições, nem cinco (45) nem duas (15). Entre 9 e 27, lembre que se soma o conteúdo, e o menor conteúdo somado já é 6. Três parcelas de pelo menos 6 passam de 9."
+      }
+    },
+    {
+      "id": "lp-s6-p09",
+      "semana": 6,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Maior e menor lidos",
+      "origem": "Prévia · ementa",
+      "enunciado": "O programa deveria mostrar o maior e o menor dos quatro números lidos. As entradas são 15, 8, 23 e 11. O que ele escreve, e qual correção faz ele funcionar para quaisquer números?",
+      "codigo": "algoritmo \"maior_e_menor\"\nvar\n   i, x, maior, menor: inteiro\ninicio\n   maior <- 0\n   menor <- 0\n   para i de 1 ate 4 faca\n      leia(x)\n      se x > maior entao\n         maior <- x\n      fimse\n      se x < menor entao\n         menor <- x\n      fimse\n   fimpara\n   escreval(maior, \" \", menor)\nfimalgoritmo",
+      "entradas": ["15", "8", "23", "11"],
+      "saida": "23 0",
+      "alternativas": [
+        {"t": "Escreve 23 8; o código já está certo", "certa": false, "erro": "Você respondeu o que o programa deveria fazer. A variável menor começa em 0, e nenhum dos números lidos é menor que 0, então ela nunca troca."},
+        {"t": "Escreve 23 0; trocar `x < menor` por `x > menor`", "certa": false, "erro": "A saída está certa, mas a correção não. Com `x > menor`, a variável menor passaria a seguir os valores grandes. O defeito está no valor de partida, não no sinal do teste."},
+        {"t": "Escreve 23 0; começar maior e menor com o primeiro número lido", "certa": true},
+        {"t": "Escreve 0 0; começar maior e menor com o primeiro número lido", "certa": false, "erro": "O maior troca, sim: já na primeira volta, 15 > 0. Só o menor fica preso no 0, porque nenhuma entrada é negativa."},
+        {"t": "Escreve 23 0; começar menor com 100", "certa": false, "erro": "Funciona com estas entradas, mas é chute. Se todos os números lidos passarem de 100, menor fica 100, um valor que ninguém digitou."}
+      ],
+      "dica": "Faça o teste de mesa só da variável menor: em qual volta ela troca de valor?",
+      "resposta": "Escreve 23 0. A correção é começar maior e menor com o primeiro número lido.",
+      "jeitos": {
+        "visual": "Pense em menor como um banco onde fica sentado o menor valor visto até agora. Antes do laço, alguém já sentou ali o 0. Chegam 15, 8, 23 e 11, e cada um só toma o lugar se for menor que quem está sentado. Nenhum é menor que 0, então o 0 fica até o fim. O banco do maior funciona: o 15 tira o 0, e depois o 23 tira o 15. No teste de mesa, a coluna menor não muda nenhuma vez.",
+        "receita": [
+          "Antes do laço, maior = 0 e menor = 0.",
+          "Lê 15: 15 > 0, maior = 15. 15 < 0 é falso, menor continua 0.",
+          "Lê 8: não passa de 15 e não é menor que 0. Nada muda.",
+          "Lê 23: maior = 23. Lê 11: nada muda.",
+          "Escreve 23 0. O menor ficou preso no valor de partida.",
+          "Correção: ler o primeiro número antes do laço, guardar em maior e em menor, e comparar só os três seguintes."
+        ],
+        "cotidiano": "É anotar que o menor preço da prateleira é zero antes de olhar as etiquetas. Você passa por 15, 8, 23 e 11 reais, nenhum é mais barato que zero, e sai dizendo que o menor preço é zero, de um produto que não existe. O jeito honesto é pegar a primeira etiqueta como referência e comparar as outras com ela.",
+        "trabalho": "Num relatório de saldos diários, começar o menor saldo com 0 faz o relatório dizer que o mês teve saldo zero, quando todos os dias ficaram positivos. O Excel evita isso: `=MÍNIMO(A1:A4)` olha só os valores da faixa. Em SQL, `MIN(x)` também parte dos dados, e devolve NULL numa tabela vazia em vez de inventar um zero. Um laço que começa o mínimo com o primeiro valor lido imita esse comportamento.",
+        "conversa": [
+          {"quem": "Você", "fala": "O maior é 23 e o menor é 8. Sai 23 8."},
+          {"quem": "Monitor", "fala": "Esse é o objetivo. Agora faça o teste de mesa do menor. Ele começa com quanto?"},
+          {"quem": "Você", "fala": "Com 0. Aí vem o 15: 15 < 0? Não."},
+          {"quem": "Monitor", "fala": "E o 8?"},
+          {"quem": "Você", "fala": "8 < 0 também não. Nenhum é menor que 0. Então sai 23 0."},
+          {"quem": "Monitor", "fala": "E se você trocasse o 0 por 100?"},
+          {"quem": "Você", "fala": "Funcionaria aqui, mas quebraria se viessem números acima de 100. Melhor partir do primeiro número lido."}
+        ],
+        "erro": "A armadilha é responder o que o programa promete em vez do que ele faz. O código parece certo, mas o ponto de partida estraga o menor: com 0, só um número negativo conseguiria trocar. Na hora de corrigir, o tropeço é trocar o 0 por outro número grande o bastante. Qualquer valor fixo tem um caso que o derruba; o primeiro número lido não tem.",
+        "confira": "Teste a correção num caso que derrubaria as outras: entradas 150, 200, 300 e 120. Partindo do primeiro lido, maior e menor começam em 150; o 200 e o 300 sobem o maior, e o 120 desce o menor. Sai 300 120, que é o certo. Partindo de 100, o menor ficaria 100, um número que não foi digitado.",
+        "atalho": "Separe a pergunta em duas. Primeiro a saída: o menor começa em 0 e nenhuma entrada é negativa, então o segundo número é 0. Isso elimina 23 8. O maior troca já no 15, o que elimina 0 0. Depois a correção: trocar o sinal do teste quebra o menor, e um número fixo falha em algum caso. Sobra começar com o primeiro número lido."
+      }
+    },
+    {
+      "id": "lp-s6-p10",
+      "semana": 6,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Reconhecer laço infinito",
+      "origem": "Prévia · ementa",
+      "enunciado": "Os cinco trechos da tabela usam uma variável inteira x. Cada linha mostra o valor inicial, o laço e a única linha do corpo. Qual deles nunca termina?",
+      "tabela": {
+        "onde": "enunciado",
+        "cab": ["Trecho", "Antes", "Laço", "Corpo"],
+        "linhas": [
+          ["1", "`x <- 1`", "`enquanto x < 10 faca`", "`x <- x + 2`"],
+          ["2", "`x <- 20`", "`enquanto x > 0 faca`", "`x <- x div 2`"],
+          ["3", "`x <- 1`", "`enquanto x <> 10 faca`", "`x <- x + 2`"],
+          ["4", "`x <- 10`", "`repita ... ate x < 0`", "`x <- x - 3`"],
+          ["5", "`x <- 1`", "`enquanto x <= 100 faca`", "`x <- x * 2`"]
+        ]
+      },
+      "alternativas": [
+        {"t": "Trecho 1", "certa": false, "erro": "Este termina. x passa por 1, 3, 5, 7, 9 e 11; com 11, a condição `x < 10` fica falsa e o laço sai."},
+        {"t": "Trecho 2", "certa": false, "erro": "Este termina. Com `div`, a divisão é inteira: 20, 10, 5, 2, 1 e então 1 div 2 = 0. Com x = 0, `x > 0` é falso."},
+        {"t": "Trecho 3", "certa": true},
+        {"t": "Trecho 4", "certa": false, "erro": "Este termina. x desce 10, 7, 4, 1 e −2; com −2, `x < 0` fica verdadeiro, e no `repita` condição verdadeira encerra o laço."},
+        {"t": "Trecho 5", "certa": false, "erro": "Este termina. x dobra: 1, 2, 4, 8, 16, 32, 64 e 128; com 128, `x <= 100` é falso. Crescer rápido não é o mesmo que crescer para sempre."}
+      ],
+      "dica": "Para cada trecho, pergunte: a variável da condição muda a cada volta, e ela consegue chegar a um valor que faz o laço sair?",
+      "resposta": "Trecho 3: x só assume valores ímpares e nunca fica igual a 10",
+      "jeitos": {
+        "visual": "Desenhe a reta dos números e marque o 10 com uma bandeira. No trecho 3, x sai do 1 e pula de 2 em 2: 1, 3, 5, 7, 9, 11, 13. Ele salta por cima da bandeira e segue para a direita sem nunca pisar nela. A condição `x <> 10` só fica falsa se x pisar exatamente no 10, e isso não acontece. Nos trechos que terminam, a saída é uma faixa inteira da reta, como tudo de 10 para cima, e os pulos desses trechos acabam caindo dentro dela.",
+        "receita": [
+          "Trecho 1: 1, 3, 5, 7, 9, 11. Com 11, `x < 10` é falso: termina.",
+          "Trecho 2: 20, 10, 5, 2, 1, 0, porque 1 div 2 = 0. Com 0, `x > 0` é falso: termina.",
+          "Trecho 3: 1, 3, 5, 7, 9, 11, 13 e assim por diante. x é sempre ímpar e nunca vale 10, então `x <> 10` fica verdadeiro para sempre: não termina.",
+          "Trecho 4: 10, 7, 4, 1, −2. Com −2, o `ate x < 0` é verdadeiro: termina.",
+          "Trecho 5: 1, 2, 4, 8, 16, 32, 64, 128. Com 128, `x <= 100` é falso: termina.",
+          "Resposta: trecho 3."
+        ],
+        "cotidiano": "É combinar com alguém: desço do ônibus quando ele parar no ponto de número 10. Só que esse ônibus para apenas nos pontos ímpares: 1, 3, 5, 7, 9, 11. Você nunca desce. Se o combinado fosse descer quando passar do ponto 10, você desceria no 11. Esperar um valor exato é arriscado quando o passo pode pular por cima dele.",
+        "trabalho": "Na conciliação, uma rotina do tipo enquanto a diferença for diferente de zero, lance o próximo ajuste, só termina se algum ajuste zerar a diferença exatamente. Se cada ajuste tira 2 centavos e a diferença começa em 3 centavos, ela passa por 3, 1, −1, −3 e nunca para no zero. Por isso a regra de parada costuma usar uma faixa, e não igualdade exata: parar quando a diferença, sem o sinal, ficar menor que o tamanho do ajuste. Aqui, menor que 2 centavos, o que já acontece no 1.",
+        "conversa": [
+          {"quem": "Você", "fala": "O trecho 2 nunca para. Dividir por 2 nunca chega a zero, sempre sobra um pedaço."},
+          {"quem": "Monitor", "fala": "Isso vale para a divisão comum. Aqui é `div`. Quanto dá 1 div 2?"},
+          {"quem": "Você", "fala": "Zero, porque a divisão inteira joga fora a parte quebrada. Então ele para."},
+          {"quem": "Monitor", "fala": "Agora olhe o trecho 3. Por quais valores x passa?"},
+          {"quem": "Você", "fala": "1, 3, 5, 7, 9, 11... só ímpares."},
+          {"quem": "Monitor", "fala": "E a condição espera o quê para sair?"},
+          {"quem": "Você", "fala": "x igual a 10. Nunca acontece. É esse o infinito."}
+        ],
+        "erro": "O erro clássico é julgar pela cara do código, e não pelos valores. O trecho 2 parece infinito porque dividir por 2 nunca zera na matemática, mas `div` corta a parte quebrada. O trecho 5 assusta porque cresce rápido, mas cresce para fora da condição. Já o trecho 3 parece inocente e é o perigoso: um teste de igualdade, com `<>` ou `=`, sobre uma variável que pode pular o valor esperado.",
+        "confira": "Para cada trecho, escreva os valores de x numa linha até a condição mudar, ou até notar um padrão que nunca a muda. No trecho 3, o padrão é ímpar, ímpar, ímpar: somar 2 a um ímpar dá outro ímpar, então x nunca vale 10. Se montar esse trecho num algoritmo completo no laboratório do site, o interpretador para depois de 5.000 passos e avisa que parece um laço que não termina.",
+        "atalho": "Procure primeiro as condições de igualdade, `=` ou `<>`, porque são as que mais travam. Só o trecho 3 tem uma. Depois confira se o passo acerta o alvo: começando em 1 e somando 2, x só vê ímpares, e 10 é par. Os trechos com `<`, `>` ou `<=` terminam assim que x atravessa o limite."
+      }
+    },
+    {
+      "id": "lp-s6-p11",
+      "semana": 6,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Teste de mesa com troca",
+      "origem": "Prévia · ementa",
+      "enunciado": "Faça o teste de mesa. O que o algoritmo escreve na tela?",
+      "codigo": "algoritmo \"teste_de_mesa\"\nvar\n   a, b, t, i: inteiro\ninicio\n   a <- 1\n   b <- 1\n   para i de 1 ate 4 faca\n      t <- a + b\n      a <- b\n      b <- t\n   fimpara\n   escreval(a, \" \", b)\nfimalgoritmo",
+      "entradas": [],
+      "saida": "5 8",
+      "alternativas": [
+        {"t": "5 8", "certa": true},
+        {"t": "8 13", "certa": false, "erro": "Você deu uma volta a mais. O `para` vai de 1 até 4: são quatro voltas, e só uma quinta levaria a 8 13."},
+        {"t": "1 2", "certa": false, "erro": "Você achou que a e b voltam a 1 a cada volta. As linhas `a <- 1` e `b <- 1` ficam antes do `para` e rodam uma vez só; cada volta parte dos valores da anterior."},
+        {"t": "3 5", "certa": false, "erro": "Você parou na terceira volta, como se o `ate 4` excluísse o 4. A volta com i = 4 também acontece e leva a 5 8."},
+        {"t": "16 16", "certa": false, "erro": "Você fez `b <- t` antes de `a <- b`. Aí a copia o b novo, e os dois ficam sempre iguais: 2 2, 4 4, 8 8, 16 16. A ordem das linhas importa."}
+      ],
+      "dica": "Monte uma tabela com as colunas i, t, a e b e preencha uma linha por volta, usando sempre os valores da linha de cima.",
+      "resposta": "5 8",
+      "jeitos": {
+        "visual": "Imagine uma tabela com quatro colunas: i, t, a, b. A linha de antes do laço tem a = 1 e b = 1. Cada volta escreve uma linha nova a partir da de cima: t é a soma de a e b anteriores, o a novo é o b antigo, e o b novo é o t. As linhas ficam (1, 2, 1, 2), (2, 3, 2, 3), (3, 5, 3, 5) e (4, 8, 5, 8). A última linha responde: a = 5 e b = 8.",
+        "receita": [
+          "Antes do laço: a = 1, b = 1.",
+          "i = 1: t = 1 + 1 = 2; a = 1; b = 2.",
+          "i = 2: t = 1 + 2 = 3; a = 2; b = 3.",
+          "i = 3: t = 2 + 3 = 5; a = 3; b = 5.",
+          "i = 4: t = 3 + 5 = 8; a = 5; b = 8.",
+          "O laço termina e o `escreval` mostra 5 8."
+        ],
+        "cotidiano": "Pense numa ficha de papel com dois campos, anterior e atual, que você atualiza a lápis. Primeiro faz a soma dos dois num rascunho: esse rascunho é o t. Depois copia o atual para o anterior e só então passa o rascunho para o atual. Se apagar o atual antes de copiá-lo, o anterior recebe o número novo e o antigo some. O rascunho e a ordem das cópias mantêm os dois campos certos.",
+        "trabalho": "O teste de mesa é a conciliação feita linha a linha. Olhar só o resultado final é como conferir só o saldo do extrato: se bater por coincidência, o erro do meio passa. Cada linha da tabela é um lançamento, e cada coluna é uma conta que muda de saldo. Numa planilha com a na coluna B e b na coluna C, o t da linha 3 seria `=B2+C2`, sempre apontando para a linha de cima.",
+        "conversa": [
+          {"quem": "Você", "fala": "Cada volta soma a com b. Fiz as quatro e deu 16 16."},
+          {"quem": "Monitor", "fala": "Em que ordem você fez as três linhas do corpo?"},
+          {"quem": "Você", "fala": "t, depois b recebe t, depois a recebe b."},
+          {"quem": "Monitor", "fala": "No código, qual vem antes: `a <- b` ou `b <- t`?"},
+          {"quem": "Você", "fala": "`a <- b` vem antes. Então o a pega o b antigo."},
+          {"quem": "Monitor", "fala": "Refaça com essa ordem e anote cada volta numa linha."},
+          {"quem": "Você", "fala": "Volta 1: a = 1, b = 2. Volta 2: 2 e 3. Volta 3: 3 e 5. Volta 4: 5 e 8. Sai 5 8."}
+        ],
+        "erro": "O tropeço mais caro é executar as linhas fora da ordem escrita. Quando `b <- t` vem antes de `a <- b`, o a copia o b novo, e os dois ficam iguais para sempre. Outro tropeço é tentar fazer de cabeça e perder a conta das voltas, parando em 3 5 ou indo até 8 13. O teste de mesa existe para isso: uma linha por volta, sem pular nenhuma.",
+        "confira": "Confira com uma regra que vale em toda volta: o b novo é sempre a soma dos dois valores anteriores. No fim, 8 = 3 + 5, e o 3 é o a da volta 3. Outra checagem: conte as linhas da sua tabela. Tem de haver exatamente quatro, uma para cada valor de i, e a última tem i = 4.",
+        "atalho": "Note que a e b viram dois termos vizinhos da sequência 1, 1, 2, 3, 5, 8, 13, em que cada número é a soma dos dois anteriores. Isso elimina 16 16 na hora, porque vizinhos dessa sequência só são iguais no começo. Depois conte: cada volta anda uma casa, e quatro voltas a partir de (1, 1) chegam a (5, 8)."
+      }
+    },
+    {
+      "id": "lp-s6-p12",
+      "semana": 6,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Repita com valor de parada",
+      "origem": "Prévia · ementa",
+      "enunciado": "A ideia do programa é ler números até a pessoa digitar 0 e mostrar a soma e quantos números foram digitados antes do 0. As entradas são 7, 5, 9 e 0. O que ele escreve na tela?",
+      "codigo": "algoritmo \"ate_digitar_zero\"\nvar\n   x, s, c: inteiro\ninicio\n   s <- 0\n   c <- 0\n   repita\n      leia(x)\n      s <- s + x\n      c <- c + 1\n   ate x = 0\n   escreval(s, \" \", c)\nfimalgoritmo",
+      "entradas": ["7", "5", "9", "0"],
+      "saida": "21 4",
+      "alternativas": [
+        {"t": "21 3", "certa": false, "erro": "Você respondeu o que o programa pretende, não o que ele faz. No `repita`, o 0 é lido e passa pelas linhas de soma e de contagem antes do teste do `ate`. Por isso c conta o 0 também."},
+        {"t": "7 1", "certa": false, "erro": "Você leu o `ate` como se fosse um `enquanto x = 0`. Depois da primeira volta, x vale 7, e você saiu porque 7 é diferente de 0. No `repita`, o laço continua enquanto a condição é falsa e para quando ela fica verdadeira."},
+        {"t": "0 0", "certa": false, "erro": "Você testou antes da primeira leitura. Nesse momento x ainda não recebeu nada (no teste de mesa do site ele começa em 0), então x = 0 já daria verdadeiro e o laço sairia sem ler. O `repita` só testa no `ate`, depois do corpo."},
+        {"t": "21 4", "certa": true},
+        {"t": "O programa pede uma quinta entrada", "certa": false, "erro": "Você deu uma volta a mais. Logo depois de somar e contar o 0, o `ate` testa x = 0, que é verdadeiro, e o laço termina sem pedir outro número."}
+      ],
+      "dica": "Faça o teste de mesa da última volta com cuidado: o que acontece com s e com c na volta em que o 0 é lido, antes de chegar ao `ate`?",
+      "resposta": "21 4: o 0 entra na contagem, embora não mude a soma",
+      "jeitos": {
+        "visual": "Pense na esteira do caixa de supermercado, com a barrinha divisória no fim das compras. Aqui, o 0 é a barrinha, mas o programa registra cada item antes de olhar o que é: soma o 0 ao total e conta mais um item. O total fica certo por sorte, 7 + 5 + 9 + 0 = 21, mas a contagem vira 4. No teste de mesa, o c muda para 4 na mesma volta em que x vira 0, e só depois aparece a linha do `ate`.",
+        "receita": [
+          "s = 0 e c = 0. O `repita` entra sem testar.",
+          "Volta 1: lê 7, s = 7, c = 1. 7 = 0? Falso, repete.",
+          "Volta 2: lê 5, s = 12, c = 2. Falso, repete.",
+          "Volta 3: lê 9, s = 21, c = 3. Falso, repete.",
+          "Volta 4: lê 0, s = 21 + 0 = 21, c = 4. 0 = 0? Verdadeiro, sai.",
+          "`escreval` mostra 21 4."
+        ],
+        "cotidiano": "É contar os convidados que entram numa festa e contar também o segurança que fecha a porta no fim. Ele não é convidado, só marca o fim da entrada, mas como você aperta o contador antes de olhar quem é, ele entra na conta. Para não errar, é preciso olhar primeiro e apertar depois.",
+        "trabalho": "É o defeito clássico de importar um extrato que termina com uma linha de TOTAL. Se o programa lê a linha, soma, conta e só depois confere se era o TOTAL, essa linha entra como um lançamento a mais. Aqui o 0 não mexe na soma, mas a contagem ganha uma linha. Num arquivo real, a linha de total entraria na soma, e o total calculado sairia em dobro. A conferência tem de vir antes do lançamento.",
+        "conversa": [
+          {"quem": "Você", "fala": "Foram digitados 7, 5 e 9 antes do 0. Então c = 3 e s = 21."},
+          {"quem": "Monitor", "fala": "Na volta em que o 0 é lido, que linhas rodam antes do `ate`?"},
+          {"quem": "Você", "fala": "O `leia`, o `s <- s + x` e o `c <- c + 1`."},
+          {"quem": "Monitor", "fala": "Então o c sobe ou não nessa volta?"},
+          {"quem": "Você", "fala": "Sobe. Vai para 4. A soma não muda, porque soma 0."},
+          {"quem": "Monitor", "fala": "É isso. Para contar 3, o teste teria de vir antes da contagem, por exemplo com um `enquanto` e uma leitura antes do laço."}
+        ],
+        "erro": "A armadilha é ler o propósito no enunciado e responder 3. O `repita` faz o corpo inteiro antes de testar, e o valor de parada passa pelas contas como se fosse um dado. Na soma ninguém percebe, porque somar 0 não muda nada. Na contagem aparece: 4 em vez de 3. Sempre que um laço para por um valor especial, pergunte se esse valor é processado antes do teste.",
+        "confira": "Conte as vezes que a linha `leia(x)` rodou: quatro, uma para cada entrada. No `repita` sem `se` dentro, as linhas do corpo rodam o mesmo número de vezes que o `leia`, então c tem de ser 4. Para a soma, some as entradas: 7 + 5 + 9 + 0 = 21. Uma versão que conte 3 precisa testar o x antes de somar e contar.",
+        "atalho": "Como o corpo não tem nenhum desvio, c termina igual ao número de leituras. Olhe o `ate`: o laço para logo depois de ler o 0, a quarta entrada, porque aí x = 0 fica verdadeiro. São 4 leituras, c = 4, e não há pedido de quinta entrada. Isso elimina 21 3, 7 1, 0 0 e a quinta entrada. Sobra 21 4."
+      }
+    }
+  ]
+}

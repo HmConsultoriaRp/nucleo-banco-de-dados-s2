@@ -1,0 +1,260 @@
+{
+  "disciplina": "lp",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "lp-s4-p07",
+      "semana": 4,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Traduzir o 'nenhum'",
+      "origem": "Prévia · ementa",
+      "enunciado": "Sejam D(x): “o lançamento x tem documento” e A(x): “o lançamento x foi aprovado”. Qual fórmula traduz “Nenhum lançamento sem documento foi aprovado”?",
+      "alternativas": [
+        {"t": "∃x (¬D(x) ∧ ¬A(x))", "certa": false, "erro": "Isso diz só que existe algum lançamento sem documento e não aprovado. Pode ser verdade mesmo com outro lançamento sem documento aprovado, que a frase proíbe."},
+        {"t": "∀x (¬D(x) ∧ ¬A(x))", "certa": false, "erro": "Com ∧ dentro do ∀, a fórmula diz que todo lançamento está sem documento e sem aprovação. A frase não proíbe lançamento com documento aprovado."},
+        {"t": "∀x (D(x) → A(x))", "certa": false, "erro": "Essa diz 'todo lançamento com documento foi aprovado', que é outra regra. Um lançamento com documento ainda sem aprovação a quebra, e a frase original não."},
+        {"t": "∀x (¬D(x) → ¬A(x))", "certa": true},
+        {"t": "¬∃x (¬D(x) ∧ ¬A(x))", "certa": false, "erro": "O ¬ ficou no lugar errado. Essa fórmula diz que não existe lançamento sem documento e sem aprovação, ou seja, que todo sem documento foi aprovado. A frase exige o contrário: todo sem documento ficou sem aprovação."}
+      ],
+      "dica": "Reescreva a frase começando com “todo” e lembre como “todo [grupo] tem [propriedade]” vira fórmula.",
+      "resposta": "∀x (¬D(x) → ¬A(x)), que também pode ser escrita ¬∃x (¬D(x) ∧ A(x))",
+      "jeitos": {
+        "visual": "Imagine os lançamentos numa grade com duas colunas, documento e aprovação. Separe a pilha dos que estão sem documento. A frase diz que, olhando só essa pilha, ninguém tem a marca de aprovado. Os lançamentos com documento ficam fora da conversa: podem estar aprovados ou não. É o desenho do ∀ com seta: para todo x, se x está na pilha sem documento, então x não está aprovado.",
+        "receita": [
+          "'Nenhum lançamento sem documento foi aprovado' = 'todo lançamento sem documento não foi aprovado'.",
+          "'Todo [grupo] tem [propriedade]' vira ∀x (grupo(x) → propriedade(x)).",
+          "Aqui o grupo é ¬D(x), estar sem documento, e a propriedade é ¬A(x), não ter sido aprovado.",
+          "Resultado: ∀x (¬D(x) → ¬A(x)).",
+          "Forma equivalente: ¬∃x (¬D(x) ∧ A(x)), 'não existe lançamento sem documento que foi aprovado'."
+        ],
+        "cotidiano": "Na portaria do prédio vale a regra 'nenhum visitante sem crachá entra'. O porteiro não precisa olhar quem tem crachá; ele só barra quem não tem. A regra não diz que todo mundo com crachá entra, nem que todo mundo está sem crachá. Ela só garante que, entre os sem crachá, ninguém passou.",
+        "trabalho": "Esse é um controle de auditoria clássico, e a forma ¬∃ é a própria consulta: `WHERE documento IS NULL AND aprovado = 1`. A regra vale quando essa consulta volta vazia, e `NOT EXISTS (...)` com esse filtro devolve verdadeiro exatamente nesse caso. O ∀ com seta e o 'não existe' com ∧ são duas formas da mesma regra: uma para ler, a outra para rodar no banco.",
+        "conversa": [
+          {"quem": "Você", "fala": "'Nenhum' é negação, então vai ∃ com negação: ∃x (¬D(x) ∧ ¬A(x))."},
+          {"quem": "Monitor", "fala": "Essa fórmula diz que existe um lançamento sem documento e não aprovado. Isso basta para a regra valer?"},
+          {"quem": "Você", "fala": "Não. Pode ter outro sem documento e aprovado."},
+          {"quem": "Monitor", "fala": "A frase fala de todos os lançamentos sem documento ou de um?"},
+          {"quem": "Você", "fala": "De todos. Todo sem documento não foi aprovado."},
+          {"quem": "Monitor", "fala": "Então é ∀ com seta: ∀x (¬D(x) → ¬A(x))."}
+        ],
+        "erro": "Dois tropeços aparecem aqui. O primeiro é traduzir 'nenhum' com ∃, porque a palavra tem cara de negação de existência. Ela é, mas a negação vai na frente: 'não existe sem documento aprovado', ¬∃x (¬D(x) ∧ A(x)). O segundo é usar ∧ dentro do ∀: ∀x (¬D(x) ∧ ¬A(x)) exige que todo lançamento esteja sem documento, e isso a frase não diz.",
+        "confira": "Monte uma base de teste com dois lançamentos: um com documento e aprovado, outro sem documento e não aprovado. A frase vale. ∀x (¬D(x) → ¬A(x)) vale: o único sem documento não foi aprovado. ∀x (¬D(x) ∧ ¬A(x)) falha no primeiro lançamento. Agora troque o segundo para aprovado: a frase deixa de valer, e a fórmula certa também.",
+        "atalho": "A tradução direta de 'nenhum [grupo] tem [propriedade]' é ∀x (grupo(x) → ¬propriedade(x)). Procure esse desenho: ¬D(x) antes da seta e ¬A(x) depois. Só uma alternativa tem. A forma com ¬∃ também serviria, mas teria A(x) sem negação dentro do parêntese, e a alternativa com ¬∃ tem ¬A(x)."
+      }
+    },
+    {
+      "id": "lp-s4-p08",
+      "semana": 4,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "De Morgan no VisuAlg",
+      "origem": "Prévia · ementa",
+      "enunciado": "O que este algoritmo escreve, linha por linha?",
+      "codigo": "algoritmo \"de_morgan\"\nvar\n   pago, emitida: logico\ninicio\n   pago <- verdadeiro\n   emitida <- falso\n   escreval(nao (pago e emitida))\n   escreval(nao pago e nao emitida)\n   escreval(nao pago ou nao emitida)\nfimalgoritmo",
+      "entradas": [],
+      "saida": "VERDADEIRO\nFALSO\nVERDADEIRO",
+      "alternativas": [
+        {"t": "VERDADEIRO, VERDADEIRO, VERDADEIRO", "certa": false, "erro": "Você tratou a 2ª linha como a mesma conta da 1ª: é o De Morgan pela metade. Ali `nao pago` é FALSO, e um `e` com um lado FALSO dá FALSO."},
+        {"t": "FALSO, FALSO, VERDADEIRO", "certa": false, "erro": "Na 1ª linha você aplicou o `nao` só ao pago, como se fosse `(nao pago) e emitida`. O parêntese faz o `nao` valer para o `e` inteiro."},
+        {"t": "VERDADEIRO, FALSO, VERDADEIRO", "certa": true},
+        {"t": "VERDADEIRO, FALSO, FALSO", "certa": false, "erro": "Na 3ª linha você estendeu o primeiro `nao` a tudo, como `nao (pago ou nao emitida)`. Sem parêntese, ele pega só o pago: FALSO `ou` VERDADEIRO dá VERDADEIRO."},
+        {"t": "FALSO, VERDADEIRO, FALSO", "certa": false, "erro": "Você trocou as regras do `e` e do `ou`. Com elas invertidas, as três linhas saem ao contrário."}
+      ],
+      "dica": "Calcule primeiro `nao pago` e `nao emitida`, guarde os dois valores e só depois resolva cada linha.",
+      "resposta": "VERDADEIRO, FALSO e VERDADEIRO; a 1ª e a 3ª linhas sempre coincidem (De Morgan)",
+      "jeitos": {
+        "visual": "Pense em duas luzes de painel: a de pago está acesa, a de emitida está apagada. A 1ª linha pergunta 'as duas estão acesas?' e depois inverte a resposta: não estão, então sai VERDADEIRO. A 2ª pergunta 'as duas estão apagadas?': não, a de pago está acesa, sai FALSO. A 3ª pergunta 'pelo menos uma está apagada?': sim, a de emitida, sai VERDADEIRO. A 1ª e a 3ª fazem a mesma pergunta com palavras diferentes.",
+        "receita": [
+          "Valores: pago VERDADEIRO, emitida FALSO; `nao pago` = FALSO, `nao emitida` = VERDADEIRO.",
+          "Linha 1: `pago e emitida` = FALSO; o `nao` disso dá VERDADEIRO.",
+          "Linha 2: FALSO `e` VERDADEIRO = FALSO.",
+          "Linha 3: FALSO `ou` VERDADEIRO = VERDADEIRO.",
+          "Saída: VERDADEIRO, FALSO, VERDADEIRO, um valor por linha."
+        ],
+        "cotidiano": "Uma tarefa de fim de mês tem duas partes: pagar o boleto e emitir a nota. A pergunta 'não é verdade que fiz as duas?' tem a mesma resposta de 'deixei de fazer pelo menos uma?'. Já 'deixei de fazer as duas?' é outra pergunta. Hoje você pagou e não emitiu: a primeira e a segunda perguntas respondem sim, e a terceira responde não.",
+        "trabalho": "Na tabela de títulos, `WHERE NOT (pago = 1 AND emitida = 1)` e `WHERE pago = 0 OR emitida = 0` devolvem as mesmas linhas: é a lei de De Morgan valendo dentro do banco. Já `WHERE pago = 0 AND emitida = 0` devolve só os títulos sem nada feito. Num relatório de pendências, o título pago e sem nota, exatamente o caso desta questão, aparece nas duas primeiras consultas e some da terceira.",
+        "conversa": [
+          {"quem": "Você", "fala": "As três linhas falam de não pago e não emitida. Dá tudo igual, VERDADEIRO."},
+          {"quem": "Monitor", "fala": "Na 2ª linha, quanto vale `nao pago`?"},
+          {"quem": "Você", "fala": "FALSO, porque pago é VERDADEIRO."},
+          {"quem": "Monitor", "fala": "E FALSO `e` qualquer coisa?"},
+          {"quem": "Você", "fala": "FALSO. Então a 2ª é FALSO."},
+          {"quem": "Monitor", "fala": "E a 3ª, com `ou`?"},
+          {"quem": "Você", "fala": "FALSO `ou` VERDADEIRO dá VERDADEIRO. Igual à 1ª."}
+        ],
+        "erro": "A armadilha é a lei de De Morgan pela metade: achar que `nao (pago e emitida)` é o mesmo que `nao pago e nao emitida`. Ao distribuir o `nao`, o `e` vira `ou`. A outra armadilha é o alcance do `nao` sem parêntese: em `nao pago ou nao emitida`, cada `nao` pega só a variável colada nele. O teste de mesa do site mostra cada valor intermediário.",
+        "confira": "Troque os valores e veja se a 1ª e a 3ª linhas continuam iguais. Com pago e emitida VERDADEIRO, as três dão FALSO. Com os dois FALSO, as três dão VERDADEIRO. Com pago FALSO e emitida VERDADEIRO, sai VERDADEIRO, FALSO, VERDADEIRO. Nos quatro casos, a 1ª e a 3ª coincidem: é a equivalência ¬(p ∧ q) ≡ ¬p ∨ ¬q.",
+        "atalho": "A 1ª e a 3ª linhas são os dois lados da lei de De Morgan, então têm de dar o mesmo valor. Isso elimina toda alternativa em que elas diferem. Depois basta a 2ª: `nao pago` é FALSO, e o `e` com um FALSO dá FALSO."
+      }
+    },
+    {
+      "id": "lp-s4-p09",
+      "semana": 4,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Contraexemplo na tabela",
+      "origem": "Prévia · ementa",
+      "enunciado": "Considere o argumento “p ∨ q; p → r; logo, r”. Em qual linha da tabela-verdade ele falha, isto é, tem as premissas verdadeiras e a conclusão falsa?",
+      "alternativas": [
+        {"t": "p = F, q = V, r = F", "certa": true},
+        {"t": "p = V, q = V, r = F", "certa": false, "erro": "Nessa linha a premissa p → r é V → F = F. Com uma premissa falsa, a linha não serve de contraexemplo."},
+        {"t": "p = F, q = F, r = F", "certa": false, "erro": "Nessa linha a premissa p ∨ q é F. O contraexemplo precisa de todas as premissas verdadeiras."},
+        {"t": "p = F, q = V, r = V", "certa": false, "erro": "As premissas são V, mas a conclusão r também é V. A linha mostra um caso em que o argumento funcionou, não em que falhou."},
+        {"t": "Em nenhuma: o argumento é válido.", "certa": false, "erro": "Você deve ter testado só linhas com p verdadeiro. Com p falso, a premissa p → r fica V de graça, e o q sozinho sustenta o p ∨ q."}
+      ],
+      "dica": "Comece pelas linhas com r falso e procure, entre elas, uma que deixe as duas premissas verdadeiras.",
+      "resposta": "p = F, q = V, r = F: o argumento é inválido",
+      "tabela": {"onde": "explicacao", "cab": ["p", "q", "r", "p ∨ q", "p → r", "conclusão r"], "linhas": [["V", "V", "V", "V", "V", "V"], ["V", "V", "F", "V", "F", "F"], ["V", "F", "V", "V", "V", "V"], ["V", "F", "F", "V", "F", "F"], ["F", "V", "V", "V", "V", "V"], ["F", "V", "F", "V", "V", "F"], ["F", "F", "V", "F", "V", "V"], ["F", "F", "F", "F", "V", "F"]]},
+      "jeitos": {
+        "visual": "Na tabela ao lado, risque as linhas em que alguma premissa é F: a 2ª e a 4ª, onde p → r falha, e a 7ª e a 8ª, onde p ∨ q falha. Sobram a 1ª, a 3ª, a 5ª e a 6ª. Agora olhe a coluna da conclusão nessas quatro: V, V, V e F. A 6ª linha, p = F, q = V, r = F, é o furo do argumento.",
+        "receita": [
+          "A conclusão é r, então só interessam as linhas com r = F: V V F, V F F, F V F e F F F.",
+          "V V F e V F F: p → r = V → F = F. Uma premissa falsa, descarte.",
+          "F F F: p ∨ q = F. Descarte.",
+          "F V F: p ∨ q = F ∨ V = V e p → r = F → F = V. Premissas V, conclusão F.",
+          "Contraexemplo: p = F, q = V, r = F. O argumento é inválido."
+        ],
+        "cotidiano": "O argumento diz: 'eu vou de carro ou de ônibus; se for de carro, chego cedo; logo, chego cedo'. O furo aparece no dia em que você vai de ônibus e o ônibus atrasa. As duas premissas continuam verdadeiras, porque você foi de ônibus e a promessa do carro nem foi testada, e mesmo assim você chegou tarde.",
+        "trabalho": "Imagine um relatório que conclui 'o saldo está conciliado' a partir de duas premissas: 'o saldo veio do extrato ou do sistema' e 'se veio do extrato, está conciliado'. O caso que derruba o raciocínio é o saldo que veio só do sistema e não foi conciliado. Uma auditoria séria procura exatamente essa linha, em que as premissas valem e a conclusão não. Se ela é possível, a conclusão precisa de outro controle.",
+        "conversa": [
+          {"quem": "Você", "fala": "Testei p = V. Se p é V, o r tem de ser V por causa da seta. Então é válido."},
+          {"quem": "Monitor", "fala": "E se p for F?"},
+          {"quem": "Você", "fala": "Aí p → r é V sem depender do r."},
+          {"quem": "Monitor", "fala": "E o p ∨ q, com p falso, ainda pode valer?"},
+          {"quem": "Você", "fala": "Pode, se q for V. Então p = F, q = V e r = F..."},
+          {"quem": "Monitor", "fala": "E as premissas?"},
+          {"quem": "Você", "fala": "As duas V. E a conclusão é F. O argumento falha."}
+        ],
+        "erro": "O tropeço é testar só o caminho em que a seta funciona. Com p verdadeiro o argumento parece seguro, e quem para aí conclui que é válido. O furo está no outro lado do ∨: quando a verdade vem do q, a premissa p → r não diz nada sobre o r. Também erra quem marca uma linha com conclusão verdadeira: contraexemplo precisa de conclusão falsa.",
+        "confira": "Substitua p = F, q = V, r = F em cada parte. p ∨ q = F ∨ V = V. p → r = F → F = V. r = F. Premissas verdadeiras e conclusão falsa: é contraexemplo. Para conferir que é o único, teste as outras três linhas com r = F: em V V F e V F F a premissa p → r dá V → F = F, e em F F F a premissa p ∨ q dá F.",
+        "atalho": "Elimine pela conclusão: o contraexemplo precisa de r = F, o que tira a alternativa com r = V. Com r = F, a premissa p → r obriga p = F, e o p ∨ q então obriga q = V. Sai direto p = F, q = V, r = F."
+      }
+    },
+    {
+      "id": "lp-s4-p10",
+      "semana": 4,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Encadear regras de inferência",
+      "origem": "Prévia · ementa",
+      "enunciado": "Considere as premissas:\n1. Se o lote chegou, então a DI foi registrada.\n2. Se a DI foi registrada, então o custo foi lançado.\n3. O lote chegou ou o pedido foi cancelado.\n4. O pedido não foi cancelado.\nQual conclusão decorre com certeza dessas premissas?",
+      "alternativas": [
+        {"t": "Nada sobre o lote: o 'ou' da premissa 3 pode ser exclusivo.", "certa": false, "erro": "Com ou inclusivo ou exclusivo, se o pedido não foi cancelado, o lote chegou. O tipo de 'ou' só importaria se as duas partes pudessem ser verdadeiras, e o cancelamento já é falso."},
+        {"t": "O lote chegou, mas a DI pode não ter sido registrada.", "certa": false, "erro": "Você aplicou o silogismo disjuntivo e parou. Com o lote chegando, a premissa 1 entrega a DI por modus ponens."},
+        {"t": "O lote não chegou, porque o pedido não foi cancelado.", "certa": false, "erro": "Você leu a premissa 3 como se lote e cancelamento tivessem o mesmo valor. O 'ou' diz que pelo menos um é verdadeiro: com o cancelamento falso, o lote é verdadeiro."},
+        {"t": "A DI foi registrada, mas o custo pode não ter sido lançado.", "certa": false, "erro": "Faltou um passo: a premissa 2 liga a DI ao custo. Com a DI registrada, o modus ponens entrega o custo."},
+        {"t": "O lote chegou e o custo foi lançado.", "certa": true}
+      ],
+      "dica": "Comece pelas premissas 3 e 4, que juntas dão um fato, e depois siga as setas.",
+      "resposta": "O lote chegou e o custo foi lançado",
+      "jeitos": {
+        "visual": "Desenhe uma bifurcação: de um lado 'lote chegou', do outro 'pedido cancelado'. A premissa 4 fecha o lado do cancelamento com uma barreira. Resta o caminho do lote, e ele segue por duas setas em fila: lote → DI → custo. Quem anda pelo único caminho aberto passa pela DI e chega ao custo lançado. Cada premissa é uma placa nesse trajeto, e nenhuma deixa você parar no meio.",
+        "receita": [
+          "Premissas 3 e 4, silogismo disjuntivo: lote ou cancelado; não cancelado; logo, o lote chegou.",
+          "Premissas 1 e 2, silogismo hipotético: lote → DI e DI → custo dão lote → custo.",
+          "Modus ponens: lote → custo, e o lote chegou; logo, o custo foi lançado.",
+          "Conclusão: o lote chegou e o custo foi lançado."
+        ],
+        "cotidiano": "Você sabe que o João veio de carro ou pegou carona, e descobre que ele não pegou carona. Então veio de carro. Se veio de carro, estacionou na garagem; se estacionou na garagem, pagou o estacionamento. Logo, pagou o estacionamento. Cada fato puxa o próximo, e a conclusão chega sem você ter visto o João pagar.",
+        "trabalho": "É o raciocínio de rastrear um custo de importação no fechamento. Se o pedido não foi cancelado, a mercadoria entrou; se entrou, a DI existe; se a DI existe, o custo tem de estar lançado. Na prática, cada seta vira uma consulta de exceção: lote sem DI, DI sem custo. Se essas consultas voltam vazias e o pedido está ativo, o custo está na contabilidade. Se uma volta com linha, é ali que o fechamento parou.",
+        "conversa": [
+          {"quem": "Você", "fala": "Da premissa 3 não dá para saber nada. Pode ser o lote, pode ser o cancelamento."},
+          {"quem": "Monitor", "fala": "E a premissa 4?"},
+          {"quem": "Você", "fala": "Diz que não foi cancelado. Então foi o lote."},
+          {"quem": "Monitor", "fala": "Com o lote chegando, o que a premissa 1 diz?"},
+          {"quem": "Você", "fala": "Que a DI foi registrada. E a 2 leva ao custo lançado."},
+          {"quem": "Monitor", "fala": "Quantas regras você usou?"},
+          {"quem": "Você", "fala": "Silogismo disjuntivo e depois modus ponens duas vezes. Ou o hipotético e um ponens só."}
+        ],
+        "erro": "A armadilha é parar no meio da cadeia. Quem usa só as premissas 3 e 4 conclui que o lote chegou e acha que acabou; quem dá mais um passo chega à DI e para de novo. A conclusão mais forte só aparece quando você segue todas as setas. O outro tropeço é ler o 'ou' como se as duas partes tivessem o mesmo valor e concluir que o lote não chegou.",
+        "confira": "Tente montar um cenário em que as quatro premissas valem e o custo não foi lançado. Com o custo F, a premissa 2 exige DI F; com DI F, a premissa 1 exige lote F; com lote F e cancelamento F, a premissa 3 fica F. Não há saída: todo cenário que respeita as premissas tem o lote chegando e o custo lançado.",
+        "atalho": "Ache primeiro o fato que as premissas 3 e 4 entregam: o lote chegou. Isso elimina as duas alternativas que duvidam do lote ou o negam. Das que sobram, fique com a que vai até o fim da cadeia, o custo."
+      }
+    },
+    {
+      "id": "lp-s4-p11",
+      "semana": 4,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Simplificar com equivalências",
+      "origem": "Prévia · ementa",
+      "enunciado": "Qual fórmula é equivalente a ¬(p ∧ ¬q)?",
+      "alternativas": [
+        {"t": "¬p ∧ q", "certa": false, "erro": "Você negou as partes e esqueceu de trocar o ∧ por ∨: é o De Morgan pela metade. A coluna dessa fórmula só tem V na linha p = F, q = V."},
+        {"t": "p → q", "certa": true},
+        {"t": "¬p ∨ ¬q", "certa": false, "erro": "Você aplicou De Morgan, mas não desfez a dupla negação: ¬(¬q) é q, não ¬q."},
+        {"t": "q → p", "certa": false, "erro": "Você chegou em ¬p ∨ q e trocou a seta de sentido. ¬p ∨ q é p → q; q → p é a recíproca."},
+        {"t": "p ∧ q", "certa": false, "erro": "Você cancelou o ¬ de fora com o ¬ do q, como se fosse dupla negação. Dupla negação só vale para dois ¬ seguidos sobre a mesma proposição."}
+      ],
+      "dica": "Aplique De Morgan, depois a dupla negação, e então reconheça a forma ¬a ∨ b.",
+      "resposta": "p → q, pois ¬(p ∧ ¬q) ≡ ¬p ∨ q ≡ p → q",
+      "tabela": {"onde": "explicacao", "cab": ["p", "q", "¬(p ∧ ¬q)", "p → q", "¬p ∧ q", "¬p ∨ ¬q", "q → p"], "linhas": [["V", "V", "V", "V", "F", "F", "V"], ["V", "F", "F", "F", "F", "V", "V"], ["F", "V", "V", "V", "V", "V", "F"], ["F", "F", "V", "V", "F", "V", "V"]]},
+      "jeitos": {
+        "visual": "Na tabela ao lado, a coluna de ¬(p ∧ ¬q) tem um F só, na linha p = V, q = F. Procure outra coluna com um único F no mesmo lugar: é a de p → q. As duas são idênticas linha a linha. A de q → p também tem um F só, mas na linha p = F, q = V, e um F fora do lugar já basta para não haver equivalência.",
+        "receita": [
+          "De Morgan: ¬(p ∧ ¬q) ≡ ¬p ∨ ¬(¬q).",
+          "Dupla negação: ¬(¬q) ≡ q, então fica ¬p ∨ q.",
+          "Condicional: ¬p ∨ q ≡ p → q.",
+          "Resposta: p → q."
+        ],
+        "cotidiano": "'Não aconteceu de o cliente pagar e ficar sem o produto.' Dito de outro jeito: 'se o cliente pagou, recebeu o produto'. As duas frases proíbem a mesma cena, pagou e ficou sem produto, e liberam todo o resto. É a mesma regra contada pelo lado do que nunca pode acontecer.",
+        "trabalho": "Esta equivalência liga a regra à consulta de exceções. A regra 'se pago, então liberado' é p → q. A exceção é p ∧ ¬q, `WHERE pago = 1 AND liberado = 0`. Dizer que a regra vale é dizer que a exceção não acontece: ¬(p ∧ ¬q). Por isso uma consulta de exceções vazia prova que a regra vale na base. É a ponte entre o 'se ... então' e o WHERE.",
+        "conversa": [
+          {"quem": "Você", "fala": "O ¬ de fora cancela o ¬ do q. Fica p ∧ q."},
+          {"quem": "Monitor", "fala": "Dupla negação é ¬¬q. Aqui o ¬ de fora está sobre o quê?"},
+          {"quem": "Você", "fala": "Sobre o parêntese inteiro, p ∧ ¬q."},
+          {"quem": "Monitor", "fala": "Então use De Morgan primeiro."},
+          {"quem": "Você", "fala": "¬p ∨ ¬¬q. Agora sim a dupla negação: ¬p ∨ q."},
+          {"quem": "Monitor", "fala": "E ¬p ∨ q tem outro nome."},
+          {"quem": "Você", "fala": "p → q."}
+        ],
+        "erro": "A armadilha é atalhar a dupla negação. O ¬ de fora nega o parêntese inteiro, não só o q, e por isso não se cancela direto com o ¬ do q. Primeiro vem De Morgan, que distribui o ¬ e troca o ∧ por ∨; só depois aparece o ¬¬q. Outro tropeço é reconhecer ¬p ∨ q e trocar o sentido da seta, escrevendo q → p.",
+        "confira": "Teste a linha que mais separa as candidatas: p = V, q = F. ¬(p ∧ ¬q) = ¬(V ∧ V) = F. p → q = V → F = F, bate. q → p = F → V = V, não bate. Teste ainda p = F, q = V: a original dá ¬(F ∧ F) = V, e p → q dá V. Duas linhas que separam as fórmulas, duas confirmações.",
+        "atalho": "A fórmula original é falsa num caso só: quando p ∧ ¬q é verdadeiro, ou seja, p = V e q = F. A única fórmula da lista que falha exatamente nesse caso, e só nele, é a condicional p → q."
+      }
+    },
+    {
+      "id": "lp-s4-p12",
+      "semana": 4,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Negar o 'existe' composto",
+      "origem": "Prévia · ementa",
+      "enunciado": "Sejam P(x): “o fornecedor x entregou no prazo” e N(x): “o fornecedor x mandou nota correta”. Qual fórmula é a negação de ∃x (P(x) ∧ N(x)), “existe fornecedor que entregou no prazo e com nota correta”?",
+      "alternativas": [
+        {"t": "∃x (¬P(x) ∨ ¬N(x))", "certa": false, "erro": "Você negou o que está dentro, mas manteve o ∃. Com um fornecedor perfeito e outro com problema, a original e esta são verdadeiras juntas."},
+        {"t": "∀x (¬P(x) ∧ ¬N(x))", "certa": false, "erro": "Trocou o ∃ por ∀, mas fez De Morgan pela metade. Isso exige que todo fornecedor tenha atrasado e errado a nota, mais do que a negação pede."},
+        {"t": "∀x (¬P(x) → ¬N(x))", "certa": false, "erro": "A troca de ¬a ∨ b por seta saiu com o sinal errado. ¬P(x) ∨ ¬N(x) vira P(x) → ¬N(x), sem o ¬ antes do P."},
+        {"t": "∀x (P(x) → ¬N(x))", "certa": true},
+        {"t": "∃x (P(x) ∧ ¬N(x))", "certa": false, "erro": "Isso diz que existe um fornecedor no prazo com nota errada. Pode ser verdade ao lado de outro fornecedor perfeito, então não nega a original."}
+      ],
+      "dica": "Troque o quantificador, negue o parêntese com De Morgan e, no fim, lembre que ¬a ∨ b é o mesmo que a → b.",
+      "resposta": "∀x (P(x) → ¬N(x)): todo fornecedor que entregou no prazo não mandou nota correta",
+      "jeitos": {
+        "visual": "Imagine os fornecedores em fila, cada um com duas luzes: prazo e nota. A frase original diz que existe pelo menos um com as duas luzes acesas. A negação diz que não há nenhum assim: em cada fornecedor da fila, pelo menos uma luz está apagada. Olhe só para os que têm a luz do prazo acesa: em todos eles, a da nota está apagada. Esse é o desenho de ∀x (P(x) → ¬N(x)).",
+        "receita": [
+          "¬∃x (P(x) ∧ N(x)) ≡ ∀x ¬(P(x) ∧ N(x)): troca o quantificador e leva o ¬ para dentro.",
+          "De Morgan: ¬(P(x) ∧ N(x)) ≡ ¬P(x) ∨ ¬N(x).",
+          "Fica ∀x (¬P(x) ∨ ¬N(x)).",
+          "Como ¬a ∨ b ≡ a → b, com a = P(x) e b = ¬N(x): ∀x (P(x) → ¬N(x)).",
+          "Em palavras: todo fornecedor que entregou no prazo não mandou nota correta."
+        ],
+        "cotidiano": "Alguém diz: 'tem pelo menos um restaurante no bairro que é barato e bom'. Para desmentir, você precisa garantir que todos falham em alguma coisa: são caros, ou ruins, ou as duas coisas. Dito de outro jeito: todo restaurante barato do bairro é ruim. Não basta achar um restaurante caro; ele não impede que exista outro barato e bom.",
+        "trabalho": "Num cadastro de fornecedores, a frase original é um `EXISTS` com o filtro `no_prazo = 1 AND nota_ok = 1`. A negação é `NOT EXISTS` com o mesmo filtro: nenhuma linha passa. Linha a linha, isso quer dizer que cada fornecedor tem `no_prazo = 0 OR nota_ok = 0`. Um relatório que conclui 'nenhum fornecedor foi impecável' precisa olhar a base inteira; achar um fornecedor problemático não prova isso.",
+        "conversa": [
+          {"quem": "Você", "fala": "A negação é ∃x (¬P(x) ∨ ¬N(x)). Neguei por dentro."},
+          {"quem": "Monitor", "fala": "E o quantificador? Se um fornecedor é perfeito e outro atrasou, sua fórmula vale o quê?"},
+          {"quem": "Você", "fala": "Verdadeira, por causa do que atrasou. E a original também."},
+          {"quem": "Monitor", "fala": "As duas verdadeiras ao mesmo tempo. Então?"},
+          {"quem": "Você", "fala": "Precisa trocar o ∃ por ∀: ∀x (¬P(x) ∨ ¬N(x))."},
+          {"quem": "Monitor", "fala": "Essa forma não está nas alternativas. Escreva o ¬P(x) ∨ ¬N(x) com seta."},
+          {"quem": "Você", "fala": "P(x) → ¬N(x). Então ∀x (P(x) → ¬N(x))."}
+        ],
+        "erro": "Três tropeços se somam aqui. Esquecer de trocar o ∃ por ∀. Fazer De Morgan pela metade, mantendo o ∧. E, no último passo, errar a troca de ∨ por seta: ¬a ∨ b vira a → b, e o ¬ que estava no a desaparece. Quem leva o ¬ junto escreve ¬P(x) → ¬N(x), que é outra regra.",
+        "confira": "Teste num cadastro pequeno. Um fornecedor só, no prazo e com nota correta: a original é V, e a negação tem de ser F; ∀x (P(x) → ¬N(x)) dá V → F = F, certo. Um fornecedor só, atrasado e com nota correta: a original é F, e a negação tem de ser V; a fórmula dá F → F = V, certo. ∀x (¬P(x) → ¬N(x)) daria F nesse segundo caso.",
+        "atalho": "A negação de ∃ começa com ∀. Isso elimina as duas alternativas com ∃. Entre as três com ∀, a negação precisa permitir um fornecedor no prazo com nota errada, e o ∧ duplo não permite. Entre as duas setas, fica a que tem o P(x) sem ¬."
+      }
+    }
+  ]
+}

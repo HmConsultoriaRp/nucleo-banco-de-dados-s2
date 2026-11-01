@@ -1,0 +1,331 @@
+{
+  "disciplina": "lp",
+  "semanas": [
+    {
+      "semana": 6,
+      "titulo": "Repetição: laços e teste de mesa",
+      "chamada": "Fazer o computador repetir um bloco de comandos sem copiar o código, saber quantas vezes ele roda e conferir cada volta no papel.",
+      "fonte": "Prévia pela ementa do PPC — trocar quando o material da semana chegar",
+      "previa": true,
+      "blocos": [
+        {
+          "titulo": "para: quando você sabe quantas vezes",
+          "texto": "O `para` repete um bloco com uma variável que anda sozinha, como em `para i de 1 ate 9 passo 2 faca`. O i começa no valor inicial e o `para` confere se ele já passou do valor final. Se não passou, o corpo roda, o i soma o passo e a conferência se repete. O laço sai quando o i passa do valor final; se o i cair exatamente no final, aquela volta ainda acontece. Sem `passo`, o passo é 1. Com passo negativo, o i desce. Se o início já está além do fim, no sentido do passo, o corpo roda zero vezes. Para contar as voltas sem rodar: (fim − início) div passo + 1."
+        },
+        {
+          "titulo": "enquanto: testa antes de entrar",
+          "texto": "O `enquanto` pergunta primeiro e age depois, como em `enquanto x < 10 faca ... fimenquanto`. Se a condição é verdadeira, o corpo roda e a pergunta se repete. Se é falsa, a execução pula para a linha depois do `fimenquanto`. Quando a condição já começa falsa, o corpo roda zero vezes, e isso não é erro. A condição do `enquanto` é a de continuar, não a de parar. Como nada anda sozinho aqui, o corpo precisa mudar alguma variável da condição; senão a resposta nunca muda e o laço não termina."
+        },
+        {
+          "titulo": "repita: testa depois de rodar",
+          "texto": "O `repita` faz o contrário: roda o corpo e só depois pergunta, no `ate`. Por isso executa pelo menos uma vez. E a condição do `ate` é a de parar: quando ela fica verdadeira, o laço termina; enquanto é falsa, ele repete. É o laço natural para pedir a senha até a pessoa acertar. Cuidado com valor de parada, como ler números até digitar 0: o 0 é lido e passa pelo corpo antes do teste, então pode entrar numa soma ou numa contagem sem você querer."
+        },
+        {
+          "titulo": "Contador, acumulador, maior e menor",
+          "texto": "Três padrões aparecem em quase todo laço. O contador soma 1 a cada vez (`c <- c + 1`) e responde quantos. O acumulador soma o próprio valor (`s <- s + x`) e responde quanto. Os dois recebem 0 antes do laço; se a linha `s <- 0` ficar dentro do laço, o total zera a cada volta. Para achar o maior e o menor, o ponto de partida é o primeiro valor lido, e cada valor novo só toma o lugar se for maior, ou menor, que o guardado. Começar o menor com 0 dá errado quando todos os valores são positivos."
+        },
+        {
+          "titulo": "Laço infinito e interrompa",
+          "texto": "Um laço infinito acontece quando a condição de saída nunca chega. Há três causas comuns: o corpo não muda a variável da condição, como esquecer o `i <- i + 1`; a variável anda no sentido errado; ou ela pula o valor esperado num teste de igualdade, como c descendo de 3 em 3 a partir de 20 com `enquanto c <> 0 faca` (20, 17, 14, 11, 8, 5, 2, −1: o zero nunca aparece). O `interrompa` é a saída de emergência: dentro de um laço, ele sai na hora do laço em que está, e o programa continua na linha seguinte ao fim desse laço."
+        },
+        {
+          "titulo": "Teste de mesa e o primeiro vetor",
+          "texto": "O teste de mesa é rodar o programa no papel: uma coluna por variável e uma linha por passo, sempre usando os valores da linha de cima. Ele mostra quantas voltas houve e em que ponto um valor desviou. O vetor guarda vários valores com um nome só: `v: vetor[1..5] de inteiro` cria as posições de 1 a 5. Cada uma é acessada por `v[i]`, e o par natural do vetor é o `para`: um laço preenche, outro percorre e soma. O índice i diz qual posição; `v[i]` é o que está guardado nela."
+        }
+      ],
+      "formulas": [
+        {"nome": "Laço para", "expr": "`para i de a ate b passo p faca ... fimpara`", "quando": "o número de voltas é conhecido antes de começar"},
+        {"nome": "Voltas do para", "expr": "(b − a) div p + 1", "quando": "passo p positivo e a ≤ b; se a > b, zero voltas"},
+        {"nome": "Voltas com passo negativo", "expr": "(a − b) div |p| + 1", "quando": "passo negativo e a ≥ b; se a < b, zero voltas"},
+        {"nome": "Laço enquanto", "expr": "`enquanto x < 10 faca ... fimenquanto`", "quando": "não se sabe quantas voltas; testa antes e pode rodar zero vezes"},
+        {"nome": "Laço repita", "expr": "`repita ... ate x = 0`", "quando": "precisa rodar pelo menos uma vez; para quando a condição fica verdadeira"},
+        {"nome": "Contador", "expr": "`c <- c + 1`", "quando": "responder quantos; recebe 0 antes do laço"},
+        {"nome": "Acumulador", "expr": "`s <- s + x`", "quando": "responder quanto; recebe 0 antes do laço"},
+        {"nome": "Maior até agora", "expr": "`se x > maior entao`\n`   maior <- x`\n`fimse`", "quando": "maior começa com o primeiro valor lido; no VisuAlg, um comando por linha"},
+        {"nome": "Menor até agora", "expr": "`se x < menor entao`\n`   menor <- x`\n`fimse`", "quando": "menor começa com o primeiro valor lido; no VisuAlg, um comando por linha"},
+        {"nome": "Interrompa", "expr": "`interrompa`", "quando": "sair do laço na hora, por exemplo ao achar o que procurava"},
+        {"nome": "Vetor", "expr": "`v: vetor[1..5] de inteiro`", "quando": "guardar vários valores do mesmo tipo, cada um em `v[i]`"},
+        {"nome": "Preencher vetor", "expr": "`para i de 1 ate 5 faca`\n`   leia(v[i])`\n`fimpara`", "quando": "pôr um valor em cada posição"},
+        {"nome": "Somar vetor", "expr": "`para i de 1 ate 5 faca`\n`   s <- s + v[i]`\n`fimpara`", "quando": "juntar o conteúdo das posições; s recebe 0 antes"}
+      ],
+      "jeitos": {
+        "visual": "Desenhe cada laço como um circuito com uma placa de pergunta. No `para`, a placa fica na entrada e há um contador que anda sozinho: você já sabe quantas voltas vai dar. No `enquanto`, a placa também fica na entrada, mas a pergunta é sobre o estado das variáveis; se a resposta for não logo de cara, você nem entra no circuito. No `repita`, a placa fica na saída: você dá a volta primeiro e só depois lê se já pode sair. O teste de mesa é a filmagem desse circuito, quadro a quadro.",
+        "cotidiano": "Pense em lavar louça. Lavar os 10 pratos da mesa é um `para`: a quantidade está combinada. Lavar enquanto houver prato na pia é um `enquanto`: se a pia já está vazia, você não lava nada. Lavar um prato e só depois olhar se ainda sobrou algum é um `repita`: você lava pelo menos um antes de olhar, então ele só serve quando há ao menos um prato. Contar os pratos lavados é o contador; somar o tempo gasto em cada um é o acumulador.",
+        "receita": "Para ler qualquer laço: 1) ache onde fica o teste, na entrada (`para`, `enquanto`) ou na saída (`repita`); 2) veja se a condição é de continuar (`enquanto`) ou de parar (`ate`); 3) anote o valor de cada variável antes do laço; 4) faça uma linha de teste de mesa por volta, usando os valores da linha anterior; 5) na volta em que o teste muda de resposta, confira se aquela volta roda ou não; 6) só então leia o que vem depois do fim do laço.",
+        "trabalho": "Laço é o que o Excel faz quando você arrasta uma fórmula pela coluna: a mesma conta repetida em cada linha. O acumulador é o saldo corrente do extrato, saldo anterior mais o movimento do dia. O contador com filtro faz o papel do CONT.SE, e o acumulador com filtro, o do SOMASE. O teste de mesa é conferir lançamento por lançamento em vez de olhar só o saldo final, que pode bater por coincidência. E o vetor é uma coluna de células, com um número de linha para cada valor.",
+        "erro": "Os tropeços da semana: errar por uma volta, a mais ou a menos, no `para`; achar que todo laço roda ao menos uma vez, quando só o `repita` garante isso; ler a condição do `enquanto` como de parada ou a do `ate` como de continuar; zerar o acumulador dentro do laço; começar o menor com 0; esquecer de mudar a variável da condição e criar um laço infinito; trocar o índice i pelo conteúdo `v[i]` ao somar um vetor."
+      },
+      "lab": "No laboratório, escolha o exemplo pronto \"Senha com repita\", troque as entradas para que 1234 seja a primeira, clique em Rodar e avance o teste de mesa até o último passo: o laço rodou uma vez só e a tela mostra Entrou na tentativa 1, porque a leitura vem antes do teste do `ate`."
+    }
+  ],
+  "questoes": [
+    {
+      "id": "lp-s6-p01",
+      "semana": 6,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Acumulador com condição",
+      "origem": "Prévia · ementa",
+      "enunciado": "O que este algoritmo escreve na tela?",
+      "codigo": "algoritmo \"soma_dos_pares\"\nvar\n   i, s: inteiro\ninicio\n   s <- 0\n   para i de 1 ate 6 faca\n      se i mod 2 = 0 entao\n         s <- s + i\n      fimse\n   fimpara\n   escreval(s)\nfimalgoritmo",
+      "entradas": [],
+      "saida": "12",
+      "alternativas": [
+        {"t": "21", "certa": false, "erro": "Você somou todos os valores de 1 a 6. O `se` deixa passar só quem tem resto 0 na divisão por 2."},
+        {"t": "9", "certa": false, "erro": "Você somou os ímpares (1 + 3 + 5). `i mod 2 = 0` é verdadeiro para os pares."},
+        {"t": "3", "certa": false, "erro": "Três é quantos pares existem de 1 a 6. O programa não conta: `s <- s + i` soma o próprio i."},
+        {"t": "12", "certa": true},
+        {"t": "6", "certa": false, "erro": "Você guardou só o último par. A linha `s <- s + i` não troca o valor de s: soma ao que já estava lá."}
+      ],
+      "dica": "Escreva numa coluna os valores de i de 1 a 6 e marque só os que dão resto 0 na divisão por 2.",
+      "resposta": "12 (2 + 4 + 6)",
+      "jeitos": {
+        "visual": "Pense em s como um cofrinho que começa vazio. O i passa na frente dele seis vezes: 1, 2, 3, 4, 5, 6. Um porteiro, o `se`, só deixa entrar quem é par. Entram 2, 4 e 6, e o cofrinho termina com 12. O botão do teste de mesa mostra o i andando e o s mudando linha a linha.",
+        "receita": [
+          "s começa em 0.",
+          "i = 1: 1 mod 2 = 1, não entra. s continua 0.",
+          "i = 2: resto 0, entra. s = 0 + 2 = 2.",
+          "i = 3 não entra. i = 4 entra: s = 2 + 4 = 6.",
+          "i = 5 não entra. i = 6 entra: s = 6 + 6 = 12.",
+          "O laço termina e `escreval(s)` mostra 12."
+        ],
+        "cotidiano": "É como separar notas de um maço: você passa nota por nota e só põe no envelope as de valor par. O envelope engorda a cada nota aceita. Contar quantas notas entraram é outra pergunta; aqui interessa quanto dinheiro ficou no envelope.",
+        "trabalho": "No Excel, a mesma conta é =SOMARPRODUTO((MOD(A1:A6;2)=0)*A1:A6), que dá 12. Em SQL: `SELECT SUM(i) FROM numeros WHERE i % 2 = 0`. O `se` dentro do laço faz o papel do WHERE, e o `s <- s + i` faz o papel do SUM.",
+        "conversa": [
+          {"quem": "Você", "fala": "Deu 3, porque tem três pares."},
+          {"quem": "Monitor", "fala": "Três é quantos pares passaram. Olhe a linha dentro do se: ela soma 1 ou soma i?"},
+          {"quem": "Você", "fala": "Soma i. Então entra o 2, depois o 4, depois o 6."},
+          {"quem": "Monitor", "fala": "E o s guarda o total que vai juntando."},
+          {"quem": "Você", "fala": "2 + 4 + 6 = 12."},
+          {"quem": "Monitor", "fala": "Isso. Se fosse `s <- s + 1`, aí seria contador e daria 3."}
+        ],
+        "erro": "A confusão entre contador e acumulador. Contador soma 1 a cada vez (`c <- c + 1`) e responde \"quantos\". Acumulador soma o próprio valor (`s <- s + i`) e responde \"quanto\". Quem marca 3 leu um acumulador como contador. Outro tropeço é esquecer que s mantém o valor anterior e marcar 6, o último par.",
+        "confira": "Faça a conta por fora: os pares de 1 a 6 são 2, 4 e 6. A soma de três números em sequência de 2 em 2 é 3 vezes o do meio: 3 × 4 = 12. Bate com o teste de mesa.",
+        "atalho": "Soma de pares é sempre par. Isso elimina 21, 9 e 3 de uma vez. Entre 12 e 6, pergunte: o s guarda só o último valor ou o total? Como a linha é `s <- s + i`, é o total."
+      }
+    },
+    {
+      "id": "lp-s6-p02",
+      "semana": 6,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Quantas voltas o para dá",
+      "origem": "Prévia · ementa",
+      "enunciado": "Quantas vezes o corpo do laço é executado? O programa conta as voltas em c e escreve o total no fim.",
+      "codigo": "algoritmo \"conta_voltas\"\nvar\n   i, c: inteiro\ninicio\n   c <- 0\n   para i de 3 ate 15 passo 4 faca\n      c <- c + 1\n   fimpara\n   escreval(c)\nfimalgoritmo",
+      "entradas": [],
+      "saida": "4",
+      "alternativas": [
+        {"t": "13", "certa": false, "erro": "Você fez 15 − 3 + 1 = 13, que é a conta do passo 1. Com `passo 4`, o i pula de 4 em 4 e visita bem menos valores."},
+        {"t": "4", "certa": true},
+        {"t": "3", "certa": false, "erro": "Você fez (15 − 3) / 4 = 3 e esqueceu a primeira volta, a do i = 3. São 3 saltos, mas 4 valores visitados: 3, 7, 11 e 15."},
+        {"t": "5", "certa": false, "erro": "Você contou também o i = 19. O `para` testa o limite antes de cada volta: 19 passou de 15, e o laço sai sem executar."},
+        {"t": "12", "certa": false, "erro": "Você fez 15 − 3 = 12, a distância do início ao fim. Distância não é número de voltas: faltou dividir pelo passo e somar a primeira volta."}
+      ],
+      "dica": "Escreva os valores que o i assume, começando em 3 e somando 4, enquanto ele não passar de 15.",
+      "resposta": "4 voltas (i = 3, 7, 11 e 15)",
+      "jeitos": {
+        "visual": "Pense numa régua de 0 a 20 e numa pulga que começa no 3 e salta 4 casas por vez. Ela pousa no 3, no 7, no 11 e no 15. O salto seguinte cairia no 19, além da cerca do 15, e aí ela não pousa mais. Cada pouso é uma volta do laço: quatro pousos, quatro voltas. No teste de mesa do site, o c sobe de 1 em 1 nesses quatro pousos. O 19 também aparece na coluna do i, mas só no passo em que o laço sai.",
+        "receita": [
+          "O i começa no valor inicial: i = 3. Como 3 ≤ 15, roda a volta 1 e c = 1.",
+          "Soma o passo: i = 7. 7 ≤ 15, volta 2, c = 2.",
+          "i = 11. 11 ≤ 15, volta 3, c = 3.",
+          "i = 15. 15 ≤ 15 ainda vale: volta 4, c = 4.",
+          "i = 19. 19 > 15, o laço termina sem executar.",
+          "`escreval(c)` mostra 4."
+        ],
+        "cotidiano": "Uma rua tem postes a cada 4 metros, do metro 3 ao metro 15. Quantos postes? Conte os postes, não os vãos entre eles: 3, 7, 11 e 15 são quatro postes com três vãos no meio. O erro clássico é contar os vãos e esquecer que o primeiro poste também está lá. No `para`, cada poste é uma volta.",
+        "trabalho": "É a conta das parcelas de um contrato com vencimento a cada 4 meses, do mês 3 ao mês 15: (15 − 3) / 4 + 1 = 4 parcelas. No Excel 365, `=SEQUÊNCIA(4;1;3;4)` gera exatamente 3, 7, 11 e 15, e o primeiro argumento é a quantidade de valores, ou seja, de voltas. Para conferir a quantidade, `=INT((15-3)/4)+1` também dá 4.",
+        "conversa": [
+          {"quem": "Você", "fala": "15 menos 3 dá 12, dividido por 4 dá 3. São 3 voltas."},
+          {"quem": "Monitor", "fala": "Liste os valores do i. Começa em quanto?"},
+          {"quem": "Você", "fala": "Em 3. Depois 7, 11 e 15."},
+          {"quem": "Monitor", "fala": "E o 15 entra? O teste do `para` é i menor ou igual a 15."},
+          {"quem": "Você", "fala": "Entra. Então são 4 valores, 4 voltas."},
+          {"quem": "Monitor", "fala": "A divisão conta os saltos. As voltas são os saltos mais a primeira, a que acontece antes de qualquer salto."}
+        ],
+        "erro": "O tropeço é confundir saltos com voltas. A conta (fim − início) / passo dá quantas vezes o i pula, e o laço executa uma vez a mais que isso, porque a primeira volta acontece no valor inicial, antes de qualquer pulo. O outro escorregão é tratar o `ate` como menor estrito: no VisuAlg o valor final entra quando o i cai exatamente nele, como o 15 aqui.",
+        "confira": "Use a fórmula das voltas: (fim − início) div passo + 1 = (15 − 3) div 4 + 1 = 3 + 1 = 4. Depois confira pela lista: 3, 7, 11, 15. Os dois caminhos dão 4. Se quiser um terceiro, rode o código no site e conte os passos com a nota entra no laço. Não conte os valores da coluna do i: o último deles, 19, é o da saída.",
+        "atalho": "Faça a conta de cabeça: 12 dividido por 4 dá 3, mais 1 dá 4. Elimine 13 e 12 na hora, porque ignoram o passo. Entre 3, 4 e 5, pergunte só duas coisas: o primeiro valor conta? Conta. O 19 passa do limite? Passa. Sobra 4."
+      }
+    },
+    {
+      "id": "lp-s6-p03",
+      "semana": 6,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Para com passo negativo",
+      "origem": "Prévia · ementa",
+      "enunciado": "O que este algoritmo escreve na tela?",
+      "codigo": "algoritmo \"regressiva_de_2\"\nvar\n   i: inteiro\ninicio\n   para i de 10 ate 2 passo -2 faca\n      escreva(i, \" \")\n   fimpara\nfimalgoritmo",
+      "entradas": [],
+      "saida": "10 8 6 4 2",
+      "alternativas": [
+        {"t": "10 8 6 4 2", "certa": true},
+        {"t": "2 4 6 8 10", "certa": false, "erro": "Você fez o laço subir. Com `passo -2`, o i começa no 10 e desce de 2 em 2. A ordem do que aparece na tela segue o i."},
+        {"t": "Nada, porque 10 já é maior que 2", "certa": false, "erro": "Esse raciocínio vale para passo positivo. Com passo negativo, o `para` continua enquanto o i for maior ou igual ao valor final, e 10 ≥ 2."},
+        {"t": "10 8 6 4", "certa": false, "erro": "Você parou antes do 2, como se o `ate` excluísse o limite. Quando o i cai exatamente no valor final, aquela volta ainda acontece."},
+        {"t": "8 6 4 2", "certa": false, "erro": "Você aplicou o passo antes da primeira volta. O i começa valendo 10 e só muda depois que o corpo roda."}
+      ],
+      "dica": "Com passo negativo, o i desce. Comece no 10 e vá tirando 2 enquanto ele não ficar abaixo do valor final.",
+      "resposta": "10 8 6 4 2",
+      "jeitos": {
+        "visual": "Imagine uma escada com degraus numerados de 0 a 10. Você está no degrau 10 e desce dois degraus por vez: 10, 8, 6, 4, 2. Em cada degrau em que pisa, fala o número em voz alta. O passo seguinte levaria ao 0, abaixo do limite 2, e você para antes de pisar nele. No teste de mesa, a coluna do i desce e a tela vai recebendo os números na mesma ordem.",
+        "receita": [
+          "O `para` começa com i = 10. Como o passo é negativo, o teste é i ≥ 2. 10 ≥ 2: escreve 10.",
+          "Soma o passo: i = 10 + (−2) = 8. 8 ≥ 2: escreve 8.",
+          "i = 6, escreve 6. i = 4, escreve 4.",
+          "i = 2. 2 ≥ 2 ainda vale: escreve 2.",
+          "i = 0. 0 < 2, o laço termina. Na tela ficou 10 8 6 4 2."
+        ],
+        "cotidiano": "É a contagem regressiva de um lançamento de foguete, só que pulando de dois em dois: dez, oito, seis, quatro, dois. Ninguém começa uma contagem regressiva pelo número menor. E o último número falado é o que bate no limite combinado, o 2; o zero ficaria além dele.",
+        "trabalho": "No Excel 365, `=SEQUÊNCIA(5;1;10;-2)` gera 10, 8, 6, 4 e 2: o último argumento é o passo, e ele pode ser negativo. É o mesmo efeito de listar vencimentos de trás para frente, do mais distante para o mais próximo. O sentido da lista vem do sinal do passo, e não de qual número você escreveu primeiro.",
+        "conversa": [
+          {"quem": "Você", "fala": "Começa no 10 e vai até 2. Mas 10 é maior que 2, então o laço nem entra, certo?"},
+          {"quem": "Monitor", "fala": "Isso valeria com passo positivo. Qual é o passo aqui?"},
+          {"quem": "Você", "fala": "Menos 2. Então ele desce."},
+          {"quem": "Monitor", "fala": "E desce até quando?"},
+          {"quem": "Você", "fala": "Até o 2. Dá 10, 8, 6, 4, 2."},
+          {"quem": "Monitor", "fala": "O 2 entra porque o i cai exatamente nele. O 0 ficaria abaixo do limite e não aparece."}
+        ],
+        "erro": "Duas armadilhas. A primeira é olhar só para o trecho de 10 até 2 e concluir que o laço não roda, porque o início é maior que o fim. Isso vale com passo positivo; com passo negativo, é exatamente o esperado. A segunda é cortar uma ponta: começar já no 8 ou parar no 4. O valor inicial sempre roda, e o final roda quando o i cai nele.",
+        "confira": "Pegue o último número da sua resposta e tire mais 2: dá 0, abaixo do limite 2, então o laço parou na hora certa. Pegue o primeiro e confira que é o valor inicial, 10, sem nenhum passo aplicado. Por fim, conte pela fórmula: (10 − 2) div 2 + 1 = 5 números na tela.",
+        "atalho": "Olhe o primeiro número de cada alternativa: o `para` sempre começa no valor inicial, 10. Isso elimina 2 4 6 8 10 e 8 6 4 2. Depois olhe o último: 10 − 2 = 8 é múltiplo do passo, então o 2 aparece, e 10 8 6 4 cai. A opção que diz nada cai porque o passo é negativo."
+      }
+    },
+    {
+      "id": "lp-s6-p04",
+      "semana": 6,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Enquanto que não entra",
+      "origem": "Prévia · ementa",
+      "enunciado": "O que este algoritmo escreve na tela?",
+      "codigo": "algoritmo \"enquanto_testa_antes\"\nvar\n   x, c: inteiro\ninicio\n   x <- 20\n   c <- 0\n   enquanto x < 10 faca\n      x <- x - 3\n      c <- c + 1\n   fimenquanto\n   escreval(\"c = \", c, \", x = \", x)\nfimalgoritmo",
+      "entradas": [],
+      "saida": "c = 0, x = 20",
+      "alternativas": [
+        {"t": "c = 4, x = 8", "certa": false, "erro": "Você leu a condição como de parada, como se fosse repetir até x ficar menor que 10, e desceu 20, 17, 14, 11, 8. No `enquanto` a condição é a de continuar, e 20 < 10 já começa falsa."},
+        {"t": "c = 1, x = 17", "certa": false, "erro": "Você rodou o corpo uma vez antes de testar, como no `repita`. O `enquanto` testa primeiro e, com a condição falsa, nem entra."},
+        {"t": "O programa não escreve nada", "certa": false, "erro": "Você achou que o programa para quando o laço não roda. Ele só pula o bloco e segue para a linha depois do `fimenquanto`, que é o `escreval`."},
+        {"t": "c = 0, x = 10", "certa": false, "erro": "Você esperou que x andasse sozinho até o limite da condição, como a variável do `para`. No `enquanto`, só as linhas do corpo mudam x, e elas não rodaram."},
+        {"t": "c = 0, x = 20", "certa": true}
+      ],
+      "dica": "Antes de olhar o corpo do laço, troque x pelo valor que ele tem na hora do teste e veja se a condição é verdadeira.",
+      "resposta": "c = 0, x = 20: o corpo não roda nenhuma vez",
+      "jeitos": {
+        "visual": "Pense no `enquanto` como uma porta com um porteiro na frente. Ele pergunta: x é menor que 10? Só quem responde sim entra na sala, onde x perde 3 e c ganha 1. O x chega com 20, ouve não e passa reto pelo corredor até o `escreval`. A sala fica vazia: c continua 0 e x continua 20. No teste de mesa, a linha do `enquanto` aparece uma vez só, com a condição falsa, e o passo seguinte já é o `escreval`.",
+        "receita": [
+          "x recebe 20 e c recebe 0.",
+          "O `enquanto` testa antes de qualquer coisa: 20 < 10? Falso.",
+          "Com a condição falsa, o corpo inteiro é pulado. As linhas `x <- x - 3` e `c <- c + 1` não rodam.",
+          "A execução continua depois do `fimenquanto`.",
+          "`escreval` mostra c = 0, x = 20."
+        ],
+        "cotidiano": "É a regra do atendimento: enquanto houver gente na fila, chame a próxima senha. Se você abre o guichê e não há ninguém, nenhuma senha é chamada. O atendente não chama uma senha só para conferir, e o expediente continua normalmente. A pergunta vem antes da ação, e a resposta pode ser não logo na primeira vez.",
+        "trabalho": "Pense numa rotina de cobrança escrita como: enquanto houver título vencido, mande o aviso. Se a carteira já começa sem título vencido, nenhum aviso sai, e o relatório do fim mostra zero avisos. Em SQL é a mesma ideia de um `SELECT COUNT(*) FROM titulos WHERE vencido = 1` numa tabela sem vencidos: a consulta roda, não dá erro e devolve 0.",
+        "conversa": [
+          {"quem": "Você", "fala": "Cada volta tira 3 do x. De 20 até ficar menor que 10 são 4 voltas, então c = 4."},
+          {"quem": "Monitor", "fala": "Você leu como se fosse até x ficar menor que 10. O que está escrito é enquanto x for menor que 10. Com x = 20, isso é verdade?"},
+          {"quem": "Você", "fala": "Não. 20 não é menor que 10."},
+          {"quem": "Monitor", "fala": "Então o laço entra?"},
+          {"quem": "Você", "fala": "Não entra. c fica 0 e x fica 20."},
+          {"quem": "Monitor", "fala": "E o `escreval` roda mesmo assim, porque está fora do laço."}
+        ],
+        "erro": "A armadilha é ler o `enquanto` de trás para frente. A condição dele é a de continuar: o corpo roda enquanto ela for verdadeira. Quem lê como condição de parada desce o x até 8 e marca c = 4. A outra armadilha é achar que todo laço roda pelo menos uma vez. Isso é do `repita`; o `enquanto` testa antes e pode rodar zero vezes.",
+        "confira": "Teste a condição no momento em que o programa chega nela: x vale 20, e 20 < 10 é falso. Agora olhe a sua resposta: se ela mostra c diferente de 0, alguma volta rodou, e isso contradiz o teste. Rodar no site confirma: a linha 7 aparece uma vez no teste de mesa, com a nota de condição FALSA, e o laço é pulado.",
+        "atalho": "Faça uma única conta: substitua x por 20 na condição. Deu falso, então c = 0. Isso elimina as alternativas com c = 4 e c = 1. Entre as que sobram, x não tem como mudar sem o corpo rodar, então fica 20. E o `escreval` está fora do laço, por isso alguma coisa aparece na tela."
+      }
+    },
+    {
+      "id": "lp-s6-p05",
+      "semana": 6,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Repita testa no fim",
+      "origem": "Prévia · ementa",
+      "enunciado": "O valor digitado no `leia` é 50. O que o algoritmo escreve na tela?",
+      "codigo": "algoritmo \"repita_testa_depois\"\nvar\n   n, c: inteiro\ninicio\n   leia(n)\n   c <- 0\n   repita\n      n <- n + 10\n      c <- c + 1\n   ate n > 40\n   escreval(c, \" \", n)\nfimalgoritmo",
+      "entradas": ["50"],
+      "saida": "1 60",
+      "alternativas": [
+        {"t": "0 50", "certa": false, "erro": "Você testou a condição antes de entrar, como no `enquanto`. No `repita` o teste fica no `ate`, depois do corpo, e a primeira volta acontece sempre."},
+        {"t": "2 70", "certa": false, "erro": "Você deu uma volta a mais. Depois da primeira, n = 60, e 60 > 40 é verdadeiro: o laço termina ali."},
+        {"t": "1 60", "certa": true},
+        {"t": "Não para, porque n continua maior que 40", "certa": false, "erro": "Você leu o `ate` como se fosse um `enquanto`. No `repita`, condição verdadeira quer dizer sair. Como 60 > 40 é verdadeiro, ele sai na primeira checagem."},
+        {"t": "Dá erro, porque a condição já começa verdadeira", "certa": false, "erro": "O VisuAlg não confere a condição antes de entrar no `repita`. Ele roda o corpo e só testa no `ate`. Começar com a condição já verdadeira é permitido."}
+      ],
+      "dica": "No `repita`, a primeira volta acontece antes de qualquer teste. Faça essa volta e só depois olhe o `ate`.",
+      "resposta": "1 60: uma volta, e o laço para porque 60 > 40",
+      "jeitos": {
+        "visual": "Desenhe o `repita` como um tobogã: você desce primeiro e só lá embaixo encontra a placa com a pergunta. A placa diz: n passou de 40? Se sim, saia da piscina; se não, suba de novo. O n chega com 50, desce o tobogã e vira 60, e o c vira 1. Lá embaixo, 60 > 40 é sim, e acabou. No teste de mesa, a linha do `ate` aparece uma única vez, depois das duas linhas do corpo.",
+        "receita": [
+          "`leia(n)` guarda 50 em n. c recebe 0.",
+          "O `repita` entra direto no corpo, sem testar: n = 50 + 10 = 60 e c = 0 + 1 = 1.",
+          "Chega no `ate`: 60 > 40? Verdadeiro.",
+          "No `repita`, condição verdadeira encerra o laço.",
+          "`escreval` mostra 1 60."
+        ],
+        "cotidiano": "É provar a comida antes de decidir se precisa de mais sal. Você sempre prova uma vez; se já está bom, para ali. Não dá para decidir sem a primeira colherada. No `repita` é igual: a primeira volta é obrigatória, e o teste do `ate` responde se já está bom. Resposta sim quer dizer parar.",
+        "trabalho": "Pense no fechamento do mês: você concilia o extrato e depois confere a diferença. Se ela já está zerada, para; se não, ajusta e concilia de novo. A conciliação roda pelo menos uma vez, mesmo num mês que fecharia de cara. Em VisuAlg, seria um `repita` com a conciliação no corpo e `ate diferenca = 0` no fim. A condição do `ate` descreve o estado que faz parar, não o que faz continuar.",
+        "conversa": [
+          {"quem": "Você", "fala": "n já começa em 50, que é maior que 40. Então o laço nem roda e sai 0 50."},
+          {"quem": "Monitor", "fala": "Em que linha fica o teste nesse laço?"},
+          {"quem": "Você", "fala": "No `ate`, lá embaixo."},
+          {"quem": "Monitor", "fala": "Então, antes de chegar no teste, o que já aconteceu?"},
+          {"quem": "Você", "fala": "O corpo rodou uma vez. n foi para 60 e c para 1."},
+          {"quem": "Monitor", "fala": "E 60 > 40 manda fazer o quê no `repita`?"},
+          {"quem": "Você", "fala": "Sair. Fica 1 60."}
+        ],
+        "erro": "Os dois tropeços vêm de misturar `repita` com `enquanto`. Quem testa antes de entrar marca 0 50, como se esse laço pudesse rodar zero vezes. Quem lê o `ate` como uma ordem de continuar acha que o laço nunca para, porque n só cresce e fica sempre acima de 40. No `repita` o teste vem depois, e condição verdadeira significa sair.",
+        "confira": "Conte as vezes que a linha `c <- c + 1` pode ter rodado: no mínimo uma, porque o `repita` sempre faz a primeira volta. Depois confira a coerência: c = 1 exige n = 50 + 10 × 1 = 60. Por fim, teste o `ate` com 60: deu verdadeiro, então não houve segunda volta.",
+        "atalho": "Num `repita`, c nunca termina em 0, porque a primeira volta é garantida. Isso elimina 0 50. Faça uma volta só, n = 60, e teste o `ate`: verdadeiro, para. A resposta é 1 60 sem precisar olhar o resto."
+      }
+    },
+    {
+      "id": "lp-s6-p06",
+      "semana": 6,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Contador e acumulador juntos",
+      "origem": "Prévia · ementa",
+      "enunciado": "O programa lê cinco valores de despesa. As entradas são 120, 80, 100, 250 e 40, nessa ordem. O que ele escreve na tela?",
+      "codigo": "algoritmo \"despesas_acima_de_100\"\nvar\n   i, v, c, s: inteiro\ninicio\n   c <- 0\n   s <- 0\n   para i de 1 ate 5 faca\n      leia(v)\n      se v > 100 entao\n         c <- c + 1\n         s <- s + v\n      fimse\n   fimpara\n   escreval(c, \" \", s)\nfimalgoritmo",
+      "entradas": ["120", "80", "100", "250", "40"],
+      "saida": "2 370",
+      "alternativas": [
+        {"t": "3 470", "certa": false, "erro": "Você deixou o 100 entrar, como se o teste fosse `v >= 100`. 100 > 100 é falso: o 100 não é maior que ele mesmo."},
+        {"t": "5 590", "certa": false, "erro": "Você contou e somou todos os valores, sem o filtro do `se`. 590 é o total das cinco despesas."},
+        {"t": "2 250", "certa": false, "erro": "Você contou certo, mas guardou só o último valor aceito, como se a linha fosse `s <- v`. O `s <- s + v` soma ao que já estava em s: 120 + 250."},
+        {"t": "2 370", "certa": true},
+        {"t": "3 220", "certa": false, "erro": "Você inverteu o filtro e ficou com as despesas que não passam de 100: 80, 100 e 40, que somam 220."}
+      ],
+      "dica": "Marque quais das cinco entradas passam pelo `se` e, só com elas, faça duas contas: quantas são e quanto somam.",
+      "resposta": "2 370 (duas despesas acima de 100: 120 + 250)",
+      "jeitos": {
+        "visual": "Imagine duas colunas num papel: c, que ganha um risquinho por despesa aceita, e s, que recebe o valor da despesa. As cinco entradas passam por um filtro, o `se v > 100`. Passam o 120 e o 250. O 80, o 100 e o 40 ficam de fora. Na coluna c ficam dois risquinhos; na coluna s, 120 + 250 = 370. No teste de mesa, c e s mudam só nas voltas 1 e 4.",
+        "receita": [
+          "c = 0 e s = 0 antes do laço.",
+          "Volta 1: lê 120. 120 > 100, então c = 1 e s = 120.",
+          "Volta 2: lê 80, não passa. Volta 3: lê 100; 100 > 100 é falso, não passa.",
+          "Volta 4: lê 250. Passa: c = 2 e s = 120 + 250 = 370.",
+          "Volta 5: lê 40, não passa.",
+          "`escreval` mostra 2 370."
+        ],
+        "cotidiano": "Na feira, você separa as frutas que passam de 100 gramas e põe numa sacola. No caderno, anota duas coisas: um tracinho para cada fruta aceita e o peso dela somado ao total da sacola. O tracinho é o contador e responde quantas. O peso somado é o acumulador e responde quanto. São duas anotações diferentes que usam o mesmo filtro.",
+        "trabalho": "No Excel, com as despesas em A1:A5, `=CONT.SE(A1:A5;\">100\")` dá 2 e `=SOMASE(A1:A5;\">100\")` dá 370. Em SQL, `SELECT COUNT(*), SUM(v) FROM despesas WHERE v > 100` devolve as duas colunas de uma vez. O `se` dentro do laço faz o papel do critério, o contador faz o CONT.SE e o acumulador faz o SOMASE.",
+        "conversa": [
+          {"quem": "Você", "fala": "Deu 3 e 470. Contei 120, 100 e 250."},
+          {"quem": "Monitor", "fala": "O 100 passa no teste `v > 100`?"},
+          {"quem": "Você", "fala": "100 é maior que 100... não, é igual."},
+          {"quem": "Monitor", "fala": "Então fica de fora. Quem passa?"},
+          {"quem": "Você", "fala": "Só 120 e 250. Duas despesas, somando 370."},
+          {"quem": "Monitor", "fala": "Se a regra fosse a partir de 100, aí o código teria de usar `>=`."}
+        ],
+        "erro": "O tropeço principal está na fronteira: o 100 não é maior que 100, e quem usa maior ou igual de cabeça marca 3 470. O segundo é misturar os papéis. O contador soma 1 a cada aceito; o acumulador soma o próprio valor. Se você guardar o valor em vez de somar, s fica só com a última despesa aceita, 250.",
+        "confira": "Confira por fora: some as cinco entradas, 120 + 80 + 100 + 250 + 40 = 590. Some as que ficaram fora do filtro, 80 + 100 + 40 = 220. A diferença, 590 − 220 = 370, tem de ser o s. E as que ficaram fora são 3 de 5, então c = 5 − 3 = 2.",
+        "atalho": "Olhe primeiro para o 100: ele é a pegadinha da fronteira e não passa em `v > 100`. Sobram só dois valores acima de 100, então c = 2. Isso deixa 2 250 e 2 370. Como `s <- s + v` soma em vez de substituir, a resposta é 2 370."
+      }
+    }
+  ]
+}

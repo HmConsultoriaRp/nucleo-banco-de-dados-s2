@@ -1,0 +1,252 @@
+{
+  "disciplina": "lp",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "lp-s1-p07",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 2,
+      "tema": "Barramentos",
+      "origem": "Prévia · ementa",
+      "enunciado": "A CPU precisa ler o conteúdo da posição 1500 da memória principal. Por qual barramento viaja o número 1500, e por qual volta o conteúdo lido?",
+      "alternativas": [
+        {"t": "1500 pelo barramento de endereço; o conteúdo, pelo de dados", "certa": true},
+        {"t": "1500 pelo barramento de dados; o conteúdo, pelo de endereço", "certa": false, "erro": "Você trocou os papéis. O 1500 diz onde ler, então é endereço. O que volta é o valor guardado lá, então é dado."},
+        {"t": "1500 e o conteúdo, os dois pelo barramento de dados", "certa": false, "erro": "O 1500 também é um número, mas é usado como endereço, não como conteúdo. O barramento de dados leva só o que está guardado na posição."},
+        {"t": "1500 pelo barramento de controle; o conteúdo, pelo de dados", "certa": false, "erro": "O barramento de controle leva o sinal de ler ou gravar, não a posição. O 1500 precisa do barramento de endereço."},
+        {"t": "1500 e o conteúdo, os dois pelo barramento de endereço", "certa": false, "erro": "O barramento de endereço vai da CPU para a memória e só diz qual posição usar. O valor lido volta pelo barramento de dados."}
+      ],
+      "dica": "Separe onde ler do que está guardado lá.",
+      "resposta": "O 1500 vai pelo barramento de endereço; o conteúdo volta pelo barramento de dados.",
+      "jeitos": {
+        "visual": "Desenhe a CPU à esquerda e a memória à direita, ligadas por três trilhos. No de cima, o de endereço, uma seta só para a direita leva o 1500. No do meio, o de controle, outra seta para a direita leva a ordem ler. No de baixo, o de dados, uma seta volta para a esquerda trazendo o valor que estava na gaveta 1500. Endereço e controle vão; numa leitura, o dado volta.",
+        "receita": [
+          "Identifique o papel do 1500: ele diz qual posição ler. É endereço.",
+          "Endereço viaja pelo barramento de endereço.",
+          "A ordem de ler vai pelo barramento de controle.",
+          "O conteúdo da posição 1500 é o dado pedido.",
+          "Dado volta pelo barramento de dados."
+        ],
+        "cotidiano": "No correio, o envelope tem o endereço escrito por fora e a carta por dentro. O carteiro usa o endereço para achar a casa; quem abre o envelope quer a carta. Se você escrever o endereço só dentro da carta, ela não chega. O 1500 é o número da casa; o conteúdo é a carta que volta para você.",
+        "trabalho": "É a lógica do PROCV. Você passa a chave que diz onde procurar, `PROCV(1500; tabela; 2; FALSO)`, e a função devolve o valor que está naquela linha. A chave e o valor são números, mas cumprem papéis diferentes: um aponta, o outro é o conteúdo. No banco de dados, `WHERE id = 1500` aponta a linha, e as colunas do SELECT são o que volta.",
+        "conversa": [
+          {"quem": "Você", "fala": "O 1500 é um número. Número não vai pelo barramento de dados?"},
+          {"quem": "Monitor", "fala": "O conteúdo da posição também é um número. Como a memória saberia qual é qual?"},
+          {"quem": "Você", "fala": "Pelo caminho por onde cada um chega?"},
+          {"quem": "Monitor", "fala": "Isso. O que chega pelo barramento de endereço é tratado como posição. O que vai e volta pelo de dados é conteúdo."},
+          {"quem": "Você", "fala": "E o de controle diz se é para ler ou gravar."},
+          {"quem": "Monitor", "fala": "Os três trabalham juntos em toda leitura."}
+        ],
+        "erro": "O erro de base é pensar que o barramento depende do tipo do valor, número ou texto. Ele depende do papel. O 1500 e o conteúdo podem ser ambos números, mas o 1500 aponta e o conteúdo é apontado. A outra confusão é com o barramento de controle: ele carrega a ordem, ler ou gravar, e não a posição.",
+        "confira": "Imagine a operação inversa, uma gravação na posição 1500. O 1500 continua indo pelo barramento de endereço, a ordem agora é gravar, pelo de controle, e o valor vai da CPU para a memória pelo de dados. O endereço não muda de barramento entre ler e gravar; o que muda é o sentido do dado. Se a sua resposta põe o 1500 em outro lugar, ela falha nesse teste.",
+        "atalho": "O nome resolve: a pergunta fala em posição 1500, e posição é endereço. Elimine as alternativas que não põem o 1500 no barramento de endereço: sobram duas. O conteúdo é dado, então fica a que manda o conteúdo pelo barramento de dados."
+      }
+    },
+    {
+      "id": "lp-s1-p08",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 2,
+      "tema": "Converter KB em bits",
+      "origem": "Prévia · ementa",
+      "enunciado": "Neste curso, 1 KB = 1024 bytes (o padrão internacional chama esse valor de KiB e usa kB para 1000 bytes). Um arquivo de texto tem 3 KB, nessa convenção do curso. Quantos bits ele tem?",
+      "alternativas": [
+        {"t": "3.072", "certa": false, "erro": "3 × 1024 = 3.072 é a quantidade de bytes. Faltou multiplicar por 8 para chegar em bits."},
+        {"t": "24.000", "certa": false, "erro": "Você usou 1 KB = 1000 bytes: 3 × 1000 × 8. O enunciado fixa 1 KB = 1024 bytes."},
+        {"t": "384", "certa": false, "erro": "Você dividiu os 3.072 bytes por 8. De bytes para bits a conta é multiplicar: cada byte tem 8 bits."},
+        {"t": "24.576", "certa": true},
+        {"t": "24", "certa": false, "erro": "Você fez 3 × 8, como se cada KB fosse um byte. Faltou passar de KB para bytes antes."}
+      ],
+      "dica": "Passe primeiro de KB para bytes, depois de bytes para bits.",
+      "resposta": "24.576 bits (3 × 1024 × 8).",
+      "jeitos": {
+        "visual": "Desenhe três caixas grandes, cada uma um KB. Abra uma: dentro há 1024 caixinhas, os bytes. Abra uma caixinha: dentro há 8 grãos, os bits. Para contar os grãos, multiplique de fora para dentro: 3 caixas × 1024 caixinhas × 8 grãos. A cada nível você desce para uma unidade menor, e o número fica maior.",
+        "receita": [
+          "De KB para bytes: 3 × 1024 = 3.072 bytes.",
+          "De bytes para bits: 3.072 × 8.",
+          "3.072 × 8 = 24.576.",
+          "O arquivo tem 24.576 bits."
+        ],
+        "cotidiano": "É como contar ovos num carregamento. Cada caixa grande tem 1024 bandejas, e cada bandeja tem 8 ovos. Três caixas grandes não são 3 ovos nem 3.072 ovos: são 3 × 1024 × 8. Quem para na contagem das bandejas esqueceu de abrir a última embalagem.",
+        "trabalho": "A troca entre bit e byte aparece toda vez que você compara internet e arquivo. A velocidade da conexão é anunciada em bits por segundo (Mbps), e o tamanho do arquivo, em bytes (MB). Um arquivo de 10 MB tem 10 × 8 = 80 megabits, com o mesmo mega nas duas unidades; numa conexão de 10 Mbps, ele leva pelo menos 8 segundos para subir, e não 1. O fator 8 é o mesmo desta questão.",
+        "conversa": [
+          {"quem": "Você", "fala": "3 KB são 3.072. Pronto."},
+          {"quem": "Monitor", "fala": "3.072 o quê?"},
+          {"quem": "Você", "fala": "Bytes... e a pergunta é em bits."},
+          {"quem": "Monitor", "fala": "Então falta um passo. Quantos bits tem cada byte?"},
+          {"quem": "Você", "fala": "Oito. 3.072 × 8 = 24.576 bits."},
+          {"quem": "Monitor", "fala": "Escrever a unidade ao lado do número evita parar no meio."}
+        ],
+        "erro": "A armadilha é parar no meio do caminho: converter KB em bytes e marcar 3.072, que está entre as opções justamente para isso. Outro erro é usar 1000 por hábito. O enunciado fixa 1024, e com 1000 o resultado vira 24.000. Por último, cuidado com o sentido: de unidade grande para pequena, multiplique; dividir por 8 leva a 384, menor que o número de bytes.",
+        "confira": "Volte do resultado para o começo. 24.576 bits ÷ 8 = 3.072 bytes. 3.072 bytes ÷ 1024 = 3 KB. Chegou exatamente no dado do enunciado, então a ida está certa. Outro teste: o número de bits é sempre 8 vezes o de bytes, então tem de passar de 3.072. Isso elimina 384 e 24 sem conta.",
+        "atalho": "Faça a ordem de grandeza: 3 KB são perto de 3 mil bytes, e em bits perto de 24 mil. Ficam 24.000 e 24.576. O enunciado manda usar 1024, que deixa o resultado um pouco maior que o feito com 1000: 24.576."
+      }
+    },
+    {
+      "id": "lp-s1-p09",
+      "semana": 1,
+      "nivel": 3,
+      "minutos": 4,
+      "tema": "Áreas da computação",
+      "origem": "Prévia · ementa",
+      "enunciado": "Associe cada tarefa à área da computação que mais trata dela.\n(I) Desenhar as tabelas de clientes e de pedidos e as chaves que ligam uma à outra.\n(II) Treinar um modelo que estima a chance de um cliente atrasar o pagamento a partir do histórico.\n(III) Provar que nenhum programa consegue decidir, para todo programa, se ele um dia termina.\n(IV) Gerar a imagem 3D de um galpão que o cliente gira na tela.\nQual associação está correta?",
+      "alternativas": [
+        {"t": "I banco de dados; II banco de dados; III segurança; IV computação gráfica", "certa": false, "erro": "O histórico está guardado num banco de dados, mas o trabalho em II é aprender um padrão para prever: inteligência artificial. E III não protege nada; é um limite provado, assunto da teoria da computação."},
+        {"t": "I engenharia de software; II inteligência artificial; III teoria da computação; IV computação gráfica", "certa": false, "erro": "Engenharia de software cuida do processo de construir o sistema inteiro. Modelar tabelas e chaves é o centro da área de banco de dados."},
+        {"t": "I banco de dados; II inteligência artificial; III teoria da computação; IV computação gráfica", "certa": true},
+        {"t": "I banco de dados; II inteligência artificial; III engenharia de software; IV redes", "certa": false, "erro": "III fala de provar um limite do que pode ser computado: teoria da computação, não método de desenvolvimento. E IV é gerar imagem; a rede só levaria a imagem até o cliente."},
+        {"t": "I banco de dados; II segurança; III teoria da computação; IV computação gráfica", "certa": false, "erro": "Atraso de pagamento lembra risco, e risco lembra segurança. Mas segurança protege sistemas contra ataque e acesso indevido. Prever comportamento a partir de dados é inteligência artificial."}
+      ],
+      "dica": "Para cada tarefa, ache o verbo central: modelar dados, aprender padrões, provar limites ou gerar imagens.",
+      "resposta": "I banco de dados; II inteligência artificial; III teoria da computação; IV computação gráfica.",
+      "jeitos": {
+        "visual": "Monte um quadro com quatro linhas, uma por tarefa, e circule o verbo de cada uma. I: desenhar tabelas e chaves. II: treinar para estimar. III: provar que nenhum programa consegue. IV: gerar imagem 3D. Agora ligue cada verbo à área cuja definição começa por ele: organizar dados, aprender padrões, estudar os limites do computável, produzir imagens. Cada seta chega a uma área diferente: nenhuma área recebe duas tarefas.",
+        "receita": [
+          "I: tabelas, chaves e relacionamentos são o objeto de banco de dados.",
+          "II: aprender com o histórico para prever é inteligência artificial.",
+          "III: provar o que nenhum programa consegue fazer é teoria da computação; esse caso tem nome, problema da parada.",
+          "IV: produzir e transformar imagens é computação gráfica.",
+          "Associação: I banco de dados, II inteligência artificial, III teoria da computação, IV computação gráfica."
+        ],
+        "cotidiano": "Num hospital, um paciente passa por vários setores: recepção, laboratório, consultório. Cada setor participa, mas a pergunta principal define quem responde. Na tarefa II, o histórico passa pelo banco de dados, e o risco preocupa a segurança, mas a pergunta é prever o atraso. Quem responde previsões a partir de exemplos é a inteligência artificial, assim como quem dá o diagnóstico é o médico, e não a recepção.",
+        "trabalho": "No seu trabalho, as áreas aparecem juntas. O modelo das tabelas de lançamentos, com chave do cliente e da categoria, é banco de dados. Uma previsão do fluxo de caixa feita a partir do histórico já entra em inteligência artificial ou estatística. O gráfico que mostra essa previsão é computação gráfica aplicada. O controle de quem pode ver a folha de pagamento é segurança. Saber o nome da área ajuda a procurar o material certo.",
+        "conversa": [
+          {"quem": "Você", "fala": "Na II, o histórico está num banco de dados. Não seria banco de dados de novo?"},
+          {"quem": "Monitor", "fala": "O banco guarda o histórico. Mas a tarefa pede guardar ou prever?"},
+          {"quem": "Você", "fala": "Prever se o cliente vai atrasar."},
+          {"quem": "Monitor", "fala": "Aprender um padrão para prever é inteligência artificial. E a III, o que pede?"},
+          {"quem": "Você", "fala": "Provar que um programa não existe. Isso não é segurança?"},
+          {"quem": "Monitor", "fala": "Segurança protege contra ataque. Provar limites do que dá para computar é teoria da computação."}
+        ],
+        "erro": "A armadilha é associar pela palavra que aparece, e não pelo que a tarefa pede. Histórico puxa para banco de dados, atraso de pagamento puxa para segurança, imagem na tela do cliente puxa para redes. Em todos esses casos a área lembrada participa, mas não é o centro. Leia o verbo principal de cada tarefa e pergunte qual área tem esse verbo na definição.",
+        "confira": "Confira pelo avesso: para cada área citada nas alternativas, diga em uma frase o que ela faz e veja se a tarefa cabe ali. Segurança protege contra acesso indevido: nem II nem III protegem nada. Redes liga computadores: IV não liga nada, desenha. Engenharia de software organiza o processo de construir sistemas: nem I nem III falam de processo. Só uma alternativa passa em todas as frases.",
+        "atalho": "Comece pela tarefa mais inconfundível. IV, imagem 3D, só pode ser computação gráfica: elimina a que diz redes. III, provar que nenhum programa consegue, é teoria da computação: elimina a que diz segurança em III. Das três que sobram, I é banco de dados e II é inteligência artificial."
+      }
+    },
+    {
+      "id": "lp-s1-p10",
+      "semana": 1,
+      "nivel": 3,
+      "minutos": 4,
+      "tema": "Palavras numa memória",
+      "origem": "Prévia · ementa",
+      "enunciado": "Uma memória tem 4 KB (no curso, 1 KB = 1024 bytes) e é organizada em palavras de 32 bits. Quantas palavras cabem nela?",
+      "alternativas": [
+        {"t": "128", "certa": false, "erro": "Você dividiu 4.096 bytes por 32. Mas 32 é a palavra em bits; em bytes, a palavra tem 4. Misturou as unidades."},
+        {"t": "4.096", "certa": false, "erro": "4.096 é a quantidade de bytes. Cada palavra junta 4 bytes, então faltou dividir."},
+        {"t": "1.000", "certa": false, "erro": "Você usou 1 KB = 1000 bytes: 4.000 ÷ 4. O enunciado fixa 1024."},
+        {"t": "32.768", "certa": false, "erro": "32.768 é o total de bits da memória (4.096 × 8). Para chegar em palavras, divida esse total pelos 32 bits de cada uma."},
+        {"t": "1.024", "certa": true}
+      ],
+      "dica": "Ponha a memória e a palavra na mesma unidade antes de dividir.",
+      "resposta": "1.024 palavras (4.096 bytes ÷ 4 bytes).",
+      "jeitos": {
+        "visual": "Desenhe a memória como uma fita com 4.096 quadradinhos, um por byte. Agora pegue uma régua que cobre 4 quadradinhos de uma vez: é a palavra de 32 bits, porque 32 ÷ 8 = 4 bytes. Deslize a régua pela fita, sem sobrepor. Ela cabe 4.096 ÷ 4 = 1.024 vezes, e cada posição da régua é uma palavra.",
+        "receita": [
+          "Memória em bytes: 4 × 1024 = 4.096 bytes.",
+          "Palavra em bytes: 32 bits ÷ 8 = 4 bytes.",
+          "Palavras = 4.096 ÷ 4 = 1.024.",
+          "Cabem 1.024 palavras."
+        ],
+        "cotidiano": "É como calcular quantas garrafas enchem um tanque. O tanque vem em litros e a garrafa em mililitros: antes de dividir, você converte os dois para a mesma unidade. Dividir litros por mililitros dá um número sem sentido. Aqui a memória está em KB e a palavra em bits; o caminho mais curto é levar os dois para bytes.",
+        "trabalho": "Uma coluna INT no MySQL ocupa 4 bytes, os mesmos 32 bits desta palavra. Se você quisesse saber quantos valores INT cabem em 4 KB, sem contar o controle interno do banco, a conta seria esta: 4.096 ÷ 4 = 1.024. Com BIGINT, de 8 bytes, o número cai para 512. O tipo da coluna decide quantos valores cabem no mesmo espaço.",
+        "conversa": [
+          {"quem": "Você", "fala": "4 KB são 4.096 bytes. Divido por 32 e dá 128 palavras."},
+          {"quem": "Monitor", "fala": "O 32 está em quê?"},
+          {"quem": "Você", "fala": "Em bits. E o 4.096 está em bytes."},
+          {"quem": "Monitor", "fala": "Bytes divididos por bits não dão palavras. Ponha os dois na mesma unidade."},
+          {"quem": "Você", "fala": "32 bits são 4 bytes. 4.096 ÷ 4 = 1.024."},
+          {"quem": "Monitor", "fala": "Se preferir bits, 32.768 ÷ 32 dá o mesmo 1.024."}
+        ],
+        "erro": "O erro clássico é dividir números que estão em unidades diferentes: 4.096 bytes por 32 bits. A conta sai redonda, 128, e por isso engana. Outra armadilha é o 32.768, que responde a outra pergunta: quantos bits tem a memória. Em questão de tamanho, escreva a unidade ao lado de cada número e só divida quando elas forem iguais.",
+        "confira": "Refaça tudo em bits, por um caminho independente. A memória tem 4 × 1024 × 8 = 32.768 bits. Cada palavra tem 32 bits. 32.768 ÷ 32 = 1.024. Mesmo resultado por outra rota. Teste também ao contrário: 1.024 palavras × 4 bytes = 4.096 bytes, que são os 4 KB do enunciado.",
+        "atalho": "Com 1 KB = 1024, a quantidade de palavras sai potência de 2, porque 4.096 e 4 são potências de 2. Isso elimina 1.000. Palavras são maiores que bytes, então são menos numerosas que 4.096, e muito menos que 32.768. Entre 128 e 1.024, quem divide pelos 4 bytes da palavra chega em 1.024."
+      }
+    },
+    {
+      "id": "lp-s1-p11",
+      "semana": 1,
+      "nivel": 3,
+      "minutos": 4,
+      "tema": "Texto em UTF-8",
+      "origem": "Prévia · ementa",
+      "enunciado": "Em UTF-8, cada caractere do ASCII (letras sem acento, algarismos) ocupa 1 byte, e letras como ç, ã e é ocupam 2 bytes. Quantos bytes a palavra Conciliação ocupa em UTF-8?",
+      "alternativas": [
+        {"t": "13", "certa": true},
+        {"t": "11", "certa": false, "erro": "11 é a quantidade de caracteres. Em UTF-8, o ç e o ã gastam 2 bytes cada, então o total passa do número de letras."},
+        {"t": "22", "certa": false, "erro": "Você deu 2 bytes a todas as letras. As 9 letras sem acento ficam com 1 byte cada; só o ç e o ã gastam 2."},
+        {"t": "12", "certa": false, "erro": "Você contou só o ã como especial e deixou o ç com 1 byte. O ç está fora do ASCII, então também ocupa 2."},
+        {"t": "104", "certa": false, "erro": "104 é o tamanho em bits (13 × 8). A pergunta é em bytes."}
+      ],
+      "dica": "Conte as letras, separe as que estão fora do ASCII e dê 2 bytes só a elas.",
+      "resposta": "13 bytes: 9 letras de 1 byte e 2 letras (ç, ã) de 2 bytes.",
+      "tabela": {"onde": "explicacao", "cab": ["Grupo", "Letras", "Bytes"], "linhas": [["Do ASCII", "C, o, n, c, i, l, i, a, o (9)", "9 × 1 = 9"], ["Fora do ASCII", "ç, ã (2)", "2 × 2 = 4"], ["Total", "11 caracteres", "13"]]},
+      "jeitos": {
+        "visual": "Escreva Conciliação com um quadradinho embaixo de cada letra para cada byte que ela gasta. As letras C, o, n, c, i, l, i, a e o, que estão no ASCII, ganham um quadradinho cada. O ç e o ã ganham dois quadradinhos cada, porque estão fora dos 128 do ASCII. Conte os quadradinhos: 9 + 4 = 13. A tabela mostra os dois grupos e a soma.",
+        "receita": [
+          "Conte os caracteres de Conciliação: são 11.",
+          "Separe os de fora do ASCII: ç e ã, 2 caracteres.",
+          "Os outros 9 ocupam 1 byte cada: 9 bytes.",
+          "ç e ã ocupam 2 bytes cada: 4 bytes.",
+          "Total: 9 + 4 = 13 bytes."
+        ],
+        "cotidiano": "Pense numa mala em que cada peça comum ocupa um espaço e cada casaco ocupa dois. Você leva 11 peças, das quais 2 são casacos. A mala não precisa de 11 espaços nem de 22: precisa de 9 + 2 × 2 = 13. Contar peças e contar espaço são perguntas diferentes.",
+        "trabalho": "No MySQL com utf8mb4, `CHAR_LENGTH('Conciliação')` devolve 11 (caracteres) e `LENGTH('Conciliação')` devolve 13 (bytes). Num VARCHAR(10), o limite é em caracteres: a palavra não cabe por ter 11 caracteres, não por ter 13 bytes. E quando um CSV gravado em UTF-8 é aberto numa codificação de 1 byte por letra, como a antiga do Windows, cada byte vira uma letra, e aparece ConciliaÃ§Ã£o.",
+        "conversa": [
+          {"quem": "Você", "fala": "Conciliação tem 11 letras. Cada letra é um byte, então 11."},
+          {"quem": "Monitor", "fala": "Cada letra do ASCII é um byte. O ç está no ASCII?"},
+          {"quem": "Você", "fala": "Não. O ASCII não tem acento nem cedilha."},
+          {"quem": "Monitor", "fala": "Então o ç e o ã vão com 2 bytes cada. Refaça."},
+          {"quem": "Você", "fala": "9 letras de 1 byte e 2 de 2 bytes: 9 + 4 = 13."},
+          {"quem": "Monitor", "fala": "Caracteres são 11; bytes, 13."}
+        ],
+        "erro": "A troca mais frequente é entre caracteres e bytes. Contar letras dá 11, e o 11 está nas opções para pegar quem pula a regra do UTF-8. O segundo tropeço é achar que cedilha não é acento e dar 1 byte ao ç. O critério não é ter acento: é estar ou não entre os 128 símbolos do ASCII. Ç, ã, é e ô ficam todos de fora.",
+        "confira": "Numere os bytes da esquerda para a direita, como quem numera assentos, dando dois números ao ç e ao ã. O C fica com o 1, e as letras o, n, c, i, l, i, a seguem até o 8. O ç pega o 9 e o 10; o ã, o 11 e o 12; o o final, o 13. O último número usado é o total: 13 bytes. Se a sua contagem terminar em 11, você deu um número só ao ç e ao ã.",
+        "atalho": "O total em bytes nunca fica abaixo do número de caracteres e só passa dele por causa das letras fora do ASCII. Isso elimina o 11, porque há cedilha e til. Conte só os especiais, dois, e some ao total de letras: 11 + 2 = 13. Não precisa somar letra por letra."
+      }
+    },
+    {
+      "id": "lp-s1-p12",
+      "semana": 1,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Programa na memória",
+      "origem": "Prévia · ementa",
+      "enunciado": "Uma CPU simples tem um registrador chamado acumulador. A memória está como na tabela. O programa executa, nesta ordem:\n1. Carregar no acumulador o conteúdo do endereço 10.\n2. Somar ao acumulador o conteúdo do endereço 11.\n3. Somar ao acumulador o conteúdo do endereço 11.\n4. Guardar o acumulador no endereço 12.\nQual valor fica no endereço 12 ao final?",
+      "tabela": {"onde": "enunciado", "cab": ["Endereço", "Conteúdo"], "linhas": [["10", "7"], ["11", "5"], ["12", "0"]]},
+      "alternativas": [
+        {"t": "12", "certa": false, "erro": "Você executou a soma uma vez só. A instrução 3 repete a 2 e soma o 5 de novo."},
+        {"t": "32", "certa": false, "erro": "Você somou os endereços: 10 + 11 + 11. A instrução usa o conteúdo guardado no endereço, não o número do endereço."},
+        {"t": "0", "certa": false, "erro": "0 era o valor do endereço 12 antes de o programa rodar. A instrução 4 grava o acumulador por cima."},
+        {"t": "17", "certa": true},
+        {"t": "5", "certa": false, "erro": "Você tratou somar como substituir: o acumulador ficou só com o último 5. Somar acrescenta ao que já está lá."}
+      ],
+      "dica": "Escreva o valor do acumulador depois de cada instrução, como num extrato com saldo linha a linha.",
+      "resposta": "17 (7 + 5 + 5).",
+      "jeitos": {
+        "visual": "Desenhe o acumulador como o visor de uma calculadora, ao lado da tabela da memória. Instrução 1: uma seta sai da gaveta 10 e o visor mostra 7. Instrução 2: uma seta sai da gaveta 11 e o visor sobe para 12. Instrução 3: a mesma gaveta 11 manda o 5 de novo, e o visor vai a 17. Instrução 4: uma seta sai do visor e entra na gaveta 12, que troca o 0 por 17.",
+        "receita": [
+          "Instrução 1: acumulador = conteúdo de 10 = 7.",
+          "Instrução 2: acumulador = 7 + conteúdo de 11 = 7 + 5 = 12.",
+          "Instrução 3: acumulador = 12 + 5 = 17.",
+          "Instrução 4: o endereço 12 recebe 17; o 0 antigo é apagado.",
+          "No fim, o endereço 12 guarda 17."
+        ],
+        "cotidiano": "É o saldo de uma conta corrente. Você abre o dia com 7 na conta. Entra um depósito de 5: saldo 12. Entra outro depósito de 5, igual ao primeiro: saldo 17. No fim do dia, você anota o saldo no caderno, por cima do que estava escrito. O caderno não guarda o número da agência nem o da conta: guarda o valor do saldo.",
+        "trabalho": "Na planilha, o endereço é a referência da célula e o conteúdo é o valor dentro dela. O programa equivale a escrever em B12 a fórmula `=B10+B11+B11`, que dá 17. Quem soma os endereços confunde a referência B10 com o valor guardado ali. É a mesma diferença entre o número da linha de um lançamento e o valor do lançamento: os dois são números, mas só um entra no saldo.",
+        "conversa": [
+          {"quem": "Você", "fala": "10 + 11 + 11 dá 32."},
+          {"quem": "Monitor", "fala": "O que a instrução 1 manda carregar: o número 10 ou o que está guardado no 10?"},
+          {"quem": "Você", "fala": "O conteúdo do endereço 10, que é 7."},
+          {"quem": "Monitor", "fala": "E nas instruções 2 e 3?"},
+          {"quem": "Você", "fala": "O conteúdo do 11, que é 5, duas vezes. 7 + 5 + 5 = 17."},
+          {"quem": "Monitor", "fala": "E a instrução 4 grava esse 17 por cima do 0 do endereço 12."}
+        ],
+        "erro": "A confusão central é entre endereço e conteúdo. O endereço diz onde está; o conteúdo é o que está lá. Quem soma 10 + 11 + 11 tratou as etiquetas das gavetas como se fossem o que tem dentro. O segundo tropeço é pular a instrução repetida: a 3 parece erro de digitação, mas a CPU executa tudo o que está no programa, quantas vezes estiver.",
+        "confira": "Desfaça o programa de trás para frente. O endereço 12 terminou com 17. Tire o 5 que a instrução 3 somou: 12. Tire o 5 da instrução 2: 7. Esse 7 tem de ser o que a instrução 1 carregou, e é mesmo o conteúdo do endereço 10: a conta fecha sem sobra. Com 12 no lugar de 17, o mesmo teste pararia em 2, que não está no endereço 10. As gavetas 10 e 11 seguem com 7 e 5, porque só foram lidas.",
+        "atalho": "Some só os conteúdos, quantas vezes aparecem: um 7 e dois 5. 7 + 2 × 5 = 17. Os números 10, 11 e 12 são endereços e nunca entram na soma. Uma alternativa que só sai somando endereços pode ser descartada na hora."
+      }
+    }
+  ]
+}

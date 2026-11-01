@@ -1,0 +1,320 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s2-l2q7",
+      "semana": 2,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Vetor paralelo e produto vetorial",
+      "origem": "Lista 2 · Q7",
+      "enunciado": "Determinar o vetor [[x]], paralelo ao vetor [[w]] = (1, 2, 0) e tal que [[x]] × [[u]] = [[v]], onde [[u]] = (1, −1, 2) e [[v]] = (8, −4, −6).",
+      "alternativas": [
+        {"t": "(−2, −4, 0)", "certa": false, "erro": "Você calculou [[u]] × [[x]] = [[v]]. Trocar a ordem do produto vetorial troca o sinal, e isso leva a t = −2. O enunciado pede [[x]] × [[u]]."},
+        {"t": "(1, 2, 0)", "certa": false, "erro": "Você tomou [[x]] = [[w]]. Paralelo quer dizer múltiplo: [[x]] = t·[[w]]. Com t = 1, [[x]] × [[u]] = (4, −2, −3), a metade de [[v]]."},
+        {"t": "(4, 8, 0)", "certa": false, "erro": "Você calculou a primeira coordenada do produto como 2t, em vez de 2t·2 = 4t, e achou t = 4. Conferindo: (4, 8, 0) × (1, −1, 2) = (16, −8, −12), o dobro de [[v]]."},
+        {"t": "(2, 4, 0)", "certa": true},
+        {"t": "Não existe esse vetor", "certa": false, "erro": "Você errou o sinal da segunda coordenada do produto vetorial: achou 2t em vez de −2t. Aí 4t = 8 pede t = 2 e 2t = −4 pede t = −2, o que parece contradição. Com o sinal certo, as três coordenadas pedem t = 2."}
+      ],
+      "dica": "Paralelo a [[w]] quer dizer [[x]] = (t, 2t, 0). Calcule [[x]] × [[u]] com t e compare com [[v]].",
+      "resposta": "[[x]] = (2, 4, 0)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [2, 4, 0], "rot": "x", "cor": 4},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 2, 0], "rot": "w", "cor": 3},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, -1, 2], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [8, -4, -6], "rot": "v", "cor": 2}
+        ],
+        "legenda": "[[x]] (tinta escura) fica na mesma reta de [[w]] (ocre), com o dobro do tamanho. [[v]] (coral) é perpendicular a [[x]] e a [[u]] (azul), como todo resultado de produto vetorial."
+      },
+      "jeitos": {
+        "visual": "Na figura, [[w]] e [[x]] estão na mesma reta, deitados no plano z = 0. O produto [[x]] × [[u]] gera uma seta perpendicular aos dois, a coral. Esticar [[x]] estica essa seta na mesma proporção. Com [[x]] = [[w]], a seta sai (4, −2, −3), metade do [[v]] pedido. Para dobrar o resultado, basta dobrar [[x]]: (2, 4, 0).",
+        "receita": [
+          "Paralelo a [[w]]: [[x]] = t·(1, 2, 0) = (t, 2t, 0).",
+          "Primeira coordenada de [[x]] × [[u]]: 2t·2 − 0·(−1) = 4t.",
+          "Segunda: 0·1 − t·2 = −2t. Terceira: t·(−1) − 2t·1 = −3t.",
+          "Compare com [[v]]: 4t = 8, −2t = −4 e −3t = −6. As três dão t = 2.",
+          "[[x]] = 2·(1, 2, 0) = (2, 4, 0)."
+        ],
+        "cotidiano": "É como acertar a porção de uma receita pronta. As proporções já estão escolhidas: 1 parte disto, 2 partes daquilo, nada do terceiro ingrediente. Essa é a direção de [[w]]. Falta só o tamanho da porção. Você testa com porção 1, vê que o resultado saiu com metade do pedido e dobra a porção.",
+        "trabalho": "Lembra um rateio com proporções fixas. Se uma despesa é rateada entre três centros de custo na proporção 1 : 2 : 0, só falta o total para achar cada parcela. Aqui é igual: a proporção vem de [[w]] e o único número desconhecido é t. Uma condição que dependa de t em linha reta, como [[x]] × [[u]] = [[v]], fecha a conta.",
+        "conversa": [
+          {"quem": "Você", "fala": "Escrevi [[x]] = (t, 2t, 0) e calculei [[u]] × [[x]]. Deu t = −2."},
+          {"quem": "Monitor", "fala": "O enunciado pede [[u]] × [[x]] ou [[x]] × [[u]]?"},
+          {"quem": "Você", "fala": "[[x]] × [[u]]. Faz diferença?"},
+          {"quem": "Monitor", "fala": "Faz. No produto vetorial, trocar a ordem troca o sinal do resultado."},
+          {"quem": "Você", "fala": "Então refaço: [[x]] × [[u]] = (4t, −2t, −3t). Com t = 2 fica (8, −4, −6)."},
+          {"quem": "Monitor", "fala": "Bate com [[v]]. A resposta é (2, 4, 0)."}
+        ],
+        "erro": "A armadilha é a ordem. Produto vetorial não é comutativo: [[u]] × [[x]] = −([[x]] × [[u]]). Quem inverte a ordem acha t = −2 e um vetor de sentido trocado. A segunda armadilha é o sinal do meio na fórmula do produto vetorial. Errar esse sinal faz as três equações pedirem valores diferentes de t e dá a falsa impressão de que não há solução.",
+        "confira": "Faça o produto com o vetor achado, sem parâmetro: (2, 4, 0) × (1, −1, 2) = (4·2 − 0·(−1), 0·1 − 2·2, 2·(−1) − 4·1) = (8, −4, −6). É o [[v]]. Confira também que [[v]] é perpendicular a [[x]]: 16 − 16 + 0 = 0. Se não fosse, nenhum [[x]] daria esse resultado.",
+        "atalho": "Toda alternativa paralela a [[w]] tem a forma (t, 2t, 0). Calcule [[x]] × [[u]] uma vez só, com t = 1: sai (4, −2, −3). Para chegar em (8, −4, −6), é preciso multiplicar por 2, então t = 2. Isso elimina as outras sem refazer o produto para cada uma."
+      }
+    },
+    {
+      "id": "ga-s2-l2q8",
+      "semana": 2,
+      "nivel": 2,
+      "minutos": 5,
+      "tema": "Ângulos internos do triângulo",
+      "origem": "Lista 2 · Q8",
+      "enunciado": "Determinar os ângulos internos de um triângulo ABC, sendo A = (1, 2, 3), B = (5, 2, 3) e C = (1, 2, 6).",
+      "alternativas": [
+        {"t": "Â = 90°, B̂ ≈ 36,87° e Ĉ ≈ 53,13°", "certa": true},
+        {"t": "Â = 90°, B̂ ≈ 53,13° e Ĉ ≈ 36,87°", "certa": false, "erro": "Os ângulos de B e C estão trocados. O ângulo em B fica de frente para o lado AC, o menor (3), então é o menor ângulo: cos B̂ = 16/20 = 4/5."},
+        {"t": "Â = 90°, B̂ ≈ 143,13° e Ĉ ≈ 53,13°", "certa": false, "erro": "Você usou [[AB]] e [[BC]] para o ângulo em B. Um chega em B e o outro sai, e o ângulo entre eles é o suplemento do interno, isto é, 180° menos ele. Os dois vetores têm de sair de B: [[BA]] e [[BC]]."},
+        {"t": "Â = 90°, B̂ = 45° e Ĉ = 45°", "certa": false, "erro": "Você supôs que o triângulo retângulo era isósceles. Os catetos medem 4 e 3, diferentes, então os ângulos agudos também são diferentes."},
+        {"t": "Â = 90°, B̂ ≈ 0,64° e Ĉ ≈ 0,93°", "certa": false, "erro": "A calculadora devolveu o arco cosseno em radianos: arccos(4/5) ≈ 0,6435 e arccos(3/5) ≈ 0,9273. Convertendo, 0,6435 rad ≈ 36,87°."}
+      ],
+      "dica": "Em cada vértice, use os dois vetores que saem dele. O cosseno do ângulo é o produto escalar dividido pelo produto das normas.",
+      "resposta": "Â = 90°, B̂ ≈ 36,87° e Ĉ ≈ 53,13°",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[1, 2, 3], [5, 2, 3], [1, 2, 6]], "cor": 1},
+          {"tipo": "ponto", "em": [1, 2, 3], "rot": "A"},
+          {"tipo": "ponto", "em": [5, 2, 3], "rot": "B"},
+          {"tipo": "ponto", "em": [1, 2, 6], "rot": "C"}
+        ],
+        "legenda": "Os três pontos têm y = 2: o triângulo fica num plano paralelo ao plano xz. AB segue a direção do eixo x e AC a do eixo z, por isso o canto em A é reto."
+      },
+      "jeitos": {
+        "visual": "Na figura, os três pontos têm a mesma coordenada y = 2, então o triângulo fica de pé, num plano paralelo ao plano xz. De A, uma seta vai 4 unidades na direção do eixo x até B, e outra sobe 3 unidades na direção de z até C. Isso já mostra o canto reto em A. É o triângulo 3, 4, 5, com hipotenusa BC = 5.",
+        "receita": [
+          "[[AB]] = (4, 0, 0), [[AC]] = (0, 0, 3) e [[BC]] = (−4, 0, 3). Normas: 4, 3 e 5.",
+          "Em A: [[AB]] · [[AC]] = 0, então Â = 90°.",
+          "Em B: [[BA]] = (−4, 0, 0) e [[BC]] = (−4, 0, 3). cos B̂ = 16/(4 · 5) = 4/5, e B̂ ≈ 36,87°.",
+          "Em C: [[CA]] = (0, 0, −3) e [[CB]] = (4, 0, −3). cos Ĉ = 9/(3 · 5) = 3/5, e Ĉ ≈ 53,13°.",
+          "Confira a soma: 90 + 36,87 + 53,13 = 180°."
+        ],
+        "cotidiano": "Pedreiro esquadreja parede com a regra 3, 4, 5: marca 3 num lado, 4 no outro e confere se a diagonal dá 5. Se der, o canto é reto. Este triângulo tem exatamente essas medidas. O ângulo maior fica em frente ao lado maior: o canto reto, em A, está em frente à diagonal BC. O ângulo menor fica em frente ao lado menor, AC.",
+        "trabalho": "No Excel, com [[BA]] em A1:A3 e [[BC]] em B1:B3, o ângulo em B sai de =GRAUS(ACOS(SOMARPRODUTO(A1:A3;B1:B3)/(RAIZ(SOMAQUAD(A1:A3))*RAIZ(SOMAQUAD(B1:B3))))). O GRAUS é obrigatório, porque ACOS devolve radianos. Sem ele, a célula mostra 0,6435, e quem lê como grau anota um ângulo quase nulo. É o mesmo cuidado de conferir se uma taxa está ao mês ou ao ano.",
+        "conversa": [
+          {"quem": "Você", "fala": "No ângulo B usei [[AB]] e [[BC]]. Deu cos = −4/5, uns 143°."},
+          {"quem": "Monitor", "fala": "Some com os 90° de A. O que acontece?"},
+          {"quem": "Você", "fala": "Passa de 180°. Não pode."},
+          {"quem": "Monitor", "fala": "Os vetores do ângulo em B têm de sair de B. [[AB]] chega em B."},
+          {"quem": "Você", "fala": "Então troco por [[BA]] = (−4, 0, 0). O produto com [[BC]] dá 16, o cosseno é 4/5 e o ângulo, uns 36,87°."},
+          {"quem": "Monitor", "fala": "E Ĉ sai de 180 − 90 − 36,87."},
+          {"quem": "Você", "fala": "53,13°."}
+        ],
+        "erro": "O erro clássico é pegar vetores no sentido errado. O ângulo interno em B é formado por [[BA]] e [[BC]], os dois saindo de B. Usar [[AB]], que chega em B, troca o sinal do cosseno e dá o suplemento, 180° − 36,87° = 143,13°. Outro é ler o resultado da calculadora em radianos. Se a soma dos três ângulos não der 180°, alguma conta saiu do lugar.",
+        "confira": "Use a trigonometria do triângulo retângulo, sem vetores. Os catetos são 4 (AB) e 3 (AC). O ângulo em B fica de frente para o cateto 3: tg B̂ = 3/4 = 0,75, e arctg 0,75 ≈ 36,87°. Para Ĉ, tg Ĉ = 4/3 e Ĉ ≈ 53,13°. São os mesmos valores do produto escalar.",
+        "atalho": "Todas as alternativas têm Â = 90°, então o que decide é B̂ e Ĉ. A soma dos três tem de dar 180°: isso elimina 143,13° e o par em radianos. Entre as que sobram, o maior ângulo agudo fica de frente para o maior cateto. AB = 4 é o maior e está de frente para C, então Ĉ é o maior: 53,13°."
+      }
+    },
+    {
+      "id": "ga-s2-l2q9a",
+      "semana": 2,
+      "nivel": 2,
+      "minutos": 5,
+      "tema": "Projeção e decomposição",
+      "origem": "Lista 2 · Q9a",
+      "enunciado": "Para cada um dos pares de vetores [[u]] e [[v]], encontrar a projeção ortogonal de [[v]] sobre [[u]] e decompor [[v]] como soma de [[v₁]] com [[v₂]], sendo [[v₁]] ∥ [[u]] e [[v₂]] ⊥ [[u]].\na) [[u]] = (−1, 2, 3) e [[v]] = (2, 0, 1)",
+      "alternativas": [
+        {"t": "[[v₁]] = (2/5, 0, 1/5) e [[v₂]] = (8/5, 0, 4/5)", "certa": false, "erro": "Você projetou [[u]] sobre [[v]]: dividiu por ‖[[v]]‖² = 5 e multiplicou [[v]]. A projeção de [[v]] sobre [[u]] tem de ser múltiplo de [[u]]."},
+        {"t": "[[v₁]] = (−1, 2, 3) e [[v₂]] = (3, −2, −2)", "certa": false, "erro": "Você esqueceu de dividir por ‖[[u]]‖² = 14. Como [[u]] · [[v]] = 1, ficou [[v₁]] = [[u]]. Teste: [[v₂]] · [[u]] = −3 − 4 − 6 = −13, não é zero."},
+        {"t": "[[v₁]] = (−1/14, 1/7, 3/14) e [[v₂]] = (29/14, −1/7, 11/14)", "certa": true},
+        {"t": "[[v₁]] = (−1/14, 1/7, 3/14) e [[v₂]] = (−29/14, 1/7, −11/14)", "certa": false, "erro": "[[v₁]] está certo, mas você fez [[v₁]] − [[v]]. Assim [[v₁]] + [[v₂]] não volta a [[v]]. O certo é [[v₂]] = [[v]] − [[v₁]]."},
+        {"t": "[[v₁]] = (−5/14, 5/7, 15/14) e [[v₂]] = (33/14, −5/7, −1/14)", "certa": false, "erro": "Você achou [[u]] · [[v]] = 2 + 0 + 3 = 5, esquecendo o sinal de (−1)·2. O certo é −2 + 0 + 3 = 1."}
+      ],
+      "dica": "[[v₁]] = ([[u]] · [[v]] / ‖[[u]]‖²)·[[u]]. Depois, [[v₂]] é o que falta: [[v]] − [[v₁]].",
+      "resposta": "[[v₁]] = (−1/14, 1/7, 3/14) e [[v₂]] = (29/14, −1/7, 11/14)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, 2, 3], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [2, 0, 1], "rot": "v", "cor": 2},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-0.071, 0.143, 0.214], "rot": "v₁", "cor": 4},
+          {"tipo": "vetor", "de": [-0.071, 0.143, 0.214], "ate": [2, 0, 1], "rot": "v₂", "cor": 3}
+        ],
+        "legenda": "[[v₁]] (tinta escura) é a sombra curtinha de [[v]] sobre a reta de [[u]]. [[v₂]] (ocre) sai da ponta de [[v₁]], chega na ponta de [[v]] e forma ângulo reto com [[u]]."
+      },
+      "jeitos": {
+        "visual": "Pense em [[v]] como uma vara e na reta de [[u]] como um trilho. Acenda uma luz perpendicular ao trilho: a sombra da vara sobre ele é [[v₁]]. Aqui a sombra é minúscula, 1/14 de [[u]], porque [[v]] quase faz 90° com [[u]]: o produto escalar dá só 1. O resto, [[v₂]], é a parte de [[v]] que fica de pé em relação ao trilho. Na figura, [[v₁]] e [[v₂]] encostados reconstroem [[v]].",
+        "receita": [
+          "[[u]] · [[v]] = (−1)·2 + 2·0 + 3·1 = 1.",
+          "‖[[u]]‖² = 1 + 4 + 9 = 14.",
+          "[[v₁]] = (1/14)·(−1, 2, 3) = (−1/14, 2/14, 3/14) = (−1/14, 1/7, 3/14).",
+          "[[v₂]] = [[v]] − [[v₁]] = (2 + 1/14, 0 − 1/7, 1 − 3/14) = (29/14, −1/7, 11/14).",
+          "A projeção pedida é [[v₁]], e [[v]] = [[v₁]] + [[v₂]]."
+        ],
+        "cotidiano": "Pense num vento soprando enquanto você pedala numa ciclovia reta. Só a parte do vento na direção da ciclovia empurra ou freia a bicicleta; a parte de lado só balança. Aqui o vento é [[v]] e a ciclovia é a direção de [[u]]. A parte que empurra, [[v₁]], é pequena. Quase todo o vento vem de lado, e isso é [[v₂]].",
+        "trabalho": "É a regressão linear sem intercepto (a reta ajustada passa pela origem), com [[u]] como variável explicativa e [[v]] como resposta. O coeficiente é SOMARPRODUTO(u;v)/SOMAQUAD(u) = 1/14. [[v₁]] é o valor ajustado e [[v₂]] é o resíduo. Na regressão, o resíduo é sempre ortogonal à variável explicativa, que é a condição [[v₂]] ⊥ [[u]]. A função PROJ.LIN com a constante desligada chega ao mesmo 1/14.",
+        "conversa": [
+          {"quem": "Você", "fala": "Fiz [[v₁]] = ([[u]] · [[v]])·[[u]] = (−1, 2, 3)."},
+          {"quem": "Monitor", "fala": "Teste se [[v₂]] = [[v]] − [[v₁]] fica perpendicular a [[u]]."},
+          {"quem": "Você", "fala": "[[v₂]] = (3, −2, −2). Com [[u]] dá −3 − 4 − 6 = −13."},
+          {"quem": "Monitor", "fala": "Não é zero. O que faltou na fórmula?"},
+          {"quem": "Você", "fala": "Dividir por ‖[[u]]‖², que é 14."},
+          {"quem": "Monitor", "fala": "Refaça e teste de novo."},
+          {"quem": "Você", "fala": "[[v₁]] = (−1/14, 1/7, 3/14) e [[v₂]] = (29/14, −1/7, 11/14). Agora o produto com [[u]] dá zero."}
+        ],
+        "erro": "O tropeço mais comum é trocar quem projeta em quem. Projeção de [[v]] sobre [[u]] é um múltiplo de [[u]]: divide por ‖[[u]]‖² e multiplica [[u]]. Dividir pela norma sem o quadrado, ou esquecer a divisão, também é frequente. E no fim, [[v₂]] é [[v]] − [[v₁]], nessa ordem. Se [[v₁]] + [[v₂]] não der [[v]], a ordem ficou trocada.",
+        "confira": "Faça os dois testes que definem a decomposição. Primeiro, [[v₂]] · [[u]] = −29/14 − 2/7 + 33/14 = −29/14 − 4/14 + 33/14 = 0. Segundo, [[v₁]] + [[v₂]] = (28/14, 0, 14/14) = (2, 0, 1), que é [[v]]. Passou nos dois, está certo.",
+        "atalho": "[[v₁]] tem de ser múltiplo de [[u]] = (−1, 2, 3). Isso elimina na hora a alternativa com (2/5, 0, 1/5). Entre as que sobram, some [[v₁]] + [[v₂]]: só ficam as que devolvem (2, 0, 1). Por último, teste [[v₂]] · [[u]] = 0 nas que restarem; só uma passa."
+      }
+    },
+    {
+      "id": "ga-s2-l2q9b",
+      "semana": 2,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Projeção sobre a diagonal",
+      "origem": "Lista 2 · Q9b",
+      "enunciado": "Para cada um dos pares de vetores [[u]] e [[v]], encontrar a projeção ortogonal de [[v]] sobre [[u]] e decompor [[v]] como soma de [[v₁]] com [[v₂]], sendo [[v₁]] ∥ [[u]] e [[v₂]] ⊥ [[u]].\nb) [[u]] = (1, 1, 1) e [[v]] = (−1, 2, 3)",
+      "alternativas": [
+        {"t": "[[v₁]] = (−2/7, 4/7, 6/7) e [[v₂]] = (−5/7, 10/7, 15/7)", "certa": false, "erro": "Você projetou [[u]] sobre [[v]], com fator 4/14 multiplicando [[v]]. As duas partes ficaram paralelas a [[v]], e nenhuma é perpendicular a [[u]]."},
+        {"t": "[[v₁]] = (4, 4, 4) e [[v₂]] = (−5, −2, −1)", "certa": false, "erro": "Você multiplicou [[u]] por [[u]] · [[v]] = 4 e esqueceu de dividir por ‖[[u]]‖² = 3. Teste: [[v₂]] · [[u]] = −8."},
+        {"t": "[[v₁]] = (2/7, 2/7, 2/7) e [[v₂]] = (−9/7, 12/7, 19/7)", "certa": false, "erro": "Você dividiu por ‖[[v]]‖² = 14 em vez de ‖[[u]]‖² = 3. O denominador é o quadrado da norma do vetor sobre o qual se projeta."},
+        {"t": "[[v₁]] = (2, 2, 2) e [[v₂]] = (−3, 0, 1)", "certa": false, "erro": "Você achou [[u]] · [[v]] = 1 + 2 + 3 = 6, perdendo o sinal de −1. O certo é −1 + 2 + 3 = 4."},
+        {"t": "[[v₁]] = (4/3, 4/3, 4/3) e [[v₂]] = (−7/3, 2/3, 5/3)", "certa": true}
+      ],
+      "dica": "Com [[u]] = (1, 1, 1), o produto escalar [[u]] · [[v]] é a soma das coordenadas de [[v]], e ‖[[u]]‖² = 3.",
+      "resposta": "[[v₁]] = (4/3, 4/3, 4/3) e [[v₂]] = (−7/3, 2/3, 5/3)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1.333, 1.333, 1.333], "rot": "v₁", "cor": 4},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 1, 1], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, 2, 3], "rot": "v", "cor": 2},
+          {"tipo": "vetor", "de": [1.333, 1.333, 1.333], "ate": [-1, 2, 3], "rot": "v₂", "cor": 3}
+        ],
+        "legenda": "[[v₁]] (tinta escura) continua a seta de [[u]] (azul) na mesma reta, um pouco mais comprida. [[v₂]] (ocre) liga a ponta de [[v₁]] à ponta de [[v]] e forma 90° com [[u]]."
+      },
+      "jeitos": {
+        "visual": "A reta de [[u]] = (1, 1, 1) é a diagonal do cubo, a que sai da origem e anda igual em x, y e z. Projetar [[v]] nela é perguntar quanto [[v]] anda, em média, por eixo: (−1 + 2 + 3)/3 = 4/3. Por isso [[v₁]] = (4/3, 4/3, 4/3). Na figura, [[v₂]] em ocre é o desvio de cada coordenada de [[v]] em relação a essa média.",
+        "receita": [
+          "[[u]] · [[v]] = 1·(−1) + 1·2 + 1·3 = 4.",
+          "‖[[u]]‖² = 1 + 1 + 1 = 3.",
+          "[[v₁]] = (4/3)·(1, 1, 1) = (4/3, 4/3, 4/3).",
+          "[[v₂]] = [[v]] − [[v₁]] = (−1 − 4/3, 2 − 4/3, 3 − 4/3) = (−7/3, 2/3, 5/3).",
+          "A projeção é [[v₁]], e [[v]] = [[v₁]] + [[v₂]]."
+        ],
+        "cotidiano": "Pense numa estrada reta que passa pela origem, na direção (1, 1, 1), e em você parado fora dela, na ponta de [[v]]. Qual ponto da estrada fica mais perto? É aquele em que o caminho até você sai da estrada em ângulo reto. Esse ponto é a ponta de [[v₁]] = (4/3, 4/3, 4/3), e o caminho reto dele até você é [[v₂]]. Qualquer outro ponto da estrada fica mais longe.",
+        "trabalho": "Projetar sobre (1, 1, 1) é calcular a média e repetir o valor em cada linha. Com [[v]] em B1:B3, =MÉDIA(B1:B3) dá 4/3 ≈ 1,33, e a coluna `=B1-MÉDIA($B$1:$B$3)`, arrastada, é [[v₂]]. Quem já fez análise de variação de despesas contra a média do trimestre reconhece a estrutura: [[v₁]] é a média repetida e [[v₂]] é a coluna de desvios.",
+        "conversa": [
+          {"quem": "Você", "fala": "Somei as coordenadas de [[v]]: 1 + 2 + 3 = 6. Então [[v₁]] = (2, 2, 2)?"},
+          {"quem": "Monitor", "fala": "A primeira coordenada de [[v]] é 1 ou −1?"},
+          {"quem": "Você", "fala": "É −1. A soma é 4."},
+          {"quem": "Monitor", "fala": "E falta a divisão por ‖[[u]]‖² = 3. Quanto fica [[v₁]]?"},
+          {"quem": "Você", "fala": "(4/3, 4/3, 4/3). E [[v₂]] = (−7/3, 2/3, 5/3)."},
+          {"quem": "Monitor", "fala": "Some as coordenadas de [[v₂]]. Tem de dar zero, porque isso é [[v₂]] · [[u]]."},
+          {"quem": "Você", "fala": "−7 + 2 + 5 = 0, em terços. Fechou."}
+        ],
+        "erro": "Aqui a armadilha é pensar que tudo é soma, porque [[u]] = (1, 1, 1). O produto escalar é a soma das coordenadas de [[v]], e o −1 entra com sinal. A divisão é por ‖[[u]]‖² = 3, não por ‖[[u]]‖ = √3 nem por ‖[[v]]‖² = 14. Quem divide pelo número errado acha um [[v₂]] que não é perpendicular a [[u]].",
+        "confira": "Com [[u]] = (1, 1, 1), testar a perpendicularidade é só somar as coordenadas de [[v₂]]: −7/3 + 2/3 + 5/3 = 0. E [[v₁]] + [[v₂]] = (4/3 − 7/3, 4/3 + 2/3, 4/3 + 5/3) = (−1, 2, 3), que é [[v]]. Os dois testes passam.",
+        "atalho": "[[v₁]] tem de ter as três coordenadas iguais, porque é múltiplo de (1, 1, 1). Elimine a alternativa com (−2/7, 4/7, 6/7). Depois some as coordenadas de cada [[v₂]]: só a certa dá zero. (−5, −2, −1) soma −8, (−9/7, 12/7, 19/7) soma 22/7 e (−3, 0, 1) soma −2."
+      }
+    },
+    {
+      "id": "ga-s2-l2q9c",
+      "semana": 2,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Projeção de vetor paralelo",
+      "origem": "Lista 2 · Q9c",
+      "enunciado": "Para cada um dos pares de vetores [[u]] e [[v]], encontrar a projeção ortogonal de [[v]] sobre [[u]] e decompor [[v]] como soma de [[v₁]] com [[v₂]], sendo [[v₁]] ∥ [[u]] e [[v₂]] ⊥ [[u]].\nc) [[u]] = (1, 2, 0) e [[v]] = (−3, −6, 0)",
+      "alternativas": [
+        {"t": "[[v₁]] = (3, 6, 0) e [[v₂]] = (−6, −12, 0)", "certa": false, "erro": "Você usou 15 em vez de [[u]] · [[v]] = −15. O sinal importa: [[v]] aponta para o lado oposto de [[u]], e a projeção também."},
+        {"t": "[[v₁]] = (−3, −6, 0) e [[v₂]] = (0, 0, 0)", "certa": true},
+        {"t": "[[v₁]] = (−15, −30, 0) e [[v₂]] = (12, 24, 0)", "certa": false, "erro": "Você multiplicou [[u]] por −15 e esqueceu de dividir por ‖[[u]]‖² = 5. O fator certo é −15/5 = −3."},
+        {"t": "[[v₁]] = (0, 0, 0) e [[v₂]] = (−3, −6, 0)", "certa": false, "erro": "Os papéis estão trocados. [[v₂]] tem de ser perpendicular a [[u]], e (−3, −6, 0) · (1, 2, 0) = −15. Quem é paralelo a [[u]] é o [[v]] inteiro."},
+        {"t": "Não há decomposição, porque [[v]] ∥ [[u]]", "certa": false, "erro": "Há, sim. O vetor nulo tem produto escalar zero com qualquer vetor, então [[v₂]] = (0, 0, 0) cumpre a condição de perpendicular. A decomposição só fica com uma parte nula."}
+      ],
+      "dica": "Compare [[v]] com [[u]] antes de fazer conta: [[v]] é múltiplo de [[u]]?",
+      "resposta": "[[v₁]] = (−3, −6, 0) e [[v₂]] = (0, 0, 0)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 2, 0], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-3, -6, 0], "rot": "v = v₁", "cor": 2}
+        ],
+        "legenda": "[[u]] (azul) e [[v]] (coral) estão na mesma reta, em sentidos opostos. A sombra de [[v]] sobre essa reta é o próprio [[v]], e não sobra parte perpendicular."
+      },
+      "jeitos": {
+        "visual": "Na figura, [[u]] e [[v]] ficam na mesma reta do plano z = 0, apontando para lados opostos. Se você acender a luz perpendicular a essa reta, a sombra de [[v]] cai inteira sobre ela: é o próprio [[v]]. Não sobra nenhum pedaço de pé. Por isso [[v₁]] = [[v]] e [[v₂]] é o vetor nulo.",
+        "receita": [
+          "Repare: (−3, −6, 0) = −3·(1, 2, 0), então [[v]] = −3[[u]].",
+          "[[u]] · [[v]] = −3 − 12 + 0 = −15 e ‖[[u]]‖² = 1 + 4 + 0 = 5.",
+          "[[v₁]] = (−15/5)·[[u]] = −3·(1, 2, 0) = (−3, −6, 0).",
+          "[[v₂]] = [[v]] − [[v₁]] = (0, 0, 0)."
+        ],
+        "cotidiano": "Pense num carrinho de supermercado andando ao longo de um corredor reto. Se ele anda exatamente na linha do corredor, mesmo voltando para a entrada, todo o deslocamento está na direção do corredor. Não há desvio nenhum para as prateleiras. O sinal negativo diz só que ele voltou, e a parte de lado vale zero.",
+        "trabalho": "Na regressão sem intercepto, se cada valor da coluna [[v]] é exatamente −3 vezes o valor da coluna [[u]], o ajuste é perfeito: coeficiente −3 e resíduo zero em todas as linhas. Acontece quando uma coluna é a outra vezes uma constante, como um valor e o mesmo valor convertido por um fator fixo. O sinal negativo da constante só indica sentido oposto.",
+        "conversa": [
+          {"quem": "Você", "fala": "Como [[v]] é paralelo a [[u]], não dá para decompor, certo?"},
+          {"quem": "Monitor", "fala": "Quais são as duas exigências? [[v₁]] paralelo a [[u]] e [[v₂]] perpendicular a [[u]]."},
+          {"quem": "Você", "fala": "[[v₁]] = [[v]] é paralelo. Mas não sobra nada para [[v₂]]."},
+          {"quem": "Monitor", "fala": "O vetor nulo é perpendicular a [[u]]? Calcule (0, 0, 0) · (1, 2, 0)."},
+          {"quem": "Você", "fala": "Dá 0. Então serve."},
+          {"quem": "Monitor", "fala": "A decomposição existe: [[v₁]] = (−3, −6, 0) e [[v₂]] = (0, 0, 0)."}
+        ],
+        "erro": "Dois tropeços. O primeiro é achar que o caso paralelo não tem decomposição; tem, com [[v₂]] nulo. O segundo é perder o sinal: [[u]] · [[v]] = −15, e o fator −15/5 = −3 diz que [[v₁]] aponta contra [[u]]. Quem usa 15 acha (3, 6, 0) e, de quebra, um [[v₂]] que não é perpendicular a [[u]].",
+        "confira": "Teste as duas condições. [[v₁]] = (−3, −6, 0) é −3 vezes [[u]], então é paralelo. [[v₂]] = (0, 0, 0) dá produto zero com [[u]]. E a soma devolve [[v]]. Outro caminho: a projeção de um vetor sobre a reta em que ele já está é ele mesmo, então nem precisava de conta.",
+        "atalho": "Olhe as coordenadas: −3 e −6 são −3 vezes 1 e 2, e o z é zero nos dois. [[v]] já está na reta de [[u]]. A resposta tem de ser [[v₁]] = [[v]] e [[v₂]] nulo. Nenhuma conta além dessa comparação."
+      }
+    },
+    {
+      "id": "ga-s2-l2q10",
+      "semana": 2,
+      "nivel": 2,
+      "minutos": 5,
+      "tema": "Projeção entre segmentos",
+      "origem": "Lista 2 · Q10",
+      "enunciado": "Dados os pontos A = (0, 3, −4), B = (3, 0, 5), C = (−1, −1, −2) e D = (4, 1, −4), calcular a projeção ortogonal de [[AB]] sobre [[CD]].",
+      "alternativas": [
+        {"t": "(−3/11, 3/11, −9/11)", "certa": false, "erro": "Essa é a projeção de [[CD]] sobre [[AB]]: dividiu por ‖[[AB]]‖² = 99 e multiplicou [[AB]]. A ordem pedida é a outra."},
+        {"t": "(15/11, 6/11, −6/11)", "certa": false, "erro": "Você usou [[BA]] = A − B no lugar de [[AB]]. O produto escalar virou +9 e a projeção trocou de sentido."},
+        {"t": "(−45, −18, 18)", "certa": false, "erro": "Você multiplicou [[CD]] por [[AB]] · [[CD]] = −9 e não dividiu por ‖[[CD]]‖² = 33."},
+        {"t": "(−15/11, −6/11, 6/11)", "certa": true},
+        {"t": "(−9/5, −18/25, 18/25)", "certa": false, "erro": "Você fez (−2)² = −4 e achou ‖[[CD]]‖² = 25 + 4 − 4 = 25. O quadrado é positivo: ‖[[CD]]‖² = 33."}
+      ],
+      "dica": "Monte [[AB]] = B − A e [[CD]] = D − C. A projeção sobre [[CD]] é um múltiplo de [[CD]], com fator ([[AB]] · [[CD]])/‖[[CD]]‖².",
+      "resposta": "(−15/11, −6/11, 6/11)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "ponto", "em": [-1, -1, -2], "rot": "C"},
+          {"tipo": "ponto", "em": [4, 1, -4], "rot": "D"},
+          {"tipo": "vetor", "de": [-1, -1, -2], "ate": [4, 1, -4], "rot": "CD", "cor": 1},
+          {"tipo": "vetor", "de": [-1, -1, -2], "ate": [2, -4, 7], "rot": "AB", "cor": 2},
+          {"tipo": "vetor", "de": [-1, -1, -2], "ate": [-2.364, -1.545, -1.455], "rot": "proj", "cor": 4},
+          {"tipo": "segmento", "de": [2, -4, 7], "ate": [-2.364, -1.545, -1.455], "tracejado": true}
+        ],
+        "legenda": "[[AB]] (coral) foi transportado para começar em C. A projeção (tinta escura) fica sobre a reta de [[CD]] (azul), mas aponta para o lado oposto de D, porque o ângulo entre [[AB]] e [[CD]] passa de 90°. O tracejado cai em ângulo reto sobre essa reta."
+      },
+      "jeitos": {
+        "visual": "Na figura, a seta coral é [[AB]] levada para começar em C, ao lado de [[CD]]. Imagine uma luz caindo em ângulo reto sobre a reta de [[CD]]: a sombra da seta coral é a seta escura. Ela aponta para trás de C, para o lado oposto de D. O motivo é o produto escalar negativo, −9: [[AB]] e [[CD]] formam um ângulo maior que 90°.",
+        "receita": [
+          "[[AB]] = B − A = (3, −3, 9) e [[CD]] = D − C = (5, 2, −2).",
+          "[[AB]] · [[CD]] = 15 − 6 − 18 = −9.",
+          "‖[[CD]]‖² = 25 + 4 + 4 = 33.",
+          "Fator: −9/33 = −3/11.",
+          "Projeção: (−3/11)·(5, 2, −2) = (−15/11, −6/11, 6/11)."
+        ],
+        "cotidiano": "Pense numa esteira rolante, a direção de [[CD]], e em alguém caminhando em diagonal sobre ela, o deslocamento [[AB]]. Quanto essa pessoa avança no sentido da esteira? Aqui o avanço é negativo: ela anda um pouco contra a esteira, enquanto a maior parte do passo é de lado. A projeção mede só esse avanço, com sinal, e o devolve como uma seta na linha da esteira.",
+        "trabalho": "Com [[AB]] em B2:B4 e [[CD]] em C2:C4, o fator é =SOMARPRODUTO(B2:B4;C2:C4)/SOMAQUAD(C2:C4), que dá −0,2727, ou −3/11. Multiplique cada célula de C2:C4 por esse fator e a coluna nova é a projeção. Se o fator sai positivo, a projeção acompanha [[CD]]; se sai negativo, como aqui, vai contra.",
+        "conversa": [
+          {"quem": "Você", "fala": "Calculei [[AB]] · [[CD]] = −9 e ‖[[AB]]‖² = 99. Dividi e multipliquei por [[AB]]."},
+          {"quem": "Monitor", "fala": "A projeção é sobre quem?"},
+          {"quem": "Você", "fala": "Sobre [[CD]]."},
+          {"quem": "Monitor", "fala": "Então o resultado tem de ser múltiplo de quem?"},
+          {"quem": "Você", "fala": "De [[CD]]. Divido por ‖[[CD]]‖² = 33 e multiplico [[CD]]: (−3/11)·(5, 2, −2)."},
+          {"quem": "Monitor", "fala": "Dá (−15/11, −6/11, 6/11). O sinal negativo diz que ela aponta contra [[CD]]."}
+        ],
+        "erro": "A confusão mais frequente é a ordem: a projeção sobre [[CD]] é múltiplo de [[CD]], com ‖[[CD]]‖² no denominador. Quem inverte calcula a projeção de [[CD]] sobre [[AB]]. Também pesa o sentido: [[AB]] é B − A, e trocar para A − B inverte a resposta. Já trocar [[CD]] por [[DC]] não muda nada, porque a projeção depende só da reta.",
+        "confira": "O que sobra depois de tirar a projeção tem de ser perpendicular a [[CD]]. [[AB]] − proj = (3 + 15/11, −3 + 6/11, 9 − 6/11) = (48/11, −27/11, 93/11). Produto com (5, 2, −2): (240 − 54 − 186)/11 = 0. Bate.",
+        "atalho": "A resposta tem de ser múltiplo de [[CD]] = (5, 2, −2): isso elimina (−3/11, 3/11, −9/11). As outras quatro são múltiplos de [[CD]] e diferem só no fator. Como [[AB]] · [[CD]] = −9 é negativo, o fator é negativo, e sai (15/11, 6/11, −6/11). O fator certo é −9/33 = −3/11, então a primeira coordenada é 5·(−3/11) = −15/11."
+      }
+    }
+  ]
+}

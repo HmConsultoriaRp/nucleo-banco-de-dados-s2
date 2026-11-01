@@ -1,0 +1,269 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s2-l2q11",
+      "semana": 2,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Área pelos pontos médios",
+      "origem": "Lista 2 · Q11",
+      "enunciado": "Os pontos médios dos lados do triângulo ABC são M = (−1, 2, −3), N = (−3, 1, 2) e P = (1, 1, 2). Determinar a área do triângulo ABC.",
+      "alternativas": [
+        {"t": "8√26", "certa": true},
+        {"t": "2√26", "certa": false, "erro": "Essa é a área do triângulo MNP, o dos pontos médios. O triângulo ABC tem 4 vezes essa área."},
+        {"t": "16√26", "certa": false, "erro": "Você pegou ‖[[MN]] × [[MP]]‖ = 4√26, que é o paralelogramo, sem dividir por 2, e multiplicou por 4."},
+        {"t": "4√26", "certa": false, "erro": "Você parou em ‖[[MN]] × [[MP]]‖ = 4√26, ou dobrou a área de MNP achando que dobrar os lados dobra a área. Dobrar os lados multiplica a área por 4."},
+        {"t": "8", "certa": false, "erro": "Na segunda coordenada de [[MN]] × [[MP]], 5·2 − (−2)·5 virou 10 − 10 = 0, e o produto ficou (0, 0, 4). O certo é 10 + 10 = 20, e o produto é (0, 20, 4)."}
+      ],
+      "dica": "O triângulo dos pontos médios tem lados com metade do tamanho dos lados de ABC. Calcule a área dele e pense quanto a área cresce quando os lados dobram.",
+      "resposta": "8√26",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[3, 2, -3], [-5, 2, -3], [-1, 0, 7]], "cor": 1},
+          {"tipo": "poligono", "pts": [[-1, 2, -3], [-3, 1, 2], [1, 1, 2]], "cor": 3},
+          {"tipo": "ponto", "em": [3, 2, -3], "rot": "A"},
+          {"tipo": "ponto", "em": [-5, 2, -3], "rot": "B"},
+          {"tipo": "ponto", "em": [-1, 0, 7], "rot": "C"},
+          {"tipo": "ponto", "em": [-1, 2, -3], "rot": "M"},
+          {"tipo": "ponto", "em": [-3, 1, 2], "rot": "N"},
+          {"tipo": "ponto", "em": [1, 1, 2], "rot": "P"}
+        ],
+        "legenda": "O triângulo ABC (azul) foi reconstruído a partir dos pontos médios, com M no lado AB, N em BC e P em CA. O triângulo MNP (ocre) cabe dentro dele quatro vezes: ele e mais três cópias nos cantos."
+      },
+      "jeitos": {
+        "visual": "Ligue os pontos médios de um triângulo e ele se divide em quatro triângulos iguais: três nos cantos e o do meio, MNP. Na figura, o ocre é MNP e o azul é ABC inteiro. Cada lado de MNP mede metade do lado paralelo de ABC. Então ABC tem quatro vezes a área de MNP: 4 · 2√26 = 8√26.",
+        "receita": [
+          "[[MN]] = N − M = (−2, −1, 5) e [[MP]] = P − M = (2, −1, 5).",
+          "[[MN]] × [[MP]] = ((−1)·5 − 5·(−1), 5·2 − (−2)·5, (−2)·(−1) − (−1)·2) = (0, 20, 4).",
+          "‖[[MN]] × [[MP]]‖ = √(400 + 16) = √416 = 4√26.",
+          "Área de MNP = 4√26/2 = 2√26.",
+          "Área de ABC = 4 · 2√26 = 8√26."
+        ],
+        "cotidiano": "Pense numa foto ampliada para o dobro da largura e o dobro da altura. A área do papel não dobra, quadruplica: 2 × 2 = 4. O triângulo dos pontos médios é a versão reduzida de ABC, com cada lado pela metade e virado de cabeça para baixo. Para voltar ao tamanho original, as medidas dobram e a área vai a 4 vezes.",
+        "trabalho": "Quem rateia aluguel por metro quadrado conhece essa conta. Se a planta está na escala 1 : 2, cada medida real é o dobro da desenhada, e a área real é 4 vezes a área da planta, não 2. Aqui o triângulo MNP faz o papel da planta e ABC é a sala. Ratear pela área da planta, ou dobrar em vez de quadruplicar, distorce a parcela de cada um.",
+        "conversa": [
+          {"quem": "Você", "fala": "A área de MNP deu 2√26. Como os lados de ABC são o dobro, a área é 4√26."},
+          {"quem": "Monitor", "fala": "Pense num quadrado de lado 1. Se o lado dobra, a área vira quanto?"},
+          {"quem": "Você", "fala": "Lado 2, área 4. Quadruplica."},
+          {"quem": "Monitor", "fala": "Com triângulo é igual: base e altura dobram juntas."},
+          {"quem": "Você", "fala": "Então ABC tem 4 · 2√26 = 8√26."},
+          {"quem": "Monitor", "fala": "Isso. Dá para conferir achando os vértices: A = M + P − N, por exemplo."}
+        ],
+        "erro": "O erro mais comum é dobrar a área porque os lados dobram. A área cresce com o quadrado da escala: lados × 2, área × 4. Outro é esquecer a divisão por 2 no triângulo MNP e partir de 4√26. Os dois erros juntos dão 16√26. Cuidado também com o sinal no meio do produto vetorial: 5·2 − (−2)·5 é 10 + 10.",
+        "confira": "Reconstrua os vértices e calcule direto. Com M no meio de AB, N no meio de BC e P no meio de CA: A = M + P − N = (3, 2, −3), B = M + N − P = (−5, 2, −3) e C = N + P − M = (−1, 0, 7). [[AB]] × [[AC]] = (0, 80, 16), de norma 16√26. A metade é 8√26, o mesmo valor.",
+        "atalho": "Escreva o produto como 4·(0, 5, 1): a norma é 4√26. A área de ABC é essa norma dividida por 2 (triângulo MNP) e multiplicada por 4 (escala), isto é, o dobro dela: 2 · 4√26 = 8√26. Qualquer alternativa sem √26 já está fora."
+      }
+    },
+    {
+      "id": "ga-s2-l2q12a",
+      "semana": 2,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Produto escalar pelo ângulo",
+      "origem": "Lista 2 · Q12a",
+      "enunciado": "Sendo ‖[[u]]‖ = 2, ‖[[v]]‖ = 3 e 120° o ângulo entre [[u]] e [[v]], calcule:\na) [[u]] · [[v]]",
+      "alternativas": [
+        {"t": "3", "certa": false, "erro": "Você usou cos 120° = 1/2. O ângulo de 120° passa de 90°, então o cosseno é negativo: −1/2."},
+        {"t": "3√3", "certa": false, "erro": "Você usou sen 120° = √3/2. O produto escalar usa o cosseno; o seno aparece na norma do produto vetorial."},
+        {"t": "−3", "certa": true},
+        {"t": "6", "certa": false, "erro": "Você multiplicou só as normas, 2 · 3, e esqueceu o cosseno do ângulo."},
+        {"t": "−3√3", "certa": false, "erro": "Você usou −√3/2, que é o cosseno de 150°, não o de 120°. cos 120° = −1/2."}
+      ],
+      "dica": "[[u]] · [[v]] = ‖[[u]]‖·‖[[v]]‖·cos θ. Pense no sinal do cosseno de um ângulo maior que 90°.",
+      "resposta": "[[u]] · [[v]] = −3",
+      "figura": {
+        "modo": "2d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0], "ate": [2, 0], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0], "ate": [-1.5, 2.598], "rot": "v", "cor": 2},
+          {"tipo": "vetor", "de": [0, 0], "ate": [-1.5, 0], "rot": "sombra", "cor": 3},
+          {"tipo": "segmento", "de": [-1.5, 2.598], "ate": [-1.5, 0], "tracejado": true}
+        ],
+        "legenda": "[[u]] mede 2 e [[v]] mede 3, com 120° entre eles. A sombra de [[v]] na reta de [[u]] (ocre) mede 1,5 e aponta para trás."
+      },
+      "jeitos": {
+        "visual": "Na figura, [[u]] aponta para a direita e [[v]] abre 120° a partir dele, inclinado para trás. Projete a ponta de [[v]] na reta de [[u]]: o tracejado cai em x = −1,5. Essa sombra, de tamanho 1,5 e sentido contrário ao de [[u]], vezes o tamanho de [[u]], 2, dá o produto escalar: 2 · (−1,5) = −3.",
+        "receita": [
+          "Fórmula: [[u]] · [[v]] = ‖[[u]]‖·‖[[v]]‖·cos θ.",
+          "cos 120° = −cos 60° = −1/2.",
+          "[[u]] · [[v]] = 2 · 3 · (−1/2) = −3."
+        ],
+        "cotidiano": "Imagine puxar um carrinho por uma corda, mas com a corda apontando 120° para longe do sentido em que o carrinho anda. Parte da sua força freia o carrinho em vez de ajudar. O produto escalar mede esse saldo: positivo quando a força ajuda, negativo quando atrapalha. Com 120°, ela atrapalha, e o resultado vem negativo.",
+        "trabalho": "Em finanças, a covariância entre duas séries é ρ·σ₁·σ₂, em que ρ é a correlação e σ₁, σ₂ são os desvios padrão. É a mesma estrutura de ‖[[u]]‖·‖[[v]]‖·cos θ: as normas fazem o papel dos desvios e o cosseno, o da correlação. Desvios 2 e 3 com correlação −0,5 dão covariância −3. Correlação negativa, séries em sentidos opostos, corresponde a ângulo maior que 90°.",
+        "conversa": [
+          {"quem": "Você", "fala": "2 · 3 · cos 120°. O cosseno de 120° é 1/2, então dá 3."},
+          {"quem": "Monitor", "fala": "Em que quadrante fica 120°?"},
+          {"quem": "Você", "fala": "No segundo."},
+          {"quem": "Monitor", "fala": "E o sinal do cosseno no segundo quadrante?"},
+          {"quem": "Você", "fala": "Negativo. Então cos 120° = −1/2 e o produto dá −3."},
+          {"quem": "Monitor", "fala": "Faz sentido: ângulo obtuso, produto escalar negativo."}
+        ],
+        "erro": "A armadilha é o sinal do cosseno. 120° está no segundo quadrante, onde o cosseno é negativo: cos 120° = −1/2. Quem lembra só o valor de 60° e esquece o sinal marca 3. Outra confusão é usar o seno, que pertence ao produto vetorial. Regra de bolso: ângulo acima de 90° dá produto escalar negativo.",
+        "confira": "Monte vetores com essas medidas e calcule pelas coordenadas. [[u]] = (2, 0) e [[v]] = (3·cos 120°, 3·sen 120°) = (−3/2, 3√3/2). Produto: 2·(−3/2) + 0·(3√3/2) = −3. O mesmo valor, por outro caminho.",
+        "atalho": "Ângulo maior que 90° obriga o produto escalar a ser negativo. Isso elimina 3, 6 e 3√3 de uma vez. Entre −3 e −3√3, lembre que o cosseno de 120° é um número sem raiz, −1/2. A raiz de 3 aparece no seno de 120°."
+      }
+    },
+    {
+      "id": "ga-s2-l2q12b",
+      "semana": 2,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Norma do produto vetorial",
+      "origem": "Lista 2 · Q12b",
+      "enunciado": "Sendo ‖[[u]]‖ = 2, ‖[[v]]‖ = 3 e 120° o ângulo entre [[u]] e [[v]], calcule:\nb) ‖[[u]] × [[v]]‖",
+      "alternativas": [
+        {"t": "3", "certa": false, "erro": "Você usou o cosseno: 2 · 3 · cos 120° = −3, e tirou o sinal por ser norma. A norma do produto vetorial usa o seno."},
+        {"t": "−3√3", "certa": false, "erro": "Você usou sen 120° = −√3/2. O seno é positivo no segundo quadrante, e norma nunca é negativa."},
+        {"t": "6", "certa": false, "erro": "Você multiplicou só as normas e esqueceu o seno. Isso só daria certo com ângulo de 90°."},
+        {"t": "3√3/2", "certa": false, "erro": "Você dividiu por 2, como na área do triângulo. A norma do produto vetorial é a área do paralelogramo inteiro."},
+        {"t": "3√3", "certa": true}
+      ],
+      "dica": "‖[[u]] × [[v]]‖ = ‖[[u]]‖·‖[[v]]‖·sen θ, e o seno de 120° é igual ao de 60°.",
+      "resposta": "‖[[u]] × [[v]]‖ = 3√3",
+      "figura": {
+        "modo": "2d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 0], [2, 0], [0.5, 2.598], [-1.5, 2.598]], "cor": 3},
+          {"tipo": "vetor", "de": [0, 0], "ate": [2, 0], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0], "ate": [-1.5, 2.598], "rot": "v", "cor": 2},
+          {"tipo": "segmento", "de": [-1.5, 2.598], "ate": [-1.5, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [-1.5, 0], "ate": [0, 0], "tracejado": true}
+        ],
+        "legenda": "O paralelogramo ocre tem lados [[u]] e [[v]]. A base mede 2 e a altura, o tracejado vertical, mede 3·sen 120° ≈ 2,6. A área é ‖[[u]] × [[v]]‖."
+      },
+      "jeitos": {
+        "visual": "Na figura, [[u]] e [[v]] formam dois lados de um paralelogramo, o ocre. A base é [[u]], de tamanho 2. A altura é a distância da ponta de [[v]] até a reta da base: 3·sen 120° = 3√3/2 ≈ 2,6. Área = base × altura = 2 · 3√3/2 = 3√3. Essa área é exatamente a norma do produto vetorial.",
+        "receita": [
+          "Fórmula: ‖[[u]] × [[v]]‖ = ‖[[u]]‖·‖[[v]]‖·sen θ.",
+          "sen 120° = sen 60° = √3/2.",
+          "‖[[u]] × [[v]]‖ = 2 · 3 · √3/2 = 3√3."
+        ],
+        "cotidiano": "Abra uma porta empurrando a maçaneta. O que gira a porta é a parte da força aplicada de lado em relação à porta; empurrar rente a ela, na direção da própria porta, não gira nada. O produto vetorial mede essa parte lateral, por isso usa o seno. Com a mão a 60° ou a 120° da porta, a parte lateral é a mesma, e o giro também.",
+        "trabalho": "No Excel, =2*3*SEN(RADIANOS(120)) dá 5,196, que é 3√3. Sem o RADIANOS, =2*3*SEN(120) calcula o seno de 120 radianos e devolve cerca de 3,48, um número sem sentido aqui. É o mesmo cuidado de conferir a unidade antes de somar valores de colunas diferentes, como reais com milhares de reais.",
+        "conversa": [
+          {"quem": "Você", "fala": "Usei 2 · 3 · sen 120°. Como 120° é obtuso, o seno é negativo: −3√3."},
+          {"quem": "Monitor", "fala": "Em que quadrantes o seno é positivo?"},
+          {"quem": "Você", "fala": "Primeiro e segundo. Então sen 120° = +√3/2."},
+          {"quem": "Monitor", "fala": "E uma norma pode dar negativa?"},
+          {"quem": "Você", "fala": "Não. É 3√3."},
+          {"quem": "Monitor", "fala": "Quem fica negativo com ângulo obtuso é o cosseno, não o seno."}
+        ],
+        "erro": "A troca entre seno e cosseno é o tropeço clássico: produto escalar usa cosseno, produto vetorial usa seno. A segunda armadilha é o sinal: o seno é positivo no segundo quadrante, e uma norma não pode ser negativa. A terceira é dividir por 2 por reflexo de área de triângulo; aqui a pergunta é o paralelogramo inteiro.",
+        "confira": "Use a identidade ‖[[u]] × [[v]]‖² + ([[u]] · [[v]])² = ‖[[u]]‖²·‖[[v]]‖². Com [[u]] · [[v]] = −3, do item a: ‖[[u]] × [[v]]‖² = 4 · 9 − 9 = 27, e √27 = 3√3. Chegou ao mesmo valor sem usar o seno.",
+        "atalho": "A norma não é negativa: elimine −3√3. O seno de 120° tem raiz de 3, então 3 e 6 saem. Sobram 3√3 e 3√3/2. A pergunta é a norma do produto vetorial, que é área de paralelogramo, sem dividir por 2."
+      }
+    },
+    {
+      "id": "ga-s2-l2q12c",
+      "semana": 2,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Norma da soma",
+      "origem": "Lista 2 · Q12c",
+      "enunciado": "Sendo ‖[[u]]‖ = 2, ‖[[v]]‖ = 3 e 120° o ângulo entre [[u]] e [[v]], calcule:\nc) ‖[[u]] + [[v]]‖",
+      "alternativas": [
+        {"t": "5", "certa": false, "erro": "Você somou as normas, 2 + 3. Isso só vale para vetores de mesma direção e sentido. Com 120° entre eles, a soma fica menor."},
+        {"t": "√13", "certa": false, "erro": "Você fez 4 + 9 e esqueceu o termo 2[[u]]·[[v]]. Isso só daria certo se o ângulo fosse 90°."},
+        {"t": "√19", "certa": false, "erro": "Você somou 2 · 3 = 6 em vez de 2[[u]]·[[v]] = −6. O cosseno de 120° é negativo."},
+        {"t": "√7", "certa": true},
+        {"t": "√10", "certa": false, "erro": "Você somou [[u]]·[[v]] uma vez só: 4 + 9 − 3 = 10. Na expansão aparecem [[u]]·[[v]] e [[v]]·[[u]], então o termo é 2[[u]]·[[v]] = −6."}
+      ],
+      "dica": "Escreva ‖[[u]] + [[v]]‖² = ([[u]] + [[v]]) · ([[u]] + [[v]]) e use o [[u]] · [[v]] do item a.",
+      "resposta": "‖[[u]] + [[v]]‖ = √7",
+      "figura": {
+        "modo": "2d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0], "ate": [2, 0], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [2, 0], "ate": [0.5, 2.598], "rot": "v", "cor": 2},
+          {"tipo": "vetor", "de": [0, 0], "ate": [0.5, 2.598], "rot": "u + v", "cor": 4},
+          {"tipo": "segmento", "de": [0, 0], "ate": [-1.5, 2.598], "tracejado": true},
+          {"tipo": "segmento", "de": [-1.5, 2.598], "ate": [0.5, 2.598], "tracejado": true}
+        ],
+        "legenda": "Na regra do triângulo, [[v]] (coral) começa na ponta de [[u]] (azul). A soma (tinta escura) liga a origem à ponta de [[v]] e mede √7 ≈ 2,65, menos que 2 + 3. O tracejado completa o paralelogramo."
+      },
+      "jeitos": {
+        "visual": "Na figura, ande 2 para a direita (é [[u]]) e, do ponto onde parou, ande 3 na direção de [[v]], que volta 120° em relação ao primeiro trecho (seta coral). A seta escura liga o começo ao fim. Como o segundo trecho volta para trás, o caminho reto fica curto: √7 ≈ 2,65. Dentro do triângulo, o canto na ponta de [[u]] mede 180° − 120° = 60°.",
+        "receita": [
+          "‖[[u]] + [[v]]‖² = ([[u]] + [[v]]) · ([[u]] + [[v]]) = ‖[[u]]‖² + 2[[u]]·[[v]] + ‖[[v]]‖².",
+          "Substitua: 4 + 2·(−3) + 9.",
+          "4 − 6 + 9 = 7.",
+          "‖[[u]] + [[v]]‖ = √7."
+        ],
+        "cotidiano": "Você caminha 2 quarteirões para leste e depois 3 numa rua que volta inclinada, a 120° do primeiro trecho. Andou 5 no total, mas a distância em linha reta até o ponto de partida é bem menor, porque parte do segundo trecho desfez o primeiro. A conta da distância reta desconta essa volta: √7, cerca de 2,65 quarteirões.",
+        "trabalho": "É a fórmula da variância de uma soma de duas séries: σ² = σ₁² + σ₂² + 2·ρ·σ₁·σ₂. Com σ₁ = 2, σ₂ = 3 e correlação ρ = −0,5, a variância da soma é 4 + 9 − 6 = 7, e o desvio padrão é √7 ≈ 2,65, menor que 2 + 3. Quanto menor a correlação, menor fica o desvio padrão da soma, mais abaixo desse teto de 5.",
+        "conversa": [
+          {"quem": "Você", "fala": "‖[[u]] + [[v]]‖ = 2 + 3 = 5."},
+          {"quem": "Monitor", "fala": "Isso valeria se [[u]] e [[v]] apontassem para o mesmo lado. Qual é o ângulo entre eles?"},
+          {"quem": "Você", "fala": "120°. Então eles se atrapalham um pouco."},
+          {"quem": "Monitor", "fala": "Calcule pelo quadrado da norma. Quanto vale ([[u]] + [[v]]) · ([[u]] + [[v]])?"},
+          {"quem": "Você", "fala": "4 + 9 + 2·(−3) = 7. A norma é √7."},
+          {"quem": "Monitor", "fala": "E √7 ≈ 2,65 é menor que 5, como a figura mostra."}
+        ],
+        "erro": "Norma de soma não é soma de normas, e o erro mais comum é marcar 5. O segundo é esquecer o termo do meio e marcar √13, o que só vale para vetores perpendiculares. O terceiro é usar 2 · 3 = 6 com sinal positivo, ignorando que cos 120° é negativo, e marcar √19. O termo do meio é 2[[u]]·[[v]], com o dois na frente.",
+        "confira": "Use coordenadas: [[u]] = (2, 0) e [[v]] = (−3/2, 3√3/2). A soma é (1/2, 3√3/2), e o quadrado da norma é 1/4 + 27/4 = 28/4 = 7. Raiz: √7. Outro caminho é a lei dos cossenos no triângulo da figura: 4 + 9 − 2 · 2 · 3 · cos 60° = 13 − 6 = 7.",
+        "atalho": "Com ângulo obtuso, o produto escalar é negativo e o quadrado da norma da soma fica abaixo de 4 + 9 = 13, o valor do ângulo reto. Isso elimina 5, √13 e √19. Entre √10 e √7, lembre que o termo do meio leva um 2: 13 − 6 = 7."
+      }
+    },
+    {
+      "id": "ga-s2-l2q12d",
+      "semana": 2,
+      "nivel": 3,
+      "minutos": 4,
+      "tema": "Produto vetorial distributivo",
+      "origem": "Lista 2 · Q12d",
+      "enunciado": "Sendo ‖[[u]]‖ = 2, ‖[[v]]‖ = 3 e 120° o ângulo entre [[u]] e [[v]], calcule:\nd) ‖[[u]] × ([[v]] − [[u]])‖",
+      "alternativas": [
+        {"t": "3√3 − 4", "certa": false, "erro": "Você tratou [[u]] × [[u]] como [[u]] · [[u]] = 4 e subtraiu da norma. O produto vetorial de um vetor por ele mesmo é o vetor nulo."},
+        {"t": "3√3", "certa": true},
+        {"t": "2√19", "certa": false, "erro": "Você multiplicou ‖[[u]]‖ = 2 por ‖[[v]] − [[u]]‖ = √19 e esqueceu o seno do ângulo entre [[u]] e [[v]] − [[u]]."},
+        {"t": "0", "certa": false, "erro": "Você zerou tudo porque [[v]] − [[u]] tem [[u]] dentro. Só a parcela [[u]] × [[u]] zera; [[u]] × [[v]] continua e tem norma 3√3."},
+        {"t": "√3", "certa": false, "erro": "Você usou ‖[[v]] − [[u]]‖ = 3 − 2 = 1 com o ângulo de 120°: 2 · 1 · √3/2 = √3. Norma de diferença não é diferença de normas; ‖[[v]] − [[u]]‖ = √19."}
+      ],
+      "dica": "Distribua: [[u]] × ([[v]] − [[u]]) = [[u]] × [[v]] − [[u]] × [[u]]. Quanto vale o produto vetorial de um vetor por ele mesmo?",
+      "resposta": "‖[[u]] × ([[v]] − [[u]])‖ = 3√3",
+      "figura": {
+        "modo": "2d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 0], [2, 0], [-1.5, 2.598], [-3.5, 2.598]], "cor": 3},
+          {"tipo": "vetor", "de": [0, 0], "ate": [2, 0], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0], "ate": [-3.5, 2.598], "rot": "v − u", "cor": 2},
+          {"tipo": "segmento", "de": [0, 0], "ate": [-1.5, 2.598], "tracejado": true},
+          {"tipo": "segmento", "de": [2, 0], "ate": [0.5, 2.598], "tracejado": true},
+          {"tipo": "segmento", "de": [0.5, 2.598], "ate": [-1.5, 2.598], "tracejado": true}
+        ],
+        "legenda": "O paralelogramo ocre tem lados [[u]] e [[v]] − [[u]]. O tracejado é o paralelogramo de [[u]] e [[v]]. Os dois têm a mesma base (2) e a mesma altura (≈ 2,6), por isso a área, 3√3, é a mesma."
+      },
+      "jeitos": {
+        "visual": "Na figura, o paralelogramo ocre tem base [[u]] e lado [[v]] − [[u]]. Subtrair [[u]] de [[v]] desliza a ponta de [[v]] 2 unidades para a esquerda, paralela à base. A altura não muda: continua 3√3/2. Base igual e altura igual dão área igual à do paralelogramo tracejado, que é o de [[u]] e [[v]].",
+        "receita": [
+          "Distribua: [[u]] × ([[v]] − [[u]]) = [[u]] × [[v]] − [[u]] × [[u]].",
+          "[[u]] × [[u]] é o vetor nulo, porque o ângulo de [[u]] com ele mesmo é 0° e sen 0° = 0.",
+          "Sobra [[u]] × ([[v]] − [[u]]) = [[u]] × [[v]].",
+          "‖[[u]] × [[v]]‖ = 2 · 3 · sen 120° = 3√3, como no item b."
+        ],
+        "cotidiano": "Pense num maço de cartas empilhado reto. Empurre o topo para o lado, sem tirar nem pôr carta: a pilha inclina, mas a quantidade de papel é a mesma. Trocar [[v]] por [[v]] − [[u]] faz isso com o paralelogramo: inclina o lado, mantém base e altura, e a área continua 3√3.",
+        "trabalho": "Na contabilidade, um lançamento que debita e credita a mesma conta pelo mesmo valor traz o próprio estorno dentro: o saldo não muda. [[u]] × [[u]] tem algo parecido. Trocar a ordem do produto vetorial troca o sinal, mas trocar [[u]] por [[u]] não muda nada. Então [[u]] × [[u]] é igual ao próprio oposto, e o único vetor assim é o nulo. Tirada essa parcela, sobra [[u]] × [[v]], já calculado no item b.",
+        "conversa": [
+          {"quem": "Você", "fala": "[[v]] − [[u]] tem [[u]] dentro, e [[u]] × [[u]] é zero. Então o resultado é 0?"},
+          {"quem": "Monitor", "fala": "Distribua primeiro. [[u]] × ([[v]] − [[u]]) vira o quê?"},
+          {"quem": "Você", "fala": "[[u]] × [[v]] − [[u]] × [[u]]."},
+          {"quem": "Monitor", "fala": "Qual das duas parcelas é zero?"},
+          {"quem": "Você", "fala": "Só [[u]] × [[u]]. A outra fica."},
+          {"quem": "Monitor", "fala": "E a norma de [[u]] × [[v]] você já tem do item b."},
+          {"quem": "Você", "fala": "3√3."}
+        ],
+        "erro": "Duas armadilhas. Uma é zerar a conta inteira porque [[u]] aparece dos dois lados; só a parcela [[u]] × [[u]] some. A outra é confundir [[u]] × [[u]] com [[u]] · [[u]]: o produto escalar de um vetor por ele mesmo é ‖[[u]]‖² = 4, mas o produto vetorial é o vetor nulo. Quem mistura os dois acaba subtraindo 4 de uma norma.",
+        "confira": "Faça pelo caminho longo, sem distribuir. ‖[[v]] − [[u]]‖² = 9 − 2·(−3) + 4 = 19 e [[u]] · ([[v]] − [[u]]) = −3 − 4 = −7. Pela identidade ‖[[a]] × [[b]]‖² = ‖[[a]]‖²·‖[[b]]‖² − ([[a]] · [[b]])², fica 4 · 19 − 49 = 27. Raiz: √27 = 3√3. Os dois caminhos concordam.",
+        "atalho": "Se você já fez o item b, a resposta é a mesma: o termo [[u]] × [[u]] some e sobra [[u]] × [[v]]. Elimine 0, porque só uma parcela zera, e 3√3 − 4, que mistura produto escalar com vetorial. Não precisa de conta nova."
+      }
+    }
+  ]
+}

@@ -1,0 +1,266 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s2-l2q1j",
+      "semana": 2,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Soma de quadrados",
+      "origem": "Lista 2 · Q1j",
+      "enunciado": "Sendo [[u]] = (1, 4, 3), [[v]] = (−1, 1, −1), [[w]] = (−2, −1/2, 5) e [[z]] = (−1, 2, −3). Calcular: j) [[z]] · [[z]]. Qual é o valor?",
+      "alternativas": [
+        {"t": "−6", "certa": false, "erro": "Você fez (−1)·(−1) = −1 e (−3)·(−3) = −9. Aí −1 + 4 − 9 = −6. Quadrado nunca é negativo: os produtos são 1, 4 e 9."},
+        {"t": "√14", "certa": false, "erro": "√14 é a norma ‖[[z]]‖, o comprimento. [[z]] · [[z]] é o quadrado da norma: 14."},
+        {"t": "(1, 4, 9)", "certa": false, "erro": "São os quadrados das coordenadas, ainda separados. Somando: 1 + 4 + 9 = 14."},
+        {"t": "14", "certa": true},
+        {"t": "4", "certa": false, "erro": "Você somou as coordenadas e elevou o total: (−1 + 2 − 3)² = (−2)² = 4. Eleve cada coordenada e só então some."}
+      ],
+      "dica": "Eleve cada coordenada de [[z]] ao quadrado. Nenhum quadrado é negativo.",
+      "resposta": "[[z]] · [[z]] = 14 = ‖[[z]]‖²",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, 2, -3], "rot": "z", "cor": 1},
+          {"tipo": "segmento", "de": [0, 0, 0], "ate": [-1, 0, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [-1, 0, 0], "ate": [-1, 2, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [-1, 2, 0], "ate": [-1, 2, -3], "tracejado": true}
+        ],
+        "legenda": "[[z]] é a diagonal de uma caixa: os tracejados andam −1 no x, 2 no y e −3 no z."
+      },
+      "jeitos": {
+        "visual": "Na figura, [[z]] é a diagonal de uma caixa; os tracejados são as arestas, de tamanho 1, 2 e 3. A seta vai para o lado negativo de x, para o positivo de y e desce no z, mas o comprimento da diagonal não depende desses sentidos. Pitágoras na caixa: diagonal ao quadrado = 1² + 2² + 3². É o que [[z]] · [[z]] calcula: 14. A seta mede √14, pouco menos que 4, porque 4² = 16.",
+        "receita": [
+          "Coordenadas: [[z]] = (−1, 2, −3).",
+          "x: (−1)·(−1) = 1.",
+          "y: 2·2 = 4.",
+          "z: (−3)·(−3) = 9.",
+          "Some: 1 + 4 + 9 = 14. Logo ‖[[z]]‖ = √14."
+        ],
+        "cotidiano": "Três pisos quadrados, de lado 1, 2 e 3 palmos. As áreas são 1, 4 e 9 palmos quadrados, e juntos cobrem 14. Um lado não tem sinal: medir da esquerda para a direita ou ao contrário dá o mesmo piso. Em [[z]] · [[z]], cada coordenada vira a área de um quadrado, e o produto escalar soma as três áreas.",
+        "trabalho": "Pense numa previsão de caixa conferida em três meses. Previsto menos realizado deu −1, 2 e −3 mil reais. Para medir o tamanho do erro, soma-se o quadrado de cada desvio: 1 + 4 + 9 = 14. O quadrado faz errar para baixo pesar o mesmo que errar para cima. Essa soma dos quadrados dos erros é exatamente [[z]] · [[z]], com [[z]] guardando os desvios.",
+        "conversa": [
+          {"quem": "Você", "fala": "Deu −6. Fiz −1 + 4 − 9."},
+          {"quem": "Monitor", "fala": "Quanto é (−3)·(−3)?"},
+          {"quem": "Você", "fala": "9. Então não é −9."},
+          {"quem": "Monitor", "fala": "E (−1)·(−1)?"},
+          {"quem": "Você", "fala": "1. Fica 1 + 4 + 9 = 14."},
+          {"quem": "Monitor", "fala": "Isso. Vetor com ele mesmo sempre dá positivo; só o vetor nulo dá zero."}
+        ],
+        "erro": "O tropeço é carregar o sinal da coordenada para o quadrado: (−3)² = 9, não −9. Em muitas calculadoras científicas, digitar −3² sem parênteses dá −9, porque o quadrado vale só para o 3. No Excel, `=-3^2` dá 9. Como cada ferramenta lê de um jeito, use parênteses: (−3)². Outro tropeço é responder √14, que é o comprimento.",
+        "confira": "Teste o sinal trocando [[z]] por −[[z]] = (1, −2, 3). (−[[z]]) · (−[[z]]) = 1 + 4 + 9 = 14, o mesmo valor. Faz sentido: virar a seta não muda o comprimento dela. Se a sua conta desse números diferentes para [[z]] e para −[[z]], o sinal estaria entrando onde não devia.",
+        "atalho": "Vetor com ele mesmo é soma de quadrados: positivo, sem raiz e um número só. Isso elimina −6, √14 e o vetor de uma vez. Entre 4 e 14, repare que o maior quadrado, 3² = 9, sozinho já passa de 4. Fica 14."
+      }
+    },
+    {
+      "id": "ga-s2-l2q1k",
+      "semana": 2,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Produto vetorial pelo determinante",
+      "origem": "Lista 2 · Q1k",
+      "enunciado": "Sendo [[u]] = (1, 4, 3), [[v]] = (−1, 1, −1), [[w]] = (−2, −1/2, 5) e [[z]] = (−1, 2, −3). Calcular: k) [[u]] × [[v]]. Qual é o vetor?",
+      "alternativas": [
+        {"t": "(−7, 2, 5)", "certa": false, "erro": "Você esqueceu o sinal de menos do componente do meio. O y é −(1·(−1) − 3·(−1)) = −(2) = −2, não 2."},
+        {"t": "(7, 2, −5)", "certa": false, "erro": "Esse é [[v]] × [[u]], com a ordem trocada. O produto vetorial troca de sentido quando a ordem muda: [[v]] × [[u]] = −([[u]] × [[v]])."},
+        {"t": "(−7, −2, 5)", "certa": true},
+        {"t": "(−1, 4, −3)", "certa": false, "erro": "Você multiplicou coordenada por coordenada: 1·(−1), 4·1, 3·(−1). Isso não é produto vetorial; o vetorial cruza as coordenadas pelo determinante."},
+        {"t": "0", "certa": false, "erro": "Zero é [[u]] · [[v]], o produto escalar do item a. O × pede o produto vetorial, que dá um vetor."}
+      ],
+      "dica": "Monte o determinante com [[i]], [[j]], [[k]] na primeira linha, [[u]] na segunda e [[v]] na terceira. Não esqueça o menos do meio.",
+      "resposta": "[[u]] × [[v]] = (−7, −2, 5)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 0, 0], [1, 4, 3], [0, 5, 2], [-1, 1, -1]], "cor": 3},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 4, 3], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, 1, -1], "rot": "v", "cor": 2},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-7, -2, 5], "rot": "u × v", "cor": 4}
+        ],
+        "legenda": "A seta escura, [[u]] × [[v]], fica de pé sobre o paralelogramo ocre formado por [[u]] e [[v]]."
+      },
+      "jeitos": {
+        "visual": "Na figura, [[u]] e [[v]] formam um paralelogramo, a área ocre. [[u]] × [[v]] é a seta escura espetada nele, perpendicular ao plano dos dois. Gire a figura: a seta escura faz 90° com [[u]] e com [[v]] ao mesmo tempo. O comprimento dela, √78 ≈ 8,83, é a área do paralelogramo. O sentido segue a mão direita: dedos indo de [[u]] para [[v]], polegar na direção da seta.",
+        "receita": [
+          "Monte as linhas: [[i]] [[j]] [[k]] / 1 4 3 / −1 1 −1.",
+          "x: tampe a coluna do [[i]]: 4·(−1) − 3·1 = −4 − 3 = −7.",
+          "y: tampe a coluna do [[j]]: 1·(−1) − 3·(−1) = −1 + 3 = 2. Troque o sinal: −2.",
+          "z: tampe a coluna do [[k]]: 1·1 − 4·(−1) = 1 + 4 = 5.",
+          "Resultado: [[u]] × [[v]] = (−7, −2, 5)."
+        ],
+        "cotidiano": "Apertar um parafuso com chave de boca. O cabo da chave aponta para um lado, sua mão empurra para outro, e o parafuso avança numa terceira direção, perpendicular aos dois. Empurrando no sentido contrário, o parafuso sai em vez de entrar. O produto vetorial funciona assim: [[u]] é o cabo, [[v]] é o empurrão, e [[u]] × [[v]] aponta para onde o parafuso anda.",
+        "trabalho": "Cada componente do produto vetorial é um determinante 2×2, e o Excel calcula isso com MATRIZ.DETERM. Com [[u]] na linha 1 e [[v]] na linha 2, nas colunas A, B e C: o x é `=MATRIZ.DETERM(B1:C2)`, que dá −7; o z é `=MATRIZ.DETERM(A1:B2)`, que dá 5. O y usa as colunas A e C, que não são vizinhas: 1·(−1) − 3·(−1) = 2, e com o menos do meio fica −2.",
+        "conversa": [
+          {"quem": "Você", "fala": "Deu (−7, 2, 5). Conferi duas vezes."},
+          {"quem": "Monitor", "fala": "Faça o produto escalar do seu vetor com [[u]]. Deveria dar quanto?"},
+          {"quem": "Você", "fala": "Zero, porque o vetorial é perpendicular. Deu −7 + 8 + 15 = 16."},
+          {"quem": "Monitor", "fala": "Não deu zero. Qual componente parece suspeito?"},
+          {"quem": "Você", "fala": "O do meio. Esqueci o menos do determinante."},
+          {"quem": "Monitor", "fala": "Com −2 no meio: −7 − 8 + 15 = 0. Agora fecha."}
+        ],
+        "erro": "O menos do componente do meio é o erro número um. Na expansão do determinante pela primeira linha, os sinais alternam: +[[i]], −[[j]], +[[k]]. Quem esquece chega a (−7, 2, 5). O segundo erro é inverter a ordem e pôr [[v]] acima de [[u]], o que troca todos os sinais. A ordem das linhas segue a ordem do enunciado: [[u]] primeiro.",
+        "confira": "Teste a perpendicularidade com o produto escalar. (−7, −2, 5) · (1, 4, 3) = −7 − 8 + 15 = 0. (−7, −2, 5) · (−1, 1, −1) = 7 − 2 − 5 = 0. Os dois zeros confirmam a direção. Para o tamanho: como [[u]] ⊥ [[v]], a área é ‖[[u]]‖ ‖[[v]]‖ = √26 · √3 = √78, e 49 + 4 + 25 = 78.",
+        "atalho": "Elimine o 0, que é número. Depois teste cada vetor contra [[u]] = (1, 4, 3) com o produto escalar, que tem de dar zero. (−7, 2, 5) dá 16 e (−1, 4, −3) dá 6. Sobram (7, 2, −5) e (−7, −2, 5), um o oposto do outro. Para decidir, calcule só o x: 4·(−1) − 3·1 = −7."
+      }
+    },
+    {
+      "id": "ga-s2-l2q1l",
+      "semana": 2,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Produto vetorial com fração",
+      "origem": "Lista 2 · Q1l",
+      "enunciado": "Sendo [[u]] = (1, 4, 3), [[v]] = (−1, 1, −1), [[w]] = (−2, −1/2, 5) e [[z]] = (−1, 2, −3). Calcular: l) [[u]] × [[w]]. Qual é o vetor?",
+      "alternativas": [
+        {"t": "(43/2, 11, 15/2)", "certa": false, "erro": "O componente do meio perdeu o sinal de menos. 1·5 − 3·(−2) = 11, e o determinante pede −11."},
+        {"t": "(−2, −2, 15)", "certa": false, "erro": "Você multiplicou coordenada por coordenada. Isso não é produto vetorial: o vetorial cruza as coordenadas, o y de um com o z do outro, e assim por diante."},
+        {"t": "(−43/2, 11, −15/2)", "certa": false, "erro": "Esse é [[w]] × [[u]], com as linhas do determinante trocadas. Trocar a ordem inverte o sentido do vetor."},
+        {"t": "(43/2, −11, 15/2)", "certa": true},
+        {"t": "(37/2, −11, 17/2)", "certa": false, "erro": "Você copiou o y de [[w]] como +1/2. Com −1/2, o x fica 20 + 3/2 = 43/2 e o z fica −1/2 + 8 = 15/2."}
+      ],
+      "dica": "Faça o determinante com [[u]] na segunda linha e [[w]] na terceira. Nos produtos com −1/2, cuide do sinal.",
+      "resposta": "[[u]] × [[w]] = (43/2, −11, 15/2)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 0, 0], [1, 4, 3], [-1, 3.5, 8], [-2, -0.5, 5]], "cor": 3},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 4, 3], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-2, -0.5, 5], "rot": "w", "cor": 2},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [21.5, -11, 7.5], "rot": "u × w", "cor": 4}
+        ],
+        "legenda": "A seta escura, [[u]] × [[w]], é bem mais comprida que [[u]] e [[w]]: o tamanho dela é a área do paralelogramo ocre."
+      },
+      "jeitos": {
+        "visual": "Na figura, [[u]] e [[w]] abrem um paralelogramo largo, de área ‖[[u]] × [[w]]‖ ≈ 25,29. A seta escura sai do canto, de pé sobre esse paralelogramo. Ela aponta sobretudo para x positivo, porque 43/2 é o maior componente. Gire até ver o paralelogramo de perfil, reduzido a uma linha: nessa posição a seta escura aparece inteira, em ângulo reto com ele.",
+        "receita": [
+          "Linhas do determinante: [[i]] [[j]] [[k]] / 1 4 3 / −2 −1/2 5.",
+          "x: 4·5 − 3·(−1/2) = 20 + 3/2 = 43/2.",
+          "y: 1·5 − 3·(−2) = 5 + 6 = 11. Com o menos do meio: −11.",
+          "z: 1·(−1/2) − 4·(−2) = −1/2 + 8 = 15/2.",
+          "Resultado: [[u]] × [[w]] = (43/2, −11, 15/2)."
+        ],
+        "cotidiano": "Uma lona esticada entre duas varas que saem do mesmo poste. As varas são [[u]] e [[w]]; a lona é o paralelogramo entre elas. O produto vetorial diz duas coisas sobre a lona: para onde ela está virada, que é a direção da seta, perpendicular ao pano, e quanto pano ela tem, que é o comprimento da seta. Aqui o pano é grande, cerca de 25,29 unidades de área.",
+        "trabalho": "Na planilha há um jeito de montar o vetorial sem decorar fórmula. Escreva [[u]] numa linha e [[w]] embaixo, e repita as duas primeiras colunas à direita: x, y, z, x, y. Cada componente é um produto cruzado de duas colunas vizinhas. Para o x, colunas y e z: 4·5 − 3·(−1/2) = 43/2. Para o y, colunas z e x: 3·(−2) − 1·5 = −11, já com o sinal certo. Para o z, colunas x e y: 15/2.",
+        "conversa": [
+          {"quem": "Você", "fala": "No x eu fiz 4·5 − 3·(−1/2) e deu 20 − 3/2."},
+          {"quem": "Monitor", "fala": "Quanto é 3·(−1/2)?"},
+          {"quem": "Você", "fala": "−3/2."},
+          {"quem": "Monitor", "fala": "E 20 menos −3/2?"},
+          {"quem": "Você", "fala": "Menos com menos vira mais. 20 + 3/2 = 43/2."},
+          {"quem": "Monitor", "fala": "Isso. Subtrair um negativo é somar. No z acontece a mesma coisa com 4·(−2)."}
+        ],
+        "erro": "Aqui o perigo é duplo: a fração e o menos do meio. Na fração, quem calcula 3·(−1/2) e depois subtrai sem trocar o sinal chega a 37/2 no x. No meio, quem esquece o menos escreve 11 em vez de −11. Um terceiro tropeço é trocar a ordem das linhas e achar o vetor com todos os sinais invertidos, que é [[w]] × [[u]].",
+        "confira": "O resultado tem de ser perpendicular a [[u]] e a [[w]]. Com [[u]]: (43/2)·1 + (−11)·4 + (15/2)·3 = 43/2 − 44 + 45/2 = 44 − 44 = 0. Com [[w]]: (43/2)·(−2) + (−11)·(−1/2) + (15/2)·5 = −43 + 11/2 + 75/2 = −43 + 43 = 0. Teste sempre os dois: o vetor (37/2, −11, 17/2) passa com [[u]], mas dá 11 com [[w]].",
+        "atalho": "Dobre [[w]] para sumir a fração: 2[[w]] = (−4, −1, 10). Com inteiros, [[u]] × 2[[w]] = (4·10 − 3·(−1), −(1·10 − 3·(−4)), 1·(−1) − 4·(−4)) = (43, −22, 15). Dividindo por 2: (43/2, −11, 15/2). Na prova, olhe primeiro o y: só duas alternativas têm −11, e entre elas a diferença está no sinal da fração."
+      }
+    },
+    {
+      "id": "ga-s2-l2q1m",
+      "semana": 2,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Conferir o produto vetorial",
+      "origem": "Lista 2 · Q1m",
+      "enunciado": "Sendo [[u]] = (1, 4, 3), [[v]] = (−1, 1, −1), [[w]] = (−2, −1/2, 5) e [[z]] = (−1, 2, −3). Calcular: m) [[v]] × [[w]]. Qual é o vetor?",
+      "alternativas": [
+        {"t": "(9/2, 7, 5/2)", "certa": true},
+        {"t": "(9/2, −7, 5/2)", "certa": false, "erro": "O componente do meio ficou sem o menos do determinante. (−1)·5 − (−1)·(−2) = −7, e com o menos fica +7."},
+        {"t": "(2, −1/2, −5)", "certa": false, "erro": "Você multiplicou coordenada por coordenada, como no começo de um produto escalar. O vetorial cruza as coordenadas pelo determinante."},
+        {"t": "(11/2, 7, 3/2)", "certa": false, "erro": "Nos dois produtos com −1/2, você fez (−1)·(−1/2) = −1/2. Menos com menos dá +1/2: o x é 5 − 1/2 = 9/2 e o z é 1/2 + 2 = 5/2."},
+        {"t": "(−9/2, −7, −5/2)", "certa": false, "erro": "Esse é [[w]] × [[v]], o item n. A ordem pedida é [[v]] primeiro, e trocar a ordem inverte todos os sinais."}
+      ],
+      "dica": "Determinante com [[v]] na segunda linha e [[w]] na terceira. Há dois produtos de −1 por −1/2: cuide do sinal.",
+      "resposta": "[[v]] × [[w]] = (9/2, 7, 5/2)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 0, 0], [-1, 1, -1], [-3, 0.5, 4], [-2, -0.5, 5]], "cor": 3},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, 1, -1], "rot": "v", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-2, -0.5, 5], "rot": "w", "cor": 2},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [4.5, 7, 2.5], "rot": "v × w", "cor": 4}
+        ],
+        "legenda": "A seta escura, [[v]] × [[w]], aponta para o lado em que x, y e z são positivos, de pé sobre o paralelogramo de [[v]] e [[w]]."
+      },
+      "jeitos": {
+        "visual": "Na figura, curve os dedos da mão direita de [[v]] para [[w]], pelo menor ângulo. O polegar aponta para a seta escura, [[v]] × [[w]] = (9/2, 7, 5/2). Os três componentes são positivos: a seta vai para a região em que x, y e z crescem. Ela forma 90° com o paralelogramo ocre, e o comprimento dela, cerca de 8,69, é a área desse paralelogramo.",
+        "receita": [
+          "Linhas: [[i]] [[j]] [[k]] / −1 1 −1 / −2 −1/2 5.",
+          "x: 1·5 − (−1)·(−1/2) = 5 − 1/2 = 9/2.",
+          "y: (−1)·5 − (−1)·(−2) = −5 − 2 = −7. Com o menos do meio: 7.",
+          "z: (−1)·(−1/2) − 1·(−2) = 1/2 + 2 = 5/2.",
+          "Resultado: [[v]] × [[w]] = (9/2, 7, 5/2)."
+        ],
+        "cotidiano": "Um ventilador de teto. As pás giram num plano horizontal, e o eixo do motor fica em pé, perpendicular a esse plano. Se [[v]] e [[w]] fossem dois braços das pás, [[v]] × [[w]] apontaria ao longo do eixo. Inverter o giro faria a seta do eixo apontar para o outro lado, que é o que o item n mostra.",
+        "trabalho": "Pense no produto escalar como um total de controle. Depois de um lançamento em lote, você confere se débitos e créditos fecham em zero; se não fecham, há erro em algum lugar. Com o vetorial, o controle é a perpendicularidade: [[v]] · ([[v]] × [[w]]) e [[w]] · ([[v]] × [[w]]) têm de dar zero. Um `=SOMARPRODUTO` contra cada vetor original faz essa conferência antes de você entregar o resultado.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei (11/2, 7, 3/2). Testei com [[v]] e deu zero."},
+          {"quem": "Monitor", "fala": "E com [[w]]?"},
+          {"quem": "Você", "fala": "Deu −7. Não fechou."},
+          {"quem": "Monitor", "fala": "Então algum produto com o y de [[w]] está errado. Quanto é (−1)·(−1/2)?"},
+          {"quem": "Você", "fala": "+1/2. Eu tinha posto −1/2. Corrigindo, x = 9/2 e z = 5/2."},
+          {"quem": "Monitor", "fala": "Teste de novo nos dois. O controle só vale quando passa em [[v]] e em [[w]]."}
+        ],
+        "erro": "O sinal da fração é a armadilha principal: (−1)·(−1/2) aparece no x e no z, e quem erra uma vez costuma errar as duas, chegando a (11/2, 7, 3/2). O menos do meio vem logo atrás: −7 antes da troca, +7 depois. E o teste com um só vetor engana: esse resultado errado dá zero com [[v]] e só falha com [[w]].",
+        "confira": "Faça o teste de perpendicularidade nos dois vetores. Com [[v]]: (9/2)·(−1) + 7·1 + (5/2)·(−1) = −9/2 + 7 − 5/2 = −7 + 7 = 0. Com [[w]]: (9/2)·(−2) + 7·(−1/2) + (5/2)·5 = −9 − 7/2 + 25/2 = −9 + 9 = 0. Os dois zeros confirmam.",
+        "atalho": "Corte o vetor feito coordenada por coordenada. Depois olhe o y, que não usa a fração: (−1)·5 − (−1)·(−2) = −7, e com o menos fica +7. Restam (9/2, 7, 5/2) e (11/2, 7, 3/2). Para decidir, faça só o x: 5 − (−1)·(−1/2) = 5 − 1/2 = 9/2."
+      }
+    },
+    {
+      "id": "ga-s2-l2q1n",
+      "semana": 2,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Anticomutatividade do vetorial",
+      "origem": "Lista 2 · Q1n",
+      "enunciado": "Sendo [[u]] = (1, 4, 3), [[v]] = (−1, 1, −1), [[w]] = (−2, −1/2, 5) e [[z]] = (−1, 2, −3). Calcular: n) [[w]] × [[v]]. Qual é o vetor?",
+      "alternativas": [
+        {"t": "(9/2, 7, 5/2)", "certa": false, "erro": "Esse é [[v]] × [[w]], o item m. Você ignorou a ordem. No produto vetorial, [[w]] × [[v]] = −([[v]] × [[w]])."},
+        {"t": "(−9/2, −7, −5/2)", "certa": true},
+        {"t": "(−9/2, 7, −5/2)", "certa": false, "erro": "Você esqueceu o menos do meio. Com [[w]] na segunda linha: (−2)·(−1) − 5·(−1) = 7, e o determinante pede −7."},
+        {"t": "−7/2", "certa": false, "erro": "Esse é o produto escalar [[w]] · [[v]], igual a [[v]] · [[w]] do item d. O × pede um vetor."},
+        {"t": "(2, −1/2, −5)", "certa": false, "erro": "Você multiplicou coordenada por coordenada. Isso não é produto vetorial; a conta certa passa pelo determinante."}
+      ],
+      "dica": "Compare com o item m. O que acontece com o produto vetorial quando os dois vetores trocam de lugar?",
+      "resposta": "[[w]] × [[v]] = (−9/2, −7, −5/2) = −([[v]] × [[w]])",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, 1, -1], "rot": "v", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-2, -0.5, 5], "rot": "w", "cor": 2},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [4.5, 7, 2.5], "rot": "v × w", "cor": 3},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-4.5, -7, -2.5], "rot": "w × v", "cor": 4}
+        ],
+        "legenda": "As setas ocre ([[v]] × [[w]]) e escura ([[w]] × [[v]]) têm o mesmo tamanho e sentidos opostos, na mesma reta."
+      },
+      "jeitos": {
+        "visual": "Na figura, as duas setas mais longas saem da origem em sentidos opostos, sobre a mesma reta. A ocre é [[v]] × [[w]] e a escura é [[w]] × [[v]]. Têm o mesmo comprimento, cerca de 8,69, e sentidos contrários. Com a mão direita, agora os dedos vão de [[w]] para [[v]], e o polegar vira para o lado oposto ao do item m. Trocar a ordem só inverte o sentido da seta.",
+        "receita": [
+          "Linhas: [[i]] [[j]] [[k]] / −2 −1/2 5 / −1 1 −1.",
+          "x: (−1/2)·(−1) − 5·1 = 1/2 − 5 = −9/2.",
+          "y: (−2)·(−1) − 5·(−1) = 2 + 5 = 7. Com o menos do meio: −7.",
+          "z: (−2)·1 − (−1/2)·(−1) = −2 − 1/2 = −5/2.",
+          "Resultado: (−9/2, −7, −5/2), que é −([[v]] × [[w]])."
+        ],
+        "cotidiano": "A tampa de um pote. Girar para um lado fecha, girar para o outro abre. O giro tem o mesmo tamanho; muda só o sentido, e o efeito se inverte. No produto vetorial, ir de [[v]] para [[w]] é um sentido de giro, e ir de [[w]] para [[v]] é o giro contrário. O vetor resultante mantém o tamanho e aponta ao contrário.",
+        "trabalho": "É a mesma lógica da diferença numa conciliação. Saldo do banco menos saldo do razão dá 350; saldo do razão menos saldo do banco dá −350. Mesmo valor, sinal trocado, porque a ordem mudou. O produto vetorial se comporta como essa diferença: [[w]] × [[v]] = −([[v]] × [[w]]). O produto escalar se comporta como a multiplicação comum, em que a ordem não importa: [[w]] · [[v]] = [[v]] · [[w]].",
+        "conversa": [
+          {"quem": "Você", "fala": "Preciso refazer o determinante inteiro? Já fiz o [[v]] × [[w]] no item m."},
+          {"quem": "Monitor", "fala": "O que acontece com um determinante quando você troca duas linhas de lugar?"},
+          {"quem": "Você", "fala": "O sinal dele troca."},
+          {"quem": "Monitor", "fala": "Então?"},
+          {"quem": "Você", "fala": "[[w]] × [[v]] é o oposto do m: (−9/2, −7, −5/2)."},
+          {"quem": "Monitor", "fala": "Isso. Para conferir, some os dois: tem de dar (0, 0, 0)."}
+        ],
+        "erro": "A armadilha é achar que o produto vetorial comuta, como o escalar e a multiplicação de números. Quem pensa assim copia o resultado do item m e marca (9/2, 7, 5/2). O outro tropeço é refazer o determinante do zero e esquecer o menos do meio, chegando a (−9/2, 7, −5/2). Esse vetor errado não é nem o oposto do m nem igual a ele.",
+        "confira": "Some os resultados de m e n: (9/2, 7, 5/2) + (−9/2, −7, −5/2) = (0, 0, 0). Tem de dar o vetor nulo, porque um é o oposto do outro. Outra prova: o produto escalar de (−9/2, −7, −5/2) com [[v]] dá 9/2 − 7 + 5/2 = 0, e com [[w]] dá 9 + 7/2 − 25/2 = 0.",
+        "atalho": "Com o item m pronto, não refaça nada: troque todos os sinais. (9/2, 7, 5/2) vira (−9/2, −7, −5/2). Nas alternativas, procure o vetor com os três sinais invertidos em relação ao m. O que tem só o sinal do meio diferente vem do menos esquecido no determinante."
+      }
+    }
+  ]
+}

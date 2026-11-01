@@ -1,0 +1,316 @@
+{
+  "disciplina": "lp",
+  "semanas": [
+    {
+      "semana": 1,
+      "titulo": "O computador por dentro",
+      "chamada": "Antes de programar, vale saber onde o programa mora, quem faz as contas e como letras e números viram bits.",
+      "fonte": "Prévia pela ementa do PPC — trocar quando o material da semana chegar",
+      "previa": true,
+      "blocos": [
+        {"titulo": "Dado, informação, hardware e software", "texto": "Dado é o registro bruto: o número 1.250, a data 31/10, a palavra 'pago'. Informação é o dado com contexto, que responde a uma pergunta de quem lê: 'o saldo de 31/10 ficou 1.250 reais abaixo do previsto'. O computador processa dados; a informação aparece quando alguém lê o resultado com contexto. Hardware é a parte física: processador, memória, SSD, teclado, monitor. Software é o conjunto de instruções que diz ao hardware o que fazer: o sistema operacional, o Excel, o VisuAlg, o programa que você vai escrever. Sem software o hardware fica parado; sem hardware o software não tem onde rodar."},
+        {"titulo": "As peças de von Neumann", "texto": "Quase todo computador segue a arquitetura descrita em 1945 pelo matemático John von Neumann: programa e dados ficam juntos na mesma memória. A CPU, o processador, tem três partes. A unidade de controle (UC) busca cada instrução, interpreta e dá as ordens. A ULA, unidade lógica e aritmética, faz as contas e as comparações. Os registradores são poucas posições de memória dentro da CPU, as mais rápidas, para o que está em uso agora. Fora da CPU ficam a memória principal e os dispositivos de entrada e saída. Tudo se liga por barramentos: o de endereço diz onde, o de dados leva o conteúdo e o de controle diz o que fazer, ler ou gravar."},
+        {"titulo": "O ciclo de cada instrução", "texto": "A CPU repete sem parar um ciclo de três fases. Na busca, a unidade de controle olha o contador de programa (PC, o registrador que guarda o endereço da próxima instrução), manda esse endereço pelo barramento de endereço e recebe a instrução pelo barramento de dados; logo depois, o PC já avança para a instrução seguinte. Na decodificação, ela interpreta o código: é soma, comparação, cópia? Na execução, a ULA calcula ou o dado é movido, e o resultado vai para um registrador ou para a memória. Então o ciclo recomeça. Um processador atual repete esse ciclo bilhões de vezes por segundo."},
+        {"titulo": "Memória que esquece e memória que guarda", "texto": "Memória volátil perde o conteúdo quando a energia acaba; a não volátil mantém. Os registradores, dentro da CPU, são os mais rápidos e os menores, e são voláteis. A RAM é a memória principal: volátil, guarda o programa e a planilha abertos agora. O SSD (ou o HD, mais antigo) é o armazenamento: mais lento, bem maior e não volátil, onde ficam os arquivos salvos. A ROM, memória só de leitura, também é não volátil e guarda o programa de partida do computador. Abrir um arquivo é copiar do SSD para a RAM; salvar é copiar de volta. Por isso a falta de luz leva só o que não foi salvo."},
+        {"titulo": "Bit, byte, palavra e caracteres", "texto": "Bit é o menor dado, 0 ou 1. Byte são 8 bits. Palavra é quanto a CPU trata de uma vez: 32 ou 64 bits nos computadores atuais. Com n bits formam-se 2ⁿ combinações. Neste curso, 1 KB = 1024 bytes e 1 MB = 1024 KB, porque 1024 = 2¹⁰; o padrão internacional chama 1024 bytes de KiB (kibibyte) e usa kB para 1000. Letras também viram números: o ASCII usa 7 bits e tem 2⁷ = 128 símbolos (o A é o 65). O Unicode numera os caracteres de todas as línguas, e o UTF-8 grava cada um com 1 a 4 bytes: 1 para o que já estava no ASCII, 2 para letras como ç e ã."},
+        {"titulo": "As áreas da computação", "texto": "Computação é um campo largo. Banco de dados cuida de organizar, guardar e consultar dados com segurança e rapidez: é o centro deste curso. Redes trata da comunicação entre computadores. Inteligência artificial cria sistemas para tarefas que pedem raciocínio, como aprender padrões a partir de dados e tomar decisões. Engenharia de software estuda como construir e manter sistemas: requisitos, projeto, testes e versões. Segurança protege dados e sistemas contra acesso indevido, fraude e perda. Computação gráfica gera e transforma imagens, de gráficos a modelos 3D. Teoria da computação pergunta o que um computador consegue resolver e a que custo, e prova limites: há problemas que nenhum programa resolve."}
+      ],
+      "formulas": [
+        {"nome": "Byte", "expr": "1 byte = 8 bits", "quando": "de bytes para bits, multiplique por 8; de bits para bytes, divida por 8"},
+        {"nome": "Múltiplos no curso", "expr": "1 KB = 1024 bytes · 1 MB = 1024 KB · 1 GB = 1024 MB", "quando": "tamanhos de memória e de arquivo nas questões; no padrão internacional, 1024 bytes = 1 KiB e 1 kB = 1000 bytes"},
+        {"nome": "Combinações de n bits", "expr": "2ⁿ", "quando": "quantos símbolos ou endereços diferentes cabem em n bits; ASCII: 2⁷ = 128"},
+        {"nome": "Palavras numa memória", "expr": "palavras = bytes da memória ÷ bytes por palavra", "quando": "palavra de 32 bits = 4 bytes; de 64 bits = 8 bytes"},
+        {"nome": "UTF-8 em português", "expr": "bytes = (caracteres do ASCII × 1) + (letras acentuadas e ç × 2)", "quando": "tamanho em bytes de um texto em português; o símbolo € ocupa 3 bytes e a maioria dos emojis, 4"},
+        {"nome": "Ciclo de instrução", "expr": "busca (e o PC avança) → decodificação → execução → próxima busca", "quando": "o que a CPU faz com cada instrução do programa"}
+      ],
+      "jeitos": {
+        "visual": "Desenhe três caixas lado a lado: CPU, memória principal e entrada e saída. Dentro da CPU, desenhe a unidade de controle, a ULA e uma fileira de registradores. Embaixo das três caixas, passe três trilhos horizontais: barramento de endereço, de dados e de controle. Agora siga uma instrução: o endereço sai da CPU pelo trilho de endereço, a instrução volta pelo trilho de dados, a UC interpreta, a ULA calcula e o resultado cai num registrador. Repita esse giro e o computador está funcionando.",
+        "cotidiano": "Pense num escritório de contabilidade. A pessoa na mesa é a CPU: lê a próxima tarefa (unidade de controle) e faz a conta na calculadora (ULA). Os post-its colados no monitor são os registradores: poucos, à mão, para o que está em uso agora. O tampo da mesa é a RAM, com os papéis do dia; se uma ventania passar, some tudo que não foi guardado. O arquivo de aço no canto é o SSD: guarda por anos, mas cada pasta demora para chegar à mesa.",
+        "receita": "Para ler qualquer questão desta semana:\n1. Separe o que é peça física (hardware) do que é instrução (software).\n2. Localize a peça: dentro da CPU (UC, ULA, registradores) ou fora (memória, entrada e saída, barramentos).\n3. Se a pergunta é sobre perder dados, separe volátil (registradores, RAM) de não volátil (ROM, SSD).\n4. Se é sobre tamanho, ponha tudo na mesma unidade antes de dividir: 1 byte = 8 bits e, no curso, 1 KB = 1024 bytes.\n5. Se é sobre texto, conte os caracteres e veja quantos bytes cada um pede.",
+        "trabalho": "Quando você roda uma consulta SQL, o caminho é este. O banco de dados traz as páginas da tabela do SSD para a RAM; as mais usadas ficam lá, por isso a segunda consulta costuma ser mais rápida. A CPU executa as instruções do programa do banco, e a ULA compara cada valor com o WHERE e soma o que entra no SUM. O tipo da coluna define os bytes: INT ocupa 4 bytes no MySQL, e um texto em UTF-8 gasta 1 byte por letra sem acento e 2 por letra acentuada.",
+        "erro": "Três confusões aparecem muito. Primeira: achar que a RAM guarda os arquivos para sempre; ela é volátil, quem guarda é o SSD. Segunda: dar à unidade de controle o papel de calcular; ela coordena, quem calcula é a ULA. Terceira: trocar bit por byte nas contas de tamanho, esquecendo o fator 8, ou misturar 1000 com 1024. Para não cair, escreva a unidade ao lado de cada número e confira se as unidades fecham no fim."
+      },
+      "lab": "No laboratório, ponha 0 no campo decimal e ligue um interruptor por vez, da direita para a esquerda, desligando o anterior: o decimal dobra a cada passo. Depois deixe ligados juntos os sete da direita e o decimal mostra 127, o último código do ASCII."
+    },
+    {
+      "semana": 2,
+      "titulo": "Binário e outras bases",
+      "chamada": "O computador só guarda 0 e 1. Converter entre decimal, binário, octal e hexadecimal é aprender a ler o que a máquina escreve.",
+      "fonte": "Prévia pela ementa do PPC — trocar quando o material da semana chegar",
+      "previa": true,
+      "blocos": [
+        {"titulo": "Cada posição tem um peso", "texto": "No decimal, 352 é 3 × 100 + 5 × 10 + 2 × 1: cada posição vale uma potência de 10. O binário funciona igual, com base 2 e só dois algarismos, 0 e 1. Os pesos, da direita para a esquerda, são 1, 2, 4, 8, 16, 32, 64, 128, ou seja, 2⁰ a 2⁷. Para passar de binário para decimal, some os pesos das posições que têm 1: (1011)₂ = 8 + 0 + 2 + 1 = 11. A posição da direita é a 0, e não a 1. O número pequeno embaixo, como o ₂, indica a base."},
+        {"titulo": "Decimal para binário: divida por 2", "texto": "Divida o número por 2 e anote o resto, que é 0 ou 1. Divida o quociente por 2 de novo e repita até o quociente dar 0. A resposta são os restos lidos de baixo para cima: o primeiro resto é o bit da direita. Para 13: 13 ÷ 2 = 6 resto 1; 6 ÷ 2 = 3 resto 0; 3 ÷ 2 = 1 resto 1; 1 ÷ 2 = 0 resto 1. De baixo para cima: 1101. Outro caminho é tirar a maior potência de 2 que cabe e repetir com a sobra: 13 = 8 + 4 + 1, então 1101."},
+        {"titulo": "Octal e hexadecimal: binário em grupos", "texto": "Ler 16 bits seguidos cansa e induz a erro. O octal (base 8) agrupa os bits de 3 em 3; o hexadecimal (base 16) agrupa de 4 em 4. O agrupamento começa sempre pela direita, completando com zeros à esquerda. O hexadecimal precisa de 16 algarismos: 0 a 9 e depois A = 10, B = 11, C = 12, D = 13, E = 14, F = 15. Exemplo com (11010111)₂: de 4 em 4, 1101 | 0111 dá D7; de 3 em 3, 011 | 010 | 111 dá 327 em octal. Os três valem 215 em decimal."},
+        {"titulo": "Somar em binário: o vai-um", "texto": "A soma é coluna a coluna, da direita para a esquerda, como no decimal. As regras: 0 + 0 = 0; 0 + 1 = 1; 1 + 1 = 10, isto é, fica 0 e vai 1; 1 + 1 + 1 = 11, fica 1 e vai 1. Exemplo: 0110 + 0011. Na coluna da direita, 0 + 1 = 1. Na segunda, 1 + 1 = 10: fica 0, vai 1. Na terceira, 1 + 0 + 1 (o vai-um) = 10: fica 0, vai 1. Na última, 0 + 0 + 1 = 1. Resultado 1001, ou seja, 6 + 3 = 9."},
+        {"titulo": "Quantos valores cabem em n bits", "texto": "Cada bit a mais dobra as combinações. Com n bits há 2ⁿ valores diferentes; sem sinal, eles vão de 0 a 2ⁿ − 1, porque o zero ocupa uma das combinações. Com 8 bits: 256 valores, de 0 a 255. Para saber quantos bits um código precisa, procure o menor n com 2ⁿ maior ou igual à quantidade de itens. As cores de tela usam essa conta: no RGB, cada canal (vermelho, verde, azul) tem 8 bits, de 0 a 255, escrito com dois algarismos hexadecimais. #FF0000 é vermelho puro, #000000 é preto, e ao todo há 256³ = 16.777.216 cores."},
+        {"titulo": "Negativos: complemento de 2", "texto": "Para guardar números negativos, quase todo computador usa complemento de 2. Para escrever −x: escreva x com todos os bits do campo, inverta cada bit e some 1. Em 8 bits, −5: 00000101 vira 11111010, e somando 1, 11111011. O bit da esquerda indica o sinal (1 é negativo) e vale −128; os outros mantêm os pesos de sempre. A faixa em 8 bits vai de −128 a 127. A soma usa o mesmo circuito dos positivos, e o vai-um que sai do campo é descartado. Se dois positivos somados passam de 127, o resultado aparece negativo: é o estouro."}
+      ],
+      "formulas": [
+        {"nome": "Binário para decimal", "expr": "(b₃b₂b₁b₀)₂ = b₃·2³ + b₂·2² + b₁·2¹ + b₀·2⁰", "quando": "some os pesos das posições com 1; a posição da direita é a 0"},
+        {"nome": "Decimal para binário", "expr": "divida por 2 até o quociente dar 0; leia os restos de baixo para cima", "quando": "o primeiro resto é o bit da direita"},
+        {"nome": "Octal", "expr": "1 algarismo octal = 3 bits", "quando": "agrupe os bits de 3 em 3 a partir da direita"},
+        {"nome": "Hexadecimal", "expr": "1 algarismo hexadecimal = 4 bits; A = 10, B = 11, C = 12, D = 13, E = 14, F = 15", "quando": "agrupe os bits de 4 em 4 a partir da direita"},
+        {"nome": "Soma de bits", "expr": "1 + 1 = 10 (fica 0, vai 1) · 1 + 1 + 1 = 11 (fica 1, vai 1)", "quando": "somar em binário, coluna a coluna, da direita para a esquerda"},
+        {"nome": "Valores em n bits", "expr": "2ⁿ valores, de 0 a 2ⁿ − 1", "quando": "faixa sem sinal; 8 bits: 0 a 255"},
+        {"nome": "Bits necessários", "expr": "menor n com 2ⁿ ≥ quantidade", "quando": "dar um código diferente para cada item"},
+        {"nome": "Complemento de 2", "expr": "−x = (x com os bits invertidos) + 1", "quando": "escrever um negativo com um número fixo de bits"},
+        {"nome": "Faixa com sinal", "expr": "de −2ⁿ⁻¹ a 2ⁿ⁻¹ − 1", "quando": "complemento de 2 com n bits; 8 bits: −128 a 127"},
+        {"nome": "Cor RGB", "expr": "#RRGGBB, cada par de 00 a FF (0 a 255)", "quando": "ler ou escrever cores em hexadecimal"}
+      ],
+      "jeitos": {
+        "visual": "Imagine uma fileira de 8 lâmpadas. Cada uma tem uma etiqueta com o seu peso, da direita para a esquerda: 1, 2, 4, 8, 16, 32, 64, 128. Acesa é 1, apagada é 0, e o número guardado é a soma das etiquetas acesas. Para formar 21, acenda 16, 4 e 1. Agrupe as lâmpadas de 4 em 4 e cada grupo vira um algarismo hexadecimal; de 3 em 3, um algarismo octal. No complemento de 2, a etiqueta da ponta esquerda deixa de ser 128 e vira −128.",
+        "cotidiano": "O odômetro de um carro antigo mostra a base 10 funcionando: quando uma roda passa do 9, volta ao 0 e empurra a vizinha um passo. Um odômetro binário teria rodas só com 0 e 1, e cada roda empurraria a vizinha a cada duas posições: é o vai-um. Com 3 rodas decimais, o máximo é 999 e o próximo volta a 000. Com 8 rodas binárias, o máximo é 11111111, que vale 255, e mais 1 volta a 00000000. Essa volta ao zero é o mesmo giro que causa o estouro.",
+        "receita": "Para qualquer conversão:\n1. Se sai do decimal, divida por 2 (ou por 16, para hexadecimal) e leia os restos de baixo para cima.\n2. Se chega no decimal, escreva o peso de cada posição e some peso × algarismo.\n3. Entre binário, octal e hexadecimal, não passe pelo decimal: agrupe os bits de 3 em 3 ou de 4 em 4 a partir da direita.\n4. Para negativo em complemento de 2, fixe o número de bits, inverta tudo e some 1.\n5. Confira convertendo de volta pelo outro caminho.",
+        "trabalho": "O Excel em português tem funções prontas para isso: `=DECABIN(13)` devolve 1101, `=BINADEC(1011)` devolve 11 e `=DECAHEX(255)` devolve FF. No MySQL, `CONV(13, 10, 2)` faz a mesma conversão e `HEX(255)` dá FF. O tipo TINYINT ocupa 1 byte: com sinal vai de −128 a 127, como o complemento de 2 em 8 bits; UNSIGNED vai de 0 a 255. E as cores de tema do Power BI se escrevem no formato #RRGGBB.",
+        "erro": "Os erros mais comuns da semana: ler os restos da divisão de cima para baixo, o que espelha o número; começar os pesos em 2¹ na direita, quando o certo é 2⁰; agrupar bits a partir da esquerda; confundir a quantidade de valores (2ⁿ) com o maior valor (2ⁿ − 1); e, no complemento de 2, esquecer o +1 depois de inverter. Um teste rápido pega boa parte deles: o bit da direita diz se o número é par (0) ou ímpar (1)."
+      },
+      "lab": "No laboratório, escreva 5 no campo decimal, aperte inverter todos e depois +1: o campo com sinal mostra −5 e os bits mostram 11111011. Depois escreva 128 no decimal: só o interruptor de 128 fica ligado, e o valor com sinal vira −128."
+    }
+  ],
+  "questoes": [
+    {
+      "id": "lp-s1-p01",
+      "semana": 1,
+      "nivel": 1,
+      "minutos": 1,
+      "tema": "Hardware e software",
+      "origem": "Prévia · ementa",
+      "enunciado": "Qual destes itens é software?",
+      "alternativas": [
+        {"t": "O pente de memória RAM", "certa": false, "erro": "A RAM é uma placa com chips, uma peça que você pega na mão. O que fica guardado nela com o computador ligado pode ser software, mas o pente em si é hardware."},
+        {"t": "O SSD do notebook", "certa": false, "erro": "O SSD guarda os programas, mas ele mesmo é peça física. Você confundiu o recipiente com o conteúdo."},
+        {"t": "O VisuAlg 3.0", "certa": true},
+        {"t": "O processador", "certa": false, "erro": "O processador executa as instruções do software, mas é um chip: hardware. Quem executa não é a mesma coisa que aquilo que é executado."},
+        {"t": "O teclado", "certa": false, "erro": "O teclado é um dispositivo de entrada, parte física do computador. Ele manda sinais; quem decide o que fazer com eles é o software."}
+      ],
+      "dica": "Software é o que você instala e atualiza; hardware é o que você pode tocar.",
+      "resposta": "O VisuAlg 3.0, que é um programa.",
+      "jeitos": {
+        "visual": "Imagine o notebook aberto em duas camadas. Embaixo, tudo o que tem peso e sai com chave de fenda: processador, pente de RAM, SSD, teclado. Em cima, uma camada que não pesa nada: as instruções que dizem a essas peças o que fazer. O VisuAlg mora na camada de cima. Ele está gravado no SSD como uma sequência de bits, mas o SSD continua sendo uma peça da camada de baixo.",
+        "receita": [
+          "Para cada item, pergunte: dá para tocar com a mão?",
+          "Pente de RAM, SSD, processador e teclado: dá. São hardware.",
+          "O VisuAlg 3.0 não se toca: é um conjunto de instruções que você baixa, instala e atualiza.",
+          "Instrução que roda no computador é software. A resposta é o VisuAlg 3.0."
+        ],
+        "cotidiano": "Pense numa cozinha e num livro de receitas. Fogão, panela e liquidificador são o hardware: estão ali, ocupam espaço. A receita é o software: diz o que fazer, em que ordem e com o quê. A receita pode estar num papel guardado na gaveta, e nem por isso a gaveta vira receita. Com o SSD é igual: ele guarda o VisuAlg, mas continua sendo a gaveta.",
+        "trabalho": "No seu dia a dia, o Excel, o Power BI e o banco de dados são software: você instala, atualiza de versão, e eles não ocupam espaço na mesa. O notebook, o monitor extra e o SSD onde ficam as planilhas são hardware. Quando uma planilha pesada trava, a causa pode estar em qualquer camada: fórmula mal montada (software) ou pouca memória RAM (hardware). Separar as duas ajuda a pedir a solução certa.",
+        "conversa": [
+          {"quem": "Você", "fala": "O SSD tem o VisuAlg dentro. Então o SSD não é software também?"},
+          {"quem": "Monitor", "fala": "Se você trocar esse SSD por outro vazio, o VisuAlg vai embora junto com o velho?"},
+          {"quem": "Você", "fala": "Vai, se eu não copiar. Mas o SSD novo continua sendo um SSD."},
+          {"quem": "Monitor", "fala": "A peça é a mesma coisa, cheia ou vazia. O que muda é o conteúdo, e o conteúdo é o software."},
+          {"quem": "Você", "fala": "Então só o VisuAlg é software na lista."}
+        ],
+        "erro": "A armadilha é confundir onde o software está com o que o software é. RAM e SSD guardam programas, o processador executa programas, o teclado alimenta programas. Todos têm relação com software, e por isso parecem respostas. Mas todos são peças. O teste que não falha: se dá para comprar numa loja de peças e instalar com chave de fenda, é hardware.",
+        "confira": "Faça o teste da troca. Tire cada item do computador e ponha outro igual no lugar. Com RAM, SSD, processador e teclado, você troca uma peça física por outra, com as mãos. Com o VisuAlg, não há nada para tirar com as mãos: você desinstala e instala de novo. Se a troca se faz com ferramenta, é hardware; se se faz com instalador, é software.",
+        "atalho": "Olhe primeiro o que destoa: quatro nomes de peças, desses que aparecem em nota fiscal de loja de informática, e um nome com número de versão, coisa típica de programa. Confirme com a definição, instrução e não peça, e marque o VisuAlg 3.0."
+      }
+    },
+    {
+      "id": "lp-s1-p02",
+      "semana": 1,
+      "nivel": 1,
+      "minutos": 1,
+      "tema": "ULA na CPU",
+      "origem": "Prévia · ementa",
+      "enunciado": "Na arquitetura de von Neumann, qual parte do computador faz as contas e as comparações, como somar dois números ou verificar se um é maior que o outro?",
+      "alternativas": [
+        {"t": "A ULA", "certa": true},
+        {"t": "A unidade de controle", "certa": false, "erro": "A unidade de controle busca a instrução, interpreta e dá as ordens. Ela manda a ULA somar, mas não faz a soma."},
+        {"t": "A memória principal", "certa": false, "erro": "A memória guarda os números e as instruções. Ela não calcula: entrega os valores para a CPU e recebe o resultado de volta."},
+        {"t": "Os registradores", "certa": false, "erro": "Registradores guardam os valores em uso, dentro da CPU. São a entrada e a saída da conta, não quem faz a conta."},
+        {"t": "O barramento de dados", "certa": false, "erro": "O barramento de dados é o caminho por onde os valores viajam entre a memória e a CPU. Ele transporta, não calcula."}
+      ],
+      "dica": "O próprio nome da peça diz que ela cuida de aritmética e de lógica.",
+      "resposta": "A ULA, unidade lógica e aritmética.",
+      "jeitos": {
+        "visual": "Desenhe a CPU como uma caixa com três compartimentos. No primeiro, a unidade de controle, com setas saindo para todos os lados: ela manda. No segundo, os registradores, uma fileira de gavetinhas com números. No terceiro, a ULA, desenhada em forma de V: dois números entram por cima, a operação chega pelo lado (somar, comparar) e o resultado sai por baixo. Contas e comparações acontecem só dentro desse V.",
+        "receita": [
+          "Separe as funções: coordenar, guardar, transportar e calcular.",
+          "Coordenar é da unidade de controle.",
+          "Guardar é da memória principal e dos registradores.",
+          "Transportar é dos barramentos.",
+          "Calcular e comparar sobra para a ULA, unidade lógica e aritmética."
+        ],
+        "cotidiano": "Num restaurante, o gerente lê os pedidos e distribui as tarefas: é a unidade de controle. A bancada perto do fogão, com os ingredientes do prato atual, são os registradores. A despensa é a memória principal, e o corredor entre a despensa e a cozinha é o barramento. Quem corta, mistura e frita é o cozinheiro: a ULA. O gerente pode saber a receita de cor, mas não é ele quem frita.",
+        "trabalho": "Toda fórmula que você escreve vira, lá embaixo, trabalho da ULA. Em `=SE(B2>C2; B2-C2; 0)`, a comparação de B2 com C2 é uma operação lógica e a subtração é aritmética: as duas passam pela ULA. No SQL, cada linha avaliada num `WHERE valor > 1000` é uma comparação, e o SUM é uma sequência de somas. Por isso o nome junta as duas coisas: a ULA compara e calcula.",
+        "conversa": [
+          {"quem": "Você", "fala": "A unidade de controle não é a parte mais importante? Achei que ela fazia tudo."},
+          {"quem": "Monitor", "fala": "Ela comanda tudo. Mas quando a instrução é somar, quem soma?"},
+          {"quem": "Você", "fala": "Ela manda alguém somar... a ULA?"},
+          {"quem": "Monitor", "fala": "Isso. A unidade de controle decide o que fazer e quando. A ULA faz a conta ou a comparação e devolve o resultado."},
+          {"quem": "Você", "fala": "E o resultado vai para onde?"},
+          {"quem": "Monitor", "fala": "Para um registrador e, se o programa pedir, depois para a memória."}
+        ],
+        "erro": "A troca mais comum é com a unidade de controle, porque ela parece o cérebro da CPU, e o cérebro faria as contas. Só que ela coordena: busca, interpreta e dá a ordem. Outra troca é com os registradores, porque os números da conta ficam neles. Segurar o número não é calcular. Guarde a ULA pelas letras do nome: L de lógica, que compara, e A de aritmética, que calcula.",
+        "confira": "Monte a frase com cada parte e veja se ela para de pé. A memória soma? Não, guarda. O barramento compara? Não, leva e traz. Os registradores calculam? Não, seguram os valores. A unidade de controle soma? Não, manda somar. Só uma frase fica de pé: a ULA soma e compara. Quando apenas uma das cinco passa nesse teste, a escolha está conferida.",
+        "atalho": "Abra a sigla ULA: unidade lógica e aritmética. Aritmética é conta, lógica é comparação, exatamente as duas coisas que o enunciado pede. Nenhuma outra alternativa tem conta ou comparação no próprio nome, então a resposta sai em segundos."
+      }
+    },
+    {
+      "id": "lp-s1-p03",
+      "semana": 1,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Memória volátil",
+      "origem": "Prévia · ementa",
+      "enunciado": "Você está com uma planilha aberta, editada e ainda não salva. A energia cai e o notebook, sem bateria, desliga. Onde estava a versão não salva que se perdeu?",
+      "alternativas": [
+        {"t": "No SSD", "certa": false, "erro": "O SSD é não volátil: nele está a última versão salva, que continua lá quando a energia volta. O que não foi salvo nunca chegou ao SSD."},
+        {"t": "Na ROM", "certa": false, "erro": "A ROM é memória só de leitura e guarda o programa de partida do computador. Ela não recebe a planilha que você edita."},
+        {"t": "No barramento de dados", "certa": false, "erro": "O barramento leva dados de um lado para outro, não é lugar de guarda. A planilha passa por ele, mas mora em outro lugar."},
+        {"t": "Na memória RAM", "certa": true},
+        {"t": "Nos registradores da CPU", "certa": false, "erro": "Os registradores também perdem tudo sem energia, mas guardam só alguns valores em uso naquele instante. A planilha aberta inteira fica na RAM."}
+      ],
+      "dica": "Pense em onde o arquivo fica enquanto está aberto e em qual memória, dentre as que guardam um arquivo inteiro, perde o conteúdo sem energia.",
+      "resposta": "Na memória RAM, que é volátil.",
+      "jeitos": {
+        "visual": "Pinte de vermelho o que apaga sem energia e de azul o que fica. Vermelho: registradores e RAM. Azul: ROM e SSD. Agora desenhe a planilha aberta: ela é uma cópia do arquivo, trazida do SSD para a RAM quando você abriu. Cada edição muda a cópia vermelha. Salvar é uma seta da RAM de volta para o SSD. Sem essa seta, a falta de luz apaga a versão nova e sobra a azul antiga.",
+        "receita": [
+          "Lembre o caminho: abrir um arquivo copia do SSD para a RAM.",
+          "Editar muda só a cópia que está na RAM.",
+          "Salvar copia a RAM de volta para o SSD.",
+          "Sem salvar, a versão nova existe só na RAM.",
+          "A RAM é volátil: sem energia, perde o conteúdo. Foi lá que a versão se perdeu."
+        ],
+        "cotidiano": "É como fazer contas num quadro branco e passar a limpo no caderno. O caderno é o SSD: o que foi passado fica. O quadro é a RAM: rápido de escrever e de apagar, mas alguém passa o apagador no fim do dia. Se você não copiou para o caderno, o rascunho some, e o caderno continua com a versão de ontem.",
+        "trabalho": "É por isso que o Excel tem a AutoRecuperação: de tempos em tempos ele grava no disco uma cópia do que está na RAM, justamente porque a RAM é volátil. No banco de dados a ideia é a mesma, com mais rigor: na configuração padrão, o MySQL só confirma uma transação depois de registrar a mudança num log no disco. O que está só em memória pode sumir; o que foi gravado no disco sobrevive à queda.",
+        "conversa": [
+          {"quem": "Você", "fala": "Se o arquivo está no SSD e o SSD não perde nada, por que perdi a planilha?"},
+          {"quem": "Monitor", "fala": "Quando você abre o arquivo, o Excel trabalha direto no SSD ou numa cópia?"},
+          {"quem": "Você", "fala": "Numa cópia, na memória."},
+          {"quem": "Monitor", "fala": "Na RAM. Suas edições mudaram a cópia. O SSD ficou com a versão do último salvamento."},
+          {"quem": "Você", "fala": "Então perdi o que estava só na RAM, porque ela é volátil."},
+          {"quem": "Monitor", "fala": "Isso. E o arquivo do SSD abre normalmente, só que sem as mudanças."}
+        ],
+        "erro": "Muita gente marca SSD porque pensa no arquivo, e o arquivo está no SSD. Mas a pergunta é sobre a versão não salva, e essa nunca saiu da RAM. A segunda armadilha são os registradores: eles também são voláteis, então a resposta parece certa. O que decide é o tamanho: registradores guardam poucos bytes em uso agora, e a planilha aberta ocupa a RAM.",
+        "confira": "Pense no que acontece quando a luz volta. Você liga o notebook e abre o arquivo: aparece a última versão salva. Isso prova que o SSD não perdeu nada, então a perda não foi nele. A ROM continua dando a partida normalmente, então também está intacta. Sobram as memórias voláteis, e entre elas só a RAM tem espaço para a planilha inteira.",
+        "atalho": "Elimine primeiro o que não guarda nada: o barramento só transporta. Depois elimine o que é não volátil: SSD e ROM sobrevivem à queda de energia. Entre RAM e registradores, a palavra que decide é planilha aberta, um arquivo inteiro: isso cabe na RAM."
+      }
+    },
+    {
+      "id": "lp-s1-p04",
+      "semana": 1,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "ASCII em 7 bits",
+      "origem": "Prévia · ementa",
+      "enunciado": "O código ASCII usa 7 bits para cada caractere. Quantos caracteres diferentes ele consegue representar?",
+      "alternativas": [
+        {"t": "127", "certa": false, "erro": "127 é o maior código, 2⁷ − 1. Os códigos vão de 0 a 127, e o zero também conta: são 128."},
+        {"t": "128", "certa": true},
+        {"t": "256", "certa": false, "erro": "256 = 2⁸ é o que cabe em 8 bits, um byte inteiro. O ASCII usa 7."},
+        {"t": "14", "certa": false, "erro": "Você fez 2 × 7. Cada bit a mais dobra as combinações, não soma 2. O certo é 2 elevado a 7."},
+        {"t": "49", "certa": false, "erro": "Você fez 7², elevando o número de bits ao quadrado. A conta é ao contrário: a base é 2 (dois valores por bit) e o expoente é 7."}
+      ],
+      "dica": "Cada bit tem 2 valores, e cada bit a mais dobra a quantidade de combinações.",
+      "resposta": "128 caracteres (2⁷), com códigos de 0 a 127.",
+      "tabela": {"onde": "explicacao", "cab": ["Bits", "Combinações"], "linhas": [["1", "2"], ["2", "4"], ["3", "8"], ["4", "16"], ["5", "32"], ["6", "64"], ["7", "128"]]},
+      "jeitos": {
+        "visual": "Imagine 7 interruptores lado a lado. Com 1 interruptor há 2 posições: desligado e ligado. Com 2, cada posição do primeiro combina com as duas do segundo: 4. Cada interruptor novo dobra a conta. Na tabela, desça pela coluna das combinações: 2, 4, 8, 16, 32, 64, 128. A linha dos 7 bits mostra 128 combinações, e o ASCII associa cada uma a um caractere.",
+        "receita": [
+          "Cada bit pode valer 0 ou 1: 2 possibilidades.",
+          "Com n bits, as possibilidades se multiplicam: 2ⁿ.",
+          "Com 7 bits: 2⁷ = 2 × 2 × 2 × 2 × 2 × 2 × 2.",
+          "2 × 2 = 4, × 2 = 8, × 2 = 16, × 2 = 32, × 2 = 64, × 2 = 128.",
+          "São 128 caracteres, com códigos de 0 a 127."
+        ],
+        "cotidiano": "Pense num cadeado de segredo com 7 rodinhas, em que cada rodinha tem só dois símbolos, 0 e 1. A primeira rodinha dá 2 opções. Para cada uma, a segunda dá mais 2: 4 segredos. A terceira dobra de novo: 8. Ao chegar na sétima, há 128 segredos diferentes. O ASCII é um cadeado assim, em que cada segredo vira uma letra, um algarismo ou um sinal.",
+        "trabalho": "No Excel, `=CÓDIGO(\"A\")` devolve 65 e `=CARACT(65)` devolve A: é a tabela ASCII por trás das letras. Os códigos de 0 a 127 são os mesmos em quase todo sistema, por isso um CSV só com letras sem acento abre igual na grande maioria dos programas. O problema começa nas letras acentuadas, que ficaram de fora dos 128 do ASCII e dependem de outra codificação.",
+        "conversa": [
+          {"quem": "Você", "fala": "Se o maior código é 127, então são 127 caracteres."},
+          {"quem": "Monitor", "fala": "Quantos números existem de 0 a 3?"},
+          {"quem": "Você", "fala": "0, 1, 2, 3. Quatro."},
+          {"quem": "Monitor", "fala": "O maior é 3, mas a quantidade é 4, porque o zero conta. Agora troque 3 por 127."},
+          {"quem": "Você", "fala": "De 0 a 127 são 128. Bate com 2⁷."}
+        ],
+        "erro": "Dois tropeços disputam a vez. O primeiro é confundir a quantidade com o maior código: são 128 valores, mas o último é 127, porque a contagem começa em 0. O segundo é trocar base e expoente e calcular 7² = 49. Lembre de onde vem a conta: cada bit tem 2 estados, então o 2 é a base e o número de bits é o expoente.",
+        "confira": "Conte pequeno e generalize. Com 2 bits, liste tudo: 00, 01, 10, 11. São 4 = 2². Com 3 bits, de 000 até 111, são 8 = 2³. O total dobra a cada bit. Siga dobrando até 7 bits: 16, 32, 64, 128. Se a sua resposta não aparece nessa sequência de dobras, ela não é uma quantidade de combinações de bits.",
+        "atalho": "Quantidade de combinações de bits é sempre potência de 2: 2, 4, 8, 16, 32, 64, 128, 256. Isso elimina 127, 14 e 49 de uma vez. Entre 128 e 256, lembre que 256 é o byte inteiro, com 8 bits. O ASCII tem um bit a menos, então fica com a metade: 128."
+      }
+    },
+    {
+      "id": "lp-s1-p05",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Dado e informação",
+      "origem": "Prévia · ementa",
+      "enunciado": "Uma planilha de fechamento tem, na célula D14, o valor 37. Qual das frases abaixo transforma esse dado em informação?",
+      "alternativas": [
+        {"t": "O valor 37 está gravado como número inteiro na célula D14.", "certa": false, "erro": "A frase descreve como o dado está guardado: tipo e endereço. Continua sem dizer o que o 37 significa para quem lê."},
+        {"t": "O 37 em binário é 100101 e cabe em um byte.", "certa": false, "erro": "Você mudou a representação do dado, não o significado. 100101 é o mesmo 37 escrito de outro jeito, ainda sem contexto."},
+        {"t": "A coluna D tem o 37 numa linha e outros números nas demais.", "certa": false, "erro": "Mais números em volta não dão contexto. Sem dizer o que a coluna mede e com o que comparar, continua sendo dado."},
+        {"t": "O 37 aparece na tela em vermelho e em negrito.", "certa": false, "erro": "Formatação chama a atenção, mas não explica nada. Quem vê o 37 em vermelho ainda não sabe se ele é bom, ruim, nem do que se trata."},
+        {"t": "Em outubro, 37 boletos venceram sem pagamento, 12 a mais que em setembro.", "certa": true}
+      ],
+      "dica": "Informação responde a uma pergunta de quem lê: o que é, de quando é, comparado com o quê.",
+      "resposta": "A frase dos 37 boletos vencidos em outubro, 12 a mais que em setembro.",
+      "jeitos": {
+        "visual": "Desenhe o 37 sozinho num quadrado. Agora cole etiquetas em volta. Uma diz o que ele conta: boletos vencidos sem pagamento. Outra diz quando: outubro. Uma terceira compara: setembro teve 25. Com essas etiquetas, o quadrado vira algo que alguém usa para decidir. Tipo, cor, binário e endereço também são etiquetas, mas falam da forma; as que dão significado falam do mundo fora da planilha.",
+        "receita": [
+          "Dado é o registro bruto, sem contexto: o 37 sozinho.",
+          "Informação é o dado com significado, que responde a uma pergunta de quem lê.",
+          "Teste cada frase: ela diz o que o 37 mede, de quando é e com o que se compara?",
+          "As quatro primeiras falam de tipo, binário, vizinhança e cor. Nenhuma diz o que o 37 mede.",
+          "Só a última diz o que é (boletos vencidos), quando (outubro) e compara (12 a mais que setembro)."
+        ],
+        "cotidiano": "Alguém deixa um bilhete na sua mesa escrito só 37. Você não sabe se é parte de um telefone, uma idade ou uma senha. Se o bilhete diz 'a reunião é na sala 37, às 15h', ele passa a servir para alguma coisa. O número não mudou: o que entrou foi o contexto. Pintar o 37 de vermelho, sem dizer mais nada, só deixa você mais curioso.",
+        "trabalho": "É o que separa uma exportação de sistema de um relatório para o cliente. A coluna com o 37 é dado. O relatório diz: 37 títulos vencidos em outubro, 12 a mais que no mês anterior. No SQL, `SELECT COUNT(*) FROM boletos WHERE vencido = 1` devolve o 37; a informação nasce quando você filtra o mês, compara com o anterior e escreve o que isso indica.",
+        "conversa": [
+          {"quem": "Você", "fala": "A primeira frase é bem técnica: número inteiro, célula D14. Isso não é informação?"},
+          {"quem": "Monitor", "fala": "Depois de ler essa frase, você sabe se o 37 é bom ou ruim?"},
+          {"quem": "Você", "fala": "Não. Sei onde ele está e como foi gravado."},
+          {"quem": "Monitor", "fala": "Isso fala do armazenamento. Informação diz o que o número significa para quem vai decidir."},
+          {"quem": "Você", "fala": "Então é a dos boletos: diz o que são os 37, de quando e compara com setembro."},
+          {"quem": "Monitor", "fala": "Com ela alguém já consegue agir, por exemplo cobrar os boletos."}
+        ],
+        "erro": "A armadilha é achar que detalhe técnico vira informação. Dizer o tipo da célula, escrever o 37 em binário ou pintar de vermelho deixa o dado mais preciso ou mais visível, mas não mais significativo. A pergunta que separa os dois é de quem lê: com essa frase eu sei o que o número mede e o que ele indica? Se a resposta é não, continua sendo dado.",
+        "confira": "Faça o teste da decisão. Entregue cada frase a um gestor e pergunte o que ele faria. Com as quatro primeiras, ele não tem o que fazer: falta saber o que o 37 conta. Com a dos boletos, ele pode cobrar ou investigar por que o número subiu. Informação é o que permite decidir; se a frase não muda nenhuma decisão, ela ficou no nível do dado.",
+        "atalho": "Procure a alternativa que fala do mundo fora do computador: pessoas, contas, meses, comparação. Quatro delas falam da planilha (tipo, binário, linhas, cor). Só uma fala de boletos e de meses, e é ela que dá significado ao número."
+      }
+    },
+    {
+      "id": "lp-s1-p06",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Ciclo de instrução",
+      "origem": "Prévia · ementa",
+      "enunciado": "A instrução 'some R1 com R2 e guarde em R3' está na memória principal. R1, R2 e R3 são registradores. Em que ordem a CPU faz as etapas abaixo?\n(1) A ULA soma os valores de R1 e R2.\n(2) A unidade de controle decodifica a instrução.\n(3) A instrução é buscada na memória principal.\n(4) O resultado é guardado em R3.",
+      "alternativas": [
+        {"t": "2, 3, 1, 4", "certa": false, "erro": "Você decodificou antes de buscar. A unidade de controle só interpreta uma instrução depois que ela chega à CPU."},
+        {"t": "3, 2, 1, 4", "certa": true},
+        {"t": "3, 1, 2, 4", "certa": false, "erro": "Você pôs a soma antes da decodificação. Sem interpretar a instrução, a CPU não sabe que a operação é soma nem quais registradores usar."},
+        {"t": "1, 2, 3, 4", "certa": false, "erro": "Essa é só a ordem em que as etapas foram listadas. Somar primeiro exigiria saber o que fazer antes de ler a instrução."},
+        {"t": "3, 2, 4, 1", "certa": false, "erro": "Você guardou o resultado antes de calcular. R3 receberia um valor que ainda não existe."}
+      ],
+      "dica": "A CPU não sabe o que fazer antes de ter a instrução, e não pode guardar um resultado que ainda não calculou.",
+      "resposta": "3, 2, 1, 4: buscar, decodificar, somar e guardar.",
+      "jeitos": {
+        "visual": "Desenhe um relógio com três fatias: busca, decodificação, execução. O ponteiro gira sempre no mesmo sentido. Na fatia da busca, uma seta sai da memória e entra na CPU trazendo a instrução: etapa 3. Na decodificação, a unidade de controle lê 'some R1 com R2': etapa 2. Na execução, a ULA soma e o resultado cai em R3: etapas 1 e 4, nessa ordem. Depois o ponteiro volta à busca, com a próxima instrução.",
+        "receita": [
+          "Busca: a instrução precisa sair da memória e chegar à CPU. Etapa 3.",
+          "Decodificação: a unidade de controle descobre que é uma soma de R1 com R2. Etapa 2.",
+          "Execução: a ULA soma os dois valores. Etapa 1.",
+          "Fim da execução: o resultado vai para R3. Etapa 4.",
+          "Ordem: 3, 2, 1, 4."
+        ],
+        "cotidiano": "Pense num boleto que chega por e-mail. Primeiro você abre o e-mail e pega o boleto: busca. Depois lê o que ele pede, valor e vencimento: decodificação. Aí faz o pagamento: execução. Por último guarda o comprovante na pasta: resultado gravado. Ninguém paga antes de abrir o e-mail, nem arquiva o comprovante antes de pagar.",
+        "trabalho": "Um comando SQL passa por um caminho parecido dentro do banco de dados. O texto do comando chega ao servidor (busca). O analisador lê o texto e descobre o que se pede, quais tabelas e colunas (decodificação). O executor lê as linhas, compara e soma (execução). Por fim o resultado é devolvido ou gravado. Um erro de sintaxe para tudo na segunda fase: o banco não executa o que não conseguiu interpretar.",
+        "conversa": [
+          {"quem": "Você", "fala": "A unidade de controle é a chefe. Ela não começa decodificando?"},
+          {"quem": "Monitor", "fala": "Decodificar o quê, se a instrução ainda está na memória?"},
+          {"quem": "Você", "fala": "Verdade. Primeiro ela precisa trazer a instrução."},
+          {"quem": "Monitor", "fala": "Isso é a busca. Com a instrução na CPU, ela decodifica e descobre que é uma soma."},
+          {"quem": "Você", "fala": "Aí a ULA soma e o resultado vai para R3. Fica 3, 2, 1, 4."}
+        ],
+        "erro": "O tropeço mais comum é pôr a decodificação na frente, porque a unidade de controle parece começar tudo. Ela começa, sim, mas pela busca. O outro é inverter execução e gravação, como se R3 pudesse receber o resultado antes da soma. Para não cair, guarde as três palavras na ordem fixa: busca, decodificação, execução. Guardar o resultado é o fim da execução.",
+        "confira": "Teste cada etapa perguntando do que ela depende. Somar depende de saber que a operação é soma: vem depois da decodificação. Decodificar depende de ter a instrução: vem depois da busca. Guardar em R3 depende de ter o resultado: vem depois da soma. A busca não depende de nenhuma outra, então abre a fila. A única ordem que respeita todas as dependências é 3, 2, 1, 4.",
+        "atalho": "A fila sempre começa pela busca: descarte as alternativas que não começam com 3, e sobram três. Guardar o resultado sempre fecha: descarte a que não termina com 4, e sobram duas. Entre elas, decodificar vem antes de executar."
+      }
+    }
+  ]
+}

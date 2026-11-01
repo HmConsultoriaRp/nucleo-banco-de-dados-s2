@@ -1,0 +1,286 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s1-l1q6b",
+      "semana": 1,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Caminho fechado",
+      "origem": "Lista 1 · Q6b",
+      "enunciado": "Determine a soma dos vetores indicados em cada caso (todas as figuras são hexágonos regulares).\nItem b: na figura estão [[FC]], [[CD]], [[DE]] e [[EF]].",
+      "alternativas": [
+        {"t": "[[0]] (vetor nulo)", "certa": true},
+        {"t": "[[FE]]", "certa": false, "erro": "Esse é [[FC]] + [[CD]] + [[DE]]: a quarta seta, [[EF]], ficou de fora."},
+        {"t": "2[[FC]]", "certa": false, "erro": "Você tomou o trecho [[CD]] + [[DE]] + [[EF]] como se fosse igual a [[FC]]. Esse trecho vai de C até F: é [[CF]], o oposto de [[FC]], e os dois se anulam."},
+        {"t": "[[CF]]", "certa": false, "erro": "Esse é só o trecho [[CD]] + [[DE]] + [[EF]]. Faltou somar a primeira seta, [[FC]], que começa no ponto onde o trecho termina."},
+        {"t": "[[FD]]", "certa": false, "erro": "Esse é [[FC]] + [[CD]]: você parou em D e deixou [[DE]] e [[EF]] de fora."}
+      ],
+      "dica": "Veja onde a primeira seta começa e onde a última termina.",
+      "resposta": "[[0]] (vetor nulo)",
+      "figura": {
+        "modo": "2d",
+        "onde": "enunciado",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 2], [1.732, 1], [1.732, -1], [0, -2], [-1.732, -1], [-1.732, 1]], "cor": 3},
+          {"tipo": "ponto", "em": [0, 2], "rot": "B"},
+          {"tipo": "ponto", "em": [1.732, 1], "rot": "A"},
+          {"tipo": "ponto", "em": [1.732, -1], "rot": "F"},
+          {"tipo": "ponto", "em": [0, -2], "rot": "E"},
+          {"tipo": "ponto", "em": [-1.732, -1], "rot": "D"},
+          {"tipo": "ponto", "em": [-1.732, 1], "rot": "C"},
+          {"tipo": "vetor", "de": [1.732, -1], "ate": [-1.732, 1], "rot": "", "cor": 2},
+          {"tipo": "vetor", "de": [-1.732, 1], "ate": [-1.732, -1], "rot": "", "cor": 2},
+          {"tipo": "vetor", "de": [-1.732, -1], "ate": [0, -2], "rot": "", "cor": 2},
+          {"tipo": "vetor", "de": [0, -2], "ate": [1.732, -1], "rot": "", "cor": 2}
+        ],
+        "legenda": "Hexágono regular com as setas [[FC]], [[CD]], [[DE]] e [[EF]]."
+      },
+      "jeitos": {
+        "visual": "Na figura, saia de F pela seta comprida até C. Depois desça pelo contorno: de C até D, de D até E e de E de volta a F. Você terminou exatamente onde começou. Um caminho que fecha é uma volta completa, e o deslocamento de uma volta completa é zero, porque o ponto de chegada coincide com o de partida.",
+        "receita": [
+          "Encadeie: [[FC]] + [[CD]] = [[FD]].",
+          "[[FD]] + [[DE]] = [[FE]].",
+          "[[FE]] + [[EF]] = [[FF]].",
+          "[[FF]] é sair de F e chegar em F: o vetor nulo, [[0]]."
+        ],
+        "cotidiano": "Você sai de casa, passa na padaria, no banco e na farmácia e volta para casa. Andou bastante, mas o deslocamento, a distância em linha reta entre onde começou e onde terminou, é zero. Vetor mede deslocamento, não quilômetros rodados.",
+        "trabalho": "É como um ciclo de transferências que volta à conta de origem. Saem 100 reais de F para C, de C para D, de D para E e de E de volta para F. Cada conta recebeu e pagou o mesmo valor; nenhuma ganhou nem perdeu. Na conciliação, um ciclo fechado não muda nenhum saldo. A soma dos vetores de um caminho fechado dá o vetor nulo pelo mesmo motivo.",
+        "conversa": [
+          {"quem": "Você", "fala": "A seta [[FC]] é bem maior que as outras. Ela não pesa mais na soma?"},
+          {"quem": "Monitor", "fala": "Pesa. E as outras três juntas vão de onde até onde?"},
+          {"quem": "Você", "fala": "De C, passando por D e E, até F."},
+          {"quem": "Monitor", "fala": "Então juntas elas formam qual vetor?"},
+          {"quem": "Você", "fala": "[[CF]]. O oposto de [[FC]]."},
+          {"quem": "Monitor", "fala": "Uma seta mais a sua oposta dá quanto?"},
+          {"quem": "Você", "fala": "Zero. O vetor nulo."}
+        ],
+        "erro": "O engano é achar que setas de tamanhos diferentes não podem se anular. A seta longa [[FC]] equivale às três curtas juntas, só que no sentido contrário. Outro tropeço é esquecer a última seta, [[EF]], e responder [[FE]]. Toda vez que o fim da última seta cai no começo da primeira, a resposta é o vetor nulo.",
+        "confira": "Com coordenadas (lado 2, centro na origem): F = (√3, −1), C = (−√3, 1), D = (−√3, −1), E = (0, −2). [[FC]] = (−2√3, 2), [[CD]] = (0, −2), [[DE]] = (√3, −1), [[EF]] = (√3, 1). Somando os x: −2√3 + 0 + √3 + √3 = 0. Somando os y: 2 − 2 − 1 + 1 = 0. Dá (0, 0).",
+        "atalho": "Leia só duas letras: onde a primeira seta nasce (F) e onde a última termina (F). Se são a mesma letra, a soma é o vetor nulo, sem conta nenhuma. As outras quatro alternativas são setas com tamanho e caem juntas. Só confirme antes que cada seta começa onde a anterior termina."
+      }
+    },
+    {
+      "id": "ga-s1-l1q6c",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Cadeia quase fechada",
+      "origem": "Lista 1 · Q6c",
+      "enunciado": "Determine a soma dos vetores indicados em cada caso (todas as figuras são hexágonos regulares).\nItem c: na figura estão [[DC]], [[CB]], [[BA]], [[AF]] e [[FE]].",
+      "alternativas": [
+        {"t": "[[ED]]", "certa": false, "erro": "Esse é o lado que fecharia a volta, de E até D. A soma vai do começo da cadeia (D) até o fim (E), então é o sentido contrário."},
+        {"t": "[[DF]]", "certa": false, "erro": "Esse é [[DC]] + [[CB]] + [[BA]] + [[AF]]: faltou a última seta, [[FE]]."},
+        {"t": "[[DE]]", "certa": true},
+        {"t": "[[0]] (vetor nulo)", "certa": false, "erro": "O caminho quase fecha, mas não fecha: sai de D e para em E. Para dar a volta completa faltaria a seta de E até D."},
+        {"t": "[[CE]]", "certa": false, "erro": "Você começou a cadeia em C e deixou [[DC]] de fora: [[CB]] + [[BA]] + [[AF]] + [[FE]] dá [[CE]]."}
+      ],
+      "dica": "Siga as setas e anote só a letra de partida e a letra de chegada.",
+      "resposta": "[[DE]]",
+      "figura": {
+        "modo": "2d",
+        "onde": "enunciado",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 2], [1.732, 1], [1.732, -1], [0, -2], [-1.732, -1], [-1.732, 1]], "cor": 3},
+          {"tipo": "ponto", "em": [0, 2], "rot": "B"},
+          {"tipo": "ponto", "em": [1.732, 1], "rot": "A"},
+          {"tipo": "ponto", "em": [1.732, -1], "rot": "F"},
+          {"tipo": "ponto", "em": [0, -2], "rot": "E"},
+          {"tipo": "ponto", "em": [-1.732, -1], "rot": "D"},
+          {"tipo": "ponto", "em": [-1.732, 1], "rot": "C"},
+          {"tipo": "vetor", "de": [-1.732, -1], "ate": [-1.732, 1], "rot": "", "cor": 2},
+          {"tipo": "vetor", "de": [-1.732, 1], "ate": [0, 2], "rot": "", "cor": 2},
+          {"tipo": "vetor", "de": [0, 2], "ate": [1.732, 1], "rot": "", "cor": 2},
+          {"tipo": "vetor", "de": [1.732, 1], "ate": [1.732, -1], "rot": "", "cor": 2},
+          {"tipo": "vetor", "de": [1.732, -1], "ate": [0, -2], "rot": "", "cor": 2}
+        ],
+        "legenda": "Hexágono regular com as setas [[DC]], [[CB]], [[BA]], [[AF]] e [[FE]]."
+      },
+      "jeitos": {
+        "visual": "Na figura, as cinco setas coral contornam o hexágono no sentido dos ponteiros do relógio: sobem de D para C, vão até B, descem para A, para F e terminam em E. Falta só um lado para fechar a volta: o lado de baixo à esquerda, entre E e D, que ficou sem seta. A soma é o atalho direto de D até E, exatamente esse lado vazio, percorrido de D para E.",
+        "receita": [
+          "Confira o encadeamento: cada seta começa onde a anterior termina (D → C → B → A → F → E).",
+          "As paradas do meio se cancelam: [[DC]] + [[CB]] + [[BA]] = [[DA]].",
+          "[[DA]] + [[AF]] = [[DF]].",
+          "[[DF]] + [[FE]] = [[DE]]."
+        ],
+        "cotidiano": "É dar a volta no quarteirão pelo lado mais comprido. Você sai da esquina D e passa por quatro esquinas até chegar em E, que fica ao lado de D. Andou muito, mas a mudança de posição é a mesma de quem atravessou só um lado. Quem foi pelo caminho curto chegou ao mesmo lugar.",
+        "trabalho": "Pense no gráfico de cascata do Power BI, a ponte de um saldo. O valor parte de um ponto, sobe e desce em várias barras e termina em outro. O que a cascata entrega no fim é a diferença entre partida e chegada, seja qual for o caminho das barras. Aqui, as cinco setas são as barras, e o resultado é [[DE]], do início ao fim.",
+        "conversa": [
+          {"quem": "Você", "fala": "Parece uma volta inteira. Não dá zero?"},
+          {"quem": "Monitor", "fala": "Onde começa a primeira seta?"},
+          {"quem": "Você", "fala": "Em D."},
+          {"quem": "Monitor", "fala": "E onde termina a última?"},
+          {"quem": "Você", "fala": "Em E. Ah, não volta para D."},
+          {"quem": "Monitor", "fala": "Falta um lado para fechar. Então a soma é o quê?"},
+          {"quem": "Você", "fala": "A seta de D até E, [[DE]]."}
+        ],
+        "erro": "Como o caminho contorna quase todo o hexágono, a tentação é responder vetor nulo. Só que a volta completa exige terminar no ponto de partida, e aqui a cadeia começa em D e para em E. O outro deslize é inverter e responder [[ED]], que é o lado que fecharia a volta, e não a soma das cinco setas.",
+        "confira": "Use o fato de que a volta completa dá zero: [[DC]] + [[CB]] + [[BA]] + [[AF]] + [[FE]] + [[ED]] = [[0]]. Passe [[ED]] para o outro lado: a soma das cinco setas é −[[ED]], que é [[DE]]. Você chegou à mesma resposta sem seguir a cadeia passo a passo.",
+        "atalho": "Antes de tudo, confira que a fila não tem buracos: cada seta começa na letra em que a anterior termina. Depois, primeira letra da primeira seta: D. Última letra da última seta: E. A resposta é [[DE]]. Descarte o vetor nulo, porque D ≠ E, e [[ED]], que tem o sentido trocado."
+      }
+    },
+    {
+      "id": "ga-s1-l1q6d",
+      "semana": 1,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Soma sem encadeamento",
+      "origem": "Lista 1 · Q6d",
+      "enunciado": "Determine a soma dos vetores indicados em cada caso (todas as figuras são hexágonos regulares).\nItem d: O é o centro do hexágono, e na figura estão [[CB]], [[AB]], [[AF]] e [[OE]].",
+      "alternativas": [
+        {"t": "[[0]] (vetor nulo)", "certa": false, "erro": "Você deixou de fora a seta [[OE]], a que sai do centro. Sem ela, [[CB]] + [[AB]] + [[AF]] dá zero; com ela, sobra um vetor igual a [[AF]]."},
+        {"t": "[[BE]]", "certa": false, "erro": "Você achou que [[CB]] e [[AB]] se anulam por serem espelhadas. Só a parte lateral se anula; as duas sobem e juntas valem [[OB]]. Sem esse par, sobrou [[AF]] + [[OE]] = [[BE]]."},
+        {"t": "[[OB]]", "certa": false, "erro": "Você achou que [[AF]] e [[OE]] se anulam por serem paralelas. Elas apontam para o mesmo lado e se somam; o que sobrou na sua conta foi só [[CB]] + [[AB]] = [[OB]]."},
+        {"t": "[[CE]]", "certa": false, "erro": "Você leu as setas como uma fila que sai de C e termina em E. Mas elas não estão encadeadas: [[AB]] não começa em B, e [[OE]] não começa em F."},
+        {"t": "[[AF]]", "certa": true}
+      ],
+      "dica": "As setas não formam fila. Procure duas que, somadas, deem uma seta conhecida, e veja se alguma outra a cancela.",
+      "resposta": "[[AF]] (o mesmo vetor que [[OE]])",
+      "figura": {
+        "modo": "2d",
+        "onde": "enunciado",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 2], [1.732, 1], [1.732, -1], [0, -2], [-1.732, -1], [-1.732, 1]], "cor": 3},
+          {"tipo": "ponto", "em": [0, 2], "rot": "B"},
+          {"tipo": "ponto", "em": [1.732, 1], "rot": "A"},
+          {"tipo": "ponto", "em": [1.732, -1], "rot": "F"},
+          {"tipo": "ponto", "em": [0, -2], "rot": "E"},
+          {"tipo": "ponto", "em": [-1.732, -1], "rot": "D"},
+          {"tipo": "ponto", "em": [-1.732, 1], "rot": "C"},
+          {"tipo": "ponto", "em": [0, 0], "rot": "O"},
+          {"tipo": "vetor", "de": [-1.732, 1], "ate": [0, 2], "rot": "", "cor": 2},
+          {"tipo": "vetor", "de": [1.732, 1], "ate": [0, 2], "rot": "", "cor": 2},
+          {"tipo": "vetor", "de": [1.732, 1], "ate": [1.732, -1], "rot": "", "cor": 2},
+          {"tipo": "vetor", "de": [0, 0], "ate": [0, -2], "rot": "", "cor": 2}
+        ],
+        "legenda": "Hexágono regular de centro O com as setas [[CB]], [[AB]], [[AF]] e [[OE]]."
+      },
+      "jeitos": {
+        "visual": "Olhe as duas setas de cima, [[CB]] e [[AB]]. As duas sobem em direção a B, uma vindo da esquerda e outra da direita. A parte para os lados se cancela; a parte para cima se soma. Juntas, valem a seta que sai do centro e sobe até B, o [[OB]]. A seta [[OE]] desce do centro com o mesmo tamanho. As duas se anulam e sobra só [[AF]], a seta vertical da direita.",
+        "receita": [
+          "As setas não estão em fila, então troque uma delas por um vetor igual: [[AB]] tem o mesmo tamanho, direção e sentido de [[OC]] (lados opostos do losango OABC).",
+          "Agora encadeie: [[OC]] + [[CB]] = [[OB]].",
+          "[[OB]] sobe do centro até B; [[OE]] desce do centro até E com o mesmo tamanho. [[OB]] + [[OE]] = [[0]].",
+          "Sobra [[AF]]: a soma das quatro setas é [[AF]]."
+        ],
+        "cotidiano": "Imagine duas pessoas puxando uma caixa por cordas, uma pela esquerda e outra pela direita, as duas inclinadas para cima. Os puxões para os lados se anulam e a caixa tende a subir. Uma terceira pessoa puxa para baixo com a mesma força e cancela a subida. Uma quarta também puxa para baixo, sem ninguém para equilibrar. O efeito final é o puxão dessa quarta pessoa: a seta [[AF]].",
+        "trabalho": "Pense em quatro lançamentos para consolidar que não estão em sequência. Você não soma na ordem em que aparecem; procura pares que se anulam, como um lançamento e o seu estorno. [[CB]] + [[AB]] forma uma subida de um lado inteiro (o [[OB]]), e [[OE]] é o estorno dela. Sobra [[AF]], o único sem par. É a técnica de conciliar casando valores.",
+        "conversa": [
+          {"quem": "Você", "fala": "As setas não se encostam. Como eu somo?"},
+          {"quem": "Monitor", "fala": "Comece pelas duas de cima. Para onde [[CB]] e [[AB]] apontam?"},
+          {"quem": "Você", "fala": "As duas sobem até B, uma vindo da esquerda e outra da direita."},
+          {"quem": "Monitor", "fala": "Então o empurrão para os lados se cancela. Sobra o quê?"},
+          {"quem": "Você", "fala": "Uma subida. Do tamanho de [[OB]]?"},
+          {"quem": "Monitor", "fala": "Isso. E qual seta da figura desce do centro com esse tamanho?"},
+          {"quem": "Você", "fala": "[[OE]]. Elas se anulam e sobra [[AF]]."}
+        ],
+        "erro": "Três armadilhas. Ler as setas como uma fila e responder [[CE]], quando elas não se encostam. Achar que [[CB]] e [[AB]] se anulam por serem espelhadas, quando só a parte lateral se anula. E achar que [[AF]] e [[OE]] se cancelam por serem paralelas: elas apontam para o mesmo lado, então somam. Repare ainda que [[AF]] e [[OE]] são o mesmo vetor.",
+        "confira": "Use coordenadas com centro na origem e lado 2: [[CB]] = (√3, 1), [[AB]] = (−√3, 1), [[AF]] = (0, −2), [[OE]] = (0, −2). Some os x: √3 − √3 + 0 + 0 = 0. Some os y: 1 + 1 − 2 − 2 = −2. O resultado (0, −2) é F − A = (√3 − √3, −1 − 1), ou seja, [[AF]].",
+        "atalho": "Faça uma conta só de sobe e desce. [[CB]] e [[AB]] sobem meio lado cada, o que dá um lado inteiro para cima. [[AF]] e [[OE]] descem um lado cada. Saldo: um lado para baixo, sem nada para os lados. Só uma alternativa é uma seta vertical para baixo do tamanho de um lado."
+      }
+    },
+    {
+      "id": "ga-s1-l1q6e",
+      "semana": 1,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Setas que se anulam",
+      "origem": "Lista 1 · Q6e",
+      "enunciado": "Determine a soma dos vetores indicados em cada caso (todas as figuras são hexágonos regulares).\nItem e: O é o centro do hexágono, e na figura estão [[BO]], [[BA]] e [[FB]].",
+      "alternativas": [
+        {"t": "[[FO]]", "certa": false, "erro": "Você encadeou [[FB]] + [[BO]] = [[FO]] e esqueceu de somar [[BA]]."},
+        {"t": "[[0]] (vetor nulo)", "certa": true},
+        {"t": "[[FA]]", "certa": false, "erro": "Você parou em [[FB]] + [[BA]] = [[FA]]. Faltou [[BO]], que tem o mesmo tamanho de [[FA]] e sentido contrário."},
+        {"t": "[[BE]]", "certa": false, "erro": "Você achou que [[FA]] e [[BO]] apontam para o mesmo lado e somou os dois: deu o dobro de [[BO]], que é [[BE]]. Mas [[FA]] sobe e [[BO]] desce."},
+        {"t": "2[[BF]]", "certa": false, "erro": "Você leu [[FB]] como [[BF]]. Como [[BO]] + [[BA]] já dá [[BF]], com o sentido trocado o total dobra em vez de zerar."}
+      ],
+      "dica": "Duas das setas formam uma fila. Junte essas duas primeiro e compare o resultado com a terceira.",
+      "resposta": "[[0]] (vetor nulo)",
+      "figura": {
+        "modo": "2d",
+        "onde": "enunciado",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 2], [1.732, 1], [1.732, -1], [0, -2], [-1.732, -1], [-1.732, 1]], "cor": 3},
+          {"tipo": "ponto", "em": [0, 2], "rot": "B"},
+          {"tipo": "ponto", "em": [1.732, 1], "rot": "A"},
+          {"tipo": "ponto", "em": [1.732, -1], "rot": "F"},
+          {"tipo": "ponto", "em": [0, -2], "rot": "E"},
+          {"tipo": "ponto", "em": [-1.732, -1], "rot": "D"},
+          {"tipo": "ponto", "em": [-1.732, 1], "rot": "C"},
+          {"tipo": "ponto", "em": [0, 0], "rot": "O"},
+          {"tipo": "vetor", "de": [0, 2], "ate": [0, 0], "rot": "", "cor": 2},
+          {"tipo": "vetor", "de": [0, 2], "ate": [1.732, 1], "rot": "", "cor": 2},
+          {"tipo": "vetor", "de": [1.732, -1], "ate": [0, 2], "rot": "", "cor": 2}
+        ],
+        "legenda": "Hexágono regular de centro O com as setas [[BO]], [[BA]] e [[FB]]."
+      },
+      "jeitos": {
+        "visual": "Na figura, a seta comprida sobe de F até B, e de B saem duas setas: uma para o centro O e outra para A. Siga [[FB]] e depois [[BA]]: você sai de F, sobe até B e desce até A. O saldo dessa fila é subir de F até A, uma seta vertical para cima. Já [[BO]] desce do topo até o centro, com o mesmo tamanho. Uma sobe e a outra desce, então se anulam.",
+        "receita": [
+          "Reordene para formar fila: [[FB]] + [[BA]] + [[BO]].",
+          "[[FB]] + [[BA]] = [[FA]] (de F até A, passando por B).",
+          "[[FA]] sobe um lado inteiro e [[BO]] desce um lado inteiro: são opostos, [[FA]] = −[[BO]].",
+          "Logo [[FA]] + [[BO]] = [[0]]: a soma é o vetor nulo."
+        ],
+        "cotidiano": "Pense em entrar num elevador, subir dois andares e depois descer dois andares. Foram dois movimentos, mas você ficou no mesmo andar. Aqui, a dupla [[FB]] e [[BA]] equivale a subir um lado do hexágono, e [[BO]] equivale a descer exatamente um lado. O deslocamento total é nenhum.",
+        "trabalho": "Lembra um valor que passa por uma conta intermediária e depois é estornado. [[FB]] e [[BA]] juntos levam o valor de F até A, passando por B. [[BO]] tem o mesmo tamanho e o sentido contrário, mesmo acontecendo em outro lugar do hexágono. Para vetor, o lugar não importa; importam tamanho, direção e sentido. Como receita e estorno na mesma linha da DRE, os dois se anulam.",
+        "conversa": [
+          {"quem": "Você", "fala": "Essas setas não estão em fila. Como eu somo?"},
+          {"quem": "Monitor", "fala": "Duas delas estão. Qual seta termina onde outra começa?"},
+          {"quem": "Você", "fala": "[[FB]] termina em B, e [[BA]] começa em B."},
+          {"quem": "Monitor", "fala": "Então [[FB]] + [[BA]] dá o quê?"},
+          {"quem": "Você", "fala": "[[FA]], de F até A. É vertical, para cima."},
+          {"quem": "Monitor", "fala": "E [[BO]]?"},
+          {"quem": "Você", "fala": "Vertical, para baixo, do mesmo tamanho. Dá zero."}
+        ],
+        "erro": "A armadilha é trocar o sentido de alguma seta. Quem lê [[FB]] como [[BF]] dobra o resultado em vez de anular. Quem pensa que [[FA]] e [[BO]] apontam para o mesmo lado chega em [[BE]]. Olhe a ponta da seta na figura, não só a linha. Outro tropeço é somar duas setas e esquecer a terceira.",
+        "confira": "Com coordenadas (centro na origem, lado 2): B = (0, 2), O = (0, 0), A = (√3, 1), F = (√3, −1). [[BO]] = (0, −2), [[BA]] = (√3, −1), [[FB]] = (−√3, 3). Some os x: 0 + √3 − √3 = 0. Some os y: −2 − 1 + 3 = 0. O resultado é (0, 0).",
+        "atalho": "Procure a fila escondida: [[FB]] seguida de [[BA]]. O resultado, [[FA]], é paralelo a [[BO]], com o mesmo tamanho e sentido oposto. Isso já dá zero. Se sobrar dúvida, confira só a altura, contando em meios lados: [[FB]] sobe 3, [[BA]] desce 1 e [[BO]] desce 2."
+      }
+    },
+    {
+      "id": "ga-s1-l1q7",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 5,
+      "tema": "Igualdade de vetores",
+      "origem": "Lista 1 · Q7",
+      "enunciado": "Sabendo que [[u]] − 2[[v]] = 3[[w]], determine x, y e z, sendo [[u]] = (2, −z, 1), [[v]] = (−x, 3, y + 2) e [[w]] = (−4, 1, 0).",
+      "alternativas": [
+        {"t": "x = 7, y = −3/2, z = −9", "certa": false, "erro": "Você usou x no lugar de −x na primeira coordenada de [[v]]: 2 − 2x = −12 dá x = 7. Com −x, a conta é 2 + 2x = −12."},
+        {"t": "x = −7, y = −1/2, z = −9", "certa": false, "erro": "Você multiplicou só o y por 2: 2(y + 2) virou 2y + 2 em vez de 2y + 4. Aí 1 − 2y − 2 = 0 dá y = −1/2."},
+        {"t": "x = −3, y = −3/2, z = −7", "certa": false, "erro": "Você igualou a [[w]], e não a 3[[w]]: 2 + 2x = −4 e −z − 6 = 1 dão x = −3 e z = −7."},
+        {"t": "x = −7, y = −3/2, z = −9", "certa": true},
+        {"t": "x = −7, y = −3/2, z = 9", "certa": false, "erro": "Você resolveu z − 6 = 3, esquecendo que a segunda coordenada de [[u]] é −z. Com −z − 6 = 3, z = −9."}
+      ],
+      "dica": "Dois vetores são iguais quando as coordenadas correspondentes são iguais. Monte uma equação por coordenada.",
+      "resposta": "x = −7, y = −3/2 e z = −9",
+      "jeitos": {
+        "visual": "Imagine os dois lados da igualdade como duas fichas com três casas cada. Na ficha da direita, 3[[w]], os números já estão prontos: −12, 3 e 0. Na ficha da esquerda, [[u]] − 2[[v]], cada casa esconde uma incógnita: o x mora na primeira, o z na segunda, o y na terceira. Para as fichas serem iguais, cada casa tem de bater com a casa da frente. São três equações pequenas, uma por casa.",
+        "receita": [
+          "Calcule os pedaços: 2[[v]] = (−2x, 6, 2y + 4) e 3[[w]] = (−12, 3, 0).",
+          "[[u]] − 2[[v]] = (2 + 2x, −z − 6, 1 − 2y − 4).",
+          "Primeira coordenada: 2 + 2x = −12, então 2x = −14 e x = −7.",
+          "Segunda: −z − 6 = 3, então −z = 9 e z = −9.",
+          "Terceira: −3 − 2y = 0, então y = −3/2."
+        ],
+        "cotidiano": "É conferir duas comandas de três itens. Uma já tem os valores: −12, 3 e 0 (o −12 é um desconto). A outra tem um valor em aberto em cada item. Para as comandas serem iguais, cada item tem de bater com o item correspondente. Uma comanda que só bate no total, com itens trocados, não serve.",
+        "trabalho": "É como fechar um orçamento por conta contábil. O valor-alvo de cada conta está dado: −12, 3 e 0. O realizado de cada conta depende de um parâmetro (x, z e y). Você ajusta cada parâmetro até a sua conta bater, uma de cada vez, como um Atingir Meta do Excel aplicado linha a linha. As três contas são independentes, então são três equações independentes.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei x = 7."},
+          {"quem": "Monitor", "fala": "Qual é a primeira coordenada de [[v]]?"},
+          {"quem": "Você", "fala": "−x."},
+          {"quem": "Monitor", "fala": "Então a primeira coordenada de −2[[v]] é quanto?"},
+          {"quem": "Você", "fala": "−2 vezes −x, que dá 2x. Fica 2 + 2x = −12."},
+          {"quem": "Monitor", "fala": "E o x?"},
+          {"quem": "Você", "fala": "2x = −14, x = −7. Eu tinha usado x no lugar de −x."}
+        ],
+        "erro": "Cada coordenada tem um sinal escondido: o −x de [[v]], o −z de [[u]] e o 2 que multiplica o parêntese y + 2. Quem perde o primeiro acha x = 7; quem perde o segundo acha z = 9; quem multiplica só o y por 2 acha y = −1/2. Escreva 2[[v]] por inteiro numa linha antes de subtrair.",
+        "confira": "Substitua os valores e calcule os dois lados. Com x = −7, y = −3/2 e z = −9, fica [[u]] = (2, 9, 1) e [[v]] = (7, 3, 1/2). Então [[u]] − 2[[v]] = (2 − 14, 9 − 6, 1 − 1) = (−12, 3, 0). E 3[[w]] = (−12, 3, 0). Os lados são iguais.",
+        "atalho": "Comece pela terceira coordenada, a única em que o lado direito é 0: 1 − 2(y + 2) = 0 dá y + 2 = 1/2, logo y = −3/2. Isso elimina a alternativa com y = −1/2. Depois a primeira: 2 + 2x = −12 exige x = −7. Por fim, o sinal do z: −z = 9 pede z negativo."
+      }
+    }
+  ]
+}

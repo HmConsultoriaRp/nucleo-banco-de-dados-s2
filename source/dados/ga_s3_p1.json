@@ -1,0 +1,333 @@
+{
+  "disciplina": "ga",
+  "semanas": [
+    {
+      "semana": 3,
+      "titulo": "Produto misto: volume, sinal e provas com vetores",
+      "chamada": "Um número só, tirado de três vetores, diz o volume da caixa que eles armam e se os três cabem num mesmo plano.",
+      "fonte": "Lista 3 — Prof. Danilo Adrian Marques",
+      "previa": false,
+      "blocos": [
+        {"titulo": "O que é o produto misto", "texto": "O produto misto de três vetores é [[u]]·([[v]] × [[w]]). Primeiro você faz o produto vetorial [[v]] × [[w]], que dá um vetor perpendicular ao plano de [[v]] e [[w]], com tamanho igual à área do paralelogramo que os dois formam. Depois faz o produto escalar desse vetor com [[u]]. O resultado final é um número, não um vetor. Esse número mede quanto [[u]] sai do plano de [[v]] e [[w]], multiplicado pela área daquele paralelogramo."},
+        {"titulo": "Como calcular: o determinante", "texto": "Monte uma grade 3 × 3 com as coordenadas de [[u]], [[v]] e [[w]], uma em cada linha, nessa ordem. O produto misto é o determinante dessa grade. Pela regra de Sarrus, você copia as duas primeiras colunas à direita, multiplica as três diagonais que descem para a direita e soma; depois multiplica as três que sobem e subtrai. Outra forma é abrir pela primeira linha, a chamada expansão por cofatores: x₁(y₂z₃ − z₂y₃) − y₁(x₂z₃ − z₂x₃) + z₁(x₂y₃ − y₂x₃). Cuidado com o sinal de menos do termo do meio."},
+        {"titulo": "Volume: paralelepípedo e tetraedro", "texto": "Três vetores que saem do mesmo ponto armam um paralelepípedo, uma caixa com faces em forma de paralelogramo. O volume dela é |[[u]]·([[v]] × [[w]])|, com módulo, porque volume não é negativo. É área da base vezes altura: ‖[[v]] × [[w]]‖ é a área da base, e a altura é o pedaço de [[u]] perpendicular a essa base. O tetraedro com as mesmas três arestas tem 1/6 desse volume: a base triangular é metade do paralelogramo, e uma pirâmide ocupa 1/3 do prisma de mesma base e altura. 1/2 × 1/3 = 1/6."},
+        {"titulo": "Coplanaridade", "texto": "Se o produto misto dá zero, a caixa achatou: os três vetores estão num mesmo plano, e se diz que são coplanares. Vale a volta: vetores coplanares dão produto misto zero. Para testar se quatro pontos A, B, C e D estão num mesmo plano, monte três vetores saindo do mesmo ponto, como [[AB]], [[AC]] e [[AD]], e veja se o produto misto zera. Se um dos pontos tem uma incógnita, escolha como ponto de partida um que não tenha; a conta encurta."},
+        {"titulo": "Sinal e ordem dos vetores", "texto": "O sinal do produto misto diz a orientação: positivo quando [[u]] fica do mesmo lado de [[v]] × [[w]] (regra da mão direita), negativo quando fica do lado oposto. Rodar os três em ciclo não muda nada: [[u]]·([[v]] × [[w]]) = [[v]]·([[w]] × [[u]]) = [[w]]·([[u]] × [[v]]). Trocar dois de lugar inverte o sinal. Se um vetor aparece duas vezes, o resultado é zero. E dá para trocar o ponto e o × de lugar: [[u]]·([[v]] × [[w]]) = ([[u]] × [[v]])·[[w]]."},
+        {"titulo": "Provar com vetores (Questão 5)", "texto": "A Questão 5 pede para provar ou derrubar afirmações. Quatro ferramentas resolvem quase tudo. Escrever cada vetor como diferença de pontos: [[AB]] = B − A. Ponto médio: M = (A + B)/2; um ponto que divide AB na razão 2 para 1 é X = (1/3)A + (2/3)B. Norma ao quadrado é o produto escalar do vetor com ele mesmo, ‖[[u]]‖² = [[u]]·[[u]], e daí saem a lei do paralelogramo e o teste de perpendicular. Cossenos diretores: cada coordenada dividida pela norma. Para mostrar que uma frase é falsa, basta um contraexemplo com números."}
+      ],
+      "formulas": [
+        {"nome": "Produto misto", "expr": "[[u]]·([[v]] × [[w]]) = x₁(y₂z₃ − z₂y₃) − y₁(x₂z₃ − z₂x₃) + z₁(x₂y₃ − y₂x₃)", "quando": "três vetores dados por coordenadas, um em cada linha, na ordem [[u]], [[v]], [[w]]"},
+        {"nome": "Regra de Sarrus", "expr": "det = (aei + bfg + cdh) − (ceg + afh + bdi), para as linhas (a, b, c), (d, e, f), (g, h, i)", "quando": "determinante 3 × 3 sem abrir em cofatores"},
+        {"nome": "Volume do paralelepípedo", "expr": "V = |[[u]]·([[v]] × [[w]])|", "quando": "caixa com arestas [[u]], [[v]] e [[w]] saindo do mesmo vértice"},
+        {"nome": "Volume do tetraedro", "expr": "V = |[[AB]]·([[AC]] × [[AD]])| / 6", "quando": "quatro pontos dados; os três vetores saem do mesmo vértice"},
+        {"nome": "Altura do paralelepípedo", "expr": "h = |[[u]]·([[v]] × [[w]])| / ‖[[v]] × [[w]]‖", "quando": "altura em relação à base formada por [[v]] e [[w]]: volume dividido pela área da base"},
+        {"nome": "Coplanaridade", "expr": "[[u]], [[v]] e [[w]] coplanares ↔ [[u]]·([[v]] × [[w]]) = 0", "quando": "testar se três vetores (ou quatro pontos) estão num mesmo plano"},
+        {"nome": "Ordem e sinal", "expr": "[[u]]·([[v]] × [[w]]) = [[v]]·([[w]] × [[u]]) = [[w]]·([[u]] × [[v]]) = −[[u]]·([[w]] × [[v]])", "quando": "rodar em ciclo mantém o valor; trocar dois vetores inverte o sinal"},
+        {"nome": "Ponto e cruz trocados", "expr": "[[u]]·([[v]] × [[w]]) = ([[u]] × [[v]])·[[w]]", "quando": "a mesma conta escrita com o × antes do ponto"},
+        {"nome": "Vetor repetido", "expr": "[[u]]·([[u]] × [[v]]) = 0", "quando": "qualquer produto misto com dois vetores iguais"},
+        {"nome": "Ponto médio", "expr": "M = (A + B)/2", "quando": "provas com pontos médios de lados (Varignon, trapézio, quadrilátero)"},
+        {"nome": "Divisão na razão 2 para 1", "expr": "[[AX]] = 2[[XB]] ⇒ X = (1/3)A + (2/3)B e [[CX]] = (1/3)[[CA]] + (2/3)[[CB]]", "quando": "ponto X sobre AB, duas vezes mais longe de A do que de B"},
+        {"nome": "Norma ao quadrado", "expr": "‖[[u]]‖² = [[u]]·[[u]]", "quando": "transformar uma norma em produto escalar para poder distribuir"},
+        {"nome": "Soma vezes diferença", "expr": "([[u]] + [[v]])·([[u]] − [[v]]) = ‖[[u]]‖² − ‖[[v]]‖²", "quando": "provar que soma e diferença são perpendiculares quando ‖[[u]]‖ = ‖[[v]]‖"},
+        {"nome": "Lei do paralelogramo", "expr": "‖[[u]] + [[v]]‖² + ‖[[u]] − [[v]]‖² = 2‖[[u]]‖² + 2‖[[v]]‖²", "quando": "relação entre as diagonais e os lados de um paralelogramo"},
+        {"nome": "Cossenos diretores", "expr": "cos α = x/‖[[V]]‖, cos β = y/‖[[V]]‖, cos γ = z/‖[[V]]‖ e cos²α + cos²β + cos²γ = 1", "quando": "ângulos de um vetor [[V]] = (x, y, z) com os eixos [[i]], [[j]] e [[k]]"}
+      ],
+      "jeitos": {
+        "visual": "Ponha três vetores saindo do mesmo canto, como três varetas. Eles armam uma caixa torta, o paralelepípedo. [[v]] e [[w]] formam o piso; [[v]] × [[w]] é uma haste em pé sobre o piso, com tamanho igual à área dele. O produto misto [[u]]·([[v]] × [[w]]) mede quanto [[u]] sobe ao longo dessa haste, vezes a área: é o volume, com sinal. Se [[u]] deita no piso, a caixa achata e o resultado é zero.",
+        "cotidiano": "Uma pilha de folhas empurrada de lado fica torta, mas guarda o mesmo volume: área da folha vezes altura da pilha. O produto misto faz essa conta para qualquer caixa torta. Corte a caixa ao meio na diagonal: sobra um prisma com metade do volume. A pirâmide de mesma base e mesma altura ocupa 1/3 desse prisma. Ela tem 1/2 × 1/3 = 1/6 do volume da caixa, e é o tetraedro. E três réguas deitadas na mesma mesa não armam caixa nenhuma: volume zero, vetores coplanares.",
+        "receita": "Para calcular [[u]]·([[v]] × [[w]]): 1) escreva as coordenadas de [[u]], [[v]] e [[w]] em três linhas, nessa ordem; 2) copie as duas primeiras colunas à direita; 3) some os produtos das três diagonais que descem; 4) subtraia os produtos das três que sobem. Para volume, tire o módulo. Para tetraedro, divida o módulo por 6. Para coplanaridade, iguale a zero. Para altura, divida o módulo por ‖[[v]] × [[w]]‖.",
+        "trabalho": "No Excel, o produto misto é =MATRIZ.DETERM(A1:C3), com um vetor por linha. Trocar duas linhas de lugar muda o sinal, como inverter débito e crédito: o valor absoluto fica, o sentido vira. Determinante zero aparece quando uma linha é combinação das outras, como uma coluna calculada (margem = receita − custo) que não traz informação nova. Nas provas da Questão 5, a técnica lembra uma conciliação: escrever o mesmo valor por dois caminhos e cancelar o que entra e sai.",
+        "erro": "Os tropeços que mais custam ponto: esquecer o sinal de menos no termo do meio da expansão; somar em vez de subtrair as diagonais que sobem na regra de Sarrus; deixar o volume negativo; esquecer o 1/6 do tetraedro ou trocar por 1/2 ou 1/3; usar pontos como vetores sem subtrair. Nas provas, o tropeço é aceitar um desenho ou um exemplo como demonstração. Um exemplo derruba uma frase falsa, mas não prova uma verdadeira."
+      },
+      "lab": "Monte três vetores no laboratório, calcule o produto misto e depois troque dois deles de lugar: o volume fica o mesmo e só o sinal vira."
+    }
+  ],
+  "questoes": [
+    {
+      "id": "ga-s3-l3q1a",
+      "semana": 3,
+      "nivel": 1,
+      "minutos": 4,
+      "tema": "Produto misto com frações",
+      "origem": "Lista 3 · Q1a",
+      "enunciado": "Sendo [[u]] = (1, 4, 3), [[v]] = (−1, 1, −1), [[w]] = (−2, −1/2, 5) e [[z]] = (−1, 2, −3), calcule [[u]]·([[v]] × [[w]]).",
+      "alternativas": [
+        {"t": "−40", "certa": false, "erro": "Você calculou [[u]]·([[w]] × [[v]]), com [[v]] e [[w]] em ordem trocada. Trocar dois vetores inverte o sinal do produto misto."},
+        {"t": "−16", "certa": false, "erro": "Faltou o sinal de menos da segunda coordenada de [[v]] × [[w]]: você usou −7 no lugar de 7. Aí 9/2 − 28 + 15/2 = −16."},
+        {"t": "40", "certa": true},
+        {"t": "38", "certa": false, "erro": "Você usou +1/2 no lugar de −1/2 em [[w]]. O produto vetorial vira (11/2, 7, 3/2), e 11/2 + 28 + 9/2 = 38."},
+        {"t": "−15", "certa": false, "erro": "Você multiplicou os três vetores coordenada a coordenada e somou: 1·(−1)·(−2) + 4·1·(−1/2) + 3·(−1)·5 = −15. Produto misto pede o produto vetorial antes."}
+      ],
+      "dica": "Faça primeiro [[v]] × [[w]], que dá um vetor. Só depois o produto escalar com [[u]].",
+      "resposta": "40",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 4, 3], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, 1, -1], "rot": "v", "cor": 2},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-2, -0.5, 5], "rot": "w", "cor": 2},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [4.5, 7, 2.5], "rot": "v × w", "cor": 4}
+        ],
+        "legenda": "A seta escura é [[v]] × [[w]], perpendicular a [[v]] e a [[w]]. O produto misto mede quanto [[u]] acompanha essa seta."
+      },
+      "jeitos": {
+        "visual": "Pense em [[v]] e [[w]] como duas réguas presas no mesmo ponto. Elas definem um chão inclinado. O produto vetorial [[v]] × [[w]] = (9/2, 7, 5/2) é uma haste espetada nesse chão, em pé; na figura, é a seta escura. O produto misto mede quanto [[u]] anda na direção dessa haste, vezes a área do chão. Deu 40, positivo: [[u]] sai do chão para o mesmo lado da haste.",
+        "receita": [
+          "Monte o produto vetorial [[v]] × [[w]], com [[v]] = (−1, 1, −1) e [[w]] = (−2, −1/2, 5).",
+          "Primeira coordenada: 1·5 − (−1)·(−1/2) = 5 − 1/2 = 9/2.",
+          "Segunda: (−1)·(−2) − (−1)·5 = 2 + 5 = 7.",
+          "Terceira: (−1)·(−1/2) − 1·(−2) = 1/2 + 2 = 5/2. Então [[v]] × [[w]] = (9/2, 7, 5/2).",
+          "Produto escalar com [[u]] = (1, 4, 3): 9/2 + 28 + 15/2 = 12 + 28 = 40."
+        ],
+        "cotidiano": "É como calcular o volume de um armário torto. Duas arestas do chão, [[v]] e [[w]], dão a área do piso. A terceira aresta, [[u]], sobe inclinada, e só a parte dela que sobe em pé conta para o volume. O produto misto faz as duas contas de uma vez: área do piso vezes altura. Aqui o armário mede 40 unidades de volume.",
+        "trabalho": "No Excel, ponha [[u]], [[v]] e [[w]] em três linhas (A1:C3, uma coordenada por coluna) e use =MATRIZ.DETERM(A1:C3). Sai 40, o mesmo produto misto. A ordem das linhas importa: com [[w]] antes de [[v]], o Excel devolve −40. Cuidado também com a fração: digite −0,5 na célula de [[w]]. Se entrar 0,5, a conta vira 38 e parece plausível.",
+        "conversa": [
+          {"quem": "Você", "fala": "Posso fazer [[u]]·[[v]] primeiro e depois multiplicar por [[w]]?"},
+          {"quem": "Monitor", "fala": "[[u]]·[[v]] dá um número. Número vezes vetor dá vetor. E o produto misto termina num número. O que vem primeiro, então?"},
+          {"quem": "Você", "fala": "O produto vetorial [[v]] × [[w]]."},
+          {"quem": "Monitor", "fala": "Isso. Quanto deu?"},
+          {"quem": "Você", "fala": "(9/2, 7, 5/2). Com [[u]] = (1, 4, 3): 9/2 + 28 + 15/2 = 40."},
+          {"quem": "Monitor", "fala": "Agora confira pelo determinante com as linhas [[u]], [[v]] e [[w]]. Tem de dar o mesmo 40."}
+        ],
+        "erro": "Dois tropeços aparecem muito aqui. O primeiro é o sinal do meio no produto vetorial: a segunda coordenada é v₃w₁ − v₁w₃, e quem inverte essa ordem troca 7 por −7 e chega em −16. O segundo é a fração: −1/2 com sinal trocado vira +1/2 e leva a 38. Escreva cada produto entre parênteses antes de somar.",
+        "confira": "Pela regra de Sarrus, com as linhas (1, 4, 3), (−1, 1, −1) e (−2, −1/2, 5): as diagonais que descem somam 5 + 8 + 3/2 = 29/2; as que sobem somam −6 + 1/2 − 20 = −51/2. 29/2 − (−51/2) = 80/2 = 40. Outra prova: [[v]] × [[w]] tem de ser perpendicular a [[v]], e (9/2)(−1) + 7·1 + (5/2)(−1) = 0.",
+        "atalho": "As alternativas trazem 40 e −40, então a ordem decide. O enunciado pede [[v]] × [[w]], nessa ordem, sem inverter. A conta mais rápida é Sarrus direto nas três linhas, sem montar o vetor intermediário. As frações se juntam no fim: 9/2 + 15/2 = 12, e 12 + 28 = 40."
+      }
+    },
+    {
+      "id": "ga-s3-l3q1b",
+      "semana": 3,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Produto misto negativo",
+      "origem": "Lista 3 · Q1b",
+      "enunciado": "Sendo [[u]] = (1, 4, 3), [[v]] = (−1, 1, −1), [[w]] = (−2, −1/2, 5) e [[z]] = (−1, 2, −3), calcule [[u]]·([[v]] × [[z]]).",
+      "alternativas": [
+        {"t": "−12", "certa": true},
+        {"t": "12", "certa": false, "erro": "Você fez [[u]]·([[z]] × [[v]]), com a ordem invertida, ou perdeu o sinal no fim. Trocar a ordem de [[v]] e [[z]] inverte o resultado."},
+        {"t": "4", "certa": false, "erro": "Na segunda coordenada de [[v]] × [[z]] você fez v₁z₃ − v₃z₁ = 2 em vez de v₃z₁ − v₁z₃ = −2. Com (−1, 2, −1), o produto com [[u]] dá −1 + 8 − 3 = 4."},
+        {"t": "18", "certa": false, "erro": "Você multiplicou as coordenadas dos três vetores na mesma posição e somou: 1 + 8 + 9 = 18. Isso não é produto misto; falta o produto vetorial."},
+        {"t": "−6", "certa": false, "erro": "A terceira coordenada saiu com sinal trocado: 1·(−1) − (−1)·2 = 1 em vez de (−1)·2 − 1·(−1) = −1. Com (−1, −2, 1), o produto dá −1 − 8 + 3 = −6."}
+      ],
+      "dica": "Monte [[v]] × [[z]] coordenada por coordenada e só depois faça o produto escalar com [[u]].",
+      "resposta": "−12",
+      "jeitos": {
+        "visual": "Imagine [[v]] e [[z]] deitados num mesmo plano, como dois ponteiros saindo do mesmo centro. O vetor [[v]] × [[z]] = (−1, −2, −1) fica de pé sobre esse plano. Agora coloque [[u]] = (1, 4, 3): ele aponta para o lado contrário da haste, porque o produto escalar dá negativo. O módulo 12 é o volume da caixa; o sinal de menos diz só de que lado [[u]] ficou.",
+        "receita": [
+          "[[v]] = (−1, 1, −1) e [[z]] = (−1, 2, −3).",
+          "Primeira coordenada de [[v]] × [[z]]: 1·(−3) − (−1)·2 = −3 + 2 = −1.",
+          "Segunda: (−1)·(−1) − (−1)·(−3) = 1 − 3 = −2.",
+          "Terceira: (−1)·2 − 1·(−1) = −2 + 1 = −1. Então [[v]] × [[z]] = (−1, −2, −1).",
+          "Com [[u]] = (1, 4, 3): 1·(−1) + 4·(−2) + 3·(−1) = −1 − 8 − 3 = −12."
+        ],
+        "cotidiano": "Pense num parafuso comum. Girar a chave de [[v]] para [[z]] faz o parafuso andar num sentido, o de [[v]] × [[z]]. Se [[u]] aponta para o lado em que o parafuso avança, o produto misto é positivo; se aponta para o lado em que ele recua, é negativo. Aqui [[u]] está do lado oposto, por isso −12. O tamanho da caixa é 12 do mesmo jeito.",
+        "trabalho": "Produto escalar é SOMARPRODUTO. Com [[u]] em A1:C1 e [[v]] × [[z]] em A2:C2, =SOMARPRODUTO(A1:C1;A2:C2) devolve −12. Negativo aqui não é erro, assim como um saldo negativo no extrato não é erro de fórmula: mostra o sentido. Se precisar só do volume, envolva a fórmula com ABS.",
+        "conversa": [
+          {"quem": "Você", "fala": "Deu −12. Volume negativo existe?"},
+          {"quem": "Monitor", "fala": "Volume, não. Mas a pergunta é o produto misto, e ele pode ser negativo. O sinal conta o quê?"},
+          {"quem": "Você", "fala": "Se [[u]] está do mesmo lado de [[v]] × [[z]] ou do lado oposto?"},
+          {"quem": "Monitor", "fala": "Isso. Aqui [[u]]·(−1, −2, −1) deu negativo, então está do lado oposto."},
+          {"quem": "Você", "fala": "E se eu quisesse o volume?"},
+          {"quem": "Monitor", "fala": "Tiraria o módulo: 12. Mas a resposta da questão é −12."}
+        ],
+        "erro": "A segunda coordenada do produto vetorial é onde mais se erra o sinal. A ordem certa é v₃z₁ − v₁z₃, que dá (−1)(−1) − (−1)(−3) = 1 − 3 = −2. Quem faz ao contrário obtém +2 e chega em 4. Outro escorregão é achar que a resposta não pode ser negativa e marcar 12: isso é o volume, não o produto misto.",
+        "confira": "Faça pelo determinante com as linhas (1, 4, 3), (−1, 1, −1) e (−1, 2, −3), pela regra de Sarrus. Descendo: −3 + 4 − 6 = −5. Subindo: −3 − 2 + 12 = 7. Resultado: −5 − 7 = −12. E teste o vetor do meio: (−1, −2, −1)·(−1, 2, −3) = 1 − 4 + 3 = 0, perpendicular a [[z]] como deve ser.",
+        "atalho": "Sinal primeiro. Se a sua conta der positiva, refaça a segunda coordenada, que é a que mais engana. As coordenadas de [[v]] × [[z]] são pequenas, (−1, −2, −1), então o produto com [[u]] = (1, 4, 3) sai de cabeça: −1 − 8 − 3. Não divida nada: é produto misto, não volume de tetraedro."
+      }
+    },
+    {
+      "id": "ga-s3-l3q1c",
+      "semana": 3,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Produto misto e sinais",
+      "origem": "Lista 3 · Q1c",
+      "enunciado": "Sendo [[u]] = (1, 4, 3), [[v]] = (−1, 1, −1), [[w]] = (−2, −1/2, 5) e [[z]] = (−1, 2, −3), calcule [[v]]·([[w]] × [[z]]).",
+      "alternativas": [
+        {"t": "−2", "certa": false, "erro": "Você calculou [[v]]·([[z]] × [[w]]), com [[w]] e [[z]] trocados. Inverter dois vetores troca o sinal do produto misto."},
+        {"t": "5", "certa": false, "erro": "Você fez (−1/2)·(−3) = −3/2. Menos com menos dá mais: +3/2. Com o sinal errado, a primeira coordenada vira −23/2 e a conta termina em 5."},
+        {"t": "24", "certa": false, "erro": "Na segunda coordenada de [[w]] × [[z]] você fez w₁z₃ − w₃z₁ = 11 em vez de w₃z₁ − w₁z₃ = −11. Com +11, a conta dá 17/2 + 11 + 9/2 = 24."},
+        {"t": "12", "certa": false, "erro": "Você multiplicou as três coordenadas de mesma posição e somou: −2 − 1 + 15 = 12. O produto misto precisa do produto vetorial, não de um produto termo a termo."},
+        {"t": "2", "certa": true}
+      ],
+      "dica": "Comece por [[w]] × [[z]] e cuide das frações: (−1/2)·(−3) é positivo.",
+      "resposta": "2",
+      "jeitos": {
+        "visual": "Os vetores [[w]] e [[z]] abrem um paralelogramo grande: [[w]] × [[z]] = (−17/2, −11, −9/2) tem norma perto de 14,6. Mesmo assim o produto misto dá só 2. Isso quer dizer que [[v]] quase deita no plano de [[w]] e [[z]]: sobe pouco em relação a esse chão. Caixa de piso grande e altura pequena tem volume pequeno.",
+        "receita": [
+          "[[w]] = (−2, −1/2, 5) e [[z]] = (−1, 2, −3).",
+          "Primeira coordenada de [[w]] × [[z]]: (−1/2)·(−3) − 5·2 = 3/2 − 10 = −17/2.",
+          "Segunda: 5·(−1) − (−2)·(−3) = −5 − 6 = −11.",
+          "Terceira: (−2)·2 − (−1/2)·(−1) = −4 − 1/2 = −9/2.",
+          "Com [[v]] = (−1, 1, −1): 17/2 − 11 + 9/2 = 13 − 11 = 2."
+        ],
+        "cotidiano": "Pense numa caixa de pizza bem larga e quase fechada. O fundo é enorme, mas a altura é tão pequena que o volume quase some. Aqui o fundo é o paralelogramo de [[w]] e [[z]], e a tampa fica muito perto dele, porque [[v]] quase não sai desse plano. Por isso o produto misto dá um número pequeno, 2, mesmo com coordenadas grandes no meio da conta.",
+        "trabalho": "As frações são o perigo, como numa planilha em que −1/2 entra digitado como 1/2. Ponha [[v]], [[w]] e [[z]] nas linhas A1:C3, com −0,5 na célula certa, e =MATRIZ.DETERM(A1:C3) devolve 2. Se o −0,5 entrar sem o sinal, sai 4. Conferir célula por célula acha o problema mais rápido do que olhar o total.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei 5. Revisei e não acho o erro."},
+          {"quem": "Monitor", "fala": "Olhe a primeira coordenada de [[w]] × [[z]]. Quanto deu (−1/2)·(−3)?"},
+          {"quem": "Você", "fala": "−3/2."},
+          {"quem": "Monitor", "fala": "Dois negativos multiplicados dão positivo. Refaça."},
+          {"quem": "Você", "fala": "+3/2. Então 3/2 − 10 = −17/2, e não −23/2."},
+          {"quem": "Monitor", "fala": "Com isso, 17/2 − 11 + 9/2 = 2. Foi só aquele sinal."}
+        ],
+        "erro": "A fração −1/2 aparece em dois produtos: (−1/2)·(−3) e (−1/2)·(−1). Nos dois, menos com menos dá mais, e é aí que a turma escorrega. Um sinal trocado no primeiro leva a 5; no segundo, a 1. Os dois valores ficam perto de 2 e parecem plausíveis. Escreva cada produto entre parênteses e só depois subtraia.",
+        "confira": "Teste o vetor do meio: [[w]] × [[z]] tem de ser perpendicular a [[w]]. (−17/2)(−2) + (−11)(−1/2) + (−9/2)·5 = 17 + 11/2 − 45/2 = 0. Passou. Depois refaça por Sarrus com as linhas [[v]], [[w]] e [[z]]: as diagonais que descem somam −5/2, as que sobem somam −9/2, e −5/2 − (−9/2) = 2.",
+        "atalho": "Rode os vetores em ciclo para fugir das frações: [[v]]·([[w]] × [[z]]) = [[w]]·([[z]] × [[v]]). E [[z]] × [[v]] é o oposto do [[v]] × [[z]] = (−1, −2, −1) do item b, ou seja, (1, 2, 1). O produto com [[w]] sai numa linha: (−2)·1 + (−1/2)·2 + 5·1 = −2 − 1 + 5 = 2."
+      }
+    },
+    {
+      "id": "ga-s3-l3q2",
+      "semana": 3,
+      "nivel": 2,
+      "minutos": 5,
+      "tema": "Volume do tetraedro",
+      "origem": "Lista 3 · Q2",
+      "enunciado": "Sejam A = (−1, 2, −1), B = (5, 1, 1), C = (−2, −1, 1) e D = (6, −1, −3) vértices de um tetraedro. Calcule o volume deste tetraedro.\nOBS: Volume do tetraedro = 1/6 do volume do paralelepípedo formado pelos vetores [[u]], [[v]] e [[w]].",
+      "alternativas": [
+        {"t": "108", "certa": false, "erro": "Esse é o volume do paralelepípedo formado por [[AB]], [[AC]] e [[AD]]. O tetraedro ocupa 1/6 dele."},
+        {"t": "18", "certa": true},
+        {"t": "54", "certa": false, "erro": "Você dividiu 108 por 2, como na área do triângulo. No espaço, o tetraedro é 1/6 do paralelepípedo, não a metade."},
+        {"t": "36", "certa": false, "erro": "Você dividiu 108 por 3, lembrando da pirâmide. O 1/3 vale sobre o prisma de base triangular, que já é metade do paralelepípedo: 1/2 × 1/3 = 1/6."},
+        {"t": "−18", "certa": false, "erro": "O produto misto pode dar −108 se a ordem dos vetores mudar, mas volume é sempre positivo. Faltou o módulo."}
+      ],
+      "dica": "Monte três vetores saindo do mesmo vértice, como [[AB]], [[AC]] e [[AD]], calcule o produto misto e divida o módulo por 6.",
+      "resposta": "18",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "ponto", "em": [-1, 2, -1], "rot": "A"},
+          {"tipo": "ponto", "em": [5, 1, 1], "rot": "B"},
+          {"tipo": "ponto", "em": [-2, -1, 1], "rot": "C"},
+          {"tipo": "ponto", "em": [6, -1, -3], "rot": "D"},
+          {"tipo": "vetor", "de": [-1, 2, -1], "ate": [5, 1, 1], "rot": "AB", "cor": 1},
+          {"tipo": "vetor", "de": [-1, 2, -1], "ate": [-2, -1, 1], "rot": "AC", "cor": 1},
+          {"tipo": "vetor", "de": [-1, 2, -1], "ate": [6, -1, -3], "rot": "AD", "cor": 1},
+          {"tipo": "segmento", "de": [5, 1, 1], "ate": [-2, -1, 1], "tracejado": true},
+          {"tipo": "segmento", "de": [5, 1, 1], "ate": [6, -1, -3], "tracejado": true},
+          {"tipo": "segmento", "de": [-2, -1, 1], "ate": [6, -1, -3], "tracejado": true}
+        ],
+        "legenda": "As três setas saem de A. O tetraedro é a ponta da caixa que elas formariam."
+      },
+      "jeitos": {
+        "visual": "Na figura, as três setas azuis saem do vértice A e chegam em B, C e D. Se você completasse a caixa com essas três arestas, teria um paralelepípedo de volume 108. O tetraedro é a pirâmide pontuda num canto dessa caixa, com as mesmas três arestas. A caixa pode ser repartida em seis tetraedros de volumes iguais. Eles não são cópias do ABCD, mas cada um tem o volume dele: 108/6 = 18.",
+        "receita": [
+          "Vetores a partir de A: [[AB]] = (6, −1, 2), [[AC]] = (−1, −3, 2), [[AD]] = (7, −3, −2).",
+          "[[AC]] × [[AD]] = ((−3)(−2) − 2·(−3), 2·7 − (−1)(−2), (−1)(−3) − (−3)·7) = (12, 12, 24).",
+          "Produto misto: [[AB]]·(12, 12, 24) = 72 − 12 + 48 = 108.",
+          "Volume do paralelepípedo: |108| = 108.",
+          "Volume do tetraedro: 108/6 = 18."
+        ],
+        "cotidiano": "Pense num tijolo. Corte o tijolo ao meio na diagonal e você tem um prisma de base triangular, com metade do volume. Desse prisma, uma pirâmide com a mesma base e a mesma altura ocupa um terço. Metade de um terço é um sexto. É daí que sai a divisão por 6, e não de uma regra decorada.",
+        "trabalho": "É a mesma lógica de um rateio em duas etapas. Um custo é dividido meio a meio entre dois setores; depois, a parte de um setor é dividida em três centros de custo. Cada centro fica com 1/2 × 1/3 = 1/6 do total. Aqui o total é o paralelepípedo, 108, e o tetraedro é a fatia de 1/6: 18. Quem aplica só uma das etapas chega em 54 ou 36.",
+        "conversa": [
+          {"quem": "Você", "fala": "Calculei o produto misto e deu 108. É o volume?"},
+          {"quem": "Monitor", "fala": "É o volume de que sólido?"},
+          {"quem": "Você", "fala": "Da caixa formada por [[AB]], [[AC]] e [[AD]]."},
+          {"quem": "Monitor", "fala": "E o enunciado pede a caixa ou o tetraedro?"},
+          {"quem": "Você", "fala": "O tetraedro. Então divido por 6 e dá 18."},
+          {"quem": "Monitor", "fala": "Isso. E se a conta tivesse dado −108, o volume seria 18 do mesmo jeito."}
+        ],
+        "erro": "O erro principal é parar no 108. O produto misto mede o paralelepípedo inteiro, e o enunciado pede o tetraedro. O segundo erro é dividir pelo número errado: 2, lembrando da área do triângulo, ou 3, lembrando da pirâmide. O fator certo junta os dois: 1/2 × 1/3 = 1/6. E volume nunca sai negativo.",
+        "confira": "Troque o vértice de partida. Com vetores saindo de B: [[BA]] = (−6, 1, −2), [[BC]] = (−7, −2, 0), [[BD]] = (1, −2, −4). O produto misto dá −108, porque a orientação mudou. Em módulo, 108, e 108/6 = 18. Mesmo tetraedro, mesmo volume, qualquer que seja o vértice escolhido.",
+        "atalho": "Descarte −18 na hora: volume não é negativo. Entre as que sobram, repare que 108, 54, 36 e 18 são 108 dividido por 1, 2, 3 e 6. Isso mostra que o produto misto vale 108 em módulo e que a questão testa o divisor. Para tetraedro, o divisor é 6."
+      }
+    },
+    {
+      "id": "ga-s3-l3q3",
+      "semana": 3,
+      "nivel": 2,
+      "minutos": 5,
+      "tema": "Pontos coplanares com incógnita",
+      "origem": "Lista 3 · Q3",
+      "enunciado": "Para qual(is) valor(es) de m os pontos A = (1, m, −2), B = (1, −2, 3), C = (−1, 1, −1) e D = (5, −1, 2) são coplanares?",
+      "alternativas": [
+        {"t": "m = −17/9", "certa": false, "erro": "Você chegou a 34 − 18m = 0, mas isolou m com o sinal errado. Passando 18m para o outro lado: 18m = 34, m = 17/9."},
+        {"t": "m = 9/17", "certa": false, "erro": "A fração ficou de cabeça para baixo. De 18m = 34 sai m = 34/18 = 17/9, e não 18/34."},
+        {"t": "m = −53/9", "certa": false, "erro": "Faltou o sinal de menos do termo do meio do determinante: a conta virou 18(m + 2) + 70 = 0, e m = −106/18 = −53/9."},
+        {"t": "m = 17/9", "certa": true},
+        {"t": "m = 1/2", "certa": false, "erro": "Você usou as coordenadas de A, B e C como se fossem vetores e esqueceu D: o determinante deu 1 − 2m. Coplanaridade de pontos exige vetores entre os pontos, como [[BA]], [[BC]] e [[BD]]."}
+      ],
+      "dica": "Quatro pontos são coplanares quando três vetores saindo de um deles têm produto misto zero. Escolha como ponto de partida um que não tenha m.",
+      "resposta": "m = 17/9",
+      "jeitos": {
+        "visual": "Pense em B, C e D como três pregos que fixam uma folha de papel no espaço. A folha é o plano que passa por eles. O ponto A = (1, m, −2) corre num trilho reto, paralelo ao eixo y, conforme o m muda. Para um único valor de m ele encosta na folha. Achar esse m é exigir que a caixa formada por [[BA]], [[BC]] e [[BD]] tenha volume zero.",
+        "receita": [
+          "Saia de B, que não tem m: [[BA]] = (0, m + 2, −5), [[BC]] = (−2, 3, −4), [[BD]] = (4, 1, −1).",
+          "Abra o determinante pela primeira linha: 0·(…) − (m + 2)·[(−2)(−1) − (−4)·4] + (−5)·[(−2)·1 − 3·4].",
+          "Colchetes: (−2)(−1) − (−4)·4 = 2 + 16 = 18; (−2)·1 − 3·4 = −2 − 12 = −14.",
+          "Produto misto: −18(m + 2) + 70 = −18m + 34.",
+          "Coplanares: −18m + 34 = 0, então m = 34/18 = 17/9."
+        ],
+        "cotidiano": "Uma mesa de quatro pés só fica firme no chão se os quatro pés tocam o mesmo plano. Três pés sempre apoiam; o quarto é que decide se a mesa balança. Aqui B, C e D são os três pés fixos, e o m regula a posição do quarto, A. Com m = 17/9 a mesa para de balançar.",
+        "trabalho": "Coplanar quer dizer que um vetor é combinação dos outros dois, como uma coluna calculada numa tabela: ela não traz informação nova, porque sai das outras. No Excel, monte [[BA]], [[BC]] e [[BD]] em três linhas, com m numa célula separada, e use Atingir Meta para levar =MATRIZ.DETERM(...) a zero. A célula do m deve parar perto de 1,889, que é o decimal de 17/9.",
+        "conversa": [
+          {"quem": "Você", "fala": "Usei [[AB]], [[AC]] e [[AD]] e apareceu m em todas as linhas. Ficou enorme."},
+          {"quem": "Monitor", "fala": "E se você partir de B?"},
+          {"quem": "Você", "fala": "Aí só o [[BA]] tem m: (0, m + 2, −5)."},
+          {"quem": "Monitor", "fala": "E o 0 na frente ainda apaga um termo. O que sobra?"},
+          {"quem": "Você", "fala": "−18(m + 2) + 70 = 0. Dá m = 17/9."},
+          {"quem": "Monitor", "fala": "Mesma resposta pelo caminho curto. A escolha do ponto de partida não muda o plano."}
+        ],
+        "erro": "Dois tropeços. O primeiro é o sinal do termo do meio na expansão do determinante: é −(m + 2)·18, e quem esquece esse menos chega em −53/9. O segundo é usar os pontos como vetores, montando o determinante com A, B e C direto. Pontos só viram vetores quando você subtrai: [[BA]] = A − B.",
+        "confira": "Ponha m = 17/9 de volta. [[BA]] = (0, 35/9, −5). Com [[BC]] = (−2, 3, −4) e [[BD]] = (4, 1, −1), o produto misto fica −(35/9)·18 + (−5)(−14) = −70 + 70 = 0. Zerou, então os quatro pontos estão no mesmo plano. Outra prova: ache a equação do plano por B, C e D e veja que A a satisfaz.",
+        "atalho": "Duas alternativas são opostas (17/9 e −17/9) e uma é a inversa (9/17). Isso sugere que a conta certa termina em 18m = 34. Para decidir o sinal, olhe só os coeficientes: o de m é −18 e a parte sem m soma −36 + 70 = +34. Então m é positivo: 17/9."
+      }
+    },
+    {
+      "id": "ga-s3-l3q4",
+      "semana": 3,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Vetor por três condições",
+      "origem": "Lista 3 · Q4",
+      "enunciado": "Se [[v]] é o vetor que satisfaz as condições:\na) [[v]] é ortogonal aos vetores (2, 1, 0) e (−1, 1, −1);\nb) ‖[[v]]‖ = √14;\nc) o ângulo entre [[v]] e o vetor (−1, 0, 2) é menor que 90°;\nencontre o ponto final do representante [[v]] que tem ponto inicial em (2, 3, 4).",
+      "alternativas": [
+        {"t": "(1, 5, 7)", "certa": true},
+        {"t": "(3, 1, 1)", "certa": false, "erro": "Você usou [[v]] = (1, −2, −3). Esse vetor cumpre a) e b), mas faz ângulo maior que 90° com (−1, 0, 2): o produto escalar dá −7."},
+        {"t": "(−1, 2, 3)", "certa": false, "erro": "Esse é o próprio [[v]]. O enunciado pede o ponto final: falta somar o ponto inicial (2, 3, 4)."},
+        {"t": "(3, 5, 7)", "certa": false, "erro": "Na primeira coordenada do produto vetorial você fez 0·1 − 1·(−1) = 1 em vez de 1·(−1) − 0·1 = −1. O vetor (1, 2, 3) não é ortogonal a (2, 1, 0): o produto escalar dá 4."},
+        {"t": "(1, 1, 7)", "certa": false, "erro": "A segunda coordenada saiu com sinal trocado, e o vetor ficou (−1, −2, 3). Teste: (−1, −2, 3)·(2, 1, 0) = −4, não 0. Ele não é ortogonal ao primeiro vetor."}
+      ],
+      "dica": "Um vetor ortogonal a dois vetores tem a direção do produto vetorial deles. A norma e o ângulo decidem o tamanho e o sentido.",
+      "resposta": "(1, 5, 7)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [2, 1, 0], "rot": "", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, 1, -1], "rot": "", "cor": 2},
+          {"tipo": "ponto", "em": [2, 3, 4], "rot": "P"},
+          {"tipo": "vetor", "de": [2, 3, 4], "ate": [1, 5, 7], "rot": "v", "cor": 4},
+          {"tipo": "ponto", "em": [1, 5, 7], "rot": "Q"},
+          {"tipo": "segmento", "de": [2, 3, 4], "ate": [3, 1, 1], "tracejado": true}
+        ],
+        "legenda": "A seta escura é o [[v]] escolhido, saindo de P = (2, 3, 4). O tracejado é o sentido descartado pela condição c)."
+      },
+      "jeitos": {
+        "visual": "Os vetores (2, 1, 0) e (−1, 1, −1) definem um plano. Quem é ortogonal aos dois fica numa reta em pé sobre esse plano, e essa reta tem dois sentidos. Na figura, a seta escura e o tracejado são as duas opções com norma √14. A condição c) escolhe a que forma ângulo agudo com (−1, 0, 2). Depois é encaixar o começo da seta em (2, 3, 4) e ler onde ela termina.",
+        "receita": [
+          "Direção: (2, 1, 0) × (−1, 1, −1) = (1·(−1) − 0·1, 0·(−1) − 2·(−1), 2·1 − 1·(−1)) = (−1, 2, 3).",
+          "Norma: √(1 + 4 + 9) = √14. Já é o tamanho pedido, então [[v]] = (−1, 2, 3) ou [[v]] = (1, −2, −3).",
+          "Ângulo menor que 90° quer dizer produto escalar positivo: (−1, 2, 3)·(−1, 0, 2) = 1 + 0 + 6 = 7 > 0. Fica [[v]] = (−1, 2, 3).",
+          "Ponto final: (2, 3, 4) + (−1, 2, 3) = (1, 5, 7)."
+        ],
+        "cotidiano": "É como achar um endereço numa rua de mão dupla. As duas primeiras condições dizem em que rua o ponto está: a direção do produto vetorial. A norma diz a que distância. Só que existem dois pontos a essa distância, um em cada sentido. A condição do ângulo é a placa que diz para qual lado seguir.",
+        "trabalho": "Pense num WHERE com três condições ligadas por AND. O primeiro filtro (ortogonal aos dois vetores) deixa passar uma reta inteira de candidatos. O segundo (norma √14) reduz a dois. O terceiro (produto escalar positivo com (−1, 0, 2)) deixa um só. Pular o último filtro é aceitar dois registros onde a regra pede um.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei (−1, 2, 3) pelo produto vetorial. Já é a resposta?"},
+          {"quem": "Monitor", "fala": "É o vetor. O enunciado pede o quê?"},
+          {"quem": "Você", "fala": "O ponto final, saindo de (2, 3, 4). Então (1, 5, 7)."},
+          {"quem": "Monitor", "fala": "Antes disso: por que (−1, 2, 3) e não (1, −2, −3)?"},
+          {"quem": "Você", "fala": "Os dois são ortogonais e têm norma √14. Mas o ângulo com (−1, 0, 2) tem de ser agudo."},
+          {"quem": "Monitor", "fala": "E o produto escalar com (1, −2, −3) dá −7. Descartado. Fica (1, 5, 7)."}
+        ],
+        "erro": "São três armadilhas em sequência. Errar um sinal no produto vetorial dá um vetor que parece certo, com norma √14, mas não é ortogonal. Esquecer a condição do ângulo leva ao vetor oposto e ao ponto (3, 1, 1). E parar no vetor (−1, 2, 3) deixa de responder o que foi pedido, que é um ponto.",
+        "confira": "Teste as três condições no vetor final: (1, 5, 7) − (2, 3, 4) = (−1, 2, 3). Ortogonal: (−1, 2, 3)·(2, 1, 0) = −2 + 2 = 0 e (−1, 2, 3)·(−1, 1, −1) = 1 + 2 − 3 = 0. Norma: √(1 + 4 + 9) = √14. Ângulo: o produto escalar com (−1, 0, 2) dá 7, positivo. Passou nas três.",
+        "atalho": "Teste as alternativas de trás para frente: subtraia (2, 3, 4) de cada ponto e veja se o vetor que sobra é ortogonal a (2, 1, 0). (1, 5, 7) dá (−1, 2, 3), com produto 0. (3, 5, 7) dá (1, 2, 3), com 4: fora. (1, 1, 7) dá (−1, −2, 3), com −4: fora. Entre as que sobram, o sinal do produto com (−1, 0, 2) decide."
+      }
+    }
+  ]
+}

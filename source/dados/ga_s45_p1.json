@@ -1,0 +1,386 @@
+{
+  "disciplina": "ga",
+  "semanas": [
+    {
+      "semana": 4,
+      "titulo": "Retas no espaço: ponto, direção e posição",
+      "chamada": "Com um ponto e um vetor você escreve qualquer reta do espaço e descobre se duas retas se cruzam, correm lado a lado ou passam uma pela outra sem se tocar.",
+      "fonte": "Prévia pela ementa do PPC — trocar quando o material da semana chegar",
+      "previa": true,
+      "blocos": [
+        {"titulo": "Um ponto e uma direção", "texto": "Uma reta r fica determinada por um ponto A e um vetor diretor [[v]] ≠ 0. Todo ponto X da reta é X = A + t[[v]], com t real. O número t é o parâmetro: t = 0 dá o próprio A, t = 1 dá A + [[v]], t negativo anda no sentido contrário. Qualquer múltiplo não nulo de [[v]] também serve como diretor, e qualquer ponto da reta serve de ponto de partida. Por isso a mesma reta tem infinitas equações, e duas equações diferentes podem descrever a mesma reta."},
+        {"titulo": "Três jeitos de escrever", "texto": "Com A = (x₀, y₀, z₀) e [[v]] = (a, b, c):\n**Vetorial:** (x, y, z) = (x₀, y₀, z₀) + t(a, b, c).\n**Paramétricas:** x = x₀ + at, y = y₀ + bt, z = z₀ + ct.\n**Simétricas:** (x − x₀)/a = (y − y₀)/b = (z − z₀)/c, isolando t em cada coordenada. Só valem com a, b e c diferentes de zero. Se uma componente é zero, aquela coordenada fica constante e sai da fração: com b = 0, escreva (x − x₀)/a = (z − z₀)/c e y = y₀. Atenção ao sinal: em (y + 4)/(−3), o ponto tem y₀ = −4 e o diretor tem b = −3."},
+        {"titulo": "Reta por dois pontos e ponto na reta", "texto": "Por A e B passa uma única reta, com diretor [[v]] = [[AB]] = B − A. Para saber se um ponto P está na reta, procure um mesmo t que funcione nas três equações paramétricas: ache t por uma coordenada e confira nas outras duas. Se uma delas pedir outro t, P está fora. Reta paralela a um eixo tem duas coordenadas fixas: a paralela ao eixo z que passa por (1, 4, −2) é x = 1 e y = 4, com z livre."},
+        {"titulo": "Posição relativa de duas retas", "texto": "Sejam r: X = A + t[[u]] e s: X = B + h[[v]].\nSe [[v]] é múltiplo de [[u]], as retas são paralelas: coincidentes quando B está em r, distintas quando não está.\nSe os diretores não são paralelos, calcule o produto misto ([[u]], [[v]], [[AB]]) = ([[u]] × [[v]]) · [[AB]]. Deu zero: os três vetores cabem num plano e as retas são concorrentes (resolva A + t[[u]] = B + h[[v]] para achar o ponto comum). Deu diferente de zero: as retas são reversas, não se cortam e não são paralelas."},
+        {"titulo": "Ângulo entre retas", "texto": "O ângulo entre duas retas é o ângulo entre os diretores, mas sempre o menor, entre 0° e 90°. Por isso a fórmula leva módulo: cos θ = |[[u]] · [[v]]|/(‖[[u]]‖ ‖[[v]]‖). Se os vetores formam 135°, as retas formam 45°, porque trocar [[v]] por −[[v]] não muda a reta. Retas ortogonais têm [[u]] · [[v]] = 0; se, além disso, se cortam, são chamadas de perpendiculares."}
+      ],
+      "formulas": [
+        {"nome": "Equação vetorial", "expr": "X = A + t[[v]], com t real", "quando": "reta por A com diretor [[v]]"},
+        {"nome": "Paramétricas", "expr": "x = x₀ + at, y = y₀ + bt, z = z₀ + ct", "quando": "coordenadas de cada ponto da reta"},
+        {"nome": "Simétricas", "expr": "(x − x₀)/a = (y − y₀)/b = (z − z₀)/c", "quando": "a, b, c ≠ 0; componente zero vira coordenada fixa"},
+        {"nome": "Diretor por dois pontos", "expr": "[[v]] = [[AB]] = B − A", "quando": "reta que passa por A e B"},
+        {"nome": "Produto vetorial", "expr": "[[u]] × [[v]] = (u₂v₃ − u₃v₂, u₃v₁ − u₁v₃, u₁v₂ − u₂v₁)", "quando": "vetor ortogonal aos dois; entra no produto misto"},
+        {"nome": "Produto misto", "expr": "([[u]], [[v]], [[w]]) = ([[u]] × [[v]]) · [[w]]", "quando": "zero quando os três vetores são coplanares; separa concorrentes de reversas"},
+        {"nome": "Paralelismo", "expr": "[[v]] = k[[u]] (componentes proporcionais)", "quando": "retas paralelas ou coincidentes"},
+        {"nome": "Ângulo entre retas", "expr": "cos θ = |[[u]] · [[v]]|/(‖[[u]]‖ ‖[[v]]‖)", "quando": "ângulo de 0° a 90° entre duas retas"},
+        {"nome": "Ortogonalidade", "expr": "[[u]] · [[v]] = 0", "quando": "retas que formam 90°"}
+      ],
+      "jeitos": {
+        "visual": "Pense na reta como um trilho reto e sem fim. O ponto A é uma estação; o vetor [[v]] é o tamanho e o sentido de um passo do trem. Cada valor de t diz quantos passos o trem deu: t = 2 são dois passos para a frente, t = −1 é um passo de ré. Duas retas no espaço podem ser trilhos que se cruzam numa estação (concorrentes), trilhos lado a lado (paralelos) ou um viaduto passando por cima de outro trilho sem encostar nele (reversas).",
+        "cotidiano": "Para explicar onde fica cada casa numa rua reta, basta um ponto de referência e um passo-padrão: a padaria fica a 3 quarteirões da praça, no sentido do rio. A praça é A, o quarteirão no sentido do rio é [[v]] e o 3 é o t. Se outra pessoa usa como referência a farmácia e mede em meios quarteirões, a descrição muda, mas a rua é a mesma. É isso que acontece com retas coincidentes escritas de jeitos diferentes.",
+        "receita": "Para decidir a posição de r: X = A + t[[u]] e s: X = B + h[[v]], siga cinco passos. 1) Veja se [[v]] é múltiplo de [[u]]. 2) Se for, teste B na equação de r: se B estiver nela, são coincidentes; se não, paralelas distintas. 3) Se não for múltiplo, calcule [[AB]] = B − A e o produto misto ([[u]] × [[v]]) · [[AB]]. 4) Zero indica concorrentes, e o ponto comum sai de A + t[[u]] = B + h[[v]]. 5) Diferente de zero indica reversas.",
+        "trabalho": "A equação paramétrica é a mesma conta de uma projeção linear numa planilha: valor do mês t = valor inicial + t × variação mensal. Com três colunas (receita, custo, despesa), cada linha da projeção é um ponto A + t[[v]]. Conferir se um ponto está na reta é como conferir se um número veio da projeção: o mesmo t tem de explicar as três colunas. Se a receita bate com o mês 3 e o custo com o mês 4, aquele valor não saiu dessa projeção.",
+        "erro": "Três tropeços aparecem muito. Primeiro, o sinal do ponto nas simétricas: (x − 5) indica x₀ = 5, e (y + 4) indica y₀ = −4. Segundo, concluir que retas não paralelas se cruzam: no espaço elas podem ser reversas, e só o produto misto decide. Terceiro, esquecer o módulo no ângulo: se o cosseno deu negativo, o ângulo dos vetores passou de 90°, mas o ângulo entre as retas é o suplemento (o que falta para 180°), sempre de 0° a 90°."
+      },
+      "lab": "No laboratório, digite o ponto P e o diretor [[v]] e veja a reta. Troque [[v]] por 2[[v]] ou por −[[v]], ou mude P para P + [[v]]: a equação muda, mas a reta fica no mesmo lugar e o pé H, o ponto da reta mais perto de Q, não se mexe."
+    },
+    {
+      "semana": 5,
+      "titulo": "Planos, distâncias e ângulos",
+      "chamada": "Um ponto e um vetor normal bastam para escrever um plano; com ele você mede a que distância um ponto está e que ângulo uma reta ou outro plano faz com ele.",
+      "fonte": "Prévia pela ementa do PPC — trocar quando o material da semana chegar",
+      "previa": true,
+      "blocos": [
+        {"titulo": "Equação geral e vetor normal", "texto": "O vetor normal [[n]] = (a, b, c) é perpendicular ao plano. Se A = (x₀, y₀, z₀) está no plano, todo ponto X do plano cumpre [[n]] · (X − A) = 0. Abrindo a conta: ax + by + cz + d = 0, com d = −(ax₀ + by₀ + cz₀). Os coeficientes de x, y e z formam a normal. Variável que não aparece tem coeficiente zero: em 2x − z + 5 = 0, [[n]] = (2, 0, −1), e o 5 é o d, que não faz parte da normal. Multiplicar a equação inteira por um número diferente de zero dá o mesmo plano."},
+        {"titulo": "Três pontos, forma vetorial e paramétrica", "texto": "Três pontos A, B, C não alinhados definem um plano. Os vetores [[u]] = [[AB]] e [[v]] = [[AC]] ficam dentro dele. Forma vetorial: X = A + λ[[u]] + μ[[v]], com λ e μ reais. Paramétricas: x = x₀ + λu₁ + μv₁, y = y₀ + λu₂ + μv₂, z = z₀ + λu₃ + μv₃. Para chegar à equação geral, a normal é [[n]] = [[u]] × [[v]] e o d sai de pôr A na equação. Confira nos três pontos: cada um tem de zerar a conta."},
+        {"titulo": "Posição relativa", "texto": "**Reta e plano:** com diretor [[v]] e normal [[n]], se [[v]] · [[n]] ≠ 0 a reta fura o plano num único ponto. Se [[v]] · [[n]] = 0, a reta é paralela ao plano ou está contida nele: ponha um ponto da reta na equação; se zerar, ela está contida.\n**Plano e plano:** se [[n₁]] é múltiplo de [[n₂]], os planos são paralelos (coincidentes quando a equação inteira é múltipla da outra). Se não, são secantes e se cortam numa reta de diretor [[n₁]] × [[n₂]]."},
+        {"titulo": "Ângulos", "texto": "**Entre planos:** é o ângulo entre as normais, com módulo para ficar entre 0° e 90°: cos θ = |[[n₁]] · [[n₂]]|/(‖[[n₁]]‖ ‖[[n₂]]‖).\n**Entre reta e plano:** a conta |[[v]] · [[n]]|/(‖[[v]]‖ ‖[[n]]‖) dá o cosseno do ângulo entre a reta e a normal. O ângulo com o próprio plano é o que falta para 90°, e o cosseno de um é o seno do outro. Daí sen θ = |[[v]] · [[n]]|/(‖[[v]]‖ ‖[[n]]‖)."},
+        {"titulo": "Distâncias", "texto": "**Ponto e plano:** d(P, π) = |ax₀ + by₀ + cz₀ + d|/√(a² + b² + c²): ponha P na equação, tire o módulo e divida pela norma da normal.\n**Planos paralelos:** pegue um ponto de um e aplique a fórmula no outro, ou deixe as normais iguais e use |d₁ − d₂|/‖[[n]]‖.\n**Ponto e reta:** d(P, r) = ‖[[AP]] × [[v]]‖/‖[[v]]‖, área do paralelogramo dividida pela base.\n**Retas reversas:** d(r, s) = |([[u]], [[v]], [[AB]])|/‖[[u]] × [[v]]‖, volume do paralelepípedo dividido pela área da base."}
+      ],
+      "formulas": [
+        {"nome": "Equação geral do plano", "expr": "ax + by + cz + d = 0, com [[n]] = (a, b, c)", "quando": "plano com vetor normal [[n]]"},
+        {"nome": "Termo independente", "expr": "d = −(ax₀ + by₀ + cz₀)", "quando": "plano que passa por A = (x₀, y₀, z₀)"},
+        {"nome": "Normal por três pontos", "expr": "[[n]] = [[AB]] × [[AC]]", "quando": "plano por A, B e C não alinhados"},
+        {"nome": "Equação vetorial do plano", "expr": "X = A + λ[[u]] + μ[[v]]", "quando": "plano por A com vetores [[u]] e [[v]] não paralelos dentro dele"},
+        {"nome": "Paramétricas do plano", "expr": "x = x₀ + λu₁ + μv₁, y = y₀ + λu₂ + μv₂, z = z₀ + λu₃ + μv₃", "quando": "coordenadas dos pontos do plano"},
+        {"nome": "Reta e plano", "expr": "[[v]] · [[n]] = 0: paralela ou contida; [[v]] · [[n]] ≠ 0: secante", "quando": "posição de uma reta em relação a um plano"},
+        {"nome": "Planos paralelos", "expr": "[[n₁]] = k[[n₂]]", "quando": "planos paralelos ou coincidentes"},
+        {"nome": "Reta de interseção", "expr": "diretor [[n₁]] × [[n₂]]", "quando": "dois planos secantes"},
+        {"nome": "Ângulo entre planos", "expr": "cos θ = |[[n₁]] · [[n₂]]|/(‖[[n₁]]‖ ‖[[n₂]]‖)", "quando": "ângulo de 0° a 90° entre dois planos"},
+        {"nome": "Ângulo entre reta e plano", "expr": "sen θ = |[[v]] · [[n]]|/(‖[[v]]‖ ‖[[n]]‖)", "quando": "reta de diretor [[v]] e plano de normal [[n]]"},
+        {"nome": "Distância ponto-plano", "expr": "d(P, π) = |ax₀ + by₀ + cz₀ + d|/√(a² + b² + c²)", "quando": "P = (x₀, y₀, z₀) e π: ax + by + cz + d = 0"},
+        {"nome": "Distância entre planos paralelos", "expr": "d(π₁, π₂) = |d₁ − d₂|/‖[[n]]‖", "quando": "as duas equações com a mesma normal [[n]]"},
+        {"nome": "Distância ponto-reta", "expr": "d(P, r) = ‖[[AP]] × [[v]]‖/‖[[v]]‖", "quando": "A na reta, [[v]] diretor"},
+        {"nome": "Distância entre retas reversas", "expr": "d(r, s) = |([[u]], [[v]], [[AB]])|/‖[[u]] × [[v]]‖", "quando": "A em r, B em s, diretores [[u]] e [[v]]"}
+      ],
+      "jeitos": {
+        "visual": "Imagine uma mesa de vidro e um palito espetado nela em pé. A mesa é o plano; o palito é o vetor normal. Qualquer risco feito na mesa forma 90° com o palito, e é por isso que [[n]] · (X − A) = 0 descreve a mesa inteira. Para medir a altura de uma lâmpada acima da mesa, você desce um fio de prumo na direção do palito: esse fio é a distância do ponto ao plano, o caminho mais curto até o vidro.",
+        "cotidiano": "Pense numa rampa de garagem. A inclinação da rampa em relação ao chão é um ângulo entre planos, e ela aparece também entre as duas setas que saem perpendiculares de cada superfície, as normais. Já um cabo esticado do teto até o chão forma um ângulo com o chão e outro com a vertical, e os dois somam 90°. É essa troca que faz o seno aparecer no ângulo entre reta e plano.",
+        "receita": "Para a distância de P = (x₀, y₀, z₀) ao plano ax + by + cz + d = 0, são quatro passos. 1) Substitua as coordenadas de P no lado esquerdo da equação. 2) Tire o módulo do resultado. 3) Calcule √(a² + b² + c²). 4) Divida. Se o passo 1 deu zero, P está no plano. Para dois planos paralelos, escolha um ponto qualquer de um deles e repita os quatro passos com a equação do outro.",
+        "trabalho": "Pense em três insumos com preços a, b e c por unidade. Toda compra (x, y, z) que custa exatamente 100 reais está no plano ax + by + cz − 100 = 0, e o vetor de preços (a, b, c) é a normal. Com orçamento de 120 reais, sai um plano paralelo: mesma normal, outro d. A distância entre os dois é |−100 − (−120)|/√(a² + b² + c²) = 20/√(a² + b² + c²): a diferença de orçamento dividida pelo tamanho do vetor de preços.",
+        "erro": "O primeiro tropeço da semana é ler a normal com o termo d junto: em 2x − z + 5 = 0, a normal é (2, 0, −1). O segundo é usar cosseno no ângulo entre reta e plano, que pede seno. O terceiro é esquecer de dividir pela norma nas distâncias. O quarto, em planos paralelos, é subtrair os d sem antes deixar as normais iguais. Em x + 2y − 2z + 1 = 0 e 3x + 6y − 6z − 4 = 0, divida a segunda por 3 antes de comparar."
+      },
+      "lab": "No laboratório, digite P, [[n]] e Q e leia a distância. Troque [[n]] por 2[[n]]: a equação dobra, mas o plano e a distância não mudam. Depois gire a figura até o plano virar uma linha na tela: o tracejado de Q até o plano aparece em ângulo reto com ela."
+    }
+  ],
+  "questoes": [
+    {
+      "id": "ga-s4-p01",
+      "semana": 4,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Reta por dois pontos",
+      "origem": "Prévia · ementa",
+      "enunciado": "Qual sistema de equações paramétricas representa a reta r que passa por A = (2, −1, 3) e B = (5, 1, −1)?",
+      "alternativas": [
+        {"t": "x = 2 + 7t, y = −1, z = 3 + 2t", "certa": false, "erro": "Você usou A + B = (7, 0, 2) como diretor, mas a direção vem da diferença B − A. Com y preso em −1, essa reta nunca chega a B, que tem y = 1."},
+        {"t": "x = 2 + 3t, y = −1 + 2t, z = 3 − 4t", "certa": true},
+        {"t": "x = 2 + 3t, y = −1 + 2t, z = 3 + 4t", "certa": false, "erro": "O z do diretor é −1 − 3 = −4, não 4. Com t = 1 você chega em (5, 1, 7), e não em B."},
+        {"t": "x = −2 + 3t, y = 1 + 2t, z = −3 − 4t", "certa": false, "erro": "O diretor está certo, mas o ponto de partida ficou com os sinais trocados: (−2, 1, −3) não é A. Essa reta é paralela à certa e não passa por A."},
+        {"t": "x = 3 + 2t, y = 2 − t, z = −4 + 3t", "certa": false, "erro": "Os papéis trocaram: o diretor (3, 2, −4) foi usado como ponto, e A virou diretor. Na paramétrica, o número solto é o ponto e o que multiplica t é a direção."}
+      ],
+      "dica": "Tire o diretor da diferença B − A e use A como ponto de partida.",
+      "resposta": "x = 2 + 3t, y = −1 + 2t, z = 3 − 4t",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [0.2, -2.2, 5.4], "ate": [6.8, 2.2, -3.4], "tracejado": true},
+          {"tipo": "ponto", "em": [2, -1, 3], "rot": "A"},
+          {"tipo": "ponto", "em": [5, 1, -1], "rot": "B"},
+          {"tipo": "vetor", "de": [2, -1, 3], "ate": [5, 1, -1], "rot": "v", "cor": 1}
+        ],
+        "legenda": "A seta azul vai de A até B e é o vetor diretor [[v]] = (3, 2, −4); a linha tracejada é a reta inteira."
+      },
+      "jeitos": {
+        "visual": "Na figura, a seta azul sai de A e termina em B. Ela é o passo [[v]] = (3, 2, −4): três unidades em x, duas em y e quatro para baixo em z. A reta tracejada é o que você obtém repetindo esse passo para a frente e para trás, quantas vezes quiser. Em t = 0 você está em A; em t = 1, em B; em t = 0,5, no meio do caminho.",
+        "receita": [
+          "Calcule o diretor: [[v]] = B − A = (5 − 2, 1 − (−1), −1 − 3) = (3, 2, −4).",
+          "Use A = (2, −1, 3) como ponto: são os números soltos das equações.",
+          "Monte: x = 2 + 3t, y = −1 + 2t, z = 3 − 4t.",
+          "Teste t = 1: (5, 1, −1) = B. A reta passa pelos dois pontos."
+        ],
+        "cotidiano": "É como dar instruções num estacionamento de vários andares. Você parte da vaga A e quer chegar à vaga B. A instrução ande 3 para a frente, 2 para a direita e desça 4 é o vetor diretor. Repetir a instrução leva você sempre pela mesma linha reta. Somar os endereços das duas vagas não dá instrução nenhuma; é a diferença entre eles que diz para onde andar.",
+        "trabalho": "Pense em duas linhas de um relatório com três indicadores: mês 0 = (2, −1, 3) e mês 1 = (5, 1, −1). A variação mensal é a diferença coluna a coluna, (3, 2, −4), como a coluna de variação que você monta com `=C3-C2`. A projeção linear de qualquer mês t é inicial + t × variação. Somar as duas linhas, em vez de subtrair, não dá variação nenhuma.",
+        "conversa": [
+          {"quem": "Você", "fala": "Posso usar B como ponto de partida em vez de A?"},
+          {"quem": "Monitor", "fala": "Pode, a reta é a mesma. Mas olhe as alternativas: todas começam em x = 2 ou em outro número?"},
+          {"quem": "Você", "fala": "A maioria começa com 2, −1 e 3. Então o ponto é A, e o diretor é B − A = (3, 2, −4)."},
+          {"quem": "Monitor", "fala": "E o z do diretor, quanto dá?"},
+          {"quem": "Você", "fala": "−1 − 3 = −4. Então z = 3 − 4t."},
+          {"quem": "Monitor", "fala": "Isso. Com t = 1 você chega exatamente em B, e essa é a prova."}
+        ],
+        "erro": "O tropeço mais comum é o sinal na subtração do z: −1 − 3 vira 4 em vez de −4. Outro é misturar papéis, usando o diretor como ponto. Uma regra ajuda: nas paramétricas, o número que está sozinho é coordenada do ponto, e o que multiplica t é componente do diretor. Aqui, as duas alternativas que não partem de A também não passam por A em t nenhum, e por isso caem.",
+        "confira": "Substitua t = 0 e t = 1 na alternativa escolhida. Em t = 0 tem de sair A = (2, −1, 3); em t = 1 tem de sair B = (5, 1, −1). Na resposta certa, t = 1 dá (2 + 3, −1 + 2, 3 − 4) = (5, 1, −1). As duas provas batem, então a reta passa pelos dois pontos, e só uma reta faz isso.",
+        "atalho": "Olhe só a coordenada z. Ela começa em 3 e precisa terminar em −1, então desce 4: o termo é −4t. Isso deixa apenas duas alternativas. Entre elas, fique com a que começa em 2, −1 e 3, as coordenadas de A."
+      }
+    },
+    {
+      "id": "ga-s4-p02",
+      "semana": 4,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Ponto pertence à reta",
+      "origem": "Prévia · ementa",
+      "enunciado": "A reta r tem equações paramétricas x = 1 + 2t, y = −3 + t, z = 4 − 3t. Qual dos pontos abaixo pertence a r?",
+      "alternativas": [
+        {"t": "(4, 0, 7)", "certa": false, "erro": "Você somou 3 a cada coordenada de (1, −3, 4), mas andar 3 passos é somar 3·[[v]] = (6, 3, −9). Pelo x de (4, 0, 7), t seria 1,5; pelo y, t seria 3: não fecha."},
+        {"t": "(2, 1, −3)", "certa": false, "erro": "Esse é o vetor diretor, não um ponto da reta. Pelo x, t seria 0,5 e, pelo y, t seria 4: valores diferentes de t deixam o ponto fora."},
+        {"t": "(5, −1, −1)", "certa": false, "erro": "x e y funcionam com t = 2, mas faltou conferir o z. Em t = 2, z = 4 − 6 = −2, e não −1."},
+        {"t": "(7, 0, −5)", "certa": true},
+        {"t": "(3, −2, 7)", "certa": false, "erro": "Em t = 1, x e y batem, mas o z ficou 4 + 3 = 7. A equação é z = 4 − 3t, que em t = 1 dá 1."}
+      ],
+      "dica": "Ache o t pela equação do x e veja se o mesmo t serve no y e no z.",
+      "resposta": "(7, 0, −5), com t = 3",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [-1, -4, 7], "ate": [9, 1, -8], "tracejado": true},
+          {"tipo": "vetor", "de": [1, -3, 4], "ate": [3, -2, 1], "rot": "v", "cor": 1},
+          {"tipo": "ponto", "em": [1, -3, 4], "rot": "t = 0"},
+          {"tipo": "ponto", "em": [7, 0, -5], "rot": "t = 3"},
+          {"tipo": "ponto", "em": [5, -1, -1], "rot": "fora"}
+        ],
+        "legenda": "O ponto de t = 3 cai sobre a reta tracejada; o ponto marcado como fora fica perto, mas não encosta nela."
+      },
+      "jeitos": {
+        "visual": "Imagine a reta como um varal com uma régua marcada. A marca 0 fica em (1, −3, 4), e cada unidade da régua anda a seta azul [[v]] = (2, 1, −3); entre as marcas valem também números quebrados, como 1,5. Um ponto pertence à reta quando cai no varal numa marca t que serve ao mesmo tempo para x, y e z. Na figura, o ponto de t = 3 está no varal; o ponto marcado como fora parece perto, mas flutua ao lado dele.",
+        "receita": [
+          "Pelo x da alternativa (7, 0, −5): 1 + 2t = 7, logo t = 3.",
+          "Confira o y com t = 3: −3 + 3 = 0. Bate.",
+          "Confira o z com t = 3: 4 − 3·3 = −5. Bate.",
+          "O mesmo t = 3 serve nas três equações, então (7, 0, −5) está em r."
+        ],
+        "cotidiano": "Pense num drone que sai de um ponto e, a cada segundo, anda 2 m para leste, 1 m para norte e desce 3 m. Alguém diz que o viu num certo lugar. Para acreditar, o tempo de voo calculado pelo leste, pelo norte e pela altura tem de dar o mesmo número de segundos. Se o leste indica 2 segundos e a altura indica outro tempo, a pessoa viu outra coisa.",
+        "trabalho": "Na conciliação de um extrato, um lançamento só fecha quando data, valor e documento apontam para o mesmo título. Bater dois de três campos não concilia. O t faz o papel da chave: em SQL seria um `JOIN` com três condições ligadas por `AND`, todas com o mesmo t. O ponto (5, −1, −1) bate x e y com t = 2, mas o z pede outro valor e fica de fora do `JOIN`.",
+        "conversa": [
+          {"quem": "Você", "fala": "O (5, −1, −1) tem x = 5 e y = −1. Com t = 2 dá certo."},
+          {"quem": "Monitor", "fala": "Dá certo em duas coordenadas. E o z com t = 2?"},
+          {"quem": "Você", "fala": "4 − 3·2 = −2. Não é −1."},
+          {"quem": "Monitor", "fala": "Então ele está fora. Teste o (7, 0, −5) do mesmo jeito."},
+          {"quem": "Você", "fala": "x dá t = 3, y dá −3 + 3 = 0 e z dá 4 − 9 = −5. Tudo com t = 3."},
+          {"quem": "Monitor", "fala": "É esse. O mesmo t nas três é a condição inteira."}
+        ],
+        "erro": "A armadilha é parar na segunda coordenada. Quem testa x e y e não olha o z cai em (5, −1, −1). Outro deslize é tratar o diretor (2, 1, −3) como se fosse um ponto da reta, ou somar t direto nas coordenadas em vez de somar t vezes o vetor. Pertencer à reta exige um único t que funcione nas três equações.",
+        "confira": "Calcule o vetor do ponto inicial até o candidato: (7, 0, −5) − (1, −3, 4) = (6, 3, −9). Ele é 3·(2, 1, −3), múltiplo exato do diretor. Se a diferença não fosse proporcional a (2, 1, −3), como (4, 2, −5) no caso do (5, −1, −1), o ponto estaria fora da reta.",
+        "atalho": "Use o y, que é a equação mais simples: y = −3 + t, então t = y + 3. Para cada alternativa, calcule t assim e teste só no z. Em (7, 0, −5), t = 3 e z = 4 − 9 = −5: bate. As outras quebram já nesse teste. Na que sobrar, confira o x por segurança."
+      }
+    },
+    {
+      "id": "ga-s4-p03",
+      "semana": 4,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Ler as equações simétricas",
+      "origem": "Prévia · ementa",
+      "enunciado": "A reta r tem equações simétricas (x − 2)/3 = (y + 1)/(−2) = (z − 5)/4. Qual par traz um ponto de r e um vetor diretor de r?",
+      "alternativas": [
+        {"t": "Ponto (2, −1, 5) e [[v]] = (3, −2, 4)", "certa": true},
+        {"t": "Ponto (−2, 1, −5) e [[v]] = (3, −2, 4)", "certa": false, "erro": "Você copiou os números dos numeradores sem trocar o sinal. (x − 2) quer dizer x₀ = 2, e (y + 1) é (y − (−1)), ou seja, y₀ = −1."},
+        {"t": "Ponto (3, −2, 4) e [[v]] = (2, −1, 5)", "certa": false, "erro": "Os papéis se inverteram. Os denominadores formam o diretor; os números dentro dos parênteses dão o ponto."},
+        {"t": "Ponto (2, −1, 5) e [[v]] = (3, 2, 4)", "certa": false, "erro": "O ponto está certo, mas o denominador de y é −2. Sem o sinal, o vetor (3, 2, 4) aponta para outra direção e não é diretor de r."},
+        {"t": "Ponto (2, −1, 5) e [[v]] = (1/3, −1/2, 1/4)", "certa": false, "erro": "Você inverteu os denominadores. O diretor é (3, −2, 4) ou um múltiplo dele; (1/3, −1/2, 1/4) não é múltiplo, porque 1/3 ÷ 3 = 1/9 e 1/4 ÷ 4 = 1/16."}
+      ],
+      "dica": "Cada fração tem a forma (coordenada − coordenada do ponto)/componente do diretor.",
+      "resposta": "Ponto (2, −1, 5) e [[v]] = (3, −2, 4)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [-1.6, 1.4, 0.2], "ate": [5.6, -3.4, 9.8], "tracejado": true},
+          {"tipo": "ponto", "em": [2, -1, 5], "rot": "A"},
+          {"tipo": "vetor", "de": [2, -1, 5], "ate": [5, -3, 9], "rot": "v", "cor": 1}
+        ],
+        "legenda": "O ponto A = (2, −1, 5) e a seta [[v]] = (3, −2, 4): em y a seta anda para trás, por causa do −2."
+      },
+      "jeitos": {
+        "visual": "Pense em cada fração como um relógio que mede o mesmo t. Em (x − 2)/3, o relógio do x zera quando x = 2 e anda 3 unidades por volta. Em (y + 1)/(−2), zera quando y = −1 e anda 2 unidades para trás. Na figura, o ponto A é onde os três relógios zeram juntos, e a seta azul mostra quanto cada coordenada anda por volta.",
+        "receita": [
+          "Escreva cada numerador como (coordenada − número): x − 2, y − (−1), z − 5.",
+          "Os números subtraídos formam o ponto: (2, −1, 5).",
+          "Os denominadores, com sinal, formam o diretor: (3, −2, 4).",
+          "Confira: o ponto (2, −1, 5) zera os três numeradores."
+        ],
+        "cotidiano": "É como ler uma instrução de caminhada do tipo: comece no número 2 da rua e avance de 3 em 3 casas. O 2 diz onde você começa; o 3 diz o tamanho do passo. Trocar os dois manda você para outro lugar. E se o passo for −2, você anda para trás, o que muda o caminho, não só o tamanho do passo.",
+        "trabalho": "No Excel, `=(A2-inicio)/7` diz quantas semanas se passaram desde a data de início. Nas simétricas, (x − 2)/3 diz quantos passos de tamanho 3 o x andou desde 2; o mesmo vale para y e z. O número subtraído é o ponto de partida, e o divisor é o tamanho do passo, a componente do diretor. Igualar as três frações é exigir que as três colunas contem o mesmo número de passos.",
+        "conversa": [
+          {"quem": "Você", "fala": "O ponto é (−2, 1, −5), porque está escrito x − 2 e y + 1."},
+          {"quem": "Monitor", "fala": "Teste: qual x zera o numerador x − 2?"},
+          {"quem": "Você", "fala": "x = 2."},
+          {"quem": "Monitor", "fala": "E qual y zera y + 1?"},
+          {"quem": "Você", "fala": "y = −1. Então o ponto é (2, −1, 5), com sinal contrário ao que aparece escrito."},
+          {"quem": "Monitor", "fala": "Isso. E o diretor são os denominadores com o sinal que eles têm: (3, −2, 4)."}
+        ],
+        "erro": "Quase todo erro aqui é de sinal. No numerador, o sinal escrito é o contrário da coordenada do ponto: x − 2 vem de x₀ = 2 e y + 1 vem de y₀ = −1. No denominador, o sinal é mantido: o −2 entra no diretor como −2. Quem troca um e mantém o outro na hora errada acaba com um ponto fora da reta ou um vetor apontando para outra direção.",
+        "confira": "Substitua o ponto escolhido nas três frações: (2 − 2)/3 = 0, (−1 + 1)/(−2) = 0, (5 − 5)/4 = 0. Todas iguais, então o ponto está na reta. Para o diretor, ande um passo: (2, −1, 5) + (3, −2, 4) = (5, −3, 9). As três frações dão 1 nesse ponto: 3/3, −2/(−2) e 4/4.",
+        "atalho": "Faça uma pergunta por vez. Que y zera (y + 1)? y = −1. Isso elimina o ponto com y = 1 e o ponto (3, −2, 4). Depois olhe o denominador de y, que é −2: isso elimina o vetor (3, 2, 4). Sobra conferir que o diretor são os próprios denominadores, e não seus inversos."
+      }
+    },
+    {
+      "id": "ga-s4-p04",
+      "semana": 4,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Reta paralela a um eixo",
+      "origem": "Prévia · ementa",
+      "enunciado": "Quais equações descrevem a reta r que passa por P = (3, −2, 5) e é paralela ao eixo y?",
+      "alternativas": [
+        {"t": "y = −2", "certa": false, "erro": "Uma equação só, no espaço, descreve um plano. y = −2 é o plano perpendicular ao eixo y que passa por P, e ele contém infinitas retas."},
+        {"t": "x = 3 e y = −2", "certa": false, "erro": "Com x e y presos, só o z varia: essa reta é paralela ao eixo z."},
+        {"t": "y = −2 e z = 5", "certa": false, "erro": "Com y e z presos, quem varia é o x: essa reta é paralela ao eixo x."},
+        {"t": "x = 0 e z = 0", "certa": false, "erro": "Essas são as equações do próprio eixo y. Ele é paralelo a r, mas não passa por P = (3, −2, 5)."},
+        {"t": "x = 3 e z = 5", "certa": true}
+      ],
+      "dica": "Com diretor (0, 1, 0), quais coordenadas nunca mudam quando você anda pela reta?",
+      "resposta": "x = 3 e z = 5 (y livre)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [3, -5, 5], "ate": [3, 2, 5]},
+          {"tipo": "ponto", "em": [3, -2, 5], "rot": "P"},
+          {"tipo": "vetor", "de": [3, -2, 5], "ate": [3, -1, 5], "rot": "j", "cor": 1},
+          {"tipo": "segmento", "de": [0, -5, 0], "ate": [0, 2, 0], "cor": 3},
+          {"tipo": "segmento", "de": [3, -2, 5], "ate": [3, -2, 0], "tracejado": true}
+        ],
+        "legenda": "A reta passa por P na direção da seta [[j]] = (0, 1, 0); a linha ocre, por cima do eixo y, mostra que ela corre paralela a esse eixo."
+      },
+      "jeitos": {
+        "visual": "Na figura, a reta passa por P e corre na direção da seta azul (0, 1, 0), paralela ao eixo y desenhado em ocre. Andando sobre ela, você só se mexe para a frente e para trás em y. A altura z continua 5 e o x continua 3 o tempo todo. Por isso a reta fica descrita prendendo essas duas coordenadas e deixando y solto.",
+        "receita": [
+          "O eixo y tem direção [[j]] = (0, 1, 0); use esse vetor como diretor.",
+          "Paramétricas: x = 3 + 0t, y = −2 + t, z = 5 + 0t.",
+          "Os termos com 0t somem: x = 3 e z = 5 ficam fixos.",
+          "O y varia livremente, então a reta é x = 3 e z = 5."
+        ],
+        "cotidiano": "Num prédio, pense num corredor reto no sentido norte-sul. Quem anda nele muda só a posição norte-sul; o andar e a posição leste-oeste ficam iguais. Para descrever o corredor, você diz: fica no 5º andar, na linha 3 de leste a oeste. Dizer só a posição norte-sul de um ponto descreveria uma parede inteira atravessando o prédio, não um corredor.",
+        "trabalho": "Em SQL, a reta é o resultado de `WHERE x = 3 AND z = 5`, com y liberado. Cada filtro sozinho é um plano: `WHERE x = 3` devolve uma camada inteira de pontos. Os dois filtros juntos cortam essa camada numa fila só, e essa fila é a reta. Um filtro único, como `WHERE y = -2`, devolve um plano, não uma reta.",
+        "conversa": [
+          {"quem": "Você", "fala": "Paralela ao eixo y, então a equação é y = −2."},
+          {"quem": "Monitor", "fala": "Quantos pontos satisfazem y = −2?"},
+          {"quem": "Você", "fala": "Todos que têm y = −2, com x e z quaisquer. É um plano."},
+          {"quem": "Monitor", "fala": "Então, andando na reta, quais coordenadas não mudam?"},
+          {"quem": "Você", "fala": "O diretor é (0, 1, 0). Só o y muda; x e z ficam em 3 e 5."},
+          {"quem": "Monitor", "fala": "Pronto: x = 3 e z = 5. Duas equações, uma reta."}
+        ],
+        "erro": "Muita gente prende justamente a coordenada do eixo citado. Paralela ao eixo y quer dizer que y é a coordenada que varia; as outras duas é que ficam fixas. O segundo tropeço é achar que uma equação basta: no espaço, uma equação descreve um plano, e são precisas duas para descrever uma reta.",
+        "confira": "Ande pela reta escolhida: some (0, 1, 0) a P algumas vezes e obtenha (3, −1, 5), (3, 0, 5), (3, 1, 5). Todos cumprem x = 3 e z = 5. Agora teste um passo em x, que dá (4, −2, 5): ele quebra x = 3. Só a resposta certa aceita todos os passos na direção do eixo y.",
+        "atalho": "Procure, entre as alternativas, a que tem duas equações e não cita o y. Paralela ao eixo y significa y livre, então o y não pode aparecer preso. Depois confira que os valores fixos são os de P: x = 3 e z = 5."
+      }
+    },
+    {
+      "id": "ga-s4-p05",
+      "semana": 4,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Ângulo entre retas",
+      "origem": "Prévia · ementa",
+      "enunciado": "Calcule o ângulo entre as retas r: (x − 1)/2 = (y + 3)/(−1) = z − 4 e s: x = 5 − t, y = 2t, z = −1 + t.",
+      "alternativas": [
+        {"t": "120°", "certa": false, "erro": "120° é o ângulo entre os vetores (2, −1, 1) e (−1, 2, 1), cujo cosseno é −1/2. Entre retas o ângulo fica de 0° a 90°, por isso a fórmula usa o módulo."},
+        {"t": "30°", "certa": false, "erro": "Você aplicou arcsen(1/2). O ângulo entre retas usa cosseno; o seno aparece no ângulo entre reta e plano."},
+        {"t": "60°", "certa": true},
+        {"t": "≈ 80,41°", "certa": false, "erro": "Você leu o diretor de r como (2, 1, 1), sem o sinal do denominador −1. Aí o produto escalar vira 1 e o cosseno vira 1/6."},
+        {"t": "≈ 87,80°", "certa": false, "erro": "Você usou os pontos (1, −3, 4) e (5, 0, −1) no lugar dos diretores, mas o ângulo sai das direções. O produto deles dá 1 e as normas √26, o que gera cos θ = 1/26."}
+      ],
+      "dica": "Lembre que z − 4 tem denominador 1, tire os dois diretores e use o cosseno com módulo.",
+      "resposta": "60°",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [2, -1, 1], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, 2, 1], "rot": "v", "cor": 2},
+          {"tipo": "segmento", "de": [0, 0, 0], "ate": [1, -2, -1], "tracejado": true, "cor": 2}
+        ],
+        "legenda": "As setas [[u]] e [[v]] formam 120°. A tracejada é −[[v]], que dá a mesma reta s e forma 60° com [[u]]."
+      },
+      "jeitos": {
+        "visual": "Na figura, as setas azul e coral saem do mesmo ponto e se abrem em 120°. Uma reta, porém, não tem sentido: a seta coral e sua oposta, a tracejada, descrevem a mesma reta s. Entre a seta azul e a tracejada o ângulo é 60°. Entre duas retas, sempre se pega a abertura menor, a que fica entre 0° e 90°.",
+        "receita": [
+          "Diretor de r: denominadores (2, −1, 1), lembrando que z − 4 = (z − 4)/1.",
+          "Diretor de s: coeficientes de t, (−1, 2, 1).",
+          "Produto escalar: 2·(−1) + (−1)·2 + 1·1 = −3. Normas: √6 e √6.",
+          "cos θ = |−3|/(√6·√6) = 3/6 = 1/2.",
+          "θ = 60°."
+        ],
+        "cotidiano": "Duas ruas que se cruzam formam quatro cantos: dois de 120° e dois de 60°. Quem pergunta que ângulo as ruas fazem espera ouvir 60°, o canto mais fechado. A direção em que você caminha numa rua não muda a rua. É por isso que, no cálculo, o sinal do produto escalar não interessa e entra o módulo.",
+        "trabalho": "Em análise de dados, a similaridade de cosseno compara dois perfis, como os pesos de três despesas em dois centros de custo: produto escalar dividido pelo produto das normas. No Excel: `=SOMARPRODUTO(u;v)/(RAIZ(SOMARPRODUTO(u;u))*RAIZ(SOMARPRODUTO(v;v)))`. Aqui dá −0,5. Para vetores, o sinal importa; para retas, que não têm sentido, você usa o valor absoluto, 0,5, e chega a 60°.",
+        "conversa": [
+          {"quem": "Você", "fala": "O cosseno deu −1/2. Então o ângulo é 120°."},
+          {"quem": "Monitor", "fala": "120° é entre os vetores. Se você trocar o diretor de s por (1, −2, −1), a reta muda?"},
+          {"quem": "Você", "fala": "Não. É a mesma reta, percorrida ao contrário."},
+          {"quem": "Monitor", "fala": "E qual cosseno sai com esse vetor?"},
+          {"quem": "Você", "fala": "+1/2. Então dá 60°."},
+          {"quem": "Monitor", "fala": "Por isso a fórmula de retas leva módulo: o resultado não pode depender do sentido escolhido."}
+        ],
+        "erro": "Dois deslizes disputam a primeira posição. Um é esquecer o módulo e responder 120°. O outro é ler mal o diretor de r: o denominador de y é −1, e o z − 4 sozinho tem denominador 1, que não aparece escrito. Quem perde o −1 fica com (2, 1, 1), produto escalar 1 e ângulo perto de 80°.",
+        "confira": "Monte um triângulo com [[u]] = (2, −1, 1) e −[[v]] = (1, −2, −1) saindo do mesmo ponto; −[[v]] descreve a mesma reta s. O terceiro lado é [[u]] − (−[[v]]) = (1, 1, 2), de norma √6. Os três lados medem √6, então o triângulo é equilátero e o ângulo entre [[u]] e −[[v]] é 60°, sem passar por produto escalar.",
+        "atalho": "As duas normas valem √6, então o cosseno é o produto escalar dividido por 6. Com produto −3, o cosseno em módulo é 1/2, que corresponde a 60°. Descarte de cara qualquer alternativa acima de 90°: ângulo entre retas nunca passa disso."
+      }
+    },
+    {
+      "id": "ga-s4-p06",
+      "semana": 4,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Posição relativa de retas",
+      "origem": "Prévia · ementa",
+      "enunciado": "Qual é a posição relativa das retas r: X = (1, 2, −1) + t(2, −4, 6) e s: X = (3, −2, 5) + h(−1, 2, −3)?",
+      "alternativas": [
+        {"t": "Paralelas distintas", "certa": false, "erro": "Os diretores são paralelos, mas faltou testar se o ponto (3, −2, 5) de s está em r. Ele está, com t = 1, e retas paralelas com um ponto comum são a mesma reta."},
+        {"t": "Coincidentes", "certa": true},
+        {"t": "Concorrentes, com único ponto comum (3, −2, 5)", "certa": false, "erro": "(3, −2, 5) é ponto comum, mas não o único. Como os diretores são paralelos, todos os pontos de s estão em r."},
+        {"t": "Reversas", "certa": false, "erro": "Reversas exigem diretores não paralelos. Aqui (−1, 2, −3) = −1/2·(2, −4, 6): os sinais diferentes só invertem o sentido."},
+        {"t": "Ortogonais", "certa": false, "erro": "Ortogonais exigiriam produto escalar zero. Aqui (2, −4, 6) · (−1, 2, −3) = −2 − 8 − 18 = −28, e os diretores apontam na mesma direção."}
+      ],
+      "dica": "Compare os diretores e, se forem paralelos, teste um ponto de s na equação de r.",
+      "resposta": "Coincidentes: s é a própria reta r",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [0, 4, -4], "ate": [4, -4, 8], "tracejado": true},
+          {"tipo": "ponto", "em": [1, 2, -1], "rot": "A"},
+          {"tipo": "ponto", "em": [3, -2, 5], "rot": "B"},
+          {"tipo": "vetor", "de": [1, 2, -1], "ate": [3, -2, 5], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [3, -2, 5], "ate": [2, 0, 2], "rot": "v", "cor": 2}
+        ],
+        "legenda": "A seta azul [[u]] leva A exatamente até B, e a seta coral [[v]] volta pela mesma linha: r e s ocupam o mesmo trilho."
+      },
+      "jeitos": {
+        "visual": "Na figura, a seta azul, diretor de r, sai de A e para exatamente em B, o ponto de s. A seta coral, diretor de s, sai de B e volta pela mesma linha tracejada, com metade do tamanho. As duas retas usam o mesmo trilho: não existe espaço entre elas. Paralelas distintas teriam dois trilhos separados.",
+        "receita": [
+          "Compare os diretores: (−1, 2, −3) = −1/2·(2, −4, 6). São paralelos.",
+          "Tome o ponto B = (3, −2, 5) de s e faça B − A = (3 − 1, −2 − 2, 5 − (−1)) = (2, −4, 6).",
+          "B − A é 1·(2, −4, 6): B está em r com t = 1.",
+          "Diretores paralelos e um ponto comum: as retas são coincidentes."
+        ],
+        "cotidiano": "Duas pessoas descrevem a mesma avenida. Uma diz que ela começa na praça e segue para o norte de dois em dois quarteirões. A outra diz que começa no mercado e segue para o sul de quarteirão em quarteirão. Parecem descrições diferentes, mas o mercado fica na avenida da primeira pessoa. As duas falam da mesma avenida, com referência e sentido trocados.",
+        "trabalho": "É o caso do cadastro duplicado: o mesmo cliente com dois códigos e endereços digitados de jeitos diferentes. Para saber se é duplicidade, não basta ver que as fichas se parecem. Você testa um dado concreto de uma ficha na outra. Aqui, os diretores proporcionais mostram que as retas têm a mesma direção, e o ponto de s que cai em r confirma que se trata do mesmo registro.",
+        "conversa": [
+          {"quem": "Você", "fala": "Os diretores são proporcionais, então são paralelas."},
+          {"quem": "Monitor", "fala": "Paralelas distintas ou a mesma reta? O que separa os dois casos?"},
+          {"quem": "Você", "fala": "Se tiverem um ponto em comum, são a mesma."},
+          {"quem": "Monitor", "fala": "Então teste o (3, −2, 5) em r."},
+          {"quem": "Você", "fala": "1 + 2t = 3 dá t = 1. Aí y = 2 − 4 = −2 e z = −1 + 6 = 5. Bate tudo."},
+          {"quem": "Monitor", "fala": "Logo s está inteira dentro de r. Coincidentes."}
+        ],
+        "erro": "O tropeço é parar ao ver diretores proporcionais e marcar paralelas distintas. A proporcionalidade só diz que as direções são iguais; falta saber se as retas estão no mesmo lugar. O sinal oposto, −1/2, também engana: ele inverte o sentido, mas não muda a direção. Sempre teste um ponto de uma reta na outra.",
+        "confira": "Teste outro ponto de s, por exemplo com h = 2: (3 − 2, −2 + 4, 5 − 6) = (1, 2, −1). Esse é o próprio A, ponto de r com t = 0. Dois pontos diferentes de s caíram em r, e por dois pontos passa uma única reta. Então s e r são a mesma reta.",
+        "atalho": "Calcule B − A e compare com o diretor de r. Se B − A for múltiplo do diretor e os diretores também forem múltiplos, são coincidentes. Aqui B − A é igual ao próprio (2, −4, 6), o que se vê de olho em poucos segundos."
+      }
+    }
+  ]
+}

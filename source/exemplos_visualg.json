@@ -1,0 +1,59 @@
+{
+  "disciplina": "lab",
+  "questoes": [
+    {
+      "id": "lab-media", "semana": 5, "titulo": "Média de duas notas e situação",
+      "codigo": "algoritmo \"media_e_situacao\"\nvar\n   n1, n2, media: real\ninicio\n   escreva(\"Primeira nota: \")\n   leia(n1)\n   escreva(\"Segunda nota: \")\n   leia(n2)\n   media <- (n1 + n2) / 2\n   se media >= 6 entao\n      escreval(\"Aprovado. Média: \", media)\n   senao\n      escreval(\"Em recuperação. Média: \", media)\n   fimse\nfimalgoritmo",
+      "entradas": ["7", "5.5"],
+      "saida": "Primeira nota: Segunda nota: Aprovado. Média: 6.25"
+    },
+    {
+      "id": "lab-maior3", "semana": 5, "titulo": "Maior de três números",
+      "codigo": "algoritmo \"maior_de_tres\"\nvar\n   a, b, c, maior: inteiro\ninicio\n   leia(a, b, c)\n   maior <- a\n   se b > maior entao\n      maior <- b\n   fimse\n   se c > maior entao\n      maior <- c\n   fimse\n   escreval(\"Maior: \", maior)\nfimalgoritmo",
+      "entradas": ["12", "40", "7"],
+      "saida": "Maior: 40"
+    },
+    {
+      "id": "lab-digitos", "semana": 5, "titulo": "Separar os dígitos com div e mod",
+      "codigo": "algoritmo \"digitos\"\nvar\n   n, c, d, u: inteiro\ninicio\n   n <- 347\n   c <- n div 100\n   d <- (n mod 100) div 10\n   u <- n mod 10\n   escreval(\"centena \", c, \", dezena \", d, \", unidade \", u)\nfimalgoritmo",
+      "entradas": [],
+      "saida": "centena 3, dezena 4, unidade 7"
+    },
+    {
+      "id": "lab-dia", "semana": 5, "titulo": "Dia da semana com escolha",
+      "codigo": "algoritmo \"dia_da_semana\"\nvar\n   d: inteiro\ninicio\n   leia(d)\n   escolha d\n   caso 1, 7\n      escreval(\"Fim de semana\")\n   caso 2, 3, 4, 5, 6\n      escreval(\"Dia útil\")\n   outrocaso\n      escreval(\"Número inválido\")\n   fimescolha\nfimalgoritmo",
+      "entradas": ["7"],
+      "saida": "Fim de semana"
+    },
+    {
+      "id": "lab-pares", "semana": 6, "titulo": "Soma dos pares (acumulador)",
+      "codigo": "algoritmo \"soma_dos_pares\"\nvar\n   i, s: inteiro\ninicio\n   s <- 0\n   para i de 1 ate 6 faca\n      se i mod 2 = 0 entao\n         s <- s + i\n      fimse\n   fimpara\n   escreval(s)\nfimalgoritmo",
+      "entradas": [],
+      "saida": "12"
+    },
+    {
+      "id": "lab-tabuada", "semana": 6, "titulo": "Tabuada do 7 com para",
+      "codigo": "algoritmo \"tabuada\"\nvar\n   i: inteiro\ninicio\n   para i de 1 ate 5 faca\n      escreval(\"7 x \", i, \" = \", 7 * i)\n   fimpara\nfimalgoritmo",
+      "entradas": [],
+      "saida": "7 x 1 = 7\n7 x 2 = 14\n7 x 3 = 21\n7 x 4 = 28\n7 x 5 = 35"
+    },
+    {
+      "id": "lab-regressiva", "semana": 6, "titulo": "Contagem com enquanto (de 2 em 2)",
+      "codigo": "algoritmo \"regressiva\"\nvar\n   n: inteiro\ninicio\n   n <- 5\n   enquanto n > 0 faca\n      escreva(n)\n      n <- n - 2\n   fimenquanto\n   escreval()\n   escreval(\"fim com n = \", n)\nfimalgoritmo",
+      "entradas": [],
+      "saida": "5 3 1\nfim com n = -1"
+    },
+    {
+      "id": "lab-senha", "semana": 6, "titulo": "Senha com repita",
+      "codigo": "algoritmo \"senha\"\nvar\n   tentativa: caractere\n   vezes: inteiro\ninicio\n   vezes <- 0\n   repita\n      leia(tentativa)\n      vezes <- vezes + 1\n   ate tentativa = \"1234\"\n   escreval(\"Entrou na tentativa \", vezes)\nfimalgoritmo",
+      "entradas": ["0000", "4321", "1234"],
+      "saida": "Entrou na tentativa 3"
+    },
+    {
+      "id": "lab-vetor", "semana": 6, "titulo": "Maior valor guardado num vetor",
+      "codigo": "algoritmo \"maior_do_vetor\"\nvar\n   v: vetor[1..5] de inteiro\n   i, maior: inteiro\ninicio\n   para i de 1 ate 5 faca\n      leia(v[i])\n   fimpara\n   maior <- v[1]\n   para i de 2 ate 5 faca\n      se v[i] > maior entao\n         maior <- v[i]\n      fimse\n   fimpara\n   escreval(\"Maior: \", maior)\nfimalgoritmo",
+      "entradas": ["8", "3", "15", "2", "9"],
+      "saida": "Maior: 15"
+    }
+  ]
+}

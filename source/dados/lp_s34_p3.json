@@ -1,0 +1,259 @@
+{
+  "disciplina": "lp",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "lp-s4-p01",
+      "semana": 4,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Reconhecer tautologia",
+      "origem": "Prévia · ementa",
+      "enunciado": "Qual das fórmulas abaixo é uma tautologia, isto é, verdadeira em todas as linhas da tabela-verdade?",
+      "alternativas": [
+        {"t": "p → (p ∧ q)", "certa": false, "erro": "Falha na linha p = V, q = F: V → F dá F. É uma contingência."},
+        {"t": "(p ∧ q) → p", "certa": true},
+        {"t": "(p ∨ q) → p", "certa": false, "erro": "Falha na linha p = F, q = V: o antecedente é V e o consequente é F. É uma contingência."},
+        {"t": "p ∧ ¬p", "certa": false, "erro": "Essa é F em todas as linhas, porque p e ¬p nunca são V juntos. É uma contradição, o oposto da tautologia."},
+        {"t": "p ↔ q", "certa": false, "erro": "Dá V quando p e q são iguais e F quando são diferentes: duas linhas de cada. É uma contingência."}
+      ],
+      "dica": "Uma seta só falha com antecedente V e consequente F: procure a fórmula em que essa combinação é impossível.",
+      "resposta": "(p ∧ q) → p",
+      "tabela": {"onde": "explicacao", "cab": ["p", "q", "p ∧ q", "(p ∧ q) → p"], "linhas": [["V", "V", "V", "V"], ["V", "F", "F", "V"], ["F", "V", "F", "V"], ["F", "F", "F", "V"]]},
+      "jeitos": {
+        "visual": "Na tabela ao lado, a última coluna está toda em V, de cima a baixo: isso é uma tautologia. Repare na coluna p ∧ q: ela só tem V na primeira linha, e nessa linha o p também é V. Nas outras três linhas o antecedente é F, e a seta com antecedente F vale V automaticamente. Não sobra nenhuma linha em que a seta possa cair.",
+        "receita": [
+          "A seta (p ∧ q) → p só falharia com p ∧ q = V e p = F.",
+          "Mas p ∧ q = V exige p = V.",
+          "Então o caso de falha é impossível: a fórmula é V nas 4 linhas.",
+          "Nas outras: p → (p ∧ q) falha em p = V, q = F; (p ∨ q) → p falha em p = F, q = V; p ↔ q falha quando p e q diferem; p ∧ ¬p é sempre F.",
+          "Resposta: (p ∧ q) → p é a única tautologia da lista."
+        ],
+        "cotidiano": "'Se eu comprei pão e leite, então eu comprei pão.' Não existe situação em que essa frase seja mentira, e ela nem depende do que você comprou de fato. Já 'se eu comprei pão, então comprei pão e leite' pode ser mentira: basta você ter levado só o pão. Tautologia é a frase que se garante sozinha, pela forma.",
+        "trabalho": "Uma tautologia é uma regra de validação que nunca dispara, e isso pode ser sinal de problema. A regra 'se o título está pago e conciliado, então está pago' nunca encontra exceção: ela não testa nada. Uma contradição, como `WHERE pago = 1 AND pago = 0`, nunca devolve linha nenhuma. As regras úteis de auditoria são contingências: dependem do dado e às vezes acusam.",
+        "conversa": [
+          {"quem": "Você", "fala": "A p → (p ∧ q) parece a mesma coisa que a (p ∧ q) → p."},
+          {"quem": "Monitor", "fala": "Tente p = V e q = F na primeira."},
+          {"quem": "Você", "fala": "p ∧ q dá F. Então V → F, que é F."},
+          {"quem": "Monitor", "fala": "E na segunda, com os mesmos valores?"},
+          {"quem": "Você", "fala": "F → V. Dá V."},
+          {"quem": "Monitor", "fala": "A segunda tem algum caso de falha?"},
+          {"quem": "Você", "fala": "Precisaria de p ∧ q verdadeiro com p falso. Impossível."}
+        ],
+        "erro": "A armadilha é achar que trocar os lados de uma seta não muda nada. p → (p ∧ q) e (p ∧ q) → p têm as mesmas letras, mas só a segunda é tautologia. Outro tropeço é confundir contradição com tautologia, porque as duas têm a coluna 'toda igual'. A tautologia é toda V; a contradição, como p ∧ ¬p, é toda F.",
+        "confira": "No laboratório, digite (p ∧ q) → p e veja a classificação que o site mostra embaixo da tabela: tautologia. Digite p → (p ∧ q): aparece contingência, com 3 V e 1 F. Sem o computador, procure o caso de falha da seta e veja se ele é possível. Se for impossível, a fórmula é tautologia.",
+        "atalho": "Elimine pelo tipo de fórmula: p ∧ ¬p é contradição, e p ↔ q depende dos valores. Entre as setas, procure a que tem no antecedente algo mais exigente que o consequente. p ∧ q exige mais que p, então (p ∧ q) → p nunca falha."
+      }
+    },
+    {
+      "id": "lp-s4-p02",
+      "semana": 4,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "De Morgan na negação",
+      "origem": "Prévia · ementa",
+      "enunciado": "Qual é a negação de “O boleto foi pago e a nota foi emitida”?",
+      "alternativas": [
+        {"t": "O boleto não foi pago e a nota não foi emitida.", "certa": false, "erro": "É o De Morgan pela metade: negou as duas partes e manteve o 'e'. Essa frase é falsa quando só uma das duas coisas deixou de acontecer."},
+        {"t": "O boleto não foi pago ou a nota não foi emitida.", "certa": true},
+        {"t": "O boleto não foi pago ou a nota foi emitida.", "certa": false, "erro": "Negou só a primeira parte. Com o boleto pago e a nota não emitida, a original é falsa, então a negação deveria ser V, e esta dá F."},
+        {"t": "O boleto foi pago e a nota não foi emitida.", "certa": false, "erro": "Esse é um caso que torna a original falsa, mas não o único. Com o boleto não pago, a original também é falsa, e esta frase não cobre isso."},
+        {"t": "O boleto não foi pago e a nota foi emitida.", "certa": false, "erro": "Também é só um dos casos que derrubam a original. Faltam o boleto pago sem nota e o caso de nenhum dos dois."}
+      ],
+      "dica": "Para a frase com 'e' ser falsa, basta uma das partes falhar: que conectivo diz 'basta uma'?",
+      "resposta": "“O boleto não foi pago ou a nota não foi emitida.”",
+      "tabela": {"onde": "explicacao", "cab": ["p", "q", "p ∧ q", "¬(p ∧ q)", "¬p ∨ ¬q", "¬p ∧ ¬q"], "linhas": [["V", "V", "V", "F", "F", "F"], ["V", "F", "F", "V", "V", "F"], ["F", "V", "F", "V", "V", "F"], ["F", "F", "F", "V", "V", "V"]]},
+      "jeitos": {
+        "visual": "Na tabela ao lado, compare a coluna ¬(p ∧ q) com as duas seguintes. A ¬p ∨ ¬q acompanha a negação nas quatro linhas: F, V, V, V. A ¬p ∧ ¬q só tem V na última, e por isso é diferente. Pense na frase original como uma porta com duas trancas que só abre com as duas destrancadas. Negar isso é dizer que pelo menos uma tranca está fechada, e 'pelo menos uma' é o ou.",
+        "receita": [
+          "Chame p: 'o boleto foi pago' e q: 'a nota foi emitida'. A frase é p ∧ q.",
+          "Pela lei de De Morgan, ¬(p ∧ q) ≡ ¬p ∨ ¬q.",
+          "Negue cada parte: 'o boleto não foi pago', 'a nota não foi emitida'.",
+          "Troque o 'e' por 'ou': 'O boleto não foi pago ou a nota não foi emitida'."
+        ],
+        "cotidiano": "Seu chefe diz: 'o relatório está revisado e formatado'. Para desmentir, você não precisa provar que ele não foi revisado nem formatado. Basta mostrar uma das falhas: faltou a revisão, ou faltou a formatação. Exigir as duas falhas ao mesmo tempo é pedir prova demais.",
+        "trabalho": "No SQL, a lista de pendências é a negação de 'tudo certo'. 'Tudo certo' é `pago = 1 AND emitida = 1`. As pendências são `NOT (pago = 1 AND emitida = 1)`, que devolve o mesmo que `pago = 0 OR emitida = 0`. Quem escreve `pago = 0 AND emitida = 0` recebe só os casos em que nada foi feito, e as pendências parciais, que costumam ser as mais perigosas, somem do relatório.",
+        "conversa": [
+          {"quem": "Você", "fala": "Negar o 'e' é negar as duas partes: não foi pago e não foi emitida."},
+          {"quem": "Monitor", "fala": "Se o boleto foi pago e a nota não saiu, a frase original é verdadeira?"},
+          {"quem": "Você", "fala": "Não. Falta a nota."},
+          {"quem": "Monitor", "fala": "Então a negação tem de ser verdadeira nesse caso. A sua frase é?"},
+          {"quem": "Você", "fala": "Não, porque o boleto foi pago. Então precisa do 'ou'."},
+          {"quem": "Monitor", "fala": "Isso. Nega cada parte e troca o conectivo."}
+        ],
+        "erro": "O tropeço é o De Morgan pela metade: negar as partes e esquecer de trocar o 'e' pelo 'ou'. A frase que sai, 'não foi pago e não foi emitida', descreve só o pior caso, aquele em que nada aconteceu. A negação certa cobre os três casos em que a original falha. Outro tropeço é escolher um caso particular, como 'pago e não emitida', achando que ele é a negação.",
+        "confira": "Teste os três casos que derrubam a original. Pago sem nota: a sua resposta tem de ser V. Nota sem pagamento: tem de ser V. Nenhum dos dois: tem de ser V. E no caso em que os dois aconteceram, tem de ser F. 'O boleto não foi pago ou a nota não foi emitida' passa nos quatro testes; cada alternativa errada falha em pelo menos um.",
+        "atalho": "A negação de um 'e' sempre usa 'ou', com as duas partes negadas. Isso elimina as três alternativas com 'e'. Entre as duas com 'ou', fique com a que nega as duas partes. A outra nega só o pagamento e deixa a nota afirmada."
+      }
+    },
+    {
+      "id": "lp-s4-p03",
+      "semana": 4,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Reconhecer a contrapositiva",
+      "origem": "Prévia · ementa",
+      "enunciado": "Qual frase é equivalente à regra “Se a NF é de importação, então ela tem DI”?",
+      "alternativas": [
+        {"t": "Se a NF tem DI, então ela é de importação.", "certa": false, "erro": "Essa é a recíproca, q → p. Uma nota com DI que não seja de importação respeita a regra original e quebra esta, então não são equivalentes."},
+        {"t": "Se a NF não é de importação, então ela não tem DI.", "certa": false, "erro": "Essa é a inversa, ¬p → ¬q. Ela proíbe nota com DI fora da importação, coisa que a regra original não proíbe."},
+        {"t": "Se a NF não tem DI, então ela não é de importação.", "certa": true},
+        {"t": "A NF é de importação e não tem DI.", "certa": false, "erro": "Essa é a negação da regra, p ∧ ¬q: descreve justamente o caso que a regra proíbe."},
+        {"t": "A NF é de importação e tem DI.", "certa": false, "erro": "Isso afirma dois fatos sobre uma nota. A regra não diz que a nota é de importação; diz o que precisa haver se ela for."}
+      ],
+      "dica": "Para cada frase, ache os casos que ela proíbe e compare com o único caso que a regra original proíbe.",
+      "resposta": "A contrapositiva: “Se a NF não tem DI, então ela não é de importação.”",
+      "tabela": {"onde": "explicacao", "cab": ["p", "q", "p → q", "q → p", "¬p → ¬q", "¬q → ¬p"], "linhas": [["V", "V", "V", "V", "V", "V"], ["V", "F", "F", "V", "V", "F"], ["F", "V", "V", "F", "F", "V"], ["F", "F", "V", "V", "V", "V"]]},
+      "jeitos": {
+        "visual": "Na tabela ao lado, a coluna p → q tem um único F, na linha p = V, q = F. A coluna da contrapositiva, ¬q → ¬p, tem o F exatamente no mesmo lugar: as duas são gêmeas. As colunas da recíproca e da inversa também são gêmeas entre si, mas têm o F na linha p = F, q = V. Elas proíbem outro caso, e por isso não servem.",
+        "receita": [
+          "p: 'a NF é de importação'; q: 'a NF tem DI'. A regra é p → q.",
+          "Contrapositiva: troque os lados e negue os dois: ¬q → ¬p.",
+          "Em palavras: 'Se a NF não tem DI, então ela não é de importação'.",
+          "As duas proíbem o mesmo caso, nota de importação sem DI, então são equivalentes."
+        ],
+        "cotidiano": "'Se é cachorro, então é mamífero.' A contrapositiva é 'se não é mamífero, não é cachorro', e as duas dizem a mesma coisa. Já a recíproca, 'se é mamífero, é cachorro', é falsa: o gato desmente. A inversa, 'se não é cachorro, não é mamífero', o mesmo gato desmente. Recíproca e inversa caem juntas porque proíbem o mesmo caso.",
+        "trabalho": "Na conciliação, a contrapositiva dá uma segunda consulta para a mesma regra. Pela regra direta, você filtra as notas de importação e confere se todas têm DI. Pela contrapositiva, filtra as notas sem DI e confere se nenhuma é de importação. As duas consultas acham exatamente as mesmas exceções: `importacao = 1 AND di IS NULL`. Se elas derem resultados diferentes, o problema está nos dados, e não na lógica.",
+        "conversa": [
+          {"quem": "Você", "fala": "Pensei na recíproca: se tem DI, é importação."},
+          {"quem": "Monitor", "fala": "Uma nota com DI que não é de importação quebra a regra original?"},
+          {"quem": "Você", "fala": "Não. A regra só fala de nota de importação."},
+          {"quem": "Monitor", "fala": "E quebra a recíproca?"},
+          {"quem": "Você", "fala": "Quebra. Então elas não são equivalentes."},
+          {"quem": "Monitor", "fala": "Qual reescrita proíbe só a nota de importação sem DI?"},
+          {"quem": "Você", "fala": "Se não tem DI, não é de importação."}
+        ],
+        "erro": "O erro clássico é achar que a recíproca diz a mesma coisa. Na conversa, 'se é de importação, tem DI' parece igual a 'se tem DI, é de importação', mas as duas proíbem casos diferentes. O segundo tropeço é a inversa, que nega os dois lados sem trocar a ordem. Para ser equivalente, é preciso trocar a ordem e negar os dois: a contrapositiva.",
+        "confira": "Procure o caso proibido de cada frase. A regra proíbe 'importação sem DI'. A contrapositiva proíbe 'sem DI e de importação', o mesmo caso dito ao contrário. A recíproca e a inversa proíbem 'com DI e fora da importação', outro caso. Quem proíbe o mesmo caso é equivalente.",
+        "atalho": "Descarte as duas com 'e': uma regra 'se ... então' não é equivalente a uma afirmação de fatos. Entre as três condicionais, a equivalente é a que troca a ordem e nega os dois lados ao mesmo tempo."
+      }
+    },
+    {
+      "id": "lp-s4-p04",
+      "semana": 4,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Negar o 'todo'",
+      "origem": "Prévia · ementa",
+      "enunciado": "Qual é a negação de “Todo título vencido foi cobrado”?",
+      "alternativas": [
+        {"t": "Algum título vencido não foi cobrado.", "certa": true},
+        {"t": "Nenhum título vencido foi cobrado.", "certa": false, "erro": "Essa frase é forte demais. Com dois títulos vencidos, um cobrado e outro não, a original é falsa e esta também é: não pode ser a negação."},
+        {"t": "Algum título vencido foi cobrado.", "certa": false, "erro": "Trocou o 'todo' por 'algum', mas não negou o predicado. Essa frase pode ser verdadeira junto com a original."},
+        {"t": "Todo título não vencido foi cobrado.", "certa": false, "erro": "A negação foi para o lugar errado: falou dos títulos não vencidos, que a frase original nem menciona."},
+        {"t": "Algum título não vencido foi cobrado.", "certa": false, "erro": "Trocou o quantificador, mas negou a parte errada. A original fala só dos vencidos; a negação precisa achar um vencido sem cobrança."}
+      ],
+      "dica": "Para provar que a frase é mentira, o que você precisa encontrar na carteira de títulos?",
+      "resposta": "“Algum título vencido não foi cobrado.”",
+      "jeitos": {
+        "visual": "Imagine a carteira de títulos vencidos como uma fileira de lâmpadas, uma por título, acesa se ele foi cobrado. 'Todo título vencido foi cobrado' é a fileira inteira acesa. O contrário disso não é a fileira inteira apagada; é pelo menos uma lâmpada apagada. Basta um ponto escuro na fileira para a frase original cair. A negação descreve esse ponto escuro: algum vencido não foi cobrado.",
+        "receita": [
+          "Escreva com quantificador: ∀x (T(x) → C(x)), com T(x): 'o título x está vencido' e C(x): 'o título x foi cobrado'.",
+          "Negação: ¬∀x (T(x) → C(x)) ≡ ∃x ¬(T(x) → C(x)).",
+          "Negação da seta: ¬(T(x) → C(x)) ≡ T(x) ∧ ¬C(x).",
+          "Resultado: ∃x (T(x) ∧ ¬C(x)), 'algum título vencido não foi cobrado'."
+        ],
+        "cotidiano": "O professor diz: 'todos entregaram o trabalho'. Para desmentir, você não precisa mostrar que ninguém entregou. Basta apontar um aluno que não entregou. 'Ninguém entregou' é outra afirmação, bem mais forte, e pode ser falsa ao mesmo tempo que a do professor.",
+        "trabalho": "É a lógica da consulta de exceções. Para checar 'todo título vencido foi cobrado', você roda um SELECT com `WHERE vencido = 1 AND cobrado = 0`. Se a consulta volta vazia, a regra vale. Se volta pelo menos uma linha, a regra cai, e essa linha é o 'algum título vencido não foi cobrado'. Ninguém audita essa regra tentando provar que nenhum vencido foi cobrado.",
+        "conversa": [
+          {"quem": "Você", "fala": "O contrário de 'todo' é 'nenhum'. Então: nenhum título vencido foi cobrado."},
+          {"quem": "Monitor", "fala": "Imagine dez vencidos, nove cobrados e um não. A frase original vale?"},
+          {"quem": "Você", "fala": "Não, falta um."},
+          {"quem": "Monitor", "fala": "E 'nenhum foi cobrado' vale?"},
+          {"quem": "Você", "fala": "Também não. Nove foram."},
+          {"quem": "Monitor", "fala": "As duas são falsas juntas, então uma não é a negação da outra. O que descreve esse caso?"},
+          {"quem": "Você", "fala": "Algum título vencido não foi cobrado."}
+        ],
+        "erro": "A armadilha é confundir 'contrário' com 'negação'. 'Nenhum' é o extremo oposto de 'todo', mas a negação só precisa de um exemplo que quebre a regra. 'Todo' e 'nenhum' podem ser falsas ao mesmo tempo, e uma frase e sua negação nunca podem. Outro tropeço é negar o sujeito ('não vencido') em vez do predicado ('não cobrado').",
+        "confira": "Uma frase e sua negação têm sempre valores opostos. Teste com uma carteira pequena: dois títulos vencidos, um cobrado e outro não. A original é F. 'Algum vencido não foi cobrado' é V: opostas, certo. 'Nenhum vencido foi cobrado' é F, igual à original, então não pode ser a negação.",
+        "atalho": "Negar 'todo' sempre dá 'algum ... não'. Procure a alternativa que começa com 'algum' e nega o 'foi cobrado', não o 'vencido'. Só uma tem 'algum título vencido' seguido de 'não foi cobrado'. As frases com 'todo' e 'nenhum' caem antes de qualquer conta."
+      }
+    },
+    {
+      "id": "lp-s4-p05",
+      "semana": 4,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Negar a condicional",
+      "origem": "Prévia · ementa",
+      "enunciado": "Qual é a negação de “Se o valor passa de 10 mil reais, então o pagamento tem duas aprovações”?",
+      "alternativas": [
+        {"t": "O valor passa de 10 mil reais e o pagamento não tem duas aprovações.", "certa": true},
+        {"t": "Se o valor passa de 10 mil reais, então o pagamento não tem duas aprovações.", "certa": false, "erro": "Isso é p → ¬q: você negou só o consequente e manteve a seta. A negação de uma regra não é outra regra."},
+        {"t": "Se o valor não passa de 10 mil reais, então o pagamento não tem duas aprovações.", "certa": false, "erro": "Essa é a inversa, ¬p → ¬q. Ela nem nega a regra: com valor acima de 10 mil e duas aprovações, as duas frases são verdadeiras juntas."},
+        {"t": "O valor não passa de 10 mil reais e o pagamento tem duas aprovações.", "certa": false, "erro": "Esse caso não quebra a regra. Com valor abaixo de 10 mil, a condicional é verdadeira, tenha o pagamento duas aprovações ou não."},
+        {"t": "O valor não passa de 10 mil reais ou o pagamento tem duas aprovações.", "certa": false, "erro": "Isso é ¬p ∨ q, que é equivalente à própria regra, não à negação dela."}
+      ],
+      "dica": "Pense no único caso que faz a regra ser falsa e descreva esse caso.",
+      "resposta": "“O valor passa de 10 mil reais e o pagamento não tem duas aprovações.”",
+      "tabela": {"onde": "explicacao", "cab": ["p", "q", "p → q", "p ∧ ¬q", "¬p ∨ q"], "linhas": [["V", "V", "V", "F", "V"], ["V", "F", "F", "V", "F"], ["F", "V", "V", "F", "V"], ["F", "F", "V", "F", "V"]]},
+      "jeitos": {
+        "visual": "Na tabela ao lado, a coluna p → q tem um F só, na linha p = V, q = F. A negação precisa ser o espelho: V exatamente onde a regra é F, e F no resto. A coluna p ∧ ¬q faz isso: V só na segunda linha. A coluna ¬p ∨ q, por outro lado, é cópia da regra, não espelho. A negação de uma regra 'se ... então' é sempre a foto do caso que a quebra.",
+        "receita": [
+          "p: 'o valor passa de 10 mil reais'; q: 'o pagamento tem duas aprovações'. A regra é p → q.",
+          "A seta só é F com p = V e q = F.",
+          "Então ¬(p → q) ≡ p ∧ ¬q.",
+          "Em palavras: 'O valor passa de 10 mil reais e o pagamento não tem duas aprovações'."
+        ],
+        "cotidiano": "Seu vizinho diz: 'se fizer sol, eu corro no parque'. Para chamá-lo de mentiroso, você precisa de um fato: fez sol e ele não correu. Não adianta responder com outra promessa, como 'se fizer sol, você não corre'. Também não adianta um dia de chuva: a promessa nem foi posta à prova.",
+        "trabalho": "É o controle de alçada. A regra 'acima de 10 mil, duas aprovações' é auditada procurando a negação: `WHERE valor > 10000 AND aprovacoes < 2`. Cada linha que volta é um pagamento que quebrou a política. Um pagamento de 3 mil com uma aprovação não aparece e não deve aparecer, porque a regra não fala dele. A negação da regra é um filtro com AND, nunca uma nova regra com SE.",
+        "conversa": [
+          {"quem": "Você", "fala": "Negar 'se A, então B' é 'se A, então não B'."},
+          {"quem": "Monitor", "fala": "Se a regra é falsa, aconteceu alguma coisa concreta. O quê?"},
+          {"quem": "Você", "fala": "Um pagamento acima de 10 mil sem as duas aprovações."},
+          {"quem": "Monitor", "fala": "Isso é uma regra ou um fato?"},
+          {"quem": "Você", "fala": "Um fato. Então é com 'e': passa de 10 mil e não tem duas aprovações."},
+          {"quem": "Monitor", "fala": "E 'se passa, então não tem' seria o quê?"},
+          {"quem": "Você", "fala": "Outra regra, que proíbe as duas aprovações. Não tem nada a ver."}
+        ],
+        "erro": "O tropeço mais comum é manter a seta e negar só o final: 'se passa de 10 mil, então não tem duas aprovações'. Isso cria uma regra nova e absurda, não a negação. A negação da condicional não tem seta: é p ∧ ¬q. Outro engano é marcar ¬p ∨ q por causa do ¬ e do 'ou': essa fórmula é a própria regra reescrita.",
+        "confira": "Uma frase e sua negação nunca são verdadeiras juntas e nunca são falsas juntas. Teste 15 mil com duas aprovações: a regra é V e a negação é F, opostas. Teste 15 mil com uma aprovação: a regra é F e a negação é V. Teste 5 mil: regra V, negação F. Em todos os casos os valores são opostos.",
+        "atalho": "A negação de uma condicional nunca é outra condicional. Isso elimina as duas alternativas com 'se ... então'. Entre as três que sobram, fique com a que mantém o antecedente como está e nega o consequente."
+      }
+    },
+    {
+      "id": "lp-s4-p06",
+      "semana": 4,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Argumento válido ou falácia",
+      "origem": "Prévia · ementa",
+      "enunciado": "Qual dos argumentos abaixo é válido?",
+      "alternativas": [
+        {"t": "Se o pedido foi pago, ele foi liberado. Ele foi liberado. Logo, foi pago.", "certa": false, "erro": "É a falácia de afirmar o consequente. O pedido pode ter sido liberado por outro motivo, como um crédito aprovado, sem pagamento."},
+        {"t": "Se o pedido foi pago, ele foi liberado. Ele não foi pago. Logo, não foi liberado.", "certa": false, "erro": "É a falácia de negar o antecedente. A regra não diz nada sobre pedidos não pagos; um deles pode ter sido liberado."},
+        {"t": "O pedido foi pago ou foi liberado. Ele foi pago. Logo, não foi liberado.", "certa": false, "erro": "O silogismo disjuntivo elimina uma opção que se provou falsa. Aqui uma opção se provou verdadeira, e o 'ou' inclusivo deixa as duas valerem juntas."},
+        {"t": "Se foi pago, foi liberado. Se foi liberado, saiu. Logo, se saiu, foi pago.", "certa": false, "erro": "O silogismo hipotético leva a 'se foi pago, saiu'. Inverter a seta no fim troca a conclusão pela recíproca, 'se saiu, foi pago', que não decorre das premissas."},
+        {"t": "Se o pedido foi pago, ele foi liberado. Ele não foi liberado. Logo, não foi pago.", "certa": true}
+      ],
+      "dica": "Para cada argumento, procure um caso com premissas verdadeiras e conclusão falsa: o válido é aquele em que esse caso não existe.",
+      "resposta": "“Se o pedido foi pago, ele foi liberado. Ele não foi liberado. Logo, não foi pago.” (modus tollens)",
+      "tabela": {"onde": "explicacao", "cab": ["forma", "esquema", "situação"], "linhas": [["afirmar o consequente", "p → q; q; logo p", "inválido"], ["negar o antecedente", "p → q; ¬p; logo ¬q", "inválido"], ["disjuntivo mal usado", "p ∨ q; p; logo ¬q", "inválido"], ["hipotético invertido", "p → q; q → r; logo r → p", "inválido"], ["modus tollens", "p → q; ¬q; logo ¬p", "válido"]]},
+      "jeitos": {
+        "visual": "Desenhe a regra 'pago → liberado' como uma seta entre duas caixas. O modus tollens anda pela seta de trás para a frente, com os dois sinais trocados: se a caixa do fim está vazia (não liberado), a do começo também está (não pago), porque, se ela estivesse cheia, a seta teria enchido a outra. As falácias tentam andar pela seta no sentido proibido sem trocar sinal, ou partem de uma caixa vazia no começo, de onde a seta não leva a lugar nenhum. A tabela junta as cinco formas: só a última passa.",
+        "receita": [
+          "Escreva cada argumento com p: 'foi pago', q: 'foi liberado', r: 'saiu'.",
+          "Primeiro: p → q; q; logo p. Contraexemplo p = F, q = V: inválido.",
+          "Segundo: p → q; ¬p; logo ¬q. Mesmo contraexemplo: inválido.",
+          "Terceiro: p ∨ q; p; logo ¬q. Contraexemplo p = V, q = V: inválido.",
+          "Quarto: p → q; q → r; logo r → p. Contraexemplo p = F, q = V, r = V: inválido.",
+          "Quinto: p → q; ¬q; logo ¬p. Não há linha com premissas V e conclusão F: válido."
+        ],
+        "cotidiano": "'Se chover, a rua molha.' Rua seca garante que não choveu: é o modus tollens. Rua molhada não garante chuva, porque o caminhão-pipa pode ter passado: é afirmar o consequente. 'Não choveu, logo a rua está seca' também falha, pelo mesmo caminhão: é negar o antecedente. A regra só fala do que acontece quando chove, e é por aí que você pode usá-la.",
+        "trabalho": "Na auditoria, o modus tollens é o teste mais forte. Regra: 'se o pedido foi pago, foi liberado'. Achou um pedido não liberado? Ou não houve pagamento, ou a própria regra foi violada; as duas pistas valem investigação. A falácia de afirmar o consequente é o erro de quem vê o pedido liberado e dá o pagamento como conferido. A liberação pode ter vindo de crédito, cortesia ou falha de sistema.",
+        "conversa": [
+          {"quem": "Você", "fala": "O primeiro me parece certo: liberou, então pagou."},
+          {"quem": "Monitor", "fala": "Um pedido liberado por crédito aprovado, sem pagamento, contradiz a regra?"},
+          {"quem": "Você", "fala": "Não. A regra só fala de quem pagou."},
+          {"quem": "Monitor", "fala": "Então as premissas valem e a conclusão é falsa. O argumento cai."},
+          {"quem": "Você", "fala": "E o último? Não liberou, então não pagou."},
+          {"quem": "Monitor", "fala": "Se ele tivesse pago, a regra o teria liberado. Dá para escapar?"},
+          {"quem": "Você", "fala": "Não. Esse é válido: modus tollens."}
+        ],
+        "erro": "A armadilha é julgar pela conclusão parecer razoável. 'Foi liberado, logo foi pago' soa natural, e às vezes até é verdade, mas não decorre das premissas. Validade é sobre a forma: existir um caso com premissas verdadeiras e conclusão falsa já derruba o argumento. As duas falácias clássicas têm o mesmo caso de falha: p falso e q verdadeiro.",
+        "confira": "Pegue cada argumento e tente montar um contraexemplo concreto. Para os quatro inválidos, ele existe: pedido liberado sem pagamento derruba os dois primeiros; pedido pago e liberado derruba o terceiro; pedido que foi liberado e saiu sem ter sido pago derruba o quarto. Para o modus tollens, tente 'não liberado e pago': a primeira premissa proíbe. Não há saída.",
+        "atalho": "Guarde o par válido e o par falso da condicional. Válidos: afirmar o antecedente (modus ponens) e negar o consequente (modus tollens). Falácias: afirmar o consequente e negar o antecedente. Ache quem nega o consequente e marque."
+      }
+    }
+  ]
+}

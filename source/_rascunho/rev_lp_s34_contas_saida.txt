@@ -1,0 +1,356 @@
+﻿=================== SEMANA 3 ===================
+ok    s3-p01 15 = 4×3 + 3 e 15 % 4 = 3 (frase falsa)
+ok    s3-p01 x + 3 = 10: V com x = 7, F com x = 1
+ok    s3-p01 certa é a frase do 15
+ok    s3-p02 enunciado traz a fórmula
+ok    s3-p02 ocorrências 5 distintas 4
+ok    s3-p02 certa = 2^4 = 16
+ok    s3-p02 distrator 4 reproduzido pela conta do erro
+ok    s3-p02 distrator 8 reproduzido pela conta do erro
+ok    s3-p02 distrator 32 reproduzido pela conta do erro
+ok    s3-p02 distrator 10 reproduzido pela conta do erro
+ok    s3-p02 confira: p com 8 V e 8 F
+ok    s3-p02 tabela explicacao
+   s3-p03 valores: {'p ∧ q': 'F', 'p → q': 'F', 'p ↔ q': 'F', '¬p ∨ q': 'F', 'p ⊕ q': 'V'}
+ok    s3-p03 exatamente uma verdadeira e é a marcada
+ok    s3-p03 tabela p ∧ q = F
+ok    s3-p03 tabela p → q = F
+ok    s3-p03 tabela p ↔ q = F
+ok    s3-p03 tabela ¬p ∨ q = F
+ok    s3-p03 tabela p ⊕ q = V
+ok    s3-p03 confira p=q=V: ⊕ F; ∧, →, ↔ V
+ok    s3-p03 ¬p ∨ q ≡ p → q
+ok    s3-p04 só a marcada tem a coluna de ¬q ∧ p
+ok    s3-p04 confira p=V,q=F: ¬q ∧ p = V
+ok    s3-p04 confira p=F,q=F: ¬q∧p F; ¬(q∧p) V; ¬q∨p V
+ok    s3-p05 parse padrão de ¬p ∨ q → r = ((¬p) ∨ q) → r
+ok    s3-p05 valor F
+ok    s3-p05 alt A '¬((p ∨ q) → r)' vale V (calc V)
+ok    s3-p05 alt A certa=False bate com o JSON
+ok    s3-p05 alt B '((¬p) ∨ q) → r' vale F (calc F)
+ok    s3-p05 alt B certa=True bate com o JSON
+ok    s3-p05 alt C '(¬p) ∨ (q → r)' vale V (calc V)
+ok    s3-p05 alt C certa=False bate com o JSON
+ok    s3-p05 alt D '((¬p) ∨ q) → r' traz valor V errado de propósito (calc F)
+ok    s3-p05 alt D certa=False bate com o JSON
+ok    s3-p05 alt E '¬(p ∨ q) → r' vale V (calc V)
+ok    s3-p05 alt E certa=False bate com o JSON
+ok    s3-p06 linhas do enunciado na ordem padrão
+ok    s3-p06 só a marcada bate
+ok    s3-p06 ¬(p∧q) bate só nas 3 primeiras
+ok    s3-p06 p⊕q ≡ ¬(p↔q)
+ok    s3-p06 p→q: V na 1ª e F na 2ª
+   s3-p07 A p → q: casos proibidos (p,q) [(True, False)]
+   s3-p07 B q → p: casos proibidos (p,q) [(False, True)]
+   s3-p07 C q ↔ p: casos proibidos (p,q) [(True, False), (False, True)]
+   s3-p07 D q ∧ p: casos proibidos (p,q) [(True, False), (False, True), (False, False)]
+   s3-p07 E ¬q → ¬p: casos proibidos (p,q) [(True, False)]
+ok    s3-p07 marcada é a B (somente se)
+ok    s3-p07 ¬q → ¬p ≡ p → q (proíbe o mesmo caso)
+ok    s3-p07 q → p não equivale a p → q
+ok    s3-p07 ↔ proíbe 2, ∧ proíbe 3
+ok    s3-p07 conversa: nenhuma alternativa começa com 'Se o mês foi fechado'
+ok    s3-p09 linhas falsas = 3
+ok    s3-p09 distrator 5 = verdadeiras
+ok    s3-p09 distrator 4 = linhas com r V
+ok    s3-p09 distrator 1 = lendo ∧
+ok    s3-p09 distrator 2 = lendo ⊕
+ok    s3-p09 tabela linha 1 na ordem padrão
+ok    s3-p09 tabela linha 1 coluna 'p ∨ q' = V
+ok    s3-p09 tabela linha 1 coluna '¬r' = F
+ok    s3-p09 tabela linha 1 coluna '(p ∨ q) → ¬r' = F
+ok    s3-p09 tabela linha 2 na ordem padrão
+ok    s3-p09 tabela linha 2 coluna 'p ∨ q' = V
+ok    s3-p09 tabela linha 2 coluna '¬r' = V
+ok    s3-p09 tabela linha 2 coluna '(p ∨ q) → ¬r' = V
+ok    s3-p09 tabela linha 3 na ordem padrão
+ok    s3-p09 tabela linha 3 coluna 'p ∨ q' = V
+ok    s3-p09 tabela linha 3 coluna '¬r' = F
+ok    s3-p09 tabela linha 3 coluna '(p ∨ q) → ¬r' = F
+ok    s3-p09 tabela linha 4 na ordem padrão
+ok    s3-p09 tabela linha 4 coluna 'p ∨ q' = V
+ok    s3-p09 tabela linha 4 coluna '¬r' = V
+ok    s3-p09 tabela linha 4 coluna '(p ∨ q) → ¬r' = V
+ok    s3-p09 tabela linha 5 na ordem padrão
+ok    s3-p09 tabela linha 5 coluna 'p ∨ q' = V
+ok    s3-p09 tabela linha 5 coluna '¬r' = F
+ok    s3-p09 tabela linha 5 coluna '(p ∨ q) → ¬r' = F
+ok    s3-p09 tabela linha 6 na ordem padrão
+ok    s3-p09 tabela linha 6 coluna 'p ∨ q' = V
+ok    s3-p09 tabela linha 6 coluna '¬r' = V
+ok    s3-p09 tabela linha 6 coluna '(p ∨ q) → ¬r' = V
+ok    s3-p09 tabela linha 7 na ordem padrão
+ok    s3-p09 tabela linha 7 coluna 'p ∨ q' = F
+ok    s3-p09 tabela linha 7 coluna '¬r' = F
+ok    s3-p09 tabela linha 7 coluna '(p ∨ q) → ¬r' = V
+ok    s3-p09 tabela linha 8 na ordem padrão
+ok    s3-p09 tabela linha 8 coluna 'p ∨ q' = F
+ok    s3-p09 tabela linha 8 coluna '¬r' = V
+ok    s3-p09 tabela linha 8 coluna '(p ∨ q) → ¬r' = V
+ok    s3-p09 visual: linhas com r V são 1,3,5,7 e falsas são 1,3,5 ([1, 3, 5])
+ok    s3-p09 confira: 2 + 4 − 1 = 5
+   s3-p10 soluções: [{'p': True, 'q': False, 'r': True}]
+ok    s3-p10 solução única p=V q=F r=V
+ok    s3-p10 marcada
+ok    s3-p10 alt A atende? False (só a marcada)
+ok    s3-p10 alt B atende? False (só a marcada)
+ok    s3-p10 alt C atende? False (só a marcada)
+ok    s3-p10 alt E atende? True (só a marcada)
+ok    s3-p10 tabela linha 1 coluna 'p → q' = F
+ok    s3-p10 tabela linha 1 coluna 'q ∨ r' = V
+ok    s3-p10 tabela linha 2 coluna 'p → q' = F
+ok    s3-p10 tabela linha 2 coluna 'q ∨ r' = F
+ok    s3-p11 alt A 'p ∧ (q → r ∨ s)' equivale? False; não depende de ∧ x ∨
+ok    s3-p11 alt B '(p ∨ q) → (r ∧ s)' equivale? False; não depende de ∧ x ∨
+ok    s3-p11 alt C 'p ∧ q ↔ r ∨ s' equivale? False; não depende de ∧ x ∨
+ok    s3-p11 alt D 'p ∧ q → r ∨ s' equivale? True; não depende de ∧ x ∨
+ok    s3-p11 alt E 'p ∧ q → r ∧ s' equivale? False; não depende de ∧ x ∨
+ok    s3-p11 confira: p=F,q=V,r=F,s=F: certa V, p ∧ (q → r ∨ s) F
+ok    s3-p11 erro C: enviado sem pagamento, ↔ acusa (F) e a frase não (V)
+ok    s3-p12 linhas do enunciado na ordem padrão
+   s3-p12 A (p ∨ q) → ¬r: erra ['FFV', 'FFF']
+ok    s3-p12 alt A certa só se bate nas 8; robusto
+   s3-p12 B (p ∨ q) ↔ ¬r: erra ['FFV']
+ok    s3-p12 alt B certa só se bate nas 8; robusto
+   s3-p12 C (p ∨ q) ∧ ¬r: erra []
+ok    s3-p12 alt C certa só se bate nas 8; robusto
+   s3-p12 D (p ⊕ q) ∧ ¬r: erra ['VVF']
+ok    s3-p12 alt D certa só se bate nas 8; robusto
+   s3-p12 E p ∨ (q ∧ ¬r): erra ['VVV', 'VFV']
+ok    s3-p12 alt E certa só se bate nas 8; robusto
+ok    s3-p12 erro A: seta erra só as duas últimas
+ok    s3-p12 erro B: ↔ erra só F F V
+ok    s3-p12 erro D: ⊕ erra só V V F
+ok    s3-p12 erro E: erra V V V e V F V
+=================== SEMANA 4 ===================
+   s4-p01 classes: {'p → (p ∧ q)': 'K', '(p ∧ q) → p': 'T', '(p ∨ q) → p': 'K', 'p ∧ ¬p': 'C', 'p ↔ q': 'K'}
+ok    s4-p01 só a marcada é tautologia
+ok    s4-p01 p ∧ ¬p contradição; demais contingência
+ok    s4-p01 p → (p ∧ q): 3 V e 1 F
+ok    s4-p01 p → (p ∧ q) falha em V F; (p ∨ q) → p falha em F V
+ok    s4-p01 tabela linha 1 na ordem padrão
+ok    s4-p01 tabela linha 1 coluna 'p ∧ q' = V
+ok    s4-p01 tabela linha 1 coluna '(p ∧ q) → p' = V
+ok    s4-p01 tabela linha 2 na ordem padrão
+ok    s4-p01 tabela linha 2 coluna 'p ∧ q' = F
+ok    s4-p01 tabela linha 2 coluna '(p ∧ q) → p' = V
+ok    s4-p01 tabela linha 3 na ordem padrão
+ok    s4-p01 tabela linha 3 coluna 'p ∧ q' = F
+ok    s4-p01 tabela linha 3 coluna '(p ∧ q) → p' = V
+ok    s4-p01 tabela linha 4 na ordem padrão
+ok    s4-p01 tabela linha 4 coluna 'p ∧ q' = F
+ok    s4-p01 tabela linha 4 coluna '(p ∧ q) → p' = V
+ok    s4-p02 alt A (¬p ∧ ¬q) é a negação? False
+ok    s4-p02 alt B (¬p ∨ ¬q) é a negação? True
+ok    s4-p02 alt C (¬p ∨ q) é a negação? False
+ok    s4-p02 alt D (p ∧ ¬q) é a negação? False
+ok    s4-p02 alt E (¬p ∧ q) é a negação? False
+ok    s4-p02 erro C: pago sem nota (p V q F): ¬p ∨ q = F
+ok    s4-p02 tabela linha 1 na ordem padrão
+ok    s4-p02 tabela linha 1 coluna 'p ∧ q' = V
+ok    s4-p02 tabela linha 1 coluna '¬(p ∧ q)' = F
+ok    s4-p02 tabela linha 1 coluna '¬p ∨ ¬q' = F
+ok    s4-p02 tabela linha 1 coluna '¬p ∧ ¬q' = F
+ok    s4-p02 tabela linha 2 na ordem padrão
+ok    s4-p02 tabela linha 2 coluna 'p ∧ q' = F
+ok    s4-p02 tabela linha 2 coluna '¬(p ∧ q)' = V
+ok    s4-p02 tabela linha 2 coluna '¬p ∨ ¬q' = V
+ok    s4-p02 tabela linha 2 coluna '¬p ∧ ¬q' = F
+ok    s4-p02 tabela linha 3 na ordem padrão
+ok    s4-p02 tabela linha 3 coluna 'p ∧ q' = F
+ok    s4-p02 tabela linha 3 coluna '¬(p ∧ q)' = V
+ok    s4-p02 tabela linha 3 coluna '¬p ∨ ¬q' = V
+ok    s4-p02 tabela linha 3 coluna '¬p ∧ ¬q' = F
+ok    s4-p02 tabela linha 4 na ordem padrão
+ok    s4-p02 tabela linha 4 coluna 'p ∧ q' = F
+ok    s4-p02 tabela linha 4 coluna '¬(p ∧ q)' = V
+ok    s4-p02 tabela linha 4 coluna '¬p ∨ ¬q' = V
+ok    s4-p02 tabela linha 4 coluna '¬p ∧ ¬q' = V
+ok    s4-p03 alt A (q → p) equivale a p → q? False
+ok    s4-p03 alt B (¬p → ¬q) equivale a p → q? False
+ok    s4-p03 alt C (¬q → ¬p) equivale a p → q? True
+ok    s4-p03 alt D (p ∧ ¬q) equivale a p → q? False
+ok    s4-p03 alt E (p ∧ q) equivale a p → q? False
+ok    s4-p03 recíproca ≡ inversa
+ok    s4-p03 tabela linha 1 na ordem padrão
+ok    s4-p03 tabela linha 1 coluna 'p → q' = V
+ok    s4-p03 tabela linha 1 coluna 'q → p' = V
+ok    s4-p03 tabela linha 1 coluna '¬p → ¬q' = V
+ok    s4-p03 tabela linha 1 coluna '¬q → ¬p' = V
+ok    s4-p03 tabela linha 2 na ordem padrão
+ok    s4-p03 tabela linha 2 coluna 'p → q' = F
+ok    s4-p03 tabela linha 2 coluna 'q → p' = V
+ok    s4-p03 tabela linha 2 coluna '¬p → ¬q' = V
+ok    s4-p03 tabela linha 2 coluna '¬q → ¬p' = F
+ok    s4-p03 tabela linha 3 na ordem padrão
+ok    s4-p03 tabela linha 3 coluna 'p → q' = V
+ok    s4-p03 tabela linha 3 coluna 'q → p' = F
+ok    s4-p03 tabela linha 3 coluna '¬p → ¬q' = F
+ok    s4-p03 tabela linha 3 coluna '¬q → ¬p' = V
+ok    s4-p03 tabela linha 4 na ordem padrão
+ok    s4-p03 tabela linha 4 coluna 'p → q' = V
+ok    s4-p03 tabela linha 4 coluna 'q → p' = V
+ok    s4-p03 tabela linha 4 coluna '¬p → ¬q' = V
+ok    s4-p03 tabela linha 4 coluna '¬q → ¬p' = V
+ok    s4-p05 alt A (p ∧ ¬q) é a negação? True
+ok    s4-p05 alt B (p → ¬q) é a negação? False
+ok    s4-p05 alt C (¬p → ¬q) é a negação? False
+ok    s4-p05 alt D (¬p ∧ q) é a negação? False
+ok    s4-p05 alt E (¬p ∨ q) é a negação? False
+ok    s4-p05 erro C: p=q=V, regra e inversa V juntas
+ok    s4-p05 ¬p ∨ q ≡ regra
+ok    s4-p05 tabela linha 1 na ordem padrão
+ok    s4-p05 tabela linha 1 coluna 'p → q' = V
+ok    s4-p05 tabela linha 1 coluna 'p ∧ ¬q' = F
+ok    s4-p05 tabela linha 1 coluna '¬p ∨ q' = V
+ok    s4-p05 tabela linha 2 na ordem padrão
+ok    s4-p05 tabela linha 2 coluna 'p → q' = F
+ok    s4-p05 tabela linha 2 coluna 'p ∧ ¬q' = V
+ok    s4-p05 tabela linha 2 coluna '¬p ∨ q' = F
+ok    s4-p05 tabela linha 3 na ordem padrão
+ok    s4-p05 tabela linha 3 coluna 'p → q' = V
+ok    s4-p05 tabela linha 3 coluna 'p ∧ ¬q' = F
+ok    s4-p05 tabela linha 3 coluna '¬p ∨ q' = V
+ok    s4-p05 tabela linha 4 na ordem padrão
+ok    s4-p05 tabela linha 4 coluna 'p → q' = V
+ok    s4-p05 tabela linha 4 coluna 'p ∧ ¬q' = F
+ok    s4-p05 tabela linha 4 coluna '¬p ∨ q' = V
+ok    s4-p05 confira p=V q=V: regra e negação opostas
+ok    s4-p05 confira p=V q=F: regra e negação opostas
+ok    s4-p05 confira p=F q=V: regra e negação opostas
+ok    s4-p05 confira p=F q=F: regra e negação opostas
+   s4-p06 A ['p → q', 'q'] ⊢ p: contraexemplos [{'p': False, 'q': True}]
+ok    s4-p06 alt A válido=False bate com marcada
+   s4-p06 B ['p → q', '¬p'] ⊢ ¬q: contraexemplos [{'p': False, 'q': True}]
+ok    s4-p06 alt B válido=False bate com marcada
+   s4-p06 C ['p ∨ q', 'p'] ⊢ ¬q: contraexemplos [{'p': True, 'q': True}]
+ok    s4-p06 alt C válido=False bate com marcada
+   s4-p06 D ['p → q', 'q → r'] ⊢ r → p: contraexemplos [{'p': False, 'q': True, 'r': True}, {'p': False, 'q': False, 'r': True}]
+ok    s4-p06 alt D válido=False bate com marcada
+   s4-p06 E ['p → q', '¬q'] ⊢ ¬p: contraexemplos []
+ok    s4-p06 alt E válido=True bate com marcada
+ok    s4-p06 contraexemplo citado A,B: p=F q=V
+ok    s4-p06 contraexemplo citado C: p=V q=V
+ok    s4-p06 contraexemplo citado D: p=F q=V r=V
+ok    s4-p06 hipotético dá p → r
+ok    s4-p06 tabela 'afirmar o consequente' inválido
+ok    s4-p06 tabela 'negar o antecedente' inválido
+ok    s4-p06 tabela 'disjuntivo mal usado' inválido
+ok    s4-p06 tabela 'hipotético invertido' inválido
+ok    s4-p06 tabela 'modus tollens' válido
+   s4-p09 contraexemplos: [{'p': False, 'q': True, 'r': False}]
+ok    s4-p09 contraexemplo único p=F q=V r=F
+ok    s4-p09 alt A é contraexemplo? True
+ok    s4-p09 alt B é contraexemplo? False
+ok    s4-p09 alt C é contraexemplo? False
+ok    s4-p09 alt D é contraexemplo? False
+ok    s4-p09 E 'válido' é falso
+ok    s4-p09 tabela linha 1 na ordem padrão
+ok    s4-p09 tabela linha 1 coluna 'p ∨ q' = V
+ok    s4-p09 tabela linha 1 coluna 'p → r' = V
+ok    s4-p09 tabela linha 2 na ordem padrão
+ok    s4-p09 tabela linha 2 coluna 'p ∨ q' = V
+ok    s4-p09 tabela linha 2 coluna 'p → r' = F
+ok    s4-p09 tabela linha 3 na ordem padrão
+ok    s4-p09 tabela linha 3 coluna 'p ∨ q' = V
+ok    s4-p09 tabela linha 3 coluna 'p → r' = V
+ok    s4-p09 tabela linha 4 na ordem padrão
+ok    s4-p09 tabela linha 4 coluna 'p ∨ q' = V
+ok    s4-p09 tabela linha 4 coluna 'p → r' = F
+ok    s4-p09 tabela linha 5 na ordem padrão
+ok    s4-p09 tabela linha 5 coluna 'p ∨ q' = V
+ok    s4-p09 tabela linha 5 coluna 'p → r' = V
+ok    s4-p09 tabela linha 6 na ordem padrão
+ok    s4-p09 tabela linha 6 coluna 'p ∨ q' = V
+ok    s4-p09 tabela linha 6 coluna 'p → r' = V
+ok    s4-p09 tabela linha 7 na ordem padrão
+ok    s4-p09 tabela linha 7 coluna 'p ∨ q' = F
+ok    s4-p09 tabela linha 7 coluna 'p → r' = V
+ok    s4-p09 tabela linha 8 na ordem padrão
+ok    s4-p09 tabela linha 8 coluna 'p ∨ q' = F
+ok    s4-p09 tabela linha 8 coluna 'p → r' = V
+ok    s4-p09 coluna 'conclusão r' = r
+ok    s4-p09 visual: premissa F nas linhas 2,4,7,8 ([2, 4, 7, 8])
+   s4-p10 mundos que respeitam as premissas: [{'p': True, 'q': True, 'r': True, 's': False}]
+ok    s4-p10 em todo mundo: lote chegou e custo lançado
+ok    s4-p10 também a DI registrada (B e D erradas)
+ok    s4-p10 com ou exclusivo também vale
+ok    s4-p10 erro C: lendo L ↔ X, sairia lote F
+ok    s4-p11 alt A ¬p ∧ q equivale? False
+ok    s4-p11 alt B p → q equivale? True
+ok    s4-p11 alt C ¬p ∨ ¬q equivale? False
+ok    s4-p11 alt D q → p equivale? False
+ok    s4-p11 alt E p ∧ q equivale? False
+ok    s4-p11 ¬p ∧ q só V em p=F,q=V
+ok    s4-p11 tabela linha 1 na ordem padrão
+ok    s4-p11 tabela linha 1 coluna '¬(p ∧ ¬q)' = V
+ok    s4-p11 tabela linha 1 coluna 'p → q' = V
+ok    s4-p11 tabela linha 1 coluna '¬p ∧ q' = F
+ok    s4-p11 tabela linha 1 coluna '¬p ∨ ¬q' = F
+ok    s4-p11 tabela linha 1 coluna 'q → p' = V
+ok    s4-p11 tabela linha 2 na ordem padrão
+ok    s4-p11 tabela linha 2 coluna '¬(p ∧ ¬q)' = F
+ok    s4-p11 tabela linha 2 coluna 'p → q' = F
+ok    s4-p11 tabela linha 2 coluna '¬p ∧ q' = F
+ok    s4-p11 tabela linha 2 coluna '¬p ∨ ¬q' = V
+ok    s4-p11 tabela linha 2 coluna 'q → p' = V
+ok    s4-p11 tabela linha 3 na ordem padrão
+ok    s4-p11 tabela linha 3 coluna '¬(p ∧ ¬q)' = V
+ok    s4-p11 tabela linha 3 coluna 'p → q' = V
+ok    s4-p11 tabela linha 3 coluna '¬p ∧ q' = V
+ok    s4-p11 tabela linha 3 coluna '¬p ∨ ¬q' = V
+ok    s4-p11 tabela linha 3 coluna 'q → p' = F
+ok    s4-p11 tabela linha 4 na ordem padrão
+ok    s4-p11 tabela linha 4 coluna '¬(p ∧ ¬q)' = V
+ok    s4-p11 tabela linha 4 coluna 'p → q' = V
+ok    s4-p11 tabela linha 4 coluna '¬p ∧ q' = F
+ok    s4-p11 tabela linha 4 coluna '¬p ∨ ¬q' = V
+ok    s4-p11 tabela linha 4 coluna 'q → p' = V
+ok    s4-p04 alt A 'Algum vencido não cobrado' é negação? True
+ok    s4-p04 alt B 'Nenhum vencido cobrado' é negação? False
+ok    s4-p04 alt C 'Algum vencido cobrado' é negação? False
+ok    s4-p04 alt D 'Todo não vencido cobrado' é negação? False
+ok    s4-p04 alt E 'Algum não vencido cobrado' é negação? False
+ok    s4-p04 erro B: 2 vencidos, 1 cobrado: original F e 'nenhum' F
+ok    s4-p04 erro C: 'algum vencido cobrado' pode ser V junto com a original
+ok    s4-p07 alt A equivale à frase? False
+ok    s4-p07 alt B equivale à frase? False
+ok    s4-p07 alt C equivale à frase? False
+ok    s4-p07 alt D equivale à frase? True
+ok    s4-p07 alt E equivale à frase? False
+ok    s4-p07 E ≡ ∀x(¬D → A)
+ok    s4-p07 confira base 1: frase V, certa V, ∀(¬D∧¬A) F
+ok    s4-p07 confira base 2: frase F e certa F
+ok    s4-p07 erro C: lançamento com documento sem aprovação quebra C e não a frase
+ok    s4-p12 alt A é negação? False
+ok    s4-p12 alt B é negação? False
+ok    s4-p12 alt C é negação? False
+ok    s4-p12 alt D é negação? True
+ok    s4-p12 alt E é negação? False
+ok    s4-p12 erro A: perfeito + atrasado: original e A V juntas
+ok    s4-p12 confira 1: um só, prazo e nota ok: certa F
+ok    s4-p12 confira 2: um só, atrasado e nota ok: certa V e C F
+=================== TEORIA ===================
+ok    teoria ¬(p ∧ q) ≡ ¬p ∨ ¬q
+ok    teoria ¬(p ∨ q) ≡ ¬p ∧ ¬q
+ok    teoria p → q ≡ ¬p ∨ q
+ok    teoria p → q ≡ ¬q → ¬p
+ok    teoria ¬(p → q) ≡ p ∧ ¬q
+ok    teoria ¬¬p ≡ p
+ok    teoria recíproca e inversa não equivalem a p → q
+ok    teoria p ∨ ¬p tautologia; p ∧ ¬p contradição; p → q contingência
+ok    teoria ['p → q', 'p'] ⊢ q válido=True
+ok    teoria ['p → q', '¬q'] ⊢ ¬p válido=True
+ok    teoria ['p → q', 'q → r'] ⊢ p → r válido=True
+ok    teoria ['p ∨ q', '¬p'] ⊢ q válido=True
+ok    teoria ['p → q', 'q'] ⊢ p válido=False
+ok    teoria ['p → q', '¬p'] ⊢ ¬q válido=False
+ok    teoria falácias: contraexemplo p=F q=V nas duas
+ok    teoria ¬∀x P ≡ ∃x ¬P
+ok    teoria ¬∃x P ≡ ∀x ¬P
+ok    teoria precedência do exemplo ¬p ∨ q → r
+ok    teoria p ∧ (p ∨ q) tem 2 letras: 4 linhas
+ok    teoria nem p nem q = ¬p ∧ ¬q = ¬(p ∨ q)
+ok    teoria ↔ = V com valores iguais; ⊕ = V com diferentes
+
+FALHAS: 0

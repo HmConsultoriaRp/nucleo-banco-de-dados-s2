@@ -1,0 +1,343 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s3-l3q5a",
+      "semana": 3,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Ponto que divide segmento",
+      "origem": "Lista 3 · Q5a",
+      "enunciado": "Classifique em Verdadeiro (V) ou Falso (F). Se verdadeiro, prove. Se falso, dê um contraexemplo:\nDados quatro pontos A, B, C e X (como na figura) tais que [[AX]] = 2[[XB]], então temos que [[CX]] = (2/3)[[CA]] + (1/3)[[CB]].\nQual classificação e justificativa estão corretas?",
+      "alternativas": [
+        {"t": "Verdadeira: como [[AX]] = 2[[XB]], o ponto A recebe peso 2/3 e o ponto B recebe 1/3.", "certa": false, "erro": "Os pesos estão trocados. X fica a 2/3 do caminho de A até B, ou seja, mais perto de B; quem está mais perto puxa mais, então [[CB]] leva 2/3."},
+        {"t": "Verdadeira: os coeficientes 2/3 e 1/3 somam 1, então o ponto cai na reta AB e a igualdade vale.", "certa": false, "erro": "Somar 1 garante só que o ponto está na reta AB, não qual ponto da reta. Com 2/3 e 1/3 você chega ao ponto a 1/3 do caminho de A, e não ao X."},
+        {"t": "Falsa: X é o ponto médio de AB, então o certo é [[CX]] = (1/2)[[CA]] + (1/2)[[CB]].", "certa": false, "erro": "X não é ponto médio: [[AX]] = 2[[XB]] diz que AX é o dobro de XB. Ponto médio teria [[AX]] = [[XB]]."},
+        {"t": "Falsa: de [[AX]] = 2[[XB]] sai [[CX]] = (1/3)[[CA]] + (2/3)[[CB]], e a figura serve de contraexemplo.", "certa": true},
+        {"t": "Falsa: a igualdade certa é [[CX]] = (2/3)[[CA]] − (1/3)[[CB]].", "certa": false, "erro": "Com sinal de menos os coeficientes somam 1/3, e o ponto sai da reta AB. Para cair sobre AB, os pesos precisam somar 1."}
+      ],
+      "dica": "Escreva [[AX]] = 2[[XB]] com pontos, X − A = 2(B − X), e isole X.",
+      "resposta": "Falsa. O correto é [[CX]] = (1/3)[[CA]] + (2/3)[[CB]].",
+      "figura": {
+        "modo": "2d",
+        "onde": "enunciado",
+        "itens": [
+          {"tipo": "segmento", "de": [0, 0], "ate": [3, 0]},
+          {"tipo": "vetor", "de": [1.5, 2.5], "ate": [0, 0], "rot": "", "cor": 1},
+          {"tipo": "vetor", "de": [1.5, 2.5], "ate": [2, 0], "rot": "", "cor": 1},
+          {"tipo": "vetor", "de": [1.5, 2.5], "ate": [3, 0], "rot": "", "cor": 1},
+          {"tipo": "ponto", "em": [0, 0], "rot": "A"},
+          {"tipo": "ponto", "em": [2, 0], "rot": "X"},
+          {"tipo": "ponto", "em": [3, 0], "rot": "B"},
+          {"tipo": "ponto", "em": [1.5, 2.5], "rot": "C"}
+        ],
+        "legenda": "X fica no segmento AB, com AX o dobro de XB. As três setas saem de C."
+      },
+      "jeitos": {
+        "visual": "Na figura, X está bem mais perto de B do que de A: AX mede 2 e XB mede 1. A seta [[CX]] fica, portanto, mais parecida com [[CB]] do que com [[CA]]. Uma fórmula que dá peso 2/3 para [[CA]] puxaria a seta para perto de A. É o contrário do desenho. A afirmação troca os pesos.",
+        "receita": [
+          "Traduza a condição com pontos: X − A = 2(B − X).",
+          "Isole X: X + 2X = A + 2B, logo X = (1/3)A + (2/3)B.",
+          "Subtraia C dos dois lados, usando 1/3 + 2/3 = 1: X − C = (1/3)(A − C) + (2/3)(B − C).",
+          "Ou seja, [[CX]] = (1/3)[[CA]] + (2/3)[[CB]], com os pesos trocados em relação à afirmação.",
+          "Contraexemplo com a figura: A(0, 0), X(2, 0), B(3, 0), C(3/2, 5/2). [[CX]] = (1/2, −5/2), mas (2/3)[[CA]] + (1/3)[[CB]] = (−1/2, −5/2). São diferentes, então a afirmação é falsa."
+        ],
+        "cotidiano": "Pense em comprar 1 caixa a um preço A e 2 caixas a um preço B. O preço médio fica mais perto de B, porque B pesa duas vezes. O ponto X funciona igual: [[AX]] = 2[[XB]] põe X a dois terços do caminho de A até B, mais perto de B. Quem dá o peso maior para A está calculando o preço médio como se tivesse comprado 2 caixas a A.",
+        "trabalho": "É média ponderada, a mesma do custo médio de estoque. Com [[CA]] e [[CB]] em duas linhas e as quantidades 1 e 2 ao lado, =SOMARPRODUTO(quantidades; valores)/SOMA(quantidades) dá (1·[[CA]] + 2·[[CB]])/3. Trocar os pesos de lugar é como lançar a quantidade de um item na linha do outro: o total de quantidades continua 3, mas o custo médio sai errado. A afirmação fez essa troca.",
+        "conversa": [
+          {"quem": "Você", "fala": "Se [[AX]] é o dobro, o A não deveria pesar o dobro?"},
+          {"quem": "Monitor", "fala": "Quem está mais perto de X, o A ou o B?"},
+          {"quem": "Você", "fala": "O B. AX mede 2 e XB mede 1."},
+          {"quem": "Monitor", "fala": "Então [[CX]] parece mais com [[CB]]. Qual vetor merece o peso maior?"},
+          {"quem": "Você", "fala": "[[CB]]. Fica (1/3)[[CA]] + (2/3)[[CB]]."},
+          {"quem": "Monitor", "fala": "E a afirmação dá 2/3 para [[CA]]. Por isso é falsa."}
+        ],
+        "erro": "A armadilha é ler [[AX]] = 2[[XB]] e associar o 2 ao A, só porque A aparece primeiro. O peso de cada ponta é proporcional ao pedaço do lado oposto: B leva o peso do segmento AX, que é o maior. Quem decora sem conferir no desenho troca os pesos sem perceber.",
+        "confira": "Teste com os números da figura: C = (3/2, 5/2), [[CA]] = (−3/2, −5/2) e [[CB]] = (3/2, −5/2). (1/3)[[CA]] + (2/3)[[CB]] = (−1/2 + 1, −5/6 − 5/3) = (1/2, −5/2), que é [[CX]]. Já (2/3)[[CA]] + (1/3)[[CB]] = (−1/2, −5/2) leva de C ao ponto (1, 0), e não ao X = (2, 0).",
+        "atalho": "Olhe a figura e pergunte: X está mais perto de quem? De B, então [[CB]] tem de levar o coeficiente maior. A afirmação dá 2/3 para [[CA]]. Falsa em dez segundos. Entre as alternativas que dizem falsa, fique com a que corrige os pesos para 1/3 e 2/3."
+      }
+    },
+    {
+      "id": "ga-s3-l3q5b",
+      "semana": 3,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Ponto que divide segmento",
+      "origem": "Lista 3 · Q5b",
+      "enunciado": "Classifique em Verdadeiro (V) ou Falso (F). Se verdadeiro, prove. Se falso, dê um contraexemplo:\nDados quatro pontos A, B, C e X (como na figura) tais que [[AX]] = 2[[XB]], então temos que [[CX]] = (1/3)[[CA]] + (2/3)[[CB]].\nQual classificação e justificativa estão corretas?",
+      "alternativas": [
+        {"t": "Falsa: o peso maior deveria ficar com [[CA]], porque A aparece primeiro em [[AX]] = 2[[XB]].", "certa": false, "erro": "A ordem das letras não decide o peso. X fica mais perto de B (XB é a metade de AX), e o vetor do ponto mais próximo leva o peso maior."},
+        {"t": "Verdadeira: X − A = 2(B − X) dá X = (1/3)A + (2/3)B; subtraindo C dos dois lados, sai a igualdade.", "certa": true},
+        {"t": "Verdadeira: [[CX]] é a média de [[CA]] e [[CB]], e essa média sempre usa os pesos 1/3 e 2/3.", "certa": false, "erro": "Média simples usa 1/2 e 1/2 e daria o ponto médio de AB. Os pesos 1/3 e 2/3 vêm da razão 2 para 1 do enunciado, não de uma regra geral."},
+        {"t": "Verdadeira: basta ver na figura que X fica mais perto de B do que de A.", "certa": false, "erro": "A figura ilustra, mas não prova. O enunciado pede prova; olhar o desenho não mostra que os pesos são exatamente 1/3 e 2/3."},
+        {"t": "Falsa: o certo é [[CX]] = [[CA]] + 2[[CB]], porque o 2 de [[AX]] = 2[[XB]] passa direto para [[CB]].", "certa": false, "erro": "Os coeficientes 1 e 2 somam 3, e o ponto cai fora da reta AB. Faltou dividir por 3: de 3X = A + 2B sai X = (1/3)A + (2/3)B."}
+      ],
+      "dica": "Parta de X − A = 2(B − X), isole X e depois escreva tudo a partir de C.",
+      "resposta": "Verdadeira. [[CX]] = (1/3)[[CA]] + (2/3)[[CB]].",
+      "figura": {
+        "modo": "2d",
+        "onde": "enunciado",
+        "itens": [
+          {"tipo": "segmento", "de": [0, 0], "ate": [3, 0]},
+          {"tipo": "vetor", "de": [1.5, 2.5], "ate": [0, 0], "rot": "", "cor": 1},
+          {"tipo": "vetor", "de": [1.5, 2.5], "ate": [2, 0], "rot": "", "cor": 1},
+          {"tipo": "vetor", "de": [1.5, 2.5], "ate": [3, 0], "rot": "", "cor": 1},
+          {"tipo": "ponto", "em": [0, 0], "rot": "A"},
+          {"tipo": "ponto", "em": [2, 0], "rot": "X"},
+          {"tipo": "ponto", "em": [3, 0], "rot": "B"},
+          {"tipo": "ponto", "em": [1.5, 2.5], "rot": "C"}
+        ],
+        "legenda": "Mesma figura do item anterior: X no segmento AB, com AX o dobro de XB."
+      },
+      "jeitos": {
+        "visual": "Na figura, as três setas saem de C. A do meio, [[CX]], termina em X, que fica a dois terços do caminho de A até B. Pense na ponta da seta deslizando sobre AB: em A ela é [[CA]], em B ela é [[CB]]. Quando chegou a dois terços do caminho, a mistura tem 1/3 de [[CA]] e 2/3 de [[CB]].",
+        "receita": [
+          "Escreva a condição com pontos: X − A = 2(B − X) = 2B − 2X.",
+          "Junte os X: 3X = A + 2B, então X = (1/3)A + (2/3)B.",
+          "Como 1/3 + 2/3 = 1, dá para escrever C = (1/3)C + (2/3)C.",
+          "Subtraia: X − C = (1/3)(A − C) + (2/3)(B − C).",
+          "Em vetores: [[CX]] = (1/3)[[CA]] + (2/3)[[CB]]. A afirmação é verdadeira."
+        ],
+        "cotidiano": "Imagine uma gangorra com A numa ponta e B na outra, peso 1 em A e peso 2 em B. O ponto de apoio que equilibra fica mais perto de B: a 2 partes de A e a 1 parte de B. É exatamente o X. Os pesos 1/3 e 2/3 da fórmula são esses mesmos pesos divididos pelo total, 3.",
+        "trabalho": "É o cálculo do preço médio ponderado. 1 unidade comprada a A e 2 unidades a B dão preço médio (A + 2B)/3. Em SQL, SUM(qtd * preco) / SUM(qtd). Aqui os preços são os vetores [[CA]] e [[CB]], e as quantidades são 1 e 2. O resultado [[CX]] é a média ponderada, com peso maior para o ponto mais perto.",
+        "conversa": [
+          {"quem": "Você", "fala": "Por que posso subtrair C dos dois lados e manter os mesmos pesos?"},
+          {"quem": "Monitor", "fala": "Porque os pesos somam 1. Quanto dá (1/3)C + (2/3)C?"},
+          {"quem": "Você", "fala": "C inteiro."},
+          {"quem": "Monitor", "fala": "Então X − C = (1/3)A + (2/3)B − (1/3)C − (2/3)C. Agrupe."},
+          {"quem": "Você", "fala": "(1/3)(A − C) + (2/3)(B − C). Fica (1/3)[[CA]] + (2/3)[[CB]]."},
+          {"quem": "Monitor", "fala": "Se os pesos somassem outro valor, o truque não funcionaria."}
+        ],
+        "erro": "O tropeço mais comum é aceitar a frase porque o desenho parece concordar. A questão pede prova, e a prova é a conta com pontos. O segundo tropeço é esquecer de dividir por 3: de X − A = 2(B − X) sai 3X = A + 2B, e quem para em X = A + 2B cria um ponto fora da reta.",
+        "confira": "Use as coordenadas da figura: A(0, 0), B(3, 0), X(2, 0), C(3/2, 5/2). Primeiro, [[AX]] = (2, 0) e [[XB]] = (1, 0), então a hipótese vale. Depois, (1/3)(−3/2, −5/2) + (2/3)(3/2, −5/2) = (1/2, −5/2). E [[CX]] = (2 − 3/2, 0 − 5/2) = (1/2, −5/2). Os dois lados dão o mesmo vetor.",
+        "atalho": "Os coeficientes de uma combinação que cai na reta AB somam 1. Isso elimina [[CA]] + 2[[CB]] de cara. Depois, o ponto mais perto leva o peso maior: X está mais perto de B, então 2/3 vai para [[CB]]. Sobra decidir entre as justificativas que dizem verdadeira: só uma faz a conta; as outras se apoiam em desenho ou em regra falsa."
+      }
+    },
+    {
+      "id": "ga-s3-l3q5c",
+      "semana": 3,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Pontos médios e paralelogramo",
+      "origem": "Lista 3 · Q5c",
+      "enunciado": "Classifique em Verdadeiro (V) ou Falso (F). Se verdadeiro, prove. Se falso, dê um contraexemplo:\nOs pontos médios dos lados de um quadrilátero do plano são vértices de um paralelogramo.\nQual classificação e justificativa estão corretas?",
+      "alternativas": [
+        {"t": "Falsa: só vale quando o quadrilátero já é um paralelogramo; num quadrilátero qualquer, falha.", "certa": false, "erro": "Teste num quadrilátero torto, sem lados paralelos, como A(0, 0), B(6, −1), C(7, 4), D(2, 6): os lados opostos do quadrilátero do meio saem iguais e paralelos. A propriedade não depende da forma de fora."},
+        {"t": "Verdadeira: os quatro lados do quadrilátero do meio são sempre iguais, então ele é um losango.", "certa": false, "erro": "Os lados do quadrilátero do meio valem metade das diagonais AC e BD, que em geral têm tamanhos diferentes. Lados opostos são iguais; vizinhos, não."},
+        {"t": "Verdadeira: os ângulos do quadrilátero do meio são todos retos, porque as diagonais do original se cruzam.", "certa": false, "erro": "Ângulo reto exigiria diagonais perpendiculares. Os lados do quadrilátero do meio são paralelos às diagonais AC e BD, e elas formam o ângulo que quiserem."},
+        {"t": "Falsa: se o quadrilátero não for convexo, o quadrilátero dos pontos médios deixa de ser paralelogramo.", "certa": false, "erro": "Mesmo com um vértice para dentro, a conta [[MN]] = (1/2)[[AC]] = [[QP]] continua valendo, porque não usa convexidade. O quadrilátero do meio continua sendo paralelogramo."},
+        {"t": "Verdadeira: [[MN]] = (1/2)[[AC]] e [[QP]] = (1/2)[[AC]], então [[MN]] = [[QP]]: dois lados opostos iguais e paralelos.", "certa": true}
+      ],
+      "dica": "Chame de M, N, P e Q os pontos médios de AB, BC, CD e DA. Escreva [[MN]] e [[QP]] com os vértices e compare com a diagonal [[AC]].",
+      "resposta": "Verdadeira. [[MN]] = [[QP]] = (1/2)[[AC]].",
+      "figura": {
+        "modo": "2d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 0], [6, -1], [7, 4], [2, 6]], "cor": 3},
+          {"tipo": "poligono", "pts": [[3, -0.5], [6.5, 1.5], [4.5, 5], [1, 3]], "cor": 4},
+          {"tipo": "segmento", "de": [0, 0], "ate": [7, 4], "tracejado": true},
+          {"tipo": "ponto", "em": [0, 0], "rot": "A"},
+          {"tipo": "ponto", "em": [6, -1], "rot": "B"},
+          {"tipo": "ponto", "em": [7, 4], "rot": "C"},
+          {"tipo": "ponto", "em": [2, 6], "rot": "D"},
+          {"tipo": "ponto", "em": [3, -0.5], "rot": "M"},
+          {"tipo": "ponto", "em": [6.5, 1.5], "rot": "N"},
+          {"tipo": "ponto", "em": [4.5, 5], "rot": "P"},
+          {"tipo": "ponto", "em": [1, 3], "rot": "Q"}
+        ],
+        "legenda": "O quadrilátero escuro liga os pontos médios. Os lados MN e QP são paralelos à diagonal tracejada AC e medem a metade dela."
+      },
+      "jeitos": {
+        "visual": "Na figura, o quadrilátero de fora é torto de propósito. Mesmo assim, o de dentro, que liga os pontos médios, sai com lados opostos paralelos. Os lados MN e QP correm paralelos à diagonal tracejada AC; os lados NP e MQ correm paralelos à outra diagonal, BD. Cada par copia a mesma diagonal pela metade, por isso os lados opostos ficam iguais.",
+        "receita": [
+          "Chame de M, N, P e Q os pontos médios de AB, BC, CD e DA: M = (A + B)/2, N = (B + C)/2, P = (C + D)/2, Q = (D + A)/2.",
+          "[[MN]] = N − M = (B + C)/2 − (A + B)/2 = (C − A)/2 = (1/2)[[AC]].",
+          "[[QP]] = P − Q = (C + D)/2 − (D + A)/2 = (C − A)/2 = (1/2)[[AC]].",
+          "Logo [[MN]] = [[QP]]: os lados MN e QP são paralelos e têm o mesmo comprimento.",
+          "Um quadrilátero com um par de lados opostos iguais e paralelos é paralelogramo. A afirmação é verdadeira."
+        ],
+        "cotidiano": "Pense num cercado amarrado em quatro estacas tortas. Se você marcar o meio de cada lado da cerca e ligar as marcas, sai sempre um paralelogramo, não importa como as estacas estejam espalhadas. O motivo é que cada lado do quadrilátero de dentro copia uma diagonal pela metade, e cada diagonal é copiada duas vezes, em lados opostos.",
+        "trabalho": "Na conta (B + C)/2 − (A + B)/2, o B entra com mais e sai com menos, como um lançamento e o seu estorno na mesma conta: some do saldo. Sobra (C − A)/2. Do outro lado, em (C + D)/2 − (D + A)/2, quem some é o D, e sobra o mesmo (C − A)/2. São dois cálculos por caminhos diferentes que fecham no mesmo valor, como uma conciliação que bate.",
+        "conversa": [
+          {"quem": "Você", "fala": "Testei num quadrado e deu paralelogramo. Isso prova?"},
+          {"quem": "Monitor", "fala": "Prova para o quadrado. A frase fala de qualquer quadrilátero. Que conta vale para todos?"},
+          {"quem": "Você", "fala": "Escrever os pontos médios: M = (A + B)/2 e N = (B + C)/2."},
+          {"quem": "Monitor", "fala": "E [[MN]] dá quanto?"},
+          {"quem": "Você", "fala": "(C − A)/2. E [[QP]] também dá (C − A)/2."},
+          {"quem": "Monitor", "fala": "Lados opostos iguais como vetores. Isso fecha a prova, sem depender da forma."}
+        ],
+        "erro": "O erro mais frequente é provar com um desenho ou com um quadrado e achar que basta. Exemplo confirma, não prova. O outro é exagerar a conclusão: o quadrilátero do meio é paralelogramo, mas não precisa ser losango nem retângulo. Os lados dele valem metade das diagonais, que em geral têm tamanhos diferentes e se cruzam em qualquer ângulo.",
+        "confira": "Faça com números o quadrilátero da figura: A(0, 0), B(6, −1), C(7, 4), D(2, 6). Ele não é paralelogramo: [[AB]] = (6, −1) e [[DC]] = (5, −2) não são paralelos. M = (3, −1/2), N = (13/2, 3/2), P = (9/2, 5), Q = (1, 3). [[MN]] = (7/2, 2) e [[QP]] = (7/2, 2), iguais. E (1/2)[[AC]] = (7/2, 2). As três contas batem.",
+        "atalho": "Para frases de verdadeiro ou falso em geometria, teste um quadrilátero bem torto antes de decidir. Se a propriedade sobrevive, aposte em verdadeira e procure a justificativa que usa vetores sem hipótese extra. Aqui só uma justificativa chega a [[MN]] = [[QP]]; as outras falam em losango, retângulo ou exigem forma especial."
+      }
+    },
+    {
+      "id": "ga-s3-l3q5d",
+      "semana": 3,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Soma e diferença perpendiculares",
+      "origem": "Lista 3 · Q5d",
+      "enunciado": "Classifique em Verdadeiro (V) ou Falso (F). Se verdadeiro, prove. Se falso, dê um contraexemplo:\nSe ‖[[u]]‖ = ‖[[v]]‖, então [[u]] + [[v]] e [[u]] − [[v]] são perpendiculares.\nQual classificação e justificativa estão corretas?",
+      "alternativas": [
+        {"t": "Falsa: com [[u]] = (1, 0) e [[v]] = (0, 1), a soma e a diferença não são perpendiculares.", "certa": false, "erro": "Faça a conta: (1, 1)·(1, −1) = 1 − 1 = 0. São perpendiculares, então o exemplo não derruba a afirmação."},
+        {"t": "Verdadeira: [[u]] e [[v]] têm o mesmo tamanho, logo são perpendiculares entre si, e a soma e a diferença herdam isso.", "certa": false, "erro": "Mesmo tamanho não obriga [[u]] ⊥ [[v]]: (3, 4) e (5, 0) têm norma 5 e produto escalar 15. Quem fica perpendicular é o par soma e diferença."},
+        {"t": "Verdadeira: ([[u]] + [[v]])·([[u]] − [[v]]) = ‖[[u]]‖² − ‖[[v]]‖² = 0, porque os termos cruzados se cancelam.", "certa": true},
+        {"t": "Falsa: ([[u]] + [[v]])·([[u]] − [[v]]) = ‖[[u]]‖² − 2[[u]]·[[v]] + ‖[[v]]‖², que só zera em casos especiais.", "certa": false, "erro": "Essa é a expansão de ‖[[u]] − [[v]]‖², não do produto da soma pela diferença. No produto, os termos −[[u]]·[[v]] e +[[v]]·[[u]] se cancelam."},
+        {"t": "Verdadeira: [[u]] + [[v]] e [[u]] − [[v]] têm sempre o mesmo tamanho, e vetores de mesmo tamanho são perpendiculares.", "certa": false, "erro": "As duas partes estão erradas. ‖[[u]] + [[v]]‖ e ‖[[u]] − [[v]]‖ só coincidem quando [[u]] ⊥ [[v]], e mesmo tamanho não implica ângulo reto."}
+      ],
+      "dica": "Perpendicular quer dizer produto escalar zero. Calcule ([[u]] + [[v]])·([[u]] − [[v]]) distribuindo.",
+      "resposta": "Verdadeira. ([[u]] + [[v]])·([[u]] − [[v]]) = ‖[[u]]‖² − ‖[[v]]‖² = 0.",
+      "figura": {
+        "modo": "2d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0], "ate": [3, 1], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0], "ate": [1, 3], "rot": "v", "cor": 2},
+          {"tipo": "segmento", "de": [3, 1], "ate": [4, 4], "tracejado": true},
+          {"tipo": "segmento", "de": [1, 3], "ate": [4, 4], "tracejado": true},
+          {"tipo": "vetor", "de": [0, 0], "ate": [4, 4], "rot": "u + v", "cor": 4},
+          {"tipo": "vetor", "de": [1, 3], "ate": [3, 1], "rot": "u − v", "cor": 4}
+        ],
+        "legenda": "[[u]] = (3, 1) e [[v]] = (1, 3) têm o mesmo tamanho. As diagonais do losango, [[u]] + [[v]] e [[u]] − [[v]], se cruzam em ângulo reto."
+      },
+      "jeitos": {
+        "visual": "Monte [[u]] e [[v]] saindo do mesmo ponto. Como têm o mesmo tamanho, o paralelogramo que eles formam é um losango, como na figura. [[u]] + [[v]] é a diagonal que sai da origem; [[u]] − [[v]] é a diagonal que liga a ponta de [[v]] à ponta de [[u]]. Num losango, as diagonais se cruzam em ângulo reto. A conta com produto escalar transforma o que o desenho sugere em prova.",
+        "receita": [
+          "Perpendicular: produto escalar igual a zero. Calcule ([[u]] + [[v]])·([[u]] − [[v]]).",
+          "Distribua: [[u]]·[[u]] − [[u]]·[[v]] + [[v]]·[[u]] − [[v]]·[[v]].",
+          "Os termos do meio se anulam, porque [[u]]·[[v]] = [[v]]·[[u]].",
+          "Sobra ‖[[u]]‖² − ‖[[v]]‖². Com ‖[[u]]‖ = ‖[[v]]‖, isso é zero.",
+          "Logo [[u]] + [[v]] ⊥ [[u]] − [[v]]. Se um deles for o vetor nulo, a conta ainda dá zero, e o vetor nulo é ortogonal a qualquer vetor."
+        ],
+        "cotidiano": "É o produto notável (a + b)(a − b) = a² − b², o mesmo da conta de cabeça 102 × 98 = 10.000 − 4. Com vetores, o a² vira ‖[[u]]‖² e o b² vira ‖[[v]]‖². Se os dois tamanhos são iguais, a diferença dos quadrados zera, e produto escalar zero quer dizer ângulo reto.",
+        "trabalho": "No Excel, com [[u]] em A1:A3 e [[v]] em B1:B3, a fórmula `=SOMARPRODUTO(A1:A3+B1:B3;A1:A3-B1:B3)` dá sempre o mesmo que `=SOMAQUAD(A1:A3)-SOMAQUAD(B1:B3)`. Se as duas colunas têm a mesma soma de quadrados, o resultado é 0. É a versão de planilha da prova: soma vezes diferença vira diferença de quadrados.",
+        "conversa": [
+          {"quem": "Você", "fala": "Se ‖[[u]]‖ = ‖[[v]]‖, então [[u]] e [[v]] são perpendiculares, e daí sai o resto?"},
+          {"quem": "Monitor", "fala": "Teste (3, 4) e (5, 0). Os dois têm norma 5. São perpendiculares?"},
+          {"quem": "Você", "fala": "3·5 + 4·0 = 15. Não são."},
+          {"quem": "Monitor", "fala": "E a soma (8, 4) com a diferença (−2, 4)?"},
+          {"quem": "Você", "fala": "−16 + 16 = 0. Essas são perpendiculares."},
+          {"quem": "Monitor", "fala": "Pois é. Quem fica perpendicular é o par soma e diferença, e a prova é o produto notável."}
+        ],
+        "erro": "O tropeço é expandir ([[u]] + [[v]])·([[u]] − [[v]]) como se fosse ‖[[u]] − [[v]]‖², com −2[[u]]·[[v]] no meio. No produto da soma pela diferença, os termos cruzados têm sinais opostos e se cancelam. Outro tropeço é concluir que [[u]] ⊥ [[v]]: a hipótese fala de tamanhos iguais, não de ângulo reto entre eles.",
+        "confira": "Pegue os vetores da figura: [[u]] = (3, 1) e [[v]] = (1, 3), os dois com norma √10. [[u]] + [[v]] = (4, 4) e [[u]] − [[v]] = (2, −2). Produto escalar: 8 − 8 = 0. Agora estrague a hipótese com [[v]] = (1, 2), de norma √5. A soma (4, 3) e a diferença (2, −1) dão 8 − 3 = 5. Sem tamanhos iguais, o ângulo reto some.",
+        "atalho": "Quando o enunciado fala de soma e diferença de vetores, pense em (a + b)(a − b). A conta inteira cabe em uma linha: ‖[[u]]‖² − ‖[[v]]‖². Com tamanhos iguais, zero. Elimine as alternativas que dizem falsa e as que se apoiam em [[u]] ⊥ [[v]] ou em tamanhos iguais da soma e da diferença."
+      }
+    },
+    {
+      "id": "ga-s3-l3q5e",
+      "semana": 3,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Cossenos diretores",
+      "origem": "Lista 3 · Q5e",
+      "enunciado": "Classifique em Verdadeiro (V) ou Falso (F). Se verdadeiro, prove. Se falso, dê um contraexemplo:\nSejam [[V]] um vetor não nulo no espaço e α, β e γ os ângulos que [[V]] forma com os vetores [[i]], [[j]] e [[k]], respectivamente. Então temos que cos²(α) + cos²(β) + cos²(γ) = 1.\nQual classificação e justificativa estão corretas?",
+      "alternativas": [
+        {"t": "Verdadeira: cada cosseno é uma coordenada de [[V]] dividida por ‖[[V]]‖, e os quadrados somam ‖[[V]]‖²/‖[[V]]‖² = 1.", "certa": true},
+        {"t": "Falsa: o certo é cos α + cos β + cos γ = 1, sem os quadrados, porque os três cossenos repartem o vetor inteiro.", "certa": false, "erro": "Teste com [[V]] = (1, 1, 1): cada cosseno vale 1/√3, e a soma dá 3/√3 = √3, não 1. Os quadrados é que somam 1: 1/3 + 1/3 + 1/3."},
+        {"t": "Verdadeira: vale porque sen²θ + cos²θ = 1, aplicado a cada um dos três ângulos.", "certa": false, "erro": "A identidade sen² + cos² = 1 fala de um ângulo só. Aplicada aos três, daria 3 somando senos e cossenos. A prova passa pelas coordenadas de [[V]] e pela norma."},
+        {"t": "Falsa: a soma depende do tamanho de [[V]]; para [[V]] = (2, 0, 0), que não é unitário, ela dá 4.", "certa": false, "erro": "Os cossenos já dividem pela norma: cos α = 2/2 = 1, cos β = cos γ = 0, e a soma dos quadrados é 1. O tamanho de [[V]] some na divisão."},
+        {"t": "Verdadeira: os três ângulos são sempre iguais, e três vezes o quadrado do cosseno desse ângulo dá 1.", "certa": false, "erro": "Os ângulos só são iguais quando as coordenadas são iguais em módulo, como em (1, 1, 1). Para (2, 3, 6) os cossenos são 2/7, 3/7 e 6/7, todos diferentes."}
+      ],
+      "dica": "Use cos α = ([[V]]·[[i]])/‖[[V]]‖ e lembre que [[V]]·[[i]] é a primeira coordenada de [[V]].",
+      "resposta": "Verdadeira. A soma dos quadrados dos cossenos é (a² + b² + c²)/‖[[V]]‖² = 1.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [2, 3, 6], "rot": "V", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 0, 0], "rot": "i", "cor": 3},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [0, 1, 0], "rot": "j", "cor": 3},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [0, 0, 1], "rot": "k", "cor": 3},
+          {"tipo": "segmento", "de": [2, 3, 6], "ate": [2, 3, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [2, 3, 0], "ate": [2, 0, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [2, 3, 0], "ate": [0, 3, 0], "tracejado": true}
+        ],
+        "legenda": "[[V]] = (2, 3, 6) tem norma 7. Os ângulos com [[i]], [[j]] e [[k]] têm cossenos 2/7, 3/7 e 6/7."
+      },
+      "jeitos": {
+        "visual": "Na figura, [[V]] = (2, 3, 6) sai da origem, e as setas ocres curtas são [[i]], [[j]] e [[k]]. O cosseno do ângulo com cada eixo mede quanto [[V]] aponta naquela direção: a sombra de [[V]] no eixo dividida pelo tamanho dele. As três sombras são 2, 3 e 6, e o tamanho é 7. Os quadrados das três frações somam o quadrado inteiro, por Pitágoras.",
+        "receita": [
+          "Escreva [[V]] = (a, b, c), não nulo.",
+          "Ângulo com [[i]] = (1, 0, 0): cos α = ([[V]]·[[i]])/(‖[[V]]‖·‖[[i]]‖) = a/‖[[V]]‖. Do mesmo jeito, cos β = b/‖[[V]]‖ e cos γ = c/‖[[V]]‖.",
+          "Some os quadrados: (a² + b² + c²)/‖[[V]]‖².",
+          "Como ‖[[V]]‖² = a² + b² + c², a fração vale 1. A afirmação é verdadeira."
+        ],
+        "cotidiano": "Pense numa escada que sai do canto de um quarto e vai até um ponto no ar. Ela tem uma parte que avança para a frente, uma para o lado e uma para cima. Cada cosseno é quanto da escada vai em cada direção, dividido pelo comprimento total. Como as três partes recompõem a escada por Pitágoras, os quadrados das três frações somam 1.",
+        "trabalho": "É uma análise vertical feita com quadrados. Cada cos² é a participação de uma coordenada no total ‖[[V]]‖² = a² + b² + c². Para (2, 3, 6), as participações são 4/49, 9/49 e 36/49. Partes que recompõem o todo somam 100%, como a participação de cada centro de custo no custo total. Sem os quadrados, a soma não fecha.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei que a soma dos cossenos é que dava 1."},
+          {"quem": "Monitor", "fala": "Teste com [[V]] = (1, 1, 1). Quanto vale cada cosseno?"},
+          {"quem": "Você", "fala": "1/√3. Somando os três dá 3/√3 = √3."},
+          {"quem": "Monitor", "fala": "Não deu 1. E os quadrados?"},
+          {"quem": "Você", "fala": "1/3 + 1/3 + 1/3 = 1."},
+          {"quem": "Monitor", "fala": "É por isso que o enunciado tem cos². O quadrado vem de Pitágoras, dentro da norma."}
+        ],
+        "erro": "Dois erros aparecem. Um é tirar o quadrado e achar que cos α + cos β + cos γ = 1, o que falha já em (1, 1, 1). O outro é esquecer de dividir pela norma, usar a, b e c direto e concluir que a soma depende do tamanho de [[V]]. A divisão por ‖[[V]]‖ é justamente o que apaga o tamanho.",
+        "confira": "Faça com [[V]] = (2, 3, 6). Norma: √(4 + 9 + 36) = √49 = 7. Cossenos: 2/7, 3/7 e 6/7. Quadrados: 4/49 + 9/49 + 36/49 = 49/49 = 1. Teste também um vetor com coordenada negativa, como (−2, 3, 6): o primeiro cosseno muda de sinal, mas o quadrado é o mesmo, e a soma continua 1.",
+        "atalho": "Dois testes de cabeça ajudam. [[V]] = (1, 0, 0) dá cossenos 1, 0 e 0: soma dos quadrados 1. [[V]] = (1, 1, 1) dá 1/√3 três vezes: quadrados de 1/3, soma 1. A frase passa nos dois, então aposte em verdadeira e escolha a justificativa que divide cada coordenada pela norma."
+      }
+    },
+    {
+      "id": "ga-s3-l3q5f",
+      "semana": 3,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Base média do trapézio",
+      "origem": "Lista 3 · Q5f",
+      "enunciado": "Classifique em Verdadeiro (V) ou Falso (F). Se verdadeiro, prove. Se falso, dê um contraexemplo:\nO segmento que une os pontos médios dos lados não paralelos de um trapézio é paralelo às bases, e sua medida é a média aritmética das medidas das bases.\nQual classificação e justificativa estão corretas?",
+      "alternativas": [
+        {"t": "Verdadeira: [[MN]] = (1/2)([[AB]] + [[CD]]), e a soma de dois vetores paralelos dá o comprimento somado.", "certa": false, "erro": "[[AB]] e [[CD]] apontam em sentidos opostos; somados, os comprimentos se subtraem. O par certo é [[AB]] e [[DC]], que têm o mesmo sentido."},
+        {"t": "Falsa: o segmento é paralelo às bases, mas mede a média só quando o trapézio é isósceles.", "certa": false, "erro": "A conta [[MN]] = (1/2)([[AB]] + [[DC]]) não usa os lados inclinados, então vale para qualquer trapézio. Com A(0, 0), B(8, 0), C(6, 3), D(1, 3), que não é isósceles, MN mede 6,5 = (8 + 5)/2."},
+        {"t": "Falsa: o segmento mede a metade da base maior, como a base média de um triângulo.", "certa": false, "erro": "Metade de um lado vale no triângulo. No trapézio entram as duas bases: (1/2)([[AB]] + [[DC]]). Para bases 8 e 5, MN mede 6,5, e não 4."},
+        {"t": "Verdadeira: [[MN]] = (1/2)([[AB]] + [[DC]]); como [[DC]] tem o sentido de [[AB]], [[MN]] é paralelo a eles e mede a média das bases.", "certa": true},
+        {"t": "Verdadeira: M e N ficam à mesma distância das duas bases, e isso já garante que MN mede a média delas.", "certa": false, "erro": "Ficar a meia altura explica o paralelismo, não o tamanho. O comprimento sai da conta [[MN]] = (1/2)([[AB]] + [[DC]])."}
+      ],
+      "dica": "Chame o trapézio de ABCD, com bases AB e DC. Escreva [[MN]], com M e N pontos médios de AD e BC, usando os vértices.",
+      "resposta": "Verdadeira. [[MN]] = (1/2)([[AB]] + [[DC]]), com [[AB]] e [[DC]] de mesmo sentido.",
+      "figura": {
+        "modo": "2d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 0], [8, 0], [6, 3], [1, 3]], "cor": 3},
+          {"tipo": "vetor", "de": [0, 0], "ate": [8, 0], "rot": "AB", "cor": 1},
+          {"tipo": "vetor", "de": [1, 3], "ate": [6, 3], "rot": "DC", "cor": 2},
+          {"tipo": "vetor", "de": [0.5, 1.5], "ate": [7, 1.5], "rot": "MN", "cor": 4},
+          {"tipo": "ponto", "em": [0, 0], "rot": "A"},
+          {"tipo": "ponto", "em": [8, 0], "rot": "B"},
+          {"tipo": "ponto", "em": [6, 3], "rot": "C"},
+          {"tipo": "ponto", "em": [1, 3], "rot": "D"},
+          {"tipo": "ponto", "em": [0.5, 1.5], "rot": "M"},
+          {"tipo": "ponto", "em": [7, 1.5], "rot": "N"}
+        ],
+        "legenda": "As bases [[AB]] e [[DC]] apontam para a direita. O segmento MN, entre os pontos médios dos lados inclinados, aponta para o mesmo lado e mede 6,5 = (8 + 5)/2."
+      },
+      "jeitos": {
+        "visual": "Na figura, as duas bases são horizontais e apontam para a direita: [[AB]] mede 8 e [[DC]] mede 5. O segmento MN fica a meia altura e também é horizontal. Imagine a largura do trapézio mudando de forma uniforme enquanto você sobe da base de baixo para a de cima: começa em 8 e termina em 5. No meio do caminho, a largura é a média, 6,5.",
+        "receita": [
+          "Trapézio ABCD com bases AB e DC paralelas; M é o ponto médio de AD e N o de BC.",
+          "M = (A + D)/2 e N = (B + C)/2, então [[MN]] = N − M = (1/2)[(B − A) + (C − D)] = (1/2)([[AB]] + [[DC]]).",
+          "As bases são paralelas e, nessa ordem de letras, têm o mesmo sentido: [[DC]] = t·[[AB]], com t > 0.",
+          "Então [[MN]] = (1/2)(1 + t)[[AB]]: é múltiplo de [[AB]], portanto paralelo às bases.",
+          "Comprimento: ‖[[MN]]‖ = (1/2)(‖[[AB]]‖ + t‖[[AB]]‖) = (‖[[AB]]‖ + ‖[[DC]]‖)/2, a média das bases."
+        ],
+        "cotidiano": "Pense numa escada de pintor aberta, vista de frente: os degraus vão estreitando de forma uniforme de baixo para cima. Se o degrau de baixo tem 8 palmos e o de cima tem 5, o degrau do meio tem 6,5, a média dos dois. No trapézio, os lados inclinados fazem esse estreitamento uniforme, e o segmento MN é o degrau do meio.",
+        "trabalho": "É interpolação linear, como numa tabela em que você precisa do valor entre duas linhas. Se a largura vale 8 numa ponta e 5 na outra e varia em linha reta, a metade do caminho vale (8 + 5)/2 = 6,5; no Excel, =MÉDIA(8;5). A prova com vetores é o que garante que a variação é mesmo linear: [[MN]] = (1/2)([[AB]] + [[DC]]).",
+        "conversa": [
+          {"quem": "Você", "fala": "Escrevi [[MN]] = (1/2)([[AB]] + [[CD]]) e o comprimento deu metade da diferença das bases. Errei onde?"},
+          {"quem": "Monitor", "fala": "Para que lado aponta [[CD]]?"},
+          {"quem": "Você", "fala": "De C para D, para a esquerda. Ao contrário de [[AB]]."},
+          {"quem": "Monitor", "fala": "Então a soma subtrai os tamanhos. Refaça N − M com as letras."},
+          {"quem": "Você", "fala": "(1/2)[(B − A) + (C − D)]. É [[DC]], não [[CD]]."},
+          {"quem": "Monitor", "fala": "Isso. [[AB]] e [[DC]] apontam para o mesmo lado, e aí os tamanhos se somam."}
+        ],
+        "erro": "A armadilha é o sentido dos vetores das bases. [[AB]] e [[CD]] são paralelos, mas opostos; somá-los subtrai os comprimentos. A conta com pontos mostra que o par certo é [[AB]] e [[DC]]. Também aparece a confusão com o triângulo, em que a base média vale metade de um lado só. No trapézio entram as duas bases.",
+        "confira": "Use o trapézio da figura: A(0, 0), B(8, 0), C(6, 3), D(1, 3). Bases: AB = 8 e DC = 5. M = (1/2, 3/2) e N = (7, 3/2). [[MN]] = (13/2, 0): horizontal, como as bases, e com comprimento 6,5 = (8 + 5)/2. O trapézio não é isósceles, então o resultado não depende de simetria.",
+        "atalho": "Teste os casos extremos de cabeça. Bases iguais a 4 viram um paralelogramo, e o segmento do meio mede 4, a média. Base de cima 0 vira um triângulo, e o segmento do meio mede metade da base de baixo, que também é a média de 0 e dela. A frase passa nos dois; procure a justificativa com [[DC]], não [[CD]]."
+      }
+    }
+  ]
+}

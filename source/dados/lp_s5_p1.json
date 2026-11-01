@@ -1,0 +1,307 @@
+{
+  "disciplina": "lp",
+  "semanas": [
+    {
+      "semana": 5,
+      "titulo": "Algoritmos no VisuAlg: sequência e decisão",
+      "chamada": "Um algoritmo é uma receita sem margem para dúvida: no VisuAlg você escreve os passos, faz as contas na ordem certa e deixa o programa escolher o caminho conforme os dados.",
+      "fonte": "Prévia pela ementa do PPC — trocar quando o material da semana chegar",
+      "previa": true,
+      "blocos": [
+        {"titulo": "O que é um algoritmo", "texto": "Algoritmo é uma sequência finita de passos, sem ambiguidade, que leva de um ponto de partida a um resultado. Cinco propriedades ajudam a reconhecer um bom algoritmo. **Finitude:** termina depois de um número finito de passos. **Definição:** cada passo tem um só jeito de ser entendido. **Entradas:** recebe zero ou mais dados para trabalhar. **Saídas:** entrega pelo menos um resultado. **Efetividade:** cada passo é simples o bastante para ser feito à mão, de forma exata e em tempo finito. \"Dê um bom desconto\" fere a definição; \"repita para sempre\" fere a finitude."},
+        {"titulo": "Três jeitos de representar", "texto": "**Descrição narrativa:** os passos em português corrente. É fácil de escrever, mas abre espaço para ambiguidade.\n**Fluxograma:** um desenho com símbolos ligados por setas. O terminal (oval ou retângulo de cantos arredondados) marca início e fim; o retângulo é um processamento, como uma conta ou atribuição; o losango é uma decisão, com uma saída para Sim e outra para Não; o paralelogramo indica entrada ou saída de dados (alguns livros desenham teclado e tela com símbolos próprios).\n**Pseudocódigo** (ou portugol): português estruturado, com palavras fixas como `se`, `entao` e `fimse`. O VisuAlg roda esse pseudocódigo no computador."},
+        {"titulo": "O esqueleto de um programa VisuAlg", "texto": "Todo programa segue a mesma forma: `algoritmo \"nome\"` na primeira linha; `var`, onde cada variável é declarada com o seu tipo; `inicio`, onde começam os comandos; e `fimalgoritmo`, que fecha tudo. Os tipos básicos são quatro: `inteiro` (número sem casas, como 47), `real` (número com casas, como 6,5), `caractere` (texto entre aspas) e `logico` (VERDADEIRO ou FALSO). Nome de variável começa com letra e continua com letras e algarismos, sem espaço e sem símbolos como `-` ou `%`; evite acento. O sublinhado `_` é aceito no meio do nome. Palavras do próprio VisuAlg, como `se` e `inicio`, não servem de nome."},
+        {"titulo": "Atribuição, leitura e escrita", "texto": "A seta `<-` é a atribuição: `x <- 10` guarda 10 em x e apaga o valor anterior. Quem recebe fica à esquerda; o lado direito é calculado primeiro, com os valores que as variáveis têm naquele momento. `leia(a, b)` espera o que a pessoa digita e guarda na ordem: o primeiro valor vai para a, o segundo para b. `escreva` mostra na tela e continua na mesma linha; `escreval` mostra e pula de linha. Texto entre aspas sai do jeito que está; nome de variável sem aspas mostra o valor guardado nela."},
+        {"titulo": "Operadores e a ordem das contas", "texto": "A barra `/` sempre dá `real`: `5 / 2` dá 2,5. Para divisão inteira use `div` (ou `\\`): 47 div 5 = 9. O `mod` (ou `%`) dá o resto: 47 mod 5 = 2. Com eles você separa dígitos: 583 div 100 = 5, (583 mod 100) div 10 = 8 e 583 mod 10 = 3.\nA ordem de cálculo é: parênteses; potência `^`; depois `*`, `/`, `div` e `mod`; depois `+` e `-`; depois os relacionais (`=`, `<>`, `<`, `>`, `<=`, `>=`); por último `nao`, `e` e `ou`, nessa ordem. Entre operadores do mesmo grupo, como `+` e `-`, a conta vai da esquerda para a direita. Na dúvida, ponha parênteses."},
+        {"titulo": "Decisão: se, se aninhado e escolha", "texto": "`se condição entao ... senao ... fimse` roda um bloco ou o outro, nunca os dois. O `senao` é opcional: sem ele, quando a condição é falsa, o programa pula o bloco e segue. Um `se` dentro de outro é um se aninhado: o de dentro só é testado por quem passou pelo de fora, e cada `senao` pertence ao `se` mais próximo que ainda não foi fechado. O `escolha` compara uma variável com listas de valores: `caso 1, 7` cobre os dois; `outrocaso` pega o que não combinou com nenhum. Depois de um caso, o programa segue para o `fimescolha`."}
+      ],
+      "formulas": [
+        {"nome": "Atribuição", "expr": "`x <- expressão`", "quando": "guardar um valor; o lado direito é calculado antes"},
+        {"nome": "Divisão real", "expr": "`a / b`", "quando": "resultado com casas; vai para variável `real`"},
+        {"nome": "Quociente inteiro", "expr": "`a div b` (ou `a \\ b`)", "quando": "quantas vezes b cabe inteiro em a"},
+        {"nome": "Resto", "expr": "`a mod b` (ou `a % b`)", "quando": "o que sobra da divisão; `n mod 2 = 0` testa se n é par"},
+        {"nome": "Dígitos de um número de três algarismos", "expr": "`n div 100`, `(n mod 100) div 10`, `n mod 10`", "quando": "centena, dezena e unidade"},
+        {"nome": "Ordem das operações", "expr": "( ) → `^` → `*` `/` `div` `mod` → `+` `-` → relacionais → `nao` → `e` → `ou`", "quando": "expressão com vários operadores; mesmo grupo vai da esquerda para a direita"},
+        {"nome": "Decisão composta", "expr": "`se ... entao ... senao ... fimse`", "quando": "dois caminhos, só um roda"},
+        {"nome": "Múltipla escolha", "expr": "`escolha x` / `caso 1, 2` / `outrocaso` / `fimescolha`", "quando": "uma variável comparada com vários valores"}
+      ],
+      "jeitos": {
+        "visual": "Imagine a memória como uma fileira de gavetas com etiqueta. O `var` cola as etiquetas e diz o que cabe em cada gaveta: número inteiro, número com casas, texto ou VERDADEIRO e FALSO. A seta `<-` abre uma gaveta, joga fora o que havia e põe o valor novo. O programa desce as linhas de cima para baixo, como o dedo lendo uma lista. Quando chega num `se`, a estrada se divide em duas, e só um lado é percorrido. O teste de mesa é essa cena em câmera lenta: uma coluna por gaveta, uma linha por passo.",
+        "cotidiano": "Uma receita de bolo é um algoritmo quase pronto: ingredientes são as entradas, o bolo é a saída, os passos têm ordem e terminam. O que estraga a receita é o passo vago: \"asse até ficar bom\" depende de quem lê. O computador precisa de \"asse por 40 minutos a 180 °C\". A decisão também aparece na cozinha: se a massa estiver mole, junte farinha; senão, siga para a forma. A receita nunca manda fazer as duas coisas, e a pergunta sempre olha para a massa como ela está naquele momento.",
+        "receita": "Para escrever um programa no VisuAlg: 1) diga em uma frase qual resultado você quer; 2) liste as entradas e escolha o tipo de cada uma; 3) declare as variáveis em `var`; 4) entre `inicio` e `fimalgoritmo`, receba as entradas com `leia`; 5) faça as contas com `<-`, pondo parênteses onde a ordem importa; 6) use `se` ou `escolha` onde o caminho depende dos dados; 7) mostre o resultado com `escreval` e confira com um teste de mesa, valor por valor.",
+        "trabalho": "Você já programa sem chamar de programa. Uma coluna no Excel com =SE(B2>=6;\"Aprovado\";\"Recuperação\") é um `se ... senao`. O ESCOLHER do Excel faz o papel do `escolha`: um número leva a uma resposta. No SQL, `CASE WHEN valor >= 500 THEN 'A' ELSE 'B' END` é a mesma decisão, e os tipos de coluna INT, DECIMAL, VARCHAR e BOOLEAN correspondem a `inteiro`, `real`, `caractere` e `logico`. Até o QUOCIENTE e o MOD do Excel estão aqui: com números positivos, dão o mesmo que o `div` e o `mod` do VisuAlg.",
+        "erro": "Três tropeços dominam esta semana. O primeiro é a ordem das contas: `n1 + n2 / 2` divide só o n2, e a média certa pede `(n1 + n2) / 2`. O segundo é confundir as divisões: a barra dá real, o `div` dá o quociente sem casas e o `mod` dá o resto. O resultado de `7 / 2` é real e pede variável `real`; no laboratório do site, guardá-lo numa variável `inteiro` dá erro. O terceiro é a fronteira das comparações: `>` deixa o próprio valor de fora, `>=` o inclui. Na dúvida, teste o programa justamente com o valor que está na fronteira."
+      },
+      "lab": "No laboratório, abra o exemplo dos dígitos e troque 347 por 583 para ver c, d e u mudarem no teste de mesa; depois rode o exemplo da média com as notas 4 e 5 e apague os parênteses da conta para ver o resultado mudar."
+    }
+  ],
+  "questoes": [
+    {
+      "id": "lp-s5-p01",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Propriedades de um algoritmo",
+      "origem": "Prévia · ementa",
+      "enunciado": "Um analista escreveu este roteiro para liberar desconto:\n1. Receba o nome do cliente e o valor da compra.\n2. Se o cliente for bom pagador, dê 5% de desconto.\n3. Mostre o valor final.\nQual propriedade de um algoritmo o roteiro **não** cumpre?",
+      "alternativas": [
+        {"t": "Finitude (termina)", "certa": false, "erro": "O roteiro tem três passos e nenhum manda voltar atrás. Depois do passo 3 ele acaba, então a finitude está garantida."},
+        {"t": "Entrada (recebe dados)", "certa": false, "erro": "O passo 1 recebe o nome e o valor da compra. Esses dados são as entradas."},
+        {"t": "Definição (sem ambiguidade)", "certa": true},
+        {"t": "Saída (entrega resultado)", "certa": false, "erro": "O passo 3 mostra o valor final. Esse é o resultado entregue, a saída."},
+        {"t": "Efetividade (passos executáveis)", "certa": false, "erro": "Calcular 5% é multiplicar por 0,05, conta que se faz à mão em segundos. O passo fica executável assim que alguém disser quem é bom pagador; o defeito está no critério, não na conta."}
+      ],
+      "dica": "Entregue o roteiro a duas pessoas diferentes. Em qual passo elas poderiam tomar decisões diferentes com os mesmos dados?",
+      "resposta": "Falta definição: \"bom pagador\" não tem critério, então o passo 2 é ambíguo.",
+      "jeitos": {
+        "visual": "Desenhe o roteiro como fluxograma: terminal de início, paralelogramo de entrada com nome e valor, losango com a pergunta, retângulo do desconto, paralelogramo de saída e terminal de fim. Agora tente escrever dentro do losango uma comparação que dê para testar, como `valor > 1000`. Com \"bom pagador\" não dá: nenhuma comparação sai dessa expressão sem alguém inventar um critério. Os outros símbolos se preenchem sem dúvida. Losango que não vira comparação é o retrato da ambiguidade.",
+        "receita": [
+          "Finitude: são três passos e nenhum volta atrás. O roteiro termina.",
+          "Entrada: o passo 1 recebe o nome e o valor da compra.",
+          "Saída: o passo 3 mostra o valor final.",
+          "Efetividade: 5% de desconto é uma multiplicação por 0,05.",
+          "Definição: \"bom pagador\" não tem critério. Pode ser quem não atrasou no ano, quem nunca atrasou ou quem comprou mais de dez vezes.",
+          "A única propriedade que falha é a definição: o passo 2 é ambíguo."
+        ],
+        "cotidiano": "É como deixar um bilhete para o vizinho: \"regue as plantas se a terra estiver seca\". Seca, para você, é terra rachada; para ele, qualquer dia sem chuva. Os dois seguiram o bilhete e chegaram a resultados diferentes. Um bilhete bom diz \"regue às segundas e quintas, um copo por vaso\". O desconto do roteiro sofre do mesmo mal: o critério mora na cabeça de quem escreveu.",
+        "trabalho": "Em auditoria, uma regra como \"conceda desconto a bom pagador\" não passa num teste de controle, porque não dá para dizer se foi cumprida. A versão auditável seria \"cliente sem título vencido há mais de 30 dias nos últimos 12 meses\". Essa frase vira um filtro no SQL, como `WHERE dias_atraso_max <= 30`, ou uma coluna com SE no Excel. Algoritmo é isso: uma regra que qualquer pessoa, ou máquina, aplica do mesmo jeito.",
+        "conversa": [
+          {"quem": "Você", "fala": "Eu marcaria efetividade. O computador não sabe o que é bom pagador."},
+          {"quem": "Monitor", "fala": "E se alguém disser que bom pagador é quem não atrasou nenhum boleto este ano? Dá para conferir à mão?"},
+          {"quem": "Você", "fala": "Dá. É olhar os boletos um por um."},
+          {"quem": "Monitor", "fala": "Então o passo é executável. O que faltava era o critério, e passo sem critério claro tem outro nome."},
+          {"quem": "Você", "fala": "Ambiguidade. Cada um decide de um jeito."},
+          {"quem": "Monitor", "fala": "Isso. Com o critério escrito, o roteiro passa a cumprir as cinco propriedades."}
+        ],
+        "erro": "A armadilha é confundir ambiguidade com efetividade. Efetividade pergunta se o passo pode ser executado com operações simples, em tempo finito. Definição pergunta se o passo tem um único sentido. \"Bom pagador\" seria fácil de verificar se tivesse critério; o problema é que cada leitor pode inventar o seu. Quando a correção é escrever melhor a regra, e não trocar a operação, o defeito é de definição.",
+        "confira": "Faça o teste das duas pessoas. Dê o mesmo cliente, com o mesmo histórico, a dois colegas e peça que sigam o roteiro. Se eles podem chegar a valores finais diferentes sem errar nenhuma conta, há ambiguidade. Repita o teste com o critério escrito, por exemplo \"nenhum atraso em 12 meses\": os dois chegam ao mesmo valor. A diferença entre as duas rodadas aponta o passo defeituoso.",
+        "atalho": "Procure o passo com adjetivo. Palavras como bom, pouco, alto, rápido ou adequado, sem um número ou uma regra ao lado, quase sempre indicam ambiguidade. Aqui o adjetivo está no passo 2. As outras quatro propriedades se conferem em segundos: há entrada no passo 1, saída no passo 3, só três passos e uma conta simples."
+      }
+    },
+    {
+      "id": "lp-s5-p02",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Atribuição em sequência",
+      "origem": "Prévia · ementa",
+      "enunciado": "O que este algoritmo escreve na tela?",
+      "codigo": "algoritmo \"sequencia\"\nvar\n   a, b: inteiro\ninicio\n   a <- 8\n   b <- 5\n   a <- a + b\n   b <- a - b\n   a <- a - b\n   escreval(a, \" \", b)\nfimalgoritmo",
+      "entradas": [],
+      "saida": "5 8",
+      "alternativas": [
+        {"t": "5 8", "certa": true},
+        {"t": "13 8", "certa": false, "erro": "Você parou antes da última linha. Ela ainda roda: `a <- a - b` faz 13 − 8 = 5."},
+        {"t": "8 5", "certa": false, "erro": "Esses são os valores do começo. As três linhas do meio mudam a e b antes de o `escreval` rodar."},
+        {"t": "8 8", "certa": false, "erro": "Na última linha você usou o b antigo, 5: 13 − 5 = 8. Quando ela roda, b já vale 8, então a fica 13 − 8 = 5."},
+        {"t": "10 3", "certa": false, "erro": "Na linha `b <- a - b` você usou o a antigo, 8: b = 8 − 5 = 3, e depois a = 13 − 3 = 10. Quando essa linha roda, a já vale 13, e b fica 13 − 5 = 8."}
+      ],
+      "dica": "Faça uma tabela com duas colunas, a e b, e atualize os valores a cada linha. Cada conta usa o que está na tabela naquele momento.",
+      "resposta": "5 8: os valores de a e b foram trocados.",
+      "jeitos": {
+        "visual": "Desenhe duas gavetas, a e b. Elas começam com 8 e 5. Na linha `a <- a + b`, a gaveta a recebe a soma das duas: 13. Na linha `b <- a - b`, o b passa a ser 13 menos o 5 que estava lá: 8. Na última, a recebe 13 menos o novo b, 8: sobra 5. As gavetas terminam com 5 e 8, o contrário do começo. O teste de mesa mostra esse vaivém linha a linha.",
+        "receita": [
+          "Começo: a = 8 e b = 5.",
+          "`a <- a + b`: a = 8 + 5 = 13. O b continua 5.",
+          "`b <- a - b`: b = 13 − 5 = 8. O a continua 13.",
+          "`a <- a - b`: a = 13 − 8 = 5.",
+          "`escreval(a, \" \", b)` mostra 5 e 8."
+        ],
+        "cotidiano": "É como seguir instruções de caminho: \"ande duas quadras, vire à direita, ande mais uma\". Cada instrução vale a partir de onde você está agora, e não da porta de casa. Quem aplica a terceira instrução como se ainda estivesse no ponto de partida chega a outra esquina. No programa, cada linha também parte do estado deixado pela linha anterior: quando `b <- a - b` roda, o a já saiu do 8 e chegou ao 13.",
+        "trabalho": "É o que acontece num saldo corrente. A célula do saldo não guarda a história: guarda o último valor. Se você calcula o lançamento seguinte em cima do saldo de ontem, e não do saldo já atualizado, a conciliação não fecha. Aqui é igual: `b <- a - b` usa o a que acabou de virar 13, e não o 8 do início. Planilha apontando para a célula errada e programa lido com o valor antigo erram do mesmo jeito.",
+        "conversa": [
+          {"quem": "Você", "fala": "Deu 10 e 3. Fiz b = 8 − 5 = 3 e depois a = 13 − 3."},
+          {"quem": "Monitor", "fala": "Na linha do b, quanto valia o a naquele momento?"},
+          {"quem": "Você", "fala": "Ah, a linha de cima já tinha mudado o a para 13."},
+          {"quem": "Monitor", "fala": "Então b = 13 − 5. Quanto dá?"},
+          {"quem": "Você", "fala": "8. E a última fica a = 13 − 8 = 5."},
+          {"quem": "Monitor", "fala": "Isso. Cada linha usa o valor que a variável tem na hora em que a linha roda."}
+        ],
+        "erro": "O tropeço é usar valores velhos. Quem lê o programa tende a guardar na cabeça o 8 e o 5 do começo e aplicar os dois em todas as linhas. Só que cada atribuição apaga o valor anterior da variável que recebe. A linha `b <- a - b` já enxerga a = 13, e a última já enxerga b = 8. Se a sua resposta saiu com 10, com 3 ou com 8 repetido, você usou um valor que já tinha sido apagado.",
+        "confira": "Note que o resultado é uma troca: a e b terminaram com os valores um do outro. Teste a mesma sequência com a = 2 e b = 7: a vira 9, b vira 9 − 7 = 2 e a vira 9 − 2 = 7. A troca se repete, o que confirma a leitura. Esse é um truque conhecido para trocar duas variáveis sem usar uma terceira.",
+        "atalho": "Ache primeiro o b final, que sai da linha `b <- a - b` com a = 13 e b = 5: dá 8. Isso já elimina 8 5 e 10 3. O a final sai da última linha: 13 − 8 = 5, o que elimina 13 8 e 8 8. Duas contas curtas e sobra uma alternativa."
+      }
+    },
+    {
+      "id": "lp-s5-p03",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 1,
+      "tema": "Nomes de variáveis",
+      "origem": "Prévia · ementa",
+      "enunciado": "Qual destes nomes pode ser usado para uma variável no VisuAlg?",
+      "alternativas": [
+        {"t": "`2trimestre`", "certa": false, "erro": "Nome de variável não pode começar com algarismo. `trimestre2` seria aceito."},
+        {"t": "`valor total`", "certa": false, "erro": "O espaço divide o nome em dois: o VisuAlg lê `valor` e `total` como coisas separadas. Junte as palavras, como em `valortotal`."},
+        {"t": "`custo-medio`", "certa": false, "erro": "O hífen é o sinal de menos. O VisuAlg entende `custo - medio`, uma subtração entre duas variáveis."},
+        {"t": "`saldo2`", "certa": true},
+        {"t": "`taxa%`", "certa": false, "erro": "O `%` é símbolo, e no VisuAlg ele também é o operador de resto. Nome de variável não leva símbolos desse tipo."}
+      ],
+      "dica": "Confira três coisas em cada nome: com o que ele começa, se tem espaço e se tem algum sinal que o VisuAlg usa em contas.",
+      "resposta": "`saldo2`: começa com letra e só tem letras e algarismos.",
+      "jeitos": {
+        "visual": "Imagine o VisuAlg lendo o código como quem lê uma frase e separa as palavras. Para ele, espaço é fronteira, `-` é menos e `%` é resto. Então `valor total` vira duas palavras, `custo-medio` vira uma conta e `taxa%` fica com um operador pendurado no fim. Uma palavra que começa com algarismo ele já trata como número. Só `saldo2` passa inteira pela leitura: começa com letra, e o 2 vem depois.",
+        "receita": [
+          "Primeiro caractere: tem de ser letra. `2trimestre` cai aqui.",
+          "Espaço: não pode. `valor total` cai.",
+          "Sinais de conta, como `-` e `%`: não podem. `custo-medio` e `taxa%` caem.",
+          "Sobra `saldo2`: começa com s, segue com letras e termina com algarismo, o que é permitido."
+        ],
+        "cotidiano": "Pense num endereço de e-mail. O nome antes do @ não aceita espaço, e o próprio @ não pode aparecer dentro dele, porque tem um papel: separar o nome do provedor. Um endereço como maria@silva@provedor deixa o sistema sem saber onde o nome acaba. No VisuAlg, o `-` e o `%` têm papel de conta, como o @ tem papel de separador. Por isso ficam fora do nome da variável, e o espaço também.",
+        "trabalho": "No banco de dados a regra é parecida. Uma coluna chamada valor total, com espaço, exige aspas ou crases no SQL a cada consulta, e custo-medio vira uma subtração se você esquecer delas. Por isso o costume é `valor_total` ou `valortotal`. Escolher nomes limpos desde o começo evita esse atrito, tanto no programa quanto na consulta.",
+        "conversa": [
+          {"quem": "Você", "fala": "Marquei `custo-medio`. O hífen é só para separar as palavras."},
+          {"quem": "Monitor", "fala": "Para você é. Como o VisuAlg lê `a-b`?"},
+          {"quem": "Você", "fala": "Como a menos b."},
+          {"quem": "Monitor", "fala": "Então `custo-medio` vira custo menos medio, e o programa vai procurar duas variáveis."},
+          {"quem": "Você", "fala": "E se eu quiser separar as palavras?"},
+          {"quem": "Monitor", "fala": "Junte tudo, como `customedio`, ou use o sublinhado, `custo_medio`. Das alternativas, só `saldo2` já está pronta."}
+        ],
+        "erro": "A armadilha é achar que só o algarismo no começo é proibido e que qualquer outro sinal passa. Espaço, hífen e porcentagem também quebram o nome, porque o VisuAlg dá a esses caracteres outro papel: separar palavras, subtrair e calcular resto. O contrário também engana: algarismo no meio ou no fim, como em `saldo2`, é permitido. Ele só não pode ser o primeiro caractere.",
+        "confira": "No laboratório do site, declare cada nome numa linha de `var`, por exemplo `2trimestre: inteiro`, e mande rodar. Os quatro nomes que quebram a regra param o programa com erro antes de começar; `saldo2: inteiro` passa. Sem o laboratório por perto, leia o nome em voz alta: se ele soa como número, como duas palavras ou como uma conta, não serve.",
+        "atalho": "Procure o único nome que é uma palavra só, começa com letra e não tem sinal nenhum. Quatro alternativas caem num olhar: uma começa com 2, uma tem espaço, uma tem hífen e uma tem %. Não é preciso lembrar de nenhuma regra mais fina para resolver."
+      }
+    },
+    {
+      "id": "lp-s5-p04",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Quociente e resto",
+      "origem": "Prévia · ementa",
+      "enunciado": "O que este algoritmo escreve na tela?",
+      "codigo": "algoritmo \"div_e_mod\"\nvar\n   n, q, r: inteiro\ninicio\n   n <- 47\n   q <- n div 5\n   r <- n mod 5\n   escreval(q, \" \", r)\nfimalgoritmo",
+      "entradas": [],
+      "saida": "9 2",
+      "alternativas": [
+        {"t": "2 9", "certa": false, "erro": "Você trocou os papéis: `div` dá o quociente, 9, e `mod` dá o resto, 2. O `escreval` mostra q primeiro."},
+        {"t": "9 2", "certa": true},
+        {"t": "9.4 2", "certa": false, "erro": "9,4 é `47 / 5`, a divisão com barra. O `div` descarta as casas e fica com 9. E q é `inteiro`: um 9,4 nem caberia nele."},
+        {"t": "9 4", "certa": false, "erro": "Você tomou o 4 de 9,4 como resto. O resto é o que sobra inteiro: 47 − 45 = 2. O 0,4 equivale a 2/5, e não a 4."},
+        {"t": "45 2", "certa": false, "erro": "45 é 9 × 5, a parte de 47 que a divisão consome. O `div` devolve quantas vezes o 5 coube, 9, e não o total consumido."}
+      ],
+      "dica": "Pense na divisão da escola, com chave: quantas vezes o 5 cabe em 47 e quanto sobra.",
+      "resposta": "9 2, porque 47 = 5 × 9 + 2.",
+      "jeitos": {
+        "visual": "Desenhe uma reta numerada de 0 a 47 e salte de 5 em 5 a partir do zero: 5, 10, 15, até 45. Foram 9 saltos inteiros. O próximo cairia em 50 e passaria do 47, então não acontece. Do 45 ao 47 sobram 2 passinhos que não fecham outro salto. O número de saltos é o `div`; os passinhos que sobram são o `mod`. A barra `/` faria outra coisa: mediria também o pedaço de salto e diria 9,4.",
+        "receita": [
+          "Quantas vezes 5 cabe em 47? 5 × 9 = 45 e 5 × 10 = 50 passa. Então q = 47 div 5 = 9.",
+          "Quanto sobra? 47 − 45 = 2. Então r = 47 mod 5 = 2.",
+          "Prova: 5 × 9 + 2 = 47.",
+          "`escreval(q, \" \", r)` mostra 9 e 2, nessa ordem."
+        ],
+        "cotidiano": "Você tem 47 garrafas e engradados que levam 5 cada. Enche 9 engradados e sobram 2 garrafas na mão. Ninguém diz que encheu 9,4 engradados: engradado pela metade não conta como cheio. O `div` responde quantos engradados ficaram cheios; o `mod` responde quantas garrafas sobraram fora deles.",
+        "trabalho": "No Excel, =QUOCIENTE(47;5) dá 9 e =MOD(47;5) dá 2; no MySQL, `47 DIV 5` e `47 % 5` dão o mesmo. O par aparece quando você converte prazos: 47 dias são 47 div 7 = 6 semanas e 47 mod 7 = 5 dias, porque 6 × 7 = 42. A barra tem outro uso: 47 / 5 = 9,4 serve para média, como o preço médio de 5 itens que custaram 47 reais no total, e não para contar inteiros.",
+        "conversa": [
+          {"quem": "Você", "fala": "47 dividido por 5 dá 9,4. Então q é 9 e r é 4?"},
+          {"quem": "Monitor", "fala": "Se sobram 4, quanto dá 5 × 9 + 4?"},
+          {"quem": "Você", "fala": "49. Passou do 47."},
+          {"quem": "Monitor", "fala": "Então o resto não é 4. O que sobra depois de tirar 45 de 47?"},
+          {"quem": "Você", "fala": "2. E o 0,4 é essa sobra dividida por 5."},
+          {"quem": "Monitor", "fala": "Isso: 2/5 = 0,4. O `mod` devolve a sobra inteira, 2."}
+        ],
+        "erro": "O tropeço clássico é ler as casas decimais como resto. A divisão com barra dá 9,4, e o olho pega o 4. Só que 0,4 é a sobra já dividida por 5: o resto de verdade é 0,4 × 5 = 2. Outro deslize é trocar os nomes: `div` é o quociente, `mod` é o resto. Quem marca 2 9 fez as contas certas e inverteu os papéis.",
+        "confira": "A prova é a conta da divisão: divisor × quociente + resto = dividendo, com o resto menor que o divisor. Aqui, 5 × 9 + 2 = 47 e 2 é menor que 5. Se o seu par fosse 9 e 4, daria 49; se fosse 2 e 9, daria 5 × 2 + 9 = 19, com resto maior que o divisor. Só o par 9 e 2 passa nas duas condições.",
+        "atalho": "O resto de uma divisão por 5 só pode ser 0, 1, 2, 3 ou 4, sempre inteiro. Isso elimina 2 9, com resto 9. O quociente de `div` não tem casas, o que elimina 9.4 2, e fica perto de 47/5, o que elimina 45. Entre 9 2 e 9 4, faça 5 × 9 = 45 e veja que sobram 2."
+      }
+    },
+    {
+      "id": "lp-s5-p05",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Do fluxograma ao VisuAlg",
+      "origem": "Prévia · ementa",
+      "enunciado": "Um fluxograma calcula a taxa de um pedido. A tabela lista os símbolos de cima para baixo. Qual trecho em VisuAlg faz o papel do losango e dos dois retângulos?",
+      "tabela": {
+        "onde": "enunciado",
+        "cab": ["Símbolo", "Texto dentro", "Papel"],
+        "linhas": [
+          ["Terminal", "Início", "abre o fluxo"],
+          ["Paralelogramo", "leia valor", "entrada de dados"],
+          ["Losango", "valor > 1000?", "uma seta Sim e uma seta Não"],
+          ["Retângulo na seta Sim", "`taxa <- 20`", "processamento"],
+          ["Retângulo na seta Não", "`taxa <- 5`", "processamento"],
+          ["Paralelogramo", "escreva taxa", "as duas setas chegam aqui"],
+          ["Terminal", "Fim", "fecha o fluxo"]
+        ]
+      },
+      "alternativas": [
+        {"t": "`se valor > 1000 entao`\n`taxa <- 5`\n`senao`\n`taxa <- 20`\n`fimse`", "certa": false, "erro": "Os ramos estão trocados. A seta Sim do losango leva a `taxa <- 20`, e o lado Sim é o bloco do `entao`."},
+        {"t": "`se valor > 1000 entao`\n`taxa <- 20`\n`fimse`\n`taxa <- 5`", "certa": false, "erro": "Sem o `senao`, a linha `taxa <- 5` fica fora do `se` e roda sempre. Um pedido de 2000 terminaria com taxa 5, e não 20."},
+        {"t": "`enquanto valor > 1000 faca`\n`taxa <- 20`\n`fimenquanto`\n`taxa <- 5`", "certa": false, "erro": "Nenhuma seta volta para o losango, então não há repetição. Com `enquanto`, um pedido de 2000 nunca sairia do laço, porque o valor não muda lá dentro."},
+        {"t": "`leia(valor > 1000)`\n`taxa <- 20`\n`taxa <- 5`", "certa": false, "erro": "O `leia` só recebe variáveis; a pergunta do losango é uma condição de `se`. E as duas taxas em sequência fariam a segunda apagar a primeira: taxa sempre 5."},
+        {"t": "`se valor > 1000 entao`\n`taxa <- 20`\n`senao`\n`taxa <- 5`\n`fimse`", "certa": true}
+      ],
+      "dica": "Cada saída do losango vira um bloco do `se`. Descubra qual bloco corresponde à seta Sim e veja se alguma seta volta para trás.",
+      "resposta": "`se valor > 1000 entao` `taxa <- 20` `senao` `taxa <- 5` `fimse`",
+      "jeitos": {
+        "visual": "Siga o fluxograma com o dedo. Do losango saem duas setas, como uma bifurcação de estrada: pela Sim você passa pelo retângulo da taxa 20; pela Não, pelo da taxa 5. Logo adiante as duas estradas se juntam no paralelogramo que escreve a taxa. Nenhuma seta volta para trás. Bifurcação que se junta de novo é o desenho de um `se` com `senao`: o `entao` é a estrada Sim, o `senao` é a estrada Não e o `fimse` é o ponto de encontro.",
+        "receita": [
+          "Losango com duas saídas e nenhuma seta de volta: é decisão. Use `se`, e não `enquanto`.",
+          "A condição é o texto do losango: `se valor > 1000 entao`.",
+          "O que está na seta Sim vem logo depois do `entao`: `taxa <- 20`.",
+          "O que está na seta Não vai no `senao`: `taxa <- 5`.",
+          "O ponto onde as setas se juntam é o `fimse`. O paralelogramo de saída vem depois dele."
+        ],
+        "cotidiano": "Compare duas perguntas do dia a dia. O porteiro confere o crachá uma vez: se a pessoa tem crachá, libera a catraca; senão, manda para a recepção. Ninguém volta para a pergunta. Já a criança no banco de trás pergunta \"já chegamos?\" de novo e de novo, até a resposta mudar. O porteiro é o `se` com `senao`; a criança é o `enquanto`. O fluxograma da taxa pergunta uma vez só, como o porteiro.",
+        "trabalho": "No Excel, esse fluxograma cabe numa célula: =SE(A2>1000;20;5). O primeiro valor depois da condição é o lado Sim, o segundo é o lado Não. Quem troca a ordem dos dois cobra 5 dos pedidos grandes e 20 dos pequenos, erro que só aparece quando alguém confere a fatura. No SQL é `CASE WHEN valor > 1000 THEN 20 ELSE 5 END`, com o THEN no papel do `entao`.",
+        "conversa": [
+          {"quem": "Você", "fala": "Marquei a do `enquanto`. O losango não é o símbolo de repetição?"},
+          {"quem": "Monitor", "fala": "O losango é o símbolo de pergunta. Ele aparece em decisão e em laço. O que diferencia os dois no desenho?"},
+          {"quem": "Você", "fala": "No laço, alguma seta volta para antes da pergunta?"},
+          {"quem": "Monitor", "fala": "Isso. Aqui alguma volta?"},
+          {"quem": "Você", "fala": "Não. As duas setas seguem para baixo e se juntam na saída."},
+          {"quem": "Monitor", "fala": "Então é decisão: `se`, com o Sim no `entao` e o Não no `senao`."}
+        ],
+        "erro": "Duas armadilhas. A primeira é achar que losango é sempre `se`, ou sempre laço: ele só marca uma pergunta, e quem diz se há repetição é uma seta voltando para cima. A segunda é esquecer o `senao` e deixar `taxa <- 5` solta depois do `fimse`. Aí ela roda para todo pedido e apaga o 20 que o lado Sim tinha posto. No desenho, isso equivaleria a ligar a seta Sim também ao retângulo da taxa 5.",
+        "confira": "Teste o trecho escolhido com dois pedidos. Com valor 2000, o fluxograma dá taxa 20; com valor 300, dá taxa 5. Passe as alternativas por esses dois pedidos: a dos ramos trocados dá 5 e 20, a sem `senao` dá 5 e 5, a do `enquanto` não termina com 2000 e a do `leia` dá erro. Só o `se` com `senao` na ordem certa reproduz 20 e 5.",
+        "atalho": "Olhe primeiro para as setas: nenhuma volta, então descarte o `enquanto`. Depois procure o `senao`: sem ele, as duas taxas não são caminhos separados. Restam duas alternativas, que diferem só na ordem dos ramos. Leia o lado Sim no fluxograma, taxa 20, e escolha a que põe o 20 logo depois do `entao`."
+      }
+    },
+    {
+      "id": "lp-s5-p06",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Ordem das operações",
+      "origem": "Prévia · ementa",
+      "enunciado": "O que este algoritmo escreve na tela?",
+      "codigo": "algoritmo \"precedencia\"\nvar\n   x: real\ninicio\n   x <- 50 - 4 * 2 ^ 3 + 23 mod 6\n   escreval(x)\nfimalgoritmo",
+      "entradas": [],
+      "saida": "23",
+      "alternativas": [
+        {"t": "13", "certa": false, "erro": "Você somou 32 + 5 antes de subtrair: 50 − 37 = 13. Soma e subtração têm a mesma prioridade e são feitas da esquerda para a direita, então 50 − 32 vem primeiro."},
+        {"t": "5", "certa": false, "erro": "Você aplicou o `mod 6` ao resultado inteiro: (50 − 32 + 23) mod 6 = 41 mod 6 = 5. O `mod` tem prioridade sobre a soma e pega só o 23."},
+        {"t": "21", "certa": false, "erro": "Você usou o quociente no lugar do resto: 23 div 6 = 3, e 50 − 32 + 3 = 21. O `mod` devolve o resto, 5."},
+        {"t": "23", "certa": true},
+        {"t": "31", "certa": false, "erro": "Você leu `2 ^ 3` como 2 × 3 = 6. Aí 4 × 6 = 24 e 50 − 24 + 5 = 31. O `^` é potência: 2 × 2 × 2 = 8."}
+      ],
+      "dica": "Resolva por camadas: primeiro a potência, depois multiplicação e resto, e só no fim soma e subtração, da esquerda para a direita.",
+      "resposta": "23",
+      "jeitos": {
+        "visual": "Desenhe a expressão como uma árvore. No tronco ficam as operações fracas, o + e o −; nos galhos, presas a elas, as fortes. O `2 ^ 3` é o galho mais fundo e vira 8. Logo acima, `4 * 8` vira 32, e no outro galho `23 mod 6` vira 5. O tronco fica 50 − 32 + 5, lido da esquerda para a direita: 18 + 5 = 23. Quem resolve os galhos antes do tronco nunca erra a ordem.",
+        "receita": [
+          "Potência: `2 ^ 3` = 8. A expressão fica 50 − 4 × 8 + 23 mod 6.",
+          "Multiplicação: 4 × 8 = 32.",
+          "Resto: 23 mod 6 = 5, porque 6 × 3 = 18 e sobram 5.",
+          "Agora só soma e subtração: 50 − 32 + 5.",
+          "Da esquerda para a direita: 50 − 32 = 18; 18 + 5 = 23."
+        ],
+        "cotidiano": "Pense numa nota fiscal com três itens e um abatimento. Primeiro você calcula cada linha, quantidade vezes preço; só no fim soma as linhas e tira o abatimento. Ninguém soma o preço de um item ao do vizinho antes de multiplicar pela quantidade. A expressão do programa funciona igual: potência, multiplicação e resto são as contas de cada linha; o + e o − fecham a nota.",
+        "trabalho": "O Excel segue a mesma ordem: =50-4*2^3+MOD(23;6) também dá 23, com a potência antes da multiplicação e a multiplicação antes da soma. A diferença é que no Excel o resto é uma função, e os parênteses dela já isolam o 23. No MySQL, `SELECT 50 - 4 * POWER(2, 3) + 23 % 6` dá 23 do mesmo jeito. O tropeço do dia a dia é igual nos três: fórmula longa sem parênteses e alguém lendo da esquerda para a direita.",
+        "conversa": [
+          {"quem": "Você", "fala": "Fiz da esquerda para a direita: 50 − 4 = 46, vezes 2 dá 92..."},
+          {"quem": "Monitor", "fala": "Na escola, 2 + 3 × 4 dá quanto?"},
+          {"quem": "Você", "fala": "14. A multiplicação vem antes."},
+          {"quem": "Monitor", "fala": "No VisuAlg é igual, e a potência vem antes ainda. Onde está a potência aqui?"},
+          {"quem": "Você", "fala": "Em `2 ^ 3`, que dá 8. Aí 4 × 8 = 32, 23 mod 6 = 5 e 50 − 32 + 5 = 23."},
+          {"quem": "Monitor", "fala": "Isso. O `mod` fica no mesmo andar da multiplicação."}
+        ],
+        "erro": "O erro mais comum é tratar o `mod` como se ele pegasse tudo o que vem antes. Ele tem a prioridade da multiplicação, então só enxerga o número colado nele: `23 mod 6`. Outro tropeço é resolver a soma antes da subtração, como se o + tivesse prioridade. Os dois estão no mesmo andar e vão da esquerda para a direita. Por fim, `^` é potência; quem lê como vezes chega a 31.",
+        "confira": "Reescreva com parênteses explícitos e calcule de novo: `50 - (4 * (2 ^ 3)) + (23 mod 6)`. Fica 50 − 32 + 5 = 23. Outra prova: troque a linha do programa por essa versão com parênteses e rode no laboratório. Se a saída não mudar, a sua leitura da precedência estava certa. O teste de mesa desta questão mostra x recebendo 23 de uma vez.",
+        "atalho": "Calcule só os pedaços fortes, que são rápidos: 2³ = 8, 4 × 8 = 32 e 23 mod 6 = 5. Sobra 50 − 32 + 5. A conta é curta demais para pedir truque; o cuidado é não ler da esquerda para a direita antes de resolver os pedaços fortes. Se o valor que você achou não sai de 18 + 5, revise a ordem."
+      }
+    }
+  ]
+}
