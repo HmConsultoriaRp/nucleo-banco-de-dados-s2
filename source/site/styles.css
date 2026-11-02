@@ -299,6 +299,10 @@ body[data-subject=lp] .lens-panel{border-left-color:var(--coral)}
 .jeitos-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:14px;flex-wrap:wrap}
 .jeitos-head h3{font:700 24px var(--font-display);letter-spacing:-.03em;margin:0}
 .jeitos-head p{margin:0;font-size:12px;color:var(--muted);max-width:360px}
+.ouro{position:relative;margin:16px 0;max-width:860px;padding:20px 22px 18px 26px;border:1px solid #d5aa32;border-left:6px solid var(--yellow);background:linear-gradient(135deg,#fff7d7 0%,#fffdf4 72%);box-shadow:0 8px 22px rgba(81,62,5,.08);font-size:14px;line-height:1.65}
+.ouro:before{content:"★";position:absolute;right:18px;top:13px;color:#c68d00;font-size:20px}
+.ouro span{display:block;margin-bottom:7px;color:#775300;font:800 12px var(--font-display);letter-spacing:.1em;text-transform:uppercase}
+.ouro p{margin:0}
 .outras{margin-top:14px;border:1px solid var(--line);background:var(--white)}
 .outras summary{padding:12px 16px;font-weight:600;font-size:13px;cursor:pointer}
 .outras ul{margin:0;padding:0 16px 12px;list-style:none}

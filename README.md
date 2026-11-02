@@ -2,9 +2,9 @@
 
 Portal colaborativo de estudos para as disciplinas do segundo semestre da graduação em Banco de Dados.
 
-Inclui trilhas semanais, 198 questões, explicações em oito perspectivas, laboratórios interativos, atividades da faculdade e simulados dinâmicos.
+Inclui trilhas semanais, 214 questões, explicações em oito perspectivas, laboratórios interativos, atividades da faculdade e simulados dinâmicos.
 
-- Geometria Analítica: 126 questões, incluindo as 10 questões da primeira tentativa da Avaliação Semanal 1.
+- Geometria Analítica: 142 questões, incluindo as 26 questões dos três questionários da primeira tentativa da Avaliação Semanal 1.
 - Lógica de Programação: 72 questões.
 - Simulado misto: 12 questões, com novo sorteio sem repetir o conjunto imediatamente anterior.
 - Simulados por disciplina: 18 questões.

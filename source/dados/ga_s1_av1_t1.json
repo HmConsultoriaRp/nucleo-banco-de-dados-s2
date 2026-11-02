@@ -8,7 +8,7 @@
       "nivel": 2,
       "minutos": 4,
       "tema": "Soma no hexágono",
-      "origem": "Avaliação semanal 1 · T1 · Q01",
+      "origem": "Avaliação semanal 1 · T1-Q1 · Q01",
       "enunciado": "No hexágono regular ABCDEF, com O no centro, a soma [[AB]] + [[OD]] + [[OF]] resulta em qual vetor?",
       "alternativas": [
         {"t": "[[AD]]", "certa": false, "erro": "[[AD]] tem o mesmo sentido do resultado, mas mede o dobro. A diagonal AD atravessa o hexágono inteiro; o resultado mede apenas um raio."},
@@ -19,6 +19,7 @@
       ],
       "dica": "Troque o lado [[AB]] pelo raio paralelo e de mesmo comprimento [[OC]]. Depois procure dois raios opostos.",
       "resposta": "[[AB]] + [[OD]] + [[OF]] = [[AO]].",
+      "ouro": "Vetores podem ser deslocados no desenho sem mudar, desde que conservem comprimento, direção e sentido. Isso permite trocar [[AB]] pelo raio equivalente [[OC]].",
       "figura": {
         "modo": "2d",
         "onde": "enunciado",
@@ -51,7 +52,7 @@
       "nivel": 1,
       "minutos": 2,
       "tema": "Combinação linear",
-      "origem": "Avaliação semanal 1 · T1 · Q02",
+      "origem": "Avaliação semanal 1 · T1-Q1 · Q02",
       "enunciado": "Dados [[u]] = (1, 1, −1), [[v]] = (2, 3, 4) e [[w]] = (1, 2, −4), calcule 2[[u]] + 3[[v]] + 4[[w]].",
       "alternativas": [
         {"t":"(8, 15, −2)","certa":false,"erro":"Esse resultado aparece ao trocar 2[[u]] por −2[[u]]."},
@@ -62,6 +63,7 @@
       ],
       "dica":"Calcule separadamente 2[[u]], 3[[v]] e 4[[w]]; depois some cada coluna.",
       "resposta":"2[[u]] + 3[[v]] + 4[[w]] = (12, 19, −6).",
+      "ouro":"Em combinações lineares, cada coordenada trabalha na própria coluna: x com x, y com y e z com z. Aplique primeiro os pesos e somente depois some.",
       "jeitos": {
         "visual":"Organize os vetores como três linhas de uma tabela. Depois de multiplicar cada linha pelo seu peso, some a coluna x, depois y e depois z. As coordenadas nunca se misturam: x soma com x, y com y e z com z.",
         "receita":["Calcule 2[[u]] = (2, 2, −2).","Calcule 3[[v]] = (6, 9, 12).","Calcule 4[[w]] = (4, 8, −16).","Some: (2 + 6 + 4, 2 + 9 + 8, −2 + 12 − 16).","Resultado: (12, 19, −6)."],
@@ -79,7 +81,7 @@
       "nivel": 2,
       "minutos": 3,
       "tema": "Ponto final do vetor",
-      "origem": "Avaliação semanal 1 · T1 · Q03",
+      "origem": "Avaliação semanal 1 · T1-Q1 · Q03",
       "enunciado": "Seja [[u]] = (−1, 2, −3). O vetor [[v]] tem a mesma direção, a mesma norma e o mesmo sentido de [[u]]. Se [[v]] começa em P = (3, 7, 3), qual é seu ponto final Q?",
       "alternativas": [
         {"t":"Q = (−6, −1, −12)","certa":false,"erro":"O deslocamento Q − P seria (−9, −8, −15), que não é [[u]] nem um vetor de mesma norma."},
@@ -90,6 +92,7 @@
       ],
       "dica":"Mesma direção, mesmo sentido e mesma norma significam que [[v]] = [[u]]. Depois use Q = P + [[v]].",
       "resposta":"Q = (2, 9, 0).",
+      "ouro":"Vetor de deslocamento segue a regra **destino menos origem**. Se P é o início e Q o fim, então Q = P + vetor.",
       "jeitos": {
         "visual":"Imagine a seta [[u]] solta no espaço. Sem girar, inverter ou esticar, arraste sua cauda até P. Como a seta continua sendo (−1, 2, −3), sua ponta fica uma unidade atrás em x, duas à frente em y e três abaixo em z: Q = (2, 9, 0).",
         "receita":["Direção, sentido e norma iguais determinam o mesmo vetor: [[v]] = [[u]].","Escreva Q = P + [[v]].","Some (3, 7, 3) + (−1, 2, −3).","Obtenha Q = (2, 9, 0)."],
@@ -107,7 +110,7 @@
       "nivel": 2,
       "minutos": 3,
       "tema": "Norma trigonométrica",
-      "origem": "Avaliação semanal 1 · T1 · Q04",
+      "origem": "Avaliação semanal 1 · T1-Q1 · Q04",
       "enunciado": "Calcule a norma do vetor (4 sen θ/√6, 4 cos θ/√6, 4√5/√6).",
       "alternativas": [
         {"t":"2","certa":false,"erro":"Esse valor aparece quando o fator 4 não é elevado ao quadrado: usa-se 4 no numerador em vez de 16."},
@@ -118,6 +121,7 @@
       ],
       "dica":"Use sen²θ + cos²θ = 1 depois de elevar as três componentes ao quadrado.",
       "resposta":"A norma é 4.",
+      "ouro":"Norma usa duas barras e nunca é negativa: ‖[[u]]‖ = √(x² + y² + z²). Some os quadrados antes de tirar a raiz.",
       "jeitos": {
         "visual":"As duas primeiras componentes mudam quando θ muda, mas sen θ e cos θ apenas repartem a mesma quantidade entre dois eixos. A identidade sen²θ + cos²θ = 1 mantém o comprimento total constante. O ângulo gira a projeção; não estica o vetor.",
         "receita":["Eleve as componentes ao quadrado: 16 sen²θ/6, 16 cos²θ/6 e 80/6.","Some as duas primeiras usando sen²θ + cos²θ = 1.","Obtenha 16/6 + 80/6 = 96/6 = 16.","Tire a raiz: √16 = 4."],
@@ -135,7 +139,7 @@
       "nivel": 3,
       "minutos": 5,
       "tema": "Propriedades de vetores",
-      "origem": "Avaliação semanal 1 · T1 · Q05",
+      "origem": "Avaliação semanal 1 · T1-Q1 · Q05",
       "enunciado": "Classifique, nesta ordem, as quatro afirmações: (1) para todo [[u]] e α real não positivo, ‖α[[u]]‖ ≠ α‖[[u]]‖; (2) existe [[u]] tal que [[u]] = −[[u]]; (3) ([[u]]/‖[[u]]‖²) é sempre unitário; (4) para A = (2,1,−1), B = (1,−1,2), C = (0,8,2) e D = (−2,4,8), [[AB]] e [[CD]] são paralelos.",
       "alternativas": [
         {"t":"V, V, F, V","certa":false,"erro":"A primeira é falsa: α = 0 ou [[u]] = [[0]] produz igualdade, derrubando o 'para todo'."},
@@ -146,6 +150,7 @@
       ],
       "dica":"Em afirmações com 'para todo', procure um contraexemplo. Em afirmações com 'existe', procure um único exemplo.",
       "resposta":"F, V, F, V.",
+      "ouro":"Afirmação com **para todo** cai com um contraexemplo; afirmação com **existe** é confirmada por um único exemplo. O vetor nulo costuma decidir esses casos.",
       "jeitos": {
         "visual":"Separe as frases por tipo. A primeira pede uma regra sem exceções; zero cria a exceção. A segunda pede apenas um vetor; o nulo resolve. A terceira tenta fabricar uma seta unitária, mas divide demais. A quarta compara duas setas: [[CD]] é exatamente o dobro de [[AB]], portanto são paralelas.",
         "receita":["(1) Teste α = 0: os dois lados valem 0; portanto F.","(2) Teste [[u]] = [[0]]: [[0]] = −[[0]]; portanto V.","(3) Calcule a norma: ‖[[u]]/‖[[u]]‖²‖ = 1/‖[[u]]‖; portanto F.","(4) [[AB]] = (−1,−2,3) e [[CD]] = (−2,−4,6) = 2[[AB]]; portanto V."],
@@ -163,7 +168,7 @@
       "nivel": 2,
       "minutos": 4,
       "tema": "Múltiplo de vetor",
-      "origem": "Avaliação semanal 1 · T1 · Q06",
+      "origem": "Avaliação semanal 1 · T1-Q1 · Q06",
       "enunciado": "Se [[u]] = α[[v]], com α real não nulo e [[v]] não nulo, qual conjunto reúne somente afirmações verdadeiras? b) sentidos contrários se α < 0; f) mesmo sentido se α > 0; g) mesma direção; h) ‖[[u]]‖ = |α|‖[[v]]‖. As demais afirmações da avaliação trocavam essas condições ou retiravam o módulo.",
       "alternativas": [
         {"t":"b, f, g, h","certa":true},
@@ -174,6 +179,7 @@
       ],
       "dica":"Separe em três regras: direção sempre igual, sentido depende do sinal e comprimento usa |α|.",
       "resposta":"As afirmações corretas são b, f, g e h.",
+      "ouro":"Ao multiplicar por α: direção permanece; o sinal escolhe o sentido; o módulo |α| escolhe o comprimento. Norma nunca recebe um fator negativo.",
       "jeitos": {
         "visual":"Multiplicar um vetor por α só faz duas coisas: estica ou encolhe sua seta e, se α for negativo, vira a ponta para o lado oposto. A seta continua apoiada na mesma reta, por isso a direção permanece. O comprimento usa |α| porque não pode ser negativo.",
         "receita":["Se α > 0, mantenha o sentido: f é verdadeira.","Se α < 0, inverta o sentido: b é verdadeira.","Em ambos os casos, a reta de suporte é a mesma: g é verdadeira.","A norma obedece ‖α[[v]]‖ = |α|‖[[v]]‖: h é verdadeira.","Logo marque b, f, g e h."],
@@ -191,7 +197,7 @@
       "nivel": 3,
       "minutos": 5,
       "tema": "Igualdade e oposição",
-      "origem": "Avaliação semanal 1 · T1 · Q07",
+      "origem": "Avaliação semanal 1 · T1-Q1 · Q07",
       "enunciado": "Classifique, na ordem: (1) [[PQ]] e −[[QP]]; (2) [[u]] e −[[u]]; (3) ‖[[u]]‖ e −‖−[[u]]‖; (4) ‖[[PQ]]‖ e ‖[[QP]]‖; (5) [[PQ]] + [[QP]] e [[QP]] + [[PQ]]; (6) ‖[[u]]‖ e ‖−[[u]]‖. Use VI = vetores iguais, VO = vetores opostos, AI = valores iguais e AO = valores opostos.",
       "alternativas": [
         {"t":"VI, VO, AO, AI, VI, AI","certa":true},
@@ -202,6 +208,7 @@
       ],
       "dica":"Primeiro identifique o tipo: barras de norma produzem valores; setas representam vetores. Só depois decida entre iguais e opostos.",
       "resposta":"VI, VO, AO, AI, VI, AI.",
+      "ouro":"Antes de comparar, identifique o tipo. Setas representam vetores; barras de norma produzem números. Vetor oposto e valor oposto são categorias diferentes.",
       "jeitos": {
         "visual":"As barras ‖ ‖ transformam uma seta em um número: seu comprimento. Sem barras, compare setas. Virar [[QP]] já produz [[PQ]]; o sinal de menos vira novamente. Virar um vetor não muda seu comprimento. A soma de um vetor com seu oposto produz o vetor nulo em qualquer ordem.",
         "receita":["(1) [[QP]] = −[[PQ]], então −[[QP]] = [[PQ]]: VI.","(2) [[u]] e −[[u]]: VO.","(3) ‖−[[u]]‖ = ‖[[u]]‖, mas há menos fora: AO.","(4) Os dois trajetos têm o mesmo comprimento: AI.","(5) A soma é comutativa e ambos dão [[0]]: VI.","(6) Inverter não muda a norma: AI."],
@@ -219,7 +226,7 @@
       "nivel": 2,
       "minutos": 3,
       "tema": "Diagonal no paralelepípedo",
-      "origem": "Avaliação semanal 1 · T1 · Q08",
+      "origem": "Avaliação semanal 1 · T1-Q1 · Q08",
       "enunciado": "No paralelepípedo ABCDEFGH, sejam [[u]] = [[AB]], [[v]] = [[AD]] e [[w]] = [[AE]]. Escreva [[DF]] em função de [[u]], [[v]] e [[w]].",
       "alternativas": [
         {"t":"[[u]] + [[v]] − [[w]]","certa":false,"erro":"Os sinais descrevem outro deslocamento. Para sair de D, é necessário voltar no sentido contrário a [[v]], e para chegar a F é necessário subir no sentido de [[w]]."},
@@ -230,6 +237,7 @@
       ],
       "dica":"Percorra D → A → B → F e some os três deslocamentos.",
       "resposta":"[[DF]] = [[u]] − [[v]] + [[w]].",
+      "ouro":"Para encontrar um vetor entre dois pontos, use destino menos origem. Outra opção segura é montar um caminho por arestas e somar cada deslocamento com seu sinal.",
       "figura": {
         "modo": "3d",
         "onde": "enunciado",
@@ -260,7 +268,7 @@
       "nivel": 1,
       "minutos": 3,
       "tema": "Equação vetorial",
-      "origem": "Avaliação semanal 1 · T1 · Q09",
+      "origem": "Avaliação semanal 1 · T1-Q1 · Q09",
       "enunciado": "Dados [[u]] = (2,1,3), [[v]] = (1,1,−1) e [[w]] = (−8,−11,−3), determine [[r]] para que −3[[u]] − 4[[v]] + [[r]] = [[w]].",
       "alternativas": [
         {"t":"(2, −4, 2)","certa":true},
@@ -271,6 +279,7 @@
       ],
       "dica":"Passe −3[[u]] e −4[[v]] para o outro lado; eles se tornam +3[[u]] e +4[[v]].",
       "resposta":"[[r]] = (2, −4, 2).",
+      "ouro":"Isolar um vetor segue a mesma lógica da álgebra comum: faça a operação inversa nos dois lados. Depois substitua o resultado na equação original.",
       "jeitos": {
         "visual":"Pense na equação como uma balança de vetores. Para deixar [[r]] sozinho, coloque nos dois lados os vetores opostos de −3[[u]] e −4[[v]]. Assim, [[r]] recebe +3[[u]] e +4[[v]] junto de [[w]].",
         "receita":["Isole: [[r]] = [[w]] + 3[[u]] + 4[[v]].","Calcule 3[[u]] = (6,3,9).","Calcule 4[[v]] = (4,4,−4).","Some com [[w]]: (−8+6+4, −11+3+4, −3+9−4).","Resultado: (2,−4,2)."],
@@ -288,7 +297,7 @@
       "nivel": 2,
       "minutos": 4,
       "tema": "Quatro normas",
-      "origem": "Avaliação semanal 1 · T1 · Q10",
+      "origem": "Avaliação semanal 1 · T1-Q1 · Q10",
       "enunciado": "Calcule, na ordem, as normas: ‖(√6,3,1)‖; ‖(21/√78,15/√78,6/√78)‖; ‖(2,4,4)‖; ‖(5/√3,5/√3,5/√3)‖.",
       "alternativas": [
         {"t":"4, 3, 6, 5","certa":true},
@@ -299,6 +308,7 @@
       ],
       "dica":"Em cada vetor, some os quadrados das componentes e tire a raiz apenas no final.",
       "resposta":"As normas são 4, 3, 6 e 5.",
+      "ouro":"Não confunda norma com norma ao quadrado. A soma x² + y² + z² ainda precisa da raiz quadrada para virar comprimento.",
       "jeitos": {
         "visual":"Cada vetor forma a diagonal de uma caixa cujas arestas são suas componentes. O comprimento da diagonal vem de Pitágoras em três dimensões: some os quadrados e só então tire a raiz. Os denominadores com raiz desaparecem quando são elevados ao quadrado.",
         "receita":["Primeiro: √(6+9+1) = √16 = 4.","Segundo: √((441+225+36)/78) = √(702/78) = √9 = 3.","Terceiro: √(4+16+16) = √36 = 6.","Quarto: √(25/3+25/3+25/3) = √25 = 5."],

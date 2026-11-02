@@ -466,6 +466,7 @@
       h += '<section class="jeitos"><div class="jeitos-head"><h3>Jeitos de entender</h3><p>Cada aba é um caminho diferente para a mesma resposta. Se um não encaixar, tente outro.</p></div>';
       if (q.codigo) h += '<div id="mesa-q"></div>';
       h += '<div id="lentes-q"></div>';
+      if (q.ouro) h += '<aside class="ouro"><span>Dicas que valem ouro</span>' + md(q.ouro) + '</aside>';
       h += '<div class="strips"><div class="strip prova"><strong>Tire a prova</strong>' + md(q.jeitos.confira) + '</div><div class="strip atalho"><strong>Atalho de prova</strong>' + md(q.jeitos.atalho) + '</div></div>';
       h += '<details class="outras"' + (r && !r.ok ? ' open' : '') + '><summary>Por que as outras alternativas estão erradas</summary><ul>' + q.alternativas.map(function (a, i) {
         return a.certa ? '' : '<li><b>' + 'ABCDE'[i] + ') ' + md(a.t) + '</b> · ' + md(a.erro) + '</li>';

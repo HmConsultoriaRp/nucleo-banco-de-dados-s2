@@ -1,0 +1,238 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s1-av1-t1-q3-01",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Dependência e volume",
+      "origem": "Avaliação semanal 1 · T1-Q3 · Q01",
+      "enunciado": "Com os vetores [[u]], [[v]] e [[u]] + [[v]], é possível formar um paralelepípedo não degenerado?",
+      "alternativas": [
+        {"t":"Verdadeiro, porque são três vetores diferentes.","certa":false,"erro":"Três vetores diferentes ainda podem ser coplanares. [[u]] + [[v]] depende dos dois primeiros."},
+        {"t":"Verdadeiro, desde que [[u]] e [[v]] não sejam nulos.","certa":false,"erro":"Mesmo não nulos, os três vetores permanecem no plano gerado por [[u]] e [[v]]."},
+        {"t":"Verdadeiro, porque [[u]] + [[v]] é uma diagonal.","certa":false,"erro":"A diagonal do paralelogramo continua no mesmo plano dos dois lados."},
+        {"t":"Falso, porque [[u]] + [[v]] é coplanar com [[u]] e [[v]].","certa":true},
+        {"t":"Falso apenas quando [[u]] e [[v]] são ortogonais.","certa":false,"erro":"A dependência ocorre para qualquer [[u]] e [[v]], não apenas para vetores ortogonais."}
+      ],
+      "dica": "O terceiro vetor é combinação dos dois primeiros; pense no volume produzido por três vetores coplanares.",
+      "resposta": "Falso. Os três vetores são coplanares e o volume é zero.",
+      "ouro": "Três vetores diferentes não garantem volume. Para formar uma caixa, o terceiro precisa sair do plano dos dois primeiros; uma combinação linear deles permanece no mesmo plano.",
+      "jeitos": {
+        "visual": "[[u]] e [[v]] formam um paralelogramo. A soma [[u]] + [[v]] é sua diagonal. Lados e diagonal ficam desenhados na mesma folha; nenhuma seta aponta para fora dela para criar altura.",
+        "receita": ["Use [[w]] = [[u]] + [[v]].", "Calcule o produto misto [ [[u]], [[v]], [[w]] ].", "Pela linearidade, [ [[u]], [[v]], [[u]] ] + [ [[u]], [[v]], [[v]] ].", "Cada termo tem vetor repetido e vale zero.", "Logo o volume é zero e não há paralelepípedo não degenerado."],
+        "cotidiano": "Três varetas apoiadas sobre uma mesa não formam uma caixa se a terceira for apenas a diagonal entre as duas primeiras. Falta uma vareta apontando para cima, que forneça altura.",
+        "trabalho": "Em uma base de dados, uma terceira coluna calculada como soma de duas colunas não acrescenta uma dimensão independente. Ela pode ser reconstruída integralmente a partir das anteriores; geometricamente, não cria volume.",
+        "conversa": [{"quem":"Você","fala":"Mas são três vetores, então não formam três dimensões?"},{"quem":"Monitor","fala":"O terceiro contém informação nova ou é calculado pelos outros?"},{"quem":"Você","fala":"Ele é [[u]] + [[v]]."},{"quem":"Monitor","fala":"Então continua preso ao plano gerado pelos dois primeiros."}],
+        "erro": "Contar vetores não basta. É preciso verificar independência linear. A diagonal parece uma terceira direção no desenho, mas pertence ao mesmo plano e deixa o paralelepípedo achatado.",
+        "confira": "Escolha [[u]] = (1,0,0) e [[v]] = (0,1,0). Então [[u]] + [[v]] = (1,1,0). Todos possuem z = 0 e o determinante é zero.",
+        "atalho": "Se um vetor é escrito diretamente como combinação dos outros, marque dependência linear, coplanaridade e volume zero."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q3-02",
+      "semana": 1,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Condição de coplanaridade",
+      "origem": "Avaliação semanal 1 · T1-Q3 · Q02",
+      "enunciado": "Determine m para que [[u]] = (−m − 1, −2, 3), [[v]] = (−2, 1, 3) e [[w]] = (−m, −2, 1) sejam coplanares.",
+      "alternativas": [
+        {"t":"m = 9/10","certa":false,"erro":"Surge ao esquecer o sinal negativo do cofator da segunda coluna."},
+        {"t":"m = 3/2","certa":false,"erro":"Pode surgir ao ler a segunda coordenada de [[v]] como −1, alterando o determinante."},
+        {"t":"m = 1","certa":false,"erro":"Substituindo m = 1, o produto misto vale 3, não zero."},
+        {"t":"m = −1/2","certa":true},
+        {"t":"m = −1","certa":false,"erro":"Substituindo m = −1, o produto misto vale −1, não zero."}
+      ],
+      "dica": "Vetores coplanares têm produto misto igual a zero.",
+      "resposta": "Os vetores são coplanares quando m = −1/2.",
+      "ouro": "Na expansão de um determinante 3 × 3 pela primeira linha, os sinais dos cofatores são **+, −, +**. O termo do meio é a armadilha mais frequente.",
+      "jeitos": {
+        "visual": "Coplanaridade significa que os três vetores cabem na mesma folha. O determinante mede o volume orientado da caixa. Ajustamos m até essa caixa ficar achatada, com volume zero.",
+        "receita": ["Monte o determinante com [[u]], [[v]] e [[w]].", "Expanda pela primeira linha usando sinais +, −, +.", "Simplifique para 2m + 1.", "Imponha coplanaridade: 2m + 1 = 0.", "Resolva: m = −1/2."],
+        "cotidiano": "Pense em uma tenda sustentada por três hastes. Variar m move uma delas. O valor procurado é aquele em que as três hastes ficam sobre o chão e a tenda perde toda a altura.",
+        "trabalho": "O determinante funciona como teste de independência entre três colunas. Quando ele zera, uma coluna pode ser montada a partir das outras e não acrescenta dimensão ao conjunto.",
+        "conversa": [{"quem":"Você","fala":"Cheguei a 9/10."},{"quem":"Monitor","fala":"Qual é o sinal do cofator da segunda coluna?"},{"quem":"Você","fala":"Negativo, porque a sequência é +, −, +."},{"quem":"Monitor","fala":"Refazendo esse termo, o determinante vira 2m + 1."}],
+        "erro": "Esquecer o sinal do cofator central muda a equação e produz a alternativa 9/10. Também é comum igualar o determinante a 1; coplanaridade exige exatamente zero.",
+        "confira": "Com m = −1/2, o determinante 2m + 1 vale zero. Além disso, [[w]] = (7/9)[[u]] − (4/9)[[v]], confirmando que [[w]] depende dos outros dois.",
+        "atalho": "Depois de obter 2m + 1, não calcule volume: coplanaridade pede apenas zerar a expressão."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q3-03",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Volume pelo produto misto",
+      "origem": "Avaliação semanal 1 · T1-Q3 · Q03",
+      "enunciado": "Encontre o volume do paralelepípedo formado por [[u]] = (−1,2,4), [[v]] = (2,1,−3) e [[w]] = (−1,−3,2).",
+      "alternativas": [
+        {"t":"41","certa":false,"erro":"Esse valor não corresponde ao módulo do determinante dos três vetores."},
+        {"t":"45","certa":false,"erro":"Aparece ao retirar indevidamente o sinal negativo da terceira coordenada de [[v]]."},
+        {"t":"17","certa":false,"erro":"Não resulta do produto misto dos vetores apresentados."},
+        {"t":"15","certa":true},
+        {"t":"37","certa":false,"erro":"Não corresponde ao valor absoluto do determinante."}
+      ],
+      "dica": "Calcule o produto misto e use o módulo do resultado.",
+      "resposta": "O volume do paralelepípedo é 15.",
+      "ouro": "Determinante pode ser negativo; volume não. O sinal do produto misto indica orientação, enquanto o módulo fornece o volume.",
+      "jeitos": {
+        "visual": "Os três vetores formam as arestas de uma caixa inclinada. O produto misto mede a caixa com orientação. Se a ordem das arestas produz sinal negativo, a caixa não ganha volume negativo; tomamos o módulo.",
+        "receita": ["Monte [ [[u]], [[v]], [[w]] ].", "Calcule [[v]] × [[w]] = (−7,−1,−5).", "Faça [[u]] · ([[v]] × [[w]]) = 7 − 2 − 20 = −15.", "Tome o módulo: |−15| = 15."],
+        "cotidiano": "Uma caixa pode ser descrita começando pelas arestas em ordens diferentes. A ordem muda a orientação, como mão direita e mão esquerda, mas não altera quanto cabe dentro dela.",
+        "trabalho": "O produto misto funciona como um indicador com sinal. Para medir capacidade, desprezamos a orientação e usamos o valor absoluto, assim como fazemos ao transformar uma variação assinada em magnitude.",
+        "conversa": [{"quem":"Você","fala":"Meu determinante deu −15. Errei algum sinal?"},{"quem":"Monitor","fala":"A pergunta pede determinante orientado ou volume?"},{"quem":"Você","fala":"Volume."},{"quem":"Monitor","fala":"Então use |−15|. O sinal negativo não torna a conta errada."}],
+        "erro": "Responder −15 confunde orientação com volume. Outra falha é perder o sinal de −3 em [[v]], o que leva a 45 e coincide com uma alternativa planejada para esse engano.",
+        "confira": "Pela expansão do determinante, obtemos 7 − 2 − 20 = −15. Pelo caminho [[u]] · ([[v]] × [[w]]) surge o mesmo valor, confirmando a conta.",
+        "atalho": "Calcule primeiro [[v]] × [[w]] = (−7,−1,−5). O produto com [[u]] é curto e o módulo termina a questão."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q3-04",
+      "semana": 1,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Volume com parâmetro",
+      "origem": "Avaliação semanal 1 · T1-Q3 · Q04",
+      "enunciado": "Determine os valores de m para que o paralelepípedo formado por [[u]] = (−1,2,−m), [[v]] = (−2,1,3) e [[w]] = (−1,−3,2) tenha volume 1.",
+      "alternativas": [
+        {"t":"m = −10/7","certa":false,"erro":"É apenas uma das soluções; o módulo gera também o caso em que o determinante vale −1."},
+        {"t":"m = −8/7","certa":false,"erro":"Também é apenas uma das duas soluções possíveis."},
+        {"t":"m = 10/7 ou m = 8/7","certa":false,"erro":"Os sinais positivos surgem ao ignorar o sinal de −m na terceira componente de [[u]]."},
+        {"t":"m = 10/7","certa":false,"erro":"Além do sinal incorreto, uma resposta única desconsidera um dos casos do módulo."},
+        {"t":"m = −10/7 ou m = −8/7","certa":true}
+      ],
+      "dica": "Transforme o volume em |det| = 1 e abra os casos det = 1 e det = −1.",
+      "resposta": "m = −10/7 ou m = −8/7.",
+      "ouro": "Equações com módulo geralmente abrem **dois casos**: |A| = 1 significa A = 1 ou A = −1. Resolver apenas um deles deixa a resposta incompleta.",
+      "jeitos": {
+        "visual": "O parâmetro move uma aresta e altera a orientação do paralelepípedo. Volume 1 pode ocorrer em duas posições: uma com produto misto +1 e outra com produto misto −1. Ambas representam o mesmo tamanho.",
+        "receita": ["Calcule o determinante: −9 − 7m.", "Escreva |−9 − 7m| = 1.", "Primeiro caso: −9 − 7m = 1, então m = −10/7.", "Segundo caso: −9 − 7m = −1, então m = −8/7.", "Reúna as duas soluções."],
+        "cotidiano": "Uma distância de uma unidade pode estar uma unidade à direita ou uma unidade à esquerda. O módulo apaga o lado e preserva o tamanho; por isso aparecem duas posições possíveis para m.",
+        "trabalho": "É semelhante a procurar lançamentos cuja diferença absoluta seja 1. Tanto +1 quanto −1 atendem ao limite. Um filtro que procure apenas +1 perde metade dos casos válidos.",
+        "conversa": [{"quem":"Você","fala":"Encontrei m = −10/7 e parei."},{"quem":"Monitor","fala":"Qual expressão representa o volume: determinante ou módulo do determinante?"},{"quem":"Você","fala":"O módulo."},{"quem":"Monitor","fala":"Então o interior também pode valer −1, produzindo m = −8/7."}],
+        "erro": "Esquecer o segundo caso do módulo produz uma resposta incompleta. Retirar o sinal de −m no vetor [[u]] muda as soluções para positivas, outro distrator presente na avaliação.",
+        "confira": "Para m = −10/7, −9 − 7m = 1. Para m = −8/7, a expressão vale −1. Nos dois casos, o módulo é 1.",
+        "atalho": "Assim que aparecer |expressão| = 1, escreva duas linhas: expressão = 1 e expressão = −1."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q3-05",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 5,
+      "tema": "Tipos de resultados",
+      "origem": "Avaliação semanal 1 · T1-Q3 · Q05",
+      "enunciado": "Associe, na ordem: (1) operação que encontra um vetor ortogonal a dois vetores; (2) operação que verifica ortogonalidade; (3) |[[u]]·([[v]]×[[w]])|; (4) [[u]]·[[u]]; (5) [[u]]·[[v]]; (6) [[u]]·([[v]]×[[w]]); (7) [[u]]×[[u]]; (8) [[u]]×[[v]]; (9) [[u]]·[[v]] quando são ortogonais; (10) ‖[[u]]×[[v]]‖.",
+      "alternativas": [
+        {"t":"produto vetorial; produto escalar; volume; norma²; número; número; vetor nulo; vetor; 0; área","certa":true},
+        {"t":"produto escalar; produto vetorial; volume; norma²; vetor; número; 0; vetor; vetor nulo; área","certa":false,"erro":"Troca os dois produtos iniciais e confunde número zero com vetor nulo."},
+        {"t":"produto vetorial; produto escalar; área; norma; número; vetor; vetor nulo; número; 0; volume","certa":false,"erro":"Troca volume por área, norma por norma ao quadrado e os tipos de resultado dos produtos."},
+        {"t":"produto vetorial; produto escalar; volume; norma²; vetor; vetor; 0; número; vetor nulo; área","certa":false,"erro":"Produto com ponto termina em número; produto com xis termina em vetor. A sequência inverte essas categorias."},
+        {"t":"produto vetorial; produto escalar; volume; norma²; número; número; 0; vetor; vetor nulo; área","certa":false,"erro":"[[u]]×[[u]] produz o vetor nulo, enquanto a ortogonalidade no produto escalar produz o número zero."}
+      ],
+      "dica": "Ponto dá número; xis dá vetor. Depois diferencie o número 0 do vetor nulo.",
+      "resposta": "Produto vetorial; produto escalar; volume; norma²; número; número; vetor nulo; vetor; 0; área.",
+      "ouro": "**Ponto (·) dá número; xis (×) dá vetor.** O produto misto termina num ponto, então também dá número. [[u]]×[[u]] é o vetor nulo; [[u]]·[[v]] de ortogonais é o número zero.",
+      "jeitos": {
+        "visual": "O ponto comprime duas setas em um valor escalar. O xis constrói uma nova seta perpendicular. Barras simples ao redor do produto misto tornam o número positivo; barras duplas medem o comprimento da seta produzida.",
+        "receita": ["Classifique o símbolo final de cada operação: ponto gera número, xis gera vetor.", "Use produto vetorial para construir perpendicular e produto escalar para testar 90°.", "Associe módulo do produto misto a volume.", "Associe [[u]]·[[u]] a ‖[[u]]‖².", "Separe vetor nulo de número zero e finalize área com ‖[[u]]×[[v]]‖."],
+        "cotidiano": "Pense no ponto como uma máquina que entrega uma etiqueta numérica. O xis entrega uma nova seta. Uma caixa vazia de deslocamento é o vetor nulo; um visor marcando zero é apenas um número.",
+        "trabalho": "O produto escalar se comporta como SOMARPRODUTO e retorna uma célula numérica. O produto vetorial retorna três componentes, como uma nova linha de dados. O tipo do resultado impede várias associações erradas.",
+        "conversa": [{"quem":"Você","fala":"[[u]]×[[u]] e [[u]]·[[v]] ortogonal não dão a mesma coisa?"},{"quem":"Monitor","fala":"Um xis devolve qual tipo de resultado?"},{"quem":"Você","fala":"Um vetor, então dá (0,0,0)."},{"quem":"Monitor","fala":"O ponto devolve um número, então a ortogonalidade dá apenas 0."}],
+        "erro": "O erro mais sutil é tratar 0 e (0,0,0) como respostas do mesmo tipo. Também é comum chamar ‖[[u]]×[[v]]‖ de produto vetorial; as barras transformam o vetor em sua norma, uma área numérica.",
+        "confira": "Use [[u]] = (1,0,0) e [[v]] = (0,1,0). Então [[u]]·[[v]] = 0, um número; [[u]]×[[v]] = (0,0,1), um vetor; e [[u]]×[[u]] = (0,0,0).",
+        "atalho": "Marque primeiro todos os itens pelo tipo: ponto → número, xis → vetor, barras → medida. Depois atribua volume, área, zero ou vetor nulo."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q3-06",
+      "semana": 1,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Soma em caminho fechado",
+      "origem": "Avaliação semanal 1 · T1-Q3 · Q06",
+      "enunciado": "Se A₁, A₂, …, A₆ são pontos quaisquer do plano, então [[A₁A₂]] + [[A₂A₃]] + ··· + [[A₅A₆]] + [[A₆A₁]] = [[0]].",
+      "alternativas": [
+        {"t":"Falso, porque os pontos precisam formar um polígono regular.","certa":false,"erro":"A soma telescópica vale para pontos quaisquer; regularidade não é necessária."},
+        {"t":"Falso, porque a soma depende das distâncias percorridas.","certa":false,"erro":"Vetores registram deslocamento orientado, não a distância total do percurso."},
+        {"t":"Verdadeiro apenas se todos os segmentos tiverem o mesmo comprimento.","certa":false,"erro":"Os comprimentos podem ser diferentes; chegada e saída ainda se cancelam."},
+        {"t":"Verdadeiro apenas se os pontos estiverem em ordem anti-horária.","certa":false,"erro":"O sentido do percurso não altera o fato de terminar no ponto inicial."},
+        {"t":"Verdadeiro, porque o percurso termina no mesmo ponto em que começou.","certa":true}
+      ],
+      "dica": "Escreva cada vetor como ponto final menos ponto inicial.",
+      "resposta": "Verdadeiro. A soma do percurso fechado é o vetor nulo.",
+      "ouro": "Em um **caminho fechado**, a soma dos vetores é sempre o vetor nulo. Distância percorrida pode ser grande, mas deslocamento final é zero.",
+      "jeitos": {
+        "visual": "Siga as setas de A₁ até A₂, depois até A₃ e assim por diante. A última seta volta a A₁. A ponta final coincide com a origem da primeira seta.",
+        "receita": ["Escreva [[A₁A₂]] = A₂ − A₁.", "Faça o mesmo com todos os segmentos.", "Some: (A₂−A₁)+(A₃−A₂)+···+(A₁−A₆).", "Cancele cada ponto positivo com o mesmo ponto negativo.", "Resta [[0]]."],
+        "cotidiano": "Uma pessoa sai de casa, visita cinco lugares e retorna para casa. O hodômetro registra uma distância, mas o deslocamento entre o início e o fim é zero.",
+        "trabalho": "É uma conciliação em circuito: cada ponto entra uma vez como destino e sai uma vez como origem. Os lançamentos se compensam e o saldo vetorial final fica zerado.",
+        "conversa": [{"quem":"Você","fala":"Os lados não precisam ter o mesmo tamanho?"},{"quem":"Monitor","fala":"A soma mede distância total ou deslocamento final?"},{"quem":"Você","fala":"Deslocamento final."},{"quem":"Monitor","fala":"Como o percurso volta a A₁, o deslocamento é o vetor nulo."}],
+        "erro": "Confundir distância com deslocamento faz parecer que a soma não pode zerar. A soma dos comprimentos seria positiva, mas aqui somamos vetores com direção e sentido.",
+        "confira": "Na forma algébrica, A₂ cancela com −A₂, A₃ com −A₃ e assim por diante. A₁ também aparece uma vez positivo e uma vez negativo.",
+        "atalho": "Viu uma cadeia A₁→A₂→···→A₁? Caminho fechado significa soma vetorial igual a zero."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q3-07",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Norma de múltiplos",
+      "origem": "Avaliação semanal 1 · T1-Q3 · Q07",
+      "enunciado": "Os vetores ‖[[u]]‖[[v]] e ‖[[v]]‖[[u]] têm a mesma norma.",
+      "alternativas": [
+        {"t":"Falso, porque os vetores geralmente têm direções diferentes.","certa":false,"erro":"A afirmação compara apenas as normas, não direção nem igualdade dos vetores."},
+        {"t":"Falso, exceto quando ‖[[u]]‖ = ‖[[v]]‖.","certa":false,"erro":"As duas normas são o mesmo produto ‖[[u]]‖‖[[v]]‖, mesmo quando os comprimentos diferem."},
+        {"t":"Verdadeiro apenas quando [[u]] e [[v]] são paralelos.","certa":false,"erro":"O cálculo da norma não depende de paralelismo entre os vetores."},
+        {"t":"Verdadeiro, porque ambas as normas valem ‖[[u]]‖‖[[v]]‖.","certa":true},
+        {"t":"Verdadeiro apenas quando os vetores são não nulos.","certa":false,"erro":"Se um deles for nulo, as duas expressões também têm norma zero; a igualdade continua válida."}
+      ],
+      "dica": "Use ‖k[[v]]‖ = |k|‖[[v]]‖ em cada lado.",
+      "resposta": "Verdadeiro. As duas normas são ‖[[u]]‖‖[[v]]‖.",
+      "ouro": "**Mesma norma não significa mesmo vetor.** Dois vetores podem ter direções completamente diferentes e ainda possuir o mesmo comprimento.",
+      "jeitos": {
+        "visual": "Uma expressão estica [[v]] pelo comprimento de [[u]]. A outra estica [[u]] pelo comprimento de [[v]]. As setas podem apontar para lados diferentes, mas as duas terminam com o mesmo tamanho multiplicado.",
+        "receita": ["Calcule ‖‖[[u]]‖[[v]]‖.", "Pela regra do múltiplo, obtenha ‖[[u]]‖‖[[v]]‖.", "Calcule ‖‖[[v]]‖[[u]]‖.", "Obtenha ‖[[v]]‖‖[[u]]‖.", "Os produtos são iguais pela comutatividade."],
+        "cotidiano": "Uma corda de comprimento v é ampliada pelo fator que mede u; outra corda faz o caminho inverso. Multiplicar 3 por 5 ou 5 por 3 produz o mesmo comprimento 15.",
+        "trabalho": "É uma troca da ordem dos fatores em uma multiplicação. Como ambos são números não negativos, a comutatividade garante o mesmo resultado, embora os vetores originais representem dimensões diferentes.",
+        "conversa": [{"quem":"Você","fala":"As direções são diferentes, então marquei falso."},{"quem":"Monitor","fala":"A frase diz mesmo vetor ou mesma norma?"},{"quem":"Você","fala":"Mesma norma, apenas o comprimento."},{"quem":"Monitor","fala":"Então compare os produtos ‖[[u]]‖‖[[v]]‖ e ‖[[v]]‖‖[[u]]‖."}],
+        "erro": "A questão induz a comparar os vetores completos. Direção e componentes podem diferir; o que se pede é somente a norma. Outro erro é esquecer que as normas usadas como escalares são não negativas.",
+        "confira": "Use ‖[[u]]‖ = 3 e ‖[[v]]‖ = 5. A primeira norma é 3·5 = 15; a segunda é 5·3 = 15.",
+        "atalho": "Remova mentalmente as direções e escreva apenas os comprimentos:  ‖[[u]]‖·‖[[v]]‖ nos dois lados."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q3-08",
+      "semana": 1,
+      "nivel": 3,
+      "minutos": 4,
+      "tema": "Identidade de Lagrange",
+      "origem": "Avaliação semanal 1 · T1-Q3 · Q08",
+      "enunciado": "É verdadeira a identidade ‖[[u]] × [[v]]‖² = ‖[[u]]‖²‖[[v]]‖² − ([[u]]·[[v]])²?",
+      "alternativas": [
+        {"t":"Falso, porque o lado esquerdo é vetor e o direito é número.","certa":false,"erro":"As barras de norma transformam [[u]]×[[v]] em número antes de elevar ao quadrado."},
+        {"t":"Falso; o sinal correto entre os termos é positivo.","certa":false,"erro":"A relação usa sen²θ = 1 − cos²θ, portanto aparece subtração."},
+        {"t":"Verdadeiro apenas quando [[u]] e [[v]] são ortogonais.","certa":false,"erro":"A identidade vale para qualquer par de vetores, inclusive paralelos."},
+        {"t":"Verdadeiro apenas para vetores unitários.","certa":false,"erro":"As normas presentes na fórmula ajustam vetores de qualquer comprimento."},
+        {"t":"Verdadeiro; é a identidade de Lagrange.","certa":true}
+      ],
+      "dica": "Substitua produto vetorial por seno, produto escalar por cosseno e use sen²θ + cos²θ = 1.",
+      "resposta": "Verdadeiro. A igualdade é a identidade de Lagrange.",
+      "ouro": "Produto vetorial liga-se a **seno e área**; produto escalar liga-se a **cosseno e ângulo**. A identidade nasce diretamente de sen²θ = 1 − cos²θ.",
+      "jeitos": {
+        "visual": "O produto total dos comprimentos pode ser separado em duas parcelas: uma ligada à abertura perpendicular, medida pelo seno, e outra ligada ao alinhamento, medida pelo cosseno. Os quadrados dessas parcelas completam o mesmo total.",
+        "receita": ["Escreva ‖[[u]]×[[v]]‖² = ‖[[u]]‖²‖[[v]]‖²sen²θ.", "Use sen²θ = 1 − cos²θ.", "Distribua ‖[[u]]‖²‖[[v]]‖².", "Reconheça (‖[[u]]‖‖[[v]]‖cos θ)² como ([[u]]·[[v]])².", "Obtenha exatamente a igualdade proposta."],
+        "cotidiano": "Uma força inclinada pode ser decomposta em parcela alinhada e parcela perpendicular. Quando comparamos os quadrados, a soma dessas duas contribuições recupera a medida total, como em Pitágoras.",
+        "trabalho": "A identidade funciona como uma reconciliação: produto total das normas menos a parcela de alinhamento ao quadrado deixa a parcela perpendicular ao quadrado, que corresponde à área produzida pelo produto vetorial.",
+        "conversa": [{"quem":"Você","fala":"Pensei que o lado esquerdo fosse um vetor."},{"quem":"Monitor","fala":"O que as barras duplas fazem com [[u]]×[[v]]?"},{"quem":"Você","fala":"Transformam o vetor em sua norma, um número."},{"quem":"Monitor","fala":"Então os dois lados são números e podem ser comparados."}],
+        "erro": "Ignorar as barras leva a comparar tipos diferentes. Outra armadilha é colocar sinal positivo no lado direito; a identidade trigonométrica necessária usa 1 menos cos²θ.",
+        "confira": "Com [[u]] = (1,2,3) e [[v]] = (−4,0,5), o lado esquerdo vale 453. O direito vale 14·41 − 11² = 574 − 121 = 453.",
+        "atalho": "Reconheça a forma de Pitágoras trigonométrico: parcela do seno ao quadrado = total menos parcela do cosseno ao quadrado."
+      }
+    }
+  ]
+}

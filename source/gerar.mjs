@@ -50,7 +50,7 @@ function main(saida) {
   }
 
   for (const valor of Object.values(disc)) {
-    valor.questoes.sort((a, b) => a.semana - b.semana || ordemOrigem(a) - ordemOrigem(b) || natural.compare(a.id, b.id));
+    valor.questoes.sort((a, b) => a.semana - b.semana || ordemOrigem(a) - ordemOrigem(b) || natural.compare(a.origem || '', b.origem || '') || natural.compare(a.id, b.id));
     valor.semanas = Object.values(valor.semanas).sort((a, b) => a.semana - b.semana);
   }
 

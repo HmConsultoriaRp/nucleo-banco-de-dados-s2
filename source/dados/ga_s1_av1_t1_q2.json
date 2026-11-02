@@ -1,0 +1,238 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s1-av1-t1-q2-01",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 5,
+      "tema": "Área do triângulo",
+      "origem": "Avaliação semanal 1 · T1-Q2 · Q01",
+      "enunciado": "Qual é a área do triângulo ABC, onde A = (1, −1, 1), B = (1, 2, −1) e C = (−1, −2, 3)?",
+      "alternativas": [
+        {"t":"7","certa":false,"erro":"É |[[AB]] · [[AC]]|. Produto escalar não calcula a área formada por dois vetores."},
+        {"t":"2","certa":false,"erro":"Esse valor não considera corretamente os dois lados que partem do mesmo vértice."},
+        {"t":"√17","certa":true},
+        {"t":"6","certa":false,"erro":"É o comprimento de [[BC]], não a área do triângulo."},
+        {"t":"3","certa":false,"erro":"É o comprimento de [[AC]], não uma medida de área."}
+      ],
+      "dica": "Calcule [[AB]] × [[AC]] e divida a norma encontrada por 2.",
+      "resposta": "A área do triângulo é √17.",
+      "ouro": "Produto vetorial fornece a área do **paralelogramo**. Quando a figura pedida é um triângulo formado pelos mesmos lados, divida por 2.",
+      "jeitos": {
+        "visual": "Imagine [[AB]] e [[AC]] como duas arestas saindo de A. Elas abrem um paralelogramo no espaço. O produto vetorial mede toda essa área; a diagonal separa o paralelogramo em dois triângulos iguais.",
+        "receita": ["Calcule [[AB]] = B − A = (0, 3, −2).", "Calcule [[AC]] = C − A = (−2, −1, 2).", "Faça [[AB]] × [[AC]] = (4, 4, 6).", "Calcule a norma: √(16 + 16 + 36) = 2√17.", "Divida por 2: área = √17."],
+        "cotidiano": "Duas cercas que saem do mesmo canto definem um terreno inclinado. O produto vetorial encontra a área do terreno em forma de paralelogramo, já considerando a inclinação. O triângulo ocupa exatamente metade dele.",
+        "trabalho": "A conta lembra separar uma base total em duas partes iguais. Primeiro obtemos a área bruta do paralelogramo, 2√17. Como o triângulo representa metade da figura, aplicamos o fator 1/2 e chegamos a √17.",
+        "conversa": [{"quem":"Você","fala":"A norma do produto vetorial já é a resposta?"},{"quem":"Monitor","fala":"Ela representa qual figura: triângulo ou paralelogramo?"},{"quem":"Você","fala":"O paralelogramo formado pelos dois vetores."},{"quem":"Monitor","fala":"Então ainda falta dividir por 2 para obter o triângulo."}],
+        "erro": "Dois tropeços dominam esta questão: usar [[AB]] · [[AC]], que produz um número ligado ao ângulo, ou esquecer a divisão por 2. Área de triângulo pede metade da norma do produto vetorial.",
+        "confira": "Pela identidade de Lagrange, ‖[[AB]] × [[AC]]‖² = 13·9 − (−7)² = 68. A área do triângulo ao quadrado é 68/4 = 17, portanto a área é √17.",
+        "atalho": "Calcule a área ao quadrado: 68/4 = 17. Entre as alternativas, somente √17 possui quadrado igual a 17."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q2-02",
+      "semana": 1,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Zeros dos produtos",
+      "origem": "Avaliação semanal 1 · T1-Q2 · Q02",
+      "enunciado": "Complete, na ordem: se [[u]] · [[v]] = 0, então os vetores são ____; se [[u]] × [[v]] = [[0]], então os vetores são ____.",
+      "alternativas": [
+        {"t":"paralelos; ortogonais","certa":false,"erro":"As relações foram trocadas. Produto escalar zero indica ortogonalidade; produto vetorial nulo indica paralelismo."},
+        {"t":"ortogonais; paralelos","certa":true},
+        {"t":"ortogonais; ortogonais","certa":false,"erro":"O segundo produto mede a área; área zero significa vetores alinhados, não necessariamente perpendiculares."},
+        {"t":"paralelos; paralelos","certa":false,"erro":"Produto escalar zero não caracteriza paralelismo; para vetores não nulos, caracteriza ângulo de 90°."},
+        {"t":"nada pode ser afirmado; nada pode ser afirmado","certa":false,"erro":"Os resultados iguais a zero fornecem exatamente as duas relações pedidas."}
+      ],
+      "dica": "Ponto conversa com cosseno; xis conversa com seno e área.",
+      "resposta": "Produto escalar zero: ortogonais. Produto vetorial nulo: paralelos.",
+      "ouro": "**Ponto zero → 90°. Xis zero → mesma linha.** O produto escalar usa cosseno; o produto vetorial usa seno e mede área.",
+      "jeitos": {
+        "visual": "Duas setas perpendiculares não avançam uma na direção da outra, por isso o produto escalar zera. Duas setas alinhadas formam um paralelogramo achatado, de área zero, por isso o produto vetorial é nulo.",
+        "receita": ["Use [[u]] · [[v]] = ‖[[u]]‖‖[[v]]‖cos θ.", "Se o produto é zero, cos θ = 0 e θ = 90°: ortogonais.", "Use ‖[[u]] × [[v]]‖ = ‖[[u]]‖‖[[v]]‖sen θ.", "Se a área é zero, sen θ = 0 e os vetores são paralelos."],
+        "cotidiano": "Duas ruas que se cruzam em ângulo reto representam o produto escalar zero. Duas faixas pintadas sobre a mesma direção não abrem espaço entre si; o paralelogramo fica sem área e o produto vetorial zera.",
+        "trabalho": "Pense em duas colunas de dados. Produto escalar zero indica ausência de componente na direção comparada. Produto vetorial nulo indica dependência linear: uma coluna vetorial é múltipla da outra.",
+        "conversa": [{"quem":"Você","fala":"Sempre troco qual zero significa paralelo."},{"quem":"Monitor","fala":"Qual produto representa a área do paralelogramo?"},{"quem":"Você","fala":"O produto vetorial, com xis."},{"quem":"Monitor","fala":"Área zero deixa o paralelogramo achatado: vetores paralelos."}],
+        "erro": "A armadilha é inverter as duas regras. O ponto está associado ao cosseno e à ortogonalidade. O xis está associado ao seno, à área e ao paralelismo quando o resultado é o vetor nulo.",
+        "confira": "Teste (1,0,0) · (0,1,0) = 0: os eixos são ortogonais. Depois teste (1,2,3) × (2,4,6) = [[0]]: o segundo vetor é o dobro do primeiro.",
+        "atalho": "Leia o símbolo antes da conta: ponto igual a zero pede ortogonais; xis igual a vetor nulo pede paralelos."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q2-03",
+      "semana": 1,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Propriedades vetoriais",
+      "origem": "Avaliação semanal 1 · T1-Q2 · Q03",
+      "enunciado": "Classifique, na ordem, as afirmações: (1) [[u]] × [[v]] = −[[v]] × [[u]]; (2) se [[u]] e [[v]] são não nulos, então [[u]] · [[v]] ≠ 0; (3) se [[u]] e [[v]] são não nulos, então [[u]] × [[v]] ≠ [[0]]; (4) não existe x real que torne (x − 3, 3, −4) e (x, x, 1) ortogonais; (5) se [[v]] é paralelo a [[u]], então projᵤ[[v]] = [[v]].",
+      "alternativas": [
+        {"t":"V, V, V, F, V","certa":false,"erro":"Vetores não nulos ainda podem ser ortogonais ou paralelos; por isso as afirmações 2 e 3 são falsas."},
+        {"t":"V, F, F, V, V","certa":false,"erro":"Na quarta afirmação existem soluções: x = 2 e x = −2 tornam o produto escalar igual a zero."},
+        {"t":"V, F, F, F, V","certa":true},
+        {"t":"F, F, F, F, V","certa":false,"erro":"A primeira afirmação é verdadeira: trocar a ordem do produto vetorial inverte seu sentido."},
+        {"t":"V, F, V, F, F","certa":false,"erro":"A terceira é falsa por vetores paralelos não nulos; a quinta é verdadeira porque a projeção de um vetor já paralelo permanece o próprio vetor."}
+      ],
+      "dica": "Use contraexemplos nas frases universais e resolva o produto escalar da quarta.",
+      "resposta": "A sequência correta é V, F, F, F, V.",
+      "ouro": "Para derrubar uma frase que diz **sempre**, basta um contraexemplo. Vetores não nulos podem produzir zero: no ponto, quando são ortogonais; no xis, quando são paralelos.",
+      "jeitos": {
+        "visual": "Trocar a ordem no xis vira a seta resultante. Duas setas não nulas podem formar 90° e zerar o ponto, ou ficar na mesma linha e zerar o xis. Uma sombra sobre a própria linha permanece inteira.",
+        "receita": ["A troca no produto vetorial muda o sinal: V.", "Use vetores ortogonais não nulos como contraexemplo da afirmação 2: F.", "Use vetores paralelos não nulos como contraexemplo da afirmação 3: F.", "Calcule x² − 4 = 0; existem x = ±2, então a afirmação 4 é F.", "Vetor já paralelo a [[u]] projeta-se integralmente sobre [[u]]: V."],
+        "cotidiano": "Uma regra escrita como 'todo registro atende' cai com uma única linha divergente. As afirmações 2 e 3 funcionam assim. Já a projeção é como a sombra de um objeto deitado na mesma direção da luz: ela conserva o objeto inteiro.",
+        "trabalho": "Em auditoria, uma condição universal precisa passar em todos os casos. Um único exemplo perpendicular reprova a segunda frase; um único par de colunas proporcionais reprova a terceira. Na quarta, encontrar x = 2 já encerra a discussão.",
+        "conversa": [{"quem":"Você","fala":"Se os dois vetores não são nulos, o resultado não deveria ser diferente de zero?"},{"quem":"Monitor","fala":"Isso vale para multiplicação comum. E se os vetores forem perpendiculares?"},{"quem":"Você","fala":"O produto escalar pode ser zero."},{"quem":"Monitor","fala":"E, se forem paralelos, o produto vetorial também pode zerar."}],
+        "erro": "O erro central é transportar para vetores a regra de números comuns: não nulo vezes não nulo. Produtos vetoriais e escalares dependem também do ângulo. Na quarta frase, a expressão 'não existe' exige testar a equação.",
+        "confira": "Para a quarta afirmação, o produto escalar é x(x − 3) + 3x − 4 = x² − 4. Em x = 2 ou x = −2, o resultado é zero, provando que existem soluções.",
+        "atalho": "Memorize: xis troca de ordem, troca o sinal. Depois use dois contraexemplos clássicos: eixos perpendiculares para o ponto; vetores proporcionais para o xis."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q2-04",
+      "semana": 1,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Norma do produto vetorial",
+      "origem": "Avaliação semanal 1 · T1-Q2 · Q04",
+      "enunciado": "Sendo ‖[[u]]‖ = 2, ‖[[v]]‖ = 3 e 150° o ângulo entre [[u]] e [[v]], quanto vale ‖[[u]] × [[v]]‖?",
+      "alternativas": [
+        {"t":"4","certa":false,"erro":"Esse valor não resulta da fórmula da área com seno de 150°."},
+        {"t":"−6√3","certa":false,"erro":"Uma norma nunca é negativa; além disso, esse valor mistura a fórmula do cosseno."},
+        {"t":"−3√3","certa":false,"erro":"É o produto escalar 2·3·cos 150°, não a norma do produto vetorial."},
+        {"t":"3","certa":true},
+        {"t":"6","certa":false,"erro":"É apenas 2·3; faltou multiplicar por sen 150° = 1/2."}
+      ],
+      "dica": "Use ‖[[u]] × [[v]]‖ = ‖[[u]]‖‖[[v]]‖sen θ.",
+      "resposta": "‖[[u]] × [[v]]‖ = 3.",
+      "ouro": "Norma e área nunca são negativas. Isso elimina imediatamente alternativas negativas antes mesmo de fazer a conta.",
+      "jeitos": {
+        "visual": "Os vetores formam um paralelogramo com base 2. A altura relativa é 3·sen 150° = 1,5. Multiplicar base por altura produz a área 2·1,5 = 3.",
+        "receita": ["Escreva ‖[[u]] × [[v]]‖ = ‖[[u]]‖‖[[v]]‖sen θ.", "Substitua: 2·3·sen 150°.", "Use sen 150° = 1/2.", "Calcule 6·1/2 = 3."],
+        "cotidiano": "Uma placa inclinada ocupa menos área projetada do que o produto direto de seus lados. O seno corrige a inclinação. Aos 150°, o seno vale metade, então o produto 6 cai para 3.",
+        "trabalho": "É a mesma lógica de aplicar um fator de ajuste sobre uma base bruta. O produto dos comprimentos é 6, e o fator angular é 0,5. O valor ajustado é 3.",
+        "conversa": [{"quem":"Você","fala":"Usei cosseno e encontrei −3√3."},{"quem":"Monitor","fala":"A questão pede produto escalar ou área do produto vetorial?"},{"quem":"Você","fala":"A norma do produto vetorial."},{"quem":"Monitor","fala":"Então a função é seno, e a norma precisa ser não negativa."}],
+        "erro": "Usar cosseno traz o produto escalar e pode produzir valor negativo em ângulo obtuso. A norma do produto vetorial usa seno e mede área, por isso nunca assume valor negativo.",
+        "confira": "O maior valor possível seria 2·3 = 6 quando o ângulo fosse 90°. Como sen 150° = 1/2, a área precisa ser metade do máximo: 3.",
+        "atalho": "Elimine as respostas negativas. Depois reconheça sen 150° = sen 30° = 1/2 e faça metade de 6."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q2-05",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Fórmulas fundamentais",
+      "origem": "Avaliação semanal 1 · T1-Q2 · Q05",
+      "enunciado": "Associe, na ordem: (1) (([[u]]·[[v]])/‖[[v]]‖²)[[v]]; (2) ([[u]]·[[v]])/(‖[[u]]‖‖[[v]]‖); (3) ‖[[u]]‖‖[[v]]‖sen θ; (4) ‖[[u]]‖‖[[v]]‖cos θ.",
+      "alternativas": [
+        {"t":"projᵥ[[u]]; produto escalar; área do triângulo; cosseno","certa":false,"erro":"A segunda expressão é o cosseno, a terceira fornece a área do paralelogramo e a quarta é o produto escalar."},
+        {"t":"projᵤ[[v]]; cosseno; produto vetorial; produto escalar","certa":false,"erro":"A primeira projeção está invertida e a terceira expressão fornece um número, a área, não o vetor do produto vetorial."},
+        {"t":"projᵥ[[u]]; seno; área do paralelogramo; produto escalar","certa":false,"erro":"A razão com produto escalar é o cosseno, não o seno."},
+        {"t":"projᵥ[[u]]; cosseno; área do triângulo; produto escalar","certa":false,"erro":"A expressão com seno fornece a área do paralelogramo; a área do triângulo teria ainda uma divisão por 2."},
+        {"t":"projᵥ[[u]]; cosseno; área do paralelogramo; produto escalar","certa":true}
+      ],
+      "dica": "Na projeção, o vetor multiplicado no final indica a direção que recebe a sombra.",
+      "resposta": "Projeção de [[u]] sobre [[v]]; cosseno; área do paralelogramo; produto escalar.",
+      "ouro": "Na projeção, observe o vetor que aparece **no final da fórmula**: ele mostra a reta onde a sombra cai. Seno liga-se à área; cosseno liga-se ao produto escalar.",
+      "jeitos": {
+        "visual": "A primeira fórmula termina multiplicando [[v]], então o resultado fica sobre a linha de [[v]]. A razão seguinte isola o cosseno. A fórmula com seno mede abertura e área; a fórmula com cosseno mede alinhamento.",
+        "receita": ["Veja o vetor final da primeira expressão: [[v]], logo é projᵥ[[u]].", "Divida a fórmula do produto escalar pelas duas normas: sobra cos θ.", "Reconheça base vezes altura angular: ‖[[u]]‖‖[[v]]‖sen θ é área do paralelogramo.", "Reconheça ‖[[u]]‖‖[[v]]‖cos θ como [[u]]·[[v]]."],
+        "cotidiano": "Uma projeção é uma sombra: a superfície onde a sombra aparece é indicada pelo vetor do final. Seno mede a abertura que cria área. Cosseno mede quanto uma direção acompanha a outra.",
+        "trabalho": "A projeção funciona como decompor um indicador na direção de outro. O coeficiente calcula a parcela e o vetor final define a dimensão de destino. Produto escalar e cosseno medem alinhamento entre séries vetoriais.",
+        "conversa": [{"quem":"Você","fala":"Como descubro qual vetor está sendo projetado sobre qual?"},{"quem":"Monitor","fala":"Qual vetor multiplica o coeficiente no fim?"},{"quem":"Você","fala":"O vetor [[v]]."},{"quem":"Monitor","fala":"Então o resultado está sobre [[v]]: é a projeção de [[u]] sobre [[v]]."}],
+        "erro": "A maior armadilha é inverter a projeção. Outra é chamar ‖[[u]]‖‖[[v]]‖sen θ de produto vetorial: a expressão é escalar e representa apenas sua norma, isto é, a área.",
+        "confira": "Em (([[u]]·[[v]])/‖[[v]]‖²)[[v]], o resultado é múltiplo de [[v]]. Já a terceira expressão coincide com ‖[[u]] × [[v]]‖, confirmando que representa área.",
+        "atalho": "Leia os sinais: vetor no fim decide a projeção; divisão pelas duas normas decide cosseno; seno decide área; cosseno sem divisão decide produto escalar."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q2-06",
+      "semana": 1,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Sistema com vetores",
+      "origem": "Avaliação semanal 1 · T1-Q2 · Q06",
+      "enunciado": "Sendo [[u]] = (1,1,1), [[v]] = (1,−1,0) e [[w]] = (0,2,1), determine [[r]] = (x,y,z), sabendo que [[r]]·[[u]] = −2, [[r]]·[[v]] = −3 e [[r]] × [[w]] = (8,1,−2).",
+      "alternativas": [
+        {"t":"[[r]] = (−1, 2, −3)","certa":true},
+        {"t":"[[r]] = (1, 2, 3)","certa":false,"erro":"Esse vetor falha nas três condições apresentadas."},
+        {"t":"[[r]] = (−1, 2, 3)","certa":false,"erro":"Satisfaz x = −1 e x − y = −3, mas falha em [[r]]·[[u]] e no produto vetorial."},
+        {"t":"[[r]] = (1, −2, 3)","certa":false,"erro":"A segunda componente do produto vetorial exige −x = 1, portanto x não pode ser 1."},
+        {"t":"[[r]] = (1, −2, −3)","certa":false,"erro":"Também começa com x = 1, contrariando diretamente a segunda componente de [[r]] × [[w]]."}
+      ],
+      "dica": "Expanda primeiro [[r]] × [[w]]; a segunda componente revela x imediatamente.",
+      "resposta": "[[r]] = (−1, 2, −3).",
+      "ouro": "A ordem do produto vetorial importa: [[r]] × [[w]] = −([[w]] × [[r]]). Trocar a ordem inverte os três sinais.",
+      "jeitos": {
+        "visual": "As três condições são filtros. A segunda componente do produto vetorial fixa x. O produto escalar com [[v]] fixa y. A primeira componente do produto vetorial fixa z. A condição restante serve como conferência.",
+        "receita": ["Expanda [[r]] × [[w]] = (y − 2z, −x, 2x).", "Iguale a (8,1,−2): de −x = 1, obtenha x = −1.", "Use [[r]]·[[v]] = x − y = −3 e obtenha y = 2.", "Use y − 2z = 8 e obtenha z = −3.", "Confira −1 + 2 − 3 = −2."],
+        "cotidiano": "Cada equação funciona como uma pista de endereço. Uma entrega informa a rua, outra o número e outra o andar. Depois de encontrar as três coordenadas, a condição final confirma que não houve troca de sinal.",
+        "trabalho": "É uma conciliação por restrições. Cada condição reduz o conjunto de candidatos. Começar pela equação que isola x evita montar um sistema grande e deixa a última condição como teste de integridade.",
+        "conversa": [{"quem":"Você","fala":"Preciso resolver todas as equações juntas?"},{"quem":"Monitor","fala":"Olhe a segunda componente de [[r]] × [[w]]. O que ela diz?"},{"quem":"Você","fala":"−x = 1, então x = −1."},{"quem":"Monitor","fala":"Agora as outras relações viram equações de uma variável."}],
+        "erro": "Trocar [[r]] × [[w]] por [[w]] × [[r]] produz o vetor oposto. Outro erro é ignorar que algumas condições são redundantes: elas devem confirmar a solução, não gerar valores diferentes.",
+        "confira": "Substitua (−1,2,−3): o produto com [[u]] dá −2; com [[v]] dá −3; e (−1,2,−3) × (0,2,1) = (8,1,−2).",
+        "atalho": "Teste as alternativas começando por x. Como −x = 1, restam apenas as opções com x = −1. Depois use x − y = −3."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q2-07",
+      "semana": 1,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Cosseno entre vetores",
+      "origem": "Avaliação semanal 1 · T1-Q2 · Q07",
+      "enunciado": "Qual é o cosseno do ângulo entre [[u]] = (−2,2,1) e [[v]] = (2,2,1)?",
+      "alternativas": [
+        {"t":"−1/6","certa":false,"erro":"O denominador correto é o produto das normas, 3·3 = 9, não a soma 6."},
+        {"t":"1/6","certa":false,"erro":"Surge ao dividir o produto escalar pela soma das normas, em vez de pelo produto."},
+        {"t":"7/9","certa":false,"erro":"O primeiro produto é (−2)·2 = −4; tratá-lo como positivo altera o numerador."},
+        {"t":"−7/9","certa":false,"erro":"Esse numerador aparece ao trocar indevidamente o sinal de 2·2."},
+        {"t":"1/9","certa":true}
+      ],
+      "dica": "Calcule primeiro [[u]]·[[v]] e depois as duas normas.",
+      "resposta": "O cosseno do ângulo é 1/9.",
+      "ouro": "No cosseno, o denominador é o **produto** das normas, nunca a soma. Revise separadamente o sinal de cada multiplicação no numerador.",
+      "jeitos": {
+        "visual": "Os vetores têm o mesmo tamanho e diferem apenas no sinal da primeira coordenada. As partes positivas quase compensam a parte negativa, deixando alinhamento pequeno e positivo. Por isso o cosseno fica próximo de zero.",
+        "receita": ["Calcule [[u]]·[[v]] = −4 + 4 + 1 = 1.", "Calcule ‖[[u]]‖ = √9 = 3.", "Calcule ‖[[v]]‖ = √9 = 3.", "Divida: cos θ = 1/(3·3) = 1/9."],
+        "cotidiano": "É como comparar dois trajetos de mesmo comprimento que apontam quase de lado um para o outro. Eles ainda compartilham uma pequena parcela na mesma direção, representada pelo cosseno positivo 1/9.",
+        "trabalho": "O numerador funciona como um SOMARPRODUTO entre duas linhas. O denominador normaliza o resultado pelo tamanho das duas linhas. Assim, vetores com escalas diferentes podem ter seu alinhamento comparado.",
+        "conversa": [{"quem":"Você","fala":"Somei as normas e obtive 1/6."},{"quem":"Monitor","fala":"A fórmula do cosseno usa soma ou produto?"},{"quem":"Você","fala":"Produto: ‖[[u]]‖‖[[v]]‖."},{"quem":"Monitor","fala":"Como ambas valem 3, o denominador é 9."}],
+        "erro": "O sinal de (−2)·2 é a primeira armadilha. A segunda é dividir pela soma 3 + 3. A normalização do produto escalar sempre usa 3·3 neste caso.",
+        "confira": "Como o produto escalar é positivo, o cosseno também precisa ser positivo. Além disso, seu módulo deve ser no máximo 1. O valor 1/9 satisfaz os dois testes.",
+        "atalho": "As duas normas valem 3, então o denominador é 9. Calcule apenas o numerador −4 + 4 + 1 = 1."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q2-08",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Projeção ortogonal",
+      "origem": "Avaliação semanal 1 · T1-Q2 · Q08",
+      "enunciado": "Calcule projᵤ[[v]], onde [[u]] = (−2,1,−1) e [[v]] = (−1,−2,3).",
+      "alternativas": [
+        {"t":"(−3/14, 3/7, 9/14)","certa":false,"erro":"O resultado não é múltiplo de [[u]], portanto não está sobre a reta de projeção."},
+        {"t":"(1, 1/2, 1/2)","certa":false,"erro":"Os sinais não correspondem ao múltiplo −1/2 de [[u]]."},
+        {"t":"(7/3, 7/6, −7/6)","certa":false,"erro":"Esse vetor não satisfaz a fórmula nem a direção de [[u]]."},
+        {"t":"(1, −1/2, 1/2)","certa":true},
+        {"t":"(3/14, 3/7, −9/14)","certa":false,"erro":"É projᵥ[[u]], com a ordem invertida."}
+      ],
+      "dica": "Use projᵤ[[v]] = (([[u]]·[[v]])/‖[[u]]‖²)[[u]].",
+      "resposta": "projᵤ[[v]] = (1, −1/2, 1/2).",
+      "ouro": "Toda projeção sobre [[u]] precisa ser um **múltiplo de [[u]]**. Esse teste elimina alternativas antes de qualquer conta completa.",
+      "jeitos": {
+        "visual": "Projᵤ[[v]] é a sombra de [[v]] sobre a reta de [[u]]. A sombra pode apontar no sentido oposto, mas precisa permanecer exatamente nessa reta. O fator encontrado é −1/2.",
+        "receita": ["Calcule [[u]]·[[v]] = 2 − 2 − 3 = −3.", "Calcule ‖[[u]]‖² = 4 + 1 + 1 = 6.", "Forme o coeficiente −3/6 = −1/2.", "Multiplique −1/2 por (−2,1,−1).", "Obtenha (1,−1/2,1/2)."],
+        "cotidiano": "Imagine uma lanterna projetando [[v]] sobre um trilho orientado por [[u]]. A sombra pode cair para trás no trilho, mas nunca sair dele. Por isso o resultado precisa ser proporcional a [[u]].",
+        "trabalho": "É a decomposição de uma variação na direção de um indicador de referência. O coeficiente mede quanto de [[v]] pertence à direção de [[u]], e a multiplicação final reconstrói essa parcela como vetor.",
+        "conversa": [{"quem":"Você","fala":"A alternativa E também parece uma projeção."},{"quem":"Monitor","fala":"Ela é múltipla de qual vetor?"},{"quem":"Você","fala":"Do vetor [[v]]."},{"quem":"Monitor","fala":"Então ela projeta [[u]] sobre [[v]], invertendo a ordem pedida."}],
+        "erro": "Inverter a ordem é o erro mais provável. Projᵤ[[v]] termina multiplicando [[u]] e divide por ‖[[u]]‖². Trocar ambos produz a alternativa E, que resolve outra projeção.",
+        "confira": "Subtraia a projeção de [[v]]: (−1,−2,3) − (1,−1/2,1/2) = (−2,−3/2,5/2). O produto desse resto com [[u]] é zero, confirmando a perpendicularidade.",
+        "atalho": "Procure uma alternativa proporcional a (−2,1,−1). Somente (1,−1/2,1/2) é −1/2 vezes [[u]]."
+      }
+    }
+  ]
+}
