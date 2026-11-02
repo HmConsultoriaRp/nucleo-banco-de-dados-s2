@@ -14,9 +14,10 @@ const natural = new Intl.Collator('pt-BR', { numeric: true, sensitivity: 'base' 
 
 function ordemOrigem(q) {
   const origem = q.origem || '';
-  if (origem.startsWith('Lista')) return 0;
-  if (origem.startsWith('Constru')) return 1;
-  return 2;
+  if (origem.startsWith('Avaliação')) return 0;
+  if (origem.startsWith('Lista')) return 1;
+  if (origem.startsWith('Constru')) return 2;
+  return 3;
 }
 
 function agoraBrasil() {

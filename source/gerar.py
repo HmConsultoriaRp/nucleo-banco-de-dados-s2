@@ -19,11 +19,13 @@ def chave_natural(s):
 
 def ordem_origem(q):
     o = q.get("origem", "")
-    if o.startswith("Lista"):
+    if o.startswith("Avalia"):
         return 0
-    if o.startswith("Constru"):
+    if o.startswith("Lista"):
         return 1
-    return 2
+    if o.startswith("Constru"):
+        return 2
+    return 3
 
 
 def main(saida):

@@ -20,6 +20,8 @@ O arquivo final incorpora CSS, JavaScript e todo o banco de questões. Pode ser 
 
 O site exibe automaticamente a nova questão em **Atividades da faculdade** e em **Questões**. O progresso fica no navegador, em `localStorage`, sob a chave `nucleo-s2-v1`.
 
+Questões recebidas em avaliações usam origem própria, por exemplo `Avaliação semanal 1 · T1 · Q01`. Formatos de múltipla seleção e classificação podem ser convertidos em alternativas compostas para manter a correção, o simulado e o progresso compatíveis com o banco principal.
+
 ## Compatibilidade com a versão anterior
 
 No primeiro acesso, quando ainda não existe o novo estado, o site lê `nucleo-state`, preserva tema, registros de atividades, marcadores e histórico de simulados em um resumo legado. A chave anterior não é apagada. Respostas antigas não são convertidas em acertos porque os bancos de questões são diferentes.

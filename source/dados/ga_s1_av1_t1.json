@@ -1,0 +1,314 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s1-av1-t1-q01",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Soma no hexágono",
+      "origem": "Avaliação semanal 1 · T1 · Q01",
+      "enunciado": "No hexágono regular ABCDEF, com O no centro, a soma [[AB]] + [[OD]] + [[OF]] resulta em qual vetor?",
+      "alternativas": [
+        {"t": "[[AD]]", "certa": false, "erro": "[[AD]] tem o mesmo sentido do resultado, mas mede o dobro. A diagonal AD atravessa o hexágono inteiro; o resultado mede apenas um raio."},
+        {"t": "[[AO]]", "certa": true},
+        {"t": "[[DA]]", "certa": false, "erro": "[[DA]] aponta no sentido contrário e ainda mede o dobro do resultado."},
+        {"t": "[[0]]", "certa": false, "erro": "Os três vetores não fecham um caminho. Depois dos cancelamentos ainda sobra um raio."},
+        {"t": "[[OC]]", "certa": false, "erro": "[[OC]] é igual a [[AB]], mas [[OD]] e [[OF]] não se anulam entre si."}
+      ],
+      "dica": "Troque o lado [[AB]] pelo raio paralelo e de mesmo comprimento [[OC]]. Depois procure dois raios opostos.",
+      "resposta": "[[AB]] + [[OD]] + [[OF]] = [[AO]].",
+      "figura": {
+        "modo": "2d",
+        "onde": "enunciado",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0.866,0.5],[0,1],[-0.866,0.5],[-0.866,-0.5],[0,-1],[0.866,-0.5]], "cor": 1},
+          {"tipo": "ponto", "em": [0.866,0.5], "rot": "A"},
+          {"tipo": "ponto", "em": [0,1], "rot": "B"},
+          {"tipo": "ponto", "em": [-0.866,0.5], "rot": "C"},
+          {"tipo": "ponto", "em": [-0.866,-0.5], "rot": "D"},
+          {"tipo": "ponto", "em": [0,-1], "rot": "E"},
+          {"tipo": "ponto", "em": [0.866,-0.5], "rot": "F"},
+          {"tipo": "ponto", "em": [0,0], "rot": "O"}
+        ],
+        "legenda": "A, B, C, D, E e F aparecem em sentido anti-horário; O é o centro."
+      },
+      "jeitos": {
+        "visual": "O lado [[AB]] aponta para cima e para a esquerda. Num hexágono regular, ele tem o mesmo tamanho e direção do raio [[OC]], então pode ser trocado por ele. Agora aparecem três raios: [[OC]], [[OD]] e [[OF]]. Como C e F são vértices opostos, [[OC]] e [[OF]] se anulam. Sobra [[OD]], que é igual a [[AO]] porque A e D também são opostos e O fica no meio.",
+        "receita": ["Substitua [[AB]] por [[OC]].", "Reescreva a soma como [[OC]] + [[OD]] + [[OF]].", "C e F são opostos: [[OC]] + [[OF]] = [[0]].", "Sobra [[OD]].", "Como A, O e D estão alinhados e AO = OD, conclua [[OD]] = [[AO]]."],
+        "cotidiano": "Imagine seis ruas iguais saindo de uma praça central. Dois trajetos apontam exatamente para lados contrários, C e F, e se cancelam. O deslocamento restante aponta da praça para D. A mesma seta pode ser deslocada para começar em A: ela termina em O, formando [[AO]]. Vetores podem mudar de lugar sem mudar, desde que mantenham tamanho, direção e sentido.",
+        "trabalho": "É uma conciliação de movimentos. [[OC]] e [[OF]] são lançamentos de mesmo valor e sinais opostos, portanto o saldo dos dois é zero. O único movimento não compensado é [[OD]]. Como [[OD]] e [[AO]] têm as mesmas componentes, representam o mesmo vetor, embora com pontos iniciais diferentes.",
+        "conversa": [{"quem":"Você","fala":"Posso cancelar [[OD]] com [[OF]] porque estão dos dois lados?"},{"quem":"Monitor","fala":"Eles têm direções simétricas, mas são opostos?"},{"quem":"Você","fala":"Não. O oposto de [[OF]] é [[OC]]."},{"quem":"Monitor","fala":"Então troque [[AB]] por [[OC]] e cancele esse par."},{"quem":"Você","fala":"Sobra [[OD]], que é igual a [[AO]]."}],
+        "erro": "O erro mais comum é cancelar [[OD]] com [[OF]] só porque o desenho parece simétrico. Eles formam um ângulo, não uma linha reta. Outro erro é escolher [[AD]]: esse vetor atravessa dois raios, por isso mede o dobro de [[AO]].",
+        "confira": "Use coordenadas com lado 1: A = (√3/2, 1/2), B = (0, 1), D = (−√3/2, −1/2) e F = (√3/2, −1/2). A soma dá (−√3/2, −1/2), exatamente O − A, que é [[AO]].",
+        "atalho": "Troque [[AB]] por [[OC]]. Cancele [[OC]] com [[OF]]. O que sobra é [[OD]], e [[OD]] = [[AO]]."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q02",
+      "semana": 1,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Combinação linear",
+      "origem": "Avaliação semanal 1 · T1 · Q02",
+      "enunciado": "Dados [[u]] = (1, 1, −1), [[v]] = (2, 3, 4) e [[w]] = (1, 2, −4), calcule 2[[u]] + 3[[v]] + 4[[w]].",
+      "alternativas": [
+        {"t":"(8, 15, −2)","certa":false,"erro":"Esse resultado aparece ao trocar 2[[u]] por −2[[u]]."},
+        {"t":"(−12, −19, 6)","certa":false,"erro":"É o oposto do resultado correto; todos os sinais foram invertidos."},
+        {"t":"(12, 19, −6)","certa":true},
+        {"t":"(0, −1, 30)","certa":false,"erro":"Corresponde a −2[[u]] + 3[[v]] − 4[[w]], com dois escalares trocados de sinal."},
+        {"t":"(−4, −3, −26)","certa":false,"erro":"Corresponde a −2[[u]] − 3[[v]] + 4[[w]], não à combinação pedida."}
+      ],
+      "dica":"Calcule separadamente 2[[u]], 3[[v]] e 4[[w]]; depois some cada coluna.",
+      "resposta":"2[[u]] + 3[[v]] + 4[[w]] = (12, 19, −6).",
+      "jeitos": {
+        "visual":"Organize os vetores como três linhas de uma tabela. Depois de multiplicar cada linha pelo seu peso, some a coluna x, depois y e depois z. As coordenadas nunca se misturam: x soma com x, y com y e z com z.",
+        "receita":["Calcule 2[[u]] = (2, 2, −2).","Calcule 3[[v]] = (6, 9, 12).","Calcule 4[[w]] = (4, 8, −16).","Some: (2 + 6 + 4, 2 + 9 + 8, −2 + 12 − 16).","Resultado: (12, 19, −6)."],
+        "cotidiano":"São três movimentos repetidos quantidades diferentes de vezes. O primeiro ocorre duas vezes, o segundo três e o terceiro quatro. O deslocamento final é a soma do que aconteceu em cada direção.",
+        "trabalho":"Em uma planilha, cada coordenada é um SOMARPRODUTO. Para x: `=SOMARPRODUTO({1;2;1};{2;3;4})`, que dá 12. Repita para y e z. É a mesma lógica de consolidar três centros de custo com pesos diferentes.",
+        "conversa":[{"quem":"Você","fala":"Posso somar os vetores primeiro e multiplicar tudo por 9?"},{"quem":"Monitor","fala":"Os pesos são iguais?"},{"quem":"Você","fala":"Não: 2, 3 e 4."},{"quem":"Monitor","fala":"Então cada vetor precisa receber seu próprio peso antes da soma."}],
+        "erro":"O ponto sensível é o z: 2[[u]] contribui −2, 3[[v]] contribui +12 e 4[[w]] contribui −16. Somar −2 + 12 − 16 produz −6. Perder o sinal do −4 em [[w]] transforma a resposta.",
+        "confira":"Calcule apenas a soma das coordenadas do resultado. Ela deve ser 2 vezes a soma de [[u]], mais 3 vezes a de [[v]], mais 4 vezes a de [[w]]: 2·1 + 3·9 + 4·(−1) = 25. E 12 + 19 − 6 = 25.",
+        "atalho":"Calcule só x: 2·1 + 3·2 + 4·1 = 12. Apenas uma alternativa começa com 12."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q03",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Ponto final do vetor",
+      "origem": "Avaliação semanal 1 · T1 · Q03",
+      "enunciado": "Seja [[u]] = (−1, 2, −3). O vetor [[v]] tem a mesma direção, a mesma norma e o mesmo sentido de [[u]]. Se [[v]] começa em P = (3, 7, 3), qual é seu ponto final Q?",
+      "alternativas": [
+        {"t":"Q = (−6, −1, −12)","certa":false,"erro":"O deslocamento Q − P seria (−9, −8, −15), que não é [[u]] nem um vetor de mesma norma."},
+        {"t":"Q = (2, 9, 0)","certa":true},
+        {"t":"Q = (0, 7, −2)","certa":false,"erro":"Q − P = (−3, 0, −5), que não possui a mesma direção de [[u]]."},
+        {"t":"Q = (−4, 1, −10)","certa":false,"erro":"Q − P = (−7, −6, −13), diferente de [[u]]."},
+        {"t":"Q = (1, 8, −1)","certa":false,"erro":"Q − P = (−2, 1, −4), que não tem a mesma direção nem a mesma norma de [[u]]."}
+      ],
+      "dica":"Mesma direção, mesmo sentido e mesma norma significam que [[v]] = [[u]]. Depois use Q = P + [[v]].",
+      "resposta":"Q = (2, 9, 0).",
+      "jeitos": {
+        "visual":"Imagine a seta [[u]] solta no espaço. Sem girar, inverter ou esticar, arraste sua cauda até P. Como a seta continua sendo (−1, 2, −3), sua ponta fica uma unidade atrás em x, duas à frente em y e três abaixo em z: Q = (2, 9, 0).",
+        "receita":["Direção, sentido e norma iguais determinam o mesmo vetor: [[v]] = [[u]].","Escreva Q = P + [[v]].","Some (3, 7, 3) + (−1, 2, −3).","Obtenha Q = (2, 9, 0)."],
+        "cotidiano":"Uma instrução de GPS pode ser executada partindo de qualquer ponto. A instrução é andar −1 em x, +2 em y e −3 em z. Partindo de P, basta aplicar essas três mudanças.",
+        "trabalho":"É a atualização de um registro por um vetor de variação: valor final = valor inicial + variação. A posição P é o saldo inicial e [[v]] é o lançamento. O novo saldo coordenada a coordenada é Q.",
+        "conversa":[{"quem":"Você","fala":"Mesma direção permite qualquer múltiplo de [[u]]?"},{"quem":"Monitor","fala":"Permitiria, mas a norma também é a mesma."},{"quem":"Você","fala":"Então o módulo do múltiplo é 1."},{"quem":"Monitor","fala":"E o mesmo sentido elimina o múltiplo −1. Logo [[v]] = [[u]]."}],
+        "erro":"Usar Q = P − [[u]] inverte o sentido. Outro erro é interpretar P como uma componente do vetor. P é apenas o ponto inicial; o vetor informa a mudança até Q.",
+        "confira":"Subtraia o ponto inicial do final: Q − P = (2 − 3, 9 − 7, 0 − 3) = (−1, 2, −3) = [[u]].",
+        "atalho":"Olhe para y: 7 + 2 = 9. Entre as alternativas mantidas para revisão, só uma tem y = 9."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q04",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Norma trigonométrica",
+      "origem": "Avaliação semanal 1 · T1 · Q04",
+      "enunciado": "Calcule a norma do vetor (4 sen θ/√6, 4 cos θ/√6, 4√5/√6).",
+      "alternativas": [
+        {"t":"2","certa":false,"erro":"Esse valor aparece quando o fator 4 não é elevado ao quadrado: usa-se 4 no numerador em vez de 16."},
+        {"t":"3","certa":false,"erro":"A norma ao quadrado é 16, não 9."},
+        {"t":"4","certa":true},
+        {"t":"1","certa":false,"erro":"Você normalizou o vetor interno e esqueceu de recolocar o fator 4."},
+        {"t":"5","certa":false,"erro":"A soma dos quadrados é 16; obter 5 exigiria soma 25."}
+      ],
+      "dica":"Use sen²θ + cos²θ = 1 depois de elevar as três componentes ao quadrado.",
+      "resposta":"A norma é 4.",
+      "jeitos": {
+        "visual":"As duas primeiras componentes mudam quando θ muda, mas sen θ e cos θ apenas repartem a mesma quantidade entre dois eixos. A identidade sen²θ + cos²θ = 1 mantém o comprimento total constante. O ângulo gira a projeção; não estica o vetor.",
+        "receita":["Eleve as componentes ao quadrado: 16 sen²θ/6, 16 cos²θ/6 e 80/6.","Some as duas primeiras usando sen²θ + cos²θ = 1.","Obtenha 16/6 + 80/6 = 96/6 = 16.","Tire a raiz: √16 = 4."],
+        "cotidiano":"Pense numa lanterna girando em torno de um eixo. A sombra horizontal muda de tamanho e direção, mas a haste da lanterna continua com o mesmo comprimento. O θ muda a orientação, não a norma.",
+        "trabalho":"É semelhante a redistribuir um valor entre duas contas por percentuais trigonométricos cujo quadrado soma 1. A composição muda, mas o total quadrático permanece fixo.",
+        "conversa":[{"quem":"Você","fala":"Preciso saber o valor de θ?"},{"quem":"Monitor","fala":"A resposta depende dele depois de usar sen²θ + cos²θ?"},{"quem":"Você","fala":"Não. Os dois termos viram 1 juntos."},{"quem":"Monitor","fala":"Então a norma é constante e vale 4."}],
+        "erro":"O erro clássico é calcular (4 sen θ)² como 4 sen²θ. O quadrado atinge o 4 também: 4² = 16. Na terceira componente, (4√5)² = 16·5 = 80.",
+        "confira":"Escolha θ = 0. O vetor vira (0, 4/√6, 4√5/√6), cuja norma ao quadrado é 16/6 + 80/6 = 16.",
+        "atalho":"Coloque 4/√6 em evidência. O vetor interno (sen θ, cos θ, √5) tem norma √(1 + 5) = √6; os √6 se cancelam e sobra 4."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q05",
+      "semana": 1,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Propriedades de vetores",
+      "origem": "Avaliação semanal 1 · T1 · Q05",
+      "enunciado": "Classifique, nesta ordem, as quatro afirmações: (1) para todo [[u]] e α real não positivo, ‖α[[u]]‖ ≠ α‖[[u]]‖; (2) existe [[u]] tal que [[u]] = −[[u]]; (3) ([[u]]/‖[[u]]‖²) é sempre unitário; (4) para A = (2,1,−1), B = (1,−1,2), C = (0,8,2) e D = (−2,4,8), [[AB]] e [[CD]] são paralelos.",
+      "alternativas": [
+        {"t":"V, V, F, V","certa":false,"erro":"A primeira é falsa: α = 0 ou [[u]] = [[0]] produz igualdade, derrubando o 'para todo'."},
+        {"t":"F, V, F, V","certa":true},
+        {"t":"F, F, F, V","certa":false,"erro":"A segunda é verdadeira: o vetor nulo satisfaz [[0]] = −[[0]]."},
+        {"t":"F, V, V, V","certa":false,"erro":"A terceira é falsa. A norma de [[u]]/‖[[u]]‖² é 1/‖[[u]]‖, não 1 em geral."},
+        {"t":"V, F, V, F","certa":false,"erro":"As quatro classificações estão invertidas em pontos essenciais; em especial [[CD]] = 2[[AB]]."}
+      ],
+      "dica":"Em afirmações com 'para todo', procure um contraexemplo. Em afirmações com 'existe', procure um único exemplo.",
+      "resposta":"F, V, F, V.",
+      "jeitos": {
+        "visual":"Separe as frases por tipo. A primeira pede uma regra sem exceções; zero cria a exceção. A segunda pede apenas um vetor; o nulo resolve. A terceira tenta fabricar uma seta unitária, mas divide demais. A quarta compara duas setas: [[CD]] é exatamente o dobro de [[AB]], portanto são paralelas.",
+        "receita":["(1) Teste α = 0: os dois lados valem 0; portanto F.","(2) Teste [[u]] = [[0]]: [[0]] = −[[0]]; portanto V.","(3) Calcule a norma: ‖[[u]]/‖[[u]]‖²‖ = 1/‖[[u]]‖; portanto F.","(4) [[AB]] = (−1,−2,3) e [[CD]] = (−2,−4,6) = 2[[AB]]; portanto V."],
+        "cotidiano":"'Para todo' funciona como uma garantia: basta achar um caso que falhe para cancelar a garantia. 'Existe' funciona como uma busca: basta encontrar um caso que funcione. Zero é o caso decisivo nas duas primeiras frases.",
+        "trabalho":"Em auditoria de regras, uma condição universal é reprovada por um único registro de exceção. Já uma consulta `EXISTS` precisa de apenas uma linha. Esse contraste lógico resolve as duas primeiras afirmações antes de qualquer conta longa.",
+        "conversa":[{"quem":"Você","fala":"Na primeira, com α negativo, os lados são diferentes. Então é verdadeira?"},{"quem":"Monitor","fala":"O conjunto dos não positivos inclui qual valor especial?"},{"quem":"Você","fala":"Zero. Com α = 0, os dois lados são zero."},{"quem":"Monitor","fala":"E um único contraexemplo torna a afirmação universal falsa."}],
+        "erro":"Ignorar o zero muda as duas primeiras respostas. Na terceira, o versor correto é [[u]]/‖[[u]]‖, com uma única potência da norma. Na quarta, não é necessário que os vetores sejam iguais; um múltiplo não nulo já garante paralelismo.",
+        "confira":"Use [[u]] = (2,0,0) na terceira: [[u]]/‖[[u]]‖² = (1/2,0,0), cuja norma é 1/2. Para a quarta, divida as componentes: (−2)/(−1) = (−4)/(−2) = 6/3 = 2.",
+        "atalho":"Anote ao lado de cada frase: contraexemplo, exemplo, norma e múltiplo. Os quatro rótulos levam diretamente a F, V, F, V."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q06",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Múltiplo de vetor",
+      "origem": "Avaliação semanal 1 · T1 · Q06",
+      "enunciado": "Se [[u]] = α[[v]], com α real não nulo e [[v]] não nulo, qual conjunto reúne somente afirmações verdadeiras? b) sentidos contrários se α < 0; f) mesmo sentido se α > 0; g) mesma direção; h) ‖[[u]]‖ = |α|‖[[v]]‖. As demais afirmações da avaliação trocavam essas condições ou retiravam o módulo.",
+      "alternativas": [
+        {"t":"b, f, g, h","certa":true},
+        {"t":"b, e, f, g","certa":false,"erro":"A alternativa e usa α sem módulo. Para α negativo, produziria um comprimento negativo."},
+        {"t":"c, f, g, h","certa":false,"erro":"A afirmação c diz sentido contrário quando α > 0, mas escalar positivo mantém o sentido."},
+        {"t":"b, d, g, h","certa":false,"erro":"A afirmação d diz que os sentidos são sempre contrários. Isso falha quando α > 0."},
+        {"t":"a, b, f, h","certa":false,"erro":"A afirmação a diz mesmo comprimento para qualquer α. Isso só ocorre quando |α| = 1; além disso falta a propriedade da mesma direção."}
+      ],
+      "dica":"Separe em três regras: direção sempre igual, sentido depende do sinal e comprimento usa |α|.",
+      "resposta":"As afirmações corretas são b, f, g e h.",
+      "jeitos": {
+        "visual":"Multiplicar um vetor por α só faz duas coisas: estica ou encolhe sua seta e, se α for negativo, vira a ponta para o lado oposto. A seta continua apoiada na mesma reta, por isso a direção permanece. O comprimento usa |α| porque não pode ser negativo.",
+        "receita":["Se α > 0, mantenha o sentido: f é verdadeira.","Se α < 0, inverta o sentido: b é verdadeira.","Em ambos os casos, a reta de suporte é a mesma: g é verdadeira.","A norma obedece ‖α[[v]]‖ = |α|‖[[v]]‖: h é verdadeira.","Logo marque b, f, g e h."],
+        "cotidiano":"Uma seta desenhada numa tira elástica continua apontando ao longo da mesma linha. Puxar por um número positivo apenas muda o tamanho. Multiplicar por um número negativo também vira a tira para o outro lado.",
+        "trabalho":"Num indicador, α funciona como fator de escala. Fator positivo preserva o sinal; fator negativo inverte. A magnitude do impacto é calculada com o valor absoluto do fator, enquanto a direção da relação permanece a mesma.",
+        "conversa":[{"quem":"Você","fala":"Se α = −2, o comprimento vira −2 vezes o original?"},{"quem":"Monitor","fala":"Comprimento pode ser negativo?"},{"quem":"Você","fala":"Não. Então uso |−2| = 2."},{"quem":"Monitor","fala":"O sinal negativo aparece no sentido, não na norma."}],
+        "erro":"A penalidade da avaliação tornava perigoso marcar frases sem a condição do sinal. 'Mesmo sentido' e 'sentido contrário' só são verdadeiros quando acompanhados de α > 0 e α < 0, respectivamente. A direção, ao contrário, não depende do sinal.",
+        "confira":"Teste [[v]] = (1,2,2), de norma 3. Com α = 2, [[u]] = (2,4,4), mesma direção e sentido, norma 6. Com α = −2, [[u]] = (−2,−4,−4), mesma direção, sentido contrário e norma 6.",
+        "atalho":"Memorize o trio: direção fica; sinal escolhe o sentido; módulo escolhe o tamanho."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q07",
+      "semana": 1,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Igualdade e oposição",
+      "origem": "Avaliação semanal 1 · T1 · Q07",
+      "enunciado": "Classifique, na ordem: (1) [[PQ]] e −[[QP]]; (2) [[u]] e −[[u]]; (3) ‖[[u]]‖ e −‖−[[u]]‖; (4) ‖[[PQ]]‖ e ‖[[QP]]‖; (5) [[PQ]] + [[QP]] e [[QP]] + [[PQ]]; (6) ‖[[u]]‖ e ‖−[[u]]‖. Use VI = vetores iguais, VO = vetores opostos, AI = valores iguais e AO = valores opostos.",
+      "alternativas": [
+        {"t":"VI, VO, AO, AI, VI, AI","certa":true},
+        {"t":"VI, VO, VO, AI, VI, AI","certa":false,"erro":"No terceiro par aparecem normas, que são valores escalares. A classificação correta é valores opostos, não vetores opostos."},
+        {"t":"VI, VO, AO, AI, VO, AI","certa":false,"erro":"O quinto par apresenta a mesma soma em ordem trocada. Pela comutatividade, os vetores são iguais. Ambos resultam em [[0]]."},
+        {"t":"AI, VO, AO, AI, VI, AI","certa":false,"erro":"O primeiro par é formado por vetores, não valores. [[PQ]] = −[[QP]], portanto são vetores iguais."},
+        {"t":"VO, VI, AI, AO, VI, AO","certa":false,"erro":"Essa sequência troca o tipo e a relação de vários pares; normas são valores não negativos e não mudam quando o vetor é invertido."}
+      ],
+      "dica":"Primeiro identifique o tipo: barras de norma produzem valores; setas representam vetores. Só depois decida entre iguais e opostos.",
+      "resposta":"VI, VO, AO, AI, VI, AI.",
+      "jeitos": {
+        "visual":"As barras ‖ ‖ transformam uma seta em um número: seu comprimento. Sem barras, compare setas. Virar [[QP]] já produz [[PQ]]; o sinal de menos vira novamente. Virar um vetor não muda seu comprimento. A soma de um vetor com seu oposto produz o vetor nulo em qualquer ordem.",
+        "receita":["(1) [[QP]] = −[[PQ]], então −[[QP]] = [[PQ]]: VI.","(2) [[u]] e −[[u]]: VO.","(3) ‖−[[u]]‖ = ‖[[u]]‖, mas há menos fora: AO.","(4) Os dois trajetos têm o mesmo comprimento: AI.","(5) A soma é comutativa e ambos dão [[0]]: VI.","(6) Inverter não muda a norma: AI."],
+        "cotidiano":"Ir de P para Q e voltar de Q para P percorre a mesma distância, mas em sentidos contrários. Distância é um número e não guarda sentido; vetor guarda. Essa separação entre trajeto orientado e distância resolve quase todos os pares.",
+        "trabalho":"Em dados, o vetor é como uma variação com sinal; a norma é como o valor absoluto dessa variação. Inverter o lançamento muda o sinal da variação, mas não seu valor absoluto.",
+        "conversa":[{"quem":"Você","fala":"Na terceira linha escrevi vetores opostos por causa do sinal de menos."},{"quem":"Monitor","fala":"O que as barras de norma devolvem: vetor ou número?"},{"quem":"Você","fala":"Número."},{"quem":"Monitor","fala":"Então a categoria correta é valores opostos."}],
+        "erro":"O tropeço observado na tentativa foi classificar o terceiro par como vetores opostos. Como há normas, são valores. No quinto par há uma ambiguidade conceitual: os dois lados são [[0]], que coincide com seu oposto. Mantemos 'vetores iguais' porque a relação apresentada é a comutatividade da soma, leitura também adotada na correção independente.",
+        "confira":"Escolha P = (1,2,3), Q = (4,0,−1) e [[u]] = (1,−2,2). Então [[PQ]] = (3,−2,−4), −[[QP]] = (3,−2,−4), ‖[[u]]‖ = 3 e −‖−[[u]]‖ = −3.",
+        "atalho":"Barras de norma: use 'valores'. Setas: use 'vetores'. Depois lembre que duas inversões se cancelam e a norma apaga o sentido."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q08",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Diagonal no paralelepípedo",
+      "origem": "Avaliação semanal 1 · T1 · Q08",
+      "enunciado": "No paralelepípedo ABCDEFGH, sejam [[u]] = [[AB]], [[v]] = [[AD]] e [[w]] = [[AE]]. Escreva [[DF]] em função de [[u]], [[v]] e [[w]].",
+      "alternativas": [
+        {"t":"[[u]] + [[v]] − [[w]]","certa":false,"erro":"Os sinais descrevem outro deslocamento. Para sair de D, é necessário voltar no sentido contrário a [[v]], e para chegar a F é necessário subir no sentido de [[w]]."},
+        {"t":"−[[u]] − [[v]] + [[w]]","certa":false,"erro":"O termo −[[u]] leva para o lado oposto de B; F fica no lado positivo de [[u]]."},
+        {"t":"[[u]] − [[v]] + [[w]]","certa":true},
+        {"t":"−[[u]] − [[v]] − [[w]]","certa":false,"erro":"Os três sinais levam de um vértice superior ao vértice oposto inferior, não de D a F."},
+        {"t":"−[[u]] + [[v]] + [[w]]","certa":false,"erro":"O sinal de [[v]] está invertido: partindo de D, voltar a A é −[[v]], não +[[v]]."}
+      ],
+      "dica":"Percorra D → A → B → F e some os três deslocamentos.",
+      "resposta":"[[DF]] = [[u]] − [[v]] + [[w]].",
+      "figura": {
+        "modo": "3d",
+        "onde": "enunciado",
+        "itens": [
+          {"tipo":"segmento","de":[0,0,0],"ate":[3,0,0]}, {"tipo":"segmento","de":[0,0,0],"ate":[0,2,0]}, {"tipo":"segmento","de":[3,0,0],"ate":[3,2,0]}, {"tipo":"segmento","de":[0,2,0],"ate":[3,2,0]},
+          {"tipo":"segmento","de":[0,0,3],"ate":[3,0,3]}, {"tipo":"segmento","de":[0,0,3],"ate":[0,2,3]}, {"tipo":"segmento","de":[3,0,3],"ate":[3,2,3]}, {"tipo":"segmento","de":[0,2,3],"ate":[3,2,3]},
+          {"tipo":"segmento","de":[0,0,0],"ate":[0,0,3]}, {"tipo":"segmento","de":[3,0,0],"ate":[3,0,3]}, {"tipo":"segmento","de":[0,2,0],"ate":[0,2,3]}, {"tipo":"segmento","de":[3,2,0],"ate":[3,2,3]},
+          {"tipo":"vetor","de":[0,0,0],"ate":[3,0,0],"rot":"u","cor":1}, {"tipo":"vetor","de":[0,0,0],"ate":[0,2,0],"rot":"v","cor":2}, {"tipo":"vetor","de":[0,0,0],"ate":[0,0,3],"rot":"w","cor":3},
+          {"tipo":"ponto","em":[0,0,0],"rot":"A"}, {"tipo":"ponto","em":[3,0,0],"rot":"B"}, {"tipo":"ponto","em":[3,2,0],"rot":"C"}, {"tipo":"ponto","em":[0,2,0],"rot":"D"},
+          {"tipo":"ponto","em":[0,0,3],"rot":"E"}, {"tipo":"ponto","em":[3,0,3],"rot":"F"}, {"tipo":"ponto","em":[3,2,3],"rot":"G"}, {"tipo":"ponto","em":[0,2,3],"rot":"H"}
+        ],
+        "legenda":"Os três vetores básicos saem de A. Arraste para girar o paralelepípedo."
+      },
+      "jeitos": {
+        "visual":"Faça o caminho pelas arestas. De D para A você anda contra [[v]]. De A para B anda a favor de [[u]]. De B para F sobe a favor de [[w]]. Juntando as três setas: −[[v]] + [[u]] + [[w]].",
+        "receita":["Use A como origem.","A posição de D é [[v]].","A posição de F é [[u]] + [[w]].","Calcule destino menos origem: [[DF]] = ([[u]] + [[w]]) − [[v]].","Reordene: [[u]] − [[v]] + [[w]]."],
+        "cotidiano":"Dentro de uma sala, D está no fundo e F está na frente, à direita e em cima. Para chegar lá, volte a profundidade, avance a largura e suba a altura. Os sinais são −, + e +.",
+        "trabalho":"É a diferença entre dois endereços tridimensionais. D possui coordenadas (0,1,0) na base [[u]],[[v]],[[w]], enquanto F possui (1,0,1). Destino menos origem dá (1,−1,1).",
+        "conversa":[{"quem":"Você","fala":"Por que [[v]] entra negativo?"},{"quem":"Monitor","fala":"[[v]] aponta de A para D. O caminho começa em D e volta para A em qual sentido?"},{"quem":"Você","fala":"No contrário, então −[[v]]."},{"quem":"Monitor","fala":"Depois entram +[[u]] e +[[w]] para chegar a F."}],
+        "erro":"Fazer D − F calcula [[FD]], não [[DF]]. Outra armadilha é olhar apenas o desenho em perspectiva e trocar quais vértices estão um sobre o outro. E está sobre A, F sobre B, G sobre C e H sobre D.",
+        "confira":"Escolha [[u]] = (1,0,0), [[v]] = (0,1,0) e [[w]] = (0,0,1). Então D = (0,1,0), F = (1,0,1) e F − D = (1,−1,1), isto é, [[u]] − [[v]] + [[w]].",
+        "atalho":"D está no lado positivo de [[v]], então sair de D exige −[[v]]. F está no lado de B e no topo, então exige +[[u]] e +[[w]]."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q09",
+      "semana": 1,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Equação vetorial",
+      "origem": "Avaliação semanal 1 · T1 · Q09",
+      "enunciado": "Dados [[u]] = (2,1,3), [[v]] = (1,1,−1) e [[w]] = (−8,−11,−3), determine [[r]] para que −3[[u]] − 4[[v]] + [[r]] = [[w]].",
+      "alternativas": [
+        {"t":"(2, −4, 2)","certa":true},
+        {"t":"(4, −8, 4)","certa":false,"erro":"É o dobro do resultado correto; nenhum termo da equação autoriza dobrar [[r]]."},
+        {"t":"(−4, 8, −4)","certa":false,"erro":"É −2 vezes o resultado correto."},
+        {"t":"(−2, 4, −2)","certa":false,"erro":"É o oposto do resultado e aparece ao isolar [[r]] com todos os sinais trocados."},
+        {"t":"(−4, −6, −7)","certa":false,"erro":"Esse vetor não satisfaz a equação quando substituído."}
+      ],
+      "dica":"Passe −3[[u]] e −4[[v]] para o outro lado; eles se tornam +3[[u]] e +4[[v]].",
+      "resposta":"[[r]] = (2, −4, 2).",
+      "jeitos": {
+        "visual":"Pense na equação como uma balança de vetores. Para deixar [[r]] sozinho, coloque nos dois lados os vetores opostos de −3[[u]] e −4[[v]]. Assim, [[r]] recebe +3[[u]] e +4[[v]] junto de [[w]].",
+        "receita":["Isole: [[r]] = [[w]] + 3[[u]] + 4[[v]].","Calcule 3[[u]] = (6,3,9).","Calcule 4[[v]] = (4,4,−4).","Some com [[w]]: (−8+6+4, −11+3+4, −3+9−4).","Resultado: (2,−4,2)."],
+        "cotidiano":"É uma conta de saldo. Se saldo final = três saídas de u, quatro saídas de v e uma entrada r, a entrada desconhecida precisa repor as saídas antes de alcançar o saldo final.",
+        "trabalho":"Imagine três colunas de um extrato. Para descobrir o lançamento de ajuste [[r]], pegue o saldo final [[w]] e reverta os lançamentos −3[[u]] e −4[[v]]. Reverter um lançamento muda seu sinal.",
+        "conversa":[{"quem":"Você","fala":"Ao passar −3[[u]] para o outro lado, mantenho o menos?"},{"quem":"Monitor","fala":"Qual operação cancela −3[[u]]?"},{"quem":"Você","fala":"Somar +3[[u]] nos dois lados."},{"quem":"Monitor","fala":"Exatamente. Faça o mesmo com −4[[v]]."}],
+        "erro":"O erro dominante é escrever [[r]] = [[w]] − 3[[u]] − 4[[v]], mantendo os sinais negativos. Isso produz o oposto da lógica de isolamento. Passar de lado é apenas uma abreviação para fazer a operação inversa nos dois lados.",
+        "confira":"Substitua: −3(2,1,3) − 4(1,1,−1) + (2,−4,2) = (−8,−11,−3) = [[w]].",
+        "atalho":"Calcule só x: −8 + 3·2 + 4·1 = 2. Apenas a alternativa correta começa com 2."
+      }
+    },
+    {
+      "id": "ga-s1-av1-t1-q10",
+      "semana": 1,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Quatro normas",
+      "origem": "Avaliação semanal 1 · T1 · Q10",
+      "enunciado": "Calcule, na ordem, as normas: ‖(√6,3,1)‖; ‖(21/√78,15/√78,6/√78)‖; ‖(2,4,4)‖; ‖(5/√3,5/√3,5/√3)‖.",
+      "alternativas": [
+        {"t":"4, 3, 6, 5","certa":true},
+        {"t":"4, 3, 5, 6","certa":false,"erro":"As duas últimas normas foram trocadas. ‖(2,4,4)‖ = 6 e o vetor com três componentes 5/√3 tem norma 5."},
+        {"t":"16, 9, 36, 25","certa":false,"erro":"Esses são os valores das normas ao quadrado; faltou tirar a raiz quadrada em cada item."},
+        {"t":"4, 6, 3, 5","certa":false,"erro":"A segunda e a terceira respostas foram trocadas."},
+        {"t":"6, 3, 4, 5","certa":false,"erro":"Na primeira norma, (√6)² = 6; a soma dos quadrados é 16 e a norma é 4, não 6."}
+      ],
+      "dica":"Em cada vetor, some os quadrados das componentes e tire a raiz apenas no final.",
+      "resposta":"As normas são 4, 3, 6 e 5.",
+      "jeitos": {
+        "visual":"Cada vetor forma a diagonal de uma caixa cujas arestas são suas componentes. O comprimento da diagonal vem de Pitágoras em três dimensões: some os quadrados e só então tire a raiz. Os denominadores com raiz desaparecem quando são elevados ao quadrado.",
+        "receita":["Primeiro: √(6+9+1) = √16 = 4.","Segundo: √((441+225+36)/78) = √(702/78) = √9 = 3.","Terceiro: √(4+16+16) = √36 = 6.","Quarto: √(25/3+25/3+25/3) = √25 = 5."],
+        "cotidiano":"É como medir quatro diagonais com réguas diferentes. Em cada caso, as componentes são os lados perpendiculares. Não some os comprimentos diretamente; combine-os pelo quadrado, como em Pitágoras.",
+        "trabalho":"Em uma planilha, a norma é `=RAIZ(SOMARPRODUTO(intervalo;intervalo))`. Para o segundo vetor, os numeradores ao quadrado somam 702 e o denominador comum vira 78, deixando 9 antes da raiz.",
+        "conversa":[{"quem":"Você","fala":"No segundo item, o denominador continua √78?"},{"quem":"Monitor","fala":"O que acontece quando você eleva 21/√78 ao quadrado?"},{"quem":"Você","fala":"Vira 441/78."},{"quem":"Monitor","fala":"Isso. Depois some as três frações e tire a raiz."}],
+        "erro":"Dois erros aparecem muito: tratar (√6)² como 36 e esquecer a raiz final, respondendo 16, 9, 36 e 25. A norma é a raiz da soma dos quadrados, não a soma dos quadrados.",
+        "confira":"Eleve os resultados ao quadrado. Você deve recuperar as somas calculadas: 4² = 16, 3² = 9, 6² = 36 e 5² = 25.",
+        "atalho":"No quarto item, três componentes iguais a 5/√3 dão norma (5/√3)·√3 = 5. No terceiro, reconheça o trio 2,4,4 como 2 vezes (1,2,2), cuja norma é 3; portanto 6."
+      }
+    }
+  ]
+}

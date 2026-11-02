@@ -66,7 +66,7 @@
     var s = q.id.split('-').pop();
     return s.toUpperCase();
   }
-  function tipoOrigem(q) { return /^Lista/.test(q.origem) ? 'lista' : (/Construída/.test(q.origem) ? 'constr' : 'previa'); }
+  function tipoOrigem(q) { return /^Avaliação/.test(q.origem) ? 'avaliacao' : (/^Lista/.test(q.origem) ? 'lista' : (/Construída/.test(q.origem) ? 'constr' : 'previa')); }
 
   // ---------- estado da tela ----------
   var ui = { disc: 'ga', sem: 1, view: 'questao', qid: null, filtro: 'todas', revelado: {}, dica: {}, lente: {} };
@@ -198,7 +198,8 @@
     });
     var html = '', grupo = '';
     qs.forEach(function (q) {
-      var g = tipoOrigem(q) === 'lista' ? q.origem.split(' · ')[0] : (tipoOrigem(q) === 'constr' ? 'Construídas' : 'Prévia pela ementa');
+      var tipo = tipoOrigem(q);
+      var g = tipo === 'avaliacao' ? q.origem.split(' · Q')[0] : (tipo === 'lista' ? q.origem.split(' · ')[0] : (tipo === 'constr' ? 'Construídas' : 'Prévia pela ementa'));
       if (g !== grupo) { html += '<h5>' + esc(g) + '</h5>'; grupo = g; }
       var r = st.resp[q.id];
       html += '<button class="qitem' + (q.id === ui.qid && ui.view === 'questao' ? ' active' : '') + '" data-q="' + q.id + '" title="' + esc(q.tema) + '">' +
@@ -218,6 +219,7 @@
     var el = $('#view-atividades');
     var info = semanaInfo(ui.disc, ui.sem);
     var qs = questoesDa(ui.disc, ui.sem);
+    var avaliacoes = qs.filter(function (q) { return tipoOrigem(q) === 'avaliacao'; });
     var oficiais = qs.filter(function (q) { return tipoOrigem(q) === 'lista'; });
     var construidas = qs.filter(function (q) { return tipoOrigem(q) === 'constr'; });
     var previas = qs.filter(function (q) { return tipoOrigem(q) === 'previa'; });
@@ -233,7 +235,7 @@
       h += '<div class="migration-note"><strong>Progresso anterior preservado</strong><p>' + legado.atividades.length + ' registros de atividade, ' + legado.marcadores.length + ' marcadores e ' + legado.simulados.length + ' simulados foram guardados. As novas questões começam limpas porque o banco mudou; o armazenamento antigo não foi apagado.</p></div>';
     }
     h += '<div class="activity-source"><div><span>Fonte desta semana</span><strong>' + esc(info.previa ? 'Prévia baseada na ementa' : (info.fonte || 'Material da disciplina')) + '</strong></div>' +
-      '<ul><li><b>' + oficiais.length + '</b> da lista recebida</li><li><b>' + construidas.length + '</b> de reforço</li><li><b>' + previas.length + '</b> de prévia</li></ul></div>';
+      '<ul><li><b>' + avaliacoes.length + '</b> da avaliação</li><li><b>' + oficiais.length + '</b> da lista recebida</li><li><b>' + construidas.length + '</b> de reforço</li><li><b>' + previas.length + '</b> de prévia</li></ul></div>';
     if (!qs.length) {
       h += '<div class="activity-empty"><b>Pronto para o próximo print.</b><p>Quando a atividade chegar, ela será incorporada ao banco desta disciplina e semana.</p></div>';
     } else {
@@ -241,7 +243,7 @@
       qs.forEach(function (q, i) {
         var r = st.resp[q.id];
         var tipo = tipoOrigem(q);
-        h += '<button class="activity-item" data-activity-q="' + esc(q.id) + '"><span class="activity-number">' + n2(i + 1) + '</span><span><small>' + esc(tipo === 'lista' ? q.origem : tipo === 'constr' ? 'Questão de reforço' : 'Prévia pela ementa') + '</small><strong>' + esc(q.tema) + '</strong><em>' + (r ? (r.ok ? 'respondida corretamente' : 'refazer') : 'ainda não feita') + '</em></span><i>' + (r ? (r.ok ? '✓' : '↺') : '→') + '</i></button>';
+        h += '<button class="activity-item" data-activity-q="' + esc(q.id) + '"><span class="activity-number">' + n2(i + 1) + '</span><span><small>' + esc(tipo === 'avaliacao' ? q.origem : tipo === 'lista' ? q.origem : tipo === 'constr' ? 'Questão de reforço' : 'Prévia pela ementa') + '</small><strong>' + esc(q.tema) + '</strong><em>' + (r ? (r.ok ? 'respondida corretamente' : 'refazer') : 'ainda não feita') + '</em></span><i>' + (r ? (r.ok ? '✓' : '↺') : '→') + '</i></button>';
       });
       h += '</div>';
     }
@@ -435,7 +437,7 @@
     var r = st.resp[q.id];
     var aberto = !!r || ui.revelado[q.id];
     var to = tipoOrigem(q);
-    var h = '<div class="qview"><div class="q-head"><span class="q-origem ' + (to === 'previa' ? 'previa' : to === 'constr' ? 'constr' : '') + '">' + esc(q.origem) + '</span>' +
+    var h = '<div class="qview"><div class="q-head"><span class="q-origem ' + (to === 'previa' ? 'previa' : to === 'constr' ? 'constr' : to === 'avaliacao' ? 'avaliacao' : '') + '">' + esc(q.origem) + '</span>' +
       '<span class="q-tema">' + esc(q.tema) + '</span><span class="q-nivel" title="nível ' + q.nivel + ' de 3">' + [1, 2, 3].map(function (n) { return '<i class="' + (n <= q.nivel ? 'f' : '') + '"></i>'; }).join('') + ' ' + ['', 'básico', 'médio', 'avançado'][q.nivel] + ' · ' + q.minutos + ' min</span>' +
       '<span class="q-nav"><button data-nav="-1" aria-label="Questão anterior">←</button><span>' + (pos + 1) + ' de ' + qs.length + '</span><button data-nav="1" aria-label="Próxima questão">→</button></span></div>';
     h += '<p class="q-enunciado">' + md(q.enunciado) + '</p>';
