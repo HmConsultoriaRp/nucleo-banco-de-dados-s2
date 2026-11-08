@@ -526,4 +526,56 @@ body.dark .fala.monitor{color:var(--ink)}
   .planner-grid{grid-template-columns:1fr}
   .vin{grid-template-columns:24px repeat(3,1fr)}
 }
+/* ---------- ideias da semana (08/11/2026) ---------- */
+.ideias{padding:4px 5vw 40px}
+.ideias-head h3{font:700 20px var(--font-display);letter-spacing:-.02em;margin:0 0 6px}
+.ideias-head p{color:var(--muted);font-size:13.5px;margin:0 0 18px;max-width:640px}
+.ideias-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.ideia-card{text-align:left;display:flex;flex-direction:column;gap:6px;background:var(--white);border:1px solid var(--line);border-top:3px solid var(--blue);padding:16px 16px 14px;cursor:pointer;font:inherit;color:inherit;min-height:150px;transition:border-color .15s,transform .15s,box-shadow .15s}
+.ideia-card:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:var(--shadow)}
+.ideia-card:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.ideia-card b{font:700 16px/1.25 var(--font-display)}
+.ideia-num{font:700 11px var(--font-body);color:var(--coral);letter-spacing:.1em}
+.ideia-frase{font-size:13px;color:#3b4039}
+.ideia-meta{margin-top:auto;font-size:11px;color:var(--blue);font-weight:600}
+.ideia-card.esboco{border-top-color:var(--line);background:var(--paper);cursor:default;color:var(--muted)}
+.ideia-card.esboco:hover{transform:none;box-shadow:none;border-color:var(--line)}
+.ideia-card.esboco .ideia-frase{color:var(--muted)}
+.ideia-card.esboco .stamp{margin-top:auto;align-self:flex-start}
+dialog.ideia-dialog{box-sizing:border-box;width:min(640px,100%);max-width:100%;height:100vh;height:100dvh;max-height:100vh;max-height:100dvh;margin:0 0 0 auto;padding:34px 34px 28px;overflow:auto}
+.ideia-dialog[open]{animation:ideia-entra .22s ease-out}
+@keyframes ideia-entra{from{transform:translateX(24px);opacity:0}to{transform:none;opacity:1}}
+.ideia-dialog h2{font:700 30px/1.08 var(--font-display);margin:8px 0 6px}
+.ideia-frase-grande{color:var(--muted);font-size:15px;margin:0 0 16px}
+.ideia-fig{position:relative;background:var(--paper);border:1px solid var(--line)}
+.ideia-fig canvas{width:100%;height:300px;display:block}
+.ideia-fig .vistas{position:absolute;right:8px;top:8px;display:flex;gap:4px}
+.ideia-fig .vistas button{border:1px solid var(--line);background:var(--white);font-size:10.5px;padding:3px 8px}
+.ideia-dica{position:absolute;left:10px;bottom:8px;font-size:10.5px;color:var(--muted);pointer-events:none}
+.ideia-passo{margin-top:16px}
+.ideia-passo h4{font:700 17px var(--font-display);margin:0 0 6px;display:flex;gap:10px;align-items:center}
+.ideia-passo h4 span{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--blue);color:var(--white);font-size:12px;flex:none}
+.ideia-passo p{margin:0;font-size:14.5px;line-height:1.55;color:#2f342e}
+.ideia-destaque{margin-top:14px;padding:14px 16px;background:var(--blue-tint);border-left:4px solid var(--blue);display:flex;flex-direction:column;gap:2px}
+.ideia-destaque strong{font:700 26px/1.15 var(--font-display);color:var(--blue-deep)}
+.ideia-destaque small{font-size:12px;color:var(--muted)}
+.ideia-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:18px}
+.ideia-nav>span{font-size:12px;color:var(--muted)}
+.ideia-nav .ghost:disabled{opacity:.4;cursor:default}
+.ideia-lista{margin-top:22px;border-top:1px solid var(--line);padding-top:14px}
+.ideia-lista p{font-size:9.5px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--muted);margin:0 0 8px}
+.ideia-lista div{display:flex;flex-wrap:wrap;gap:6px}
+.ideia-lista .chip{border:1px solid var(--line);background:var(--white);padding:6px 10px;font-size:12px;font-weight:600;cursor:pointer}
+.ideia-lista .chip:hover{border-color:var(--blue);color:var(--blue)}
+@media(max-width:640px){
+  /* os 4 botoes da sala de estudo em 2 x 2: em fila unica empurravam a pagina para 406 px num celular de 375 */
+  .views-row{display:grid;grid-template-columns:1fr 1fr}
+  .ideias{padding:0 16px 30px}
+  .ideias-grid{grid-template-columns:1fr}
+  .ideia-card{min-height:0}
+  dialog.ideia-dialog{width:100%;padding:26px 16px 22px}
+  .ideia-dialog h2{font-size:25px;padding-right:28px}
+  .ideia-fig canvas{height:240px}
+  .ideia-nav .primary-button{padding:12px 14px}
+}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}

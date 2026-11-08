@@ -406,7 +406,13 @@
     var w = semanaInfo(ui.disc, ui.sem);
     var h = '<header class="lesson-header"><div><p class="lesson-kicker">' + NOME[ui.disc] + ' · Semana ' + n2(ui.sem) + '</p><h2>' + esc(w.titulo) + '</h2><p class="chamada">' + md(w.chamada) + '</p>' +
       (w.previa ? '<p class="fonte"><span class="stamp">prévia</span> ' + esc(w.fonte) + '</p>' : (w.fonte ? '<p class="fonte">Fonte: ' + esc(w.fonte) + '</p>' : '')) + '</div></header>';
-    if (w.blocos && w.blocos.length) {
+    if (w.ideias && w.ideias.length) {
+      h += '<section class="ideias"><div class="ideias-head"><h3>Ideias da semana</h3><p>Cada cartão abre um painel com a figura que gira e a conta em passos, com um exemplo da lista do professor.</p></div><div class="ideias-grid">' +
+        w.ideias.map(function (it, i) {
+          var meta = it.esboco ? '<span class="stamp">em preparo</span>' : '<span class="ideia-meta">' + it.passos.length + ' passos · figura que gira · ' + esc(it.fonte) + '</span>';
+          return '<button class="ideia-card' + (it.esboco ? ' esboco' : '') + '" data-ideia="' + i + '"' + (it.esboco ? ' disabled' : '') + '><span class="ideia-num">' + n2(i + 1) + '</span><b>' + esc(it.titulo) + '</b><span class="ideia-frase">' + md(it.frase) + '</span>' + meta + '</button>';
+        }).join('') + '</div></section>';
+    } else if (w.blocos && w.blocos.length) {
       h += '<div class="blocos">' + w.blocos.map(function (b, i) { return '<div class="bloco"><h4><span>' + n2(i + 1) + '</span>' + esc(b.titulo) + '</h4><p>' + md(b.texto) + '</p></div>'; }).join('') + '</div>';
     }
     if (w.formulas && w.formulas.length) {
@@ -422,6 +428,50 @@
     el.innerHTML = h;
     if (nj) lentes($('#lentes-semana'), w.jeitos, { chave: 'sem-' + ui.disc + ui.sem });
     $$('[data-view-go]', el).forEach(function (b) { b.addEventListener('click', function () { ui.view = b.dataset.viewGo; renderEstudo(); }); });
+    $$('[data-ideia]', el).forEach(function (b) { b.addEventListener('click', function () { abrirIdeia(w, +b.dataset.ideia); }); });
+  }
+
+  // ---------- ideia: painel com figura e passos ----------
+  function abrirIdeia(w, idx) {
+    var it = w.ideias[idx];
+    if (!it || it.esboco) return;
+    var dlg = $('#ideia-dialog'), corpo = $('#ideia-corpo');
+    var passo = 0, fig = null;
+    var total = w.ideias.length;
+    corpo.innerHTML =
+      '<p class="lesson-kicker">' + NOME[ui.disc] + ' · Semana ' + n2(ui.sem) + ' · Ideia ' + (idx + 1) + ' de ' + total + '</p>' +
+      '<h2 id="ideia-titulo">' + esc(it.titulo) + '</h2><p class="ideia-frase-grande">' + md(it.frase) + '</p>' +
+      '<div class="ideia-fig"><canvas id="ideia-cv" aria-label="Figura da ideia; arraste para girar"></canvas>' +
+      '<span class="vistas"><button data-vista="padrao">3D</button><button data-vista="frente">frente</button><button data-vista="cima">de cima</button></span>' +
+      '<span class="ideia-dica">arraste para girar</span></div>' +
+      '<div class="ideia-passo" aria-live="polite"><div id="ideia-passo-corpo"></div>' +
+      '<div class="ideia-nav"><button class="ghost" id="ideia-ant">← Anterior</button><span id="ideia-pos"></span><button class="primary-button" id="ideia-prox">Próximo <span>→</span></button></div></div>' +
+      '<div class="ideia-lista"><p>Na lista do professor</p><div>' + (it.questoes || []).filter(function (id) { return porId[id]; }).map(function (id) {
+        return '<button class="chip" data-ir-questao="' + id + '">' + esc(porId[id].origem) + '</button>';
+      }).join('') + '</div></div>';
+    function mostra() {
+      var p = it.passos[passo];
+      $('#ideia-passo-corpo').innerHTML = '<h4><span>' + (passo + 1) + '</span>' + esc(p.titulo) + '</h4><p>' + md(p.texto) + '</p>' +
+        (p.destaque ? '<div class="ideia-destaque"><strong>' + esc(p.destaque.valor) + '</strong><small>' + esc(p.destaque.rotulo) + '</small></div>' : '');
+      $('#ideia-pos').textContent = 'Passo ' + (passo + 1) + ' de ' + it.passos.length;
+      $('#ideia-ant').disabled = passo === 0;
+      var ultimo = passo === it.passos.length - 1;
+      $('#ideia-prox').innerHTML = ultimo ? 'Concluir <span>✓</span>' : 'Próximo <span>→</span>';
+      if (fig) fig.trocar(p.fig); else fig = Figura.montar($('#ideia-cv'), p.fig);
+    }
+    $('#ideia-ant').addEventListener('click', function () { if (passo > 0) { passo--; mostra(); } });
+    $('#ideia-prox').addEventListener('click', function () {
+      if (passo < it.passos.length - 1) { passo++; mostra(); } else dlg.close();
+    });
+    $$('[data-vista]', corpo).forEach(function (b) { b.addEventListener('click', function () { if (fig) fig.vista(b.dataset.vista); }); });
+    $$('[data-ir-questao]', corpo).forEach(function (b) {
+      b.addEventListener('click', function () { var q = porId[b.dataset.irQuestao]; dlg.close(); abrirSemana(q.disc, q.semana, 'questao', q.id); });
+    });
+    dlg.showModal();
+    mostra();
+    var redesenha = function () { if (fig) fig.redesenhar(); };
+    window.addEventListener('resize', redesenha);
+    dlg.addEventListener('close', function () { window.removeEventListener('resize', redesenha); }, { once: true });
   }
 
   // ---------- questão ----------

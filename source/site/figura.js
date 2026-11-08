@@ -26,13 +26,14 @@
     function prepara(f) {
       fig = f || { itens: [] };
       modo = fig.modo === '2d' ? '2d' : '3d';
-      var pts = [[0, 0, 0]];
+      var pts = fig.semEixos ? [] : [[0, 0, 0]];
       (fig.itens || []).forEach(function (it) {
         if (it.de) pts.push(p3(it.de));
         if (it.ate) pts.push(p3(it.ate));
         if (it.em) pts.push(p3(it.em));
         if (it.pts) it.pts.forEach(function (q) { pts.push(p3(q)); });
       });
+      (fig.moldura || []).forEach(function (q) { pts.push(p3(q)); });
       var mn = [Infinity, Infinity, Infinity], mx = [-Infinity, -Infinity, -Infinity];
       pts.forEach(function (q) { for (var i = 0; i < 3; i++) { mn[i] = Math.min(mn[i], q[i]); mx[i] = Math.max(mx[i], q[i]); } });
       for (var i = 0; i < 3; i++) { if (mx[i] - mn[i] < 1) { mx[i] += 0.5; mn[i] -= 0.5; } }
@@ -110,7 +111,7 @@
         var o = proj([0, 0, 0], W, H, esc);
         ctx.strokeStyle = C.eixo; ctx.lineWidth = 1.2;
         ctx.beginPath(); ctx.moveTo(0, o[1]); ctx.lineTo(W, o[1]); ctx.moveTo(o[0], 0); ctx.lineTo(o[0], H); ctx.stroke();
-      } else {
+      } else if (!fig.semEixos) {
         var L = raio * 1.05;
         [[[L, 0, 0], 'x'], [[0, L, 0], 'y'], [[0, 0, L], 'z']].forEach(function (e) {
           var neg = proj([-e[0][0] * 0.35, -e[0][1] * 0.35, -e[0][2] * 0.35], W, H, esc);
@@ -136,7 +137,7 @@
           ctx.strokeStyle = cor; ctx.lineWidth = 1.6; ctx.stroke();
         } else if (it.tipo === 'segmento') {
           var a2 = proj(p3(it.de), W, H, esc), b2 = proj(p3(it.ate), W, H, esc);
-          ctx.strokeStyle = it.cor ? cor : C.eixo; ctx.lineWidth = 1.4;
+          ctx.strokeStyle = it.cor ? cor : C.eixo; ctx.lineWidth = it.largura || 1.4;
           if (it.tracejado) ctx.setLineDash([5, 5]);
           ctx.beginPath(); ctx.moveTo(a2[0], a2[1]); ctx.lineTo(b2[0], b2[1]); ctx.stroke();
           ctx.setLineDash([]);
@@ -172,15 +173,22 @@
     canvas.addEventListener('pointerup', solta);
     canvas.addEventListener('pointercancel', solta);
 
+    // angulo inicial proprio da figura (opcional): { yaw, pitch }
+    var yaw0 = -0.62, pitch0 = 0.42;
+    function anguloDe(f) {
+      var a = f && f.angulo;
+      if (a && (a.yaw !== yaw0 || a.pitch !== pitch0)) { yaw0 = a.yaw; pitch0 = a.pitch; yaw = yaw0; pitch = pitch0; }
+    }
+    anguloDe(figInicial);
     prepara(figInicial);
     desenhar();
     return {
       redesenhar: desenhar,
-      trocar: function (f) { prepara(f); desenhar(); },
+      trocar: function (f) { anguloDe(f); prepara(f); desenhar(); },
       vista: function (nome) {
         if (nome === 'frente') { yaw = 0; pitch = 0; }
         else if (nome === 'cima') { yaw = 0; pitch = 1.45; }
-        else { yaw = -0.62; pitch = 0.42; }
+        else { yaw = yaw0; pitch = pitch0; }
         desenhar();
       },
       get modo() { return modo; },

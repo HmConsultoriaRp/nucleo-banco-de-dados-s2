@@ -83,7 +83,990 @@
         "trabalho": "A equação paramétrica é a mesma conta de uma projeção linear numa planilha: valor do mês t = valor inicial + t × variação mensal. Com três colunas (receita, custo, despesa), cada linha da projeção é um ponto A + t[[v]]. Conferir se um ponto está na reta é como conferir se um número veio da projeção: o mesmo t tem de explicar as três colunas. Se a receita bate com o mês 3 e o custo com o mês 4, aquele valor não saiu dessa projeção.",
         "erro": "Três tropeços aparecem muito. Primeiro, o sinal do ponto nas simétricas: (x − 5) indica x₀ = 5, e (y + 4) indica y₀ = −4. Segundo, concluir que retas não paralelas se cruzam: no espaço elas podem ser reversas, e só o produto misto decide. Terceiro, esquecer o módulo no ângulo: se o cosseno deu negativo, o ângulo dos vetores passou de 90°, mas o ângulo entre as retas é o suplemento (o que falta para 180°), sempre de 0° a 90°."
       },
-      "lab": "No laboratório, digite o ponto P e o diretor [[v]] e veja a reta. Troque [[v]] por 2[[v]] ou por −[[v]], ou mude P para P + [[v]]: a equação muda, mas a reta fica no mesmo lugar e o pé H, o ponto da reta mais perto de Q, não se mexe."
+      "lab": "No laboratório, digite o ponto P e o diretor [[v]] e veja a reta. Troque [[v]] por 2[[v]] ou por −[[v]], ou mude P para P + [[v]]: a equação muda, mas a reta fica no mesmo lugar e o pé H, o ponto da reta mais perto de Q, não se mexe.",
+      "ideias": [
+        {
+          "id": "ponto-vetor",
+          "titulo": "Ponto e vetor",
+          "frase": "Ponto diz onde estou; vetor diz como ando.",
+          "fonte": "Lista 4, Q2",
+          "questoes": [
+            "ga-s4-l4q2",
+            "ga-s4-l4q3",
+            "ga-s4-l4q4"
+          ],
+          "passos": [
+            {
+              "titulo": "Dois endereços",
+              "texto": "Ponto é endereço: onde estou. A = (−1, 1, 4) e B = (2, 3, 1) são dois lugares do espaço (Lista 4, Q2).",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      -1.0,
+                      1.0,
+                      4.0
+                    ],
+                    "rot": "A",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      2.0,
+                      3.0,
+                      1.0
+                    ],
+                    "rot": "B",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                }
+              }
+            },
+            {
+              "titulo": "A seta de A até B",
+              "texto": "Vetor é deslocamento: como ando. A seta de A até B é B − A = (2, 3, 1) − (−1, 1, 4) = (3, 2, −3): ande 3 em x, 2 em y e −3 em z.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      -1.0,
+                      1.0,
+                      4.0
+                    ],
+                    "rot": "A",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      2.0,
+                      3.0,
+                      1.0
+                    ],
+                    "rot": "B",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      -1.0,
+                      1.0,
+                      4.0
+                    ],
+                    "ate": [
+                      2.0,
+                      3.0,
+                      1.0
+                    ],
+                    "rot": "B − A",
+                    "cor": 1
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                }
+              },
+              "destaque": {
+                "valor": "B − A = (3, 2, −3)",
+                "rotulo": "a seta que leva de A até B"
+              }
+            },
+            {
+              "titulo": "Direção e sentido",
+              "texto": "Direção é a linha em que a seta está; sentido é o lado para onde ela aponta. (3, 2, −3) e (−3, −2, 3) têm a mesma direção e sentidos opostos. Ponto e vetor se escrevem igual, com três números: por isso confundem.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      -1.0,
+                      1.0,
+                      4.0
+                    ],
+                    "rot": "A",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      2.0,
+                      3.0,
+                      1.0
+                    ],
+                    "rot": "B",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      -1.0,
+                      1.0,
+                      4.0
+                    ],
+                    "ate": [
+                      2.0,
+                      3.0,
+                      1.0
+                    ],
+                    "rot": "B − A",
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      -1.0,
+                      1.0,
+                      4.0
+                    ],
+                    "ate": [
+                      -4.0,
+                      -1.0,
+                      7.0
+                    ],
+                    "rot": "A − B",
+                    "cor": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "reta-passo",
+          "titulo": "Reta: um ponto e um passo",
+          "frase": "Saia do ponto e ande na direção da seta, para frente ou para trás, sem fim.",
+          "fonte": "Lista 4, Q1a",
+          "questoes": [
+            "ga-s4-l4q1a",
+            "ga-s4-l4q1b",
+            "ga-s4-l4q1c"
+          ],
+          "passos": [
+            {
+              "titulo": "O ponto e a seta",
+              "texto": "Reta = um ponto + uma seta que dá a direção, o vetor diretor. Lista 4, Q1a: A = (−1, 2, 3) e [[v]] = (1, 1, 1).",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      -1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "rot": "A",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      -1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      0.0,
+                      3.0,
+                      4.0
+                    ],
+                    "rot": "v",
+                    "cor": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                },
+                "moldura": [
+                  [
+                    -2.8,
+                    0.2,
+                    1.2
+                  ],
+                  [
+                    1.8,
+                    4.8,
+                    5.8
+                  ]
+                ]
+              }
+            },
+            {
+              "titulo": "O contador t",
+              "texto": "X = (−1, 2, 3) + t(1, 1, 1). O t conta os passos, e cada passo é a seta inteira: t = 0 está em A; t = 1 chega em (0, 3, 4); t = −1 é um passo para trás, (−2, 1, 2); t = 1/2 é meio passo.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      -1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "rot": "A",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      0.0,
+                      3.0,
+                      4.0
+                    ],
+                    "rot": "t = 1",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      -2.0,
+                      1.0,
+                      2.0
+                    ],
+                    "rot": "t = −1",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      1.0,
+                      4.0,
+                      5.0
+                    ],
+                    "rot": "t = 2",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      -1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      0.0,
+                      3.0,
+                      4.0
+                    ],
+                    "rot": "",
+                    "cor": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                },
+                "moldura": [
+                  [
+                    -2.8,
+                    0.2,
+                    1.2
+                  ],
+                  [
+                    1.8,
+                    4.8,
+                    5.8
+                  ]
+                ]
+              }
+            },
+            {
+              "titulo": "A reta inteira",
+              "texto": "Com t passando por todos os números, inclusive frações e negativos, os pontos formam a reta inteira.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -2.8,
+                      0.2,
+                      1.2
+                    ],
+                    "ate": [
+                      1.8,
+                      4.8,
+                      5.8
+                    ],
+                    "cor": 1,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      -1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "rot": "A",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      -1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      0.0,
+                      3.0,
+                      4.0
+                    ],
+                    "rot": "v",
+                    "cor": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                },
+                "moldura": [
+                  [
+                    -2.8,
+                    0.2,
+                    1.2
+                  ],
+                  [
+                    1.8,
+                    4.8,
+                    5.8
+                  ]
+                ]
+              },
+              "destaque": {
+                "valor": "X = (−1, 2, 3) + t(1, 1, 1)",
+                "rotulo": "forma vetorial da reta, igual ao gabarito"
+              }
+            }
+          ]
+        },
+        {
+          "id": "parametrica",
+          "titulo": "Paramétrica: a reta como planilha",
+          "frase": "Mude o t e as três fórmulas recalculam, como a célula de entrada de uma planilha.",
+          "fonte": "Lista 4, Q1a",
+          "questoes": [
+            "ga-s4-l4q1a",
+            "ga-s4-l4q2",
+            "ga-s4-l4q3"
+          ],
+          "passos": [
+            {
+              "titulo": "Três fórmulas",
+              "texto": "É a mesma reta, aberta coordenada por coordenada: x = −1 + t, y = 2 + t, z = 3 + t.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -2.8,
+                      0.2,
+                      1.2
+                    ],
+                    "ate": [
+                      1.8,
+                      4.8,
+                      5.8
+                    ],
+                    "cor": 1,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      -1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "rot": "A",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                },
+                "moldura": [
+                  [
+                    -2.8,
+                    0.2,
+                    1.2
+                  ],
+                  [
+                    1.8,
+                    4.8,
+                    5.8
+                  ]
+                ]
+              }
+            },
+            {
+              "titulo": "Dê um valor para t",
+              "texto": "Parâmetro é o número livre, como a célula de entrada de uma planilha. Com t = 2: x = −1 + 2 = 1, y = 2 + 2 = 4, z = 3 + 2 = 5. São dois passos a partir de A.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -2.8,
+                      0.2,
+                      1.2
+                    ],
+                    "ate": [
+                      1.8,
+                      4.8,
+                      5.8
+                    ],
+                    "cor": 1,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      -1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "rot": "A",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      -1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      0.0,
+                      3.0,
+                      4.0
+                    ],
+                    "rot": "",
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      3.0,
+                      4.0
+                    ],
+                    "ate": [
+                      1.0,
+                      4.0,
+                      5.0
+                    ],
+                    "rot": "",
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      1.0,
+                      4.0,
+                      5.0
+                    ],
+                    "rot": "t = 2",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                },
+                "moldura": [
+                  [
+                    -2.8,
+                    0.2,
+                    1.2
+                  ],
+                  [
+                    1.8,
+                    4.8,
+                    5.8
+                  ]
+                ]
+              },
+              "destaque": {
+                "valor": "t = 2 → (1, 4, 5)",
+                "rotulo": "o ponto está na reta"
+              }
+            },
+            {
+              "titulo": "No seu trabalho",
+              "texto": "Pense em três contas com movimento fixo por mês: saldo inicial + t meses × movimento. Cada conta é uma linha da paramétrica; o saldo inicial é o ponto A e o movimento é a seta.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -2.8,
+                      0.2,
+                      1.2
+                    ],
+                    "ate": [
+                      1.8,
+                      4.8,
+                      5.8
+                    ],
+                    "cor": 1,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      -1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "rot": "A",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      1.0,
+                      4.0,
+                      5.0
+                    ],
+                    "rot": "t = 2",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                },
+                "moldura": [
+                  [
+                    -2.8,
+                    0.2,
+                    1.2
+                  ],
+                  [
+                    1.8,
+                    4.8,
+                    5.8
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "simetrica",
+          "titulo": "Simétrica: três partes iguais",
+          "frase": "Isole o t em cada linha e iguale: as três partes valem o mesmo t.",
+          "fonte": "Lista 4, Q1c e Q5",
+          "questoes": [
+            "ga-s4-l4q1c",
+            "ga-s4-l4q5",
+            "ga-s4-l4q1b"
+          ],
+          "passos": [
+            {
+              "titulo": "Isole o t",
+              "texto": "Lista 4, Q1c: x = 2 + 2t, y = 1 + t, z = 3 − 2t. Isolando: t = (x − 2)/2, t = y − 1, t = (3 − z)/2. Como as três valem t, iguale.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -1.0,
+                      -0.5,
+                      6.0
+                    ],
+                    "ate": [
+                      5.0,
+                      2.5,
+                      0.0
+                    ],
+                    "cor": 1,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      2.0,
+                      1.0,
+                      3.0
+                    ],
+                    "rot": "(2, 1, 3)",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      2.0,
+                      1.0,
+                      3.0
+                    ],
+                    "ate": [
+                      4.0,
+                      2.0,
+                      1.0
+                    ],
+                    "rot": "v",
+                    "cor": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                }
+              },
+              "destaque": {
+                "valor": "(x − 2)/2 = y − 1 = (3 − z)/2",
+                "rotulo": "equação simétrica, igual ao gabarito"
+              }
+            },
+            {
+              "titulo": "Como ler",
+              "texto": "Ponto: o valor que zera cada parte de cima. Direção: o número de baixo; se a variável vier com menos, ele troca de sinal. Lista 4, Q5: (1 − x)/2 = y = (z + 1)/7.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      2.2,
+                      -0.6,
+                      -5.2
+                    ],
+                    "ate": [
+                      -0.8,
+                      0.9,
+                      5.3
+                    ],
+                    "cor": 1,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      1.0,
+                      0.0,
+                      -1.0
+                    ],
+                    "rot": "P",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      1.0,
+                      0.0,
+                      -1.0
+                    ],
+                    "ate": [
+                      -1.0,
+                      1.0,
+                      6.0
+                    ],
+                    "rot": "v",
+                    "cor": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                }
+              },
+              "destaque": {
+                "valor": "P = (1, 0, −1) e v = (−2, 1, 7)",
+                "rotulo": "igual ao gabarito"
+              }
+            },
+            {
+              "titulo": "Quando não existe",
+              "texto": "Se a direção tem um zero, não dá para dividir por zero. Lista 4, Q1b: [[v]] = (2, 3, 0). O z fica parado em 2: a reta corre deitada, paralela ao chão. O gabarito diz \"não tem\".",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -2.4,
+                      -2.6,
+                      2.0
+                    ],
+                    "ate": [
+                      2.4,
+                      4.6,
+                      2.0
+                    ],
+                    "cor": 1,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      0.0,
+                      1.0,
+                      2.0
+                    ],
+                    "rot": "(0, 1, 2)",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      1.0,
+                      2.0
+                    ],
+                    "ate": [
+                      2.0,
+                      4.0,
+                      2.0
+                    ],
+                    "rot": "v",
+                    "cor": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                }
+              }
+            },
+            {
+              "titulo": "Para que serve",
+              "texto": "É uma conciliação: um ponto está na reta se as três partes derem o mesmo t. Com x + 1 = y − 2 = z − 3: (1, 4, 5) dá 2, 2 e 2 (está); (1, 4, 6) dá 2, 2 e 3 (não está).",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -2.5,
+                      0.5,
+                      1.5
+                    ],
+                    "ate": [
+                      1.8,
+                      4.8,
+                      5.8
+                    ],
+                    "cor": 1,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      1.0,
+                      4.0,
+                      5.0
+                    ],
+                    "rot": "dentro",
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      1.0,
+                      4.0,
+                      6.0
+                    ],
+                    "rot": "fora",
+                    "cor": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                }
+              },
+              "destaque": {
+                "valor": "2 = 2 = 2",
+                "rotulo": "as três partes batem: o ponto está na reta"
+              }
+            }
+          ]
+        },
+        {
+          "id": "encontro-retas",
+          "titulo": "Onde duas retas se cruzam",
+          "frase": "Uma letra de contador para cada reta; a terceira equação é a prova.",
+          "fonte": "Lista 4, Q6",
+          "questoes": [
+            "ga-s4-l4q6",
+            "ga-s4-l4q7"
+          ],
+          "passos": [
+            {
+              "titulo": "Duas retas, dois contadores",
+              "texto": "r: x = −1 + t, y = 2 + t, z = 3 + t e s: X = (2, 4, 1) + λ(7, 6, 2). Use letras diferentes, t e λ: com a mesma letra, você exigiria o mesmo número de passos nas duas.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -8.0,
+                      -5.0,
+                      -4.0
+                    ],
+                    "ate": [
+                      -2.0,
+                      1.0,
+                      2.0
+                    ],
+                    "cor": 1,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -9.9,
+                      -6.2,
+                      -2.4
+                    ],
+                    "ate": [
+                      -0.1,
+                      2.2,
+                      0.4
+                    ],
+                    "cor": 2,
+                    "largura": 3
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                }
+              }
+            },
+            {
+              "titulo": "Iguale e resolva",
+              "texto": "x: −1 + t = 2 + 7λ. y: 2 + t = 4 + 6λ. Tire a primeira da segunda: 3 = 2 − λ, então λ = −1. Volte na primeira: −1 + t = 2 − 7, então t = −4.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -8.0,
+                      -5.0,
+                      -4.0
+                    ],
+                    "ate": [
+                      -2.0,
+                      1.0,
+                      2.0
+                    ],
+                    "cor": 1,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -9.9,
+                      -6.2,
+                      -2.4
+                    ],
+                    "ate": [
+                      -0.1,
+                      2.2,
+                      0.4
+                    ],
+                    "cor": 2,
+                    "largura": 3
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                }
+              },
+              "destaque": {
+                "valor": "t = −4 e λ = −1",
+                "rotulo": "duas equações acham os dois contadores"
+              }
+            },
+            {
+              "titulo": "A prova",
+              "texto": "A terceira confere, como numa conciliação. z: 3 + (−4) = −1 e 1 + 2(−1) = −1. Bateu: as retas se cruzam. Se não batesse, seriam reversas ou paralelas.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -8.0,
+                      -5.0,
+                      -4.0
+                    ],
+                    "ate": [
+                      -2.0,
+                      1.0,
+                      2.0
+                    ],
+                    "cor": 1,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -9.9,
+                      -6.2,
+                      -2.4
+                    ],
+                    "ate": [
+                      -0.1,
+                      2.2,
+                      0.4
+                    ],
+                    "cor": 2,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      -5.0,
+                      -2.0,
+                      -1.0
+                    ],
+                    "rot": "(−5, −2, −1)",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                }
+              },
+              "destaque": {
+                "valor": "(−5, −2, −1)",
+                "rotulo": "ponto de encontro, igual ao gabarito"
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "semana": 5,
@@ -192,7 +1175,4099 @@
         "trabalho": "Pense em três insumos com preços a, b e c por unidade. Toda compra (x, y, z) que custa exatamente 100 reais está no plano ax + by + cz − 100 = 0, e o vetor de preços (a, b, c) é a normal. Com orçamento de 120 reais, sai um plano paralelo: mesma normal, outro d. A distância entre os dois é |−100 − (−120)|/√(a² + b² + c²) = 20/√(a² + b² + c²): a diferença de orçamento dividida pelo tamanho do vetor de preços.",
         "erro": "O primeiro tropeço da semana é ler a normal com o termo d junto: em 2x − z + 5 = 0, a normal é (2, 0, −1). O segundo é usar cosseno no ângulo entre reta e plano, que pede seno. O terceiro é esquecer de dividir pela norma nas distâncias. O quarto, em planos paralelos, é subtrair os d sem antes deixar as normais iguais. Em x + 2y − 2z + 1 = 0 e 3x + 6y − 6z − 4 = 0, divida a segunda por 3 antes de comparar."
       },
-      "lab": "No laboratório, digite P, [[n]] e Q e leia a distância. Troque [[n]] por 2[[n]]: a equação dobra, mas o plano e a distância não mudam. Depois gire a figura até o plano virar uma linha na tela: o tracejado de Q até o plano aparece em ângulo reto com ela."
+      "lab": "No laboratório, digite P, [[n]] e Q e leia a distância. Troque [[n]] por 2[[n]]: a equação dobra, mas o plano e a distância não mudam. Depois gire a figura até o plano virar uma linha na tela: o tracejado de Q até o plano aparece em ângulo reto com ela.",
+      "ideias": [
+        {
+          "id": "angulo",
+          "titulo": "Ângulo entre duas setas",
+          "frase": "A abertura entre duas setas que saem do mesmo lugar; o cosseno mede de −1 a 1.",
+          "fonte": "Lista 7, Q1a",
+          "questoes": [
+            "ga-s5-l7q1a",
+            "ga-s5-l7q1e",
+            "ga-s5-l7q7"
+          ],
+          "passos": [
+            {
+              "titulo": "Do mesmo ponto",
+              "texto": "Ângulo é a abertura entre duas setas que saem do mesmo lugar, como os ponteiros do relógio. O tamanho das setas não muda o ângulo. Aqui [[u]] = (1, 1, 1) e [[v]] = (1, −2, −3), direções da Lista 7, Q1a.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "ate": [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    "rot": "u",
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "ate": [
+                      1.0,
+                      -2.0,
+                      -3.0
+                    ],
+                    "rot": "v",
+                    "cor": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                }
+              }
+            },
+            {
+              "titulo": "Produto escalar",
+              "texto": "É um SOMARPRODUTO: multiplique par a par e some. (1, 1, 1) · (1, −2, −3) = 1 − 2 − 3 = −4.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "ate": [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    "rot": "u",
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "ate": [
+                      1.0,
+                      -2.0,
+                      -3.0
+                    ],
+                    "rot": "v",
+                    "cor": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                }
+              },
+              "destaque": {
+                "valor": "u · v = −4",
+                "rotulo": "o sinal diz se a abertura passa de 90°"
+              }
+            },
+            {
+              "titulo": "Comprimentos",
+              "texto": "Norma é o comprimento da seta: a raiz da soma dos quadrados. ‖[[u]]‖ = √3 e ‖[[v]]‖ = √14.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "ate": [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    "rot": "u",
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "ate": [
+                      1.0,
+                      -2.0,
+                      -3.0
+                    ],
+                    "rot": "v",
+                    "cor": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                }
+              },
+              "destaque": {
+                "valor": "√3 e √14",
+                "rotulo": "os comprimentos das duas setas"
+              }
+            },
+            {
+              "titulo": "O ângulo",
+              "texto": "cos θ = |−4| / (√3 · √14) ≈ 0,617. Entre retas vale a menor abertura, de 0° a 90°: por isso o módulo. No Excel: =GRAUS(ACOS(0,617)).",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "ate": [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    "rot": "u",
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "ate": [
+                      1.0,
+                      -2.0,
+                      -3.0
+                    ],
+                    "rot": "v",
+                    "cor": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                }
+              },
+              "destaque": {
+                "valor": "≈ 51,9°",
+                "rotulo": "ângulo entre as retas, igual ao gabarito"
+              }
+            }
+          ]
+        },
+        {
+          "id": "plano-prego",
+          "titulo": "Plano: uma folha e um prego",
+          "frase": "Um ponto e um vetor normal em pé bastam para escrever o plano.",
+          "fonte": "Lista 5, Q1a",
+          "questoes": [
+            "ga-s5-l5q1a",
+            "ga-s5-l5q1b",
+            "ga-s5-l5q1c",
+            "ga-s5-l5q2"
+          ],
+          "passos": [
+            {
+              "titulo": "A folha",
+              "texto": "Plano é uma folha lisa, sem espessura e sem fim, como um tampo de mesa que não acaba. Esta passa pelo ponto A = (−1, 2, 3).",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -1.9,
+                        2.2,
+                        3.7
+                      ],
+                      [
+                        0.7,
+                        -0.4,
+                        3.7
+                      ],
+                      [
+                        1.9,
+                        0.8,
+                        1.3
+                      ],
+                      [
+                        -0.7,
+                        3.4,
+                        1.3
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      -1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "rot": "A",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": 0.6,
+                  "pitch": 0.45
+                },
+                "moldura": [
+                  [
+                    0.0,
+                    3.0,
+                    4.0
+                  ],
+                  [
+                    1.3,
+                    0.2,
+                    2.5
+                  ],
+                  [
+                    -1.3,
+                    2.8,
+                    2.5
+                  ],
+                  [
+                    0.6,
+                    2.1,
+                    1.3
+                  ],
+                  [
+                    -0.6,
+                    0.9,
+                    3.7
+                  ]
+                ]
+              }
+            },
+            {
+              "titulo": "O prego",
+              "texto": "O vetor normal [[n]] = (1, 1, 1) é um prego espetado em pé na folha. Aqui \"normal\" não quer dizer comum: quer dizer perpendicular.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -1.9,
+                        2.2,
+                        3.7
+                      ],
+                      [
+                        0.7,
+                        -0.4,
+                        3.7
+                      ],
+                      [
+                        1.9,
+                        0.8,
+                        1.3
+                      ],
+                      [
+                        -0.7,
+                        3.4,
+                        1.3
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      -1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "rot": "A",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      -1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      0.0,
+                      3.0,
+                      4.0
+                    ],
+                    "rot": "n",
+                    "cor": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": 0.6,
+                  "pitch": 0.45
+                },
+                "moldura": [
+                  [
+                    0.0,
+                    3.0,
+                    4.0
+                  ],
+                  [
+                    1.3,
+                    0.2,
+                    2.5
+                  ],
+                  [
+                    -1.3,
+                    2.8,
+                    2.5
+                  ],
+                  [
+                    0.6,
+                    2.1,
+                    1.3
+                  ],
+                  [
+                    -0.6,
+                    0.9,
+                    3.7
+                  ]
+                ]
+              }
+            },
+            {
+              "titulo": "Uma seta deitada",
+              "texto": "Pegue qualquer ponto X da folha, por exemplo (1, 1, 2). A seta de A até X fica deitada na folha e faz 90° com o prego. Arraste a figura para conferir de lado.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -1.9,
+                        2.2,
+                        3.7
+                      ],
+                      [
+                        0.7,
+                        -0.4,
+                        3.7
+                      ],
+                      [
+                        1.9,
+                        0.8,
+                        1.3
+                      ],
+                      [
+                        -0.7,
+                        3.4,
+                        1.3
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      -1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "rot": "A",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      -1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      0.0,
+                      3.0,
+                      4.0
+                    ],
+                    "rot": "n",
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      1.0,
+                      1.0,
+                      2.0
+                    ],
+                    "rot": "X",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      -1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      1.0,
+                      1.0,
+                      2.0
+                    ],
+                    "rot": "X − A",
+                    "cor": 1
+                  }
+                ],
+                "angulo": {
+                  "yaw": 0.6,
+                  "pitch": 0.45
+                },
+                "moldura": [
+                  [
+                    0.0,
+                    3.0,
+                    4.0
+                  ],
+                  [
+                    1.3,
+                    0.2,
+                    2.5
+                  ],
+                  [
+                    -1.3,
+                    2.8,
+                    2.5
+                  ],
+                  [
+                    0.6,
+                    2.1,
+                    1.3
+                  ],
+                  [
+                    -0.6,
+                    0.9,
+                    3.7
+                  ]
+                ]
+              }
+            },
+            {
+              "titulo": "A conta",
+              "texto": "90° quer dizer produto escalar 0: [[n]] · (X − A) = 0. Com X = (x, y, z): 1(x + 1) + 1(y − 2) + 1(z − 3) = 0.\nTeste: (1, 1, 2) dá 1 + 1 + 2 − 4 = 0. Está na folha.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -1.9,
+                        2.2,
+                        3.7
+                      ],
+                      [
+                        0.7,
+                        -0.4,
+                        3.7
+                      ],
+                      [
+                        1.9,
+                        0.8,
+                        1.3
+                      ],
+                      [
+                        -0.7,
+                        3.4,
+                        1.3
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      -1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "rot": "A",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      -1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      0.0,
+                      3.0,
+                      4.0
+                    ],
+                    "rot": "n",
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      1.0,
+                      1.0,
+                      2.0
+                    ],
+                    "rot": "X",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      -1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      1.0,
+                      1.0,
+                      2.0
+                    ],
+                    "rot": "X − A",
+                    "cor": 1
+                  }
+                ],
+                "angulo": {
+                  "yaw": 0.6,
+                  "pitch": 0.45
+                },
+                "moldura": [
+                  [
+                    0.0,
+                    3.0,
+                    4.0
+                  ],
+                  [
+                    1.3,
+                    0.2,
+                    2.5
+                  ],
+                  [
+                    -1.3,
+                    2.8,
+                    2.5
+                  ],
+                  [
+                    0.6,
+                    2.1,
+                    1.3
+                  ],
+                  [
+                    -0.6,
+                    0.9,
+                    3.7
+                  ]
+                ]
+              },
+              "destaque": {
+                "valor": "x + y + z − 4 = 0",
+                "rotulo": "equação geral do plano, igual ao gabarito"
+              }
+            }
+          ]
+        },
+        {
+          "id": "duas-retas",
+          "titulo": "Duas retas: os quatro casos",
+          "frase": "Compare as setas primeiro. O ponto só desempata.",
+          "fonte": "Lista 4, Q6 e Lista 6",
+          "questoes": [
+            "ga-s5-l6q5a",
+            "ga-s5-l6q6a",
+            "ga-s5-l6q6e",
+            "ga-s5-l6q1"
+          ],
+          "passos": [
+            {
+              "titulo": "Concorrentes: se cruzam",
+              "texto": "Direções diferentes e um ponto em comum. Na Lista 4, Q6, a reta azul e a coral se encontram em (−5, −2, −1).",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -8.0,
+                      -5.0,
+                      -4.0
+                    ],
+                    "ate": [
+                      -2.0,
+                      1.0,
+                      2.0
+                    ],
+                    "cor": 1,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -9.9,
+                      -6.2,
+                      -2.4
+                    ],
+                    "ate": [
+                      -0.1,
+                      2.2,
+                      0.4
+                    ],
+                    "cor": 2,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      -5.0,
+                      -2.0,
+                      -1.0
+                    ],
+                    "rot": "(−5, −2, −1)",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                }
+              },
+              "destaque": {
+                "valor": "1 ponto em comum",
+                "rotulo": "direções diferentes"
+              }
+            },
+            {
+              "titulo": "Paralelas: dois trilhos",
+              "texto": "Mesma direção: (−2, 2, −2) é −2 vezes (1, −1, 1), um trem indo e outro voltando. Mas o ponto (1, 1, 1) da azul não está na coral (Lista 6, Q5).",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -1.0,
+                      3.0,
+                      -1.0
+                    ],
+                    "ate": [
+                      3.0,
+                      -1.0,
+                      3.0
+                    ],
+                    "cor": 1,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      2.0,
+                      -1.0,
+                      1.0
+                    ],
+                    "ate": [
+                      -2.0,
+                      3.0,
+                      -3.0
+                    ],
+                    "cor": 2,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    "rot": "r",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      0.0,
+                      1.0,
+                      -1.0
+                    ],
+                    "rot": "s",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                }
+              },
+              "destaque": {
+                "valor": "0 ponto em comum",
+                "rotulo": "mesma direção"
+              }
+            },
+            {
+              "titulo": "Reversas: o viaduto",
+              "texto": "Direções diferentes e nenhum ponto em comum. Só existe em 3D: arraste a figura e veja uma passar por cima da outra. O tracejado é a folga entre elas (Lista 6, Q6a).",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      0.015,
+                      1.015,
+                      2.015
+                    ],
+                    "ate": [
+                      1.215,
+                      2.215,
+                      3.215
+                    ],
+                    "cor": 1,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      0.258,
+                      2.483,
+                      3.225
+                    ],
+                    "ate": [
+                      0.818,
+                      1.363,
+                      1.545
+                    ],
+                    "cor": 2,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      0.615,
+                      1.615,
+                      2.615
+                    ],
+                    "ate": [
+                      0.538,
+                      1.923,
+                      2.385
+                    ],
+                    "cor": 3,
+                    "largura": 2.4,
+                    "tracejado": true
+                  }
+                ],
+                "angulo": {
+                  "yaw": 0.945,
+                  "pitch": 0.579
+                },
+                "semEixos": true
+              },
+              "destaque": {
+                "valor": "0 ponto em comum",
+                "rotulo": "direções diferentes"
+              }
+            },
+            {
+              "titulo": "Coincidentes: a mesma reta",
+              "texto": "As setas são múltiplas, (−2, 4, −6) = −2 · (1, −2, 3), e o ponto (1, 1, 1) está nas duas. É a mesma linha escrita de dois jeitos: a coral fica escondida embaixo da azul (Lista 6, Q6e).",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -0.2,
+                      3.4,
+                      -2.6
+                    ],
+                    "ate": [
+                      2.2,
+                      -1.4,
+                      4.6
+                    ],
+                    "cor": 2,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -0.2,
+                      3.4,
+                      -2.6
+                    ],
+                    "ate": [
+                      2.2,
+                      -1.4,
+                      4.6
+                    ],
+                    "cor": 1,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    "ate": [
+                      2.0,
+                      -1.0,
+                      4.0
+                    ],
+                    "rot": "r",
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    "ate": [
+                      0.0,
+                      3.0,
+                      -2.0
+                    ],
+                    "rot": "s",
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    "rot": "(1, 1, 1)",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                }
+              },
+              "destaque": {
+                "valor": "todos os pontos em comum",
+                "rotulo": "mesma direção"
+              }
+            }
+          ]
+        },
+        {
+          "id": "compara",
+          "titulo": "O que o professor compara",
+          "frase": "Reta usa a direção; plano usa o prego. Compare as setas e depois teste um ponto.",
+          "fonte": "Lista 7, Q8, Q1b e Q1d",
+          "questoes": [
+            "ga-s5-l7q8",
+            "ga-s5-l7q1b",
+            "ga-s5-l7q1d",
+            "ga-s5-l6q6b"
+          ],
+          "passos": [
+            {
+              "titulo": "Reta deitada na folha",
+              "texto": "Reta paralela ao plano faz 90° com o prego: [[v]] · [[n]] = 0. Lista 7, Q8: (6, 0, −3) · (2, −3, 4) = 12 − 12 = 0. Desempate: o ponto (−2, −1, 1) dá 2(−2) − 3(−1) + 4(1) − 3 = 0. A reta está contida no plano.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -4.545,
+                        -2.329,
+                        1.276
+                      ],
+                      [
+                        -0.252,
+                        -2.329,
+                        -0.871
+                      ],
+                      [
+                        0.545,
+                        0.329,
+                        0.724
+                      ],
+                      [
+                        -3.748,
+                        0.329,
+                        2.871
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -4.1,
+                      -1.0,
+                      2.05
+                    ],
+                    "ate": [
+                      0.1,
+                      -1.0,
+                      -0.05
+                    ],
+                    "cor": 4,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      -2.0,
+                      -1.0,
+                      1.0
+                    ],
+                    "ate": [
+                      -1.629,
+                      -1.557,
+                      1.743
+                    ],
+                    "rot": "n",
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      -2.0,
+                      -1.0,
+                      1.0
+                    ],
+                    "ate": [
+                      -0.5,
+                      -1.0,
+                      0.25
+                    ],
+                    "rot": "v",
+                    "cor": 1
+                  }
+                ],
+                "angulo": {
+                  "yaw": 0.641,
+                  "pitch": 0.356
+                },
+                "semEixos": true
+              },
+              "destaque": {
+                "valor": "v · n = 0",
+                "rotulo": "paralela ou contida; o ponto desempata"
+              }
+            },
+            {
+              "titulo": "Reta em pé",
+              "texto": "Reta perpendicular ao plano fica na direção do prego: [[v]] e [[n]] são múltiplos. Lista 7, Q1b: (1, 1, 1) e (1, 1, 1). Parece trocado, mas não é erro: o prego já é perpendicular à folha.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -3.564,
+                        0.264,
+                        2.3
+                      ],
+                      [
+                        -0.736,
+                        -2.564,
+                        2.3
+                      ],
+                      [
+                        0.897,
+                        -0.931,
+                        -0.966
+                      ],
+                      [
+                        -1.931,
+                        1.897,
+                        -0.966
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -2.933,
+                      -1.933,
+                      -0.933
+                    ],
+                    "ate": [
+                      0.267,
+                      1.267,
+                      2.267
+                    ],
+                    "cor": 4,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      -1.333,
+                      -0.333,
+                      0.667
+                    ],
+                    "rot": "",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": -1.074,
+                  "pitch": 0.199
+                },
+                "semEixos": true
+              },
+              "destaque": {
+                "valor": "90°",
+                "rotulo": "ângulo entre a reta e o plano, igual ao gabarito"
+              }
+            },
+            {
+              "titulo": "Plano com plano",
+              "texto": "Entre dois planos, compare os dois pregos: cos θ = |n₁ · n₂| / (‖n₁‖ ‖n₂‖). Lista 7, Q1d: |3 − 1 − 1| / (√3 · √11) = 1/√33.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        0.311,
+                        -1.649,
+                        1.662
+                      ],
+                      [
+                        0.311,
+                        -3.912,
+                        -0.601
+                      ],
+                      [
+                        -1.811,
+                        -2.851,
+                        -1.662
+                      ],
+                      [
+                        -1.811,
+                        -0.588,
+                        0.601
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -1.304,
+                        -1.95,
+                        1.963
+                      ],
+                      [
+                        -1.304,
+                        -4.213,
+                        -0.3
+                      ],
+                      [
+                        -0.196,
+                        -2.55,
+                        -1.963
+                      ],
+                      [
+                        -0.196,
+                        -0.287,
+                        0.3
+                      ]
+                    ],
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      -0.75,
+                      -2.25,
+                      0.0
+                    ],
+                    "ate": [
+                      -0.173,
+                      -1.673,
+                      -0.577
+                    ],
+                    "rot": "n₁",
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      -0.75,
+                      -2.25,
+                      0.0
+                    ],
+                    "ate": [
+                      0.155,
+                      -2.552,
+                      0.302
+                    ],
+                    "rot": "n₂",
+                    "cor": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": -1.72,
+                  "pitch": 0.333
+                },
+                "semEixos": true
+              },
+              "destaque": {
+                "valor": "≈ 80°",
+                "rotulo": "ângulo entre os planos, igual ao gabarito"
+              }
+            }
+          ]
+        },
+        {
+          "id": "reta-dois-planos",
+          "titulo": "A reta que nasce de dois planos",
+          "frase": "A direção é o produto vetorial dos dois pregos.",
+          "fonte": "Lista 5, Q3",
+          "questoes": [
+            "ga-s5-l5q3",
+            "ga-s5-l7q6"
+          ],
+          "passos": [
+            {
+              "titulo": "Duas folhas que se cortam",
+              "texto": "x + y + z = 1 e x − y + z = 2 são duas folhas que se encontram numa linha, como as metades de um livro aberto na lombada.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -0.712,
+                        -1.48,
+                        3.192
+                      ],
+                      [
+                        1.692,
+                        -1.48,
+                        0.788
+                      ],
+                      [
+                        0.712,
+                        0.48,
+                        -0.192
+                      ],
+                      [
+                        -1.692,
+                        0.48,
+                        2.212
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -1.692,
+                        -1.48,
+                        2.212
+                      ],
+                      [
+                        0.712,
+                        -1.48,
+                        -0.192
+                      ],
+                      [
+                        1.692,
+                        0.48,
+                        0.788
+                      ],
+                      [
+                        -0.712,
+                        0.48,
+                        3.192
+                      ]
+                    ],
+                    "cor": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": -1.816,
+                  "pitch": 0.283
+                },
+                "semEixos": true
+              }
+            },
+            {
+              "titulo": "A direção",
+              "texto": "A reta está deitada nas duas folhas: faz 90° com os dois pregos ao mesmo tempo. A seta que faz 90° com outras duas é o produto vetorial: (1, 1, 1) × (1, −1, 1) = (2, 0, −2).",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -0.712,
+                        -1.48,
+                        3.192
+                      ],
+                      [
+                        1.692,
+                        -1.48,
+                        0.788
+                      ],
+                      [
+                        0.712,
+                        0.48,
+                        -0.192
+                      ],
+                      [
+                        -1.692,
+                        0.48,
+                        2.212
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -1.692,
+                        -1.48,
+                        2.212
+                      ],
+                      [
+                        0.712,
+                        -1.48,
+                        -0.192
+                      ],
+                      [
+                        1.692,
+                        0.48,
+                        0.788
+                      ],
+                      [
+                        -0.712,
+                        0.48,
+                        3.192
+                      ]
+                    ],
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -1.344,
+                      -0.5,
+                      2.844
+                    ],
+                    "ate": [
+                      1.344,
+                      -0.5,
+                      0.156
+                    ],
+                    "cor": 4,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      -0.5,
+                      1.5
+                    ],
+                    "ate": [
+                      0.577,
+                      0.077,
+                      2.077
+                    ],
+                    "rot": "n₁",
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      -0.5,
+                      1.5
+                    ],
+                    "ate": [
+                      0.577,
+                      -1.077,
+                      2.077
+                    ],
+                    "rot": "n₂",
+                    "cor": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": -1.816,
+                  "pitch": 0.283
+                },
+                "semEixos": true
+              },
+              "destaque": {
+                "valor": "(2, 0, −2)",
+                "rotulo": "direção da reta"
+              }
+            },
+            {
+              "titulo": "Um ponto",
+              "texto": "Escolha um valor fácil para uma letra. Com x = 0: y + z = 1 e −y + z = 2. Somando, 2z = 3: z = 3/2 e y = −1/2. Ponto (0, −1/2, 3/2).",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -0.712,
+                        -1.48,
+                        3.192
+                      ],
+                      [
+                        1.692,
+                        -1.48,
+                        0.788
+                      ],
+                      [
+                        0.712,
+                        0.48,
+                        -0.192
+                      ],
+                      [
+                        -1.692,
+                        0.48,
+                        2.212
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -1.692,
+                        -1.48,
+                        2.212
+                      ],
+                      [
+                        0.712,
+                        -1.48,
+                        -0.192
+                      ],
+                      [
+                        1.692,
+                        0.48,
+                        0.788
+                      ],
+                      [
+                        -0.712,
+                        0.48,
+                        3.192
+                      ]
+                    ],
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -1.344,
+                      -0.5,
+                      2.844
+                    ],
+                    "ate": [
+                      1.344,
+                      -0.5,
+                      0.156
+                    ],
+                    "cor": 4,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      0.0,
+                      -0.5,
+                      1.5
+                    ],
+                    "rot": "(0, −1/2, 3/2)",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": -1.816,
+                  "pitch": 0.283
+                },
+                "semEixos": true
+              },
+              "destaque": {
+                "valor": "x = 2t, y = −1/2, z = 3/2 − 2t",
+                "rotulo": "igual ao gabarito"
+              }
+            }
+          ]
+        },
+        {
+          "id": "angulo-eixos",
+          "titulo": "Ângulo com os eixos",
+          "frase": "Eixo também é reta: os três cossenos ao quadrado fecham 1.",
+          "fonte": "Lista 7, Q3 e Q6",
+          "questoes": [
+            "ga-s5-l7q3",
+            "ga-s5-l7q6"
+          ],
+          "passos": [
+            {
+              "titulo": "Eixo é reta",
+              "texto": "O eixo x tem direção (1, 0, 0); o y, (0, 1, 0); o z, o \"eixo das cotas\", (0, 0, 1). Com [[v]] = (a, b, c): cos α = |a| / ‖v‖ com o x, e o mesmo com b e c para y e z.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "ate": [
+                      0.707,
+                      0.5,
+                      0.5
+                    ],
+                    "rot": "v",
+                    "cor": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                },
+                "moldura": [
+                  [
+                    1.1,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    1.1,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.1
+                  ],
+                  [
+                    0.0,
+                    -0.6,
+                    -0.6
+                  ]
+                ]
+              }
+            },
+            {
+              "titulo": "Os cossenos fecham 1",
+              "texto": "cos²α + cos²β + cos²γ = 1, como participações que somam 100% (Lista 3, Q5). Lista 7, Q3 pede 45° com x e 60° com y: 1/2 + 1/4 = 3/4. Falta 1/4.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "ate": [
+                      0.707,
+                      0.5,
+                      0.5
+                    ],
+                    "rot": "v",
+                    "cor": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                },
+                "moldura": [
+                  [
+                    1.1,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    1.1,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.1
+                  ],
+                  [
+                    0.0,
+                    -0.6,
+                    -0.6
+                  ]
+                ]
+              },
+              "destaque": {
+                "valor": "cos γ = ±1/2",
+                "rotulo": "o que falta para fechar 1"
+              }
+            },
+            {
+              "titulo": "Quatro retas",
+              "texto": "Reta não tem ida nem volta: os sinais do y e do z podem trocar. São 4 direções, (√2/2, ±1/2, ±1/2), e 4 retas por (1, 2, 3), como no gabarito.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "ate": [
+                      0.707,
+                      0.5,
+                      0.5
+                    ],
+                    "rot": "",
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "ate": [
+                      0.707,
+                      0.5,
+                      -0.5
+                    ],
+                    "rot": "",
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "ate": [
+                      0.707,
+                      -0.5,
+                      0.5
+                    ],
+                    "rot": "",
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "ate": [
+                      0.707,
+                      -0.5,
+                      -0.5
+                    ],
+                    "rot": "",
+                    "cor": 1
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                },
+                "moldura": [
+                  [
+                    1.1,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    1.1,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.1
+                  ],
+                  [
+                    0.0,
+                    -0.6,
+                    -0.6
+                  ]
+                ]
+              },
+              "destaque": {
+                "valor": "4 retas",
+                "rotulo": "trocar os três sinais juntos não cria reta nova"
+              }
+            },
+            {
+              "titulo": "Com o eixo z",
+              "texto": "Lista 7, Q6: a reta é encontro de dois planos, então a direção é (1, −1, 3) × (3, −2, 1) = (5, 8, 1). Com o eixo z: cos γ = 1/√90.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "ate": [
+                      5.0,
+                      8.0,
+                      1.0
+                    ],
+                    "rot": "(5, 8, 1)",
+                    "cor": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                }
+              },
+              "destaque": {
+                "valor": "≈ 83,9°",
+                "rotulo": "ângulo com o eixo das cotas, igual ao gabarito"
+              }
+            }
+          ]
+        },
+        {
+          "id": "deitada-em-pe",
+          "titulo": "Parte deitada e parte em pé",
+          "frase": "A sombra no chão e a altura: a seta é a soma das duas partes.",
+          "fonte": "Lista 6, Q10",
+          "questoes": [
+            "ga-s5-l6q10a",
+            "ga-s5-l6q10b"
+          ],
+          "passos": [
+            {
+              "titulo": "A seta e a folha",
+              "texto": "Plano 2x − 2y − 3z − 6 = 0 (Lista 6, Q10a), com prego [[n]] = (2, −2, −3), e a seta [[v]] = (1, −1, −2). Pense no sol a pino: a sombra da seta no chão é a parte deitada.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        1.712,
+                        0.551,
+                        -1.226
+                      ],
+                      [
+                        -0.551,
+                        -1.712,
+                        -1.226
+                      ],
+                      [
+                        -1.888,
+                        -0.374,
+                        -3.009
+                      ],
+                      [
+                        0.374,
+                        1.888,
+                        -3.009
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      -2.0
+                    ],
+                    "ate": [
+                      1.0,
+                      -1.0,
+                      -4.0
+                    ],
+                    "rot": "v",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": -2.576,
+                  "pitch": 0.227
+                },
+                "semEixos": true,
+                "moldura": [
+                  [
+                    1.0,
+                    -1.0,
+                    -4.0
+                  ],
+                  [
+                    1.176,
+                    -1.176,
+                    -3.765
+                  ]
+                ]
+              }
+            },
+            {
+              "titulo": "A parte em pé",
+              "texto": "Parte em pé = (v · n / n · n) · n. Aqui v · n = 2 + 2 + 6 = 10 e n · n = 4 + 4 + 9 = 17. Então (10/17) · (2, −2, −3) = (20/17, −20/17, −30/17).",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        1.712,
+                        0.551,
+                        -1.226
+                      ],
+                      [
+                        -0.551,
+                        -1.712,
+                        -1.226
+                      ],
+                      [
+                        -1.888,
+                        -0.374,
+                        -3.009
+                      ],
+                      [
+                        0.374,
+                        1.888,
+                        -3.009
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      -2.0
+                    ],
+                    "ate": [
+                      1.0,
+                      -1.0,
+                      -4.0
+                    ],
+                    "rot": "v",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      -2.0
+                    ],
+                    "ate": [
+                      1.176,
+                      -1.176,
+                      -3.765
+                    ],
+                    "rot": "em pé",
+                    "cor": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": -2.576,
+                  "pitch": 0.227
+                },
+                "semEixos": true,
+                "moldura": [
+                  [
+                    1.0,
+                    -1.0,
+                    -4.0
+                  ],
+                  [
+                    1.176,
+                    -1.176,
+                    -3.765
+                  ]
+                ]
+              },
+              "destaque": {
+                "valor": "10/17 do prego",
+                "rotulo": "v · n = 10 e n · n = 17"
+              }
+            },
+            {
+              "titulo": "A parte deitada",
+              "texto": "Parte deitada = v − parte em pé = (−3/17, 3/17, −4/17). É como ratear um lançamento: o que não vai para o prego fica na folha.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        1.712,
+                        0.551,
+                        -1.226
+                      ],
+                      [
+                        -0.551,
+                        -1.712,
+                        -1.226
+                      ],
+                      [
+                        -1.888,
+                        -0.374,
+                        -3.009
+                      ],
+                      [
+                        0.374,
+                        1.888,
+                        -3.009
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      -2.0
+                    ],
+                    "ate": [
+                      1.0,
+                      -1.0,
+                      -4.0
+                    ],
+                    "rot": "v",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      -2.0
+                    ],
+                    "ate": [
+                      1.176,
+                      -1.176,
+                      -3.765
+                    ],
+                    "rot": "em pé",
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      -2.0
+                    ],
+                    "ate": [
+                      -0.176,
+                      0.176,
+                      -2.235
+                    ],
+                    "rot": "deitada",
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -0.176,
+                      0.176,
+                      -2.235
+                    ],
+                    "ate": [
+                      1.0,
+                      -1.0,
+                      -4.0
+                    ],
+                    "largura": 2,
+                    "tracejado": true
+                  }
+                ],
+                "angulo": {
+                  "yaw": -2.576,
+                  "pitch": 0.227
+                },
+                "semEixos": true,
+                "moldura": [
+                  [
+                    1.0,
+                    -1.0,
+                    -4.0
+                  ],
+                  [
+                    1.176,
+                    -1.176,
+                    -3.765
+                  ]
+                ]
+              },
+              "destaque": {
+                "valor": "(−3/17, 3/17, −4/17)",
+                "rotulo": "parte deitada, igual ao gabarito"
+              }
+            },
+            {
+              "titulo": "A prova",
+              "texto": "v₁ · n = −6/17 − 6/17 + 12/17 = 0: a parte deitada faz 90° com o prego. E as duas partes somadas voltam a [[v]].",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        1.712,
+                        0.551,
+                        -1.226
+                      ],
+                      [
+                        -0.551,
+                        -1.712,
+                        -1.226
+                      ],
+                      [
+                        -1.888,
+                        -0.374,
+                        -3.009
+                      ],
+                      [
+                        0.374,
+                        1.888,
+                        -3.009
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      -2.0
+                    ],
+                    "ate": [
+                      1.0,
+                      -1.0,
+                      -4.0
+                    ],
+                    "rot": "v",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      -2.0
+                    ],
+                    "ate": [
+                      1.176,
+                      -1.176,
+                      -3.765
+                    ],
+                    "rot": "em pé",
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      0.0,
+                      0.0,
+                      -2.0
+                    ],
+                    "ate": [
+                      -0.176,
+                      0.176,
+                      -2.235
+                    ],
+                    "rot": "deitada",
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -0.176,
+                      0.176,
+                      -2.235
+                    ],
+                    "ate": [
+                      1.0,
+                      -1.0,
+                      -4.0
+                    ],
+                    "largura": 2,
+                    "tracejado": true
+                  }
+                ],
+                "angulo": {
+                  "yaw": -2.576,
+                  "pitch": 0.227
+                },
+                "semEixos": true,
+                "moldura": [
+                  [
+                    1.0,
+                    -1.0,
+                    -4.0
+                  ],
+                  [
+                    1.176,
+                    -1.176,
+                    -3.765
+                  ]
+                ]
+              },
+              "destaque": {
+                "valor": "v₁ · n = 0",
+                "rotulo": "a parte deitada está mesmo na folha"
+              }
+            }
+          ]
+        },
+        {
+          "id": "dist-ponto-plano",
+          "titulo": "Distância de ponto a plano",
+          "frase": "O caminho mais curto chega fazendo 90°, na direção do prego.",
+          "fonte": "Lista 8, Q1i",
+          "questoes": [
+            "ga-s5-l8q1i",
+            "ga-s5-l8q5",
+            "ga-s5-l8q6",
+            "ga-s5-l8q1c"
+          ],
+          "passos": [
+            {
+              "titulo": "O ponto e a folha",
+              "texto": "P = (1, 2, 3) e o plano −x − y − z + 7 = 0. A pergunta: qual a menor distância de P até a folha?",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        0.033,
+                        2.833,
+                        4.133
+                      ],
+                      [
+                        1.833,
+                        1.033,
+                        4.133
+                      ],
+                      [
+                        2.633,
+                        1.833,
+                        2.533
+                      ],
+                      [
+                        0.833,
+                        3.633,
+                        2.533
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "rot": "P",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": 0.0,
+                  "pitch": 0.4
+                },
+                "semEixos": true,
+                "moldura": [
+                  [
+                    1.0,
+                    2.0,
+                    3.0
+                  ],
+                  [
+                    2.233,
+                    1.433,
+                    3.333
+                  ],
+                  [
+                    0.433,
+                    3.233,
+                    3.333
+                  ],
+                  [
+                    1.733,
+                    2.733,
+                    2.533
+                  ],
+                  [
+                    0.933,
+                    1.933,
+                    4.133
+                  ]
+                ]
+              }
+            },
+            {
+              "titulo": "O caminho mais curto",
+              "texto": "Da cadeira até a parede, o menor caminho vai reto, de frente. Ele chega à folha fazendo 90°, na direção do prego (tracejado coral). Qualquer caminho torto, como o cinza, é mais longo.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        0.033,
+                        2.833,
+                        4.133
+                      ],
+                      [
+                        1.833,
+                        1.033,
+                        4.133
+                      ],
+                      [
+                        2.633,
+                        1.833,
+                        2.533
+                      ],
+                      [
+                        0.833,
+                        3.633,
+                        2.533
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "rot": "P",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      2.433,
+                      1.833,
+                      2.733
+                    ],
+                    "largura": 2,
+                    "tracejado": true
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      1.333,
+                      2.333,
+                      3.333
+                    ],
+                    "cor": 2,
+                    "largura": 2.4,
+                    "tracejado": true
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      1.333,
+                      2.333,
+                      3.333
+                    ],
+                    "rot": "",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": 0.0,
+                  "pitch": 0.4
+                },
+                "semEixos": true,
+                "moldura": [
+                  [
+                    1.0,
+                    2.0,
+                    3.0
+                  ],
+                  [
+                    2.233,
+                    1.433,
+                    3.333
+                  ],
+                  [
+                    0.433,
+                    3.233,
+                    3.333
+                  ],
+                  [
+                    1.733,
+                    2.733,
+                    2.533
+                  ],
+                  [
+                    0.933,
+                    1.933,
+                    4.133
+                  ]
+                ]
+              }
+            },
+            {
+              "titulo": "O resto",
+              "texto": "Ponha P na equação: −1 − 2 − 3 + 7 = 1. Se P estivesse na folha, daria 0. O que sobra é o resto.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        0.033,
+                        2.833,
+                        4.133
+                      ],
+                      [
+                        1.833,
+                        1.033,
+                        4.133
+                      ],
+                      [
+                        2.633,
+                        1.833,
+                        2.533
+                      ],
+                      [
+                        0.833,
+                        3.633,
+                        2.533
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "rot": "P",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      1.333,
+                      2.333,
+                      3.333
+                    ],
+                    "cor": 2,
+                    "largura": 2.4,
+                    "tracejado": true
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      1.333,
+                      2.333,
+                      3.333
+                    ],
+                    "rot": "",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": 0.0,
+                  "pitch": 0.4
+                },
+                "semEixos": true,
+                "moldura": [
+                  [
+                    1.0,
+                    2.0,
+                    3.0
+                  ],
+                  [
+                    2.233,
+                    1.433,
+                    3.333
+                  ],
+                  [
+                    0.433,
+                    3.233,
+                    3.333
+                  ],
+                  [
+                    1.733,
+                    2.733,
+                    2.533
+                  ],
+                  [
+                    0.933,
+                    1.933,
+                    4.133
+                  ]
+                ]
+              },
+              "destaque": {
+                "valor": "resto = 1",
+                "rotulo": "P posto na equação do plano"
+              }
+            },
+            {
+              "titulo": "Divida pelo prego",
+              "texto": "O prego é [[n]] = (−1, −1, −1), de tamanho √3. Distância = |resto| / ‖[[n]]‖ = 1/√3 = √3/3.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        0.033,
+                        2.833,
+                        4.133
+                      ],
+                      [
+                        1.833,
+                        1.033,
+                        4.133
+                      ],
+                      [
+                        2.633,
+                        1.833,
+                        2.533
+                      ],
+                      [
+                        0.833,
+                        3.633,
+                        2.533
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "rot": "P",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      1.333,
+                      2.333,
+                      3.333
+                    ],
+                    "cor": 2,
+                    "largura": 2.4,
+                    "tracejado": true
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      1.333,
+                      2.333,
+                      3.333
+                    ],
+                    "rot": "",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": 0.0,
+                  "pitch": 0.4
+                },
+                "semEixos": true,
+                "moldura": [
+                  [
+                    1.0,
+                    2.0,
+                    3.0
+                  ],
+                  [
+                    2.233,
+                    1.433,
+                    3.333
+                  ],
+                  [
+                    0.433,
+                    3.233,
+                    3.333
+                  ],
+                  [
+                    1.733,
+                    2.733,
+                    2.533
+                  ],
+                  [
+                    0.933,
+                    1.933,
+                    4.133
+                  ]
+                ]
+              },
+              "destaque": {
+                "valor": "≈ 0,58",
+                "rotulo": "distância de P até o plano, igual ao gabarito (√3/3)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "dist-ponto-reta",
+          "titulo": "Distância de ponto a reta",
+          "frase": "Área do paralelogramo dividida pela base dá a altura.",
+          "fonte": "Lista 8, Q1h",
+          "questoes": [
+            "ga-s5-l8q1h",
+            "ga-s5-l8q4"
+          ],
+          "passos": [
+            {
+              "titulo": "O ponto e a reta",
+              "texto": "P = (1, 2, 3) e s: (x − 3)/2 = (y − 1)/4 = (z + 2)/6. Lendo a simétrica: A = (3, 1, −2) e [[v]] = (2, 4, 6).",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      1.8,
+                      -1.4,
+                      -5.6
+                    ],
+                    "ate": [
+                      6.2,
+                      7.4,
+                      7.6
+                    ],
+                    "cor": 1,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      3.0,
+                      1.0,
+                      -2.0
+                    ],
+                    "rot": "A",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "rot": "P",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.013,
+                  "pitch": 0.315
+                },
+                "semEixos": true
+              }
+            },
+            {
+              "titulo": "O paralelogramo",
+              "texto": "Monte um paralelogramo com [[v]] e [[AP]] = P − A = (−2, 1, 5). A área é ‖AP × v‖ = ‖(−14, 22, −10)‖ = √780.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      1.8,
+                      -1.4,
+                      -5.6
+                    ],
+                    "ate": [
+                      6.2,
+                      7.4,
+                      7.6
+                    ],
+                    "cor": 1,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      3.0,
+                      1.0,
+                      -2.0
+                    ],
+                    "rot": "A",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "rot": "P",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        3.0,
+                        1.0,
+                        -2.0
+                      ],
+                      [
+                        5.0,
+                        5.0,
+                        4.0
+                      ],
+                      [
+                        3.0,
+                        6.0,
+                        9.0
+                      ],
+                      [
+                        1.0,
+                        2.0,
+                        3.0
+                      ]
+                    ],
+                    "cor": 3
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      3.0,
+                      1.0,
+                      -2.0
+                    ],
+                    "ate": [
+                      5.0,
+                      5.0,
+                      4.0
+                    ],
+                    "rot": "v",
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      3.0,
+                      1.0,
+                      -2.0
+                    ],
+                    "ate": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "rot": "AP",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.013,
+                  "pitch": 0.315
+                },
+                "semEixos": true
+              },
+              "destaque": {
+                "valor": "área = √780",
+                "rotulo": "‖AP × v‖"
+              }
+            },
+            {
+              "titulo": "Base × altura",
+              "texto": "Área = base × altura. A base é ‖v‖ = √56. A altura, tracejada, é a distância de P até a reta: √780 / √56 = √(195/14).",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      1.8,
+                      -1.4,
+                      -5.6
+                    ],
+                    "ate": [
+                      6.2,
+                      7.4,
+                      7.6
+                    ],
+                    "cor": 1,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      3.0,
+                      1.0,
+                      -2.0
+                    ],
+                    "rot": "A",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "rot": "P",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        3.0,
+                        1.0,
+                        -2.0
+                      ],
+                      [
+                        5.0,
+                        5.0,
+                        4.0
+                      ],
+                      [
+                        3.0,
+                        6.0,
+                        9.0
+                      ],
+                      [
+                        1.0,
+                        2.0,
+                        3.0
+                      ]
+                    ],
+                    "cor": 3
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      3.0,
+                      1.0,
+                      -2.0
+                    ],
+                    "ate": [
+                      5.0,
+                      5.0,
+                      4.0
+                    ],
+                    "rot": "v",
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      3.0,
+                      1.0,
+                      -2.0
+                    ],
+                    "ate": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "rot": "AP",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      4.071,
+                      3.143,
+                      1.214
+                    ],
+                    "cor": 2,
+                    "largura": 2.4,
+                    "tracejado": true
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      4.071,
+                      3.143,
+                      1.214
+                    ],
+                    "rot": "",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.013,
+                  "pitch": 0.315
+                },
+                "semEixos": true
+              },
+              "destaque": {
+                "valor": "≈ 3,73",
+                "rotulo": "distância de P até a reta, igual ao gabarito"
+              }
+            }
+          ]
+        },
+        {
+          "id": "dist-reversas",
+          "titulo": "Distância entre retas reversas",
+          "frase": "Volume da caixa dividido pela área da base dá a folga do viaduto.",
+          "fonte": "Lista 8, Q1a",
+          "questoes": [
+            "ga-s5-l8q1a",
+            "ga-s5-l6q6a"
+          ],
+          "passos": [
+            {
+              "titulo": "O viaduto",
+              "texto": "r: X = (1, 2, 3) + λ(1, 1, 1) e s: X = (1, 1, 1) + t(1, −2, −3) são reversas (Lista 6, Q6a). O tracejado é a menor folga entre elas.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      0.015,
+                      1.015,
+                      2.015
+                    ],
+                    "ate": [
+                      1.215,
+                      2.215,
+                      3.215
+                    ],
+                    "cor": 1,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      0.258,
+                      2.483,
+                      3.225
+                    ],
+                    "ate": [
+                      0.818,
+                      1.363,
+                      1.545
+                    ],
+                    "cor": 2,
+                    "largura": 3
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      0.615,
+                      1.615,
+                      2.615
+                    ],
+                    "ate": [
+                      0.538,
+                      1.923,
+                      2.385
+                    ],
+                    "cor": 3,
+                    "largura": 2.4,
+                    "tracejado": true
+                  }
+                ],
+                "angulo": {
+                  "yaw": 0.945,
+                  "pitch": 0.579
+                },
+                "semEixos": true
+              }
+            },
+            {
+              "titulo": "A caixa",
+              "texto": "Monte uma caixa com [[u]], [[v]] e [[AB]] = (0, −1, −2), com A numa reta e B na outra. O volume é o módulo do produto misto: AB · (u × v) = 0 − 4 + 6 = 2. A caixa sai fina porque a folga é pequena.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        1.0,
+                        2.0,
+                        3.0
+                      ],
+                      [
+                        2.0,
+                        3.0,
+                        4.0
+                      ],
+                      [
+                        3.0,
+                        1.0,
+                        1.0
+                      ],
+                      [
+                        2.0,
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "cor": 3
+                  },
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        1.0,
+                        1.0,
+                        1.0
+                      ],
+                      [
+                        2.0,
+                        2.0,
+                        2.0
+                      ],
+                      [
+                        3.0,
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        2.0,
+                        -1.0,
+                        -2.0
+                      ]
+                    ],
+                    "cor": 3,
+                    "aberto": true
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      1.0,
+                      1.0,
+                      1.0
+                    ]
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      2.0,
+                      3.0,
+                      4.0
+                    ],
+                    "ate": [
+                      2.0,
+                      2.0,
+                      2.0
+                    ]
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      3.0,
+                      1.0,
+                      1.0
+                    ],
+                    "ate": [
+                      3.0,
+                      0.0,
+                      -1.0
+                    ]
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      2.0,
+                      0.0,
+                      0.0
+                    ],
+                    "ate": [
+                      2.0,
+                      -1.0,
+                      -2.0
+                    ]
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      2.0,
+                      3.0,
+                      4.0
+                    ],
+                    "rot": "u",
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      2.0,
+                      0.0,
+                      0.0
+                    ],
+                    "rot": "v",
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    "rot": "AB",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": 1.112,
+                  "pitch": 0.153
+                },
+                "semEixos": true
+              },
+              "destaque": {
+                "valor": "volume = 2",
+                "rotulo": "módulo do produto misto (Lista 3)"
+              }
+            },
+            {
+              "titulo": "Volume ÷ área da base",
+              "texto": "A base é o paralelogramo de [[u]] e [[v]], de área ‖u × v‖ = ‖(−1, 4, −3)‖ = √26. A altura da caixa é a folga: 2/√26 = √26/13.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        1.0,
+                        2.0,
+                        3.0
+                      ],
+                      [
+                        2.0,
+                        3.0,
+                        4.0
+                      ],
+                      [
+                        3.0,
+                        1.0,
+                        1.0
+                      ],
+                      [
+                        2.0,
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "cor": 3
+                  },
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        1.0,
+                        1.0,
+                        1.0
+                      ],
+                      [
+                        2.0,
+                        2.0,
+                        2.0
+                      ],
+                      [
+                        3.0,
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        2.0,
+                        -1.0,
+                        -2.0
+                      ]
+                    ],
+                    "cor": 3,
+                    "aberto": true
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      1.0,
+                      1.0,
+                      1.0
+                    ]
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      2.0,
+                      3.0,
+                      4.0
+                    ],
+                    "ate": [
+                      2.0,
+                      2.0,
+                      2.0
+                    ]
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      3.0,
+                      1.0,
+                      1.0
+                    ],
+                    "ate": [
+                      3.0,
+                      0.0,
+                      -1.0
+                    ]
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      2.0,
+                      0.0,
+                      0.0
+                    ],
+                    "ate": [
+                      2.0,
+                      -1.0,
+                      -2.0
+                    ]
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      2.0,
+                      3.0,
+                      4.0
+                    ],
+                    "rot": "u",
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      2.0,
+                      0.0,
+                      0.0
+                    ],
+                    "rot": "v",
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      1.0,
+                      2.0,
+                      3.0
+                    ],
+                    "ate": [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    "rot": "AB",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": 1.112,
+                  "pitch": 0.153
+                },
+                "semEixos": true
+              },
+              "destaque": {
+                "valor": "≈ 0,39",
+                "rotulo": "distância entre as retas, igual ao gabarito (√26/13)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "lugar-geometrico",
+          "titulo": "Lugar geométrico",
+          "frase": "Todos os pontos que passam no filtro: equidistantes de A e B formam uma parede.",
+          "fonte": "Lista 8, Q8",
+          "questoes": [
+            "ga-s5-l8q8",
+            "ga-s5-l8q7"
+          ],
+          "passos": [
+            {
+              "titulo": "A regra",
+              "texto": "Lugar geométrico é o conjunto de todos os pontos que obedecem a uma regra, como um filtro de planilha. Lista 8, Q8: mesma distância de A = (−1, 1, 4) e de B = (2, 3, 1).",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      -1.0,
+                      1.0,
+                      4.0
+                    ],
+                    "rot": "A",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      2.0,
+                      3.0,
+                      1.0
+                    ],
+                    "rot": "B",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -1.0,
+                      1.0,
+                      4.0
+                    ],
+                    "ate": [
+                      2.0,
+                      3.0,
+                      1.0
+                    ],
+                    "largura": 2,
+                    "tracejado": true
+                  }
+                ],
+                "angulo": {
+                  "yaw": 2.281,
+                  "pitch": 0.221
+                },
+                "semEixos": true,
+                "moldura": [
+                  [
+                    1.831,
+                    0.003,
+                    2.5
+                  ],
+                  [
+                    -0.831,
+                    3.997,
+                    2.5
+                  ]
+                ]
+              }
+            },
+            {
+              "titulo": "O meio",
+              "texto": "O ponto do meio, M = (1/2, 2, 5/2), passa no filtro. Numa folha, em 2D, os pontos que passam formariam uma reta: a mediatriz.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      -1.0,
+                      1.0,
+                      4.0
+                    ],
+                    "rot": "A",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      2.0,
+                      3.0,
+                      1.0
+                    ],
+                    "rot": "B",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -1.0,
+                      1.0,
+                      4.0
+                    ],
+                    "ate": [
+                      2.0,
+                      3.0,
+                      1.0
+                    ],
+                    "largura": 2,
+                    "tracejado": true
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      0.5,
+                      2.0,
+                      2.5
+                    ],
+                    "rot": "M",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": 2.281,
+                  "pitch": 0.221
+                },
+                "semEixos": true,
+                "moldura": [
+                  [
+                    1.831,
+                    0.003,
+                    2.5
+                  ],
+                  [
+                    -0.831,
+                    3.997,
+                    2.5
+                  ]
+                ]
+              }
+            },
+            {
+              "titulo": "A parede",
+              "texto": "No espaço, os pontos que passam formam um plano: uma parede que corta AB no meio, a 90°. O prego é a própria seta AB = (3, 2, −3). Passando por M: 3/2 + 4 − 15/2 + d = 0, então d = 2.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        0.233,
+                        4.706,
+                        4.037
+                      ],
+                      [
+                        2.896,
+                        0.713,
+                        4.037
+                      ],
+                      [
+                        0.767,
+                        -0.706,
+                        0.963
+                      ],
+                      [
+                        -1.896,
+                        3.287,
+                        0.963
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      -1.0,
+                      1.0,
+                      4.0
+                    ],
+                    "rot": "A",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      2.0,
+                      3.0,
+                      1.0
+                    ],
+                    "rot": "B",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "vetor",
+                    "de": [
+                      -1.0,
+                      1.0,
+                      4.0
+                    ],
+                    "ate": [
+                      2.0,
+                      3.0,
+                      1.0
+                    ],
+                    "rot": "AB",
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      0.5,
+                      2.0,
+                      2.5
+                    ],
+                    "rot": "M",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": 2.281,
+                  "pitch": 0.221
+                },
+                "semEixos": true
+              },
+              "destaque": {
+                "valor": "3x + 2y − 3z + 2 = 0",
+                "rotulo": "é um plano, como diz o gabarito"
+              }
+            },
+            {
+              "titulo": "A prova",
+              "texto": "O ponto (3/2, 1/2, 5/2) está na parede: 9/2 + 1 − 15/2 + 2 = 0. E fica a √35/2 de A e também de B.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        0.233,
+                        4.706,
+                        4.037
+                      ],
+                      [
+                        2.896,
+                        0.713,
+                        4.037
+                      ],
+                      [
+                        0.767,
+                        -0.706,
+                        0.963
+                      ],
+                      [
+                        -1.896,
+                        3.287,
+                        0.963
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      -1.0,
+                      1.0,
+                      4.0
+                    ],
+                    "rot": "A",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      2.0,
+                      3.0,
+                      1.0
+                    ],
+                    "rot": "B",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      0.5,
+                      2.0,
+                      2.5
+                    ],
+                    "rot": "M",
+                    "cor": 4
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      1.5,
+                      0.5,
+                      2.5
+                    ],
+                    "rot": "X",
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      1.5,
+                      0.5,
+                      2.5
+                    ],
+                    "ate": [
+                      -1.0,
+                      1.0,
+                      4.0
+                    ],
+                    "cor": 1,
+                    "largura": 2.4,
+                    "tracejado": true
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      1.5,
+                      0.5,
+                      2.5
+                    ],
+                    "ate": [
+                      2.0,
+                      3.0,
+                      1.0
+                    ],
+                    "cor": 1,
+                    "largura": 2.4,
+                    "tracejado": true
+                  }
+                ],
+                "angulo": {
+                  "yaw": 2.281,
+                  "pitch": 0.221
+                },
+                "semEixos": true
+              },
+              "destaque": {
+                "valor": "√35/2 ≈ 2,96",
+                "rotulo": "distância de X até A e até B"
+              }
+            }
+          ]
+        },
+        {
+          "id": "tres-planos",
+          "titulo": "Três planos",
+          "frase": "Primeiro veja quais pregos são múltiplos; depois, o produto misto.",
+          "fonte": "Lista 8, Q10 e Q11",
+          "questoes": [
+            "ga-s5-l8q10a",
+            "ga-s5-l8q10c",
+            "ga-s5-l8q10i",
+            "ga-s5-l8q11"
+          ],
+          "passos": [
+            {
+              "titulo": "Pregos múltiplos: paralelos",
+              "texto": "Q10c: os três pregos são múltiplos de (1, 1, −4). Com o mesmo prego, os números soltos ficam 2, −4/3 e 1, todos diferentes: três folhas paralelas, como andares de um prédio.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -0.576,
+                        1.687,
+                        0.778
+                      ],
+                      [
+                        1.687,
+                        -0.576,
+                        0.778
+                      ],
+                      [
+                        0.354,
+                        -1.909,
+                        0.111
+                      ],
+                      [
+                        -1.909,
+                        0.354,
+                        0.111
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -0.391,
+                        1.872,
+                        0.037
+                      ],
+                      [
+                        1.872,
+                        -0.391,
+                        0.037
+                      ],
+                      [
+                        0.539,
+                        -1.724,
+                        -0.63
+                      ],
+                      [
+                        -1.724,
+                        0.539,
+                        -0.63
+                      ]
+                    ],
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -0.52,
+                        1.742,
+                        0.556
+                      ],
+                      [
+                        1.742,
+                        -0.52,
+                        0.556
+                      ],
+                      [
+                        0.409,
+                        -1.854,
+                        -0.111
+                      ],
+                      [
+                        -1.854,
+                        0.409,
+                        -0.111
+                      ]
+                    ],
+                    "cor": 3
+                  }
+                ],
+                "angulo": {
+                  "yaw": 2.297,
+                  "pitch": 0.164
+                },
+                "semEixos": true
+              },
+              "destaque": {
+                "valor": "3 paralelos distintos",
+                "rotulo": "igual ao gabarito"
+              }
+            },
+            {
+              "titulo": "Produto misto ≠ 0: um ponto",
+              "texto": "Q10a: nenhum par de pregos é múltiplo. O produto misto dos três pregos dá 48, diferente de 0: os três se encontram num ponto só, como o canto de uma sala.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -1.353,
+                        -0.986,
+                        0.098
+                      ],
+                      [
+                        0.924,
+                        -0.227,
+                        0.098
+                      ],
+                      [
+                        1.519,
+                        -2.014,
+                        -1.39
+                      ],
+                      [
+                        -0.757,
+                        -2.773,
+                        -1.39
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        1.409,
+                        -2.405,
+                        -0.096
+                      ],
+                      [
+                        0.827,
+                        -0.077,
+                        -0.096
+                      ],
+                      [
+                        -1.243,
+                        -0.595,
+                        -1.196
+                      ],
+                      [
+                        -0.66,
+                        -2.923,
+                        -1.196
+                      ]
+                    ],
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        0.132,
+                        0.149,
+                        -0.246
+                      ],
+                      [
+                        -1.565,
+                        -1.549,
+                        -0.246
+                      ],
+                      [
+                        0.035,
+                        -3.149,
+                        -1.046
+                      ],
+                      [
+                        1.732,
+                        -1.451,
+                        -1.046
+                      ]
+                    ],
+                    "cor": 3
+                  },
+                  {
+                    "tipo": "ponto",
+                    "em": [
+                      0.083,
+                      -1.5,
+                      -0.646
+                    ],
+                    "rot": "",
+                    "cor": 4
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.62,
+                  "pitch": 0.42
+                },
+                "semEixos": true
+              },
+              "destaque": {
+                "valor": "1 ponto em comum",
+                "rotulo": "produto misto = 48"
+              }
+            },
+            {
+              "titulo": "Produto misto = 0: a barraca",
+              "texto": "Q10i: os três pregos estão deitados numa mesma folha, e o produto misto dá 0. Teste um ponto da reta de dois deles no terceiro: não serve. Os planos se cortam dois a dois em três retas paralelas, como as faces de uma barraca.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -7.821,
+                        -3.579,
+                        -4.7
+                      ],
+                      [
+                        -3.579,
+                        -7.821,
+                        -4.7
+                      ],
+                      [
+                        2.488,
+                        -1.755,
+                        1.367
+                      ],
+                      [
+                        -1.755,
+                        2.488,
+                        1.367
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -7.541,
+                        -3.299,
+                        -4.84
+                      ],
+                      [
+                        -3.299,
+                        -7.541,
+                        -4.84
+                      ],
+                      [
+                        0.341,
+                        -3.901,
+                        2.44
+                      ],
+                      [
+                        -3.901,
+                        0.341,
+                        2.44
+                      ]
+                    ],
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -2.175,
+                        2.068,
+                        0.527
+                      ],
+                      [
+                        2.068,
+                        -2.175,
+                        0.527
+                      ],
+                      [
+                        -0.359,
+                        -4.601,
+                        1.74
+                      ],
+                      [
+                        -4.601,
+                        -0.359,
+                        1.74
+                      ]
+                    ],
+                    "cor": 3
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -7.121,
+                      -2.879,
+                      -4.0
+                    ],
+                    "ate": [
+                      -2.879,
+                      -7.121,
+                      -4.0
+                    ],
+                    "cor": 4,
+                    "largura": 2
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -2.455,
+                      1.788,
+                      0.667
+                    ],
+                    "ate": [
+                      1.788,
+                      -2.455,
+                      0.667
+                    ],
+                    "cor": 4,
+                    "largura": 2
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -4.321,
+                      -0.079,
+                      1.6
+                    ],
+                    "ate": [
+                      -0.079,
+                      -4.321,
+                      1.6
+                    ],
+                    "cor": 4,
+                    "largura": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.785,
+                  "pitch": 0.558
+                },
+                "semEixos": true
+              },
+              "destaque": {
+                "valor": "3 retas paralelas",
+                "rotulo": "igual ao gabarito"
+              }
+            },
+            {
+              "titulo": "Lista 8, Q11",
+              "texto": "Q11 pede a barraca. Produto misto = −7m, então m = 0. Com m = 0, o prego 3 = −2 × prego 1 + prego 2. Se o número solto seguisse a mesma conta, n = −2·7 + (−5) = −19, os três passariam por uma reta só.",
+              "fig": {
+                "modo": "3d",
+                "itens": [
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -7.821,
+                        -3.579,
+                        -4.7
+                      ],
+                      [
+                        -3.579,
+                        -7.821,
+                        -4.7
+                      ],
+                      [
+                        2.488,
+                        -1.755,
+                        1.367
+                      ],
+                      [
+                        -1.755,
+                        2.488,
+                        1.367
+                      ]
+                    ],
+                    "cor": 1
+                  },
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -7.541,
+                        -3.299,
+                        -4.84
+                      ],
+                      [
+                        -3.299,
+                        -7.541,
+                        -4.84
+                      ],
+                      [
+                        0.341,
+                        -3.901,
+                        2.44
+                      ],
+                      [
+                        -3.901,
+                        0.341,
+                        2.44
+                      ]
+                    ],
+                    "cor": 2
+                  },
+                  {
+                    "tipo": "poligono",
+                    "pts": [
+                      [
+                        -2.175,
+                        2.068,
+                        0.527
+                      ],
+                      [
+                        2.068,
+                        -2.175,
+                        0.527
+                      ],
+                      [
+                        -0.359,
+                        -4.601,
+                        1.74
+                      ],
+                      [
+                        -4.601,
+                        -0.359,
+                        1.74
+                      ]
+                    ],
+                    "cor": 3
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -7.121,
+                      -2.879,
+                      -4.0
+                    ],
+                    "ate": [
+                      -2.879,
+                      -7.121,
+                      -4.0
+                    ],
+                    "cor": 4,
+                    "largura": 2
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -2.455,
+                      1.788,
+                      0.667
+                    ],
+                    "ate": [
+                      1.788,
+                      -2.455,
+                      0.667
+                    ],
+                    "cor": 4,
+                    "largura": 2
+                  },
+                  {
+                    "tipo": "segmento",
+                    "de": [
+                      -4.321,
+                      -0.079,
+                      1.6
+                    ],
+                    "ate": [
+                      -0.079,
+                      -4.321,
+                      1.6
+                    ],
+                    "cor": 4,
+                    "largura": 2
+                  }
+                ],
+                "angulo": {
+                  "yaw": -0.785,
+                  "pitch": 0.558
+                },
+                "semEixos": true
+              },
+              "destaque": {
+                "valor": "m = 0 e n ≠ −19",
+                "rotulo": "igual ao gabarito"
+              }
+            }
+          ]
+        }
+      ]
     }
   ],
   "questoes": []
