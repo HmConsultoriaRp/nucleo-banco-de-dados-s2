@@ -140,7 +140,7 @@ def checa_questao(arq, q, disc):
     if not isinstance(q.get("minutos"), int) or not 1 <= q.get("minutos", 0) <= 10:
         erros.append(f"{onde}: minutos inválido")
     org = q.get("origem", "")
-    if not (re.fullmatch(r"Lista [123] · Q\d+[a-z]?", org) or
+    if not (re.fullmatch(r"Lista [1-8] · Q\d+[a-z]?", org) or
             re.fullmatch(r"Avaliação semanal \d+ · T\d+(?:-Q\d+)? · Q\d+", org) or
             org in ("Construída · conferida", "Prévia · ementa")):
         erros.append(f"{onde}: origem fora do padrão: '{org}'")

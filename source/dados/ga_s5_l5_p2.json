@@ -1,0 +1,281 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-l5q5",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Plano dos pontos médios",
+      "origem": "Lista 5 · Q5",
+      "enunciado": "Seja o triângulo de vértices A = (1, 2, −2), B = (−3, 4, 6) e C = (−2, 3, 4). Determine a equação geral do plano que passa pelos pontos médios do triângulo. Qual é a equação?",
+      "alternativas": [
+        {"t": "2x + z − 4 = 0", "certa": false, "erro": "O normal (2, 0, 1) está certo. O erro foi perder o menos do x no ponto (−1, 3, 2): 2·1 + 2 = 4. O certo é 2·(−1) + 2 = 0."},
+        {"t": "x + 2z = 0", "certa": false, "erro": "O produto vetorial [[AB]] × [[AC]] dá (4, 0, 2). Para simplificar, divida os dois por 2, o que dá (2, 0, 1). Você ficou com (1, 0, 2), que troca os papéis de x e z. Em (−1, 3, 2) essa equação dá 3."},
+        {"t": "2x + y + z − 3 = 0", "certa": false, "erro": "O y do normal é 0, e você pôs 1. Aí a equação passa pelo ponto (−1, 3, 2), mas em (−5/2, 7/2, 5) dá −5 + 7/2 + 5 − 3 = 1/2."},
+        {"t": "−2x + z − 4 = 0", "certa": false, "erro": "Em [[AB]] × [[AC]], o primeiro número do normal saiu com sinal trocado: você fez 8·1 − 2·6 = −4, e o certo é 2·6 − 8·1 = 4. A folha passa por (−1, 3, 2), mas em (−5/2, 7/2, 5) dá 5 + 5 − 4 = 6."},
+        {"t": "2x + z = 0", "certa": true}
+      ],
+      "dica": "Os três pontos médios ficam em cima dos lados do triângulo. Eles saem da folha de A, B e C?",
+      "resposta": "2x + z = 0",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[1, 2, -2], [-3, 4, 6], [-2, 3, 4]], "cor": 3},
+          {"tipo": "poligono", "pts": [[-1, 3, 2], [-2.5, 3.5, 5], [-0.5, 2.5, 1]], "cor": 1},
+          {"tipo": "vetor", "de": [-1, 3, 2], "ate": [1, 3, 3], "rot": "n", "cor": 4},
+          {"tipo": "ponto", "em": [1, 2, -2], "rot": "A"},
+          {"tipo": "ponto", "em": [-3, 4, 6], "rot": "B"},
+          {"tipo": "ponto", "em": [-2, 3, 4], "rot": "C"},
+          {"tipo": "ponto", "em": [-1, 3, 2], "rot": "M₁"},
+          {"tipo": "ponto", "em": [-2.5, 3.5, 5], "rot": "M₂"},
+          {"tipo": "ponto", "em": [-0.5, 2.5, 1], "rot": "M₃"}
+        ],
+        "legenda": "O triângulo azul dos pontos médios fica dentro do triângulo ocre, na mesma folha."
+      },
+      "jeitos": {
+        "visual": "Ligue os meios dos três lados e aparece um triângulo menor, dentro do maior, na mesma folha. Na figura, o triângulo azul fica inteiro dentro do ocre. Os pontos médios são (−1, 3, 2), (−5/2, 7/2, 5) e (−1/2, 5/2, 1). O prego em tinta escura é [[n]] = (2, 0, 1). Como o y dele é 0, andar na direção de y não tira você da folha, e a equação não tem y.",
+        "receita": [
+          "Pontos médios: M₁ = (−1, 3, 2), M₂ = (−5/2, 7/2, 5), M₃ = (−1/2, 5/2, 1).",
+          "Setas: [[M₁M₂]] = (−3/2, 1/2, 3) e [[M₁M₃]] = (1/2, −1/2, −1).",
+          "Normal: [[M₁M₂]] × [[M₁M₃]] = (1, 0, 1/2). Multiplique por 2: [[n]] = (2, 0, 1).",
+          "Ponha M₁ em 2x + z + d = 0: 2(−1) + 2 + d = 0, então d = 0.",
+          "Plano: 2x + z = 0."
+        ],
+        "cotidiano": "Estenda um lenço numa mesa e cole uma fita ligando o meio de cada lado. A fita continua sobre a mesa, não sai voando. O plano dos meios é o plano do lenço. Por isso, você pode medir a inclinação pelos cantos do lenço, em vez dos meios. A conta fica mais limpa e a resposta é a mesma.",
+        "trabalho": "É a diferença entre apurar pela média e pelo detalhe, quando os dois têm de dar o mesmo resultado. Ponto médio é a média de duas linhas, coluna a coluna, e a média de dois pontos do plano continua no plano. Pode testar: 2x + z zera nos três vértices e nos três meios. Aqui, os meios trazem fração e os vértices são inteiros, então escolha o caminho mais fácil.",
+        "conversa": [
+          {"quem": "Você", "fala": "Os pontos médios têm fração. Tem jeito de evitar?"},
+          {"quem": "Monitor", "fala": "Os pontos médios saem do plano de A, B e C?"},
+          {"quem": "Você", "fala": "Não. Estão nos lados do triângulo."},
+          {"quem": "Monitor", "fala": "Então é o mesmo plano. Use os vértices: [[AB]] = (−4, 2, 8) e [[AC]] = (−3, 1, 6)."},
+          {"quem": "Você", "fala": "O produto vetorial dá (4, 0, 2). Simplifico para (2, 0, 1)."},
+          {"quem": "Monitor", "fala": "Agora A: 2·1 + 0·2 − 2 = 0. Então d = 0."}
+        ],
+        "erro": "O tropeço é a leitura do pedido: pontos médios do triângulo são os meios dos três lados. A segunda armadilha é o d = 0: o plano passa pela origem, e parece que falta alguma coisa. Não falta: 2x + z = 0 está completa. A terceira é simplificar errado. (4, 0, 2) dividido por 2 dá (2, 0, 1), e não (1, 0, 2).",
+        "confira": "Substitua nos seis pontos. Vértices: 2·1 − 2 = 0, 2(−3) + 6 = 0, 2(−2) + 4 = 0. Meios: 2(−1) + 2 = 0, 2(−5/2) + 5 = 0, 2(−1/2) + 1 = 0. Todos zeram. O y não aparece, e é isso mesmo: em [[n]] = (2, 0, 1) o y vale 0, e y não entra na conta.",
+        "atalho": "Os vértices também estão na folha, e são inteiros. Teste só A = (1, 2, −2) em cada alternativa. 2x + z dá 0. −2x + z − 4 dá −8. x + 2z dá −3. 2x + y + z − 3 dá −1. 2x + z − 4 dá −4. Um ponto separou todas, sem calcular nenhum meio."
+      }
+    },
+    {
+      "id": "ga-s5-l5q6",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Achar coeficientes do plano",
+      "origem": "Lista 5 · Q6",
+      "enunciado": "Sabendo que os pontos A = (1, 3, 5) e B = (−3, −1, 1) pertencem ao plano π: mx + ny + 3z − 2 = 0, determine os valores de m e n. Quais são os valores?",
+      "alternativas": [
+        {"t": "m = −5 e n = 2", "certa": false, "erro": "Você trocou as letras. Em A = (1, 3, 5) isso dá −5 + 6 + 15 − 2 = 14, não 0."},
+        {"t": "m = 3 e n = −6", "certa": false, "erro": "Você esqueceu o −2 da equação e resolveu m + 3n = −15 com 3m + n = 3. O sistema fecha, mas em A a equação completa dá 3 − 18 + 15 − 2 = −2."},
+        {"t": "m = −2 e n = 5", "certa": false, "erro": "Você passou os números para o outro lado sem trocar o sinal: m + 3n = 13 e −3m − n = 1. O certo é m + 3n = −13 e −3m − n = −1."},
+        {"t": "m = 2 e n = −5", "certa": true},
+        {"t": "m = 5/4 e n = −19/4", "certa": false, "erro": "Você ignorou os menos de B = (−3, −1, 1) e fez 3m + n + 3 − 2 = 0. Com m + 3n = −13, isso leva a 5/4 e −19/4. Mas em B a equação pede −3m − n + 1 = 0."}
+      ],
+      "dica": "Cada ponto do plano vira uma equação. Duas incógnitas, duas equações.",
+      "resposta": "m = 2 e n = −5",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 4.25, 7.75], [4, 3.75, 4.25], [-2, -2.25, -1.75], [-6, -1.75, 1.75]], "cor": 3},
+          {"tipo": "vetor", "de": [1, 3, 5], "ate": [-3, -1, 1], "rot": "AB", "cor": 1},
+          {"tipo": "vetor", "de": [-1, 1, 3], "ate": [1, -4, 6], "rot": "n", "cor": 4},
+          {"tipo": "ponto", "em": [1, 3, 5], "rot": "A"},
+          {"tipo": "ponto", "em": [-3, -1, 1], "rot": "B"}
+        ],
+        "legenda": "A folha já resolvida, com m = 2 e n = −5. A seta azul fica deitada nela e faz 90° com a escura."
+      },
+      "jeitos": {
+        "visual": "A folha tem duas inclinações em aberto, m e n; a terceira, 3, já veio dada. Cada ponto que a folha precisa conter trava uma condição. A trava uma, B trava outra, e as duas juntas fixam m e n. Na figura, a folha já está resolvida: m = 2 e n = −5. A seta azul vai de A até B e fica deitada na folha, e o prego escuro faz 90° com ela.",
+        "receita": [
+          "Ponha A = (1, 3, 5): m + 3n + 15 − 2 = 0, então m + 3n = −13.",
+          "Ponha B = (−3, −1, 1): −3m − n + 3 − 2 = 0, então −3m − n = −1.",
+          "Da segunda: n = 1 − 3m.",
+          "Substitua: m + 3(1 − 3m) = −13, então −8m + 3 = −13.",
+          "−8m = −16, então m = 2.",
+          "n = 1 − 3·2 = −5."
+        ],
+        "cotidiano": "Você tem duas comandas com os preços apagados e só conhece os totais. Na primeira, 1 item m e 3 itens n somam −13. Na segunda, 3 itens m e 1 item n somam 1. Duas comandas, dois preços: dá para descobrir. Aqui, m custa 2 e n é um cupom que abate 5. Com uma comanda só, haveria muitas combinações.",
+        "trabalho": "É descobrir dois preços unitários a partir de duas notas, com as quantidades em colunas. Uma linha para cada ponto: (1, 3) com total −13 e (3, 1) com total 1. No Excel, =MATRIZ.MULT(MATRIZ.INVERSO(quantidades); totais) devolve m e n. Em planilha de custo é comum: você só conhece o total de cada lote e precisa do custo de cada item.",
+        "conversa": [
+          {"quem": "Você", "fala": "Tem duas letras e três coordenadas em cada ponto. Como começo?"},
+          {"quem": "Monitor", "fala": "Troque x, y e z pelos números de A. O que sobra de desconhecido?"},
+          {"quem": "Você", "fala": "m + 3n + 15 − 2 = 0. Só m e n."},
+          {"quem": "Monitor", "fala": "Agora B."},
+          {"quem": "Você", "fala": "−3m − n + 3 − 2 = 0."},
+          {"quem": "Monitor", "fala": "Duas equações, duas letras. Cuidado só com o sinal ao passar de um lado para o outro."},
+          {"quem": "Você", "fala": "m = 2 e n = −5."}
+        ],
+        "erro": "O erro mais comum é o −2 da equação. Ele fica na conta de cada ponto, e quem esquece resolve outro sistema e acha 3 e −6. Outro é passar para o outro lado sem trocar sinal: m + 3n = 13 em vez de −13. E o B tem dois menos: −3 e −1. Ignorá-los muda a equação inteira. Escreva a substituição com parênteses: m(−3) + n(−1).",
+        "confira": "Substitua os dois pontos na equação completa, 2x − 5y + 3z − 2 = 0. A: 2 − 15 + 15 − 2 = 0. B: −6 + 5 + 3 − 2 = 0. Outro teste independente: a seta [[AB]] = (−4, −4, −4) precisa deitar na folha. (2, −5, 3)·(−4, −4, −4) = −8 + 20 − 12 = 0. Passa.",
+        "atalho": "As alternativas são pares prontos: teste em vez de resolver. A primeira condição é m + 3n = −13. Três pares caem aí: (−5, 2) dá 1, (3, −6) dá −15, (−2, 5) dá 13. Sobram (2, −5) e (5/4, −19/4). O ponto B pede 3m + n = 1, e só o primeiro par dá isso."
+      }
+    },
+    {
+      "id": "ga-s5-l5q7",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Geral para paramétricas",
+      "origem": "Lista 5 · Q7",
+      "enunciado": "Determine as equações paramétricas do plano π, sabendo que a equação geral do plano é dada por π: x + 2y + 3z − 2 = 0. Quais são as equações?",
+      "alternativas": [
+        {"t": "x = 2 − 2t − 3s, y = t, z = s", "certa": true},
+        {"t": "x = 2 + 2t + 3s, y = t, z = s", "certa": false, "erro": "Ao passar 2y e 3z para o outro lado, os sinais não trocaram. Teste com t = 1, s = 0: o ponto é (4, 1, 0), e a geral dá 4 + 2 + 0 − 2 = 4."},
+        {"t": "x = −2 − 2t − 3s, y = t, z = s", "certa": false, "erro": "O −2 mudou de lado sem trocar de sinal. O certo é x = 2 − 2y − 3z. Teste com t = s = 0: o ponto (−2, 0, 0) dá −2 − 2 = −4 na geral."},
+        {"t": "x = 2 + t, y = 2t, z = 3t", "certa": false, "erro": "Você usou os coeficientes (1, 2, 3) como direção. Eles são o normal, o prego em pé. Essa conta dá uma reta que fura a folha: em t = 1 o ponto (3, 2, 3) dá 3 + 4 + 9 − 2 = 14."},
+        {"t": "x = 2 − t − s, y = t, z = s", "certa": false, "erro": "Você esqueceu os coeficientes 2 e 3 ao isolar x. Teste com t = 1, s = 0: o ponto (1, 1, 0) dá 1 + 2 + 0 − 2 = 1 na geral."}
+      ],
+      "dica": "Isole o x na equação. y e z ficam livres e viram os dois contadores.",
+      "resposta": "x = 2 − 2t − 3s, y = t, z = s",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[2, 0, 0], [0, 1, 0], [-3, 1, 1], [-1, 0, 1]], "cor": 3},
+          {"tipo": "vetor", "de": [2, 0, 0], "ate": [0, 1, 0], "rot": "", "cor": 1},
+          {"tipo": "vetor", "de": [2, 0, 0], "ate": [-1, 0, 1], "rot": "", "cor": 2},
+          {"tipo": "vetor", "de": [2, 0, 0], "ate": [3, 2, 3], "rot": "n", "cor": 4},
+          {"tipo": "ponto", "em": [2, 0, 0], "rot": "t = s = 0"}
+        ],
+        "legenda": "As setas azul e coral são um passo de t e um passo de s. A escura é o prego (1, 2, 3)."
+      },
+      "jeitos": {
+        "visual": "Uma folha tem duas direções livres. Escolha y e z como os dois controles: y = t, z = s. O x fica preso: ele precisa compensar. Na figura, o ponto de partida é (2, 0, 0). A seta azul é t, (−2, 1, 0), e a coral é s, (−3, 0, 1). Elas estão deitadas na folha. A seta escura é o prego (1, 2, 3).",
+        "receita": [
+          "Isole x: x = 2 − 2y − 3z.",
+          "Deixe y e z livres: y = t, z = s.",
+          "Substitua: x = 2 − 2t − 3s.",
+          "Paramétricas: x = 2 − 2t − 3s, y = t, z = s.",
+          "Teste t = 1, s = 1: (−3, 1, 1), e −3 + 2 + 3 − 2 = 0."
+        ],
+        "cotidiano": "Pense num orçamento fixo: x + 2y + 3z = 2. Você escolhe livremente quanto de y e de z quer; são os dois botões. O x não tem botão: é o que sobra do orçamento. Se y sobe 1, o x precisa cair 2. Se z sobe 1, o x cai 3. É só outra forma de escrever a mesma regra.",
+        "trabalho": "É o mesmo que criar coluna calculada no Power BI. y e z são colunas de entrada, e x é a coluna derivada: `x = 2 - 2*y - 3*z`. A equação geral é a regra de validação, e as paramétricas são a fórmula que gera as linhas. Toda linha gerada passa na validação, e toda linha que passa pode ser gerada.",
+        "conversa": [
+          {"quem": "Você", "fala": "Posso usar os coeficientes (1, 2, 3) como direção?"},
+          {"quem": "Monitor", "fala": "Esses números são o quê, na equação geral?"},
+          {"quem": "Você", "fala": "O normal."},
+          {"quem": "Monitor", "fala": "O prego em pé. A direção da folha é o que faz 90° com ele."},
+          {"quem": "Você", "fala": "Então isolo x e deixo y e z livres."},
+          {"quem": "Monitor", "fala": "x = 2 − 2t − 3s. Teste (1, 2, 3) de novo: (1, 2, 3)·(−2, 1, 0) = 0. Deitada na folha."}
+        ],
+        "erro": "A armadilha é mexer nos sinais ao isolar x. Os dois termos e o −2 mudam de lado juntos, e todos trocam de sinal: x = 2 − 2y − 3z. Outro erro é usar (1, 2, 3) como direção. Esse vetor é o normal, e gera uma reta que fura a folha. Escolhas diferentes de parâmetro também valem: y = s e z = t dão a mesma folha.",
+        "confira": "Substitua as paramétricas na geral: (2 − 2t − 3s) + 2t + 3s − 2. Os t se cancelam, os s se cancelam, o 2 se cancela com o −2: sobra 0 para qualquer t e s. Outro caminho: (−2, 1, 0)·(1, 2, 3) = −2 + 2 = 0, e (−3, 0, 1)·(1, 2, 3) = −3 + 3 = 0.",
+        "atalho": "Zere os contadores em cada alternativa: t = 0 e s = 0. O ponto tem de cair na folha. (2, 0, 0) dá 0, mas (−2, 0, 0) dá −4. Depois teste t = 1, s = 0, que precisa zerar também. Saem a de sinais trocados, a dos coeficientes esquecidos e a de um só contador. Sobra uma."
+      }
+    },
+    {
+      "id": "ga-s5-l5q8",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 5,
+      "tema": "Paramétricas para geral",
+      "origem": "Lista 5 · Q8",
+      "enunciado": "Determine a equação geral do plano π, sabendo que as equações paramétricas são dadas por π: x = 2 − 2t − 3s, y = 1 + 2t − s, z = −1 − t + s, t, s ∈ R. Qual é a equação?",
+      "alternativas": [
+        {"t": "x + 5y + 8z − 1 = 0", "certa": false, "erro": "Sinal do d trocado. O ponto (2, 1, −1) dá 2 + 5 − 8 = −1, então d = +1. Com −1, a equação nesse ponto dá −2."},
+        {"t": "x − 5y + 8z + 11 = 0", "certa": false, "erro": "Você esqueceu de trocar o sinal do termo do meio do produto vetorial e ficou com (1, −5, 8). O ponto (2, 1, −1) até fecha, mas em t = 1, s = 0, ponto (0, 3, −2), dá 0 − 15 − 16 + 11 = −20."},
+        {"t": "x + 5y + 8z + 1 = 0", "certa": true},
+        {"t": "2x + y − z − 6 = 0", "certa": false, "erro": "Você usou os números soltos (2, 1, −1) como normal. Eles são o ponto de partida. O normal sai das setas. Em (0, 3, −2) essa equação dá 0 + 3 + 2 − 6 = −1."},
+        {"t": "−5x + y + 9 = 0", "certa": false, "erro": "Você somou as setas, (−2, 2, −1) + (−3, −1, 1) = (−5, 1, 0), e usou como normal. O normal precisa ser perpendicular às duas, e (−5, 1, 0)·(−2, 2, −1) = 12, não 0."}
+      ],
+      "dica": "Os números que acompanham t e s formam duas setas deitadas. O prego em pé sai do produto vetorial delas.",
+      "resposta": "x + 5y + 8z + 1 = 0",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[2, 1, -1], [0, 3, -2], [-3, 2, -1], [-1, 0, 0]], "cor": 3},
+          {"tipo": "vetor", "de": [2, 1, -1], "ate": [0, 3, -2], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [2, 1, -1], "ate": [-1, 0, 0], "rot": "w", "cor": 2},
+          {"tipo": "vetor", "de": [2, 1, -1], "ate": [2.5, 3.5, 3], "rot": "n", "cor": 4},
+          {"tipo": "ponto", "em": [2, 1, -1], "rot": "t = s = 0"}
+        ],
+        "legenda": "As duas setas coloridas ficam deitadas na folha. O prego escuro está desenhado com metade do tamanho de (1, 5, 8)."
+      },
+      "jeitos": {
+        "visual": "Separe as peças: o número solto de cada linha é o ponto, (2, 1, −1). Os números junto de t formam uma seta, (−2, 2, −1). Os junto de s, outra, (−3, −1, 1). Na figura, as duas setas saem do ponto e formam um paralelogramo na folha. O prego, desenhado com metade do tamanho, é (1, 5, 8) e faz 90° com as duas.",
+        "receita": [
+          "Ponto: t = s = 0 dá (2, 1, −1).",
+          "Setas: [[u]] = (−2, 2, −1) e [[w]] = (−3, −1, 1).",
+          "Normal: [[u]] × [[w]] = (2·1 − (−1)(−1), (−1)(−3) − (−2)·1, (−2)(−1) − 2(−3)) = (1, 5, 8).",
+          "Monte: x + 5y + 8z + d = 0.",
+          "Ponha o ponto: 2 + 5 − 8 + d = 0, então d = 1.",
+          "Plano: x + 5y + 8z + 1 = 0."
+        ],
+        "cotidiano": "Você recebeu o mapa de uma praça em forma de instruções de caminhada: dá para andar t vezes numa direção e s vezes em outra. Agora quer a regra do síndico: um único cálculo que diga se um endereço está na praça. Essa regra é a equação geral, e ela sai da seta que fica em pé, perpendicular às duas direções de caminhada.",
+        "trabalho": "É transformar um gerador de dados em uma regra de validação. As paramétricas geram linhas: escolha t e s, e saem x, y e z. A equação geral é o `WHERE x + 5*y + 8*z + 1 = 0`: recebe uma linha e diz se ela pertence. O produto vetorial é o passo que converte uma coisa na outra. Depois de convertida, a checagem custa uma conta só por linha.",
+        "conversa": [
+          {"quem": "Você", "fala": "Os números soltos (2, 1, −1) não seriam o normal?"},
+          {"quem": "Monitor", "fala": "Eles são onde se está com t = s = 0. O normal mede o quê?"},
+          {"quem": "Você", "fala": "A direção em pé da folha."},
+          {"quem": "Monitor", "fala": "E as direções deitadas, quais são?"},
+          {"quem": "Você", "fala": "(−2, 2, −1) e (−3, −1, 1). O produto vetorial dá (1, 5, 8)."},
+          {"quem": "Monitor", "fala": "Agora falta o d. Use o ponto."},
+          {"quem": "Você", "fala": "2 + 5 − 8 + d = 0. d = 1."}
+        ],
+        "erro": "O primeiro tropeço é ler a seta errada. Em z = −1 − t + s, o número do t é −1 e o do s é +1. Trocar o sinal aí muda o normal inteiro. O segundo é o termo do meio do produto vetorial: o certo dá +5, e a inversão dá −5. O terceiro é usar os números soltos como normal: eles são o ponto, não a inclinação.",
+        "confira": "Teste o normal: (1, 5, 8)·(−2, 2, −1) = −2 + 10 − 8 = 0. (1, 5, 8)·(−3, −1, 1) = −3 − 5 + 8 = 0. Teste os pontos: t = 1, s = 0 dá (0, 3, −2), e 0 + 15 − 16 + 1 = 0. t = 0, s = 1 dá (−1, 0, 0), e −1 + 0 + 0 + 1 = 0. Tudo fecha.",
+        "atalho": "O ponto t = s = 0, (2, 1, −1), elimina só a do d trocado, porque as outras passam nele. Use t = 1, s = 0: (0, 3, −2). x − 5y + 8z + 11 dá −20. 2x + y − z − 6 dá −1. −5x + y + 9 dá 12. x + 5y + 8z + 1 dá 0. Com dois pontos, fica uma só."
+      }
+    },
+    {
+      "id": "ga-s5-l5q9",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Ponto pertence ao plano",
+      "origem": "Lista 5 · Q9",
+      "enunciado": "O ponto A = (5, −9, −4) pertence ao plano π de equação π: x = 1 − 2t + 3s, y = 2 − t − 5s, z = −1 + t − 2s, t, s ∈ R?",
+      "alternativas": [
+        {"t": "Não: t = 1 e s = 2 são diferentes, e os contadores teriam de ser iguais.", "certa": false, "erro": "Os contadores são independentes: t anda numa direção e s na outra. Igual só é exigido de cada contador nas três linhas. Aqui t = 1 e s = 2 valem para x, y e z."},
+        {"t": "Sim: t = 1 e s = 2 fecham as três equações.", "certa": true},
+        {"t": "Sim: t = 2 e s = 1 fecham as três equações.", "certa": false, "erro": "Você trocou os valores. Com t = 2 e s = 1, o x dá 1 − 4 + 3 = 0, e A tem x = 5."},
+        {"t": "Sim: t = −1 e s = −2 fecham as três equações.", "certa": false, "erro": "Você subtraiu ao contrário, constante menos A: −2t + 3s = 1 − 5 = −4, −t − 5s = 2 + 9 = 11 e t − 2s = −1 + 4 = 3. Esse sistema fecha, mas é outro: com t = −1 e s = −2, o ponto é (−3, 13, 2), não A."},
+        {"t": "Não: A é diferente do ponto de partida (1, 2, −1), então não está em π.", "certa": false, "erro": "(1, 2, −1) é só o ponto com t = 0 e s = 0. O plano tem infinitos pontos. Para decidir, é preciso procurar t e s."}
+      ],
+      "dica": "Pertencer significa que existem t e s que fecham as três linhas. Resolva duas e teste a terceira.",
+      "resposta": "Sim, com t = 1 e s = 2.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[1, 2, -1], [-1, 1, 0], [5, -9, -4], [7, -8, -5]], "cor": 3},
+          {"tipo": "vetor", "de": [1, 2, -1], "ate": [-1, 1, 0], "rot": "", "cor": 1},
+          {"tipo": "vetor", "de": [-1, 1, 0], "ate": [5, -9, -4], "rot": "", "cor": 2},
+          {"tipo": "ponto", "em": [1, 2, -1], "rot": "t = s = 0"},
+          {"tipo": "ponto", "em": [5, -9, -4], "rot": "A"}
+        ],
+        "legenda": "Um passo de t, em azul, e dois passos de s, em coral, levam do ponto de partida até A."
+      },
+      "jeitos": {
+        "visual": "Uma folha, com dois contadores: t anda por uma seta, s anda pela outra. Na figura, você sai de (1, 2, −1). A seta azul é 1 passo de t, (−2, −1, 1). A seta coral são 2 passos de s, (6, −10, −4). Encostadas, elas chegam exatamente em A = (5, −9, −4). Quer dizer: A fica na folha.",
+        "receita": [
+          "Monte o sistema: 1 − 2t + 3s = 5, 2 − t − 5s = −9, −1 + t − 2s = −4.",
+          "Simplifique: −2t + 3s = 4; −t − 5s = −11; t − 2s = −3.",
+          "Da terceira: t = 2s − 3.",
+          "Na segunda: −(2s − 3) − 5s = −11, então −7s = −14 e s = 2.",
+          "Então t = 2·2 − 3 = 1.",
+          "Prove na primeira: −2·1 + 3·2 = 4. Fechou. Sim, A pertence a π."
+        ],
+        "cotidiano": "Pense num caixa eletrônico que entrega dois tipos de cédula, e você quer saber se um valor sai. Duas contas dizem quantas de cada; a terceira é a prova. Aqui as cédulas são as duas setas, o saque é chegar em A, e as quantidades são t = 1 e s = 2. A diferença é que, no plano, o contador também pode ser negativo ou fracionário.",
+        "trabalho": "É a conciliação clássica: três linhas, duas incógnitas. Duas linhas acham t e s. A terceira é a conferência: se fechar, o lançamento é explicado pelas duas contas; se não fechar, sobrou diferença e ele não pertence. No Excel, o Solver ajusta as duas células de entrada, e a célula da diferença mostra se zerou. Diferença zero na terceira linha quer dizer sim.",
+        "conversa": [
+          {"quem": "Você", "fala": "t = 1 e s = 2. São diferentes, então não pertence?"},
+          {"quem": "Monitor", "fala": "Na simétrica da reta, as três partes tinham de dar o mesmo t. E aqui, há quantos contadores?"},
+          {"quem": "Você", "fala": "Dois."},
+          {"quem": "Monitor", "fala": "Cada contador precisa ter um valor só. Mas um não tem que ser igual ao outro."},
+          {"quem": "Você", "fala": "Então testo t = 1 e s = 2 nas três linhas."},
+          {"quem": "Monitor", "fala": "Se as três derem A, pertence."},
+          {"quem": "Você", "fala": "(5, −9, −4). Pertence."}
+        ],
+        "erro": "A armadilha é misturar com a reta. Na reta, o teste é um t só. No plano, são dois contadores independentes: não precisam ser iguais. Outro erro é subtrair ao contrário, constante menos A, como 1 − 5 no x. Esse sistema também fecha, e acha t = −1, s = −2, mas esse par leva a (−3, 13, 2), e não a A. Por isso, no fim, ponha sempre os valores nas equações originais.",
+        "confira": "Substitua nas equações originais: x = 1 − 2 + 6 = 5, y = 2 − 1 − 10 = −9, z = −1 + 1 − 4 = −4. Deu A. Outro caminho: ache a equação geral. O normal (−2, −1, 1) × (3, −5, −2) é (7, −1, 13). Com o ponto (1, 2, −1), sai 7x − y + 13z + 8 = 0. Em A: 35 + 9 − 52 + 8 = 0.",
+        "atalho": "Se o tempo é curto, não resolva sistema: teste os pares das alternativas. Uma conta por par, no x. t = 1, s = 2 dá 5. t = 2, s = 1 dá 0. t = −1, s = −2 dá −3. As respostas com Não caem por outro raciocínio: plano tem infinitos pontos, e t nunca precisa ser igual a s."
+      }
+    }
+  ]
+}

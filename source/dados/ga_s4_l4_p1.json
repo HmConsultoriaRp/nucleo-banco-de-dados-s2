@@ -1,0 +1,333 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s4-l4q1a",
+      "semana": 4,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Três formas da reta",
+      "origem": "Lista 4 · Q1a",
+      "enunciado": "Determine as equações (vetorial, paramétricas e simétricas (se existir)) da reta que passa pelo ponto A e possui vetor diretor [[v]]: A = (−1, 2, 3) e [[v]] = (1, 1, 1). Quais são as equações?",
+      "alternativas": [
+        {"t": "Vetorial: X = (1, 1, 1) + t(−1, 2, 3). Paramétricas: x = 1 − t, y = 1 + 2t, z = 1 + 3t. Simétricas: 1 − x = (y − 1)/2 = (z − 1)/3.", "certa": false, "erro": "Você trocou os papéis: usou [[v]] = (1, 1, 1) como ponto e A como seta. Essa reta nem passa por A: para x = −1 seria t = 2, e aí y daria 5, não 2."},
+        {"t": "Vetorial: X = (−1, 2, 3) + t(1, 1, 1). Paramétricas: x = −1 + t, y = 2 + t, z = 3 + t. Simétricas: x − 1 = y + 2 = z + 3.", "certa": false, "erro": "A simétrica saiu com os sinais do ponto trocados. Cada parte precisa dar zero em A, mas em A = (−1, 2, 3) essas partes dão −2, 4 e 6."},
+        {"t": "Vetorial: X = (−1, 2, 3) + t(1, 1, 1). Paramétricas: x = −1 + t, y = 2 + t, z = 3 + t. Simétricas: x + 1 = y − 2 = z − 3.", "certa": true},
+        {"t": "Vetorial: X = t(−1, 2, 3). Paramétricas: x = −t, y = 2t, z = 3t. Simétricas: −x = y/2 = z/3.", "certa": false, "erro": "Você multiplicou o ponto pelo t e a seta [[v]] sumiu. Essa reta sai da origem com direção (−1, 2, 3), e o enunciado pede direção (1, 1, 1)."},
+        {"t": "Vetorial: X = (−1, 2, 3) + t(1, 1, 1). Paramétricas: x = −1 + t, y = 2 + t, z = 3 + t. Simétricas: não tem.", "certa": false, "erro": "As duas primeiras estão certas, mas a simétrica existe. Ela só falta quando [[v]] tem coordenada zero, e aqui [[v]] = (1, 1, 1). O denominador 1 não se escreve, por isso nenhuma fração aparece."}
+      ],
+      "dica": "A vetorial é ponto + t × seta. As outras duas saem dela, abrindo coordenada por coordenada.",
+      "resposta": "Vetorial: X = (−1, 2, 3) + t(1, 1, 1). Paramétricas: x = −1 + t, y = 2 + t, z = 3 + t. Simétricas: x + 1 = y − 2 = z − 3.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [-3, 0, 1], "ate": [2, 5, 6], "tracejado": true, "cor": 3},
+          {"tipo": "vetor", "de": [-1, 2, 3], "ate": [0, 3, 4], "rot": "v", "cor": 1},
+          {"tipo": "ponto", "em": [-1, 2, 3], "rot": "A"},
+          {"tipo": "ponto", "em": [0, 3, 4], "rot": "t = 1"},
+          {"tipo": "ponto", "em": [-2, 1, 2], "rot": "t = −1"}
+        ],
+        "legenda": "O tracejado é a reta. A seta azul é um passo inteiro a partir de A."
+      },
+      "jeitos": {
+        "visual": "Pense num fio esticado que passa por A = (−1, 2, 3). A seta [[v]] = (1, 1, 1) mostra a linha do fio: cada passo anda 1 em x, 1 em y e 1 em z. Na figura, a seta azul é um passo inteiro. O t conta os passos: com t = 1 você chega em (0, 3, 4); com t = −1 volta para (−2, 1, 2). As três equações descrevem esse mesmo fio.",
+        "receita": [
+          "Vetorial: ponto + t × seta. X = (−1, 2, 3) + t(1, 1, 1).",
+          "Paramétricas: abra a vetorial por coordenada. x = −1 + t, y = 2 + t, z = 3 + t.",
+          "Isole o t em cada linha: t = x + 1, t = y − 2, t = z − 3.",
+          "As três contas valem o mesmo t. Iguale: x + 1 = y − 2 = z − 3.",
+          "Nenhuma coordenada de [[v]] é zero, então a simétrica existe. As três formas são a resposta."
+        ],
+        "cotidiano": "Uma escada rolante em diagonal: você entra em A. A cada degrau ela leva você 1 para a frente, 1 para o lado e 1 para cima. O t conta os degraus; negativo é andar para trás. Vetorial, paramétricas e simétricas são três formas de descrever a mesma escada: a primeira dá a regra inteira, a segunda dá cada coordenada, a terceira diz em que degrau você está.",
+        "trabalho": "É o modelo de três contas com movimento fixo por mês. A é o saldo inicial: −1, 2 e 3. [[v]] é o movimento mensal: 1, 1 e 1. O t é a célula de entrada com o número de meses; muda o t e as três fórmulas recalculam. Com t = 2, os saldos dão (1, 4, 5). A simétrica é a conciliação: as três contas têm de apontar o mesmo número de meses.",
+        "conversa": [
+          {"quem": "Você", "fala": "Por que o enunciado fala em três equações, se a reta é uma só?"},
+          {"quem": "Monitor", "fala": "É a mesma reta escrita de três jeitos. Se t = 2, quanto dá na paramétrica?"},
+          {"quem": "Você", "fala": "x = 1, y = 4, z = 5."},
+          {"quem": "Monitor", "fala": "Agora ponha (1, 4, 5) na simétrica x + 1 = y − 2 = z − 3."},
+          {"quem": "Você", "fala": "2, 2 e 2. O mesmo t."},
+          {"quem": "Monitor", "fala": "Três escritas, um mesmo ponto. Se saísse 2, 2 e 3, o ponto estaria fora da reta."}
+        ],
+        "erro": "O tropeço é o sinal do ponto na simétrica. O x de A é −1, então a parte do x é x − (−1) = x + 1, e não x − 1. Regra de bolso: cada parte precisa dar zero no ponto A. Em x − 1, o ponto A daria −2. Outro tropeço é achar que a simétrica não existe porque não apareceu fração. Ela existe; o denominador 1 só não se escreve.",
+        "confira": "Substitua o A nas três partes da simétrica: −1 + 1 = 0, 2 − 2 = 0, 3 − 3 = 0. Todas dão zero, o mesmo t. Depois dê um passo: (−1, 2, 3) + (1, 1, 1) = (0, 3, 4). Nas partes: 1, 1 e 1. Se esse teste der números diferentes entre si, a equação está errada.",
+        "atalho": "Olhe o ponto antes de tudo. Ponha A = (−1, 2, 3) na simétrica de cada alternativa: a certa zera as três partes. Isso elimina a do sinal trocado, a que troca ponto e vetor e a que esquece o ponto. Entre as que restam, lembre: [[v]] sem coordenada zero sempre tem simétrica. Sobra uma."
+      }
+    },
+    {
+      "id": "ga-s4-l4q1b",
+      "semana": 4,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Reta sem simétricas",
+      "origem": "Lista 4 · Q1b",
+      "enunciado": "Determine as equações (vetorial, paramétricas e simétricas (se existir)) da reta que passa pelo ponto A e possui vetor diretor [[v]]: A = (0, 1, 2) e [[v]] = (2, 3, 0). Quais são as equações?",
+      "alternativas": [
+        {"t": "Vetorial: X = (0, 1, 2) + t(2, 3, 0). Paramétricas: x = 2t, y = 1 + 3t, z = 2. Simétricas: x/2 = (y − 1)/3 = (z − 2)/0.", "certa": false, "erro": "A última parte divide por zero, e divisão por zero não existe. Como o z de [[v]] é 0, o z não muda e não dá para isolar t nessa linha. Por isso a simétrica não existe."},
+        {"t": "Vetorial: X = (2, 3, 0) + t(0, 1, 2). Paramétricas: x = 2, y = 3 + t, z = 2t. Simétricas: não tem.", "certa": false, "erro": "Você trocou ponto e seta: (2, 3, 0) é a direção e (0, 1, 2) é o ponto. Essa reta nem passa por A, porque x ficaria sempre em 2 e o x de A é 0."},
+        {"t": "Vetorial: X = (0, 1, 2) + t(2, 3, 0). Paramétricas: x = 2t, y = 1 + 3t, z = 0. Simétricas: não tem.", "certa": false, "erro": "Você copiou o 0 da seta como valor de z. A conta é z = 2 + 0·t = 2. Com z = 0 a reta corre no chão, e A está na altura 2."},
+        {"t": "Vetorial: X = (0, 1, 2) + t(2, 3, 0). Paramétricas: x = 2t, y = 1 + 3t, z = 2t. Simétricas: x/2 = (y − 1)/3 = z/2.", "certa": false, "erro": "Você transformou z = 2 + 0·t em z = 2t. O 2 é ponto de partida, não multiplica o t. Em t = 0 esse z dá 0, e A tem z = 2."},
+        {"t": "Vetorial: X = (0, 1, 2) + t(2, 3, 0). Paramétricas: x = 2t, y = 1 + 3t, z = 2. Simétricas: não tem.", "certa": true}
+      ],
+      "dica": "Olhe a última coordenada de [[v]]. O que acontece com z a cada passo?",
+      "resposta": "Vetorial: X = (0, 1, 2) + t(2, 3, 0). Paramétricas: x = 2t, y = 1 + 3t, z = 2. Simétricas: não tem.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [-2, -2, 2], "ate": [4, 7, 2], "tracejado": true, "cor": 3},
+          {"tipo": "segmento", "de": [0, 1, 2], "ate": [0, 1, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [2, 4, 2], "ate": [2, 4, 0], "tracejado": true},
+          {"tipo": "vetor", "de": [0, 1, 2], "ate": [2, 4, 2], "rot": "v", "cor": 1},
+          {"tipo": "ponto", "em": [0, 1, 2], "rot": "A"},
+          {"tipo": "ponto", "em": [2, 4, 2], "rot": "t = 1"}
+        ],
+        "legenda": "As duas verticais tracejadas têm o mesmo tamanho: o z fica em 2 ao longo de toda a reta."
+      },
+      "jeitos": {
+        "visual": "Pense numa linha reta riscada numa mesa de altura 2. A seta [[v]] = (2, 3, 0) anda 2 em x e 3 em y, mas nada em z. Na figura, as duas verticais tracejadas têm o mesmo tamanho: o z fica em 2 o caminho todo. Como z não muda, ele não conta passo nenhum, e é daí que falta a terceira parte da simétrica.",
+        "receita": [
+          "Vetorial: ponto + t × seta. X = (0, 1, 2) + t(2, 3, 0).",
+          "Abra por coordenada: x = 0 + 2t = 2t.",
+          "y = 1 + 3t.",
+          "z = 2 + 0·t = 2. O z fica parado.",
+          "Para a simétrica, isole t: t = x/2 e t = (y − 1)/3.",
+          "Em z não dá: o t sumiu da linha, e dividir por 0 não existe. Simétricas: não tem."
+        ],
+        "cotidiano": "Três taxímetros rodam a cada quilômetro: um soma 2, outro soma 3, e o terceiro está quebrado e mostra sempre 2. Pelos dois primeiros você descobre quantos quilômetros rodou. Pelo terceiro, nunca: ele mostra 2 em qualquer ponto da corrida. A simétrica pede que os três digam o mesmo número de quilômetros, e o terceiro não tem como responder.",
+        "trabalho": "É a conta que dá erro de divisão por zero no Excel. Para descobrir o número de meses, você faz (saldo − saldo inicial) / movimento. Numa conta sem movimento, o movimento é 0 e a célula mostra `#DIV/0!`. Em SQL, é o motivo do NULLIF no denominador, função que troca o 0 por vazio. A conta parada em 2 continua válida na planilha, só não serve para calcular quantos meses passaram. Por isso a simétrica não existe.",
+        "conversa": [
+          {"quem": "Você", "fala": "Por que não posso escrever (z − 2)/0?"},
+          {"quem": "Monitor", "fala": "Tente usar. Nessa reta, z − 2 vale quanto?"},
+          {"quem": "Você", "fala": "0, em qualquer ponto. Fica 0 dividido por 0."},
+          {"quem": "Monitor", "fala": "E isso tem valor?"},
+          {"quem": "Você", "fala": "Não. Então z não ajuda a achar o t."},
+          {"quem": "Monitor", "fala": "x e y dão o t, e o z só confirma que está em 2. Por isso a lista responde: simétricas, não tem."}
+        ],
+        "erro": "A armadilha é montar a simétrica no automático e escrever (z − 2)/0. A alternativa parece bonita porque segue o molde, mas o denominador zero não existe. Outro deslize é perder o z na paramétrica: copiar o 0 da seta como valor de z, ou escrever z = 2t. Quando [[v]] tem um zero, aquela coordenada fica parada no valor do ponto.",
+        "confira": "Teste dois pontos da sua paramétrica. t = 0 dá (0, 1, 2), que é o A. t = 1 dá (2, 4, 2). A diferença entre eles é (2, 3, 0), a própria seta. Se o z mudar entre os dois pontos, a paramétrica está errada. Para a simétrica, veja o denominador: há um 0 em [[v]]? Então ela não existe.",
+        "atalho": "O zero no z de [[v]] decide quase tudo. Procure a linha z = 2: quem escreve z = 0 ou z = 2t sai. Depois procure Simétricas: não tem. Quem mostra denominador 0 também sai. Por fim, confira o ponto: a vetorial precisa começar em (0, 1, 2), o que elimina quem trocou ponto e seta."
+      }
+    },
+    {
+      "id": "ga-s4-l4q1c",
+      "semana": 4,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Simétrica com sinal negativo",
+      "origem": "Lista 4 · Q1c",
+      "enunciado": "Determine as equações (vetorial, paramétricas e simétricas (se existir)) da reta que passa pelo ponto A e possui vetor diretor [[v]]: A = (2, 1, 3) e [[v]] = (2, 1, −2). Quais são as equações?",
+      "alternativas": [
+        {"t": "Vetorial: X = (2, 1, 3) + t(2, 1, −2). Paramétricas: x = 2 + 2t, y = 1 + t, z = 3 − 2t. Simétricas: (x − 2)/2 = y − 1 = (3 − z)/2.", "certa": true},
+        {"t": "Vetorial: X = (2, 1, 3) + t(2, 1, −2). Paramétricas: x = 2 + 2t, y = 1 + t, z = 3 − 2t. Simétricas: (x − 2)/2 = y − 1 = (z − 3)/2.", "certa": false, "erro": "O z da seta é −2, e aqui ele virou +2. Isolando t em z = 3 − 2t sai t = (3 − z)/2. Teste com t = 1, ponto (4, 2, 1): essas partes dão 1, 1 e −1."},
+        {"t": "Vetorial: X = (2, 1, −2) + t(2, 1, 3). Paramétricas: x = 2 + 2t, y = 1 + t, z = −2 + 3t. Simétricas: (x − 2)/2 = y − 1 = (z + 2)/3.", "certa": false, "erro": "Você trocou ponto e seta. O x e o y são iguais nos dois (2 e 1), por isso o engano só aparece em z. Em A = (2, 1, 3), as partes dão 0, 0 e 5/3."},
+        {"t": "Vetorial: X = (2, 1, 3) + t(2, 1, −2). Paramétricas: x = 2 + 2t, y = 1 + t, z = 3 − 2t. Simétricas: 2(x − 2) = y − 1 = 2(3 − z).", "certa": false, "erro": "Ao isolar t em x = 2 + 2t você multiplicou por 2, e o certo é dividir: t = (x − 2)/2. Teste com t = 1, ponto (4, 2, 1): essas partes dão 4, 1 e 4."},
+        {"t": "Vetorial: X = (2, 1, 3) + t(2, 1, −2). Paramétricas: x = 2 + 2t, y = 1 + t, z = 3 − 2t. Simétricas: (x + 2)/2 = y + 1 = (3 + z)/2.", "certa": false, "erro": "Você inverteu os sinais do ponto. Cada parte tem de dar zero em A = (2, 1, 3), mas essas dão 2, 2 e 3."}
+      ],
+      "dica": "Cuidado com o −2 do z: isole o t em z = 3 − 2t com calma.",
+      "resposta": "Vetorial: X = (2, 1, 3) + t(2, 1, −2). Paramétricas: x = 2 + 2t, y = 1 + t, z = 3 − 2t. Simétricas: (x − 2)/2 = y − 1 = (3 − z)/2.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [0, 0, 5], "ate": [6, 3, -1], "tracejado": true, "cor": 3},
+          {"tipo": "vetor", "de": [2, 1, 3], "ate": [4, 2, 1], "rot": "v", "cor": 1},
+          {"tipo": "ponto", "em": [2, 1, 3], "rot": "A"},
+          {"tipo": "ponto", "em": [4, 2, 1], "rot": "t = 1"},
+          {"tipo": "ponto", "em": [0, 0, 5], "rot": "t = −1"}
+        ],
+        "legenda": "A cada passo para a frente, o z desce 2. Para trás, ele sobe 2."
+      },
+      "jeitos": {
+        "visual": "A seta [[v]] = (2, 1, −2) aponta para a frente e para baixo. Na figura, saindo de A = (2, 1, 3), cada passo azul desce 2 em z: t = 1 leva a (4, 2, 1). Para trás, t = −1 volta a (0, 0, 5), e a reta sobe. Esse z que cai é o responsável pelo 3 − z na simétrica: a parte precisa crescer quando z diminui.",
+        "receita": [
+          "Vetorial: X = (2, 1, 3) + t(2, 1, −2).",
+          "Paramétricas: x = 2 + 2t, y = 1 + t, z = 3 − 2t.",
+          "Isole t em x: 2t = x − 2, então t = (x − 2)/2.",
+          "Isole t em y: t = y − 1.",
+          "Isole t em z: −2t = z − 3, então t = (z − 3)/(−2) = (3 − z)/2.",
+          "Iguale as três: (x − 2)/2 = y − 1 = (3 − z)/2."
+        ],
+        "cotidiano": "Três tanques ligados. A cada minuto, o primeiro ganha 2 litros, o segundo ganha 1 e o terceiro perde 2. O terceiro começou com 3 litros. Para saber quantos minutos passaram olhando só para ele, você faz 3 menos o nível atual e divide por 2. Quem faz nível menos 3 acha tempo negativo: esqueceu que esse tanque esvazia.",
+        "trabalho": "Duas contas sobem e uma cai: receita soma 2 por mês, caixa soma 1 e estoque perde 2. Para achar os meses decorridos pela conta que cai, a variação fica (inicial − atual)/2. É o mesmo cuidado de conciliar débito e crédito: se você trata a conta que diminui como se aumentasse, o mês não bate. Na simétrica, as três partes têm de dar o mesmo t.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei (x − 2)/2 = y − 1 = (z − 3)/2."},
+          {"quem": "Monitor", "fala": "Teste t = 1. Que ponto dá?"},
+          {"quem": "Você", "fala": "(4, 2, 1)."},
+          {"quem": "Monitor", "fala": "Ponha na sua simétrica."},
+          {"quem": "Você", "fala": "1, 1 e −1. Não bateu."},
+          {"quem": "Monitor", "fala": "A última parte está com sinal invertido. Ou (z − 3)/(−2), ou (3 − z)/2: é a mesma conta."}
+        ],
+        "erro": "O tropeço está no −2. Quem escreve (z − 3)/2 ignorou que z diminui a cada passo. O erro parece pequeno, mas a equação passa a descrever outra reta, de direção (2, 1, 2). Outro deslize vem da coincidência entre A e [[v]]: os dois começam com 2 e 1. Trocar ponto e seta só aparece no z. Olhe o 3 e o −2 com atenção.",
+        "confira": "Dê um passo: (2, 1, 3) + (2, 1, −2) = (4, 2, 1). Nas partes da simétrica certa: (4 − 2)/2 = 1, 2 − 1 = 1 e (3 − 1)/2 = 1. Os três contadores dizem t = 1, o valor que você usou. Repita com t = 2, ponto (6, 3, −1): as partes dão 2, 2 e 2.",
+        "atalho": "Ponha A = (2, 1, 3) nas partes: a simétrica certa zera as três. Isso tira a do sinal do ponto e a que troca ponto e seta. Sobraram três que zeram. Teste mais um ponto, t = 1, que dá (4, 2, 1): as partes precisam dar o mesmo número. Só uma alternativa passa nos dois testes."
+      }
+    },
+    {
+      "id": "ga-s4-l4q2",
+      "semana": 4,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Ponto numa reta",
+      "origem": "Lista 4 · Q2",
+      "enunciado": "Sabendo que o ponto P = (1, m, n) pertence à reta que passa pelos pontos A = (−1, 1, 4) e B = (2, 3, 1), determinar m e n. Quais são os valores?",
+      "alternativas": [
+        {"t": "m = 5 e n = −2", "certa": false, "erro": "Você parou em 3t = 2 e leu t = 2, sem dividir por 3. Com t = 2 o x daria −1 + 6 = 5, e P tem x = 1."},
+        {"t": "m = 4 e n = −1/2", "certa": false, "erro": "Você inverteu a fração e usou t = 3/2. O certo é t = 2/3. Com t = 3/2 o x daria −1 + 9/2 = 7/2, e não 1."},
+        {"t": "m = 13/3 e n = −1", "certa": false, "erro": "O t = 2/3 está certo, mas ele conta a partir de A. Você saiu de B: 3 + 2·(2/3) = 13/3 e 1 − 3·(2/3) = −1. Esse ponto teria x = 2 + 3·(2/3) = 4."},
+        {"t": "m = 7/3 e n = 2", "certa": true},
+        {"t": "m = 5/3 e n = 3", "certa": false, "erro": "Você esqueceu o −1 do x e fez 3t = 1, ou seja, t = 1/3. O certo é −1 + 3t = 1, então 3t = 2. Com t = 1/3 o x daria 0, e não 1."}
+      ],
+      "dica": "A coordenada x de P é conhecida. Ela conta quantos passos de [[AB]] foram dados desde A.",
+      "resposta": "m = 7/3 e n = 2",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [-1, 1, 4], "ate": [2, 3, 1], "rot": "AB", "cor": 1},
+          {"tipo": "vetor", "de": [-1, 1, 4], "ate": [1, 2.333, 2], "rot": "AP", "cor": 2},
+          {"tipo": "ponto", "em": [-1, 1, 4], "rot": "A"},
+          {"tipo": "ponto", "em": [2, 3, 1], "rot": "B"},
+          {"tipo": "ponto", "em": [1, 2.333, 2], "rot": "P"}
+        ],
+        "legenda": "A seta coral vai de A até P e cobre 2/3 da seta azul."
+      },
+      "jeitos": {
+        "visual": "A reta é um trilho que passa por A e B. A seta [[AB]] = (3, 2, −3) é um passo inteiro. P tem x = 1, e o trilho começa em x = −1: para chegar lá falta andar 2 em x, e um passo inteiro anda 3. Na figura, P fica a 2/3 do caminho entre A e B, e é esse mesmo pedaço que vale para y e z.",
+        "receita": [
+          "Ache a seta: [[AB]] = B − A = (2 + 1, 3 − 1, 1 − 4) = (3, 2, −3).",
+          "Escreva a reta: x = −1 + 3t, y = 1 + 2t, z = 4 − 3t.",
+          "Use o dado de P: −1 + 3t = 1, então 3t = 2 e t = 2/3.",
+          "m é o y nesse t: m = 1 + 2·(2/3) = 1 + 4/3 = 7/3.",
+          "n é o z nesse t: n = 4 − 3·(2/3) = 4 − 2 = 2."
+        ],
+        "cotidiano": "Pense numa barra de progresso de instalação. Três contadores andam juntos, cada um no seu ritmo, do começo ao fim. O x vai de −1 a 2 e agora marca 1: percorreu 2 de 3, então a barra está em 2/3. Os outros dois contadores estão no mesmo 2/3 do caminho: o y subiu 2/3 de 2, e o z desceu 2/3 de 3.",
+        "trabalho": "É interpolação linear, a conta de achar um valor entre dois fechamentos. Se o indicador x foi de −1 a 2 e hoje está em 1, você percorreu (1 + 1)/(2 + 1) = 2/3 do período. Aplique esse 2/3 às outras colunas: y = 1 + 2/3 × 2 e z = 4 + 2/3 × (−3). No Excel: inicial + fração × (final − inicial). Serve para qualquer coluna da mesma linha.",
+        "conversa": [
+          {"quem": "Você", "fala": "Tenho duas incógnitas e só uma informação. Como resolvo?"},
+          {"quem": "Monitor", "fala": "A informação é o x = 1. O que ela diz sobre a reta?"},
+          {"quem": "Você", "fala": "Que −1 + 3t = 1."},
+          {"quem": "Monitor", "fala": "E o t é o mesmo em y e em z?"},
+          {"quem": "Você", "fala": "É. Com t = 2/3, m = 7/3 e n = 2."},
+          {"quem": "Monitor", "fala": "Uma só equação basta porque o t é um só para as três coordenadas."}
+        ],
+        "erro": "O erro mais comum é na hora de isolar t. Uns esquecem o −1 e fazem 3t = 1. Outros param em 3t = 2 e leem t = 2. Outros invertem e usam 3/2. Os três caminhos levam a alternativas que estão aqui. Outro tropeço: achar t = 2/3 a partir de A e somar a partir de B. O contador vale a partir do ponto em que você escreveu a reta.",
+        "confira": "Teste P = (1, 7/3, 2) pela proporção. [[AP]] = P − A = (2, 4/3, −2). Divida pela seta (3, 2, −3): 2/3, 2/3 e 2/3. Três partes iguais, então P está na reta. Outro teste: partindo de B com a mesma seta, o t seria −1/3: 2 − 1 = 1, 3 − 2/3 = 7/3 e 1 + 1 = 2. Mesmo ponto.",
+        "atalho": "x vai de −1 a 2 e P tem x = 1, então P está entre A e B. Logo, m precisa estar entre 1 e 3, e n entre 1 e 4. Essa faixa elimina as alternativas com m = 5, m = 4 e m = 13/3. Sobram 7/3 com n = 2 e 5/3 com n = 3. Decida pela razão: andou 2 de 3, então m = 1 + 4/3."
+      }
+    },
+    {
+      "id": "ga-s4-l4q3",
+      "semana": 4,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Reta por ponto médio",
+      "origem": "Lista 4 · Q3",
+      "enunciado": "Seja o triângulo de vértices A = (1, 2, −2), B = (−3, 4, 6) e C = (−2, 3, 4). Escrever as equações paramétricas da reta que passa pelo ponto médio do lado AB e pelo vértice C. Quais são as equações?",
+      "alternativas": [
+        {"t": "x = −2, y = 3 − 3α, z = 4", "certa": false, "erro": "Você achou o ponto médio sem dividir por 2: A + B = (−2, 6, 4). Aí a seta até C vira (0, −3, 0). O ponto médio certo é (−1, 3, 2)."},
+        {"t": "x = −2 − α, y = 3, z = 4 + 2α", "certa": true},
+        {"t": "x = −2 − 4α, y = 3 + 2α, z = 4 + 8α", "certa": false, "erro": "Você usou a seta [[AB]] = (−4, 2, 8). Essa reta sai de C paralela ao lado AB e nunca passa pelo ponto médio."},
+        {"t": "x = −2 − α, y = 3 + 3α, z = 4 + 2α", "certa": false, "erro": "Você usou as coordenadas do ponto médio M = (−1, 3, 2) como seta. A seta é a diferença entre os dois pontos: C − M = (−1, 0, 2). O y não muda, porque M e C têm y = 3."},
+        {"t": "x = 1 − 7α, y = 2 + 3α, z = −2 + 14α", "certa": false, "erro": "Você fez a reta do vértice A até o ponto médio de BC, que é (−5/2, 7/2, 5). A seta dá (−7/2, 3/2, 7), e o dobro dela é (−7, 3, 14). O enunciado pede o ponto médio de AB e o vértice C."}
+      ],
+      "dica": "Primeiro ache o ponto médio de AB. A seta da reta é a diferença entre esse ponto e C.",
+      "resposta": "x = −2 − α, y = 3, z = 4 + 2α",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[1, 2, -2], [-3, 4, 6], [-2, 3, 4]], "cor": 3},
+          {"tipo": "segmento", "de": [0, 3, 0], "ate": [-3, 3, 6], "tracejado": true, "cor": 1},
+          {"tipo": "vetor", "de": [-1, 3, 2], "ate": [-2, 3, 4], "rot": "MC", "cor": 1},
+          {"tipo": "ponto", "em": [1, 2, -2], "rot": "A"},
+          {"tipo": "ponto", "em": [-3, 4, 6], "rot": "B"},
+          {"tipo": "ponto", "em": [-2, 3, 4], "rot": "C"},
+          {"tipo": "ponto", "em": [-1, 3, 2], "rot": "M"}
+        ],
+        "legenda": "M é o meio do lado AB. A seta azul vai de M até C, e o tracejado é a reta."
+      },
+      "jeitos": {
+        "visual": "Desenhe o triângulo como um pano esticado entre A, B e C. O ponto médio M fica no meio da borda AB, em (−1, 3, 2). Na figura, a seta azul sai de M e chega no vértice C. Essa seta é a direção da reta: C − M = (−1, 0, 2). Como M e C têm y = 3, a reta inteira fica em y = 3, sem sair dali.",
+        "receita": [
+          "Ponto médio de AB: M = ((1 − 3)/2, (2 + 4)/2, (−2 + 6)/2) = (−1, 3, 2).",
+          "Seta de M até C: C − M = (−2 + 1, 3 − 3, 4 − 2) = (−1, 0, 2).",
+          "Escolha um ponto de partida. Aqui, C = (−2, 3, 4).",
+          "Monte por coordenada: x = −2 − α, y = 3 + 0·α = 3, z = 4 + 2α.",
+          "Teste α = −1: (−1, 3, 2), que é M. A reta passa pelos dois."
+        ],
+        "cotidiano": "Três amigos moram em A, B e C. Os de A e B marcam encontro no meio do caminho entre as casas. Depois, ligam o ponto de encontro à casa do terceiro com um fio esticado. O fio é a reta. A direção dele não depende do caminho até A ou B: só importa de onde sai, o ponto de encontro, e onde chega, a casa C.",
+        "trabalho": "O ponto médio é a média de cada coluna. No Excel, =MÉDIA(A2;B2) para x, y e z; em SQL, `(a.x + b.x) / 2`. A seta é a variação entre essa média e o valor de C, coluna por coluna: é comparar o resultado de um mês com a média de outros dois, indicador por indicador. O indicador sem variação, aqui o y, fica fixo na fórmula.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei M = (−1, 3, 2). Posso usar esse M como seta?"},
+          {"quem": "Monitor", "fala": "M é endereço. A seta é deslocamento. De M até C, quanto anda em x?"},
+          {"quem": "Você", "fala": "−2 − (−1) = −1."},
+          {"quem": "Monitor", "fala": "E em y e z?"},
+          {"quem": "Você", "fala": "0 e 2. Então (−1, 0, 2)."},
+          {"quem": "Monitor", "fala": "Com ela, y nunca muda. Se o seu y tiver α, desconfie."}
+        ],
+        "erro": "A confusão clássica entre ponto e vetor. M = (−1, 3, 2) é um endereço, e muita gente escreve a reta como C + αM. A seta certa é C − M. Outro tropeço é esquecer de dividir por 2 no ponto médio: A + B = (−2, 6, 4) não é ponto médio. Fique de olho também no pedido: é o meio de AB com C, e não outra mediana (reta que liga um vértice ao meio do lado oposto).",
+        "confira": "A reta precisa passar por M e por C. Com α = 0 ela está em C. Com α = −1: x = −2 + 1 = −1, y = 3, z = 4 − 2 = 2, que é M. Se você partiu de M, pode ter escrito x = −1 − α, y = 3, z = 2 + 2α: é a mesma reta, com outro ponto de partida. Confira se a seta é múltipla de (−1, 0, 2).",
+        "atalho": "M e C têm o mesmo y? Calcule só o y de M: (2 + 4)/2 = 3, e C tem y = 3. Logo, y não muda e precisa ficar parado em 3. Só uma alternativa tem y = 3 sem α. Esse olhar resolve a questão em menos de um minuto, sem calcular x nem z."
+      }
+    },
+    {
+      "id": "ga-s4-l4q4",
+      "semana": 4,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Linha média do trapézio",
+      "origem": "Lista 4 · Q4",
+      "enunciado": "Seja A = (1, 2, 3), B = (2, −1, 3), C = (1, −8, 1) e D = (−1, −2, 1) um trapézio. Determine a equação da reta que passa pelos pontos médios dos lados não paralelos. Qual é a equação?",
+      "alternativas": [
+        {"t": "X = (0, −5, 1) + λ(3/2, 11/2, 2)", "certa": false, "erro": "Você pegou os pontos médios de AB e CD, que são justamente os lados paralelos: [[CD]] = (−2, 6, 0) é −2 vezes [[AB]] = (1, −3, 0). Os não paralelos são BC e DA."},
+        {"t": "X = (0, 0, 4) + λ(3, −9, 0)", "certa": false, "erro": "Você somou os pontos sem dividir por 2: B + C = (3, −9, 4) e D + A = (0, 0, 4). A direção até continua certa, porque (3, −9, 0) é o dobro de (3/2, −9/2, 0). Mas a reta fica em z = 4, e o trapézio só vai de z = 1 a z = 3."},
+        {"t": "X = (0, 0, 2) + λ(3/2, −9/2, 4)", "certa": false, "erro": "Você somou os dois pontos médios para achar a seta: (3/2, −9/2, 2) + (0, 0, 2). A seta entre dois pontos sai da diferença, e aí o z dá 2 − 2 = 0."},
+        {"t": "X = (0, 0, 2) + λ(3/2, 7/2, 0)", "certa": false, "erro": "Erro de sinal no ponto médio de BC. O y é (−1 + (−8))/2 = −9/2, e você fez (−1 + 8)/2 = 7/2."},
+        {"t": "X = (0, 0, 2) + λ(3/2, −9/2, 0)", "certa": true}
+      ],
+      "dica": "Descubra primeiro quais lados são paralelos: compare as setas [[AB]], [[BC]], [[CD]] e [[DA]].",
+      "resposta": "X = (0, 0, 2) + λ(3/2, −9/2, 0)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[1, 2, 3], [2, -1, 3], [1, -8, 1], [-1, -2, 1]], "cor": 3},
+          {"tipo": "vetor", "de": [0, 0, 2], "ate": [1.5, -4.5, 2], "rot": "MN", "cor": 1},
+          {"tipo": "ponto", "em": [1, 2, 3], "rot": "A"},
+          {"tipo": "ponto", "em": [2, -1, 3], "rot": "B"},
+          {"tipo": "ponto", "em": [1, -8, 1], "rot": "C"},
+          {"tipo": "ponto", "em": [-1, -2, 1], "rot": "D"},
+          {"tipo": "ponto", "em": [0, 0, 2], "rot": "M"},
+          {"tipo": "ponto", "em": [1.5, -4.5, 2], "rot": "N"}
+        ],
+        "legenda": "M é o meio de DA e N é o meio de BC. A seta azul fica em z = 2, entre as alturas 3 e 1."
+      },
+      "jeitos": {
+        "visual": "Pense no trapézio como uma rampa: a borda AB fica em z = 3 e a borda CD em z = 1. Os outros dois lados, BC e DA, descem de uma altura para a outra. Na figura, a seta azul liga o meio de DA ao meio de BC. Ela corre em z = 2, exatamente na metade da altura, e aponta na mesma direção das duas bordas paralelas.",
+        "receita": [
+          "Compare os lados: [[AB]] = (1, −3, 0) e [[CD]] = (−2, 6, 0) = −2·[[AB]]. São os paralelos.",
+          "Sobram BC e DA: [[BC]] = (−1, −7, −2) e [[DA]] = (2, 4, 2) não são múltiplos.",
+          "Meio de DA: ((−1 + 1)/2, (−2 + 2)/2, (1 + 3)/2) = (0, 0, 2).",
+          "Meio de BC: ((2 + 1)/2, (−1 − 8)/2, (3 + 1)/2) = (3/2, −9/2, 2).",
+          "Seta entre eles: (3/2 − 0, −9/2 − 0, 2 − 2) = (3/2, −9/2, 0).",
+          "Reta: X = (0, 0, 2) + λ(3/2, −9/2, 0)."
+        ],
+        "cotidiano": "Imagine uma escada de pintor aberta em trapézio: uma travessa curta em cima, uma longa embaixo, paralelas, e dois montantes inclinados nas laterais. Marque o meio de cada montante e estique um barbante. Ele fica paralelo às travessas, a meia altura. Quem marca o meio das travessas estica o barbante de cima para baixo, atravessando os degraus. É outra reta.",
+        "trabalho": "Cada lado é uma linha com 3 colunas. Testar paralelismo é uma conciliação de proporção: CD/AB dá −2 em x e −2 em y, e em z os dois são 0. Fecha, então são múltiplos. BC/DA dá −1/2 em x e −7/4 em y: não fecha. Só depois disso você calcula a média coluna a coluna. Escolher o par errado é como conciliar o extrato certo com a conta errada.",
+        "conversa": [
+          {"quem": "Você", "fala": "Peguei o meio de AB e o meio de CD. Deu (3/2, 1/2, 3) e (0, −5, 1)."},
+          {"quem": "Monitor", "fala": "[[AB]] e [[CD]] são múltiplos?"},
+          {"quem": "Você", "fala": "(−2, 6, 0) é −2 vezes (1, −3, 0). São."},
+          {"quem": "Monitor", "fala": "Então esses são os lados paralelos. O enunciado pede os outros."},
+          {"quem": "Você", "fala": "BC e DA. Os meios são (3/2, −9/2, 2) e (0, 0, 2)."},
+          {"quem": "Monitor", "fala": "Repare que a seta entre eles tem z = 0: a reta fica na meia altura."}
+        ],
+        "erro": "A armadilha é supor quais lados são paralelos só pela ordem das letras. Aqui é preciso medir: [[CD]] é −2·[[AB]], então os não paralelos são BC e DA. Outro tropeço é o sinal no y de BC: −1 − 8 = −9, e não −1 + 8. E muita gente soma os pontos médios para achar a seta. Seta sai de subtração, e o z certo dá 0.",
+        "confira": "A linha que une os meios dos lados não paralelos é paralela às bases. Teste: (3/2, −9/2, 0) = (3/2)·(1, −3, 0), ou seja, 3/2 de [[AB]]. Outro teste: os meios das diagonais caem na mesma reta. O meio de AC é (1, −3, 2), com λ = 2/3. O meio de BD é (1/2, −3/2, 2), com λ = 1/3.",
+        "atalho": "z em AB vale 3 e em CD vale 1. A reta pedida fica na metade, então z = 2 e não muda. Procure ponto com z = 2 e seta com z = 0. Isso elimina a que começa em z = 1, a que começa em z = 4 e a que tem seta com 4 no z. Sobram duas. Decida pelo y do meio de BC: (−1 − 8)/2 = −9/2."
+      }
+    }
+  ]
+}

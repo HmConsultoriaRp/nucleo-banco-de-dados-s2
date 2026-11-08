@@ -1,0 +1,335 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-l8q9a",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Retas por um ponto",
+      "origem": "Lista 8 · Q9a",
+      "enunciado": "Classifique em Verdadeiro (V) ou Falso (F). Se verdadeiro, prove. Se falso, dê um contraexemplo. (OBS: Em todas as sentenças considere que estamos em R³.)\nAfirmação: Por um ponto P, passa uma única reta.\nQual é o veredito certo, com o motivo?",
+      "alternativas": [
+        {"t": "Verdadeiro: toda reta precisa de um ponto, e o ponto P já fixa a reta.", "certa": false, "erro": "A reta precisa de um ponto e de uma direção. P fixa só a primeira peça. A direção continua livre, e cada escolha dá uma reta diferente."},
+        {"t": "Verdadeiro: cada ponto do espaço pertence a uma reta só.", "certa": false, "erro": "Em (1, 1, 1) cabem X = (1, 1, 1) + t(1, 0, 0) e X = (1, 1, 1) + t(0, 1, 0). As duas contêm o ponto, com t = 0, e têm direções diferentes."},
+        {"t": "Falso: por P passam infinitas retas, uma para cada direção escolhida.", "certa": true},
+        {"t": "Falso: por P passam exatamente duas retas.", "certa": false, "erro": "Nada limita em duas. Troque a seta por (1, 1, 0) e sai uma terceira reta. O número 2 vem da regra dos dois pontos, que é outra afirmação."},
+        {"t": "Falso: por um ponto não passa reta nenhuma, pois são precisos dois pontos.", "certa": false, "erro": "Dois pontos distintos fixam uma reta, e isso não impede retas de passarem por um ponto. A reta X = (1, 1, 1) + t(1, 0, 0) passa por (1, 1, 1) quando t = 0."}
+      ],
+      "dica": "Reta é um ponto mais uma seta. O enunciado fixou as duas peças?",
+      "resposta": "Falso. Por P passam infinitas retas.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [-1, 1, 1], "ate": [3, 1, 1], "cor": 1},
+          {"tipo": "segmento", "de": [1, -1, 1], "ate": [1, 3, 1], "cor": 2},
+          {"tipo": "segmento", "de": [-1, -1, -1], "ate": [3, 3, 3], "cor": 3},
+          {"tipo": "ponto", "em": [1, 1, 1], "rot": "P"}
+        ],
+        "legenda": "Três retas diferentes passam pelo mesmo ponto P = (1, 1, 1). Dá para desenhar outras sem parar."
+      },
+      "jeitos": {
+        "visual": "R³ é o espaço com três coordenadas: x, y e z. Espete um alfinete em P e gire um palito em volta dele. Cada posição do palito é uma reta que passa por P. Na figura, as três linhas saem do mesmo ponto em direções diferentes. Gire a imagem: nenhuma coincide com outra. E ainda cabem mais, sem parar.",
+        "receita": [
+          "Escreva a receita da reta: um ponto mais uma seta de direção. X = P + t·[[v]].",
+          "Escolha um exemplo: P = (1, 1, 1).",
+          "Com [[v]] = (1, 0, 0), sai a reta X = (1, 1, 1) + t(1, 0, 0).",
+          "Com [[v]] = (0, 1, 0), sai outra: X = (1, 1, 1) + t(0, 1, 0). As setas não são múltiplas, logo as retas são diferentes.",
+          "As duas passam por P, com t = 0. Já existe mais de uma, e a afirmação é falsa."
+        ],
+        "cotidiano": "Pense numa rotatória: um único ponto no mapa, com várias ruas saindo dele. Saber que a rua passa pela rotatória não diz qual é a rua. Falta dizer para onde ela vai. A analogia tem um limite: a rotatória tem poucas saídas, e o ponto aceita infinitas direções.",
+        "trabalho": "Em banco de dados, um cliente aparece em muitos lançamentos. Filtrar pelo cliente não devolve uma linha só, porque ele é só uma parte do que identifica o lançamento. Aqui é igual. O ponto P é metade da chave da reta, e a outra metade é a direção. Sem ela, a consulta devolve infinitas retas.",
+        "conversa": [
+          {"quem": "Você", "fala": "Lembro da frase \"uma reta por dois pontos\". Não é a mesma coisa?"},
+          {"quem": "Monitor", "fala": "Quantos pontos tem a afirmação?"},
+          {"quem": "Você", "fala": "Um só, o P."},
+          {"quem": "Monitor", "fala": "Então teste. A reta X = P + t(1, 0, 0) passa por P?"},
+          {"quem": "Você", "fala": "Passa, com t = 0."},
+          {"quem": "Monitor", "fala": "E X = P + t(0, 1, 0)?"},
+          {"quem": "Você", "fala": "Também. Já são duas, e dá para continuar trocando a seta."},
+          {"quem": "Monitor", "fala": "É o contraexemplo. A reta só fica única com dois pontos distintos."}
+        ],
+        "erro": "A armadilha é trocar \"dois pontos\" por \"um ponto\". Dois pontos distintos determinam uma reta. Com um ponto só, a direção continua livre. Perceba o tropeço por uma pergunta: o que o enunciado fixou? Se ficou faltando a seta, a reta não está definida, e a palavra \"única\" não se sustenta.",
+        "confira": "Tire a prova com números. Em P = (1, 1, 1), teste as setas (1, 0, 0) e (0, 1, 0). Existe k com (1, 0, 0) = k·(0, 1, 0)? O primeiro número exige 1 = 0, impossível. As direções são diferentes, e as duas retas contêm P. Achar duas retas basta para derrubar a afirmação.",
+        "atalho": "Viu \"única\" em R³? Conte as peças fixadas. Reta pede ponto e direção, e só o ponto foi dado. O veredito é Falso, e as duas alternativas de Verdadeiro saem. Entre as falsas, fique com a de muitas retas: \"duas\" e \"nenhuma\" não têm de onde sair."
+      }
+    },
+    {
+      "id": "ga-s5-l8q9b",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Planos com um vetor diretor",
+      "origem": "Lista 8 · Q9b",
+      "enunciado": "Classifique em Verdadeiro (V) ou Falso (F). Se verdadeiro, prove. Se falso, dê um contraexemplo. (OBS: Em todas as sentenças considere que estamos em R³.)\nAfirmação: Seja um vetor [[u]]. Existe um único plano que tem como vetor diretor [[u]].\nQual é o veredito certo, com o motivo?",
+      "alternativas": [
+        {"t": "Falso: infinitos planos têm [[u]] como vetor diretor; ele fixa só uma direção da folha.", "certa": true},
+        {"t": "Verdadeiro: [[u]] fica em pé em um só plano, e esse é o único plano que tem [[u]] como vetor.", "certa": false, "erro": "Aqui [[u]] foi tratado como vetor normal, o prego em pé. O vetor diretor fica deitado na folha. E mesmo como prego, ele serviria para infinitos planos paralelos."},
+        {"t": "Verdadeiro: o plano é o conjunto X = t·[[u]], e essa conta descreve um único conjunto.", "certa": false, "erro": "X = t·[[u]] tem um contador de passos só. Isso desenha uma reta pela origem, não um plano. O plano pede dois contadores e duas setas: X = A + t·[[u]] + s·[[w]]."},
+        {"t": "Falso: plano não tem vetor diretor, só reta tem, e por isso a frase não faz sentido.", "certa": false, "erro": "Plano tem, sim. Na forma X = A + t·[[u]] + s·[[w]], as setas [[u]] e [[w]] são os vetores diretores do plano. O veredito acerta, mas o motivo não se sustenta."},
+        {"t": "Falso: existem exatamente dois planos, um de cada lado de [[u]], e nenhum outro.", "certa": false, "erro": "Os planos que contêm a direção de [[u]] giram em volta dela como as páginas de um livro, e ainda podem ser deslocados. Não há limite de dois."}
+      ],
+      "dica": "Um plano precisa de um ponto e de duas setas deitadas. Quantas dessas peças o enunciado entregou?",
+      "resposta": "Falso. Infinitos planos têm [[u]] como vetor diretor.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-2, -2, 0], [2, -2, 0], [2, 2, 0], [-2, 2, 0]], "cor": 1},
+          {"tipo": "poligono", "pts": [[-2, 0, -2], [2, 0, -2], [2, 0, 2], [-2, 0, 2]], "cor": 2},
+          {"tipo": "poligono", "pts": [[-2, -2, 1.5], [2, -2, 1.5], [2, 2, 1.5], [-2, 2, 1.5]], "cor": 3},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 0, 0], "rot": "u", "cor": 4}
+        ],
+        "legenda": "As três folhas aceitam andar na direção de [[u]] = (1, 0, 0): z = 0, y = 0 e z = 1,5."
+      },
+      "jeitos": {
+        "visual": "Vetor diretor é uma seta deitada na folha. Deite um lápis na mesa: a mesa é um plano que contém a direção dele. Agora apoie um caderno no lápis e incline como quiser. Cada inclinação é outro plano com o mesmo lápis. Na figura, [[u]] é a seta escura. As folhas z = 0 e y = 0 se cruzam ao longo dela, e a folha z = 1,5 fica acima, também aceitando essa direção.",
+        "receita": [
+          "Escolha um exemplo: [[u]] = (1, 0, 0).",
+          "Plano z = 0, normal (0, 0, 1): [[u]]·(0, 0, 1) = 0, então [[u]] está deitado nele.",
+          "Plano y = 0, normal (0, 1, 0): [[u]]·(0, 1, 0) = 0, então [[u]] também está deitado nele.",
+          "Os normais (0, 0, 1) e (0, 1, 0) não são múltiplos: os planos são diferentes.",
+          "Dois planos com o mesmo vetor diretor derrubam a palavra \"único\". A afirmação é falsa."
+        ],
+        "cotidiano": "Uma dobradiça de porta fixa uma linha. A porta gira em volta dela, e cada abertura é um plano diferente que contém a mesma linha. Saber a direção da dobradiça não diz em que posição a porta está. Para travar a porta, você precisa de mais uma informação.",
+        "trabalho": "Pense num filtro incompleto. Pedir os lançamentos de um mês não identifica uma linha: devolve todas daquele mês. [[u]] faz esse papel de filtro: diz uma direção e deixa de fora a outra direção e o ponto. Em SQL, é um `WHERE` que cobre só parte de uma chave composta, a chave formada por mais de uma coluna. A consulta devolve muitas linhas. Aqui, infinitos planos.",
+        "conversa": [
+          {"quem": "Você", "fala": "Se eu tenho a seta [[u]], eu não tenho o plano?"},
+          {"quem": "Monitor", "fala": "Quantos contadores tem a equação do plano?"},
+          {"quem": "Você", "fala": "Dois: X = A + t·[[u]] + s·[[w]]."},
+          {"quem": "Monitor", "fala": "E o enunciado deu o quê?"},
+          {"quem": "Você", "fala": "Só [[u]]. Faltam o [[w]] e o ponto A."},
+          {"quem": "Monitor", "fala": "Então teste [[u]] = (1, 0, 0). Ele cabe deitado em z = 0 e em y = 0?"},
+          {"quem": "Você", "fala": "Cabe nos dois. O produto escalar com o normal dá 0 nos dois casos."},
+          {"quem": "Monitor", "fala": "Dois planos. A palavra \"único\" caiu."}
+        ],
+        "erro": "A armadilha é confundir vetor diretor com vetor normal. O diretor fica deitado na folha, e o normal fica em pé. Mesmo quem não confunde pode achar que uma seta basta, porque na reta basta. No plano, ela fixa só uma das duas direções. Perceba o tropeço contando as peças: ponto, seta, seta. Faltou alguma, o plano não está definido.",
+        "confira": "Prova direta: um vetor está deitado num plano quando o produto escalar com o normal dá 0. Para [[u]] = (1, 0, 0), a conta com (0, 0, 1) dá 0, com (0, 1, 0) dá 0 e com (0, 1, 1) dá 0. São três normais sem múltiplos entre si, logo três planos distintos: z = 0, y = 0 e y + z = 0.",
+        "atalho": "Em R³, com \"único\" na frase, conte as peças dadas. Plano pede ponto e duas setas, e o enunciado deu uma seta. Veredito: Falso. Risque as duas alternativas de Verdadeiro. Entre as falsas, descarte a que nega vetor diretor em plano e a que fala em exatamente dois: a folha gira sem limite."
+      }
+    },
+    {
+      "id": "ga-s5-l8q9c",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Pés de perpendiculares",
+      "origem": "Lista 8 · Q9c",
+      "enunciado": "Classifique em Verdadeiro (V) ou Falso (F). Se verdadeiro, prove. Se falso, dê um contraexemplo. (OBS: Em todas as sentenças considere que estamos em R³.)\nAfirmação: Seja Q o pé da perpendicular baixada do ponto P sobre o plano π e R o pé da perpendicular baixada de Q sobre uma reta r contida em π. Então, o vetor [[PR]] é perpendicular à reta r.\nQual é o veredito certo, com o motivo?",
+      "alternativas": [
+        {"t": "Falso: [[PR]] só faria 90° com r se o ponto P estivesse dentro do plano π.", "certa": false, "erro": "Com P fora de π vale também. No exemplo P = (1, 2, 3), Q = (1, 2, 0), R = (3/2, 3/2, 0), com r pela origem na direção (1, 1, 0): [[PR]]·(1, 1, 0) = 1/2 − 1/2 + 0 = 0."},
+        {"t": "Falso: só [[QR]] é perpendicular a r; [[PR]] é inclinado e não faz 90°.", "certa": false, "erro": "Inclinado em relação à folha não quer dizer inclinado em relação a r. A parte vertical [[PQ]] não muda o produto escalar com a direção de r, porque r está deitada em π."},
+        {"t": "Verdadeiro: [[PR]] é perpendicular a r porque [[PR]] é perpendicular ao plano π.", "certa": false, "erro": "Quem é perpendicular a π é [[PQ]]. No exemplo, [[PR]] = (1/2, −1/2, −3) não é múltiplo da normal (0, 0, 1). O veredito está certo, o motivo não."},
+        {"t": "Verdadeiro: P, Q e R estão na mesma reta, e essa reta é perpendicular a r.", "certa": false, "erro": "P, Q e R formam um triângulo, com ângulo reto em Q. No exemplo, [[PQ]] = (0, 0, −3) e [[PR]] = (1/2, −1/2, −3) não são múltiplos, logo os três pontos não estão alinhados."},
+        {"t": "Verdadeiro: [[PR]] = [[PQ]] + [[QR]], e as duas parcelas fazem 90° com r.", "certa": true}
+      ],
+      "dica": "Escreva [[PR]] como a soma de dois trechos: de P até Q e de Q até R. Faça o produto escalar com a direção de r.",
+      "resposta": "Verdadeiro. [[PR]]·[[v]] = [[PQ]]·[[v]] + [[QR]]·[[v]] = 0 + 0 = 0.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-1, -1, 0], [3, -1, 0], [3, 3, 0], [-1, 3, 0]], "cor": 3},
+          {"tipo": "segmento", "de": [-1, -1, 0], "ate": [3, 3, 0], "cor": 1},
+          {"tipo": "segmento", "de": [1, 2, 3], "ate": [1, 2, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [1, 2, 0], "ate": [1.5, 1.5, 0], "tracejado": true},
+          {"tipo": "vetor", "de": [1, 2, 3], "ate": [1.5, 1.5, 0], "rot": "PR", "cor": 4},
+          {"tipo": "ponto", "em": [1, 2, 3], "rot": "P"},
+          {"tipo": "ponto", "em": [1, 2, 0], "rot": "Q"},
+          {"tipo": "ponto", "em": [1.5, 1.5, 0], "rot": "R"}
+        ],
+        "legenda": "A folha é o plano π: z = 0. A linha azul é r. Os tracejados são PQ e QR, e a seta escura é [[PR]]."
+      },
+      "jeitos": {
+        "visual": "Imagine um poste com o topo em P e a base em Q, no chão. Uma rua reta r passa perto da base. Do pé do poste, você anda até a rua em 90° e chega a R. Na figura, esses dois trechos são os tracejados. Agora estique um cabo do topo até R: a seta escura. O cabo fica inclinado, mas visto de cima ele cai sobre o trecho QR. Por isso, ele também faz 90° com a rua.",
+        "receita": [
+          "Chame de [[v]] a direção de r. A meta é mostrar que [[PR]]·[[v]] = 0.",
+          "Quebre o caminho em dois trechos: [[PR]] = [[PQ]] + [[QR]].",
+          "[[PQ]] é perpendicular a π, e [[v]] está deitado em π. Logo [[PQ]]·[[v]] = 0.",
+          "R é o pé da perpendicular baixada de Q sobre r. Logo [[QR]]·[[v]] = 0.",
+          "Some: [[PR]]·[[v]] = 0 + 0 = 0. A afirmação é verdadeira.",
+          "Teste: P = (1, 2, 3), π: z = 0, r pela origem na direção (1, 1, 0). Sai R = (3/2, 3/2, 0), [[PR]] = (1/2, −1/2, −3), e o produto com (1, 1, 0) dá 0."
+        ],
+        "cotidiano": "Com o sol a pino, a sombra de um cabo esticado do topo de um poste até a calçada cai em cima do trecho do chão entre o pé do poste e a calçada. Se a sombra faz 90° com a calçada, o cabo também faz, porque subir pelo poste não anda nada ao longo da calçada. Só conta o movimento no chão.",
+        "trabalho": "Produto escalar é SOMARPRODUTO, e ele distribui na soma: SOMARPRODUTO(a + b; v) = SOMARPRODUTO(a; v) + SOMARPRODUTO(b; v). Com [[PR]] = [[PQ]] + [[QR]], basta que cada parcela dê 0 para o total dar 0. É a mesma lógica de conciliar por componente: se cada parte fecha, o total fecha.",
+        "conversa": [
+          {"quem": "Você", "fala": "O [[PR]] está inclinado. Como pode fazer 90° com r?"},
+          {"quem": "Monitor", "fala": "Inclinado em relação a quem?"},
+          {"quem": "Você", "fala": "Em relação à folha π."},
+          {"quem": "Monitor", "fala": "E a pergunta é sobre a folha ou sobre r? Quebre [[PR]] em [[PQ]] + [[QR]]."},
+          {"quem": "Você", "fala": "[[PQ]] é vertical, então dá 0 com a direção de r. E [[QR]] foi construído em 90° com r."},
+          {"quem": "Monitor", "fala": "Quanto dá a soma?"},
+          {"quem": "Você", "fala": "0 + 0. É perpendicular mesmo."},
+          {"quem": "Monitor", "fala": "Esse resultado tem nome: teorema das três perpendiculares."}
+        ],
+        "erro": "A armadilha é achar que ângulo se enxerga pela inclinação. Um cabo pode estar inclinado e ainda assim cruzar a rua em 90°. Outro tropeço é dizer que [[PR]] é perpendicular ao plano: quem é perpendicular ao plano é [[PQ]]. Se o seu motivo precisa de [[PR]] em pé, ele está errado, porque [[PR]] não é múltiplo da normal.",
+        "confira": "Teste outra configuração, longe dos eixos. Plano π: x + y + z − 1 = 0, P = (1, 2, 3), r por (1, 0, 0) na direção (1, −1, 0). O pé Q é (−2/3, 1/3, 4/3), e R é (0, 1, 0). Então [[PR]] = (−1, −1, −3), e [[PR]]·(1, −1, 0) = −1 + 1 + 0 = 0. Se P estivesse em r, [[PR]] seria nulo, e o produto também daria 0.",
+        "atalho": "Na prova, não precisa de figura. Escreva a soma dos dois trechos e aplique o produto escalar: três linhas fecham o assunto. Para eliminar: \"P precisa estar em π\" é condição inventada, e \"alinhados\" contradiz a construção, já que o ângulo em Q é reto. Entre as que dizem Verdadeiro, fique com a que usa a soma."
+      }
+    },
+    {
+      "id": "ga-s5-l8q9d",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Interseção de três planos",
+      "origem": "Lista 8 · Q9d",
+      "enunciado": "Classifique em Verdadeiro (V) ou Falso (F). Se verdadeiro, prove. Se falso, dê um contraexemplo. (OBS: Em todas as sentenças considere que estamos em R³.)\nAfirmação: A interseção de três planos concorrentes, é sempre uma reta.\nQual é o veredito certo, com o motivo?",
+      "alternativas": [
+        {"t": "Verdadeiro: cada par de planos se corta numa reta, e a interseção dos três é essa reta.", "certa": false, "erro": "Cada par se corta numa reta, mas as retas dos pares podem ser diferentes. x = 0 com y = 0 dá o eixo z, e y = 0 com z = 0 dá o eixo x. Esses eixos só têm a origem em comum."},
+        {"t": "Falso: os três podem ter um único ponto em comum, como x = 0, y = 0 e z = 0.", "certa": true},
+        {"t": "Verdadeiro: plano com plano dá reta, e uma reta não vira ponto depois.", "certa": false, "erro": "Vira, sim. A reta x = 0, y = 0 é o eixo z, e ela fura o plano z = 0 em (0, 0, 0). Reta com um terceiro plano pode dar um ponto."},
+        {"t": "Falso: a interseção de três planos é sempre um único ponto.", "certa": false, "erro": "Ponto é um dos casos. Os planos x = 0, y = 0 e x + y = 0 têm todo o eixo z em comum. A palavra \"sempre\" também não vale aqui."},
+        {"t": "Falso: a interseção de três planos concorrentes é sempre vazia.", "certa": false, "erro": "A origem está em x = 0, em y = 0 e em z = 0, então essa interseção não é vazia. Vazio acontece em outros arranjos, não em todos."}
+      ],
+      "dica": "Pense no canto de uma sala: duas paredes e o chão. O que as três superfícies têm em comum?",
+      "resposta": "Falso. Pode ser um único ponto: x = 0, y = 0 e z = 0 só têm a origem em comum.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, -2, -2], [0, 2, -2], [0, 2, 2], [0, -2, 2]], "cor": 1},
+          {"tipo": "poligono", "pts": [[-2, 0, -2], [2, 0, -2], [2, 0, 2], [-2, 0, 2]], "cor": 2},
+          {"tipo": "poligono", "pts": [[-2, -2, 0], [2, -2, 0], [2, 2, 0], [-2, 2, 0]], "cor": 3},
+          {"tipo": "ponto", "em": [0, 0, 0], "rot": "O"}
+        ],
+        "legenda": "As folhas x = 0, y = 0 e z = 0 têm um só ponto em comum: a origem O."
+      },
+      "jeitos": {
+        "visual": "Olhe o canto de uma sala. Cada parede encontra o chão numa linha, e as duas paredes se encontram numa linha vertical. São três linhas, todas diferentes. O que as três superfícies têm em comum é só o canto. Na figura, as folhas são x = 0, y = 0 e z = 0, e O é a origem. Gire a imagem para ver que só esse ponto está nas três.",
+        "receita": [
+          "A lista não define \"planos concorrentes\". Hipótese, pendente de validação com o professor: são planos que se cortam. Escolha x = 0, y = 0 e z = 0.",
+          "Corte de x = 0 com y = 0: o eixo z.",
+          "Imponha z = 0 nessa reta: sobra só (0, 0, 0).",
+          "O conjunto comum aos três é um único ponto, não uma reta.",
+          "Um contraexemplo basta contra \"sempre\". A afirmação é falsa."
+        ],
+        "cotidiano": "Marque um encontro com três condições: estar na Rua A, estar na Rua B e estar no segundo andar. As duas ruas se cruzam numa esquina, e sobre ela há uma coluna inteira de andares. O andar corta essa coluna em um lugar. Sobra um único ponto de encontro, e não uma linha.",
+        "trabalho": "Cada plano é uma condição no `WHERE`. `WHERE x = 0 AND y = 0 AND z = 0` devolve no máximo uma combinação. Já `WHERE x = 0 AND y = 0 AND x + y = 0` devolve todas as linhas com x e y iguais a 0, qualquer que seja z, porque a terceira condição é a soma das outras duas. É a redundância que muda o resultado, não a quantidade de filtros.",
+        "conversa": [
+          {"quem": "Você", "fala": "Cada par de planos dá uma reta. Então três planos dão uma reta."},
+          {"quem": "Monitor", "fala": "A mesma reta em todos os pares?"},
+          {"quem": "Você", "fala": "Achei que sim."},
+          {"quem": "Monitor", "fala": "Teste com x = 0, y = 0 e z = 0. O que dá x = 0 com y = 0?"},
+          {"quem": "Você", "fala": "O eixo z."},
+          {"quem": "Monitor", "fala": "E y = 0 com z = 0?"},
+          {"quem": "Você", "fala": "O eixo x. São retas diferentes, e só se tocam na origem."},
+          {"quem": "Monitor", "fala": "Então a interseção dos três é (0, 0, 0). A afirmação caiu."}
+        ],
+        "erro": "O tropeço é ler \"interseção de três\" como se fosse a de dois. Dois planos que se cortam dão uma reta. O terceiro pode conter essa reta, furá-la num ponto ou ficar paralelo a ela. Perceba pelo \"sempre\": uma palavra dessas cai com um único contraexemplo, e o canto da sala já serve.",
+        "confira": "Resolva por outro caminho. Determinante é um número calculado com os três normais: diferente de 0, o ponto comum é único. Os normais (1, 0, 0), (0, 1, 0) e (0, 0, 1) dão determinante 1, e a solução é (0, 0, 0). Compare com x = 0, y = 0, x + y = 0: ali o determinante dá 0, e a interseção é o eixo z inteiro.",
+        "atalho": "Procure um contraexemplo com os planos dos eixos, que não exigem conta. O resultado é um ponto, e isso tira as duas alternativas de Verdadeiro. A \"sempre vazia\" também sai, porque a origem está nos três. Entre as duas falsas que sobram, x = 0, y = 0, x + y = 0 derruba a que diz \"sempre um único ponto\"."
+      }
+    },
+    {
+      "id": "ga-s5-l8q9e",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Planos com um normal",
+      "origem": "Lista 8 · Q9e",
+      "enunciado": "Classifique em Verdadeiro (V) ou Falso (F). Se verdadeiro, prove. Se falso, dê um contraexemplo. (OBS: Em todas as sentenças considere que estamos em R³.)\nAfirmação: Seja um vetor [[n]]. Existe um único plano que tem como vetor normal [[n]].\nQual é o veredito certo, com o motivo?",
+      "alternativas": [
+        {"t": "Verdadeiro: a equação ax + by + cz + d = 0 sai inteira de [[n]], sem faltar nenhum número.", "certa": false, "erro": "[[n]] entrega só a, b e c. O d fica livre: x + y + z + 1 = 0 e x + y + z − 7 = 0 têm o mesmo normal (1, 1, 1) e são planos diferentes."},
+        {"t": "Verdadeiro: um prego em pé só cabe em uma folha, e o vetor normal é esse prego.", "certa": false, "erro": "O mesmo prego, deslizado na vertical, fica em pé em z = 0, em z = 1 e em z = 2. Vetor não tem lugar fixo: ele diz direção, não endereço."},
+        {"t": "Falso: [[n]] sozinho define uma reta, e nunca um plano, mesmo com um ponto dado.", "certa": false, "erro": "Com um ponto A, [[n]] define plano, sim: [[n]]·(X − A) = 0. O que falta na afirmação é esse ponto, não a capacidade do vetor de definir planos."},
+        {"t": "Falso: infinitos planos paralelos têm o mesmo [[n]]; falta um ponto para escolher.", "certa": true},
+        {"t": "Falso: existem só dois planos, um para [[n]] e outro para −[[n]].", "certa": false, "erro": "[[n]] e −[[n]] têm a mesma direção e servem de normal para os mesmos planos. O sinal não separa dois planos, e eles são infinitos."}
+      ],
+      "dica": "A equação geral tem a, b, c e d. Quais desses números o vetor normal entrega?",
+      "resposta": "Falso. Infinitos planos paralelos têm o mesmo [[n]].",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-2, -2, 0], [2, -2, 0], [2, 2, 0], [-2, 2, 0]], "cor": 1},
+          {"tipo": "poligono", "pts": [[-2, -2, 1], [2, -2, 1], [2, 2, 1], [-2, 2, 1]], "cor": 2},
+          {"tipo": "poligono", "pts": [[-2, -2, 2], [2, -2, 2], [2, 2, 2], [-2, 2, 2]], "cor": 3},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [0, 0, 1], "rot": "n", "cor": 4}
+        ],
+        "legenda": "As folhas z = 0, z = 1 e z = 2 têm o mesmo vetor normal [[n]] = (0, 0, 1)."
+      },
+      "jeitos": {
+        "visual": "Imagine um prédio. As lajes são folhas horizontais, e um prego em pé serve de normal para todas. Mude de andar: o prego continua apontando para cima, e a laje é outra. Na figura, as três folhas estão em z = 0, z = 1 e z = 2, e a seta [[n]] = (0, 0, 1) fica em pé em qualquer uma delas.",
+        "receita": [
+          "Escolha [[n]] = (1, 1, 1). Ele entrega a = 1, b = 1 e c = 1.",
+          "A equação fica x + y + z + d = 0, com d livre.",
+          "Com d = 1: x + y + z + 1 = 0.",
+          "Com d = −7: x + y + z − 7 = 0.",
+          "(−1, 0, 0) está no primeiro e não no segundo, onde dá −1 − 7 = −8. São planos diferentes, e a afirmação é falsa."
+        ],
+        "cotidiano": "O trilho vertical de um elevador dá a direção do movimento. Cada parada tem um piso, todos perpendiculares ao trilho. Saber o trilho não diz em que andar você está. Falta o botão do andar, que aqui é o ponto por onde o plano passa.",
+        "trabalho": "Leia x + y + z + d = 0 como uma regra de total: SOMARPRODUTO((x; y; z); (1; 1; 1)) = −d. Os pesos (1, 1, 1) são o normal. Mudar o d é mudar a meta do total, sem mexer nos pesos. Cada meta dá um conjunto diferente de combinações, e é um plano diferente. Mesmos pesos, metas diferentes: folhas paralelas.",
+        "conversa": [
+          {"quem": "Você", "fala": "Normal é o prego em pé. Achei que o prego fixava a folha."},
+          {"quem": "Monitor", "fala": "O prego diz a inclinação da folha. Diz a altura dela também?"},
+          {"quem": "Você", "fala": "Não sei. Como testo?"},
+          {"quem": "Monitor", "fala": "Pegue [[n]] = (1, 1, 1) e escreva a equação."},
+          {"quem": "Você", "fala": "x + y + z + d = 0. O d não apareceu."},
+          {"quem": "Monitor", "fala": "Troque o d por 1 e por −7. É o mesmo plano?"},
+          {"quem": "Você", "fala": "Não. Mesmo normal, pontos diferentes."},
+          {"quem": "Monitor", "fala": "Falta um ponto. Com ele o d sai, e aí o plano é único."}
+        ],
+        "erro": "A armadilha é ver o prego e esquecer o d. O normal fixa só a inclinação da folha. Quem define a posição é o ponto, e o ponto entra na conta pelo d. Se você montou a equação e sobrou uma letra sem valor, o plano ainda não está definido. A receita continua valendo: um ponto e um prego. Aqui só há o prego.",
+        "confira": "Prove por contradição. Se x + y + z = −1 e x + y + z = 7 valessem no mesmo ponto, teríamos −1 = 7. Então x + y + z + 1 = 0 e x + y + z − 7 = 0 são folhas separadas, sem ponto comum, e as duas têm normal (1, 1, 1). Existirem duas já derruba a palavra \"único\".",
+        "atalho": "Compare com a reta: um vetor sozinho também não fixa reta. Sem ponto, não há endereço. Veredito: Falso, e as duas de Verdadeiro saem. Das falsas, a que diz \"só dois\" cai porque d aceita qualquer valor, e a que diz que [[n]] nunca define plano contradiz a própria equação do plano."
+      }
+    },
+    {
+      "id": "ga-s5-l8q9f",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Retas com direções diferentes",
+      "origem": "Lista 8 · Q9f",
+      "enunciado": "Classifique em Verdadeiro (V) ou Falso (F). Se verdadeiro, prove. Se falso, dê um contraexemplo. (OBS: Em todas as sentenças considere que estamos em R³.)\nAfirmação: Seja a reta r₁ de vetor diretor [[u]] e seja a reta r₂ de vetor diretor [[v]]. Se [[u]] ≠ λ[[v]], então as retas são concorrentes.\nQual é o veredito certo, com o motivo?",
+      "alternativas": [
+        {"t": "Verdadeiro: direções diferentes sempre se cruzam em algum ponto do espaço.", "certa": false, "erro": "Isso vale numa folha. Em R³ há o viaduto sobre a avenida. r₁: X = (0, 0, 0) + t(1, 0, 0) fica em z = 0, e r₂: X = (0, 0, 2) + k(0, 1, 0) fica em z = 2. Nunca se tocam."},
+        {"t": "Verdadeiro: se as retas não são paralelas, elas só podem ser concorrentes.", "certa": false, "erro": "Faltou um caso. Direção diferente deixa dois destinos: concorrentes, com ponto comum, e reversas, sem ponto comum. A afirmação fala só do primeiro."},
+        {"t": "Falso: se [[u]] ≠ λ[[v]], as retas são sempre reversas e nunca se encontram.", "certa": false, "erro": "Também não é sempre. X = (0, 0, 0) + t(1, 0, 0) e X = (0, 0, 0) + k(0, 1, 0) têm direções diferentes e se cruzam na origem."},
+        {"t": "Falso: se [[u]] ≠ λ[[v]], as retas são paralelas, e a distância entre elas é fixa.", "certa": false, "erro": "É o contrário. Paralelas têm direção múltipla, e a hipótese diz justamente que [[u]] não é múltiplo de [[v]]."},
+        {"t": "Falso: com direções diferentes, as retas podem ser reversas, sem ponto comum.", "certa": true}
+      ],
+      "dica": "Direção diferente resolve uma parte da pergunta. O que mais é preciso para duas retas se tocarem?",
+      "resposta": "Falso. As retas podem ser reversas.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [-2, 0, 0], "ate": [2, 0, 0], "cor": 1},
+          {"tipo": "segmento", "de": [0, -2, 2], "ate": [0, 2, 2], "cor": 2},
+          {"tipo": "segmento", "de": [0, 0, 0], "ate": [0, 0, 2], "tracejado": true},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 0, 0], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 2], "ate": [0, 1, 2], "rot": "v", "cor": 2}
+        ],
+        "legenda": "r₁ corre em z = 0 e r₂ corre em z = 2. O tracejado mostra o vão entre elas."
+      },
+      "jeitos": {
+        "visual": "Olhe a figura como um viaduto sobre uma avenida. A reta azul corre em z = 0, e a coral corre em z = 2, em direção cruzada. De cima, parecem se cruzar. De lado, o tracejado mostra um vão de 2 entre elas. Gire a imagem até ver o vão. Direções diferentes e nenhum ponto em comum: são reversas.",
+        "receita": [
+          "A lista não escreve \"para nenhum λ\". Hipótese de leitura: [[u]] ≠ λ[[v]] diz que [[u]] não é múltiplo de [[v]]. As direções são diferentes.",
+          "Monte r₁: X = (0, 0, 0) + t(1, 0, 0) e r₂: X = (0, 0, 2) + k(0, 1, 0).",
+          "(1, 0, 0) não é múltiplo de (0, 1, 0): a condição vale.",
+          "Procure um ponto comum: em r₁, z = 0; em r₂, z = 2. O z nunca bate.",
+          "Sem ponto comum, as retas não são concorrentes. São reversas, e a afirmação é falsa."
+        ],
+        "cotidiano": "Uma rua e a ponte que passa por cima dela. As duas têm direções bem diferentes, e ninguém precisa de semáforo, porque elas não se encontram. Quem olha o mapa no papel vê um cruzamento. O mapa achata a altura, e é isso que esconde o vão.",
+        "trabalho": "Pense numa checagem em duas etapas. Primeiro o teste da direção: são múltiplos? Deu que não. Isso não prova o encontro. Falta a segunda etapa: existem t e k que igualam as três coordenadas? É como um `JOIN`: colunas compatíveis não garantem linha em comum. A conferência tem de rodar nos dados. Se o `JOIN` volta vazio, as retas são reversas.",
+        "conversa": [
+          {"quem": "Você", "fala": "Direções diferentes se cruzam. Na folha sempre foi assim."},
+          {"quem": "Monitor", "fala": "Na folha, sim. Qual é o mundo da questão?"},
+          {"quem": "Você", "fala": "R³."},
+          {"quem": "Monitor", "fala": "Teste X = (0, 0, 0) + t(1, 0, 0) e X = (0, 0, 2) + k(0, 1, 0). Iguale o z."},
+          {"quem": "Você", "fala": "Dá 0 = 2. Impossível."},
+          {"quem": "Monitor", "fala": "Sem ponto comum e com direções diferentes. Que nome elas têm?"},
+          {"quem": "Você", "fala": "Reversas. Então a frase é falsa."}
+        ],
+        "erro": "A armadilha é carregar a intuição da folha para o espaço. Numa folha, direções diferentes sempre se cruzam. Em R³ existem os quatro casos: coincidentes, paralelas, concorrentes e reversas. O teste do múltiplo só separa os dois primeiros dos dois últimos. Se você parou nele, ainda não decidiu. Falta igualar as coordenadas e ver se existem t e k.",
+        "confira": "Há um teste independente: o determinante do trio formado pela seta entre os dois pontos e pelas duas direções. Aqui, (0, 0, 2), (1, 0, 0) e (0, 1, 0) dão 2, diferente de 0: reversas. Se as duas retas partissem da origem, a seta entre os pontos seria (0, 0, 0), o determinante daria 0, e elas seriam concorrentes.",
+        "atalho": "A hipótese fala só de direção, nada de ponto. Isso já basta para desconfiar de qualquer conclusão sobre encontro. Veredito: Falso. Entre as falsas, \"paralelas\" inverte a definição, e \"sempre reversas\" cai com duas retas saindo da origem. Fica a que diz \"podem ser reversas\": poder não é sempre."
+      }
+    }
+  ]
+}

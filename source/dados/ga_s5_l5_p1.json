@@ -1,0 +1,327 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-l5q1a",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Plano por ponto e normal",
+      "origem": "Lista 5 · Q1a",
+      "enunciado": "Determine a equação geral do plano que passa pelo ponto A e possui vetor normal [[n]]: A = (−1, 2, 3) e [[n]] = (1, 1, 1). Qual é a equação?",
+      "alternativas": [
+        {"t": "x + y + z + 4 = 0", "certa": false, "erro": "Sinal do d trocado. Em A = (−1, 2, 3) essa equação dá −1 + 2 + 3 + 4 = 8, e teria de dar 0."},
+        {"t": "x + y + z − 4 = 0", "certa": true},
+        {"t": "−x + 2y + 3z − 4 = 0", "certa": false, "erro": "Você trocou os papéis: usou A como normal e fez a folha passar por (1, 1, 1). Essa conta fecha, −1 + 2 + 3 − 4 = 0, mas o plano pedido tem normal (1, 1, 1) e passa por A."},
+        {"t": "x + y + z − 6 = 0", "certa": false, "erro": "Você perdeu o sinal do −1: somou 1 + 2 + 3 = 6. O certo é −1 + 2 + 3 = 4. Em A, essa equação dá 4 − 6 = −2."},
+        {"t": "x + y + z = 0", "certa": false, "erro": "O normal está certo, mas faltou o d. Essa folha passa pela origem, e em A ela dá −1 + 2 + 3 = 4, não 0."}
+      ],
+      "dica": "Use o vetor normal como coeficientes de x, y e z. O d é o que faz a equação zerar em A.",
+      "resposta": "x + y + z − 4 = 0",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[1.5, 1.5, 1], [-0.5, -0.5, 5], [-3.5, 2.5, 5], [-1.5, 4.5, 1]], "cor": 3},
+          {"tipo": "vetor", "de": [-1, 2, 3], "ate": [0, 3, 4], "rot": "n", "cor": 1},
+          {"tipo": "vetor", "de": [-1, 2, 3], "ate": [1, 1, 2], "rot": "AX", "cor": 2},
+          {"tipo": "ponto", "em": [-1, 2, 3], "rot": "A"},
+          {"tipo": "ponto", "em": [1, 1, 2], "rot": "X"}
+        ],
+        "legenda": "A seta azul é o prego em pé na folha. A coral está deitada na folha e faz 90° com o prego."
+      },
+      "jeitos": {
+        "visual": "Uma folha passa por A e um prego fica em pé nela. O prego é o vetor normal, [[n]] = (1, 1, 1). Na figura, a seta coral é deitada: vai de A até o ponto (1, 1, 2), dentro da folha. Ela faz 90° com o prego. É esse canto reto que vira equação: produto escalar 0 entre o prego e qualquer seta deitada na folha.",
+        "receita": [
+          "A equação tem a forma ax + by + cz + d = 0, com (a, b, c) = [[n]] = (1, 1, 1).",
+          "Fica x + y + z + d = 0.",
+          "Ponha A = (−1, 2, 3): −1 + 2 + 3 + d = 0.",
+          "4 + d = 0, então d = −4.",
+          "Plano: x + y + z − 4 = 0."
+        ],
+        "cotidiano": "Pense numa mesa inclinada com um palito espetado em pé. O palito decide a inclinação. Mas a mesma inclinação serve para infinitas mesas, uma em cima da outra, em alturas diferentes. O que escolhe a mesa certa é o ponto A por onde ela passa. O palito dá x + y + z, e o ponto dá o −4.",
+        "trabalho": "x + y + z = 4 é um SOMARPRODUTO com preços (1, 1, 1) e quantidades (x, y, z). O plano é o conjunto de todas as cestas cujo total dá 4, inclusive com quantidade negativa. A entra com −1, 2 e 3, e o SOMARPRODUTO dá 4: é daí que sai o d. Um ponto fora do plano é uma cesta com outro total, como (0, 0, 0), que soma 0.",
+        "conversa": [
+          {"quem": "Você", "fala": "Sei que é x + y + z. Mas de onde vem o −4?"},
+          {"quem": "Monitor", "fala": "Ponha A na conta. Quanto dá −1 + 2 + 3?"},
+          {"quem": "Você", "fala": "4."},
+          {"quem": "Monitor", "fala": "E a equação tem de dar 0 em qualquer ponto da folha. O que falta?"},
+          {"quem": "Você", "fala": "Tirar 4. Então x + y + z − 4 = 0."},
+          {"quem": "Monitor", "fala": "Agora teste (0, 0, 0). Deu −4: a origem fica fora da folha."}
+        ],
+        "erro": "O tropeço é o sinal do d. A soma do ponto dá 4, e o d é −4: ele é o que zera a conta, não a própria soma. Outro erro é perder o menos da primeira coordenada e somar 1 + 2 + 3 = 6. E há quem troque os papéis, pondo A como normal, porque os dois vêm entre parênteses. O normal é o vetor marcado com a letra n.",
+        "confira": "Ponha A na sua equação: −1 + 2 + 3 − 4 = 0. Passou. Agora ande na folha por um caminho que faz 90° com o prego, como (1, −1, 0): A + (1, −1, 0) = (0, 1, 3), e 0 + 1 + 3 − 4 = 0. Continuou na folha. Por fim, (0, 0, 0) dá −4: fora.",
+        "atalho": "Os coeficientes de x, y e z têm de ser 1, 1 e 1. Isso elimina a que começa com −x. Para as outras, só substitua A = (−1, 2, 3): −1 + 2 + 3 = 4. A equação precisa tirar 4 para zerar. Uma conta só, em dez segundos, e sobra uma alternativa."
+      }
+    },
+    {
+      "id": "ga-s5-l5q1b",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Plano sem a letra z",
+      "origem": "Lista 5 · Q1b",
+      "enunciado": "Determine a equação geral do plano que passa pelo ponto A e possui vetor normal [[n]]: A = (0, 1, 2) e [[n]] = (2, 3, 0). Qual é a equação?",
+      "alternativas": [
+        {"t": "2x + 3y + 3 = 0", "certa": false, "erro": "Sinal do d trocado. Em A = (0, 1, 2) essa equação dá 0 + 3 + 3 = 6, e teria de dar 0."},
+        {"t": "y + 2z − 3 = 0", "certa": false, "erro": "Você trocou os papéis: usou A como normal, (0, 1, 2), e fez a folha passar por (2, 3, 0). Em A essa equação dá 1 + 4 − 3 = 2."},
+        {"t": "2x + 3y + z − 5 = 0", "certa": false, "erro": "O z do normal é 0, e você pôs 1. A letra z some da equação, porque 0·z = 0. Com esse 1 o normal vira (2, 3, 1), que não é o dado."},
+        {"t": "2x + 3y − 3 = 0", "certa": true},
+        {"t": "2x + 3y − 5 = 0", "certa": false, "erro": "Você somou o z de A sem multiplicar por 0: 2·0 + 3·1 + 2 = 5. O certo é 2·0 + 3·1 + 0·2 = 3. Em A, essa equação dá 3 − 5 = −2."}
+      ],
+      "dica": "O z do normal é 0. O que acontece com a letra z na equação?",
+      "resposta": "2x + 3y − 3 = 0",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[3, -1, 0], [3, -1, 4], [-1.5, 2, 4], [-1.5, 2, 0]], "cor": 3},
+          {"tipo": "vetor", "de": [0, 1, 2], "ate": [2, 4, 2], "rot": "n", "cor": 1},
+          {"tipo": "ponto", "em": [0, 1, 2], "rot": "A"}
+        ],
+        "legenda": "A folha está em pé, como uma parede. O prego sai dela na horizontal."
+      },
+      "jeitos": {
+        "visual": "O prego [[n]] = (2, 3, 0) está na horizontal: não tem z. Para ele ser perpendicular à folha, a folha precisa ficar em pé, como uma parede. Na figura, a parede sobe em z, e a seta azul sai dela na horizontal, no ponto A = (0, 1, 2). Por isso z some da equação: subir ou descer na parede não muda a conta.",
+        "receita": [
+          "Use o normal como coeficientes: 2x + 3y + 0z + d = 0.",
+          "0z some: 2x + 3y + d = 0.",
+          "Ponha A = (0, 1, 2): 2·0 + 3·1 + d = 0.",
+          "3 + d = 0, então d = −3.",
+          "Plano: 2x + 3y − 3 = 0."
+        ],
+        "cotidiano": "Imagine uma parede de vidro. Você está de frente para ela e um cabo sai do vidro reto até você, sem subir nem descer. O cabo é o normal. Para dizer se um ponto está no vidro, só importa a posição no chão; a altura não muda a resposta. Por isso a equação não fala em altura.",
+        "trabalho": "O 0 é um preço zero no SOMARPRODUTO: qualquer quantidade de z dá custo 0. Por isso a coluna z fica fora da fórmula, mas não do ponto. Na conta do d, o z = 2 de A entra multiplicado por 0. Em SQL, é como uma coluna que não aparece no WHERE: a linha passa com qualquer valor dela. O filtro `2*x + 3*y = 3` serve para toda altura.",
+        "conversa": [
+          {"quem": "Você", "fala": "A equação não tem z. Está faltando alguma coisa?"},
+          {"quem": "Monitor", "fala": "Quanto vale o z do normal?"},
+          {"quem": "Você", "fala": "0. Então 0z."},
+          {"quem": "Monitor", "fala": "E o que acontece com o 2 do ponto A, quando você calcula o d?"},
+          {"quem": "Você", "fala": "Entra 0 vezes 2, que dá 0. Então d = −3."},
+          {"quem": "Monitor", "fala": "Agora teste (0, 1, 50): 0 + 3 − 3 = 0. A parede sobe sem limite."}
+        ],
+        "erro": "O erro é tratar o 2 do ponto como se contasse: 3 + 2 = 5. Ele conta só multiplicado por 0. Outro tropeço é pôr z na equação porque a letra apareceu no ponto. A regra é: o número da letra vem do normal, nunca do ponto. Se o normal tem 0 em z, a letra z não aparece, mesmo com A tendo z = 2.",
+        "confira": "Substitua A: 2·0 + 3·1 − 3 = 0. Teste dois outros pontos em alturas diferentes: (3, −1, 0) dá 6 − 3 − 3 = 0, e (3, −1, 4) dá o mesmo. Se a altura mudasse a conta, o plano não estaria em pé, e o normal teria z diferente de 0.",
+        "atalho": "O normal tem 0 em z: a equação não pode ter z. Isso tira duas alternativas. Das três restantes, todas com 2x + 3y, só falta a conta 2·0 + 3·1 = 3 para achar o −3. É o caminho mais curto: um olhar e uma multiplicação."
+      }
+    },
+    {
+      "id": "ga-s5-l5q1c",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Plano com normal negativa",
+      "origem": "Lista 5 · Q1c",
+      "enunciado": "Determine a equação geral do plano que passa pelo ponto A e possui vetor normal [[n]]: A = (2, 1, 3) e [[n]] = (2, 1, −2). Qual é a equação?",
+      "alternativas": [
+        {"t": "2x + y − 2z − 1 = 0", "certa": false, "erro": "Sinal do d trocado. Em A = (2, 1, 3) essa equação dá 4 + 1 − 6 − 1 = −2, e teria de dar 0."},
+        {"t": "2x + y − 2z − 11 = 0", "certa": false, "erro": "Você perdeu o menos de −2·3 e somou: 4 + 1 + 6 = 11. O certo é 4 + 1 − 6 = −1, então d = 1."},
+        {"t": "2x + y + 3z + 1 = 0", "certa": false, "erro": "Você trocou os papéis: usou A = (2, 1, 3) como normal e fez a folha passar por (2, 1, −2). Como x e y coincidem, o engano só aparece em z. Em A essa equação dá 4 + 1 + 9 + 1 = 15."},
+        {"t": "2x + y + 2z − 11 = 0", "certa": false, "erro": "Você leu o normal como (2, 1, 2), sem o menos do z. A folha até passa por A, 4 + 1 + 6 − 11 = 0, mas está inclinada para o lado errado."},
+        {"t": "2x + y − 2z + 1 = 0", "certa": true}
+      ],
+      "dica": "Multiplique cada coordenada de A pelo número do normal, respeitando o sinal do −2.",
+      "resposta": "2x + y − 2z + 1 = 0",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[5, -2, 4.5], [2, -2, 1.5], [-1, 4, 1.5], [2, 4, 4.5]], "cor": 3},
+          {"tipo": "vetor", "de": [2, 1, 3], "ate": [4, 2, 1], "rot": "n", "cor": 1},
+          {"tipo": "ponto", "em": [2, 1, 3], "rot": "A"}
+        ],
+        "legenda": "O prego aponta para baixo porque o z do normal é −2."
+      },
+      "jeitos": {
+        "visual": "A folha está inclinada, e o prego [[n]] = (2, 1, −2) aponta para a frente e para baixo. Na figura, a seta azul sai de A = (2, 1, 3) e chega em (4, 2, 1). O sinal negativo do z é o que define para onde a folha se inclina: com +2 no lugar de −2, ela pende para o outro lado, ainda que passe por A.",
+        "receita": [
+          "Use o normal como coeficientes: 2x + y − 2z + d = 0.",
+          "Ponha A = (2, 1, 3): 2·2 + 1 − 2·3 + d = 0.",
+          "4 + 1 − 6 = −1, então −1 + d = 0.",
+          "d = 1.",
+          "Plano: 2x + y − 2z + 1 = 0."
+        ],
+        "cotidiano": "Um caixa registra três itens: o primeiro vale 2, o segundo vale 1, e o terceiro é um desconto de 2. Com 2 do primeiro, 1 do segundo e 3 do terceiro, a conta fecha em −1: o desconto foi maior. Para a conta zerar, soma-se 1. Quem trata o desconto como preço soma 6 em vez de tirar e acha 11.",
+        "trabalho": "SOMARPRODUTO com preço negativo, como uma linha de devolução: (2, 1, −2) com (2, 1, 3) dá 4 + 1 − 6 = −1. Se a devolução entrar como positiva, o total fica 11 e a conferência não fecha. O d é o ajuste que zera a linha: −1 + 1 = 0. É o mesmo cuidado com o sinal de um estorno na DRE: o valor pode estar certo e o resultado sair errado.",
+        "conversa": [
+          {"quem": "Você", "fala": "4 + 1 + 6 = 11. Então d = −11?"},
+          {"quem": "Monitor", "fala": "O terceiro número do normal é −2. Quanto é −2 vezes 3?"},
+          {"quem": "Você", "fala": "−6. Deu 4 + 1 − 6 = −1."},
+          {"quem": "Monitor", "fala": "E a equação precisa dar quanto em A?"},
+          {"quem": "Você", "fala": "Zero. Então d = 1."},
+          {"quem": "Monitor", "fala": "2x + y − 2z + 1 = 0. Ponha A de novo e veja o zero."}
+        ],
+        "erro": "O tropeço é o sinal em −2·3. Quem perde o menos soma 6 e chega em −11. Outro erro é a coincidência entre ponto e normal: A = (2, 1, 3) e [[n]] = (2, 1, −2) começam iguais. Usar um no lugar do outro só muda o z, e o resultado parece plausível. O d positivo também assusta: −1 + d = 0 dá d = +1 mesmo.",
+        "confira": "Substitua A: 4 + 1 − 6 + 1 = 0. Depois ande numa direção que faz 90° com o prego, como (1, −2, 0), em que (2, 1, −2)·(1, −2, 0) = 0. O novo ponto é (3, −1, 3): 6 − 1 − 6 + 1 = 0. Continuou na folha. Se zerar em A e não zerar aqui, o normal está errado.",
+        "atalho": "Olhe o coeficiente de z: precisa ser −2. Isso elimina +3z e +2z. Entre as três com −2z, só falta o número solto. A conta em A é 4 + 1 − 6 = −1, então o número solto é +1. Tempo de prova: uma linha de conta, sem resolver nada além disso."
+      }
+    },
+    {
+      "id": "ga-s5-l5q2",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 6,
+      "tema": "Plano por três pontos",
+      "origem": "Lista 5 · Q2",
+      "enunciado": "Determine as equações (geral, vetorial e paramétricas) do plano que passa pelos pontos A = (1, 2, 3), B = (−1, 1, 1) e C = (0, 1, 2). Quais são as equações?",
+      "alternativas": [
+        {"t": "Geral: −x + z − 2 = 0. Vetorial: X = (1, 2, 3) + t(−2, −1, −2) + s(−1, −1, −1). Paramétricas: x = 1 − 2t − s, y = 2 − t − s, z = 3 − 2t − s.", "certa": true},
+        {"t": "Geral: −x + z + 2 = 0. Vetorial: X = (1, 2, 3) + t(−2, −1, −2) + s(−1, −1, −1). Paramétricas: x = 1 − 2t − s, y = 2 − t − s, z = 3 − 2t − s.", "certa": false, "erro": "Vetorial e paramétricas estão certas. Na geral, o sinal do d trocou. Em A = (1, 2, 3) ela dá −1 + 3 + 2 = 4, e teria de dar 0."},
+        {"t": "Geral: −x − z + 4 = 0. Vetorial: X = (1, 2, 3) + t(−2, −1, −2) + s(−1, −1, −1). Paramétricas: x = 1 − 2t − s, y = 2 − t − s, z = 3 − 2t − s.", "certa": false, "erro": "O terceiro número do normal saiu invertido: a conta certa é (−2)(−1) − (−1)(−1) = 1, e você fez 1 − 2 = −1. Essa folha passa por A, mas em B = (−1, 1, 1) dá 1 − 1 + 4 = 4."},
+        {"t": "Geral: x + 2y − z − 2 = 0. Vetorial: X = (1, 2, 3) + t(−1, 1, 1) + s(0, 1, 2). Paramétricas: x = 1 − t, y = 2 + t + s, z = 3 + t + 2s.", "certa": false, "erro": "Você usou os pontos B e C como setas, sem subtrair A. A seta de A até B é B − A = (−2, −1, −2). Esse plano passa por A, mas em B dá −1 + 2 − 1 − 2 = −2."},
+        {"t": "Geral: −x + z − 2 = 0. Vetorial: X = (1, 2, 3) + t(−2, −1, −2). Paramétricas: x = 1 − 2t, y = 2 − t, z = 3 − 2t.", "certa": false, "erro": "Com um contador só, você descreveu uma reta, a que passa por A e B. O plano precisa de dois: t e s. Essa vetorial nunca chega em C."}
+      ],
+      "dica": "Duas setas saem de A: até B e até C. O normal é o produto vetorial entre elas.",
+      "resposta": "Geral: −x + z − 2 = 0. Vetorial: X = (1, 2, 3) + t(−2, −1, −2) + s(−1, −1, −1). Paramétricas: x = 1 − 2t − s, y = 2 − t − s, z = 3 − 2t − s.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[1, 2, 3], [-1, 1, 1], [0, 1, 2]], "cor": 3},
+          {"tipo": "vetor", "de": [1, 2, 3], "ate": [-1, 1, 1], "rot": "AB", "cor": 1},
+          {"tipo": "vetor", "de": [1, 2, 3], "ate": [0, 1, 2], "rot": "AC", "cor": 2},
+          {"tipo": "vetor", "de": [1, 2, 3], "ate": [0, 2, 4], "rot": "n", "cor": 4},
+          {"tipo": "ponto", "em": [1, 2, 3], "rot": "A"},
+          {"tipo": "ponto", "em": [-1, 1, 1], "rot": "B"},
+          {"tipo": "ponto", "em": [0, 1, 2], "rot": "C"}
+        ],
+        "legenda": "As setas azul e coral estão deitadas na folha. A escura é o prego, em pé sobre as duas."
+      },
+      "jeitos": {
+        "visual": "Três pontos fixam uma folha, como três pernas fixam um banco. Na figura, as setas azul e coral saem de A e vão para B e C. Elas estão deitadas na folha. O prego, em tinta escura, sai do produto vetorial entre elas, a conta que devolve uma seta perpendicular às duas: [[n]] = (−1, 0, 1). Girando a figura, você vê o canto reto.",
+        "receita": [
+          "Setas: [[AB]] = B − A = (−2, −1, −2) e [[AC]] = C − A = (−1, −1, −1).",
+          "Vetorial: X = (1, 2, 3) + t(−2, −1, −2) + s(−1, −1, −1).",
+          "Paramétricas: x = 1 − 2t − s, y = 2 − t − s, z = 3 − 2t − s.",
+          "Normal: [[AB]] × [[AC]] = ((−1)(−1) − (−2)(−1), (−2)(−1) − (−2)(−1), (−2)(−1) − (−1)(−1)) = (−1, 0, 1).",
+          "Ponha A em −x + z + d = 0: −1 + 3 + d = 0, então d = −2.",
+          "Geral: −x + z − 2 = 0."
+        ],
+        "cotidiano": "Um banco de três pernas não balança: três pontos fora de fila sempre cabem numa mesma tábua. Para andar sobre a tábua, você precisa de dois trilhos, um apontando de A para B, outro de A para C. Um trilho só leva por uma linha. Com os dois, você chega em qualquer ponto da tábua combinando t passos no primeiro e s passos no segundo.",
+        "trabalho": "As três equações são três visões da mesma tabela. A vetorial é o modelo com dois parâmetros, como duas células de entrada numa simulação de cenários. As paramétricas abrem isso em três colunas calculadas. A geral é a regra de validação: −x + z − 2 = 0. Uma gera os pontos, a outra confere se um ponto pertence. É a diferença entre montar a carga e testar a carga.",
+        "conversa": [
+          {"quem": "Você", "fala": "Posso usar B e C como setas, já que são dados?"},
+          {"quem": "Monitor", "fala": "B é endereço. Para virar seta, precisa de um ponto de partida. A seta de A até B é?"},
+          {"quem": "Você", "fala": "B − A = (−2, −1, −2)."},
+          {"quem": "Monitor", "fala": "E a de A até C?"},
+          {"quem": "Você", "fala": "(−1, −1, −1). O produto vetorial dá (−1, 0, 1)."},
+          {"quem": "Monitor", "fala": "Teste na geral. Os três pontos precisam dar zero em −x + z − 2."},
+          {"quem": "Você", "fala": "−1 + 3 − 2 = 0, 1 + 1 − 2 = 0, 0 + 2 − 2 = 0. Fechou."}
+        ],
+        "erro": "Três erros comuns. Usar B e C como setas sem subtrair A: o plano passa por A, mas não por B. Trocar a ordem dentro do produto vetorial: um termo invertido muda o sinal e leva a folha para outro lugar. E escrever só um contador: com t sozinho, você descreve a reta AB, e o C fica de fora. Plano pede dois contadores.",
+        "confira": "Cada ponto tem de zerar a geral. A: −1 + 3 − 2 = 0. B: 1 + 1 − 2 = 0. C: 0 + 2 − 2 = 0. Agora teste a paramétrica: t = 1, s = 0 dá (−1, 1, 1), que é B. t = 0, s = 1 dá (0, 1, 2), que é C. Como prova final, [[n]]·[[AB]] = 2 + 0 − 2 = 0 e [[n]]·[[AC]] = 1 + 0 − 1 = 0.",
+        "atalho": "Teste só a geral: ponha B = (−1, 1, 1) em cada alternativa. Isso elimina −x − z + 4, x + 2y − z − 2 e o d com sinal errado. Sobram duas com a mesma geral. Veja qual tem dois contadores, t e s. Um contador só não descreve plano."
+      }
+    },
+    {
+      "id": "ga-s5-l5q3",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Reta entre dois planos",
+      "origem": "Lista 5 · Q3",
+      "enunciado": "Determine as equações paramétricas da reta que é interseção dos planos x + y + z = 1 e x − y + z = 2. Quais são as equações?",
+      "alternativas": [
+        {"t": "x = 2t, y = 1/2, z = 1/2 − 2t", "certa": false, "erro": "Você subtraiu na ordem errada e ficou com 2y = 1. A primeira menos a segunda dá 2y = 1 − 2 = −1. Com y = 1/2, a segunda equação dá 2t − 1/2 + 1/2 − 2t = 0, não 2."},
+        {"t": "x = 2t, y = −1, z = 2 − 2t", "certa": false, "erro": "Você parou em 2y = −1 e leu y = −1, sem dividir por 2. A primeira equação até fecha, mas a segunda dá 2t + 1 + 2 − 2t = 3, não 2."},
+        {"t": "x = 2t, y = −1/2, z = 3/2 − 2t", "certa": true},
+        {"t": "x = 2t, y = −1/2, z = 3 − 2t", "certa": false, "erro": "Somando as equações dá 2x + 2z = 3, e aí x + z = 3/2. Você esqueceu de dividir por 2 e usou x + z = 3. Na primeira equação isso dá 2t − 1/2 + 3 − 2t = 5/2, não 1."},
+        {"t": "x = 2t, y = −1/2, z = 3/2 + 2t", "certa": false, "erro": "Você somou os normais, (1, 1, 1) + (1, −1, 1) = (2, 0, 2), e usou como direção. A direção sai do produto vetorial e dá (2, 0, −2). Em t = 1 esse ponto é (2, −1/2, 7/2), e a primeira equação dá 5, não 1."}
+      ],
+      "dica": "Subtraia uma equação da outra para achar y. Depois deixe x livre como parâmetro.",
+      "resposta": "x = 2t, y = −1/2, z = 3/2 − 2t",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[3, -2.5, 0.5], [1, 1.5, -1.5], [-3, 1.5, 2.5], [-1, -2.5, 4.5]], "cor": 1},
+          {"tipo": "poligono", "pts": [[3, 1.5, 0.5], [1, -2.5, -1.5], [-3, -2.5, 2.5], [-1, 1.5, 4.5]], "cor": 2},
+          {"tipo": "segmento", "de": [-2, -0.5, 3.5], "ate": [2, -0.5, -0.5], "cor": 4},
+          {"tipo": "ponto", "em": [0, -0.5, 1.5], "rot": "t = 0"}
+        ],
+        "legenda": "A folha azul é x + y + z = 1 e a coral é x − y + z = 2. A linha escura é onde as duas se cortam."
+      },
+      "jeitos": {
+        "visual": "Duas folhas se cortam como as páginas de um livro aberto, e a dobra é a reta. Na figura, as duas folhas se cruzam na linha escura. Ela fica em y = −1/2 o tempo todo. A direção dela é (2, 0, −2), perpendicular aos dois pregos: (1, 1, 1) e (1, −1, 1). Cada ponto da linha satisfaz as duas equações ao mesmo tempo.",
+        "receita": [
+          "Subtraia: (x + y + z) − (x − y + z) = 1 − 2, então 2y = −1 e y = −1/2.",
+          "Some: 2x + 2z = 3, então x + z = 3/2.",
+          "Sobrou uma equação com duas letras: deixe uma livre, x = 2t.",
+          "z = 3/2 − x = 3/2 − 2t.",
+          "Reta: x = 2t, y = −1/2, z = 3/2 − 2t."
+        ],
+        "cotidiano": "Dois fiscais dão pistas sobre o mesmo caixa. Um diz: x mais y mais z dá 1. O outro: x menos y mais z dá 2. Comparando as duas falas, o y se revela sozinho, porque é a única diferença entre elas. Já x e z só aparecem somados: você sabe o total, 3/2, não cada um. Por isso sobra uma liberdade, e essa liberdade é a reta.",
+        "trabalho": "É o típico problema de conciliação com informação insuficiente. Duas regras, três contas. Comparando as regras, y fica determinado: −1/2. Para x e z só há o total: x + z = 3/2. Qualquer rateio desse total fecha as duas regras. O parâmetro t, número livre como uma célula de entrada, é a chave de rateio: muda o t, muda a divisão entre x e z, e o total segue 3/2.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei y = −1/2 e x + z = 3/2. E agora? Faltam duas contas."},
+          {"quem": "Monitor", "fala": "Você tem mais equações?"},
+          {"quem": "Você", "fala": "Não. Só essas duas."},
+          {"quem": "Monitor", "fala": "Então uma letra fica livre. Por isso é reta, não ponto. Chame x de 2t."},
+          {"quem": "Você", "fala": "Por que 2t e não t?"},
+          {"quem": "Monitor", "fala": "Tanto faz: é a escolha do gabarito. Com x = t, você escreve a mesma reta, com z = 3/2 − t."}
+        ],
+        "erro": "A armadilha é o denominador. Em 2y = −1 e em 2x + 2z = 3, há quem esqueça de dividir por 2. Erro parecido é subtrair as equações em uma ordem e os totais em outra. Confusão de ideia: somar os normais para achar a direção. Não serve: a direção é perpendicular aos dois normais, então vem do produto vetorial, e dá (2, 0, −2).",
+        "confira": "Ponha a resposta nas duas equações, com o t livre. Na primeira: 2t − 1/2 + 3/2 − 2t = 1. Na segunda: 2t + 1/2 + 3/2 − 2t = 2. Os t se cancelam, e sobra o total certo. Se sobrar t na conta, ou der outro total, a reta está errada. Outro caminho: (1, 1, 1) × (1, −1, 1) = (2, 0, −2).",
+        "atalho": "Comece pela diferença das equações: 2y = −1, então y = −1/2. Isso tira duas alternativas. Nas três restantes, a soma diz x + z = 3/2, para todo t. Some x com z em cada uma: 3 não serve, e 3/2 + 4t também não. Sobra uma. Em prova, não precisa achar a direção."
+      }
+    },
+    {
+      "id": "ga-s5-l5q4",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Plano por duas retas",
+      "origem": "Lista 5 · Q4",
+      "enunciado": "Determine a equação geral do plano que contém as retas r: X = (−1, 4, 13) + λ(−1, 0, 4) e s: (x + 12)/7 = (y + 8)/6 = (z + 3)/2. Qual é a equação?",
+      "alternativas": [
+        {"t": "−4x + 5y − z = −11", "certa": false, "erro": "O normal está certo, mas você leu o ponto de s como (12, 8, 3), sem os sinais. A parte x + 12 zera em x = −12. Com (12, 8, 3) a conta dá −48 + 40 − 3 = −11."},
+        {"t": "−4x + 5y − z = 11", "certa": true},
+        {"t": "−4x − 5y − z = −29", "certa": false, "erro": "Você esqueceu de trocar o sinal do termo do meio no produto vetorial. O normal ficou (−4, −5, −1). O ponto de r entra, 4 − 20 − 13 = −29, mas o ponto (−12, −8, −3) de s dá 48 + 40 + 3 = 91."},
+        {"t": "−4x + 5y − z = 3", "certa": false, "erro": "Erro de sinal no ponto de r: você fez −4·1 em vez de −4·(−1). A conta fica −4 + 20 − 13 = 3. O certo é 4 + 20 − 13 = 11."},
+        {"t": "x + y + z = 16", "certa": false, "erro": "Você somou as direções, (−1, 0, 4) + (7, 6, 2) = (6, 6, 6), e simplificou para (1, 1, 1). O normal tem de ser perpendicular às duas, e (1, 1, 1)·(−1, 0, 4) = 3, não 0."}
+      ],
+      "dica": "O normal é perpendicular às direções das duas retas. Um ponto de qualquer uma delas dá o número do outro lado.",
+      "resposta": "−4x + 5y − z = 11",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-1, 4, 13], [-12, -8, -3], [2, 4, 1]], "cor": 3},
+          {"tipo": "segmento", "de": [2.5, 4, -1], "ate": [-1, 4, 13], "cor": 1},
+          {"tipo": "segmento", "de": [-12, -8, -3], "ate": [5.5, 7, 2], "cor": 2},
+          {"tipo": "vetor", "de": [2, 4, 1], "ate": [-2, 9, 0], "rot": "n", "cor": 4},
+          {"tipo": "ponto", "em": [-1, 4, 13], "rot": "ponto de r"},
+          {"tipo": "ponto", "em": [-12, -8, -3], "rot": "ponto de s"},
+          {"tipo": "ponto", "em": [2, 4, 1], "rot": "(2, 4, 1)"}
+        ],
+        "legenda": "As linhas azul e coral são r e s. Elas se cruzam em (2, 4, 1), e o triângulo ocre é um pedaço da folha."
+      },
+      "jeitos": {
+        "visual": "As duas retas se cruzam em (2, 4, 1) e formam um X. Um X sempre cabe numa folha plana. Na figura, o triângulo ocre é um pedaço dessa folha. As linhas azul e coral são r e s. O prego em tinta escura sai do cruzamento, e sua direção é (−4, 5, −1), perpendicular às duas retas. É esse prego que dá a equação.",
+        "receita": [
+          "Direções: r tem (−1, 0, 4); s tem (7, 6, 2), lida nos denominadores.",
+          "Pontos: r tem (−1, 4, 13); s tem (−12, −8, −3).",
+          "Normal: (−1, 0, 4) × (7, 6, 2) = (0·2 − 4·6, 4·7 − (−1)·2, (−1)·6 − 0·7) = (−24, 30, −6).",
+          "Divida por 6: [[n]] = (−4, 5, −1).",
+          "Ponha o ponto de r: −4(−1) + 5·4 − 13 = 4 + 20 − 13 = 11.",
+          "Plano: −4x + 5y − z = 11."
+        ],
+        "cotidiano": "Dois fios de varal amarrados no mesmo gancho esticam um lençol que fica plano. Para saber a inclinação, você só precisa da direção dos dois fios. O ponto do gancho, ou qualquer ponto dos fios, diz a posição do lençol. Se cada fio estiver certo, tanto faz qual ponto você usa: todos dão o mesmo 11.",
+        "trabalho": "A conferência fecha por dois caminhos, como numa conciliação. Você monta o normal com as direções e calcula o total com o ponto de r: 11. Depois calcula o mesmo total com o ponto de s: −4(−12) + 5(−8) − (−3) = 48 − 40 + 3 = 11. Os dois batem sem que um tenha olhado o outro. É a prova real de que as retas estão mesmo na mesma folha.",
+        "conversa": [
+          {"quem": "Você", "fala": "A direção de s é (7, 6, 2). E o ponto é (12, 8, 3)?"},
+          {"quem": "Monitor", "fala": "Que valor zera x + 12?"},
+          {"quem": "Você", "fala": "x = −12. Então (−12, −8, −3)."},
+          {"quem": "Monitor", "fala": "E o normal?"},
+          {"quem": "Você", "fala": "O produto vetorial dá (−24, 30, −6). Simplifico para (−4, 5, −1)."},
+          {"quem": "Monitor", "fala": "Agora calcule o total nos dois pontos. Precisa dar o mesmo número."},
+          {"quem": "Você", "fala": "4 + 20 − 13 = 11. 48 − 40 + 3 = 11. Bateu."}
+        ],
+        "erro": "O erro mais comum é o sinal do ponto de s: x + 12 zera em −12, e não em 12. Com o sinal errado, o total vira −11. O segundo é o termo do meio do produto vetorial, que pede a ordem certa: 4·7 − (−1)·2 = 30. Trocar esse sinal dá um normal que não é perpendicular à direção de s. E não some as direções: soma não dá normal.",
+        "confira": "Cheque o normal: (−4, 5, −1)·(−1, 0, 4) = 4 − 4 = 0, e (−4, 5, −1)·(7, 6, 2) = −28 + 30 − 2 = 0. Cheque o total: o cruzamento (2, 4, 1) dá −8 + 20 − 1 = 11. Se os dois produtos escalares dão 0 e todos os pontos dão 11, a equação está certa.",
+        "atalho": "O plano contém as duas retas, então um ponto de cada uma tem de satisfazer a equação. Teste dois pontos, sem produto vetorial nenhum. (−1, 4, 13) derruba duas alternativas: a do −11 e a do 3. (−12, −8, −3) derruba outras duas: a do −29 e a do 16. É o caminho mais curto em prova."
+      }
+    }
+  ]
+}

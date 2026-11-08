@@ -1,0 +1,61 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-l7q8",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Ângulo nulo e posição relativa",
+      "origem": "Lista 7 · Q8",
+      "enunciado": "Determine o ângulo entre a reta r: X = (−2, −1, 1) + λ(6, 0, −3), λ ∈ R e o plano π: 2x − 3y + 4z − 3 = 0. O que podemos afirmar com esse resultado, em relação a posição relativa entre eles? Qual é a posição relativa entre eles?",
+      "alternativas": [
+        {"t": "θ = 90°; a reta é perpendicular ao plano.", "certa": false, "erro": "Você fez cos θ = 0 e chegou a 90°. Essa é a abertura com o prego. Reta perpendicular ao plano teria direção múltipla da normal, e (6, 0, −3) não é múltiplo de (2, −3, 4)."},
+        {"t": "θ = 0°; a reta é paralela ao plano, sem ponto em comum.", "certa": false, "erro": "O ângulo está certo, e o desempate ficou de fora. O ponto (−2, −1, 1) dá 2(−2) − 3(−1) + 4(1) − 3 = 0: ele está no plano, então a reta não corre por fora."},
+        {"t": "θ = 90°; a reta está contida no plano.", "certa": false, "erro": "A posição está certa, e o ângulo não. O 90° é a abertura com o prego. Com a folha, sen θ = 0 dá 0°."},
+        {"t": "θ = 0°; a reta está contida no plano.", "certa": true},
+        {"t": "θ ≈ 13,1°; a reta corta o plano em um só ponto.", "certa": false, "erro": "Você usou o ponto (−2, −1, 1) no lugar da direção: sen θ = 3/(√6·√29). A direção é (6, 0, −3), que dá produto escalar 0 com a normal."}
+      ],
+      "dica": "Faça o produto escalar da direção com o prego. Se der 0, ainda falta testar um ponto da reta na equação do plano.",
+      "resposta": "θ = 0°. O ângulo indica reta paralela ao plano ou dentro dele; o ponto (−2, −1, 1) satisfaz a equação, então a reta está contida no plano.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-5, -3, 1], [1, 1, 1], [7, 1, -2], [1, -3, -2]], "cor": 3},
+          {"tipo": "ponto", "em": [-2, -1, 1], "rot": "P"},
+          {"tipo": "vetor", "de": [-2, -1, 1], "ate": [4, -1, -2], "rot": "v", "cor": 1},
+          {"tipo": "vetor", "de": [1, -1, -0.5], "ate": [3, -4, 3.5], "rot": "n", "cor": 4}
+        ],
+        "legenda": "A seta azul fica deitada na folha ocre, e o prego escuro faz 90° com ela. O início da seta já está na folha."
+      },
+      "jeitos": {
+        "visual": "Olhe a figura como uma folha ocre com um prego escuro, (2, −3, 4). A seta azul é a direção da reta, (6, 0, −3). Gire a imagem até ver a folha de perfil: a seta some dentro da linha da folha. Ela nem sobe nem desce em relação à folha, e o prego faz 90° com ela. Abertura com a folha: zero. A seta começa em (−2, −1, 1), ponto que já está na folha.",
+        "receita": [
+          "Direção e normal: [[v]] = (6, 0, −3) e [[n]] = (2, −3, 4).",
+          "Produto escalar: 6·2 + 0·(−3) + (−3)·4 = 12 + 0 − 12 = 0.",
+          "Reta com plano usa seno: sen θ = |0| / (‖[[v]]‖·‖[[n]]‖) = 0, logo θ = 0°.",
+          "O que se pode afirmar: a reta é paralela ao plano ou está dentro dele.",
+          "Desempate: ponha (−2, −1, 1) na equação: 2(−2) − 3(−1) + 4(1) − 3 = −4 + 3 + 4 − 3 = 0.",
+          "Deu 0, então o ponto está no plano, e a reta está contida nele."
+        ],
+        "cotidiano": "Uma régua apoiada numa mesa e outra presa logo acima, sem encostar. Nas duas, o ângulo com o tampo é 0°. O ângulo não distingue apoiada de flutuando. Para saber qual é o caso, escolha um ponto da régua e veja se ele toca o tampo. Aqui o ponto (−2, −1, 1) toca: a régua está apoiada.",
+        "trabalho": "É uma conciliação em duas etapas. Primeira: o saldo das variações fecha? (6, 0, −3) com pesos (2, −3, 4) dá 12 + 0 − 12 = 0, então andar na reta não muda o valor da equação. Segunda: o ponto de partida já estava no valor certo? (−2, −1, 1) dá 0. Variação zero sobre saldo inicial certo mantém todos os pontos no plano. Com saldo inicial errado, a diferença ficaria constante: reta paralela, por fora.",
+        "conversa": [
+          {"quem": "Você", "fala": "Deu sen θ = 0. Então a reta está no plano, pronto."},
+          {"quem": "Monitor", "fala": "Uma reta paralela, flutuando acima do plano, daria qual seno?"},
+          {"quem": "Você", "fala": "Também 0. A direção seria a mesma."},
+          {"quem": "Monitor", "fala": "Então o ângulo permite afirmar o quê?"},
+          {"quem": "Você", "fala": "Que ela é paralela ou está dentro."},
+          {"quem": "Monitor", "fala": "E o que decide?"},
+          {"quem": "Você", "fala": "Um ponto da reta. (−2, −1, 1) na equação dá −4 + 3 + 4 − 3 = 0."},
+          {"quem": "Monitor", "fala": "Logo, contida. O enunciado fez as duas perguntas separadas por esse motivo."}
+        ],
+        "erro": "A questão faz duas perguntas, e a turma costuma responder uma só. Com θ = 0°, o resultado só diz paralela ou contida. Quem para aí escolhe uma das opções no palpite. O teste do ponto é o que fecha. O outro tropeço é o cosseno: produto escalar 0 lembra 90°, e é mesmo 90° com o prego. Com a folha, o ângulo é 0°.",
+        "confira": "Teste dois pontos da reta na equação do plano. λ = 0 dá (−2, −1, 1), e a conta fecha em 0. λ = 1 dá (4, −1, −2): 8 + 3 − 8 − 3 = 0. Dois pontos da reta dentro da folha: a reta inteira está nela. Esse caminho prova que está contida sem calcular produto escalar nenhum.",
+        "atalho": "Substitua a forma geral da reta na equação: 2(−2 + 6λ) − 3(−1) + 4(1 − 3λ) − 3 = 12λ − 12λ + 0 = 0. O λ some e a constante zera. Para qualquer λ, o ponto está no plano: contida, com ângulo 0°. Essa única linha responde às duas perguntas e elimina as quatro alternativas erradas."
+      }
+    }
+  ]
+}

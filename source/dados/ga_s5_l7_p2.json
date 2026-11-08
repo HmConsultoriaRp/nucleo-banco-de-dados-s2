@@ -1,0 +1,340 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-l7q2",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Ângulo pelas duas normais",
+      "origem": "Lista 7 · Q2",
+      "enunciado": "Determine o ângulo entre o plano de equação −x − y − z + 7 = 0 e o plano que é perpendicular ao vetor (2, −2, 2) e passa pelo ponto (2, 2, 1/2).",
+      "alternativas": [
+        {"t": "θ ≈ 109,5°", "certa": false, "erro": "Faltou o módulo: −2/6 = −1/3 dá 109,5°. Entre planos vale a menor abertura, de 0° a 90°."},
+        {"t": "θ ≈ 19,5°", "certa": false, "erro": "Você usou sen θ = 1/3. Plano com plano compara dois pregos, e a conta é com cosseno."},
+        {"t": "θ ≈ 25,2°", "certa": false, "erro": "Você pegou o ponto (2, 2, 1/2) como normal: produto −9/2, e cos θ = 3/√11. Esse ponto só fixa onde o plano passa. O prego dele é o vetor (2, −2, 2)."},
+        {"t": "θ ≈ 70,5°", "certa": true},
+        {"t": "θ ≈ 86,8°", "certa": false, "erro": "Você dividiu por 3 × 12 = 36, sem as raízes: cos θ = 2/36. O denominador certo é √3·√12 = 6."}
+      ],
+      "dica": "Perpendicular ao vetor quer dizer que esse vetor já é o prego do segundo plano. O ponto não entra no ângulo.",
+      "resposta": "θ ≈ 70,5° (cos θ = 1/3)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, -1, -1], "rot": "n₁", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [2, -2, 2], "rot": "n₂", "cor": 2},
+          {"tipo": "segmento", "de": [0, 0, 0], "ate": [1, 1, 1], "tracejado": true}
+        ],
+        "legenda": "Entre a seta azul e a coral há 109,5°. Entre a tracejada e a coral, 70,5°."
+      },
+      "jeitos": {
+        "visual": "O segundo plano não veio em equação, mas o prego veio pronto: (2, −2, 2). O prego do primeiro é (−1, −1, −1). Na figura, as duas setas saem da origem, abertas demais. A linha tracejada é o primeiro prego apontando para o lado contrário, (1, 1, 1). A abertura entre ela e a seta coral é o ângulo entre as folhas.",
+        "receita": [
+          "Prego do primeiro plano: [[n₁]] = (−1, −1, −1).",
+          "Prego do segundo: o enunciado entrega, [[n₂]] = (2, −2, 2).",
+          "Produto escalar: −2 + 2 − 2 = −2.",
+          "Normas: √3 e √12. Produto: √36 = 6.",
+          "Com módulo: cos θ = |−2| / 6 = 1/3.",
+          "Volte para graus: `=GRAUS(ACOS(1/3))` retorna cerca de 70,5."
+        ],
+        "cotidiano": "O ponto (2, 2, 1/2) é como o endereço de uma loja: diz onde ela fica, não para que lado a fachada está voltada. Para comparar duas fachadas, basta saber para onde cada uma aponta. Mudar a loja de bairro sem girá-la não altera o ângulo entre as fachadas. Por isso o ponto fica de fora da conta.",
+        "trabalho": "Separe o que entra na conta do que é cadastro. O endereço da filial não muda a margem dela. Aqui, o ponto (2, 2, 1/2) é cadastro: completa a equação do plano, 2x − 2y + 2z − 1 = 0, e não muda o ângulo. Em SQL, seria uma coluna do SELECT que fica fora do SUM. A conta de verdade usa só as normais: `=GRAUS(ACOS(ABS(-2)/6))` retorna 70,5.",
+        "conversa": [
+          {"quem": "Você", "fala": "Perpendicular ao vetor? Então o vetor está deitado nesse plano?"},
+          {"quem": "Monitor", "fala": "O contrário. Um vetor deitado faz que abertura com o prego?"},
+          {"quem": "Você", "fala": "90°. Mas o enunciado diz que o plano é perpendicular ao vetor."},
+          {"quem": "Monitor", "fala": "Logo, o vetor faz 90° com a folha inteira. Quem faz isso?"},
+          {"quem": "Você", "fala": "O prego. Então [[n₂]] = (2, −2, 2)."},
+          {"quem": "Monitor", "fala": "E o ponto (2, 2, 1/2)?"},
+          {"quem": "Você", "fala": "Não entra. Fico com |−2| / 6 = 1/3, perto de 70,5°."}
+        ],
+        "erro": "O ponto (2, 2, 1/2) atrai a atenção porque é o dado mais trabalhoso do enunciado. A turma tenta montar a equação inteira e às vezes usa o ponto como se fosse normal. Para o ângulo, ele é irrelevante. Se a sua conta tem 1/2 no meio, você errou o caminho. Outro deslize: marcar 109,5° porque o produto escalar deu negativo.",
+        "confira": "Monte a equação completa e leia de novo. Com o prego (2, −2, 2) e o ponto: 2(x − 2) − 2(y − 2) + 2(z − 1/2) = 0, que dá 2x − 2y + 2z − 1 = 0. O ponto entra e sai sem mexer na normal. Divida por 2: normal (1, −1, 1). Com (1, 1, 1), o primeiro prego de sinal trocado: 1 − 1 + 1 = 1, e √3·√3 = 3. De novo, 1/3.",
+        "atalho": "Simplifique antes. (2, −2, 2) é 2·(1, −1, 1), e (−1, −1, −1) é −1·(1, 1, 1). Trocar tamanho e sentido não muda o ângulo entre planos. A conta sai de cabeça: 1 − 1 + 1 = 1, sobre √3·√3 = 3. Como 1/3 fica abaixo de cos 60° = 0,5, θ passa de 60° sem chegar a 90°. Sobram 70,5° e 86,8°; este teria cosseno quase zero, e 1/3 não é."
+      }
+    },
+    {
+      "id": "ga-s5-l7q3",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Reta pelos ângulos com eixos",
+      "origem": "Lista 7 · Q3",
+      "enunciado": "Ache uma reta que passa pelo ponto (1, 2, 3) e que forma ângulos de 45° e 60° com os eixos x e y, respectivamente. Qual das retas abaixo atende ao pedido?",
+      "alternativas": [
+        {"t": "X = (1, 2, 3) + λ(√2/2, 1/2, 1/2)", "certa": true},
+        {"t": "X = (1, 2, 3) + λ(1/2, √2/2, 1/2)", "certa": false, "erro": "Você trocou os eixos. Essa reta faz 60° com x e 45° com y. O cos 45° = √2/2 vai na coordenada x, e o cos 60° = 1/2 vai na y."},
+        {"t": "X = (1, 2, 3) + λ(√2/2, 1/2, 0)", "certa": false, "erro": "Como o enunciado não cita z, você pôs 0. A soma dos quadrados dá 3/4, e os ângulos viram 35,3° com x e 54,7° com y. O z é calculado: precisa completar a soma 1."},
+        {"t": "X = (1, 2, 3) + λ(√2/2, 1/2, 1/4)", "certa": false, "erro": "Você achou z² = 1/4 e parou aí, sem tirar a raiz. O z é ±1/2. Com 1/4, a soma dos quadrados dá 13/16, e os ângulos viram 38,3° com x e 56,3° com y."},
+        {"t": "X = (1, 2, 3) + λ(√2/2, √3/2, 0)", "certa": false, "erro": "Você usou sen 60° = √3/2 no lugar de cos 60° = 1/2. A soma dos quadrados dá 5/4, e os ângulos viram 50,8° com x e 39,2° com y."}
+      ],
+      "dica": "Numa seta de comprimento 1, cada coordenada é o cosseno do ângulo com o eixo. E a soma dos três quadrados dá 1.",
+      "resposta": "X = (1, 2, 3) + λ(√2/2, 1/2, 1/2); o gabarito lista quatro retas, com ±1/2 em y e em z",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [0.707, 0.5, 0.5], "rot": "v", "cor": 1},
+          {"tipo": "segmento", "de": [0.707, 0.5, 0.5], "ate": [0.707, 0, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [0.707, 0.5, 0.5], "ate": [0, 0.5, 0], "tracejado": true},
+          {"tipo": "ponto", "em": [0.707, 0, 0], "rot": "√2/2"},
+          {"tipo": "ponto", "em": [0, 0.5, 0], "rot": "1/2"},
+          {"tipo": "ponto", "em": [1, 2, 3], "rot": "P"},
+          {"tipo": "vetor", "de": [1, 2, 3], "ate": [1.707, 2.5, 3.5], "rot": "reta", "cor": 2}
+        ],
+        "legenda": "As tracejadas caem nos eixos e mostram a sombra da seta: √2/2 em x e 1/2 em y. A seta coral é a mesma direção saindo de P = (1, 2, 3)."
+      },
+      "jeitos": {
+        "visual": "Imagine uma seta de comprimento 1 saindo da origem. A sombra dela sobre o eixo x mede cos 45° = √2/2, cerca de 0,71. Sobre o eixo y, mede cos 60° = 1/2. Na figura, as linhas tracejadas descem da ponta da seta até cada eixo. Falta a sombra em z, que completa o comprimento 1: 1/2. Depois leve essa seta para o ponto (1, 2, 3).",
+        "receita": [
+          "Chame de a, b, c os ângulos da reta com x, y, z. Numa seta de comprimento 1, as coordenadas são (cos a, cos b, cos c).",
+          "Use os dados: cos 45° = √2/2 e cos 60° = 1/2.",
+          "A soma dos quadrados dá 1: cos²c = 1 − 1/2 − 1/4 = 1/4.",
+          "Tire a raiz: cos c = ±1/2. Escolha +1/2.",
+          "Monte a reta: X = (1, 2, 3) + λ(√2/2, 1/2, 1/2).",
+          "Os sinais ±1/2 em y e em z também valem: são as quatro retas do gabarito."
+        ],
+        "cotidiano": "Você tem uma trena de 1 metro e a apoia num canto de sala, com a ponta para cima. Pela sombra no rodapé de uma parede, você lê 0,71 m. Pela sombra no rodapé da outra, lê 0,5 m. A altura da ponta não é livre: a trena tem 1 metro, e o que sobra define a altura. Aqui a altura dá 0,5 m, para cima ou para baixo.",
+        "trabalho": "Funciona como um rateio que precisa fechar em 100%. Os quadrados das coordenadas fazem o papel dos percentuais: 1/2 + 1/4 + 1/4 = 1. Com duas fatias dadas, a terceira é a sobra: 1 − 1/2 − 1/4 = 1/4. A diferença aparece no fim: para voltar à coordenada você tira a raiz, e a raiz admite dois sinais. Por isso z pode ser 1/2 ou −1/2.",
+        "conversa": [
+          {"quem": "Você", "fala": "Ninguém falou do z. Como eu acho?"},
+          {"quem": "Monitor", "fala": "Se a seta tiver comprimento 1, quanto vale a soma dos quadrados das coordenadas?"},
+          {"quem": "Você", "fala": "Vale 1. Então 1/2 + 1/4 + z² = 1."},
+          {"quem": "Monitor", "fala": "E o z?"},
+          {"quem": "Você", "fala": "z² = 1/4. Logo z = 1/2."},
+          {"quem": "Monitor", "fala": "Só esse valor?"},
+          {"quem": "Você", "fala": "Não, −1/2 também. E o y poderia ser −1/2, porque reta não tem ida nem volta."},
+          {"quem": "Monitor", "fala": "Por isso o gabarito traz quatro retas. Qualquer uma delas atende."}
+        ],
+        "erro": "O pior tropeço é confundir ângulo com coordenada e escrever a seta com 45 e 60, ou inverter os eixos. A regra é: a coordenada x recebe o cosseno do ângulo com x. Outro deslize é esquecer a raiz e ficar com z = 1/4, ou achar que z pode ser 0 por falta de dado. Se a soma dos quadrados não der 1, a seta não tem comprimento 1 e as coordenadas deixam de ser os cossenos.",
+        "confira": "Calcule de volta com a seta da resposta. Com o eixo x, (1, 0, 0): produto escalar √2/2, e as duas normas valem 1. Dá cos θ = √2/2, logo 45°. Com o eixo y, (0, 1, 0): produto 1/2, logo 60°. A norma da seta sai de 1/2 + 1/4 + 1/4 = 1, raiz 1. E λ = 0 cai em (1, 2, 3), o ponto pedido.",
+        "atalho": "Olhe as alternativas pela soma dos quadrados. Para cada coordenada ser o cosseno, a seta precisa fechar em 1. (√2/2, 1/2, 0) dá 3/4, (√2/2, 1/2, 1/4) dá 13/16 e (√2/2, √3/2, 0) dá 5/4: todas fora. Entre as duas que fecham, veja a primeira coordenada. Ela carrega o ângulo com x, então precisa ser cos 45° = √2/2. A outra inverte os eixos."
+      }
+    },
+    {
+      "id": "ga-s5-l7q4",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Reta e plano coordenado",
+      "origem": "Lista 7 · Q4",
+      "enunciado": "Determine o ângulo entre a reta que passa pelos pontos A = (−1, 2, 3) e B = (7, 2, −3) e o plano xy.",
+      "alternativas": [
+        {"t": "θ ≈ 53,13°", "certa": false, "erro": "Você usou cos θ = 6/10 = 3/5. Esse é o ângulo com o prego do plano. Com a folha, a conta é seno: sen θ = 3/5."},
+        {"t": "θ = 45°", "certa": false, "erro": "Erro de sinal em [[AB]]: x deu 7 − 1 = 6, e não 7 − (−1) = 8. Com (6, 0, −6), sen θ = 6/√72 dá 45°."},
+        {"t": "θ ≈ 36,87°", "certa": true},
+        {"t": "θ = 0°", "certa": false, "erro": "Você somou A + B em vez de subtrair: (6, 4, 0). Essa seta não tem z, então parece deitada e o seno dá 0. A direção é B − A."},
+        {"t": "θ ≈ 34,45°", "certa": false, "erro": "Você usou (1, 1, 0) como normal, pensando nos eixos x e y: sen θ = 8/(10·√2). O prego do plano xy aponta para cima: (0, 0, 1)."}
+      ],
+      "dica": "O prego do plano xy é o eixo z. A seta da reta sai de B − A.",
+      "resposta": "θ ≈ 36,87° (sen θ = 3/5)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-2, 0, 0], [8, 0, 0], [8, 4, 0], [-2, 4, 0]], "cor": 3},
+          {"tipo": "ponto", "em": [-1, 2, 3], "rot": "A"},
+          {"tipo": "ponto", "em": [7, 2, -3], "rot": "B"},
+          {"tipo": "vetor", "de": [-1, 2, 3], "ate": [7, 2, -3], "rot": "AB", "cor": 1},
+          {"tipo": "segmento", "de": [-1, 2, 3], "ate": [-1, 2, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [7, 2, -3], "ate": [7, 2, 0], "tracejado": true}
+        ],
+        "legenda": "A seta azul atravessa o chão em (3, 2, 0). Enquanto anda 8 no chão, ela desce 6."
+      },
+      "jeitos": {
+        "visual": "Na figura, a folha ocre é o chão, o plano xy. A seta azul sai de A, a 3 de altura, e desce até B, a 3 abaixo do chão. As linhas tracejadas mostram a altura de cada ponta. Enquanto anda 8 no chão, a seta desce 6. Forma-se o triângulo 6, 8, 10. O ângulo com o chão tem seno 6/10.",
+        "receita": [
+          "Direção da reta: [[AB]] = (7 − (−1), 2 − 2, −3 − 3) = (8, 0, −6).",
+          "Norma: ‖[[AB]]‖ = √(64 + 0 + 36) = 10.",
+          "Prego do plano xy: [[n]] = (0, 0, 1), de norma 1.",
+          "Produto escalar: (8, 0, −6)·(0, 0, 1) = −6.",
+          "Reta com plano usa seno: sen θ = |−6| / (10·1) = 3/5.",
+          "Volte para graus: `=GRAUS(ASEN(3/5))` retorna cerca de 36,87."
+        ],
+        "cotidiano": "Uma rampa de garagem. Você percorre 10 metros de rampa e desce 6 metros de altura. O ângulo da rampa com o chão sai de altura dividida por comprimento: 6/10. Na planta do prédio, a mesma rampa aparece com 8 metros. Esses três números formam o triângulo retângulo clássico 6, 8, 10.",
+        "trabalho": "No Excel, `=GRAUS(ASEN(ABS(-6)/10))` retorna 36,87. O −6 é a variação em z, uma queda. O ABS tira o sinal, como quando você compara só o tamanho de um movimento do extrato. A coluna y da direção (8, 0, −6) vale 0, igual a uma conta sem movimento no mês: não afeta o SOMARPRODUTO nem a norma.",
+        "conversa": [
+          {"quem": "Você", "fala": "O plano xy não tem equação. Como acho a normal?"},
+          {"quem": "Monitor", "fala": "Os pontos dele têm o quê em comum?"},
+          {"quem": "Você", "fala": "z = 0."},
+          {"quem": "Monitor", "fala": "Escreva como equação: 0x + 0y + 1z = 0. Que seta aparece?"},
+          {"quem": "Você", "fala": "(0, 0, 1). O eixo z em pé."},
+          {"quem": "Monitor", "fala": "Agora faça o produto escalar com (8, 0, −6)."},
+          {"quem": "Você", "fala": "Dá −6. Com norma 10, sen θ = 3/5, cerca de 36,87°."}
+        ],
+        "erro": "O tropeço é trocar seno por cosseno e marcar 53,13°, a abertura com o prego. As duas somam 90°. A pergunta quer a abertura com a folha. Outro ponto fraco é a subtração: 7 − (−1) = 8. Com 6 no lugar, o triângulo deixa de ser 6, 8, 10 e o resultado vira 45°.",
+        "confira": "Use o triângulo, sem produto escalar. Apague z: a sombra de A é (−1, 2, 0) e a de B é (7, 2, 0). A sombra mede 8. A diferença de altura é 6. A seta mede 10. Verifique: 6² + 8² = 36 + 64 = 100 = 10². A tangente, altura dividida pela sombra, é 6/8 = 3/4, e `=GRAUS(ATAN(3/4))` retorna 36,87. Bate com o seno.",
+        "atalho": "Reconheça o triângulo 6, 8, 10: é o 3, 4, 5 dobrado, com ângulos de 36,87° e 53,13°. O ângulo com o chão é o que fica oposto ao lado vertical, o 6. Entre os dois lados que formam o canto de 90°, 6 e 8, o 6 é o menor. Por isso esse ângulo é o menor dos dois: 36,87°. Isso resolve sem tabela nenhuma."
+      }
+    },
+    {
+      "id": "ga-s5-l7q5",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Reta e sua projeção",
+      "origem": "Lista 7 · Q5",
+      "enunciado": "Determinar o ângulo da reta que passa por A = (−1, 2, 3) e B = (7, 2, −3) forma com a sua projeção ortogonal no plano xy. Qual é esse ângulo?",
+      "alternativas": [
+        {"t": "θ ≈ 53,13°", "certa": false, "erro": "Você comparou [[AB]] com a parte vertical dele, (0, 0, −6): cos θ = 36/(10·6) = 3/5. Esse é o ângulo com o eixo z. A projeção fica no chão: (8, 0, 0)."},
+        {"t": "θ = 0°", "certa": false, "erro": "Você apagou o y em vez do z e ficou com (8, 0, −6), a própria seta. Projetar no plano xy é zerar o z."},
+        {"t": "θ = 90°", "certa": false, "erro": "Você leu ortogonal como se fosse o ângulo pedido. Ortogonal descreve a sombra, que cai em pé sobre o plano. O ângulo entre a reta e a sombra é outro: cos θ = 64/(10·8) = 4/5."},
+        {"t": "θ = 45°", "certa": false, "erro": "Erro de sinal em x: 7 − 1 = 6. Com (6, 0, −6) e (6, 0, 0), cos θ = 36/(√72·6) dá 45°. O certo é 7 − (−1) = 8."},
+        {"t": "θ ≈ 36,87°", "certa": true}
+      ],
+      "dica": "Para projetar em xy, zere o z dos dois pontos. O ângulo é entre duas retas, então a fórmula usa cosseno.",
+      "resposta": "θ ≈ 36,87° (cos θ = 4/5)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-2, 0, 0], [8, 0, 0], [8, 4, 0], [-2, 4, 0]], "cor": 3},
+          {"tipo": "ponto", "em": [-1, 2, 3], "rot": "A"},
+          {"tipo": "ponto", "em": [7, 2, -3], "rot": "B"},
+          {"tipo": "vetor", "de": [-1, 2, 3], "ate": [7, 2, -3], "rot": "AB", "cor": 1},
+          {"tipo": "vetor", "de": [-1, 2, 0], "ate": [7, 2, 0], "rot": "sombra", "cor": 2},
+          {"tipo": "segmento", "de": [-1, 2, 3], "ate": [-1, 2, 0], "tracejado": true},
+          {"tipo": "segmento", "de": [7, 2, -3], "ate": [7, 2, 0], "tracejado": true}
+        ],
+        "legenda": "A seta coral é a sombra da reta no plano xy. As tracejadas são os raios de luz, caindo em pé."
+      },
+      "jeitos": {
+        "visual": "Pense no sol a pino sobre a reta. A sombra cai reta no chão. Na figura, a seta azul é a reta e a seta coral é a sombra, de (−1, 2, 0) até (7, 2, 0). As tracejadas são os raios de luz caindo em pé. Entre seta e sombra há uma abertura, e ela é a resposta. É a mesma abertura que a reta faz com o chão.",
+        "receita": [
+          "Direção da reta: [[AB]] = (8, 0, −6).",
+          "Projete os pontos zerando z: A' = (−1, 2, 0) e B' = (7, 2, 0).",
+          "Direção da sombra: [[A'B']] = (8, 0, 0).",
+          "Produto escalar: 8·8 + 0·0 + (−6)·0 = 64.",
+          "Normas: 10 e 8. cos θ = 64 / 80 = 4/5.",
+          "Volte para graus: `=GRAUS(ACOS(4/5))` retorna cerca de 36,87."
+        ],
+        "cotidiano": "Um avião desce em linha reta e projeta sombra no asfalto. A sombra percorre 8 km enquanto o avião percorre 10 km no ar. A razão 8/10 é o cosseno do ângulo de descida. Quem está na pista mede a sombra, e quem está a bordo mede o trajeto. Os dois números juntos dão a inclinação.",
+        "trabalho": "Zerar o z é como tirar uma coluna do cálculo sem apagar a linha. Em SQL, seria um `SELECT x, y, 0 AS z`. Depois o cosseno compara o vetor cheio com o vetor reduzido: `=GRAUS(ACOS(64/(10*8)))` retorna 36,87. Quanto mais a coluna removida pesa, maior é o ângulo. Se z não mudasse nada, seta e sombra coincidiriam, e o ângulo daria 0°.",
+        "conversa": [
+          {"quem": "Você", "fala": "A questão 4 e a questão 5 têm a mesma resposta? Achei que era erro."},
+          {"quem": "Monitor", "fala": "O que a questão 4 pede?"},
+          {"quem": "Você", "fala": "Ângulo da reta com o plano xy."},
+          {"quem": "Monitor", "fala": "E a questão 5?"},
+          {"quem": "Você", "fala": "Com a sombra dela no plano."},
+          {"quem": "Monitor", "fala": "Entre as linhas do plano que passam por onde a reta o atravessa, qual dá a menor abertura?"},
+          {"quem": "Você", "fala": "A sombra. Então é o mesmo ângulo: seno 3/5 lá, cosseno 4/5 aqui."}
+        ],
+        "erro": "Muita gente lê ortogonal e marca 90°. A palavra descreve como a sombra cai: em pé sobre o plano. O ângulo pedido é outro, entre a seta inclinada e a sombra deitada. Há também a estranheza da frase, que diz o ângulo da reta forma com a projeção. Leia como o ângulo que a reta forma com a projeção.",
+        "confira": "Compare os dois caminhos. Na questão 4, sen θ = 3/5. Aqui, cos θ = 4/5. Para o mesmo ângulo, sen²θ + cos²θ precisa dar 1: 9/25 + 16/25 = 25/25 = 1. Bate. Para mais uma prova, `=GRAUS(ATAN(6/8))` usa só a altura 6 e a sombra 8, e retorna 36,87.",
+        "atalho": "Ângulo com o plano e ângulo com a projeção são o mesmo número. Se você resolveu a questão 4, a resposta está pronta. Sem ela, olhe as partes da seta: 8 no chão e 6 na vertical. O lado do chão é o maior, então a seta está mais deitada do que em pé, e o ângulo fica abaixo de 45°. Só 36,87° e 0° ficam abaixo, e 0° exigiria z parado."
+      }
+    },
+    {
+      "id": "ga-s5-l7q6",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 5,
+      "tema": "Reta dada por dois planos",
+      "origem": "Lista 7 · Q6",
+      "enunciado": "Determine o ângulo que a reta\nr: x − y + 3z − 6 = 0 e 3x − 2y + z − 4 = 0\nforma com o eixo das cotas.",
+      "alternativas": [
+        {"t": "θ ≈ 58,2°", "certa": false, "erro": "Você comparou com o eixo x, o das abscissas: cos θ = 5/√90. O eixo das cotas é o z."},
+        {"t": "θ ≈ 83,9°", "certa": true},
+        {"t": "θ ≈ 6,1°", "certa": false, "erro": "Você usou sen θ = 1/√90. Reta com reta usa cosseno. Esse 6,1° é o que sobra até 90°: o ângulo da reta com o plano xy."},
+        {"t": "θ ≈ 32,5°", "certa": false, "erro": "Você comparou com o eixo y, o das ordenadas: cos θ = 8/√90. O eixo das cotas é o z."},
+        {"t": "θ ≈ 25,2°", "certa": false, "erro": "Você usou a normal do primeiro plano, (1, −1, 3), como se fosse a direção da reta: cos θ = 3/√11. A reta fica deitada nos dois planos, e a direção sai do produto vetorial das normais."}
+      ],
+      "dica": "A reta está nos dois planos, então faz 90° com as duas normais. Que operação dá uma seta assim?",
+      "resposta": "θ ≈ 83,9° (direção (5, 8, 1), cos θ = 1/√90)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "ponto", "em": [2, 2, 2], "rot": "P"},
+          {"tipo": "ponto", "em": [7, 10, 3], "rot": "Q"},
+          {"tipo": "vetor", "de": [2, 2, 2], "ate": [7, 10, 3], "rot": "v", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [0, 0, 5], "rot": "z", "cor": 2},
+          {"tipo": "segmento", "de": [2, 2, 2], "ate": [2, 2, 6], "tracejado": true}
+        ],
+        "legenda": "A reta passa por P = (2, 2, 2) e Q = (7, 10, 3). A tracejada é paralela ao eixo z, para comparar as direções no mesmo ponto."
+      },
+      "jeitos": {
+        "visual": "A reta é a dobra onde dois planos se encontram, como a lombada de um livro aberto. Cada plano tem seu prego, e a lombada faz 90° com os dois. O produto vetorial dá essa seta: (5, 8, 1). Na figura, ela aparece em azul, quase deitada, porque sobe só 1 enquanto anda 5 em x e 8 em y. A tracejada fica em pé, como o eixo z. Daí o ângulo grande, perto de 84°.",
+        "receita": [
+          "Leia as normais: [[n₁]] = (1, −1, 3) e [[n₂]] = (3, −2, 1).",
+          "Produto vetorial: [[v]] = [[n₁]] × [[n₂]] = ((−1)·1 − 3·(−2), 3·3 − 1·1, 1·(−2) − (−1)·3) = (5, 8, 1).",
+          "Eixo das cotas é o eixo z, direção (0, 0, 1).",
+          "Produto escalar: (5, 8, 1)·(0, 0, 1) = 1.",
+          "Norma: ‖[[v]]‖ = √(25 + 64 + 1) = √90.",
+          "cos θ = 1/√90 ≈ 0,105, e `=GRAUS(ACOS(1/RAIZ(90)))` retorna cerca de 83,9."
+        ],
+        "cotidiano": "Duas regras definem um caminho: ande junto ao muro A e ande junto ao muro B. O único caminho que respeita as duas é a linha onde os muros se encontram. Para ver quão inclinada ela é em relação a um poste em pé, olhe quanto ela sobe a cada passo. Neste caso, sobe pouco: 1 a cada 9,5 de comprimento. Por isso o ângulo com o poste é grande.",
+        "trabalho": "As duas equações são dois filtros aplicados juntos: `WHERE x - y + 3*z = 6 AND 3*x - 2*y + z = 4`. O resultado não é um único ponto, é a reta inteira. Teste o ponto (2, 2, 2): 2 − 2 + 6 = 6 e 6 − 4 + 2 = 4. Ele passa nos dois filtros. O ponto (7, 10, 3) também passa. A diferença entre eles, (5, 8, 1), é a direção da reta.",
+        "conversa": [
+          {"quem": "Você", "fala": "O que é eixo das cotas?"},
+          {"quem": "Monitor", "fala": "Abscissas é x, ordenadas é y, cotas é z. Direção (0, 0, 1)."},
+          {"quem": "Você", "fala": "E a direção da reta? Uso a normal (1, −1, 3)?"},
+          {"quem": "Monitor", "fala": "A reta está dentro dos dois planos. Uma seta dentro do plano faz que abertura com o prego?"},
+          {"quem": "Você", "fala": "90°. Então preciso de uma seta a 90° dos dois pregos."},
+          {"quem": "Monitor", "fala": "Quem fabrica essa seta?"},
+          {"quem": "Você", "fala": "O produto vetorial: (5, 8, 1). cos θ = 1/√90, perto de 83,9°."}
+        ],
+        "erro": "Duas armadilhas. Uma é de vocabulário: eixo das cotas é z, e quem lê abscissas ou ordenadas chega a 58,2° ou 32,5°. A outra é de modelo: a reta veio como encontro de dois planos, e a turma pega uma normal como direção. Normal é o prego, e a reta fica deitada. Se o produto escalar da sua seta com (1, −1, 3) não der 0, ela não serve.",
+        "confira": "Caminho sem produto vetorial: ache dois pontos da reta. Com z = 2: x − y = 0 e 3x − 2y = 2 dão (2, 2, 2). Com z = 3: x − y = −3 e 3x − 2y = 1 dão (7, 10, 3). A diferença é (5, 8, 1), a mesma seta. Prova final: 5 − 8 + 3 = 0 e 15 − 16 + 1 = 0, perpendicular às duas normais.",
+        "atalho": "Depois da seta (5, 8, 1), a conta com eixo é curta: o cosseno é a coordenada do eixo dividida pela norma. Para z, fica 1/√90. Como √90 passa de 9, o cosseno é cerca de 0,1, quase zero. Ângulo perto de 90°. Só 83,9° está nessa região. Os outros valores vêm de outro eixo, de outra fórmula ou da normal errada."
+      }
+    },
+    {
+      "id": "ga-s5-l7q7",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 8,
+      "tema": "Parâmetro pelo ângulo",
+      "origem": "Lista 7 · Q7",
+      "enunciado": "Determinar o(s) valor(es) de n para que seja de 30° o ângulo entre as retas r: (2 − x)/4 = y/5 = z/3 e s: y = nx − 5, z = −2x + 2.",
+      "alternativas": [
+        {"t": "n = −1 ou n = −7", "certa": true},
+        {"t": "n = 1 ou n = 7", "certa": false, "erro": "A equação certa é (n + 1)(n + 7) = 0, e você leu as raízes sem o sinal. n = 1 dá 16 nesse produto e um ângulo de 73,2°. n = 7 dá 112 e um ângulo de 61,2°."},
+        {"t": "n = 4 + √13 ou n = 4 − √13", "certa": false, "erro": "Você usou cos 30° = 1/2, que é o seno de 30°. A equação virou n² − 8n + 3 = 0, e essas raízes dão 60°. O certo é cos 30° = √3/2."},
+        {"t": "n = 2", "certa": false, "erro": "Você igualou o produto escalar a zero: 5n − 10 = 0. Isso pede retas perpendiculares: com n = 2, o ângulo é 90°, e não 30°."},
+        {"t": "Nenhum valor real de n", "certa": false, "erro": "Você leu a direção de r como (4, 5, 3), sem trocar o sinal do 2 − x. A equação vira 25n² + 40n + 367 = 0, que não tem raiz real. A direção certa é (−4, 5, 3)."}
+      ],
+      "dica": "Leia a direção de s fazendo x andar 1 passo. Depois eleve ao quadrado os dois lados para sumir com o módulo e as raízes.",
+      "resposta": "n = −1 ou n = −7",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-4, 5, 3], "rot": "r", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, 1, 2], "rot": "n = −1", "cor": 2},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [-1, 7, 2], "rot": "n = −7", "cor": 2}
+        ],
+        "legenda": "As setas coral são as direções de s para n = −1 e n = −7, com o sentido que fica perto de r. Cada uma abre 30° com a seta azul."
+      },
+      "jeitos": {
+        "visual": "Imagine a seta de r parada, (−4, 5, 3). A seta de s é (1, n, −2), e o n funciona como um botão: empurra a ponta dela ao longo da direção do y. Ao variar n, a abertura entre as duas muda. Em duas posições do botão ela vale exatamente 30°. Na figura, as setas coral mostram essas posições, n = −1 e n = −7, cada uma com o sentido que fica perto de r.",
+        "receita": [
+          "Direção de r: 2 − x vem com menos, então [[u]] = (−4, 5, 3).",
+          "Direção de s: se x anda 1, y anda n e z anda −2, então [[v]] = (1, n, −2).",
+          "Produto escalar: −4 + 5n − 6 = 5n − 10. Normas: √50 e √(n² + 5).",
+          "Fórmula com cos 30° = √3/2: |5n − 10| / (√50·√(n² + 5)) = √3/2.",
+          "Eleve ao quadrado: (5n − 10)² / (50(n² + 5)) = 3/4, que vira 4(n − 2)² = 6(n² + 5).",
+          "Simplifique: n² + 8n + 7 = 0, ou seja, (n + 1)(n + 7) = 0.",
+          "Raízes: n = −1 ou n = −7."
+        ],
+        "cotidiano": "Imagine um cone de luz de 30° saindo de um holofote, em torno do rumo da reta r. Agora deslize um cursor por um trilho reto que atravessa esse cone. O cursor é o n. Ele cruza a borda da luz em dois pontos, na entrada e na saída. Esses dois pontos são n = −1 e n = −7. Entre eles o ângulo fica menor que 30°, e além deles fica maior.",
+        "trabalho": "É o Atingir Meta do Excel, feito à mão. Você tem uma célula de entrada, o n, e quer que a célula de saída, o ângulo, dê 30°. Só que o Atingir Meta para no primeiro valor que encontra, e aqui há dois. Por isso vale resolver a equação e testar cada raiz. Com uma célula chamada n, `=GRAUS(ACOS(ABS(5*n-10)/RAIZ(50*(n^2+5))))` retorna 30 tanto para −1 quanto para −7.",
+        "conversa": [
+          {"quem": "Você", "fala": "Escrevi a direção de s como (0, n, −2). O x nem tem número."},
+          {"quem": "Monitor", "fala": "Faça x andar 1 passo. Quanto y e z andam?"},
+          {"quem": "Você", "fala": "y anda n e z anda −2."},
+          {"quem": "Monitor", "fala": "Então a direção é?"},
+          {"quem": "Você", "fala": "(1, n, −2). O produto com (−4, 5, 3) dá 5n − 10."},
+          {"quem": "Monitor", "fala": "O que fazer com módulo e raiz ao mesmo tempo?"},
+          {"quem": "Você", "fala": "Elevo ao quadrado. Chega em n² + 8n + 7 = 0."},
+          {"quem": "Monitor", "fala": "Duas raízes, −1 e −7. As duas ficam: o enunciado pede valor(es)."}
+        ],
+        "erro": "Três pontos derrubam a conta. Primeiro, o 2 − x: a direção de r começa com −4, e não com 4. Segundo, a reta s não mostra o passo em x, que vale 1. Terceiro, a tabela: cos 30° é √3/2, e quem usa 1/2 está com o seno e cai em 60°. Repare também que o enunciado admite dois valores. Parar na primeira raiz deixa a questão pela metade.",
+        "confira": "Substitua cada raiz. Com n = −1: [[v]] = (1, −1, −2), o produto com (−4, 5, 3) dá −15, e (−15)² / (50·6) = 225/300 = 3/4. Com n = −7: [[v]] = (1, −7, −2), o produto dá −45, e (−45)² / (50·54) = 2025/2700 = 3/4. Nos dois casos, cos²θ = 3/4, logo cos θ = √3/2 e θ = 30°.",
+        "atalho": "Teste as alternativas na conta direta, sem montar a equação. Calcule (5n − 10)² / (50(n² + 5)) e veja se dá 3/4. Com n = 2, dá 0, fora. Com n = −1, dá 225/300 = 3/4, passa. Só uma alternativa contém −1. Se sobrar tempo, confirme o −7 na mesma conta: 2025/2700 = 3/4."
+      }
+    }
+  ]
+}

@@ -1,0 +1,281 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-l6q7",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Ponto em reta paralela",
+      "origem": "Lista 6 · Q7",
+      "enunciado": "A reta r passa pelo ponto A = (−2, 2, 4) e é paralela à reta x = −1 − 3t, y = 1 − t, z = 3 − 2t, t ∈ R. Se P = (1, m, n) ∈ r, determinar m e n.",
+      "alternativas": [
+        {"t": "m = 1 e n = 2", "certa": false, "erro": "Errou o sinal do contador. Para sair de x = −2 até x = 1 com passo −3, t é −1. Você usou t = +1 em y e z: 2 − 1 = 1 e 4 − 2 = 2."},
+        {"t": "m = 5/3 e n = 13/3", "certa": false, "erro": "Você colocou P na reta dada, não em r. Ali, −1 − 3t = 1 dá t = −2/3, e sai y = 5/3 e z = 13/3. O P precisa estar em r, a que começa em A."},
+        {"t": "m = 3 e n = 6", "certa": true},
+        {"t": "m = 2 e n = 5", "certa": false, "erro": "O t = −1 está certo, mas você o colocou nas fórmulas da reta dada: y = 1 − (−1) = 2 e z = 3 − 2(−1) = 5. O t = −1 vale em r, que parte de A."},
+        {"t": "m = 5 e n = 10", "certa": false, "erro": "Você usou t = 3, a diferença de x entre P e A, e fez y = 2 + 3 e z = 4 + 6. Faltou dividir: cada passo anda 3 em x, então essa diferença de 3 é um passo só."}
+      ],
+      "dica": "Use a coordenada x conhecida de P para achar o t da reta r.",
+      "resposta": "m = 3 e n = 6",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [4, 4, 8], "ate": [-5, 1, 2], "cor": 4},
+          {"tipo": "segmento", "de": [5, 3, 7], "ate": [-4, 0, 1], "cor": 3, "tracejado": true},
+          {"tipo": "ponto", "em": [-2, 2, 4], "rot": "A"},
+          {"tipo": "ponto", "em": [1, 3, 6], "rot": "P"},
+          {"tipo": "vetor", "de": [-2, 2, 4], "ate": [1, 3, 6], "rot": "", "cor": 1}
+        ],
+        "legenda": "A tracejada é a reta dada. A escura é r, que passa por A. A seta azul é o único passo, para trás, de A até P."
+      },
+      "jeitos": {
+        "visual": "Na figura, a reta tracejada é a dada. A reta r corre ao lado dela, começando em A. A seta (−3, −1, −2) da reta dada também serve em r, mas P fica do outro lado: de x = −2 para x = 1 é preciso andar para trás. Um passo para trás de A soma (3, 1, 2), e você cai em (1, 3, 6). A seta azul mostra esse único passo.",
+        "receita": [
+          "Direção da reta dada: [[v]] = (−3, −1, −2). A reta r tem a mesma.",
+          "Escreva r: x = −2 − 3t, y = 2 − t, z = 4 − 2t.",
+          "Use o x de P: −2 − 3t = 1, então −3t = 3 e t = −1.",
+          "m = 2 − (−1) = 3.",
+          "n = 4 − 2(−1) = 6."
+        ],
+        "cotidiano": "É uma regra de três disfarçada. Se a cada 3 quadras para leste você sobe 1 andar e avança 2 metros, então sair de x = −2 até x = 1, que são 3 quadras, significa 1 andar e 2 metros. Partindo de y = 2 e z = 4, você chega a 3 e 6. As proporções vêm da reta dada, e o ponto de saída vem de A.",
+        "trabalho": "É a fórmula saldo inicial + t meses × movimento, lida ao contrário. Três contas têm saldos (−2, 2, 4) e movimentos (−3, −1, −2). A primeira conta terminou em 1. Quantos meses se passaram? (1 − (−2)) / (−3) = −1. Agora use esse −1 nas outras duas: 2 + (−1)(−1) = 3 e 4 + (−1)(−2) = 6. É o Atingir Meta do Excel: ache o t que fecha um campo e leia os outros.",
+        "conversa": [
+          {"quem": "Você", "fala": "Joguei P na reta dada: −1 − 3t = 1, t = −2/3."},
+          {"quem": "Monitor", "fala": "P está em qual reta, segundo o enunciado?"},
+          {"quem": "Você", "fala": "Em r. Que passa por A."},
+          {"quem": "Monitor", "fala": "E o que a reta dada empresta para r?"},
+          {"quem": "Você", "fala": "Só a direção. Então −2 − 3t = 1, t = −1."},
+          {"quem": "Monitor", "fala": "O mesmo t serve para y e z, desde que seja na reta r."},
+          {"quem": "Você", "fala": "y = 2 + 1 = 3, z = 4 + 2 = 6."}
+        ],
+        "erro": "O tropeço é misturar as duas retas. Elas usam a mesma letra t, mas cada uma parte de um ponto. Achou o t em r e jogou em y = 1 − t? Saiu m = 2, que não tem nada a ver. Outra queda: ver que x andou 3 e usar t = 3. O t conta passos, e cada passo já anda 3 em x. Confirme que está usando a fórmula de r do começo ao fim.",
+        "confira": "Cheque pela proporção, sem t: [[AP]] = P − A = (1 − (−2), 3 − 2, 6 − 4) = (3, 1, 2). Esse vetor é −1 vezes (−3, −1, −2), então fica na mesma linha de r. Se m ou n estivessem errados, o fator não seria igual nas três coordenadas. Prova curta: 3/(−3) = −1, 1/(−1) = −1, 2/(−2) = −1.",
+        "atalho": "Razão entre coordenadas da seta: y anda 1/3 do que x anda, e z anda 2/3. De A até P, x andou 3. Logo, y andou 1 e z andou 2. Some a A: m = 2 + 1 = 3, n = 4 + 2 = 6. Isso dispensa escrever a paramétrica. O sinal já vem certo, porque os três números da seta têm o mesmo sinal."
+      }
+    },
+    {
+      "id": "ga-s5-l6q8",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Parâmetro para paralelismo",
+      "origem": "Lista 6 · Q8",
+      "enunciado": "Calcular k de modo que a reta determinada por A = (1, −1, 0) e B = (k, 1, 2) seja paralela ao plano π: x = 1 − 3h, y = −1 + h − t, z = 1 − 3t, h, t ∈ R.",
+      "alternativas": [
+        {"t": "k = −3", "certa": true},
+        {"t": "k = 3", "certa": false, "erro": "A conta chega a k + 3 = 0, e você passou o 3 sem trocar o sinal. Teste: com k = 3, [[AB]] = (2, 2, 2), e (2, 2, 2)·(1, 3, −1) = 6, não 0."},
+        {"t": "k = 9", "certa": false, "erro": "Faltou o menos da segunda coordenada do produto vetorial: você usou (−3, 9, 3), e não (−3, −9, 3). Daí −3k + 27 = 0, e k = 9."},
+        {"t": "k = −1", "certa": false, "erro": "Você usou o ponto B no lugar da seta [[AB]]: (k, 1, 2)·(1, 3, −1) = k + 3 − 2 = k + 1. O teste de paralela é com a seta da reta, B − A = (k − 1, 2, 2)."},
+        {"t": "k = −4", "certa": false, "erro": "Você pôs B dentro do plano x + 3y − z + 3 = 0: k + 3 − 2 + 3 = 0. Isso faz B pertencer ao plano, e a pergunta é outra. Reta paralela pede [[AB]]·[[n]] = 0."}
+      ],
+      "dica": "As setas do plano são as que acompanham h e t. O produto vetorial delas dá o prego.",
+      "resposta": "k = −3",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-2, -1, -2], [-2, 1, 4], [4, -1, 4], [4, -3, -2]], "cor": 3},
+          {"tipo": "ponto", "em": [1, -1, 0], "rot": "A"},
+          {"tipo": "ponto", "em": [-3, 1, 2], "rot": "B"},
+          {"tipo": "vetor", "de": [1, -1, 0], "ate": [-3, 1, 2], "rot": "AB", "cor": 1},
+          {"tipo": "vetor", "de": [1, -1, 1], "ate": [2, 2, 0], "rot": "n", "cor": 4}
+        ],
+        "legenda": "Com k = −3, a seta azul corre ao lado da folha, sem furar. A seta escura é o prego (1, 3, −1)."
+      },
+      "jeitos": {
+        "visual": "Na figura, a folha é o plano π, e a seta azul vai de A até B com k = −3. As setas do plano saem dos números que acompanham h e t: (−3, 1, 0) e (0, −1, −3). O prego (1, 3, −1) fica em pé. Paralela quer dizer que a seta [[AB]] deita na direção da folha, em cruz com o prego. Gire a figura de lado e veja a seta correndo sem furar.",
+        "receita": [
+          "Setas do plano: h dá [[u]] = (−3, 1, 0), e t dá [[w]] = (0, −1, −3).",
+          "Vetor normal, o prego: [[u]] × [[w]] = (−3, −9, 3). Dividindo por −3: [[n]] = (1, 3, −1).",
+          "Seta da reta: [[AB]] = B − A = (k − 1, 2, 2).",
+          "Paralela: [[AB]]·[[n]] = 0, ou seja, (k − 1) + 6 − 2 = 0.",
+          "Então k + 3 = 0, e k = −3."
+        ],
+        "cotidiano": "Imagine um telhado inclinado e um fio esticado por cima. O fio está paralelo ao telhado se, andando ao longo dele, a distância até as telhas não mudar. Não precisa estar encostado, nem ter o mesmo comprimento. Você ajusta o ponto onde o fio termina, que é o k, até a distância nas duas pontas ficar igual.",
+        "trabalho": "Pense em SOMARPRODUTO como um indicador: pesos (1, 3, −1). A folha tem todo ponto com o mesmo indicador. Para a reta não se afastar nem se aproximar dela, A e B precisam ter o mesmo indicador. Em A, 1 − 3 − 0 = −2. Em B, k + 3 − 2 = k + 1. Iguale: k + 1 = −2, e k = −3. É o teste de variação zero: a diferença entre as duas linhas, ponderada, dá 0.",
+        "conversa": [
+          {"quem": "Você", "fala": "Pus B no plano e deu k = −4."},
+          {"quem": "Monitor", "fala": "Se B está no plano e A não, a reta AB faz o quê com o plano?"},
+          {"quem": "Você", "fala": "Encosta em B. Então fura."},
+          {"quem": "Monitor", "fala": "E paralela pode furar?"},
+          {"quem": "Você", "fala": "Não. O que eu preciso é da seta, não do ponto."},
+          {"quem": "Monitor", "fala": "Qual é a seta, e qual é o prego?"},
+          {"quem": "Você", "fala": "(k − 1, 2, 2) e (1, 3, −1). k − 1 + 6 − 2 = 0, então k = −3."}
+        ],
+        "erro": "Há duas armadilhas. A primeira é o vetorial: na segunda coordenada, o sinal se inverte, e esquecê-lo gera outro k. A segunda é trocar paralela ao plano por ponto no plano. Paralela fala da seta da reta, e não de onde ela está. Em x = 1 − 3h, y = −1 + h − t, z = 1 − 3t, cuide também do menos no −t: a seta de t é (0, −1, −3).",
+        "confira": "Teste os dois pontos na equação do plano, x + 3y − z + 3 = 0. A dá 1 − 3 − 0 + 3 = 1. B = (−3, 1, 2) dá −3 + 3 − 2 + 3 = 1. O mesmo valor nos dois pontos mostra que a reta não se aproxima da folha. E como deu 1, e não 0, ela nem está dentro. É paralela de fato.",
+        "atalho": "Depois de achar o prego (1, 3, −1), olhe a conta da seta: os termos em y e z são fixos, 2·3 − 2·1 = 4. O x precisa compensar: k − 1 = −4. Isso dá k = −3 sem montar a equação do plano. Se o tempo for curto, teste cada alternativa nessa conta: só uma zera."
+      }
+    },
+    {
+      "id": "ga-s5-l6q9",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 7,
+      "tema": "Plano contendo uma reta",
+      "origem": "Lista 6 · Q9",
+      "enunciado": "Considere a reta r de equação (−x + 1)/2 = −y − 2 = (−z − 2)/2 e considere o plano π de equação x − 2y + z = 1. Determine a equação do plano α que contém a reta r e é perpendicular ao plano π.",
+      "alternativas": [
+        {"t": "x − 2y + z − 3 = 0", "certa": false, "erro": "Você copiou o prego de π e ajustou o d com o ponto (1, −2, −2). Isso dá um plano paralelo a π, não perpendicular."},
+        {"t": "2x + y + 2z + 4 = 0", "certa": false, "erro": "Você usou a direção da reta, (2, 1, 2), como prego. Esse plano fica em cruz com r, e a pergunta pede que ele contenha r."},
+        {"t": "5x + 4y + 3z + 9 = 0", "certa": false, "erro": "Você leu a direção como (−2, 1, 2), trocando só o sinal do x. Mas y e z também vêm com menos em −y − 2 e (−z − 2)/2: a direção é (−2, −1, −2). O vetorial com (1, −2, 1) saiu errado por causa disso."},
+        {"t": "−5x + 5z − 15 = 0", "certa": false, "erro": "O prego está certo, mas o ponto não: você leu (−1, 2, 2), trocando os sinais. O ponto de r zera cada parte de cima: −x + 1 = 0 dá x = 1, −y − 2 = 0 dá y = −2, −z − 2 = 0 dá z = −2."},
+        {"t": "−5x + 5z + 15 = 0", "certa": true}
+      ],
+      "dica": "O prego de α fica em cruz com a seta de r e em cruz com o prego de π. Que operação entrega isso?",
+      "resposta": "−5x + 5z + 15 = 0 (o mesmo que x − z − 3 = 0)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-1, -4, -6], [3, -4, -10], [3, 0, -2], [-1, 0, 2]], "cor": 1},
+          {"tipo": "poligono", "pts": [[-1, -4, -4], [3, -4, 0], [3, 0, 0], [-1, 0, -4]], "cor": 2},
+          {"tipo": "segmento", "de": [-1, -3, -4], "ate": [3, -1, 0], "cor": 4},
+          {"tipo": "ponto", "em": [1, -2, -2], "rot": "P"},
+          {"tipo": "vetor", "de": [1, -2, -2], "ate": [3, -1, 0], "rot": "v", "cor": 4},
+          {"tipo": "vetor", "de": [1, -2, -2], "ate": [2, -4, -1], "rot": "n", "cor": 1}
+        ],
+        "legenda": "A folha azul é π, e a coral é α. Em α ficam deitadas a reta r, escura, e a seta azul, que é o prego de π."
+      },
+      "jeitos": {
+        "visual": "Na figura, a folha azul é π, e a folha coral é α, que deve conter a reta escura. Para α ser perpendicular a π, o prego de π precisa ficar deitado em α. Então α tem duas setas deitadas: a da reta, (2, 1, 2), e o prego de π, (1, −2, 1). O produto vetorial delas dá (5, 0, −5), o prego de α. Como o y é 0, a folha α corre paralela ao eixo y.",
+        "receita": [
+          "Leia r: todas vêm com menos. −x + 1 = 0 dá x = 1, −y − 2 = 0 dá y = −2, −z − 2 = 0 dá z = −2. P = (1, −2, −2).",
+          "Direção: (−2, −1, −2), que pode ser trocada por (2, 1, 2).",
+          "Vetor normal de π, o prego: [[n]] = (1, −2, 1).",
+          "Prego de α: (2, 1, 2) × (1, −2, 1) = (5, 0, −5).",
+          "Equação: 5x − 5z + d = 0. Com P: 5 + 10 + d = 0, então d = −15.",
+          "Fica 5x − 5z − 15 = 0. Multiplicando por −1: −5x + 5z + 15 = 0."
+        ],
+        "cotidiano": "Pense numa porta fechada e no piso. A folha da porta é perpendicular ao piso, porque contém a vertical, que é o prego do piso. Ela também contém a linha da soleira. Dadas a soleira e a vertical, só existe uma folha possível. Aqui, a soleira é a reta r, e a vertical é a seta (1, −2, 1), que está inclinada, como se o piso também estivesse.",
+        "trabalho": "Há duas restrições sobre o prego de α: SOMARPRODUTO com a seta de r dá 0, e SOMARPRODUTO com o prego de π dá 0. É como procurar pesos que anulam duas colunas ao mesmo tempo. O produto vetorial dá de uma vez os pesos que fazem isso: (5, 0, −5). Confira nas colunas: 10 + 0 − 10 = 0 e 5 + 0 − 5 = 0.",
+        "conversa": [
+          {"quem": "Você", "fala": "Se α é perpendicular a π, o prego dele não é o prego de π?"},
+          {"quem": "Monitor", "fala": "Se fosse igual, as duas folhas seriam o quê?"},
+          {"quem": "Você", "fala": "Paralelas. Errei. Então o prego de π fica deitado em α."},
+          {"quem": "Monitor", "fala": "E o que mais está deitado em α?"},
+          {"quem": "Você", "fala": "A própria reta r, com seta (2, 1, 2)."},
+          {"quem": "Monitor", "fala": "Duas setas deitadas. O que sai delas?"},
+          {"quem": "Você", "fala": "O vetorial: (5, 0, −5). Com P = (1, −2, −2), d = −15. Dá 5x − 5z − 15 = 0."},
+          {"quem": "Monitor", "fala": "É o gabarito multiplicado por −1. Mesmo plano."}
+        ],
+        "erro": "A leitura de r é o ponto fraco: todas as partes têm letra com menos, e a do meio nem tem fração. Trocar só um sinal muda a direção inteira. Se quiser, reescreva antes: cada parte fica (x − 1)/(−2), (y + 2)/(−1) e (z + 2)/(−2). Depois, não confunda: plano perpendicular a π não usa o prego de π como prego. Ele usa esse prego como seta deitada.",
+        "confira": "Três testes em −5x + 5z + 15. O ponto P: −5 − 10 + 15 = 0. A seta de r: −5·2 + 0 + 5·2 = 0, então r inteira está no plano. A perpendicular: (−5, 0, 5)·(1, −2, 1) = −5 + 5 = 0. Os pregos fazem 90°, e os planos também. Outro ponto de r, um passo adiante, é (3, −1, 0): −15 + 0 + 15 = 0.",
+        "atalho": "Teste a seta (2, 1, 2) contra os números de cada alternativa, porque α contém r e o resultado precisa dar 0. Em x − 2y + z dá 2, em 2x + y + 2z dá 9, em 5x + 4y + 3z dá 20. Sobram as duas de −5x + 5z. Aí o ponto decide: P = (1, −2, −2) zera só a de +15. Você não precisa fazer o vetorial."
+      }
+    },
+    {
+      "id": "ga-s5-l6q10a",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Plano por duas retas",
+      "origem": "Lista 6 · Q10a",
+      "enunciado": "Seja π o plano que contém as retas r₁: x = −1 − 2t, y = −1 + t, z = −2 − 2t, t ∈ R e r₂: x = y, z = −2.\nEncontre a equação de π.",
+      "alternativas": [
+        {"t": "2x − 2y − 3z + 6 = 0", "certa": false, "erro": "O prego está certo, mas a conta 2(−1) − 2(−1) − 3(−2) = 6 virou d = +6. O d é o que zera: 6 + d = 0 dá d = −6."},
+        {"t": "2x + 2y − 3z − 2 = 0", "certa": false, "erro": "Faltou o menos da segunda coordenada do produto vetorial: você usou (2, 2, −3), e não (2, −2, −3). A seta de r₂, (1, 1, 0), dá 4 com esse prego, em vez de 0."},
+        {"t": "2x − 2y − 3z − 6 = 0", "certa": true},
+        {"t": "2x − 2y − 3z = 0", "certa": false, "erro": "Você usou a origem como ponto de r₂, porque x = y vale em (0, 0). Só que r₂ tem z = −2. O ponto certo é (0, 0, −2), que dá 6 + d = 0."},
+        {"t": "2y + z + 4 = 0", "certa": false, "erro": "Você leu a direção de r₂ como (1, 1, −2), usando o −2 como passo de z. Em r₂, o z é fixo em −2, então ele não anda: a direção é (1, 1, 0). Com essa leitura, o ponto (0, 0, −2) dá 2, e não 0."}
+      ],
+      "dica": "Escreva r₂ com um contador. Se x = y = s e z não muda, qual é a seta?",
+      "resposta": "2x − 2y − 3z − 6 = 0",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-1, 2, -4], [-5, -2, -4], [-1, -4, 0], [3, 0, 0]], "cor": 3},
+          {"tipo": "segmento", "de": [1, -2, 0], "ate": [-3, 0, -4], "cor": 1},
+          {"tipo": "ponto", "em": [1, -2, 0], "rot": "r₁"},
+          {"tipo": "segmento", "de": [-3, -3, -2], "ate": [1, 1, -2], "cor": 2},
+          {"tipo": "ponto", "em": [1, 1, -2], "rot": "r₂"},
+          {"tipo": "ponto", "em": [-1, -1, -2], "rot": "(−1, −1, −2)"}
+        ],
+        "legenda": "As retas se cruzam em (−1, −1, −2). A reta r₂, coral, fica toda na altura z = −2."
+      },
+      "jeitos": {
+        "visual": "r₂ não traz contador à vista. Leia assim: x e y andam juntos, e z fica parado em −2. É uma reta horizontal na altura −2, com seta (1, 1, 0). Na figura, r₁ (azul) e r₂ (coral) se cruzam em (−1, −1, −2). Duas retas que se cruzam travam uma folha. O prego é o vetorial das duas setas: (2, −2, −3).",
+        "receita": [
+          "Abra r₂ com um contador s: x = s, y = s, z = −2. Seta (1, 1, 0), ponto (0, 0, −2).",
+          "Seta de r₁: (−2, 1, −2). Ponto de r₁: (−1, −1, −2).",
+          "Vetor normal, o prego: (−2, 1, −2) × (1, 1, 0) = (2, −2, −3).",
+          "Equação: 2x − 2y − 3z + d = 0. Com (−1, −1, −2): −2 + 2 + 6 + d = 0.",
+          "Então d = −6, e π é 2x − 2y − 3z − 6 = 0."
+        ],
+        "cotidiano": "Dois corrimãos que se encontram no mesmo pilar definem a inclinação de um painel de vidro encostado neles. Um corrimão só deixaria o vidro girar em torno dele, como uma porta na dobradiça. Com dois, o vidro trava. Para escrever o vidro em equação, você usa as direções dos dois corrimãos e o pilar.",
+        "trabalho": "Na escrita de r₂, x = y é uma regra de validação entre duas colunas, e z = −2 é um valor fixo, como um parâmetro. Uma linha vale se as duas colunas forem iguais e se z for −2. Em SQL: `WHERE x = y AND z = -2`. O ponto (−1, −1, −2) de r₁ passa nessa validação. Então r₁ e r₂ se cruzam ali, e é isso que garante que existe um plano com as duas.",
+        "conversa": [
+          {"quem": "Você", "fala": "r₂ só tem duas equações. Cadê a seta?"},
+          {"quem": "Monitor", "fala": "Se x = 5, quanto vale y? E z?"},
+          {"quem": "Você", "fala": "y = 5 e z = −2."},
+          {"quem": "Monitor", "fala": "E se x = 6?"},
+          {"quem": "Você", "fala": "y = 6, z = −2. Andou (1, 1, 0)."},
+          {"quem": "Monitor", "fala": "Essa é a seta. O −2 é passo ou posição?"},
+          {"quem": "Você", "fala": "Posição. z não anda. Com (−2, 1, −2) × (1, 1, 0) sai (2, −2, −3)."},
+          {"quem": "Monitor", "fala": "Falta o d. Use um ponto: (0, 0, −2) dá 6, então d = −6."}
+        ],
+        "erro": "A reta r₂ está escrita sem contador, e aí mora a armadilha. Quem vê z = −2 tende a usar −2 como terceira coordenada da seta. Esse número é onde a reta está, não quanto ela anda. A seta é (1, 1, 0). Outro tropeço: escolher a origem como ponto, porque x = y vale lá. Um ponto de r₂ precisa atender às duas condições: (0, 0, −2) atende, e (0, 0, 0) não.",
+        "confira": "Teste cada reta inteira. r₁: 2(−1 − 2t) − 2(−1 + t) − 3(−2 − 2t) − 6 = −2 − 4t + 2 − 2t + 6 + 6t − 6 = 0, para todo t. Todo ponto de r₁ está no plano. r₂: 2s − 2s − 3(−2) − 6 = 6 − 6 = 0, para todo s. As letras somem, e sobra 0. Essa é a prova mais forte: não testa um ponto, testa a reta toda.",
+        "atalho": "Olhe r₂: x = y e z = −2. Ponha x = y = s em cada alternativa. Os termos em s precisam sumir, e o z = −2 precisa zerar o resto. Em 2x − 2y, o s some. Aí −3(−2) = 6 pede um −6 solto. Só a alternativa com −6 resiste. Esse teste usa só r₂ e dispensa o vetorial."
+      }
+    },
+    {
+      "id": "ga-s5-l6q10b",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 7,
+      "tema": "Decompor vetor no plano",
+      "origem": "Lista 6 · Q10b",
+      "enunciado": "Seja π o plano que contém as retas r₁: x = −1 − 2t, y = −1 + t, z = −2 − 2t, t ∈ R e r₂: x = y, z = −2.\nEscreva o vetor [[v]] = [[i]] − [[j]] − 2[[k]] como a soma de dois vetores [[v₁]] e [[v₂]], sendo [[v₁]] paralelo a π e [[v₂]] ortogonal a π.",
+      "alternativas": [
+        {"t": "[[v₁]] = (20/17, −20/17, −30/17) e [[v₂]] = (−3/17, 3/17, −4/17)", "certa": false, "erro": "Você trocou os papéis. A parte que sai como múltiplo do prego é a ortogonal, então (20/17, −20/17, −30/17) é [[v₂]]. Teste: (−3/17, 3/17, −4/17) não é múltiplo de (2, −2, −3)."},
+        {"t": "[[v₁]] = (−3/17, 3/17, −4/17) e [[v₂]] = (20/17, −20/17, −30/17)", "certa": true},
+        {"t": "[[v₁]] = (−19, 19, 28) e [[v₂]] = (20, −20, −30)", "certa": false, "erro": "Faltou dividir por [[n]]·[[n]] = 17. Você fez [[v₂]] = 10·[[n]], e a conta certa é (10/17)·[[n]]. Com o 10 sozinho, [[v₁]] não deita em π: (−19, 19, 28)·(2, −2, −3) = −160."},
+        {"t": "[[v₁]] = (21/17, −21/17, −40/17) e [[v₂]] = (−4/17, 4/17, 6/17)", "certa": false, "erro": "Você errou um sinal no produto escalar: (−2)(−3) = +6, mas entrou como −6. Aí [[v]]·[[n]] deu 2 + 2 − 6 = −2, em vez de 10. A soma ainda dá [[v]], mas [[v₁]] não fica paralelo: [[v₁]]·[[n]] = 12."},
+        {"t": "[[v₁]] = (1, −1, 0) e [[v₂]] = (0, 0, −2)", "certa": false, "erro": "Você separou pelo eixo z, como se π fosse o chão. A soma dá [[v]], mas π é inclinado: (1, −1, 0)·(2, −2, −3) = 4, então [[v₁]] não deita em π. E (0, 0, −2) não é múltiplo do prego."}
+      ],
+      "dica": "Use o prego de π, vindo do item a. Quanto de [[v]] aponta na direção dele?",
+      "resposta": "[[v₁]] = (−3/17, 3/17, −4/17) e [[v₂]] = (20/17, −20/17, −30/17)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-1, 2, -4], [-5, -2, -4], [-1, -4, 0], [3, 0, 0]], "cor": 3},
+          {"tipo": "vetor", "de": [-1, -1, -2], "ate": [0, -2, -4], "rot": "v", "cor": 4},
+          {"tipo": "vetor", "de": [-1, -1, -2], "ate": [-1.176, -0.824, -2.235], "rot": "v₁", "cor": 1},
+          {"tipo": "vetor", "de": [-1.176, -0.824, -2.235], "ate": [0, -2, -4], "rot": "v₂", "cor": 2}
+        ],
+        "legenda": "A seta azul, curta, deita na folha. A coral fica em pé. Encostadas, as duas chegam ao mesmo lugar que a escura."
+      },
+      "jeitos": {
+        "visual": "Imagine [[v]] como uma vara encostada numa parede inclinada. A sombra dela na parede é [[v₁]]. O quanto ela sai em pé da parede é [[v₂]]. Na figura, a seta azul, a coral e a escura formam um triângulo retângulo: [[v₁]] deitada na folha, [[v₂]] em pé, e [[v]] como hipotenusa. Quase toda a seta [[v]] está em pé: [[v₁]] é bem curta.",
+        "receita": [
+          "Do item a, o vetor normal, o prego, é [[n]] = (2, −2, −3). Em coordenadas, [[v]] = (1, −1, −2).",
+          "[[v]]·[[n]] = 2 + 2 + 6 = 10, e [[n]]·[[n]] = 4 + 4 + 9 = 17.",
+          "A parte ortogonal é um múltiplo do prego: [[v₂]] = (10/17)·[[n]] = (20/17, −20/17, −30/17).",
+          "O resto é a parte paralela: [[v₁]] = [[v]] − [[v₂]].",
+          "Conta: (1 − 20/17, −1 + 20/17, −2 + 30/17) = (−3/17, 3/17, −4/17)."
+        ],
+        "cotidiano": "Você puxa uma mala por uma corda, numa rampa. A força se divide em duas partes: a que corre ao longo da rampa, que faz a mala andar, e a que sai em cruz com a rampa, que tenta levantá-la. Somando as duas, volta a força original. Nesta questão, a rampa é o plano π. A parte em cruz é [[v₂]], e a parte ao longo é [[v₁]].",
+        "trabalho": "É a conta de uma regressão linear sem termo constante, com a mesma geometria: valor observado = parte explicada + resíduo, o que sobrou, e o resíduo faz 90° com a coluna que explica. Aqui a coluna explicativa é [[n]]. O coeficiente é SOMARPRODUTO(v; n) / SOMARPRODUTO(n; n) = 10/17. A parte explicada é [[v₂]], e o resíduo é [[v₁]]. Confira como no Excel: o SOMARPRODUTO do resíduo com [[n]] dá 0.",
+        "conversa": [
+          {"quem": "Você", "fala": "Não dá para separar pelo z? (1, −1, 0) e (0, 0, −2) somam [[v]]."},
+          {"quem": "Monitor", "fala": "Somam. Agora teste (1, −1, 0) com o prego de π."},
+          {"quem": "Você", "fala": "2 + 2 = 4. Não deu zero."},
+          {"quem": "Monitor", "fala": "Então essa parte não deita em π. O plano não é o chão."},
+          {"quem": "Você", "fala": "Como separo, então?"},
+          {"quem": "Monitor", "fala": "Comece pela parte fácil: a que é múltiplo do prego. Qual é o fator?"},
+          {"quem": "Você", "fala": "[[v]]·[[n]] dividido por [[n]]·[[n]], que dá 10/17."},
+          {"quem": "Monitor", "fala": "Daí [[v₂]] = (10/17)·[[n]], e [[v₁]] é o que sobra."}
+        ],
+        "erro": "A tentação é dividir [[v]] pelos eixos, porque a soma fecha de qualquer jeito. A soma fechar não prova nada: infinitas duplas de vetores somam [[v]]. O que define a resposta são as duas condições: [[v₁]]·[[n]] = 0 e [[v₂]] múltiplo de [[n]]. Outro deslize é dividir por ‖[[n]]‖ = √17, e não por [[n]]·[[n]] = 17. O denominador não leva raiz.",
+        "confira": "Três contas com 17 embaixo. Soma: (−3 + 20, 3 − 20, −4 − 30)/17 = (17, −17, −34)/17 = (1, −1, −2). Deitada: [[v₁]]·[[n]] = (−6 − 6 + 12)/17 = 0. Em pé: [[v₂]] = (10/17)·(2, −2, −3), múltiplo de [[n]]. Extra: 34/289 + 1700/289 = 6, que é ‖[[v]]‖². O teorema de Pitágoras fecha.",
+        "atalho": "Teste a alternativa em duas contas. [[v₂]] precisa ser múltiplo de (2, −2, −3): as três divisões têm de dar o mesmo fator. Isso corta duas alternativas. Depois, [[v₁]]·(2, −2, −3) precisa dar 0: das três que sobram, uma dá −160, outra dá 12, e a restante dá 0. Você não precisa refazer a projeção."
+      }
+    }
+  ]
+}

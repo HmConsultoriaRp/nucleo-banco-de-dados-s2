@@ -1,0 +1,330 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-l8q1a",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Distância entre retas reversas",
+      "origem": "Lista 8 · Q1a",
+      "enunciado": "Determine a distância entre r: X = (1, 2, 3) + λ(1, 1, 1), λ ∈ R e s: X = (1, 1, 1) + t(1, −2, −3), t ∈ R. Qual é essa distância?",
+      "alternativas": [
+        {"t": "0", "certa": false, "erro": "Você supôs que direções diferentes sempre se cruzam. Isso vale numa folha, não em 3D. Igualando as coordenadas, o x dá λ = t, o y pede t = −1/3 e o z pede t = −1/2: não há ponto em comum."},
+        {"t": "√5", "certa": false, "erro": "Esse é ‖(0, 1, 2)‖, a distância entre (1, 1, 1) e (1, 2, 3), os pontos que vieram nas equações. Eles não são os mais próximos, e a distância entre retas é o menor trecho possível."},
+        {"t": "√26/13", "certa": true},
+        {"t": "2", "certa": false, "erro": "Esse é |(0, 1, 2)·(−1, 4, −3)| = |0 + 4 − 6| = 2. Faltou dividir por ‖(−1, 4, −3)‖ = √26, que tira da conta o tamanho do prego."},
+        {"t": "1/13", "certa": false, "erro": "Você fez 2/26, dividindo pelo quadrado da norma. O divisor é a própria norma, √26: a conta é 2/√26."}
+      ],
+      "dica": "Direções diferentes e nenhum ponto comum: procure a seta que fica em pé sobre as duas direções ao mesmo tempo.",
+      "resposta": "d = 2/√26 = √26/13 ≈ 0,39",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [-1, 0, 1], "ate": [2, 3, 4], "cor": 1},
+          {"tipo": "segmento", "de": [0, 3, 4], "ate": [2, -1, -2], "cor": 2},
+          {"tipo": "ponto", "em": [2, 3, 4], "rot": "r"},
+          {"tipo": "ponto", "em": [2, -1, -2], "rot": "s"},
+          {"tipo": "ponto", "em": [1, 2, 3], "rot": "A"},
+          {"tipo": "ponto", "em": [1, 1, 1], "rot": "B"},
+          {"tipo": "vetor", "de": [1, 1, 1], "ate": [1, 2, 3], "rot": "w", "cor": 3},
+          {"tipo": "vetor", "de": [0.538, 1.923, 2.385], "ate": [0.615, 1.615, 2.615], "rot": "d", "cor": 4}
+        ],
+        "legenda": "As duas retas passam uma pela outra sem se tocar. A seta escura é o menor caminho entre elas e faz 90° com as duas."
+      },
+      "jeitos": {
+        "visual": "Pense num viaduto passando sobre uma avenida. A reta r é o viaduto, a reta s é a avenida, e elas não se tocam. A distância é o pilar: o trecho mais curto entre as duas, que faz 90° com cada uma. Na figura, esse pilar é a seta escura, curtinha, com cerca de 0,39 de comprimento. A seta ocre, de (1, 1, 1) até (1, 2, 3), também liga as retas, mas sai inclinada e fica maior.",
+        "receita": [
+          "Direções: [[u]] = (1, 1, 1) e [[v]] = (1, −2, −3). Não são múltiplas e as retas não têm ponto comum: são reversas, isto é, não se cortam nem são paralelas.",
+          "Ache a seta em pé sobre as duas, o produto vetorial: [[n]] = [[u]] × [[v]] = (1·(−3) − 1·(−2), 1·1 − 1·(−3), 1·(−2) − 1·1) = (−1, 4, −3).",
+          "Ligue um ponto de cada reta: [[w]] = (1, 2, 3) − (1, 1, 1) = (0, 1, 2).",
+          "Produto escalar: [[w]]·[[n]] = 0·(−1) + 1·4 + 2·(−3) = −2. Tire o sinal: |−2| = 2.",
+          "Norma do prego: ‖[[n]]‖ = √(1 + 16 + 9) = √26.",
+          "Divida: d = 2/√26. Multiplicando em cima e embaixo por √26: 2√26/26 = √26/13."
+        ],
+        "cotidiano": "Dois fios esticados numa garagem, um cruzando por cima do outro sem encostar. Para saber a folga entre eles, você não estica a trena de uma ponta qualquer a outra: ela sai torta e mede mais. A folga real aparece onde a trena fica em esquadro com os dois fios. A conta faz isso sem procurar esse lugar: pega qualquer ligação entre os fios e aproveita só a parte dela na direção do esquadro.",
+        "trabalho": "O passo final é uma fórmula de planilha. Com [[w]] em B2:D2 e [[n]] em B3:D3: `=ABS(SOMARPRODUTO(B2:D2;B3:D3))/RAIZ(SOMARPRODUTO(B3:D3;B3:D3))`. O SOMARPRODUTO dá −2, o ABS tira o sinal, e a RAIZ dá √26. Sai cerca de 0,39. O 2 sozinho ainda carrega o tamanho de [[n]]. Dividir pela norma tira esse tamanho, como trocar de escala antes de comparar dois valores.",
+        "conversa": [
+          {"quem": "Você", "fala": "As direções são diferentes, então as retas se cruzam e a distância é 0, certo?"},
+          {"quem": "Monitor", "fala": "Na folha, sim. Aqui há três coordenadas. Iguale x, y e z das duas equações. O que sai?"},
+          {"quem": "Você", "fala": "Do x, λ = t. Do y, t = −1/3. Do z, t = −1/2."},
+          {"quem": "Monitor", "fala": "Dois valores para o mesmo t. Logo, nenhum ponto em comum."},
+          {"quem": "Você", "fala": "Então meço de (1, 1, 1) até (1, 2, 3)? Dá √5."},
+          {"quem": "Monitor", "fala": "Esse trecho sai inclinado. Fique só com a parte dele na direção de [[n]] = (−1, 4, −3), que faz 90° com as duas retas: |−2|/√26."},
+          {"quem": "Você", "fala": "Dá √26/13, menor que √5."},
+          {"quem": "Monitor", "fala": "Tem de ser menor. A distância é o menor trecho possível."}
+        ],
+        "erro": "O tropeço mais comum é parar em √5, a distância entre os dois pontos das equações. Esses pontos foram escolhidos por quem escreveu a reta, não por serem os mais próximos. Percebe-se a armadilha testando 90°: [[w]]·[[u]] = 3, não 0. Se o trecho não faz 90° com a reta, ele não é o menor. O outro tropeço é marcar 0 só porque as direções diferem.",
+        "confira": "Ache os dois pontos mais próximos e meça. Exigindo 90° com as duas direções, sai λ = −5/13 e t = −6/13. Os pontos são (8/13, 21/13, 34/13) em r e (7/13, 25/13, 31/13) em s. A diferença é (1/13, −4/13, 3/13), múltiplo de (−1, 4, −3). A norma dá √(1 + 16 + 9)/13 = √26/13. Bateu.",
+        "atalho": "Olhe as direções: não são múltiplas, e as coordenadas não fecham, então 0 cai. A conta sempre termina dividindo por ‖[[n]]‖ = √26, o que descarta √5 e 2. Entre √26/13 e 1/13, lembre que o divisor é a norma, não o quadrado dela. Se a sua conta parar em 2/√26, é a mesma resposta: falta só tirar a raiz de baixo."
+      }
+    },
+    {
+      "id": "ga-s5-l8q1b",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Reta que fura o plano",
+      "origem": "Lista 8 · Q1b",
+      "enunciado": "Determine a distância entre r: X = (1, 2, 3) + λ(1, 1, 1), λ ∈ R e π: x + y + z + 1 = 0. Qual é essa distância?",
+      "alternativas": [
+        {"t": "0", "certa": true},
+        {"t": "7√3/3", "certa": false, "erro": "Você pôs o ponto (1, 2, 3) na fórmula: |1 + 2 + 3 + 1|/√3 = 7/√3 = 7√3/3. Essa é a distância desse ponto ao plano. A reta segue em frente e fura o plano."},
+        {"t": "7", "certa": false, "erro": "Esse é |1 + 2 + 3 + 1| = 7, a sobra do ponto na equação. Além de a reta furar o plano, faltou dividir por ‖[[n]]‖ = √3."},
+        {"t": "7/3", "certa": false, "erro": "Você dividiu 7 por 3, que é ‖[[n]]‖². Esse 7/3 é o tamanho do λ do encontro, λ = −7/3. Havendo encontro, a distância é 0."},
+        {"t": "√3/3", "certa": false, "erro": "Esse valor é |0 + 0 + 0 + 1|/√3, a distância da origem ao plano. O ponto (0, 0, 0) nem está na reta r."}
+      ],
+      "dica": "Antes de usar fórmula de distância, compare a direção da reta com o prego do plano.",
+      "resposta": "0 (a reta fura o plano em λ = −7/3)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-3, 1, 1], [1, -3, 1], [1, 1, -3]], "cor": 3},
+          {"tipo": "segmento", "de": [-2, -1, 0], "ate": [1, 2, 3], "cor": 1},
+          {"tipo": "ponto", "em": [1, 2, 3], "rot": "P"},
+          {"tipo": "ponto", "em": [-1.333, -0.333, 0.667], "rot": "encontro"}
+        ],
+        "legenda": "A reta azul vem em pé na folha e atravessa. No ponto de encontro, a distância é 0."
+      },
+      "jeitos": {
+        "visual": "Na figura, o triângulo é um pedaço da folha π, e a linha azul é a reta r. O prego da folha é (1, 1, 1), e a direção da reta também é (1, 1, 1): a reta chega em pé na folha. Uma reta que não corre deitada ao lado da folha acaba atravessando. Aqui, ela atravessa em (−4/3, −1/3, 2/3). Onde há ponto comum, a distância é 0.",
+        "receita": [
+          "Direção da reta: [[v]] = (1, 1, 1). Prego do plano: [[n]] = (1, 1, 1).",
+          "Teste: [[v]]·[[n]] = 1 + 1 + 1 = 3. Não é 0, então a reta não corre paralela à folha.",
+          "Ache o encontro: (1 + λ) + (2 + λ) + (3 + λ) + 1 = 0, ou seja, 3λ + 7 = 0.",
+          "Logo λ = −7/3, e o ponto é (1 − 7/3, 2 − 7/3, 3 − 7/3) = (−4/3, −1/3, 2/3).",
+          "Há ponto comum: a distância é 0."
+        ],
+        "cotidiano": "Você quer saber a que distância um trilho fica de um muro. Se o trilho corre ao lado do muro, a folga é sempre a mesma e vale medir. Se o trilho vai de encontro ao muro, um ponto dele bate lá, e a menor distância é zero, mesmo que a estação fique longe. Medir da estação até o muro responde a outra pergunta.",
+        "trabalho": "Pense na equação como uma coluna calculada: `=x+y+z+1`. Ao longo da reta, essa coluna vale 3λ + 7. Em λ = 0 dá 7, em λ = −3 dá −2. Se a coluna passa de positivo para negativo, em algum λ ela zerou, e esse é o ponto da reta no plano. No Excel, o Atingir Meta acharia esse λ = −7/3.",
+        "conversa": [
+          {"quem": "Você", "fala": "Pus (1, 2, 3) na fórmula e deu 7/√3."},
+          {"quem": "Monitor", "fala": "Essa é a distância de um ponto só. A reta tem infinitos. Qual é o produto escalar entre a direção e o prego?"},
+          {"quem": "Você", "fala": "(1, 1, 1)·(1, 1, 1) = 3."},
+          {"quem": "Monitor", "fala": "Não deu 0. O que isso diz?"},
+          {"quem": "Você", "fala": "Que ela não é paralela ao plano. Então corta."},
+          {"quem": "Monitor", "fala": "E o menor trecho entre duas coisas que se tocam mede quanto?"},
+          {"quem": "Você", "fala": "Zero. O corte é em λ = −7/3."}
+        ],
+        "erro": "A armadilha é a fórmula pronta. Ela funciona para ponto e plano, e quem decorou põe o primeiro ponto que vê. O resultado, 7√3/3, tem cara de resposta, mas vale só para (1, 2, 3). Antes de calcular, faça o teste da direção: se [[v]]·[[n]] não dá 0, a reta corta o plano e a conta termina em 0. A fórmula entra apenas quando a reta é paralela.",
+        "confira": "Substitua o ponto do encontro na equação do plano: −4/3 − 1/3 + 2/3 + 1 = −1 + 1 = 0. Está na folha. Veja também se ele está na reta: x − 1, y − 2 e z − 3 dão −7/3 nos três. Os dois testes passaram, então r e π se tocam nesse ponto.",
+        "atalho": "Olhe duas coisas: a direção (1, 1, 1) e os números de x, y e z no plano, (1, 1, 1). O produto escalar entre elas é 3, diferente de zero. Sem conta de ponto, já está decidido que a reta corta o plano. Marque 0 e siga em frente. Esse teste evita abrir a fórmula e cair em 7√3/3."
+      }
+    },
+    {
+      "id": "ga-s5-l8q1c",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Planos paralelos",
+      "origem": "Lista 8 · Q1c",
+      "enunciado": "Determine a distância entre π₁: x + y + z + 1 = 0 e π₂: −x − y − z + 7 = 0. Qual é essa distância?",
+      "alternativas": [
+        {"t": "2√3", "certa": false, "erro": "Você fez |1 − 7|/√3 = 6/√3 = 2√3, sem alinhar os sinais. Os números de π₂ são o oposto dos de π₁. Multiplique π₂ por −1 antes: o 7 vira −7."},
+        {"t": "0", "certa": false, "erro": "Você viu os sinais trocados e achou que os planos se cortam. O prego (−1, −1, −1) é −1 vezes (1, 1, 1): os planos são paralelos. E são distintos, porque os termos soltos, 1 e −7, diferem."},
+        {"t": "8", "certa": false, "erro": "Esse é |1 − (−7)| = 8. Faltou dividir por ‖[[n]]‖ = √3."},
+        {"t": "8√3/3", "certa": true},
+        {"t": "8/3", "certa": false, "erro": "Você dividiu 8 por 3, que é ‖[[n]]‖². O divisor é a própria norma, √3."}
+      ],
+      "dica": "Multiplique a segunda equação por −1 para os dois planos ficarem com os mesmos x, y e z.",
+      "resposta": "8/√3 = 8√3/3",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-1, 0, 0], [0, -1, 0], [0, 0, -1]], "cor": 1},
+          {"tipo": "poligono", "pts": [[7, 0, 0], [0, 7, 0], [0, 0, 7]], "cor": 2},
+          {"tipo": "vetor", "de": [-0.333, -0.333, -0.333], "ate": [2.333, 2.333, 2.333], "rot": "d", "cor": 4}
+        ],
+        "legenda": "Duas folhas paralelas. A seta escura segue o prego (1, 1, 1) e mede 8√3/3."
+      },
+      "jeitos": {
+        "visual": "Imagine dois tampos de vidro paralelos, um em cada andar. O prego dos dois está na mesma direção, a de (1, 1, 1). Na figura, a seta escura sai de (−1/3, −1/3, −1/3), no primeiro tampo, e chega em (7/3, 7/3, 7/3), no segundo, seguindo o prego. Ela anda 8/3 em cada eixo. Por isso mede (8/3)·√3 = 8√3/3, que é o vão entre os andares.",
+        "receita": [
+          "Compare os pregos: (1, 1, 1) e (−1, −1, −1). O segundo é −1 vezes o primeiro, então os planos são paralelos.",
+          "Alinhe π₂ multiplicando por −1: x + y + z − 7 = 0.",
+          "Agora só os termos soltos diferem: 1 e −7. Diferença: |1 − (−7)| = 8.",
+          "Norma do prego: ‖(1, 1, 1)‖ = √3.",
+          "Divida: d = 8/√3. Multiplicando em cima e embaixo por √3: 8√3/3."
+        ],
+        "cotidiano": "Dois andares de um prédio: um piso marcado como −1 e outro como 7. A diferença das marcas é 8. O detalhe é que a régua da equação, x + y + z, não mede em metros. Quando você sobe pelo prego, ela anda √3 vezes mais rápido que a trena. Por isso o 8 precisa ser dividido por √3 para virar distância de verdade.",
+        "trabalho": "É a conciliação de dois saldos com sinais invertidos. Uma conta vem como crédito, a outra como débito: −x − y − z + 7 = 0 é x + y + z − 7 = 0 com o sinal do lançamento trocado. Antes de subtrair, ponha tudo na mesma convenção. Quem subtrai sem converter acha 6 em vez de 8, o velho erro de conciliar débito contra crédito sem virar o sinal.",
+        "conversa": [
+          {"quem": "Você", "fala": "Os sinais são opostos. Os planos se cortam?"},
+          {"quem": "Monitor", "fala": "Compare os pregos. (−1, −1, −1) é múltiplo de (1, 1, 1)?"},
+          {"quem": "Você", "fala": "É, vezes −1. Então são paralelos. A distância é |1 − 7|/√3?"},
+          {"quem": "Monitor", "fala": "Cuidado. Essa subtração só vale com x, y e z iguais nas duas equações. Como fica π₂ depois de multiplicar por −1?"},
+          {"quem": "Você", "fala": "x + y + z − 7 = 0. Então |1 − (−7)| = 8."},
+          {"quem": "Monitor", "fala": "E dividido pela norma?"},
+          {"quem": "Você", "fala": "8/√3, que é 8√3/3."}
+        ],
+        "erro": "A armadilha é subtrair 1 e 7 direto e achar 6. A conta dos termos soltos exige os dois planos escritos com os mesmos números, inclusive o sinal. Se π₂ tem −x e π₁ tem +x, alinhe primeiro. Sinal de que caiu nela: você chegou a 2√3. Para desconfiar, faça a prova com um ponto de π₁ na equação de π₂.",
+        "confira": "Pegue um ponto de π₁, por exemplo (−1, 0, 0), pois −1 + 0 + 0 + 1 = 0. Ponha na equação original de π₂, sem mexer nela: 1 − 0 − 0 + 7 = 8. Divida pela norma do prego de π₂, ‖(−1, −1, −1)‖ = √3. Dá 8/√3, o mesmo valor. Entre paralelos, a distância é a de qualquer ponto de um até o outro.",
+        "atalho": "Prego múltiplo e, com os sinais alinhados, termos soltos diferentes (1 e −7): a distância é maior que zero, então 0 cai. O divisor é √3, e a resposta precisa ter √3: saem 8 e 8/3. Sobram 2√3 e 8√3/3. Para decidir, veja o sinal: −x em π₂ manda trocar o 7 de sinal, então a diferença é 8, não 6."
+      }
+    },
+    {
+      "id": "ga-s5-l8q1d",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Planos que se cortam",
+      "origem": "Lista 8 · Q1d",
+      "enunciado": "Determine a distância entre π₁: x + y − z + 3 = 0 e π₂: 3x − y + z = 0. Qual é essa distância?",
+      "alternativas": [
+        {"t": "√3", "certa": false, "erro": "Você fez |3 − 0|/√3 = √3, que é a distância da origem, um ponto de π₂, até π₁. Os pregos não são múltiplos: os planos se cortam, e outros pontos de π₂ estão sobre π₁."},
+        {"t": "0", "certa": true},
+        {"t": "9√11/11", "certa": false, "erro": "Você pegou (−3, 0, 0), ponto de π₁, e mediu até π₂: |3·(−3)|/√11 = 9/√11 = 9√11/11. Esse valor muda com o ponto escolhido, porque os planos não são paralelos."},
+        {"t": "3", "certa": false, "erro": "Você subtraiu os termos soltos: |3 − 0| = 3. Essa conta só faz sentido em planos paralelos, e os pregos (1, 1, −1) e (3, −1, 1) não são múltiplos."},
+        {"t": "√33/33", "certa": false, "erro": "Esse é |(1, 1, −1)·(3, −1, 1)|/(√3·√11) = 1/√33 = √33/33, o cosseno do ângulo entre os planos. Cosseno mede abertura, não distância."}
+      ],
+      "dica": "Compare os pregos dos dois planos antes de fazer qualquer divisão.",
+      "resposta": "0 (os planos se cortam)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-1.5, -2, -0.5], [0, -2, 1], [0, 2, 5], [-1.5, 2, 3.5]], "cor": 1},
+          {"tipo": "poligono", "pts": [[-1.5, -2, 2.5], [0, -2, -2], [0, 2, 2], [-1.5, 2, 6.5]], "cor": 2},
+          {"tipo": "segmento", "de": [-0.75, -2, 0.25], "ate": [-0.75, 2, 4.25], "cor": 4},
+          {"tipo": "ponto", "em": [-0.75, 0, 2.25], "rot": "comum"}
+        ],
+        "legenda": "As duas folhas se atravessam. Ao longo da linha escura, a distância é 0."
+      },
+      "jeitos": {
+        "visual": "Duas folhas de papel enfiadas uma na outra, como num castelo de cartas. Na figura, elas se cruzam ao longo da linha escura. Um dos pontos dessa linha é (−3/4, 0, 9/4). Em cima dela, você está nas duas folhas ao mesmo tempo. A menor distância entre elas é zero, por mais que pontos afastados da linha fiquem longe.",
+        "receita": [
+          "Leia os pregos: [[n₁]] = (1, 1, −1) e [[n₂]] = (3, −1, 1).",
+          "Teste múltiplo: para ir de 1 a 3 o fator é 3, mas 1·3 = 3, e não −1. Não são múltiplos.",
+          "Pregos não múltiplos: os planos se cortam.",
+          "Confirme com um ponto comum: somando as equações, 4x + 3 = 0, então x = −3/4. Com y = 0, π₂ dá z = 9/4.",
+          "Há ponto comum, então a distância é 0."
+        ],
+        "cotidiano": "Uma parede e um telhado inclinado. Se não são paralelos, em algum lugar se encontram, mesmo que a obra não tenha chegado lá: plano não tem fim. Perguntar a distância entre eles é como perguntar a folga entre duas ruas que se cruzam. Na esquina, a folga é zero.",
+        "trabalho": "Cada equação é uma regra que as linhas de uma tabela precisam cumprir. Em SQL: `WHERE x + y - z = -3 AND 3*x - y + z = 0`. Se a consulta volta com alguma linha, os dois filtros têm interseção. Aqui ela volta: (−3/4, 0, 9/4) passa nos dois. Distância zero é esse resultado não vazio.",
+        "conversa": [
+          {"quem": "Você", "fala": "Um tem +3 e o outro não tem termo solto. A diferença é 3?"},
+          {"quem": "Monitor", "fala": "Essa conta pressupõe planos paralelos. Os pregos são múltiplos?"},
+          {"quem": "Você", "fala": "(1, 1, −1) e (3, −1, 1). Não. O fator não se repete."},
+          {"quem": "Monitor", "fala": "Se não são paralelos, o que acontece com dois planos no espaço?"},
+          {"quem": "Você", "fala": "Eles se cortam numa reta."},
+          {"quem": "Monitor", "fala": "E a distância entre coisas que se tocam?"},
+          {"quem": "Você", "fala": "Zero."}
+        ],
+        "erro": "O tropeço é usar o método de planos paralelos em planos que não são. Pegar um ponto de um plano e medir até o outro dá um número que muda conforme o ponto: (0, 0, 0) dá √3 até π₁, e (−3, 0, 0) dá 9√11/11 até π₂. Resultado que depende do ponto escolhido denuncia o erro. Entre paralelos, ele seria sempre o mesmo.",
+        "confira": "Substitua (−3/4, 0, 9/4) nas duas equações. Em π₁: −3/4 + 0 − 9/4 + 3 = −3 + 3 = 0. Em π₂: 3·(−3/4) − 0 + 9/4 = −9/4 + 9/4 = 0. Deu 0 nas duas, então o ponto está nas duas folhas. Basta um ponto comum para a distância ser 0.",
+        "atalho": "Compare só os dois primeiros números de cada plano: 1 e 1 contra 3 e −1. Se os pregos fossem múltiplos, teriam a mesma proporção. Não têm. Planos não paralelos sempre se cortam no espaço, então marque 0 sem nenhuma outra conta."
+      }
+    },
+    {
+      "id": "ga-s5-l8q1e",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Retas coincidentes",
+      "origem": "Lista 8 · Q1e",
+      "enunciado": "Determine a distância entre r: X = (1, 1, 1) + λ(1, −2, 3), λ ∈ R e s: (1 − x)/2 = (y − 1)/4 = (1 − z)/6. Qual é essa distância?",
+      "alternativas": [
+        {"t": "√14", "certa": false, "erro": "Esse é ‖(1, −2, 3)‖, o tamanho da seta de direção de r. A seta diz por onde a reta anda, não o quanto ela dista de outra."},
+        {"t": "√3", "certa": false, "erro": "Esse é ‖(1, 1, 1)‖, a distância do ponto (1, 1, 1) até a origem. A origem não faz parte desta conta."},
+        {"t": "2√42/7", "certa": false, "erro": "Você leu o ponto de s como (−1, 1, −1), trocando o sinal de x e z. Com a ligação (2, 0, 2), sai √48/√14 = 2√42/7. O ponto certo zera cada numerador: 1 − x = 0 dá x = 1, e 1 − z = 0 dá z = 1."},
+        {"t": "2√2", "certa": false, "erro": "Esse é ‖(2, 0, 2)‖, a distância de (1, 1, 1) até (−1, 1, −1), ponto lido com os sinais trocados. O ponto de s é (1, 1, 1), porque 1 − x = 0 dá x = 1."},
+        {"t": "0", "certa": true}
+      ],
+      "dica": "Leia a reta s como conciliação: qual ponto zera as três partes de cima, e qual é o número de baixo com o sinal certo?",
+      "resposta": "0 (r e s são a mesma reta)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "ponto", "em": [1, 1, 1], "rot": "(1, 1, 1)"},
+          {"tipo": "vetor", "de": [1, 1, 1], "ate": [2, -1, 4], "rot": "r", "cor": 1},
+          {"tipo": "vetor", "de": [1, 1, 1], "ate": [-1, 5, -5], "rot": "s", "cor": 2}
+        ],
+        "legenda": "As duas setas saem do mesmo ponto e ficam na mesma linha, em sentidos opostos: r e s são uma reta só."
+      },
+      "jeitos": {
+        "visual": "Na figura, há um único ponto de partida, (1, 1, 1), e duas setas. A azul é a direção de r, (1, −2, 3). A coral é a direção de s, (−2, 4, −6). Elas apontam para lados opostos, mas estão na mesma linha, pois a coral é −2 vezes a azul. Mesma linha e mesmo ponto: é uma reta só, descrita duas vezes.",
+        "receita": [
+          "Ponto de s: zere as partes de cima. 1 − x = 0 dá x = 1; y − 1 = 0 dá y = 1; 1 − z = 0 dá z = 1. Fica Q = (1, 1, 1).",
+          "Direção de s: x e z vêm com menos, então os números de baixo trocam de sinal: (−2, 4, −6).",
+          "Compare com r: (−2, 4, −6) = −2·(1, −2, 3). Mesma direção.",
+          "Desempate: o ponto de r é (1, 1, 1), o mesmo Q.",
+          "Mesma direção e ponto comum: coincidentes. A distância é 0."
+        ],
+        "cotidiano": "Dois motoristas descrevem a mesma estrada. Um diz: saindo do posto, siga para o norte. O outro diz: saindo do posto, siga para o sul, em passos do dobro do tamanho. Parece diferente, mas é a mesma estrada, percorrida nos dois sentidos. Não há distância entre uma estrada e ela mesma.",
+        "trabalho": "É o mesmo cliente cadastrado duas vezes com chaves diferentes. Na tabela r ele aparece como (1, 1, 1) + λ(1, −2, 3); na tabela s, como três frações. Ao cruzar, todo registro de r encontra par em s: para qualquer λ, as três partes de s dão −λ/2. Diferença zero em todas as linhas quer dizer cadastro duplicado, e não duas entidades.",
+        "conversa": [
+          {"quem": "Você", "fala": "As direções são (1, −2, 3) e (2, 4, 6). Não são múltiplas. Então são reversas?"},
+          {"quem": "Monitor", "fala": "Olhe de novo os numeradores de s. Como o x aparece?"},
+          {"quem": "Você", "fala": "1 − x. Com menos."},
+          {"quem": "Monitor", "fala": "E o que a forma simétrica pede quando a variável vem com menos?"},
+          {"quem": "Você", "fala": "Trocar o sinal do número de baixo. Então (−2, 4, −6)."},
+          {"quem": "Monitor", "fala": "Agora compare."},
+          {"quem": "Você", "fala": "É −2 vezes (1, −2, 3). E o ponto de s é (1, 1, 1), igual ao de r."},
+          {"quem": "Monitor", "fala": "Mesma direção e mesmo ponto: é a mesma reta, e a distância é 0."}
+        ],
+        "erro": "A armadilha está na forma simétrica: 1 − x e 1 − z têm a variável com menos. Quem lê os denominadores direto pega (2, 4, 6) e vê direções que não são múltiplas. Quem erra o ponto lê (−1, 1, −1). Para perceber, faça a pergunta certa: qual x zera 1 − x? É x = 1, e o sinal de baixo troca porque a variável veio negativa.",
+        "confira": "Faça a conciliação com um ponto genérico de r: x = 1 + λ, y = 1 − 2λ, z = 1 + 3λ. Em s, as partes ficam (1 − x)/2 = −λ/2; (y − 1)/4 = −λ/2; (1 − z)/6 = −λ/2. As três são iguais para todo λ. Logo, cada ponto de r está em s, e não sobra folga.",
+        "atalho": "Ponha o ponto de r nas frações de s: (1 − 1)/2, (1 − 1)/4 e (1 − 1)/6. Tudo dá 0, então (1, 1, 1) está em s. Agora bastam os denominadores: 2, 4 e 6, com sinais −, + e −, formam um múltiplo de (1, −2, 3). Se o ponto bate e a direção é múltipla, marque 0."
+      }
+    },
+    {
+      "id": "ga-s5-l8q1f",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Reta paralela ao plano",
+      "origem": "Lista 8 · Q1f",
+      "enunciado": "Determine a distância entre r: x = 1 + k, y = 1 + k, z = −1 + k, k ∈ R e π: X = (1, 1, 1) + α(0, 1, 0) + β(1, 1, 1), α, β ∈ R. Qual é essa distância?",
+      "alternativas": [
+        {"t": "0", "certa": false, "erro": "Você viu (1, 1, 1) nas duas equações e concluiu que a reta está no plano. A direção é paralela à folha, sim, mas o ponto (1, 1, −1) não está nela: em x − z = 0, ele dá 2. A reta corre ao lado, sem tocar."},
+        {"t": "2", "certa": false, "erro": "Esse é |1 − (−1)| = 2, a sobra do ponto (1, 1, −1) na equação x − z = 0. Faltou dividir pela norma do prego, ‖(1, 0, −1)‖ = √2."},
+        {"t": "√2", "certa": true},
+        {"t": "1", "certa": false, "erro": "Você dividiu 2 por 2, o quadrado de ‖(1, 0, −1)‖. O divisor é a própria norma, √2, e 2/√2 = √2."},
+        {"t": "2√3/3", "certa": false, "erro": "Você usou (1, 1, 1) como prego e fez 2/√3. Mas (1, 1, 1) é um vetor deitado no plano. O prego sai do produto vetorial: (0, 1, 0) × (1, 1, 1) = (1, 0, −1)."}
+      ],
+      "dica": "O plano veio com duas setas deitadas. Antes de medir, ache a seta em pé sobre elas.",
+      "resposta": "√2",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, -1, 0], [0, 3, 0], [2, 3, 2], [2, -1, 2]], "cor": 3},
+          {"tipo": "segmento", "de": [0, 0, -2], "ate": [3, 3, 1], "cor": 1},
+          {"tipo": "ponto", "em": [1, 1, 1], "rot": "A"},
+          {"tipo": "ponto", "em": [1, 1, -1], "rot": "P"},
+          {"tipo": "vetor", "de": [1, 1, -1], "ate": [0, 1, 0], "rot": "d", "cor": 4}
+        ],
+        "legenda": "A reta azul corre ao lado da folha. A seta escura é o caminho mais curto: sai de (1, 1, −1) e chega em (0, 1, 0), em pé na folha."
+      },
+      "jeitos": {
+        "visual": "Na figura, a folha é o plano x − z = 0, e a reta azul passa ao lado dela sem encostar, mantendo sempre a mesma folga. A seta escura mostra essa folga: sai de (1, 1, −1), na reta, e chega em (0, 1, 0), na folha, pelo caminho em pé. O deslocamento é (−1, 0, 1), que mede √2. Se você deslizar a seta ao longo da reta, ela continua do mesmo tamanho.",
+        "receita": [
+          "Prego do plano: [[n]] = (0, 1, 0) × (1, 1, 1) = (1·1 − 0·1, 0·1 − 0·1, 0·1 − 1·1) = (1, 0, −1).",
+          "Equação de π com o ponto (1, 1, 1): 1(x − 1) + 0(y − 1) − 1(z − 1) = 0, ou seja, x − z = 0.",
+          "Direção da reta: [[v]] = (1, 1, 1). Teste: [[v]]·[[n]] = 1 + 0 − 1 = 0. A reta é paralela ao plano ou está dentro dele.",
+          "Desempate com P = (1, 1, −1), da reta: x − z = 1 − (−1) = 2. Não dá 0, então a reta está fora da folha.",
+          "Distância: |2|/‖[[n]]‖ = 2/√2 = √2."
+        ],
+        "cotidiano": "Um corrimão preso à parede de uma escada. Ele acompanha a parede e nunca encosta nela, então a folga é igual em qualquer ponto. Para saber essa folga, basta medir num lugar só. A conta faz o mesmo: escolhe um ponto da reta, o (1, 1, −1), e mede até a folha. Qualquer outro ponto da reta daria o mesmo número.",
+        "trabalho": "Com a equação x − z = 0, cada ponto da reta vira uma linha de planilha com a coluna `x - z`. Para k = 0 dá 2, para k = 5 dá 2, para k = −3 dá 2. Coluna constante em todas as linhas: é uma diferença fixa entre duas contas, não um erro pontual. A diferença de conciliação não zera em linha nenhuma, e a distância é esse 2 convertido pela norma: 2/√2.",
+        "conversa": [
+          {"quem": "Você", "fala": "A direção da reta é (1, 1, 1), e o plano também tem (1, 1, 1). Então a reta está dentro dele."},
+          {"quem": "Monitor", "fala": "Ela é paralela ao plano, concordo. Estar dentro é outra coisa. Como você testa?"},
+          {"quem": "Você", "fala": "Pego um ponto da reta e vejo se ele está no plano."},
+          {"quem": "Monitor", "fala": "Você precisa da equação do plano. Qual é o prego?"},
+          {"quem": "Você", "fala": "(0, 1, 0) × (1, 1, 1) = (1, 0, −1). Dá x − z = 0."},
+          {"quem": "Monitor", "fala": "E o ponto (1, 1, −1)?"},
+          {"quem": "Você", "fala": "1 − (−1) = 2. Não está. Então a distância é 2/√2 = √2."}
+        ],
+        "erro": "O tropeço é confundir paralela com contida. Ver (1, 1, 1) na reta e no plano garante só que a reta não fura a folha. Ela pode estar dentro ou ao lado, e quem decide é o ponto. Outro erro é usar (1, 1, 1) como prego e chegar a 2√3/3. Todo vetor que aparece ao lado de α e β está deitado na folha, nunca em pé.",
+        "confira": "Ande pelo prego e veja onde cai. Saindo de (1, 1, −1) e somando (−1, 0, 1), você chega em (0, 1, 0). Esse ponto está em π? Use α = 1 e β = −1: (1, 1, 1) + (0, 1, 0) − (1, 1, 1) = (0, 1, 0). Sim. O trecho percorrido mede ‖(−1, 0, 1)‖ = √2 e é múltiplo do prego.",
+        "atalho": "A coordenada y não importa, pois o prego tem 0 nela. Olhe x e z: no plano, são sempre iguais, porque o ponto e as duas setas têm x = z. Na reta, x − z vale 2 para qualquer k. A diferença é 2, e o prego (1, 0, −1) tem norma √2. Dá 2/√2 = √2 sem montar mais nada."
+      }
+    }
+  ]
+}

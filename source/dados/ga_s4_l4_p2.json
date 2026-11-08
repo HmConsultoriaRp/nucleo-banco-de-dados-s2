@@ -1,0 +1,171 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s4-l4q5",
+      "semana": 4,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Ler reta simétrica",
+      "origem": "Lista 4 · Q5",
+      "enunciado": "Determine um ponto e um vetor diretor da reta de equação r: (1 − x)/2 = y = (z + 1)/7. Quais são?",
+      "alternativas": [
+        {"t": "P = (1, 0, −1) e [[v]] = (−2, 1, 7)", "certa": true},
+        {"t": "P = (1, 0, −1) e [[v]] = (2, 1, 7)", "certa": false, "erro": "Você leu o 2 de baixo e ignorou o menos que vem com o x. Isolando: 1 − x = 2t, então x = 1 − 2t. O passo em x é −2, não 2."},
+        {"t": "P = (−1, 0, 1) e [[v]] = (−2, 1, 7)", "certa": false, "erro": "O ponto é o valor que zera cada parte: 1 − x = 0 dá x = 1, e z + 1 = 0 dá z = −1, e aqui os dois sinais saíram trocados. Em (−1, 0, 1) as partes dão 1, 0 e 2/7, três valores diferentes."},
+        {"t": "P = (1, 0, −1) e [[v]] = (−2, 0, 7)", "certa": false, "erro": "Como o y não tem fração, você pôs 0 na direção. Mas y é o mesmo que y/1: o denominador é 1. Um zero na direção diria que y não muda, e aqui y é igual a t."},
+        {"t": "P = (−2, 1, 7) e [[v]] = (1, 0, −1)", "certa": false, "erro": "Você trocou os dois. Teste: no suposto ponto (−2, 1, 7), as partes dão 3/2, 1 e 8/7, três valores diferentes. Ele nem está na reta."}
+      ],
+      "dica": "O ponto é o que zera cada parte. Para a direção, chame as partes de t e isole x, y e z.",
+      "resposta": "P = (1, 0, −1) e [[v]] = (−2, 1, 7). A lista chama esse vetor de [[r]].",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [3, -1, -8], "ate": [-3, 2, 13], "tracejado": true, "cor": 3},
+          {"tipo": "vetor", "de": [1, 0, -1], "ate": [-1, 1, 6], "rot": "v", "cor": 1},
+          {"tipo": "ponto", "em": [1, 0, -1], "rot": "P"},
+          {"tipo": "ponto", "em": [-1, 1, 6], "rot": "t = 1"}
+        ],
+        "legenda": "Um passo a partir de P: x cai 2, y sobe 1 e z sobe 7."
+      },
+      "jeitos": {
+        "visual": "Pense na equação como três relógios que têm de marcar o mesmo t. O primeiro é (1 − x)/2, o segundo é y e o terceiro é (z + 1)/7. Todos marcam zero no ponto P = (1, 0, −1). Se o tempo avança 1, x precisa cair 2, y sobe 1 e z sobe 7. Na figura, a seta azul sai de P e faz esse movimento: (−2, 1, 7).",
+        "receita": [
+          "Chame as partes de t: (1 − x)/2 = t, y = t, (z + 1)/7 = t.",
+          "Isole x: 1 − x = 2t, então x = 1 − 2t.",
+          "y = 0 + 1·t.",
+          "Isole z: z + 1 = 7t, então z = −1 + 7t.",
+          "Com t = 0 sai o ponto: P = (1, 0, −1).",
+          "Os números que acompanham o t dão a seta: [[v]] = (−2, 1, 7)."
+        ],
+        "cotidiano": "Três termômetros numa câmara: um começa em 1 grau e cai 2 por hora; outro começa em 0 e sobe 1; o último começa em −1 e sobe 7. Para saber quantas horas passaram, cada um faz sua conta: (1 − x)/2, y e (z + 1)/7. O 1 − x é o que caiu, não o que subiu. Por isso o ritmo do primeiro é −2.",
+        "trabalho": "Cada parte é uma coluna calculada que responde à mesma pergunta: quantos períodos passaram. Uma coluna é saldo que cai de 2 em 2, outra é saldo que sobe de 1 em 1, outra é saldo que sobe de 7 em 7. Ler essa equação é fazer engenharia reversa da fórmula: o número que zera a coluna é o saldo inicial, e o de baixo, com o sinal do x, é o movimento.",
+        "conversa": [
+          {"quem": "Você", "fala": "O x tem 1 em cima e 2 embaixo. A direção é 2 e o ponto é −1?"},
+          {"quem": "Monitor", "fala": "Que valor de x zera 1 − x?"},
+          {"quem": "Você", "fala": "x = 1."},
+          {"quem": "Monitor", "fala": "Então o ponto tem x = 1. Agora, se t sobe de 0 para 1, para quanto vai o x?"},
+          {"quem": "Você", "fala": "1 − x = 2, então x = −1. O x caiu 2."},
+          {"quem": "Monitor", "fala": "A direção em x é −2. O menos do x troca o sinal do número de baixo."}
+        ],
+        "erro": "A armadilha é o 1 − x. O olho vê o 2 embaixo e lê direção 2, mas a variável vem com menos. O mesmo menos confunde o ponto: 1 − x = 0 dá x = 1, e não −1. Outro tropeço é o y solto: ele não tem fração, e mesmo assim tem denominador 1. Direção 0 diria que y não muda, o que não é verdade.",
+        "confira": "Substitua o ponto: (1 − 1)/2 = 0, y = 0, (−1 + 1)/7 = 0. As três partes dão zero. Agora ande um passo de (−2, 1, 7): (−1, 1, 6). Nas partes: (1 + 1)/2 = 1, 1 e (6 + 1)/7 = 1. Três vezes 1. Se você tivesse usado [[v]] = (2, 1, 7), o x iria a 3 e a primeira parte daria −1.",
+        "atalho": "O y resolve metade: o denominador dele é 1, então a direção em y é 1. Isso tira a alternativa com 0. O ponto tem de zerar as partes, e só serve y = 0, o que tira a que troca ponto e seta. Entre as que restam, olhe o x: ponto com x = 1, porque 1 − x zera em 1, e direção negativa, porque o x vem com menos."
+      }
+    },
+    {
+      "id": "ga-s4-l4q6",
+      "semana": 4,
+      "nivel": 2,
+      "minutos": 5,
+      "tema": "Interseção de duas retas",
+      "origem": "Lista 4 · Q6",
+      "enunciado": "Encontre a interseção das retas r: x = −1 + t, y = 2 + t, z = 3 + t e s: X = (2, 4, 1) + λ(7, 6, 2). Qual é o ponto?",
+      "alternativas": [
+        {"t": "(−2, 1, 2)", "certa": false, "erro": "Você achou λ = −1 e pôs esse número na reta r, como se fosse o t. Cada reta tem o seu contador. Em r, o t certo é −4; o −1 só vale em s."},
+        {"t": "(9, 10, 3)", "certa": false, "erro": "Sinal trocado no λ: com λ = 1, s dá (2 + 7, 4 + 6, 1 + 2). A conta certa deu λ = −1. Confira em r: para x = 9 seria t = 10, e aí y daria 12, não 10."},
+        {"t": "(−5, −2, −1)", "certa": true},
+        {"t": "(3, 6, 7)", "certa": false, "erro": "Você usou t = 4 em r, com o sinal trocado. A conta dá t = −4. Em s, x = 3 daria λ = 1/7, e aí y daria 34/7, não 6."},
+        {"t": "(−26, −20, −7)", "certa": false, "erro": "Você achou t = −4 e pôs na reta s, como se fosse o λ: 2 + 7·(−4) = −26. Cada valor só serve na própria reta. Em s, o λ certo é −1."}
+      ],
+      "dica": "Cada reta tem seu contador. Iguale x com x, y com y e use a terceira linha como prova.",
+      "resposta": "P = (−5, −2, −1)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [-7, -4, -3], "ate": [0, 3, 4], "cor": 1},
+          {"tipo": "segmento", "de": [-8.5, -5, -2], "ate": [5.5, 7, 2], "cor": 2},
+          {"tipo": "ponto", "em": [-1, 2, 3], "rot": "r: t = 0"},
+          {"tipo": "ponto", "em": [2, 4, 1], "rot": "s: λ = 0"},
+          {"tipo": "ponto", "em": [-5, -2, -1], "rot": "P"}
+        ],
+        "legenda": "A linha azul é r, a coral é s. As duas passam por P."
+      },
+      "jeitos": {
+        "visual": "Duas estradas no espaço só se encontram se, em algum momento, ocupam o mesmo endereço. Na figura, a linha azul é r e a coral é s. Elas se cruzam em um único ponto, marcado P. De r até lá são 4 passos para trás (t = −4). De s até lá é 1 passo para trás (λ = −1). Contadores diferentes levam ao mesmo endereço.",
+        "receita": [
+          "Abra s: x = 2 + 7λ, y = 4 + 6λ, z = 1 + 2λ.",
+          "Iguale x: −1 + t = 2 + 7λ, então t = 3 + 7λ.",
+          "Iguale y: 2 + t = 4 + 6λ, então t = 2 + 6λ.",
+          "As duas dizem o t: 3 + 7λ = 2 + 6λ, então λ = −1 e t = −4.",
+          "Prove com z: 3 + t = 3 − 4 = −1, e 1 + 2λ = 1 − 2 = −1. Bate.",
+          "Ponto: em r, (−1 − 4, 2 − 4, 3 − 4) = (−5, −2, −1)."
+        ],
+        "cotidiano": "Dois ônibus passam pela mesma esquina em horas diferentes. Cada um tem seu relógio: o de r marca −4 e o de s marca −1. A interseção só pergunta se existe um endereço comum, não se os dois chegam juntos. Por isso os relógios podem marcar números diferentes. Quem usa a mesma letra nos dois está exigindo que cheguem no mesmo instante.",
+        "trabalho": "É um JOIN em três colunas: você procura a linha de r e a linha de s em que x, y e z coincidem. `WHERE r.x = s.x AND r.y = s.y AND r.z = s.z`. Cada tabela tem a sua chave própria: t numa, λ na outra. Duas condições acham as chaves, e a terceira é a conferência. Se a terceira falhar, o JOIN volta vazio: as retas não se tocam.",
+        "conversa": [
+          {"quem": "Você", "fala": "Fiz −1 + t = 2 + 7t e deu t = −1/2. Em y deu −2/5. Não se cruzam?"},
+          {"quem": "Monitor", "fala": "Você usou a mesma letra nas duas retas. A de s é λ."},
+          {"quem": "Você", "fala": "Mudei: t = 3 + 7λ e t = 2 + 6λ. Dá λ = −1."},
+          {"quem": "Monitor", "fala": "E o t?"},
+          {"quem": "Você", "fala": "t = 3 − 7 = −4. Em r dá (−5, −2, −1)."},
+          {"quem": "Monitor", "fala": "Agora confira em s com λ = −1. Se der o mesmo, é a interseção."}
+        ],
+        "erro": "O erro de base é usar a mesma letra para as duas retas: forçar t = λ dá valores diferentes em cada linha e leva à conclusão falsa de que elas não se cruzam. O outro é misturar os contadores no fim: pôr λ = −1 na reta r, ou t = −4 na reta s. O valor de cada contador só funciona na própria reta.",
+        "confira": "Calcule o ponto pelos dois lados. r com t = −4: (−5, −2, −1). s com λ = −1: (2 − 7, 4 − 6, 1 − 2) = (−5, −2, −1). Mesmo endereço nas três coordenadas, então é interseção de verdade. Se der diferente em uma coordenada, há erro de conta ou as retas não se tocam.",
+        "atalho": "Em r, as coordenadas andam juntas: x − y vale sempre −3, e y − z vale sempre −1. Teste as alternativas: (9, 10, 3) e (−26, −20, −7) saem. Das três restantes, teste em s: x = 2 + 7λ dá o λ, e y = 4 + 6λ confere. Só x = −5 fecha, com λ = −1."
+      }
+    },
+    {
+      "id": "ga-s4-l4q7",
+      "semana": 4,
+      "nivel": 3,
+      "minutos": 8,
+      "tema": "Área entre três retas",
+      "origem": "Lista 4 · Q7",
+      "enunciado": "Determinar a área do triângulo determinado pela interseção das retas r: x = −1 + t, y = 2 + t, z = 3 + t, s: X = (−1, 4, 13) + λ(−1, 0, 4) e t: (x + 12)/7 = (y + 8)/6 = (z + 3)/2. Qual é a área?",
+      "alternativas": [
+        {"t": "6√42", "certa": false, "erro": "Você parou em ‖[[PQ]] × [[PR]]‖ = 6√42. Esse número é a área do paralelogramo. O triângulo é a metade."},
+        {"t": "9", "certa": false, "erro": "Você usou o produto escalar, que não mede área: [[PQ]]·[[PR]] = −6 + 0 + 24 = 18, e a metade dá 9. Área pede o produto vetorial."},
+        {"t": "3√51", "certa": false, "erro": "Você fez base × altura / 2 com ‖[[PQ]]‖ = 6√3 e ‖[[PR]]‖ = √17, como se o ângulo em P fosse reto. Não é: o produto escalar deles dá 18, e não 0. Essa conta dá 3√51."},
+        {"t": "3√42", "certa": true},
+        {"t": "3√42/2", "certa": false, "erro": "Você dividiu por 2 duas vezes: simplificou (24, −30, 6) para (12, −15, 3), cuja norma já é 3√42, e ainda tirou a metade."}
+      ],
+      "dica": "Cada par de retas dá um vértice. Com os três vértices, use o produto vetorial de dois lados.",
+      "resposta": "Área = 3√42",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[1, 4, 5], [-5, -2, -1], [2, 4, 1]], "cor": 3},
+          {"tipo": "segmento", "de": [-6, -3, -2], "ate": [2, 5, 6], "cor": 1},
+          {"tipo": "segmento", "de": [2.5, 4, -1], "ate": [0.5, 4, 7], "cor": 2},
+          {"tipo": "segmento", "de": [-7.1, -3.8, -1.6], "ate": [4.1, 5.8, 1.6], "cor": 4},
+          {"tipo": "ponto", "em": [1, 4, 5], "rot": "P"},
+          {"tipo": "ponto", "em": [-5, -2, -1], "rot": "Q"},
+          {"tipo": "ponto", "em": [2, 4, 1], "rot": "R"}
+        ],
+        "legenda": "Azul é r, coral é s e a escura é a reta t. Cada par se cruza num vértice do triângulo."
+      },
+      "jeitos": {
+        "visual": "Três retas no espaço, cada par se cruzando: o desenho é um triângulo com as pontas prolongadas. Na figura, os vértices são P = (1, 4, 5), Q = (−5, −2, −1) e R = (2, 4, 1). A área sai de duas setas que partem do mesmo vértice. O produto vetorial, conta que devolve uma seta em pé sobre as duas, tem tamanho igual à área do paralelogramo. O triângulo é metade dele.",
+        "receita": [
+          "Renomeie os contadores: r com a, s com λ, e a reta t com k. O t aqui é nome de reta.",
+          "r e s: y dá 2 + a = 4, a = 2; x dá 1 = −1 − λ, λ = −2; z confere: 5 = 13 − 8. P = (1, 4, 5).",
+          "r e t: −1 + a = −12 + 7k e 2 + a = −8 + 6k dão k = 1 e a = −4. Q = (−5, −2, −1).",
+          "s e t: y dá 4 = −8 + 6k, k = 2; x dá −1 − λ = 2, λ = −3; z confere: 1 = 1. R = (2, 4, 1).",
+          "Setas de P: [[PQ]] = (−6, −6, −6) e [[PR]] = (1, 0, −4).",
+          "[[PQ]] × [[PR]] = (24, −30, 6). A norma é √1512 = 6√42.",
+          "Área = 6√42/2 = 3√42."
+        ],
+        "cotidiano": "Três estradas retas que se cruzam duas a duas cercam um terreno triangular. Primeiro você precisa dos cantos do terreno, que são os cruzamentos. Depois, mede um terreno torto de quatro lados, o paralelogramo, e fica com a metade. Quem usa dois lados como base e altura está supondo um canto reto, o que só vale se as estradas fizerem 90°.",
+        "trabalho": "É a conta em duas etapas de qualquer analista: primeiro o JOIN, depois o cálculo. Cada par de retas é um JOIN que devolve uma linha, o vértice. Com as três linhas na mão, a área sai de uma fórmula. Se o JOIN trouxe o ponto errado, a fórmula roda sem aviso e a área vem errada. Por isso confira o z de cada vértice antes de calcular.",
+        "conversa": [
+          {"quem": "Você", "fala": "Qual é o t de r? E a reta t?"},
+          {"quem": "Monitor", "fala": "A lista usa a letra t para as duas coisas. Troque o contador de r por a."},
+          {"quem": "Você", "fala": "Achei os três vértices. Agora faço base vezes altura sobre 2?"},
+          {"quem": "Monitor", "fala": "Altura tem de ser perpendicular à base. [[PQ]]·[[PR]] dá quanto?"},
+          {"quem": "Você", "fala": "−6 + 0 + 24 = 18. Não é zero."},
+          {"quem": "Monitor", "fala": "Então o canto não é reto. Use o produto vetorial: a norma dele é a área do paralelogramo."},
+          {"quem": "Você", "fala": "Deu 6√42. A área é a metade: 3√42."}
+        ],
+        "erro": "São três armadilhas. A letra t aparece como nome de reta e como contador de r, e quem não troca mistura os dois. A segunda é esquecer a metade: 6√42 é o paralelogramo. A terceira é dividir por 2 duas vezes: simplificar (24, −30, 6) para (12, −15, 3) muda o tamanho, e a norma passa a ser 3√42. Se simplificou assim, não divida de novo.",
+        "confira": "Refaça por outro vértice. Com [[QP]] = (6, 6, 6) e [[QR]] = (7, 6, 2), o produto vetorial é (−24, 30, −6), de novo com norma 6√42, e a área fica 3√42, igual ao gabarito da lista.",
+        "atalho": "A Q6 desta lista adianta: a reta com seta (7, 6, 2) é a mesma, e ela dá Q = (−5, −2, −1); o ponto (2, 4, 1) de lá é o vértice R. Falta só r com s: y = 4 dá a = 2, e P = (1, 4, 5). A norma ao quadrado de (24, −30, 6) é 1512 = 36·42: isso elimina 9 e 3√51. Entre o resto, lembre: o triângulo é metade do paralelogramo, uma vez só."
+      }
+    }
+  ]
+}

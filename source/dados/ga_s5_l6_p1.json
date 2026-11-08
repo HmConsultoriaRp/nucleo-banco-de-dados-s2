@@ -1,0 +1,335 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-l6q1",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Reta paralela por um ponto",
+      "origem": "Lista 6 · Q1",
+      "enunciado": "Determinar as equações paramétricas da reta r que passa pelo ponto A = (−1, 2, 3) e é paralela à reta s: (x − 1)/2 = (y − 5)/3 = (1 − z)/2.",
+      "alternativas": [
+        {"t": "x = −1 + 2t, y = 2 + 3t, z = 3 + 2t", "certa": false, "erro": "Você leu a direção de s como (2, 3, 2) e perdeu o menos de (1 − z)/2. Como o z vem com menos, o número de baixo troca de sinal: a direção é (2, 3, −2)."},
+        {"t": "x = −1 + 2t, y = 2 + 3t, z = 3 − 2t", "certa": true},
+        {"t": "x = 2 − t, y = 3 + 2t, z = −2 + 3t", "certa": false, "erro": "Você trocou os papéis: usou (2, 3, −2) como ponto e A = (−1, 2, 3) como direção. O ponto entra como número fixo, e a direção multiplica o t."},
+        {"t": "x = −1 + t, y = 2 + 5t, z = 3 + t", "certa": false, "erro": "Você usou (1, 5, 1) como direção. Esses números de cima dão um ponto de s, não a seta. A direção está nos números de baixo: (2, 3, −2)."},
+        {"t": "x = 1 + 2t, y = −2 + 3t, z = −3 − 2t", "certa": false, "erro": "A direção está certa, mas o ponto teve os sinais trocados: (1, −2, −3) em vez de (−1, 2, 3). Essa reta não passa por A: a seta de (1, −2, −3) até A é (−2, 4, 6), que não é múltiplo de (2, 3, −2)."}
+      ],
+      "dica": "Leia a direção de s nos números de baixo, de olho no menos que acompanha o z.",
+      "resposta": "x = −1 + 2t, y = 2 + 3t, z = 3 − 2t, t ∈ R",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [-3, -1, 5], "ate": [3, 8, -1], "cor": 4},
+          {"tipo": "ponto", "em": [-1, 2, 3], "rot": "A"},
+          {"tipo": "ponto", "em": [1, 5, 1], "rot": "(1, 5, 1)"},
+          {"tipo": "vetor", "de": [-1, 2, 3], "ate": [1, 5, 1], "rot": "v", "cor": 1}
+        ],
+        "legenda": "A seta azul é a direção (2, 3, −2). Ela sai de A e chega a (1, 5, 1), o ponto que a escrita de s mostra."
+      },
+      "jeitos": {
+        "visual": "Pense na reta s como um trilho. Na escrita de s, os números de baixo dizem para onde o trilho aponta: 2 em x, 3 em y e −2 em z, porque o z vem com menos. Essa é a seta azul da figura. Para montar r, você finca o começo em A = (−1, 2, 3) e anda com essa mesma seta. A figura mostra um detalhe: A já está em cima de s, então as duas escritas desenham o mesmo trilho.",
+        "receita": [
+          "Ache a direção de s nos números de baixo: x e y vêm com mais, então 2 e 3.",
+          "O z vem com menos: (1 − z)/2 = (z − 1)/(−2). A direção fica [[v]] = (2, 3, −2).",
+          "Paralela tem a mesma direção, então r usa [[v]] = (2, 3, −2).",
+          "O ponto de r é A = (−1, 2, 3). Forma vetorial: X = (−1, 2, 3) + t(2, 3, −2).",
+          "Abra coordenada por coordenada: x = −1 + 2t, y = 2 + 3t, z = 3 − 2t."
+        ],
+        "cotidiano": "É como repetir uma rota de carro. A instrução, andar 2 para leste, 3 para norte e descer 2 a cada passo, vem de s. O endereço de saída vem do enunciado: A. Cada passo é a instrução inteira, e t conta quantos passos você deu. Com t = 0 você ainda está na garagem, em A. Com t = 1 chega a (1, 5, 1).",
+        "trabalho": "Abra a reta como três contas de planilha: saldo inicial + t meses × movimento mensal. Os saldos iniciais são (−1, 2, 3), e os movimentos são (2, 3, −2). A célula de entrada é t: você muda o t e as três fórmulas recalculam. A escrita de s é a conciliação: (x − 1)/2, (y − 5)/3 e (1 − z)/2 precisam dar o mesmo t, como três contas que têm de fechar no mesmo mês.",
+        "conversa": [
+          {"quem": "Você", "fala": "A direção de s é (2, 3, 2), certo? Os números de baixo são 2, 3 e 2."},
+          {"quem": "Monitor", "fala": "Olhe o z. Está escrito z − 1 ou 1 − z?"},
+          {"quem": "Você", "fala": "1 − z. Muda alguma coisa?"},
+          {"quem": "Monitor", "fala": "Muda. Aumente z em 2. O que acontece com (1 − z)/2?"},
+          {"quem": "Você", "fala": "Diminui 1. Já as outras duas partes sobem 1 quando x sobe 2 e y sobe 3."},
+          {"quem": "Monitor", "fala": "Para as três partes subirem juntas, o z precisa descer 2. A direção é (2, 3, −2)."}
+        ],
+        "erro": "A armadilha é o menos escondido em (1 − z)/2. O olho lê os números de baixo, 2, 3 e 2, e segue. Mas aquela fração é (z − 1)/(−2), então a direção é (2, 3, −2). Outra queda comum: confundir os números de cima com a seta. O (1, 5, 1) de cima é um ponto de s. Se o z da sua reta anda no mesmo sentido do x, volte e leia o sinal.",
+        "confira": "Ponha t = 1 na resposta: dá (1, 5, 1), que zera as três partes de s. Ponha t = 0: dá A, e as três partes valem −1. Ou seja, A já está em s. Com estes números, r e s são a mesma reta escrita de dois jeitos. Por isso, x = 1 + 2t, y = 5 + 3t, z = 1 − 2t também descreveria r, e essa forma ficou fora das alternativas. A lista diz paralela; se a palavra inclui esse caso fica pendente de validação com o professor.",
+        "atalho": "Olhe só o que multiplica o t em cada linha. A direção é (2, 3, −2): x sobe, y sobe, z desce. Elimine quem tem z com +2t e quem tem números diferentes de 2 e 3 em x e y. Depois olhe o número fixo: −1, 2 e 3 garantem que, com t = 0, a reta está em A. Só uma alternativa passa nos dois filtros."
+      }
+    },
+    {
+      "id": "ga-s5-l6q2",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Reta pela interseção",
+      "origem": "Lista 6 · Q2",
+      "enunciado": "Determine as equações paramétricas da reta d que é paralela a reta r: x = 2 − 2t, y = 1 − t, z = −t, t ∈ R e passa pelo ponto de interseção das retas l: x = 1 − k, y = 2 − 2k, z = 1 + k, k ∈ R e m: (1, −2, 2) + λ(−2, 0, 1), λ ∈ R.",
+      "alternativas": [
+        {"t": "x = 2 − 2α, y = 1 − α, z = −α", "certa": false, "erro": "Essa é a própria r, com outra letra. A direção está certa, mas você manteve o ponto (2, 1, 0). A reta d precisa passar pela interseção de l e m, e esse ponto não está em r."},
+        {"t": "x = 1 − 2α, y = −2 − α, z = 2 − α", "certa": false, "erro": "Você usou (1, −2, 2), o ponto de m com λ = 0, como se fosse a interseção. Esse ponto está em m, mas não em l: em l, y = −2 pede k = 2, e aí x = −1, não 1."},
+        {"t": "x = 1 − 2α, y = 2 − α, z = 1 − α", "certa": false, "erro": "Você usou (1, 2, 1), o ponto de l com k = 0. Em m, o y é sempre −2, então esse ponto não está em m e não pode ser a interseção."},
+        {"t": "x = −1 − 2α, y = −2 − α, z = 3 − α", "certa": true},
+        {"t": "x = −1 − α, y = −2 − 2α, z = 3 + α", "certa": false, "erro": "O ponto (−1, −2, 3) está certo, mas a direção (−1, −2, 1) é a de l. O enunciado pede paralela a r, e a direção de r é (−2, −1, −1)."}
+      ],
+      "dica": "Em m, o y nunca muda. Comece por aí para achar o k.",
+      "resposta": "x = −1 − 2α, y = −2 − α, z = 3 − α, α ∈ R",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [2, 4, 0], "ate": [-2, -4, 4], "cor": 1},
+          {"tipo": "ponto", "em": [2, 4, 0], "rot": "l"},
+          {"tipo": "segmento", "de": [3, -2, 1], "ate": [-3, -2, 4], "cor": 2},
+          {"tipo": "ponto", "em": [3, -2, 1], "rot": "m"},
+          {"tipo": "segmento", "de": [4, 2, 1], "ate": [-2, -1, -2], "cor": 3, "tracejado": true},
+          {"tipo": "ponto", "em": [4, 2, 1], "rot": "r"},
+          {"tipo": "segmento", "de": [3, 0, 5], "ate": [-5, -4, 1], "cor": 4},
+          {"tipo": "ponto", "em": [3, 0, 5], "rot": "d"},
+          {"tipo": "ponto", "em": [-1, -2, 3], "rot": "(−1, −2, 3)"}
+        ],
+        "legenda": "l e m se cruzam em (−1, −2, 3). A reta d, escura, passa por ali e anda lado a lado com a tracejada r."
+      },
+      "jeitos": {
+        "visual": "Na figura, l (azul) e m (coral) são duas estradas que se cruzam num único lugar: (−1, −2, 3). A estrada d, escura, passa por esse cruzamento. A estrada r, tracejada, só empresta a direção: d anda lado a lado com ela, sem tocá-la. Repare que a seta de m não tem nada em y: por isso m fica toda em y = −2.",
+        "receita": [
+          "Iguale o y de l ao y de m: 2 − 2k = −2, então k = 2.",
+          "Ponha k = 2 em l: x = 1 − 2 = −1, y = 2 − 4 = −2, z = 1 + 2 = 3.",
+          "Confira em m: x = 1 − 2λ = −1 dá λ = 1, e z = 2 + 1 = 3. O ponto é (−1, −2, 3).",
+          "A direção de r sai dos números que multiplicam o t: (−2, −1, −1).",
+          "Monte d com esse ponto e essa direção: x = −1 − 2α, y = −2 − α, z = 3 − α."
+        ],
+        "cotidiano": "São duas tarefas separadas, como marcar um encontro. Primeiro acha-se o local: a esquina onde as ruas l e m se cruzam. Depois escolhe-se o rumo de saída: o mesmo de uma terceira rua, r, que fica em outro lugar. A rua r não dá endereço nenhum, só o rumo. As ruas l e m não dão rumo nenhum, só o endereço.",
+        "trabalho": "Achar a interseção é um JOIN: você procura o registro que existe nas duas tabelas. Cada reta é uma lista de pontos, e a chave são as três coordenadas. Com k = 2 e λ = 1, a linha de l e a linha de m trazem o mesmo (−1, −2, 3). Se x e y batessem e z não, o JOIN voltaria vazio. Depois dele, a direção de r entra como um parâmetro que vem de outra tabela.",
+        "conversa": [
+          {"quem": "Você", "fala": "Igualei tudo de uma vez e ficou uma bagunça com k e λ."},
+          {"quem": "Monitor", "fala": "Qual das três igualdades tem uma letra só?"},
+          {"quem": "Você", "fala": "A do y. Em m, o y é sempre −2. Então 2 − 2k = −2."},
+          {"quem": "Monitor", "fala": "Quanto dá k, e qual é o ponto?"},
+          {"quem": "Você", "fala": "k = 2 e o ponto é (−1, −2, 3). Agora uso a direção de l?"},
+          {"quem": "Monitor", "fala": "O enunciado pede paralela a qual reta?"},
+          {"quem": "Você", "fala": "A r. Direção (−2, −1, −1)."},
+          {"quem": "Monitor", "fala": "Com esse ponto e essa direção, d fica pronta."}
+        ],
+        "erro": "A questão tem três retas e dá para pegar a peça errada de cada uma. A reta r entrega só a direção. As retas l e m entregam só o ponto. Quem usa (2, 1, 0) reescreve r. Quem usa (1, 2, 1) ou (1, −2, 2) pegou k = 0 ou λ = 0, que é o início da reta, e não o cruzamento. Antes de montar d, escreva numa linha: o ponto vem de quem, a direção vem de quem.",
+        "confira": "Teste o ponto nas duas retas de origem. Em l, k = 2 dá (−1, −2, 3). Em m, λ = 1 dá (1 − 2, −2, 2 + 1), o mesmo ponto. Dois resultados iguais, então é interseção. Depois compare as setas: (−2, −1, −1) da resposta é a própria seta de r. Teste final: ponha α = 1 na resposta. Dá (−3, −3, 2), e o passo desde o cruzamento é exatamente (−2, −1, −1).",
+        "atalho": "Olhe primeiro os números que multiplicam α. Precisam ser múltiplos de (−2, −1, −1), e isso já corta a alternativa com −α, −2α e +α. Depois olhe o y fixo. Em m, o y é sempre −2, então a interseção tem y = −2. Sobram as duas com y = −2 − α. Entre elas, l decide: com y = −2, k = 2 e x = −1. Fica só uma."
+      }
+    },
+    {
+      "id": "ga-s5-l6q3",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Plano paralelo por ponto",
+      "origem": "Lista 6 · Q3",
+      "enunciado": "Determine a equação geral do plano que é paralelo ao plano x + y − z − 1 = 0 e passa pelo ponto (1, 1, 3).",
+      "alternativas": [
+        {"t": "x + y − z − 1 = 0", "certa": false, "erro": "Esse é o plano dado, e (1, 1, 3) não está nele: 1 + 1 − 3 − 1 = −2. Você deve ter achado 1 + 1 − 3 = −1 e copiado esse −1 como d. O d é o que zera a conta: −1 + d = 0 dá d = 1."},
+        {"t": "x + y + z − 5 = 0", "certa": false, "erro": "Você perdeu o menos do z e usou o prego (1, 1, 1). A conta 1 + 1 + 3 − 5 dá 0, então o ponto até cabe. Mas esse plano não é paralelo ao dado: (1, 1, 1) não é múltiplo de (1, 1, −1)."},
+        {"t": "x + y − z − 5 = 0", "certa": false, "erro": "O início está certo, mas você calculou 1 + 1 + 3 = 5, sem o menos do z. A conta certa é 1 + 1 − 3 = −1. Teste o que saiu: 1 + 1 − 3 − 5 = −6, diferente de 0."},
+        {"t": "x + y + 3z − 11 = 0", "certa": false, "erro": "Você usou o ponto (1, 1, 3) como prego: 1 + 1 + 9 = 11. O ponto diz por onde o plano passa. O prego, que dá a inclinação, vem do plano dado: (1, 1, −1)."},
+        {"t": "x + y − z + 1 = 0", "certa": true}
+      ],
+      "dica": "Plano paralelo aproveita o mesmo prego. Só falta descobrir o número solto d.",
+      "resposta": "x + y − z + 1 = 0",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-1, -1, -3], [2, -1, 0], [2, 2, 3], [-1, 2, 0]], "cor": 3},
+          {"tipo": "poligono", "pts": [[-1, -1, -1], [2, -1, 2], [2, 2, 5], [-1, 2, 2]], "cor": 1},
+          {"tipo": "ponto", "em": [1, 1, 3], "rot": "(1, 1, 3)"},
+          {"tipo": "vetor", "de": [1, 1, 3], "ate": [2, 2, 2], "rot": "n", "cor": 4}
+        ],
+        "legenda": "A folha ocre é o plano dado. A azul é a resposta, e passa por (1, 1, 3). A seta é o prego das duas."
+      },
+      "jeitos": {
+        "visual": "Duas folhas paralelas têm o mesmo prego em pé. Na figura, a folha ocre é o plano dado, e a azul é o plano novo, com o ponto (1, 1, 3) em cima dela. A seta (1, 1, −1) é o prego das duas. Mudar o d não inclina a folha: só a desloca, mantendo o paralelismo. Você ajusta o d até a folha encostar no ponto.",
+        "receita": [
+          "Leia o vetor normal, o prego do plano dado: [[n]] = (1, 1, −1), os números de x, y e z.",
+          "Paralelo usa o mesmo prego: x + y − z + d = 0.",
+          "Ponha o ponto (1, 1, 3): 1 + 1 − 3 + d = 0, ou seja, −1 + d = 0.",
+          "Então d = 1, e o plano é x + y − z + 1 = 0."
+        ],
+        "cotidiano": "Pense nas prateleiras de uma estante, todas com a mesma inclinação, cada uma numa altura. A inclinação é o prego (1, 1, −1). A altura é o d. Para colocar uma prateleira que encoste no parafuso (1, 1, 3), você não mexe na inclinação. Só escolhe a altura certa, que aqui é d = 1.",
+        "trabalho": "O lado esquerdo é um SOMARPRODUTO: pesos (1, 1, −1) vezes quantidades (x, y, z). Os pontos de um plano dão todos o mesmo total. No plano dado, x + y − z = 1. No ponto (1, 1, 3), o total é 1 + 1 − 3 = −1. Então o plano novo é x + y − z = −1, que é o mesmo que x + y − z + 1 = 0. Mudou o total, não os pesos.",
+        "conversa": [
+          {"quem": "Você", "fala": "Calculei 1 + 1 − 3 = −1. Então d = −1 e o plano é x + y − z − 1 = 0."},
+          {"quem": "Monitor", "fala": "Esse plano é qual? Compare com o enunciado."},
+          {"quem": "Você", "fala": "É o próprio plano dado. Estranho."},
+          {"quem": "Monitor", "fala": "E (1, 1, 3) está nele? Substitua."},
+          {"quem": "Você", "fala": "1 + 1 − 3 − 1 = −2. Não está."},
+          {"quem": "Monitor", "fala": "O d não é o resultado da conta. É o que soma com o resultado para dar zero."},
+          {"quem": "Você", "fala": "−1 + d = 0. Então d = 1."}
+        ],
+        "erro": "O tropeço está no sinal do d. A conta no ponto dá −1, e a mão escreve −1 no lugar do d. Só que a equação pede que tudo some zero, então d é o oposto: +1. Quando a sua resposta sair igual ao plano do enunciado, desconfie. Era para achar outro plano, e o ponto dado não estava naquele.",
+        "confira": "Substitua o ponto na resposta: 1 + 1 − 3 + 1 = 0. Passa. Agora subtraia as duas equações: (x + y − z + 1) − (x + y − z − 1) = 2. As letras somem e fica um número fixo diferente de zero, então não existe ponto que zere as duas ao mesmo tempo. Os planos nunca se tocam, como paralelos distintos devem fazer.",
+        "atalho": "Todo plano paralelo a x + y − z − 1 = 0 começa com x + y − z, ou um múltiplo disso. Isso elimina duas alternativas na hora. Das três que sobram, substitua (1, 1, 3) direto e veja qual zera. Você nem precisa calcular o d."
+      }
+    },
+    {
+      "id": "ga-s5-l6q4",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Plano perpendicular à reta",
+      "origem": "Lista 6 · Q4",
+      "enunciado": "Determine a equação geral do plano que é perpendicular a reta X = (1, 2, 3) + t(−1, 2, −3), t ∈ R e passa pelo ponto (1, 1, 3).",
+      "alternativas": [
+        {"t": "−x + 2y − 3z + 8 = 0", "certa": true},
+        {"t": "−x + 2y − 3z + 6 = 0", "certa": false, "erro": "Você usou (1, 2, 3), o ponto da reta: −1 + 4 − 9 = −6, e d = 6. O plano precisa passar por (1, 1, 3), e aí a conta é −1 + 2 − 9 = −8."},
+        {"t": "x + 2y + 3z − 12 = 0", "certa": false, "erro": "Você usou (1, 2, 3) como prego: 1 + 2 + 9 = 12. Esse é o ponto da reta. O prego é a direção dela, o que multiplica o t: (−1, 2, −3)."},
+        {"t": "−x + 2y − 3z − 8 = 0", "certa": false, "erro": "A conta −1 + 2 − 9 = −8 está certa, mas você copiou o −8 como d. O d é o que zera: −8 + d = 0 dá d = 8. Com −8, o ponto dá −16."},
+        {"t": "−x + 2y + 3z − 10 = 0", "certa": false, "erro": "Você perdeu o menos do −3 da direção, e a conta virou −1 + 2 + 9 = 10. O prego (−1, 2, 3) não é múltiplo da direção da reta, então o plano não fica em cruz com ela."}
+      ],
+      "dica": "A reta perpendicular ao plano está em pé na folha. Ela aponta na mesma linha do prego.",
+      "resposta": "−x + 2y − 3z + 8 = 0",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 2, 4], [6, 2, 2], [2, 0, 2], [-4, 0, 4]], "cor": 3},
+          {"tipo": "segmento", "de": [2, 0, 6], "ate": [0, 4, 0], "cor": 2},
+          {"tipo": "ponto", "em": [1, 2, 3], "rot": "(1, 2, 3)"},
+          {"tipo": "ponto", "em": [1, 1, 3], "rot": "(1, 1, 3)"},
+          {"tipo": "vetor", "de": [1, 1, 3], "ate": [0, 3, 0], "rot": "n", "cor": 1}
+        ],
+        "legenda": "A seta azul sai de (1, 1, 3) e é paralela à reta coral. Ela é o prego da folha."
+      },
+      "jeitos": {
+        "visual": "Imagine a reta como um prego atravessando a folha em cruz. Tudo o que a folha precisa saber da reta é a seta (−1, 2, −3). O ponto (1, 2, 3) da reta não entra. Na figura, a seta azul sai de (1, 1, 3), é paralela à reta coral e serve de prego da folha. O ponto (1, 1, 3) fixa o lugar onde a folha fica.",
+        "receita": [
+          "Reta perpendicular ao plano: a direção dela serve de vetor normal, o prego. [[n]] = (−1, 2, −3).",
+          "Escreva −x + 2y − 3z + d = 0.",
+          "Ponha (1, 1, 3): −1 + 2 − 9 + d = 0, ou seja, −8 + d = 0.",
+          "Então d = 8, e o plano é −x + 2y − 3z + 8 = 0."
+        ],
+        "cotidiano": "Pense num mastro inclinado e numa tábua presa em ângulo reto com ele. A tábua copia a inclinação do mastro. Mas ela pode ficar em qualquer altura ao longo dele, e quem escolhe o lugar é um ponto da tábua: aqui, (1, 1, 3). O endereço onde o mastro começa, (1, 2, 3), não decide nada sobre a tábua.",
+        "trabalho": "O plano é o conjunto de combinações com o mesmo SOMARPRODUTO. Os pesos são (−1, 2, −3), que vêm da direção da reta. As quantidades são x, y e z. Para o ponto (1, 1, 3), o SOMARPRODUTO dá −1 + 2 − 9 = −8. Então o plano guarda toda combinação com total −8: −x + 2y − 3z = −8. Passando o −8 para o lado esquerdo, fica +8.",
+        "conversa": [
+          {"quem": "Você", "fala": "Reta perpendicular ao plano. Uso produto escalar igual a zero?"},
+          {"quem": "Monitor", "fala": "Produto escalar zero entre o quê?"},
+          {"quem": "Você", "fala": "Entre a direção da reta e o prego."},
+          {"quem": "Monitor", "fala": "Isso seria reta deitada na folha. Perpendicular ao plano é reta em pé. O prego também está em pé."},
+          {"quem": "Você", "fala": "Então a direção da reta e o prego ficam na mesma linha."},
+          {"quem": "Monitor", "fala": "E aí você já pode usar (−1, 2, −3) como prego. O que falta?"},
+          {"quem": "Você", "fala": "O d. −1 + 2 − 9 + d = 0, então d = 8."}
+        ],
+        "erro": "A reta traz dois trios de números, e só um deles serve. O (1, 2, 3) é endereço de um ponto da reta e fica fora da conta. O (−1, 2, −3) é a seta, e vira o prego. Repare também: x − 2y + 3z − 8 = 0 é o mesmo plano, só multiplicado por −1. Se a sua resposta saiu assim, ela está certa e só veio escrita de outro jeito.",
+        "confira": "Três testes curtos. O ponto: −1 + 2 − 9 + 8 = 0. A perpendicular: pegue dois passos deitados na folha, (2, 1, 0) e (−3, 0, 1). Cada um dá 0 no produto escalar com (−1, 2, −3): −2 + 2 = 0 e 3 − 3 = 0. A reta: (1, 2, 3) dá −1 + 4 − 9 + 8 = 2, diferente de 0. Esse ponto está fora da folha, e a reta só a cruza em t = −1/7.",
+        "atalho": "A direção da reta é (−1, 2, −3). Logo, a equação começa com −x + 2y − 3z, ou um múltiplo disso. Risque as duas que mudam esses números. Entre as três restantes, só muda o d, e o ponto (1, 1, 3) dá −8 no lado das letras. O número solto precisa ser +8."
+      }
+    },
+    {
+      "id": "ga-s5-l6q5a",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Posição de duas retas",
+      "origem": "Lista 6 · Q5a",
+      "enunciado": "Considere as retas r: X = (1, 1, 1) + t(1, −1, 1), t ∈ R e s: x = 0 − 2k, y = 1 + 2k, z = −1 − 2k, k ∈ R.\nVerifique se as retas r e s são paralelas, reversas ou concorrentes.",
+      "alternativas": [
+        {"t": "Reversas", "certa": false, "erro": "Reversas pedem direções diferentes. Aqui (−2, 2, −2) é −2 vezes (1, −1, 1). O sinal trocado engana, mas a linha é a mesma."},
+        {"t": "Concorrentes, sem ser perpendiculares", "certa": false, "erro": "Concorrentes pedem direções diferentes e um ponto comum. O sistema não fecha: o x pede 1 + t = −2k, e o z pede 1 + t = −1 − 2k. Juntos, dariam 0 = −1."},
+        {"t": "Paralelas distintas", "certa": true},
+        {"t": "Coincidentes", "certa": false, "erro": "A direção é a mesma, mas falta o ponto comum. Em s, x = 1 pede k = −1/2, e com esse k o y dá 0, não 1. O ponto (1, 1, 1) está fora de s."},
+        {"t": "Concorrentes e perpendiculares", "certa": false, "erro": "Perpendicular pediria produto escalar 0. Aqui (1, −1, 1)·(−2, 2, −2) = −2 − 2 − 2 = −6. E as retas nem se encontram, porque o sistema não tem solução."}
+      ],
+      "dica": "Compare as duas setas primeiro. Só depois teste um ponto.",
+      "resposta": "Paralelas (e distintas)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [-1, 3, -1], "ate": [3, -1, 3], "cor": 1},
+          {"tipo": "segmento", "de": [2, -1, 1], "ate": [-3, 4, -4], "cor": 2},
+          {"tipo": "ponto", "em": [1, 1, 1], "rot": "(1, 1, 1)"},
+          {"tipo": "ponto", "em": [0, 1, -1], "rot": "(0, 1, −1)"},
+          {"tipo": "vetor", "de": [1, 1, 1], "ate": [2, 0, 2], "rot": "v", "cor": 1},
+          {"tipo": "vetor", "de": [0, 1, -1], "ate": [-2, 3, -3], "rot": "w", "cor": 2}
+        ],
+        "legenda": "As duas setas estão na mesma direção e apontam para lados opostos. As retas nunca se tocam."
+      },
+      "jeitos": {
+        "visual": "Olhe as setas na figura. A azul, de r, vale (1, −1, 1). A coral, de s, vale (−2, 2, −2): duas vezes mais comprida e apontando para o lado oposto. A linha é a mesma, só o sentido muda. São dois trilhos de ferrovia, com um trem indo e outro voltando. O ponto (1, 1, 1) fica num trilho e não encosta no outro.",
+        "receita": [
+          "Direção de r: [[v]] = (1, −1, 1). Direção de s: [[w]] = (−2, 2, −2).",
+          "Teste múltiplos: −2·(1, −1, 1) = (−2, 2, −2). Mesma direção.",
+          "Desempate: (1, 1, 1) está em s? x = 1 pede −2k = 1, então k = −1/2.",
+          "Com k = −1/2: y = 1 + 2(−1/2) = 0, e o ponto tem y = 1. Não bate.",
+          "Mesma direção, sem ponto comum: paralelas distintas."
+        ],
+        "cotidiano": "Duas pessoas caminham em calçadas opostas da mesma avenida, uma indo para o centro e a outra voltando, com passadas de tamanhos diferentes. O sentido e o tamanho do passo mudam, mas a direção da avenida é uma só. As duas calçadas não se encontram. Se andassem na mesma calçada, o caso seria o de coincidentes.",
+        "trabalho": "É teste de proporção seguido de conciliação. Primeiro, as setas: dividindo coluna a coluna, (−2, 2, −2) por (1, −1, 1) dá −2 nas três. Razão constante quer dizer que uma coluna é a outra vezes um fator fixo. Depois, o ponto: procure o k que faz a linha (1, 1, 1) aparecer em s. O x pede k = −1/2, e o y devolve 0. Um campo bate e outro não: não é o mesmo registro.",
+        "conversa": [
+          {"quem": "Você", "fala": "(1, −1, 1) e (−2, 2, −2) têm sinais trocados. Então as direções são diferentes, e dá reversas."},
+          {"quem": "Monitor", "fala": "Multiplique (1, −1, 1) por −2. O que sai?"},
+          {"quem": "Você", "fala": "(−2, 2, −2). É a seta de s."},
+          {"quem": "Monitor", "fala": "Então a linha é a mesma. O sinal troca só o sentido."},
+          {"quem": "Você", "fala": "Aí são coincidentes, já que têm a mesma direção?"},
+          {"quem": "Monitor", "fala": "Falta o desempate. Procure (1, 1, 1) em s."},
+          {"quem": "Você", "fala": "k = −1/2 dá y = 0. Não está. Paralelas distintas."}
+        ],
+        "erro": "Aqui caem duas pegadinhas. A primeira é achar que sinal trocado muda a direção. Não muda: múltiplo negativo continua na mesma linha, só vira o sentido. A segunda é parar no teste da seta e marcar coincidentes. Mesma direção deixa duas saídas, e quem decide é um ponto. Sem testar (1, 1, 1) em s, você não sabe qual das duas é.",
+        "confira": "Monte o sistema inteiro, sem usar as setas: 1 + t = −2k, 1 − t = 1 + 2k e 1 + t = −1 − 2k. A primeira e a terceira têm o mesmo lado esquerdo. Logo, −2k = −1 − 2k, que vira 0 = −1. Sistema sem solução quer dizer nenhum ponto comum. Esse caminho confirma, por outra rota, que as retas não se tocam.",
+        "atalho": "Divida coordenada por coordenada: −2/1, 2/(−1), −2/1. As três dão −2, então as direções são iguais. Isso elimina reversas e as duas concorrentes. Sobram paralelas distintas e coincidentes. Agora basta um único teste: x = 1 em s pede k = −1/2, e o y sai 0. O ponto fica fora, e a questão acaba aí."
+      }
+    },
+    {
+      "id": "ga-s5-l6q5b",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Plano contendo duas retas",
+      "origem": "Lista 6 · Q5b",
+      "enunciado": "Considere as retas r: X = (1, 1, 1) + t(1, −1, 1), t ∈ R e s: x = 0 − 2k, y = 1 + 2k, z = −1 − 2k, k ∈ R.\nAche uma equação geral do plano que contém as retas r e s.",
+      "alternativas": [
+        {"t": "x − y + z − 1 = 0", "certa": false, "erro": "Você usou a direção (1, −1, 1) como prego. Esse plano fica em cruz com r, em vez de contê-la. A seta da reta precisa dar 0 com o prego, e aqui dá 1 + 1 + 1 = 3."},
+        {"t": "−2x − y + z + 2 = 0", "certa": true},
+        {"t": "2x − y − z = 0", "certa": false, "erro": "Faltou o menos da segunda coordenada do produto vetorial: você ficou com (2, −1, −1), e não (2, 1, −1). O plano passa por (1, 1, 1) e (0, 1, −1), mas a seta de r não deita nele: (1, −1, 1)·(2, −1, −1) = 2."},
+        {"t": "2x + y − z + 2 = 0", "certa": false, "erro": "O prego (2, 1, −1) está certo, mas o d não. A conta 2 + 1 − 1 = 2 virou d = 2, sem trocar o sinal. O d é o que zera: 2 + d = 0 dá d = −2."},
+        {"t": "−2x + y + 3z − 2 = 0", "certa": false, "erro": "Você somou os pontos, (1, 1, 1) + (0, 1, −1) = (1, 2, 0), em vez de subtrair. Aí (1, −1, 1) × (1, 2, 0) = (−2, 1, 3). O plano contém r, mas deixa s de fora: (0, 1, −1) dá −4."}
+      ],
+      "dica": "As duas setas são múltiplas e não abrem plano. Use uma delas e a seta que liga um ponto de r a um ponto de s.",
+      "resposta": "−2x − y + z + 2 = 0 (ou 2x + y − z − 2 = 0, o mesmo plano)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[0, 2, 0], [2.5, -0.5, 2.5], [2.5, -1.5, 1.5], [0, 1, -1]], "cor": 3},
+          {"tipo": "segmento", "de": [0, 2, 0], "ate": [2.5, -0.5, 2.5], "cor": 1},
+          {"tipo": "segmento", "de": [0, 1, -1], "ate": [2.5, -1.5, 1.5], "cor": 2},
+          {"tipo": "ponto", "em": [1, 1, 1], "rot": "P"},
+          {"tipo": "ponto", "em": [0, 1, -1], "rot": "Q"},
+          {"tipo": "vetor", "de": [1, 1, 1], "ate": [2, 0, 2], "rot": "v", "cor": 1},
+          {"tipo": "vetor", "de": [1, 1, 1], "ate": [0, 1, -1], "rot": "PQ", "cor": 2},
+          {"tipo": "vetor", "de": [1, 1, 1], "ate": [3, 2, 0], "rot": "n", "cor": 4}
+        ],
+        "legenda": "A seta de r e a travessa de P até Q ficam deitadas na folha. A seta escura é o prego que sai das duas."
+      },
+      "jeitos": {
+        "visual": "Dois trilhos paralelos cabem numa mesma folha, como na figura. Para espetar o prego dessa folha, você precisa de duas setas deitadas nela e que apontem para linhas diferentes. A seta de r é uma. A outra é a travessa que liga os trilhos: de (1, 1, 1) até (0, 1, −1). O prego sai do produto vetorial dessas duas, a conta que devolve uma seta em cruz com ambas.",
+        "receita": [
+          "Pegue um ponto de cada reta: P = (1, 1, 1) em r, Q = (0, 1, −1) em s, com k = 0.",
+          "Seta entre os pontos: [[PQ]] = Q − P = (−1, 0, −2).",
+          "Vetor normal, o prego: (1, −1, 1) × (−1, 0, −2) = (2, 1, −1).",
+          "Equação: 2x + y − z + d = 0. Com P: 2 + 1 − 1 + d = 0, então d = −2.",
+          "Fica 2x + y − z − 2 = 0. Multiplicando por −1: −2x − y + z + 2 = 0."
+        ],
+        "cotidiano": "Pense numa escada de mão. As duas laterais apontam para a mesma linha, então as direções delas, sozinhas, não dizem como a escada está virada. Quem trava a folha é o degrau, a ligação de um lado ao outro. Uma lateral e um degrau bastam para saber em que plano a escada está. A travessa [[PQ]] é esse degrau.",
+        "trabalho": "Pense em duas colunas de planilha em que uma é múltipla da outra. A segunda não traz informação nova. Numa regressão, por exemplo, não dá para separar o efeito de cada uma. Com as setas de r e s acontece igual: (1, −1, 1) × (−2, 2, −2) = (0, 0, 0). A informação nova vem de uma terceira coluna, a seta entre os pontos, (−1, 0, −2).",
+        "conversa": [
+          {"quem": "Você", "fala": "Fiz a seta de r vezes a seta de s e deu (0, 0, 0). Travou."},
+          {"quem": "Monitor", "fala": "Faz sentido? O que o vetorial de duas setas na mesma linha deveria dar?"},
+          {"quem": "Você", "fala": "Zero. Não tem abertura entre elas."},
+          {"quem": "Monitor", "fala": "Então falta uma seta que aponte para outro lado. Onde achar?"},
+          {"quem": "Você", "fala": "Ligando um ponto de r a um ponto de s: (−1, 0, −2)."},
+          {"quem": "Monitor", "fala": "Agora faça o vetorial com (1, −1, 1)."},
+          {"quem": "Você", "fala": "(2, 1, −1). Com d = −2, dá 2x + y − z − 2 = 0. O gabarito traz −2x − y + z + 2 = 0."},
+          {"quem": "Monitor", "fala": "Multiplique a sua por −1. É o mesmo plano."}
+        ],
+        "erro": "A armadilha é fazer o produto vetorial das duas direções. Como são paralelas, o resultado é (0, 0, 0), e esse vetor não serve de prego. A saída é a seta entre os pontos. Outro tropeço: virar o sinal só de parte da equação. 2x + y − z − 2 = 0 vira −2x − y + z + 2 = 0, com todos os termos invertidos, inclusive o d. Inverter só as letras muda o plano.",
+        "confira": "Três contas fecham a questão. Os pontos: (1, 1, 1) dá −2 − 1 + 1 + 2 = 0, e (0, 1, −1) dá 0 − 1 − 1 + 2 = 0. A seta: (1, −1, 1)·(−2, −1, 1) = −2 + 1 + 1 = 0. Um ponto e a seta dentro do plano garantem r inteira. O outro ponto, com seta paralela, garante s. Sem a conta da seta, a reta poderia estar só furando a folha.",
+        "atalho": "Substitua (1, 1, 1) e (0, 1, −1) em cada alternativa. O segundo ponto é bom porque zera o x. Depois teste a seta (1, −1, 1) contra os números de x, y e z: o produto escalar precisa dar 0. Aqui existe uma alternativa que aceita os dois pontos e reprova na seta, então não pule esse teste."
+      }
+    }
+  ]
+}

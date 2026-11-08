@@ -1,0 +1,339 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-l8q1g",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 5,
+      "tema": "Retas paralelas distintas",
+      "origem": "Lista 8 · Q1g",
+      "enunciado": "Determine a distância entre r: X = (1, 1, 1) + λ(1, −2, 3), λ ∈ R e s: (3 − x)/2 = (y − 2)/4 = (1 − z)/6. Qual é essa distância?",
+      "alternativas": [
+        {"t": "0", "certa": false, "erro": "Direção múltipla não basta para coincidir. O ponto (1, 1, 1) de r, posto em s, dá (3 − 1)/2 = 1, (1 − 2)/4 = −1/4 e (1 − 1)/6 = 0. As três partes diferem, então ele não está em s: as retas são paralelas distintas."},
+        {"t": "√5", "certa": true},
+        {"t": "√70", "certa": false, "erro": "Esse é ‖(2, 1, 0) × (1, −2, 3)‖ = ‖(3, −6, −5)‖ = √70, a área do paralelogramo. Faltou dividir pela base, ‖(1, −2, 3)‖ = √14."},
+        {"t": "5", "certa": false, "erro": "Você parou em d² = 70/14 = 5 e esqueceu de tirar a raiz."},
+        {"t": "√5/2", "certa": false, "erro": "Você misturou as setas: o produto vetorial com (1, −2, 3) dá √70, e a divisão por ‖(−2, 4, −6)‖ = √56 dá √5/2. Use a mesma seta em cima e embaixo."}
+      ],
+      "dica": "Compare as direções. Se forem múltiplas, ligue um ponto de cada reta e pense em área dividida por base.",
+      "resposta": "√5",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [0, 3, -2], "ate": [2.5, -2, 5.5], "cor": 1},
+          {"tipo": "segmento", "de": [2, 4, -2], "ate": [4.5, -1, 5.5], "cor": 2},
+          {"tipo": "ponto", "em": [2.5, -2, 5.5], "rot": "r"},
+          {"tipo": "ponto", "em": [4.5, -1, 5.5], "rot": "s"},
+          {"tipo": "vetor", "de": [1, 1, 1], "ate": [3, 2, 1], "rot": "w", "cor": 4}
+        ],
+        "legenda": "Dois trilhos paralelos. A seta escura liga (1, 1, 1) a (3, 2, 1) e, neste caso, já faz 90° com os dois."
+      },
+      "jeitos": {
+        "visual": "Dois trilhos paralelos no ar, em azul e coral. Na figura, a seta escura vai de (1, 1, 1), no trilho r, até (3, 2, 1), no trilho s. É [[w]] = (2, 1, 0). Para saber se ela é o dormente, a peça que cruza os trilhos em esquadro, teste o ângulo: (2, 1, 0)·(1, −2, 3) = 2 − 2 + 0 = 0. Faz 90°. Aqui, por sorte, o trecho entre os dois pontos dados já é o menor caminho.",
+        "receita": [
+          "Leia s: ponto Q = (3, 2, 1), porque 3 − x, y − 2 e 1 − z zeram aí. Direção (−2, 4, −6), com sinal trocado onde a variável vem com menos.",
+          "Compare: (−2, 4, −6) = −2·(1, −2, 3). Paralelas. Use [[v]] = (1, −2, 3).",
+          "Ligue os pontos: [[w]] = Q − (1, 1, 1) = (3, 2, 1) − (1, 1, 1) = (2, 1, 0).",
+          "Produto vetorial: [[w]] × [[v]] = (1·3 − 0·(−2), 0·1 − 2·3, 2·(−2) − 1·1) = (3, −6, −5).",
+          "Área: ‖(3, −6, −5)‖ = √(9 + 36 + 25) = √70. Base: ‖[[v]]‖ = √(1 + 4 + 9) = √14.",
+          "A altura é a distância: d = √70/√14 = √(70/14) = √5."
+        ],
+        "cotidiano": "Duas cercas paralelas e um terreno entre elas, em forma de paralelogramo. Você conhece a área e o comprimento do lado que corre junto à cerca. A largura do terreno é a área dividida por esse lado. Aqui, a área é √70 e o lado é √14. A largura, que é a distância entre as cercas, dá √5.",
+        "trabalho": "É a conta de achar o fator que falta: valor total ÷ quantidade = preço unitário. Aqui, área ÷ base = altura. Numa planilha, guarde [[w]] × [[v]] em B2:D2 e [[v]] em B3:D3, e a fórmula é `=RAIZ(SOMARPRODUTO(B2:D2;B2:D2)/SOMARPRODUTO(B3:D3;B3:D3))`. Ela faz √(70/14) e devolve √5. Dentro da mesma raiz, os dois quadrados ficam na mesma escala.",
+        "conversa": [
+          {"quem": "Você", "fala": "Medi de (1, 1, 1) até (3, 2, 1) e deu √5. Posso sempre fazer isso?"},
+          {"quem": "Monitor", "fala": "Neste caso deu certo. Teste: quanto dá (2, 1, 0)·(1, −2, 3)?"},
+          {"quem": "Você", "fala": "2 − 2 + 0 = 0."},
+          {"quem": "Monitor", "fala": "Zero quer dizer 90°. O trecho já estava em esquadro. Na Q1h, isso não acontece."},
+          {"quem": "Você", "fala": "E se não der 0?"},
+          {"quem": "Monitor", "fala": "Aí use área ÷ base: ‖[[w]] × [[v]]‖/‖[[v]]‖. Esse caminho funciona sempre, e aqui dá √70/√14 = √5."}
+        ],
+        "erro": "Duas armadilhas. A primeira é ler s pelos denominadores e pegar (2, 4, 6), sem trocar o sinal de x e z: aí as retas parecem reversas. A segunda é concluir 0 porque a direção é múltipla. Direção múltipla diz paralela ou coincidente. Quem separa é o ponto: (1, 1, 1) não passa na conciliação de s, então há folga.",
+        "confira": "Use Pitágoras. O trecho [[w]] tem ‖[[w]]‖² = 4 + 1 + 0 = 5. A sombra dele sobre a direção, ao quadrado, é ([[w]]·[[v]])²/‖[[v]]‖² = 0/14 = 0. A distância ao quadrado é o que sobra: 5 − 0 = 5. Logo, d = √5, igual à conta do produto vetorial.",
+        "atalho": "Calcule logo [[w]]·[[v]]. Se der 0, como aqui, a distância é ‖[[w]]‖ = √5, sem produto vetorial. Uma conta curta troca a mais longa. Se não der 0, volte para área ÷ base. Como esse teste custa três multiplicações, vale fazer antes de abrir o produto vetorial."
+      }
+    },
+    {
+      "id": "ga-s5-l8q1h",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 5,
+      "tema": "Distância de ponto a reta",
+      "origem": "Lista 8 · Q1h",
+      "enunciado": "Determine a distância entre P = (1, 2, 3) e s: (x − 3)/2 = (y − 1)/4 = (z + 2)/6. Qual é essa distância?",
+      "alternativas": [
+        {"t": "√30", "certa": false, "erro": "Esse é ‖(−2, 1, 5)‖, a distância de P ao ponto (3, 1, −2) da reta. Esse não é o ponto mais próximo de P: o trecho não faz 90° com a reta, pois (−2, 1, 5)·(1, 2, 3) = 15."},
+        {"t": "√195", "certa": false, "erro": "Esse é ‖(−2, 1, 5) × (1, 2, 3)‖ = ‖(−7, 11, −5)‖ = √195, a área do paralelogramo. Faltou dividir pela base, ‖(1, 2, 3)‖ = √14."},
+        {"t": "√195/14", "certa": false, "erro": "Você dividiu √195 por 14, que é o quadrado de ‖(1, 2, 3)‖. O divisor é √14, e ele entra na raiz: √(195/14)."},
+        {"t": "√(195/14)", "certa": true},
+        {"t": "15√14/14", "certa": false, "erro": "Esse é |(−2, 1, 5)·(1, 2, 3)|/√14 = 15/√14 = 15√14/14, o trecho medido ao longo da reta, a sombra dele. Você usou produto escalar onde a conta pede produto vetorial."}
+      ],
+      "dica": "O caminho mais curto de um ponto até uma reta faz 90° com ela. Ligue P a um ponto da reta e use área ÷ base.",
+      "resposta": "√(195/14) ≈ 3,73",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [2, -1, -5], "ate": [6, 7, 7], "cor": 1},
+          {"tipo": "ponto", "em": [6, 7, 7], "rot": "s"},
+          {"tipo": "ponto", "em": [1, 2, 3], "rot": "P"},
+          {"tipo": "ponto", "em": [3, 1, -2], "rot": "Q"},
+          {"tipo": "vetor", "de": [3, 1, -2], "ate": [1, 2, 3], "rot": "w", "cor": 3},
+          {"tipo": "segmento", "de": [3, 1, -2], "ate": [4.071, 3.143, 1.214], "tracejado": true},
+          {"tipo": "vetor", "de": [1, 2, 3], "ate": [4.071, 3.143, 1.214], "rot": "d", "cor": 4}
+        ],
+        "legenda": "A seta escura é a menor distância. A ocre liga P ao ponto lido na equação e fica mais longa. O tracejado é a sombra da ocre sobre a reta."
+      },
+      "jeitos": {
+        "visual": "Imagine a reta como um cabo esticado e P como uma lâmpada. Solte um fio de P até o cabo, em esquadro. Na figura, a seta escura é esse fio, e ela cai em (57/14, 44/14, 17/14). A seta ocre, de (3, 1, −2) a P, é mais longa e sai inclinada. Ela, o tracejado e o fio formam um triângulo retângulo. O fio mede √(195/14), cerca de 3,73.",
+        "receita": [
+          "Leia s: ponto Q = (3, 1, −2). Direção (2, 4, 6), que pode ser simplificada para [[v]] = (1, 2, 3).",
+          "Ligue Q a P: [[w]] = P − Q = (1 − 3, 2 − 1, 3 + 2) = (−2, 1, 5).",
+          "Produto vetorial: [[w]] × [[v]] = (1·3 − 5·2, 5·1 − (−2)·3, (−2)·2 − 1·1) = (−7, 11, −5).",
+          "Área: √(49 + 121 + 25) = √195. Base: ‖[[v]]‖ = √(1 + 4 + 9) = √14.",
+          "Distância = área ÷ base: d = √195/√14 = √(195/14)."
+        ],
+        "cotidiano": "Você está num campo e quer chegar à estrada pelo caminho mais curto. Não adianta ir até a placa que aparece no mapa: ela é um ponto qualquer da estrada. O mais curto é andar em esquadro com a estrada. A placa (3, 1, −2) fica a √30, mas a estrada está a √(195/14), mais perto. A conta mostra esse caminho sem precisar descobrir onde ele termina.",
+        "trabalho": "É a diferença entre o total e a parte explicada por um fator, como numa regressão (o ajuste de reta do PROJ.LIN) forçada a passar pela origem. [[w]] é o dado completo, com ‖[[w]]‖² = 30. A parte explicada pela direção da reta é a sombra: 15²/14 = 225/14. O resíduo, o que sobra, é 30 − 225/14 = 195/14, e a distância é a raiz dele. Resíduo dessa regressão e distância até a reta saem da mesma conta.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei √30, de P até (3, 1, −2)."},
+          {"quem": "Monitor", "fala": "Esse ponto é o mais próximo de P na reta, ou é só o que aparece na equação?"},
+          {"quem": "Você", "fala": "Só o que aparece. Como sei se é o mais próximo?"},
+          {"quem": "Monitor", "fala": "Teste 90°. (−2, 1, 5)·(1, 2, 3) dá quanto?"},
+          {"quem": "Você", "fala": "−2 + 2 + 15 = 15. Não é 0."},
+          {"quem": "Monitor", "fala": "Então o trecho é inclinado. Use ‖[[w]] × [[v]]‖/‖[[v]]‖."},
+          {"quem": "Você", "fala": "√195/√14. Posso escrever √195/14?"},
+          {"quem": "Monitor", "fala": "Não. O 14 precisa ficar dentro da raiz: √(195/14), cerca de 3,73. Com o 14 fora, daria cerca de 0,997, outro número."}
+        ],
+        "erro": "A principal armadilha é o lugar do 14. √(195/14) e √195/14 parecem iguais numa leitura rápida, mas o primeiro vale cerca de 3,73 e o segundo, cerca de 0,997. A base entra na conta como √14, e por isso o 14 fica dentro da raiz. Para perceber, escreva antes d² = 195/14 e só no fim tire a raiz da fração inteira.",
+        "confira": "Ache o pé do fio. O contador vale ([[w]]·[[v]])/‖[[v]]‖² = 15/14. O pé é Q + (15/14)(1, 2, 3) = (57/14, 44/14, 17/14). De P até lá: (43/14, 16/14, −25/14). O quadrado da norma dá (1849 + 256 + 625)/196 = 2730/196 = 195/14. Mesmo resultado. Sobra um teste: esse trecho faz 90° com (1, 2, 3), pois 43 + 32 − 75 = 0.",
+        "atalho": "A resposta nasce como raiz de fração, com 14 embaixo. Isso descarta na hora √195, que não divide nada, e √30, que é o trecho sem teste de 90°. Entre as outras, lembre que a base entra com raiz. Outra economia: simplifique (2, 4, 6) para (1, 2, 3) antes de começar. A reta é a mesma, e os números ficam menores."
+      }
+    },
+    {
+      "id": "ga-s5-l8q1i",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Distância de ponto a plano",
+      "origem": "Lista 8 · Q1i",
+      "enunciado": "Determine a distância entre P = (1, 2, 3) e π: −x − y − z + 7 = 0. Qual é essa distância?",
+      "alternativas": [
+        {"t": "√3/3", "certa": true},
+        {"t": "1", "certa": false, "erro": "Esse é |−1 − 2 − 3 + 7| = 1, a sobra do ponto na equação. Faltou dividir pela norma do prego, ‖(−1, −1, −1)‖ = √3."},
+        {"t": "1/3", "certa": false, "erro": "Você dividiu 1 por 3, o quadrado da norma do prego. O divisor é a própria norma, √3."},
+        {"t": "13√3/3", "certa": false, "erro": "Você ignorou os sinais de menos e fez |1 + 2 + 3 + 7|/√3 = 13/√3 = 13√3/3. O plano tem −x − y − z, e cada coordenada entra com esse sinal."},
+        {"t": "√3", "certa": false, "erro": "Você multiplicou a sobra pela norma: 1·√3 = √3. A conta é o contrário: dividir, 1/√3."}
+      ],
+      "dica": "Substitua o ponto na equação, tire o sinal e divida pelo tamanho do prego.",
+      "resposta": "1/√3 = √3/3",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[7, 0, 0], [0, 7, 0], [0, 0, 7]], "cor": 3},
+          {"tipo": "ponto", "em": [1, 2, 3], "rot": "P"},
+          {"tipo": "vetor", "de": [1, 2, 3], "ate": [1.333, 2.333, 3.333], "rot": "d", "cor": 4}
+        ],
+        "legenda": "O ponto P fica quase encostado na folha. A seta escura está em pé na folha e mede √3/3."
+      },
+      "jeitos": {
+        "visual": "Na figura, o triângulo é a parte da folha π que cai entre os eixos. O ponto P = (1, 2, 3) está do mesmo lado que a origem, bem perto da folha. A seta escura sai de P e segue o prego até tocar a folha em (4/3, 7/3, 10/3). Ela anda 1/3 em cada eixo. O tamanho dessa seta é (1/3)·√3, ou seja, √3/3, cerca de 0,58.",
+        "receita": [
+          "Leia o prego: [[n]] = (−1, −1, −1), os números de x, y e z.",
+          "Substitua P: −1 − 2 − 3 + 7 = 1.",
+          "Tire o sinal: |1| = 1.",
+          "Norma do prego: ‖[[n]]‖ = √(1 + 1 + 1) = √3.",
+          "Divida: d = 1/√3. Multiplicando em cima e embaixo por √3: √3/3."
+        ],
+        "cotidiano": "A equação funciona como um medidor. Substituiu e deu 0, está na folha. Deu 1, está fora, mas esse 1 ainda não é metro: é a leitura de um aparelho com escala própria. A escala é o tamanho do prego, √3. Para converter a leitura em distância, divida por √3, como quem converte polegada em centímetro com um fator fixo.",
+        "trabalho": "É uma fórmula pronta de planilha. Com o prego em B1:D1 e o ponto em B2:D2: `=ABS(SOMARPRODUTO(B1:D1;B2:D2)+7)/RAIZ(SOMARPRODUTO(B1:D1;B1:D1))`. O SOMARPRODUTO dá −6, somar 7 dá 1, e a raiz dá √3. O resultado é a sobra da conciliação em escala real. Zero significaria que o ponto cumpre a regra do plano.",
+        "conversa": [
+          {"quem": "Você", "fala": "Somei 1 + 2 + 3 + 7 = 13. Deu 13/√3."},
+          {"quem": "Monitor", "fala": "O que está na frente do x, no plano?"},
+          {"quem": "Você", "fala": "Um menos. Então −1 − 2 − 3 + 7 = 1."},
+          {"quem": "Monitor", "fala": "E pelo que você divide?"},
+          {"quem": "Você", "fala": "Pela raiz da soma dos quadrados dos números de x, y e z. (−1)² + (−1)² + (−1)² = 3."},
+          {"quem": "Monitor", "fala": "Os sinais somem no quadrado. Logo, ‖[[n]]‖ = √3, e a conta termina em 1/√3."}
+        ],
+        "erro": "O erro comum é perder os sinais de menos e somar tudo, chegando a 13√3/3. Outro é achar que o sinal negativo do prego muda a norma: não muda, pois tudo é elevado ao quadrado. Para perceber, olhe a sobra: P cumpre a equação quase inteira, faltando só 1. Sobra pequena dá distância pequena, e 13√3/3 passa de 7.",
+        "confira": "Multiplique a equação por −1: x + y + z − 7 = 0. É o mesmo plano, então a distância não pode mudar. Com P: 1 + 2 + 3 − 7 = −1, e |−1| = 1. Divida por √3: 1/√3. Outra prova: ande 1/3 ao longo de (1, 1, 1) a partir de P e você chega em (4/3, 7/3, 10/3), que soma 7.",
+        "atalho": "Some as coordenadas de P: 1 + 2 + 3 = 6. O plano é o mesmo que x + y + z = 7. A diferença é 1. O divisor é √3, porque são três números de tamanho 1. Portanto, 1/√3. Esse é o caminho mais curto, e ele funciona assim porque os três números de x, y e z têm o mesmo tamanho."
+      }
+    },
+    {
+      "id": "ga-s5-l8q2",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Reta paralela por um ponto",
+      "origem": "Lista 8 · Q2",
+      "enunciado": "Calcular a distância da reta r à reta t, onde r é a reta que passa pelo ponto A = (−1, 2, 3) e é paralela à reta s: (−x − 1)/2 = (y − 5)/3 = (1 − z)/2 e t: X = (1, 1, 1) + λ(−4, 6, −4), λ ∈ R. Qual é essa distância?",
+      "alternativas": [
+        {"t": "√(84/17)", "certa": false, "erro": "Você mediu de s até t, com o ponto (−1, 5, 1) de s: a ligação é (−2, 4, 0), a área dá √84 e a base dá √17. O enunciado usa s só para dar a direção. A reta r passa por A = (−1, 2, 3)."},
+        {"t": "3", "certa": false, "erro": "Esse é ‖(−2, 1, 2)‖ = 3, a distância de A até (1, 1, 1). Esse trecho não faz 90° com as retas, pois (−2, 1, 2)·(−2, 3, −2) = 3."},
+        {"t": "12", "certa": false, "erro": "Esse é ‖(−2, 1, 2) × (−2, 3, −2)‖ = ‖(−8, −8, −4)‖ = 12, a área do paralelogramo. Faltou dividir pela base, ‖(−2, 3, −2)‖ = √17."},
+        {"t": "√(36/17)", "certa": false, "erro": "Você misturou as setas: o produto vetorial com (−2, 3, −2) dá 12, e a divisão usou ‖(−4, 6, −4)‖ = √68. Assim, 12/√68 = √(36/17), com o denominador valendo o dobro do certo. Use a mesma seta em cima e embaixo."},
+        {"t": "√(144/17)", "certa": true}
+      ],
+      "dica": "A reta s só entrega a direção de r. O ponto de r é A.",
+      "resposta": "√(144/17) = 12/√17 ≈ 2,91",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [1, -1, 5], "ate": [-3, 5, 1], "cor": 1},
+          {"tipo": "segmento", "de": [3, -2, 3], "ate": [-1, 4, -1], "cor": 2},
+          {"tipo": "segmento", "de": [1, 2, 3], "ate": [-3, 8, -1], "tracejado": true},
+          {"tipo": "ponto", "em": [-3, 5, 1], "rot": "r"},
+          {"tipo": "ponto", "em": [-1, 4, -1], "rot": "t"},
+          {"tipo": "ponto", "em": [-3, 8, -1], "rot": "s"},
+          {"tipo": "ponto", "em": [-1, 2, 3], "rot": "A"},
+          {"tipo": "vetor", "de": [-1, 2, 3], "ate": [0.647, 1.529, 0.647], "rot": "d", "cor": 4}
+        ],
+        "legenda": "Três retas paralelas. A tracejada é s, que só entrega a direção. A distância pedida é a seta escura, entre r e t."
+      },
+      "jeitos": {
+        "visual": "A figura tem três trilhos paralelos. O tracejado é s: ele existe só para dizer a direção. Os outros dois são os que importam: r, que passa por A, e t, que passa por (1, 1, 1). A seta escura liga A ao ponto (11/17, 26/17, 11/17), em t, fazendo 90° com os trilhos. Ela mede 12/√17, e esse é o vão entre r e t.",
+        "receita": [
+          "Direção de s: x e z vêm com menos, então os números de baixo trocam de sinal: (−2, 3, −2). Essa é a direção de r.",
+          "Direção de t: (−4, 6, −4) = 2·(−2, 3, −2). As retas r e t são paralelas. Use [[v]] = (−2, 3, −2).",
+          "Ligue os pontos: [[w]] = A − (1, 1, 1) = (−2, 1, 2).",
+          "Produto vetorial: [[w]] × [[v]] = (1·(−2) − 2·3, 2·(−2) − (−2)·(−2), (−2)·3 − 1·(−2)) = (−8, −8, −4).",
+          "Área: √(64 + 64 + 16) = √144 = 12. Base: ‖[[v]]‖ = √(4 + 9 + 4) = √17.",
+          "Distância: d = 12/√17 = √(144/17)."
+        ],
+        "cotidiano": "Uma rua nova vai ser aberta. O projeto diz: ela sai da praça A e corre no mesmo rumo da avenida s. Você quer saber a distância entre essa rua nova e a ferrovia t, que também corre nesse rumo. A avenida foi citada para dar o rumo. Medir da avenida até a ferrovia responde a outra pergunta, ainda que pareça a mesma.",
+        "trabalho": "É como herdar um único atributo de outro registro. A nova linha r recebe de s a direção, como uma coluna trazida por PROCV, e o ponto vem de A. Quem copia a linha inteira de s leva junto o ponto (−1, 5, 1), que não é de r, e chega a √(84/17). É o erro de puxar a coluna errada: a fórmula roda, o valor parece bom, e a resposta é de outra pergunta.",
+        "conversa": [
+          {"quem": "Você", "fala": "São três retas. Qual distância é para calcular?"},
+          {"quem": "Monitor", "fala": "Da r até a t. Para que a s entra na história?"},
+          {"quem": "Você", "fala": "Para dar a direção de r. Mas pego o ponto de s também?"},
+          {"quem": "Monitor", "fala": "Não. O ponto de r está escrito: A = (−1, 2, 3). Qual é a direção de s?"},
+          {"quem": "Você", "fala": "(2, 3, 2)?"},
+          {"quem": "Monitor", "fala": "Olhe o −x e o 1 − z em cima. O que muda?"},
+          {"quem": "Você", "fala": "Troca o sinal desses: (−2, 3, −2). E t tem (−4, 6, −4), o dobro."},
+          {"quem": "Monitor", "fala": "Paralelas. Agora é área ÷ base: 12/√17."}
+        ],
+        "erro": "A armadilha está no enunciado longo. Com três retas, muita gente calcula a distância entre s e t, e s nem é pedida. Ela dá √(84/17), que parece resposta. Outro tropeço é a forma simétrica: −x − 1 tem a variável com menos, então a direção é −2, não 2. Para não cair, sublinhe quem é r: ponto de A, direção de s.",
+        "confira": "Use Pitágoras, sem produto vetorial. O trecho [[w]] = (−2, 1, 2) tem quadrado 9. A sombra ao quadrado sobre a direção é ([[w]]·[[v]])²/‖[[v]]‖² = 3²/17 = 9/17. A distância ao quadrado é 9 − 9/17 = 144/17. A raiz dá √(144/17), igual ao gabarito, que deixou o 144 sem simplificar.",
+        "atalho": "Há um teto: a distância não passa de ‖[[w]]‖ = 3, e só é igual se [[w]] fizer 90°. Como [[w]]·[[v]] = 3 não é 0, a resposta é menor que 3. Isso corta 3 e 12. Entre as frações, 144 é 12², e o divisor é 17, sem dobrar a seta. Sobra √(144/17), desde que você tenha usado A, e não o ponto de s."
+      }
+    },
+    {
+      "id": "ga-s5-l8q3a",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Paralelas, reversas ou concorrentes",
+      "origem": "Lista 8 · Q3a",
+      "enunciado": "Considere as retas r: X = (1, 1, 1) + t(1, −1, 1), t ∈ R e s: x = 0 − 2k, y = 1 + 2k, z = −1 − 2k, k ∈ R. Verifique se as retas r e s são paralelas, reversas ou concorrentes.",
+      "alternativas": [
+        {"t": "Reversas", "certa": false, "erro": "Reversas têm direções que não são múltiplas. Aqui, (−2, 2, −2) é −2 vezes (1, −1, 1), então a direção é a mesma. Os sinais trocados só mostram o sentido oposto."},
+        {"t": "Concorrentes", "certa": false, "erro": "Concorrentes têm um ponto em comum e direções diferentes. Aqui a direção é a mesma. Igualando, x pede 1 + t = −2k e z pede 1 + t = −1 − 2k, o que levaria a 0 = 1: não há encontro."},
+        {"t": "Paralelas", "certa": true},
+        {"t": "Coincidentes", "certa": false, "erro": "A direção é a mesma, mas falta o ponto. Em (1, 1, 1), x = 1 pede k = −1/2, e com esse k o y dá 0, não 1. O ponto de r não está em s, então são duas retas."},
+        {"t": "Perpendiculares", "certa": false, "erro": "Perpendiculares exigem produto escalar 0. Aqui, (1, −1, 1)·(−2, 2, −2) = −2 − 2 − 2 = −6, e o cosseno dá −1: as setas estão na mesma linha, em sentidos opostos."}
+      ],
+      "dica": "Compare as setas primeiro: uma é múltipla da outra? O ponto só desempata.",
+      "resposta": "Paralelas (distintas)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [-1, 3, -1], "ate": [3, -1, 3], "cor": 1},
+          {"tipo": "segmento", "de": [3, -2, 2], "ate": [-2, 3, -3], "cor": 2},
+          {"tipo": "ponto", "em": [3, -1, 3], "rot": "r"},
+          {"tipo": "ponto", "em": [3, -2, 2], "rot": "s"},
+          {"tipo": "vetor", "de": [1, 1, 1], "ate": [2, 0, 2], "rot": "", "cor": 1},
+          {"tipo": "vetor", "de": [0, 1, -1], "ate": [-2, 3, -3], "rot": "", "cor": 2}
+        ],
+        "legenda": "As setas apontam para lados opostos, mas estão na mesma direção. Os dois trilhos nunca se encontram."
+      },
+      "jeitos": {
+        "visual": "Duas linhas de trem. Na figura, a seta azul anda (1, −1, 1), e a coral anda (−2, 2, −2). A coral é duas vezes mais longa e aponta para o lado contrário, mas as duas estão na mesma direção, como um trem indo e outro voltando. Direção igual: ou é a mesma linha, ou são dois trilhos. O ponto (1, 1, 1) fica fora da linha coral. Então são dois trilhos: paralelas.",
+        "receita": [
+          "Direção de r: (1, −1, 1). Direção de s: os números que acompanham k, (−2, 2, −2).",
+          "Teste múltiplo: (−2, 2, −2) = −2·(1, −1, 1). Mesma direção.",
+          "Desempate com o ponto (1, 1, 1) de r em s: x = 1 dá −2k = 1, então k = −1/2.",
+          "Com k = −1/2: y = 1 + 2·(−1/2) = 0, e não 1. O ponto não está em s.",
+          "Mesma direção e sem ponto comum: paralelas."
+        ],
+        "cotidiano": "Duas pessoas caminham em calçadas opostas da mesma rua: uma vai, a outra volta, e uma dá passos do dobro do tamanho. O traçado das calçadas é o mesmo. Elas nunca se encontram, pois cada uma segue na sua calçada. A diferença no sentido e no tamanho do passo não muda o traçado.",
+        "trabalho": "Pense em duas séries com variação proporcional: em cada coluna, a segunda muda −2 vezes o que a primeira muda. A correlação entre as variações é −1: andam na mesma linha, em sentidos opostos. Mas os saldos de partida não batem, e não há t e k que igualem os três valores. Variação perfeitamente ligada não quer dizer saldo igual.",
+        "conversa": [
+          {"quem": "Você", "fala": "Os sinais estão trocados. Então as direções são diferentes, e as retas são reversas."},
+          {"quem": "Monitor", "fala": "Divida (−2, 2, −2) por (1, −1, 1), número a número. Quanto dá?"},
+          {"quem": "Você", "fala": "−2, −2 e −2."},
+          {"quem": "Monitor", "fala": "O mesmo fator nos três. O que isso diz?"},
+          {"quem": "Você", "fala": "Mesma direção, sentido oposto. Podem ser paralelas ou a mesma reta."},
+          {"quem": "Monitor", "fala": "Como decide?"},
+          {"quem": "Você", "fala": "Testo (1, 1, 1) em s. Com k = −1/2, o y dá 0. Não está."},
+          {"quem": "Monitor", "fala": "Isso. São paralelas distintas."}
+        ],
+        "erro": "O sinal engana. Ver +1 e −2 na mesma coluna parece direção diferente, mas direção é a linha, e sentido é o lado. Múltiplo por número negativo troca só o lado. O teste é dividir coluna por coluna: o mesmo fator em todas diz múltiplo. O segundo tropeço é parar aí e dizer coincidentes sem testar o ponto.",
+        "confira": "Tente achar o encontro. Se houvesse, as coordenadas x e z dariam 1 + t = −2k e 1 + t = −1 − 2k. Subtraindo uma da outra: 0 = 1, o que é impossível. Sem encontro e com direções múltiplas, resta paralelas. Note que o teste usou apenas x e z, e já bastou.",
+        "atalho": "Olhe a direção primeiro. Se uma é múltipla da outra, risque reversas, concorrentes e perpendiculares de uma vez: todas exigem direções diferentes. Sobram paralelas e coincidentes, e um único ponto decide. Teste o ponto mais fácil: x = 1 dá k = −1/2, e y = 0 já mata a coincidência."
+      }
+    },
+    {
+      "id": "ga-s5-l8q3b",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Distância entre paralelas",
+      "origem": "Lista 8 · Q3b",
+      "enunciado": "Considere as retas r: X = (1, 1, 1) + t(1, −1, 1), t ∈ R e s: x = 0 − 2k, y = 1 + 2k, z = −1 − 2k, k ∈ R. Calcule a distância entre as retas r e s.",
+      "alternativas": [
+        {"t": "√5", "certa": false, "erro": "Esse é ‖(1, 0, 2)‖, a distância entre (1, 1, 1) e (0, 1, −1). Esse trecho não faz 90° com as retas, pois (1, 0, 2)·(1, −1, 1) = 3."},
+        {"t": "√6", "certa": false, "erro": "Esse é ‖(1, 0, 2) × (1, −1, 1)‖ = ‖(2, 1, −1)‖ = √6, a área do paralelogramo. Faltou dividir pela base, ‖(1, −1, 1)‖ = √3."},
+        {"t": "2", "certa": false, "erro": "Você parou em d² = 6/3 = 2 e esqueceu de tirar a raiz."},
+        {"t": "√2", "certa": true},
+        {"t": "√3", "certa": false, "erro": "Esse é |(1, 0, 2)·(1, −1, 1)|/√3 = 3/√3 = √3, a sombra do trecho sobre a reta, e não a altura. Você usou produto escalar onde a conta pede produto vetorial."}
+      ],
+      "dica": "Os pontos das equações são só um começo. Ligue um ao outro e fique com a parte que faz 90° com a direção.",
+      "resposta": "√2",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [-1, 3, -1], "ate": [3, -1, 3], "cor": 1},
+          {"tipo": "segmento", "de": [3, -2, 2], "ate": [-2, 3, -3], "cor": 2},
+          {"tipo": "ponto", "em": [3, -1, 3], "rot": "r"},
+          {"tipo": "ponto", "em": [3, -2, 2], "rot": "s"},
+          {"tipo": "vetor", "de": [0, 1, -1], "ate": [1, 1, 1], "rot": "w", "cor": 3},
+          {"tipo": "segmento", "de": [0, 1, -1], "ate": [1, 0, 0], "tracejado": true},
+          {"tipo": "vetor", "de": [1, 1, 1], "ate": [1, 0, 0], "rot": "d", "cor": 4}
+        ],
+        "legenda": "O triângulo tem ângulo reto em (1, 0, 0). A seta ocre mede √5, a sombra tracejada mede √3, e a seta escura mede √2."
+      },
+      "jeitos": {
+        "visual": "Olhe o triângulo da figura. A seta ocre vai de (0, 1, −1), em s, até (1, 1, 1), em r, e mede √5. O tracejado corre ao longo de s, de (0, 1, −1) até (1, 0, 0), e mede √3. A seta escura fecha o triângulo, de (1, 1, 1) até (1, 0, 0), e faz 90° com s. O vão entre os trilhos é essa seta: √2.",
+        "receita": [
+          "Direção: [[v]] = (1, −1, 1). A de s, (−2, 2, −2), é múltipla; por isso são paralelas.",
+          "Pontos: P = (1, 1, 1) em r e Q = (0, 1, −1) em s, com k = 0. Ligação: [[w]] = P − Q = (1, 0, 2).",
+          "Produto vetorial: [[w]] × [[v]] = (0·1 − 2·(−1), 2·1 − 1·1, 1·(−1) − 0·1) = (2, 1, −1).",
+          "Área: √(4 + 1 + 1) = √6. Base: ‖[[v]]‖ = √(1 + 1 + 1) = √3.",
+          "Distância: d = √6/√3 = √(6/3) = √2."
+        ],
+        "cotidiano": "Uma rampa liga duas calçadas paralelas, mas sai em diagonal: você anda √5 no total. Parte desse percurso é avançar ao longo da rua, e parte é atravessar. A largura da rua é só a parte de atravessar. Com Pitágoras, tire o avanço, √3, do percurso, √5, e sobra a largura, √2.",
+        "trabalho": "A ligação entre dois pontos quaisquer mistura duas coisas: avanço ao longo da reta e diferença real entre as retas. Para isolar a diferença, desconte o avanço, como quem tira o efeito de período antes de comparar dois saldos. Em quadrados: 5 − 3 = 2. No Excel, com intervalos nomeados w e v: `=RAIZ(SOMARPRODUTO(w;w)-SOMARPRODUTO(w;v)^2/SOMARPRODUTO(v;v))`.",
+        "conversa": [
+          {"quem": "Você", "fala": "São paralelas, então meço entre (1, 1, 1) e (0, 1, −1). Deu √5."},
+          {"quem": "Monitor", "fala": "Esse trecho faz 90° com a direção?"},
+          {"quem": "Você", "fala": "(1, 0, 2)·(1, −1, 1) = 3. Não faz."},
+          {"quem": "Monitor", "fala": "Então ele está torto. O que é menor que ele?"},
+          {"quem": "Você", "fala": "O trecho em esquadro. Como acho?"},
+          {"quem": "Monitor", "fala": "Área ÷ base: ‖(2, 1, −1)‖/‖(1, −1, 1)‖."},
+          {"quem": "Você", "fala": "√6/√3 = √2."}
+        ],
+        "erro": "O tropeço é medir entre os dois pontos das equações e parar. Eles são só os que aparecem na escrita das retas, e nada garante que estejam em frente um do outro. Para notar, faça o teste: produto escalar do trecho com a direção. Deu 3, não 0, logo o trecho está inclinado, e √5 é apenas um teto para a distância.",
+        "confira": "Troque de caminho: escreva a distância ao quadrado de Q = (0, 1, −1) a um ponto qualquer de r. Fica (1 + t)² + t² + (2 + t)² = 3t² + 6t + 5. O menor valor dessa expressão sai em t = −1 e vale 3 − 6 + 5 = 2. Logo, d = √2. É a mesma resposta, por um caminho sem produto vetorial.",
+        "atalho": "Aproveite a conta da Q3a: k = −1/2 levou ao ponto (1, 0, 0) de s, com x igual ao de (1, 1, 1). O trecho entre eles é (0, 1, 1), e (0, 1, 1)·(1, −1, 1) = 0. Já está em esquadro, então d = ‖(0, 1, 1)‖ = √2. Aproveitar o desempate pode poupar o produto vetorial."
+      }
+    }
+  ]
+}

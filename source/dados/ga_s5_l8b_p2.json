@@ -1,0 +1,352 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-l8q9g",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Distância no cubo",
+      "origem": "Lista 8 · Q9g",
+      "enunciado": "Classifique em Verdadeiro (V) ou Falso (F). Se verdadeiro, prove. Se falso, dê um contraexemplo. (OBS: Em todas as sentenças considere que estamos em R³.)\nAfirmação: Em um cubo ABCDEFGH de aresta a, a distância do vértice B à reta que contém a diagonal AG é a√6/3.\nQual é o veredito certo, com o motivo?",
+      "alternativas": [
+        {"t": "Falso: a distância é a√2, a diagonal da face.", "certa": false, "erro": "a√2 é o comprimento de BG, a distância de B até o ponto G. A distância até a reta vai pelo caminho mais curto, em 90°, e sai menor: a√6/3."},
+        {"t": "Verdadeiro: a distância vale ‖[[AB]] × [[AG]]‖ / ‖[[AG]]‖ = a²√2 / (a√3) = a√6/3.", "certa": true},
+        {"t": "Falso: a distância é a√3/3, a projeção de [[AB]] sobre a diagonal.", "certa": false, "erro": "a√3/3 é a sombra de [[AB]] sobre [[AG]]: ([[AB]]·[[AG]]) / ‖[[AG]]‖ = a²/(a√3). Isso mede quanto se anda na diagonal até o pé da perpendicular, não a distância de B até a reta."},
+        {"t": "Falso: a distância é a, porque B está a uma aresta de A.", "certa": false, "erro": "a é a distância de B até o ponto A, que está na reta, mas não é o ponto mais perto. O pé da perpendicular fica a um terço de [[AG]], e dali até B dá a√6/3, menor que a."},
+        {"t": "Verdadeiro: o pé da perpendicular é o centro do cubo, e de B até o centro dá a√6/3.", "certa": false, "erro": "De B até o centro dá a√3/2, que não é a√6/3. O pé da perpendicular fica a 1/3 do caminho de A até G, e não na metade. O veredito acerta, a conta não."}
+      ],
+      "dica": "Monte o cubo com A na origem. A distância de ponto a reta usa o produto vetorial dividido pela norma da direção.",
+      "resposta": "Verdadeiro. d = a²√2 / (a√3) = a√6/3.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [0, 0, 0], "ate": [2, 0, 0], "cor": 3},
+          {"tipo": "segmento", "de": [2, 0, 0], "ate": [2, 2, 0], "cor": 3},
+          {"tipo": "segmento", "de": [2, 2, 0], "ate": [0, 2, 0], "cor": 3},
+          {"tipo": "segmento", "de": [0, 2, 0], "ate": [0, 0, 0], "cor": 3},
+          {"tipo": "segmento", "de": [0, 0, 2], "ate": [2, 0, 2], "cor": 3},
+          {"tipo": "segmento", "de": [2, 0, 2], "ate": [2, 2, 2], "cor": 3},
+          {"tipo": "segmento", "de": [2, 2, 2], "ate": [0, 2, 2], "cor": 3},
+          {"tipo": "segmento", "de": [0, 2, 2], "ate": [0, 0, 2], "cor": 3},
+          {"tipo": "segmento", "de": [0, 0, 0], "ate": [0, 0, 2], "cor": 3},
+          {"tipo": "segmento", "de": [2, 0, 0], "ate": [2, 0, 2], "cor": 3},
+          {"tipo": "segmento", "de": [2, 2, 0], "ate": [2, 2, 2], "cor": 3},
+          {"tipo": "segmento", "de": [0, 2, 0], "ate": [0, 2, 2], "cor": 3},
+          {"tipo": "segmento", "de": [0, 0, 0], "ate": [2, 2, 2], "cor": 1},
+          {"tipo": "vetor", "de": [2, 0, 0], "ate": [0.667, 0.667, 0.667], "rot": "d", "cor": 4},
+          {"tipo": "ponto", "em": [0, 0, 0], "rot": "A"},
+          {"tipo": "ponto", "em": [2, 0, 0], "rot": "B"},
+          {"tipo": "ponto", "em": [2, 2, 0], "rot": "C"},
+          {"tipo": "ponto", "em": [0, 2, 0], "rot": "D"},
+          {"tipo": "ponto", "em": [0, 0, 2], "rot": "E"},
+          {"tipo": "ponto", "em": [2, 0, 2], "rot": "F"},
+          {"tipo": "ponto", "em": [2, 2, 2], "rot": "G"},
+          {"tipo": "ponto", "em": [0, 2, 2], "rot": "H"}
+        ],
+        "legenda": "Cubo com a = 2. A linha azul é a diagonal AG. A seta escura sai de B e cai nela em 90°: mede 2√6/3."
+      },
+      "jeitos": {
+        "visual": "Na figura, o cubo tem a = 2. A diagonal AG atravessa o cubo, de um canto ao canto oposto. A seta escura sai de B e cai na diagonal em 90°. Esse é o caminho mais curto, e é ele que mede a distância. Repare que a seta não chega em A, nem em G, nem no meio: ela cai a um terço do caminho, contado de A.",
+        "receita": [
+          "A lista não traz figura. Hipótese: AG é a diagonal que atravessa o cubo. Monte: A = (0, 0, 0), B = (a, 0, 0), G = (a, a, a).",
+          "Setas: [[AB]] = (a, 0, 0) e [[AG]] = (a, a, a).",
+          "Produto vetorial: [[AB]] × [[AG]] = (0, −a², a²), com norma a²√2.",
+          "Norma da direção: ‖[[AG]]‖ = a√3.",
+          "Distância: a²√2 / (a√3) = a√2/√3.",
+          "Multiplique em cima e embaixo por √3: a√6/3. Bate com a afirmação, que é verdadeira."
+        ],
+        "cotidiano": "Um fio esticado de um canto do quarto até o canto oposto do teto. Você está no canto B e quer tocar o fio com o braço mais curto possível. Mirando em A, o braço mede a. Mirando no meio do fio, mede menos. O mais curto está antes do meio, a um terço do caminho, onde o braço faz 90° com o fio.",
+        "trabalho": "Com a = 1, o pé da perpendicular é (1/3, 1/3, 1/3): a média das coordenadas de B = (1, 0, 0). A seta em 90° é o desvio de cada coordenada em relação à média. Por isso, =RAIZ(DESVQ(1;0;0)) no Excel dá 0,8165, o mesmo que √6/3. DESVQ soma os quadrados dos desvios. A diagonal do cubo é a reta em que os três indicadores são iguais.",
+        "conversa": [
+          {"quem": "Você", "fala": "B está a uma aresta de A, e A está na reta. A distância é a."},
+          {"quem": "Monitor", "fala": "A é o ponto da reta mais perto de B?"},
+          {"quem": "Você", "fala": "Não sei. Como vejo?"},
+          {"quem": "Monitor", "fala": "No ponto mais perto, a seta que sai de B faz 90° com a reta. [[AB]]·[[AG]] dá 0?"},
+          {"quem": "Você", "fala": "Dá a². Então não faz 90° em A."},
+          {"quem": "Monitor", "fala": "O ponto mais perto é A + t·[[AG]], com t = a²/(3a²) = 1/3."},
+          {"quem": "Você", "fala": "O pé é (a/3, a/3, a/3), e a seta de B até lá mede a√6/3."},
+          {"quem": "Monitor", "fala": "É a distância. Confere com a afirmação."}
+        ],
+        "erro": "A armadilha é medir até um ponto famoso da reta: A dá a, G dá a√2, o centro do cubo dá a√3/2. Nenhum deles é o mais perto. Distância de ponto a reta vai sempre pelo caminho em 90°. Outro tropeço é esquecer a divisão por ‖[[AG]]‖ no fim: a conta para em a²√2, que é uma área e nem tem a unidade certa.",
+        "confira": "Por outro caminho: o triângulo ABG tem ângulo reto em B, porque [[AB]]·[[BG]] = 0. Os lados medem AB = a, BG = a√2 e AG = a√3. A altura sobre a hipotenusa, o lado oposto ao ângulo reto, é o produto dos catetos, os dois lados que formam o ângulo reto, dividido pela hipotenusa: a·a√2/(a√3) = a√6/3. Bate.",
+        "atalho": "Compare tamanhos. A distância não passa de a, porque A está na reta, a uma aresta de B. Isso tira a√2. E [[AB]]·[[AG]] = a² não é 0, então A não é o ponto mais perto, e a resposta a também sai. Como a√6/3 vale cerca de 0,816·a, a afirmação é possível. Para decidir, use o triângulo retângulo ABG: a·a√2 dividido por a√3."
+      }
+    },
+    {
+      "id": "ga-s5-l8q9h",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Perpendicular por um ponto",
+      "origem": "Lista 8 · Q9h",
+      "enunciado": "Classifique em Verdadeiro (V) ou Falso (F). Se verdadeiro, prove. Se falso, dê um contraexemplo. (OBS: Em todas as sentenças considere que estamos em R³.)\nAfirmação: Por um ponto de uma reta pode-se traçar uma, e somente uma, perpendicular à reta considerada.\nQual é o veredito certo, com o motivo?",
+      "alternativas": [
+        {"t": "Falso: em R³, por esse ponto passam infinitas perpendiculares, todas num mesmo plano.", "certa": true},
+        {"t": "Verdadeiro: é a perpendicular que se traça com esquadro, e ela é uma só.", "certa": false, "erro": "O esquadro trabalha numa folha, e na folha a frase vale. O enunciado manda considerar R³, onde a folha pode girar em volta da reta, e cada posição dá outra perpendicular."},
+        {"t": "Verdadeiro: a conta [[v]]·[[w]] = 0 tem uma só solução, e ela dá a perpendicular.", "certa": false, "erro": "A conta tem infinitas soluções. Com [[v]] = (0, 0, 1), dão 0 tanto (1, 0, 0) quanto (0, 1, 0) e (1, 1, 0)."},
+        {"t": "Falso: pelo ponto de uma reta não sai perpendicular; ela só sai de ponto fora da reta.", "certa": false, "erro": "Sai, sim. O eixo z e o eixo x se cruzam na origem, e (1, 0, 0)·(0, 0, 1) = 0. O ponto de partida está no eixo z, e a perpendicular existe."},
+        {"t": "Falso: passam exatamente duas perpendiculares, uma para cada lado da reta.", "certa": false, "erro": "Uma perpendicular só já atravessa os dois lados. E há muitas além dela: as direções (1, 0, 0), (0, 1, 0) e (1, 1, 0) são três, todas com produto escalar 0 com (0, 0, 1)."}
+      ],
+      "dica": "A frase é verdadeira numa folha. O que muda quando a folha pode girar em volta da reta?",
+      "resposta": "Falso. Em R³ são infinitas perpendiculares por esse ponto.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[2.0, 0.0, 0], [1.848, 0.765, 0], [1.414, 1.414, 0], [0.765, 1.848, 0], [0.0, 2.0, 0], [-0.765, 1.848, 0], [-1.414, 1.414, 0], [-1.848, 0.765, 0], [-2.0, 0.0, 0], [-1.848, -0.765, 0], [-1.414, -1.414, 0], [-0.765, -1.848, 0], [0.0, -2.0, 0], [0.765, -1.848, 0], [1.414, -1.414, 0], [1.848, -0.765, 0]], "cor": 3},
+          {"tipo": "segmento", "de": [0, 0, -2], "ate": [0, 0, 2], "cor": 4},
+          {"tipo": "segmento", "de": [-2, 0, 0], "ate": [2, 0, 0], "cor": 1},
+          {"tipo": "segmento", "de": [0, -2, 0], "ate": [0, 2, 0], "cor": 1},
+          {"tipo": "segmento", "de": [-1.414, -1.414, 0], "ate": [1.414, 1.414, 0], "cor": 1},
+          {"tipo": "ponto", "em": [0, 0, 0], "rot": "O"}
+        ],
+        "legenda": "A linha escura é a reta, no eixo z. As três linhas azuis passam por O e fazem 90° com ela. O disco é um pedaço do plano z = 0."
+      },
+      "jeitos": {
+        "visual": "Pense numa roda com raios. O eixo é a reta, e os raios saem do centro, todos em 90° com o eixo, em direções diferentes. Na figura, a linha escura é o eixo z, e as três linhas azuis são perpendiculares a ele em O. O disco mostra a folha onde moram todas elas. Dá para riscar outras no mesmo disco, sem parar.",
+        "receita": [
+          "Escolha a reta: o eixo z, com direção (0, 0, 1), e o ponto O = (0, 0, 0).",
+          "Uma perpendicular por O tem direção [[w]] com [[w]]·(0, 0, 1) = 0.",
+          "Teste (1, 0, 0): dá 0. Teste (0, 1, 0): dá 0. Teste (1, 1, 0): dá 0.",
+          "São três retas diferentes por O, todas perpendiculares ao eixo z.",
+          "A conta exige só o z de [[w]] igual a 0, e x e y ficam livres. São infinitas, e a afirmação é falsa."
+        ],
+        "cotidiano": "Um poste fincado no chão. Em volta da base, você pode estender um fio na horizontal para o norte, para o leste, para qualquer lado. Todos fazem 90° com o poste. No desenho numa folha de papel, o poste só deixa uma linha reta atravessada, e parece que a resposta é uma só. O papel esconde as outras direções.",
+        "trabalho": "Perpendicular aqui é um SOMARPRODUTO que zera. Com pesos (0, 0, 1), a conta é SOMARPRODUTO((x; y; z); (0; 0; 1)) = z. Ela olha só a terceira coluna. Qualquer linha com z = 0 passa no teste, e x e y ficam livres. É um filtro `WHERE z = 0`: devolve um monte de linhas, não uma só.",
+        "conversa": [
+          {"quem": "Você", "fala": "Essa é a regra do esquadro. Só cabe uma perpendicular."},
+          {"quem": "Monitor", "fala": "Cabe uma em cada folha. Quantas folhas contêm o eixo z?"},
+          {"quem": "Você", "fala": "Várias. Elas giram em volta dele."},
+          {"quem": "Monitor", "fala": "Então teste as direções (1, 0, 0) e (0, 1, 0) com (0, 0, 1)."},
+          {"quem": "Você", "fala": "O produto escalar dá 0 nas duas."},
+          {"quem": "Monitor", "fala": "As duas retas passam pela origem e fazem 90° com o eixo z."},
+          {"quem": "Você", "fala": "Já são duas. A frase só vale numa folha."}
+        ],
+        "erro": "A armadilha é responder com a geometria da folha. No plano, por um ponto de uma reta passa mesmo uma única perpendicular, e a frase soa familiar. O enunciado manda olhar em R³. Perceba o tropeço pela observação do começo da questão: toda vez que ela diz R³, pergunte se a figura pode girar em volta de alguma coisa.",
+        "confira": "Descreva o conjunto todo. As perpendiculares a (0, 0, 1) na origem têm direção (x, y, 0), com x e y não ambos nulos. Esse conjunto preenche o plano z = 0. Para outra reta, vale igual: o conjunto é o plano que tem a direção da reta como normal e passa pelo ponto. Se coubesse só uma perpendicular, esse conjunto teria de ser uma linha, e não é.",
+        "atalho": "Olhe a observação do enunciado: R³. Faça o teste relâmpago com os eixos: x e y fazem 90° com z na origem. São duas perpendiculares, e isso elimina as de Verdadeiro e a que nega a existência. Entre as duas que sobram, a direção (1, 1, 0) derruba \"exatamente duas\"."
+      }
+    },
+    {
+      "id": "ga-s5-l8q9i",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Três pontos e plano",
+      "origem": "Lista 8 · Q9i",
+      "enunciado": "Classifique em Verdadeiro (V) ou Falso (F). Se verdadeiro, prove. Se falso, dê um contraexemplo. (OBS: Em todas as sentenças considere que estamos em R³.)\nAfirmação: Três pontos não colineares determinam um único plano.\nQual é o veredito certo, com o motivo?",
+      "alternativas": [
+        {"t": "Falso: três pontos permitem infinitos planos, porque a folha pode girar em volta deles.", "certa": false, "erro": "A folha só gira em volta de uma linha, e isso exige pontos alinhados. O enunciado excluiu esse caso. Com A, B e C fora de uma linha, a folha trava."},
+        {"t": "Falso: são precisos quatro pontos para fixar um plano; com três, a folha ainda balança.", "certa": false, "erro": "Três já fixam. O quarto pode até cair fora: A = (1, 0, 0), B = (0, 1, 0) e C = (0, 0, 1) dão x + y + z − 1 = 0, e (0, 0, 0) dá −1, fora do plano."},
+        {"t": "Verdadeiro: [[AB]] e [[AC]] não são múltiplos, e [[AB]] × [[AC]] dá o normal do plano.", "certa": true},
+        {"t": "Verdadeiro: três pontos formam uma reta, e a reta fixa o plano que passa por ela.", "certa": false, "erro": "Não colineares quer dizer justamente que os pontos não estão na mesma reta. E uma reta sozinha não fixa plano: infinitas folhas a contêm."},
+        {"t": "Verdadeiro: qualquer trio de pontos de R³ fica num único plano, estejam como estiverem.", "certa": false, "erro": "O motivo joga fora a condição do enunciado. Os pontos alinhados (0, 0, 0), (1, 1, 1) e (2, 2, 2) estão em x − y = 0 e em y − z = 0, dois planos diferentes."}
+      ],
+      "dica": "Com três pontos você monta duas setas. O que o fato de não estarem alinhados garante sobre essas setas?",
+      "resposta": "Verdadeiro. [[AB]] × [[AC]] ≠ 0 dá o normal, e A dá o endereço.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[1, 0, 0], [0, 1, 0], [0, 0, 1]], "cor": 3},
+          {"tipo": "vetor", "de": [1, 0, 0], "ate": [0, 1, 0], "rot": "AB", "cor": 1},
+          {"tipo": "vetor", "de": [1, 0, 0], "ate": [0, 0, 1], "rot": "AC", "cor": 2},
+          {"tipo": "ponto", "em": [1, 0, 0], "rot": "A"},
+          {"tipo": "ponto", "em": [0, 1, 0], "rot": "B"},
+          {"tipo": "ponto", "em": [0, 0, 1], "rot": "C"}
+        ],
+        "legenda": "A, B e C não estão em fila. O triângulo é um pedaço do único plano que passa por eles: x + y + z − 1 = 0."
+      },
+      "jeitos": {
+        "visual": "Colineares são pontos na mesma linha. Na figura, A, B e C não estão em fila, e o triângulo ocre é um pedaço do plano x + y + z − 1 = 0. As duas setas saem de A e ficam deitadas nesse plano, em direções diferentes. Gire a imagem: não há como encaixar outra folha nos três pontos ao mesmo tempo. Tente imaginar uma folha girando: ela solta algum deles.",
+        "receita": [
+          "Plano = ponto + normal. Mostre que os três pontos entregam as duas peças.",
+          "Monte [[AB]] = B − A e [[AC]] = C − A. Como os pontos não são colineares, as setas não são múltiplas.",
+          "Então [[n]] = [[AB]] × [[AC]] não é nulo e é perpendicular às duas setas. A equação [[n]]·(X − A) = 0 dá um plano com A, B e C.",
+          "Outro plano com os três pontos teria [[AB]] e [[AC]] deitadas nele, logo normal múltiplo de [[n]], e passaria por A. É o mesmo plano.",
+          "Exemplo: A = (1, 0, 0), B = (0, 1, 0) e C = (0, 0, 1) dão [[n]] = (1, 1, 1) e x + y + z − 1 = 0. A afirmação é verdadeira."
+        ],
+        "cotidiano": "O banquinho de três pés não balança, e a mesa de quatro pode balançar. Com três pontos de apoio, a superfície fica travada. Com quatro, um pé pode ficar no ar, porque o quarto ponto não precisa cair na folha dos outros três. A condição do enunciado também aparece aqui: com os três pés em fila, o banco tomba para um lado.",
+        "trabalho": "Cada ponto dá uma linha numa tabela: a·x + b·y + c·z + d = 0. Três pontos não colineares dão três linhas independentes, que deixam a, b, c e d fixos, a menos de um múltiplo. Se os pontos estiverem em fila, um deles é redundante, como um registro que repete informação de outros. Aí a resposta deixa de ser única. Independência das linhas é o que garante o resultado.",
+        "conversa": [
+          {"quem": "Você", "fala": "Três pontos podem ficar em fila. Aí a folha gira."},
+          {"quem": "Monitor", "fala": "Pode. E o que diz a frase?"},
+          {"quem": "Você", "fala": "Não colineares. Então não estão em fila."},
+          {"quem": "Monitor", "fala": "Nesse caso, o que sai de [[AB]] × [[AC]]?"},
+          {"quem": "Você", "fala": "Um vetor que não é nulo, porque as setas não são múltiplas."},
+          {"quem": "Monitor", "fala": "E o plano que passa por A com esse normal?"},
+          {"quem": "Você", "fala": "Contém os três. E qualquer outro teria o mesmo normal, então é o mesmo."}
+        ],
+        "erro": "A armadilha é ignorar a condição \"não colineares\", ou achar que ela é enfeite. Sem ela, a frase é falsa: pontos em fila cabem em infinitos planos. Outro tropeço é responder Verdadeiro com motivo solto. A questão pede prova, e a prova usa o produto vetorial não nulo. Se o seu motivo funcionaria também para pontos alinhados, ele está errado.",
+        "confira": "Teste o exemplo na equação: em A, B e C, a conta x + y + z − 1 dá 0 nos três. Depois teste o caso excluído: (0, 0, 0), (1, 1, 1) e (2, 2, 2) dão [[AB]] = (1, 1, 1), [[AC]] = (2, 2, 2) e produto vetorial (0, 0, 0). Produto nulo, nenhum normal, e a unicidade some. Isso mostra por que a condição existe.",
+        "atalho": "A condição \"não colineares\" tira o único caso ruim, o dos pontos em fila. Veredito: Verdadeiro. Risque as duas de Falso. Entre as verdadeiras, risque a que diz \"formam uma reta\", que contradiz a condição, e a que diz \"qualquer trio\", que a ignora. Sobra a do produto vetorial."
+      }
+    },
+    {
+      "id": "ga-s5-l8q9j",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Paralelas a distância fixa",
+      "origem": "Lista 8 · Q9j",
+      "enunciado": "Classifique em Verdadeiro (V) ou Falso (F). Se verdadeiro, prove. Se falso, dê um contraexemplo. (OBS: Em todas as sentenças considere que estamos em R³.)\nAfirmação: Dada uma reta r, existe uma única reta s, paralela a r, cuja distância é 3.\nQual é o veredito certo, com o motivo?",
+      "alternativas": [
+        {"t": "Verdadeiro: a distância 3 é um valor só, então a reta s que tem essa distância é uma só.", "certa": false, "erro": "Um valor de distância não fixa a posição. Com r no eixo z, as retas verticais por (3, 0, 0), (−3, 0, 0) e (0, 3, 0) estão todas a distância 3."},
+        {"t": "Verdadeiro: s é r deslocada 3 unidades, e só há um jeito de fazer esse deslocamento.", "certa": false, "erro": "Há muitos jeitos. O deslocamento pode apontar para qualquer lado perpendicular a r, desde que meça 3. (3, 0, 0) e (0, 3, 0) são dois deles."},
+        {"t": "Falso: existem só duas retas, uma de cada lado de r, ambas à distância 3.", "certa": false, "erro": "Duas é a resposta na folha, e o enunciado manda olhar em R³. Além das verticais por (3, 0, 0) e (−3, 0, 0), valem a por (0, 3, 0) e todas as do círculo de raio 3."},
+        {"t": "Falso: infinitas paralelas a r estão à distância 3, formando um cilindro em volta dela.", "certa": true},
+        {"t": "Falso: reta paralela não tem distância definida, porque as duas nunca se encontram.", "certa": false, "erro": "Tem, sim. Todos os pontos de uma reta estão à mesma distância da outra, e essa é a distância entre elas. A Lista 8, Q3b, pede essa conta."}
+      ],
+      "dica": "Faça r ser o eixo z. Que pontos do chão z = 0 estão a 3 da origem?",
+      "resposta": "Falso. Infinitas retas, que formam um cilindro de raio 3.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[3.0, 0.0, 0], [2.772, 1.148, 0], [2.121, 2.121, 0], [1.148, 2.772, 0], [0.0, 3.0, 0], [-1.148, 2.772, 0], [-2.121, 2.121, 0], [-2.772, 1.148, 0], [-3.0, 0.0, 0], [-2.772, -1.148, 0], [-2.121, -2.121, 0], [-1.148, -2.772, 0], [0.0, -3.0, 0], [1.148, -2.772, 0], [2.121, -2.121, 0], [2.772, -1.148, 0]], "cor": 3},
+          {"tipo": "segmento", "de": [0, 0, -3], "ate": [0, 0, 3], "cor": 4},
+          {"tipo": "segmento", "de": [3, 0, -3], "ate": [3, 0, 3], "cor": 1},
+          {"tipo": "segmento", "de": [-3, 0, -3], "ate": [-3, 0, 3], "cor": 1},
+          {"tipo": "segmento", "de": [0, 3, -3], "ate": [0, 3, 3], "cor": 1},
+          {"tipo": "segmento", "de": [0, -3, -3], "ate": [0, -3, 3], "cor": 1}
+        ],
+        "legenda": "A linha escura é r, no eixo z. As quatro azuis são paralelas a r e estão a distância 3. O disco tem raio 3."
+      },
+      "jeitos": {
+        "visual": "Imagine r como o eixo de um tubo de raio 3. Cada linha reta desenhada na parede do tubo, ao longo do comprimento, é paralela a r e fica a 3 dela. Na figura, r é o eixo z, o disco marca o raio 3 no chão, e as quatro retas azuis são exemplos. Entre elas cabem infinitas outras, em volta de todo o contorno.",
+        "receita": [
+          "Escolha r como o eixo z: X = (0, 0, 0) + t(0, 0, 1).",
+          "Uma paralela tem a mesma direção e passa por um ponto (a, b, 0) do chão: X = (a, b, 0) + t(0, 0, 1).",
+          "A distância até r é √(a² + b²). Para valer 3, é preciso ter a² + b² = 9.",
+          "Soluções: (3, 0), (−3, 0), (0, 3), (0, −3), e ainda (3/√2, 3/√2). É o círculo inteiro.",
+          "Infinitas soluções, logo infinitas retas. A afirmação é falsa."
+        ],
+        "cotidiano": "Amarre uma cabra num poste com uma corda de 3 metros. Ela pode esticar a corda para qualquer lado, e o limite dela é um círculo, não um ponto. Suba esse círculo na vertical e você tem o cilindro. Cada posição no círculo dá uma reta paralela ao poste, sempre a 3 metros dele.",
+        "trabalho": "Imagine um critério sobre dois indicadores. Você pede todos os clientes cuja distância até a referência dá exatamente 3: `WHERE a*a + b*b = 9`. O filtro não devolve uma linha. Devolve toda combinação de (a, b) que satisfaz a soma. Distância igual não é identidade: muitos clientes podem estar igualmente longe da referência, em direções diferentes.",
+        "conversa": [
+          {"quem": "Você", "fala": "A reta está a 3. Só pode ser uma."},
+          {"quem": "Monitor", "fala": "De que lado de r?"},
+          {"quem": "Você", "fala": "Tem dois lados. Então são duas."},
+          {"quem": "Monitor", "fala": "Na folha, são duas. Mas estamos em R³. Com r no eixo z, a vertical por (0, 3, 0) está a que distância?"},
+          {"quem": "Você", "fala": "3 também. E ela não é nenhuma das duas que eu tinha pensado."},
+          {"quem": "Monitor", "fala": "E a vertical por (a, b, 0), com a² + b² = 9?"},
+          {"quem": "Você", "fala": "Todas servem. É o círculo inteiro subindo."}
+        ],
+        "erro": "A armadilha é parar em dois. Quem pensa na folha vê uma reta de cada lado. Em R³, existe o lado da frente, o de trás e todos os intermediários. Perceba pela conta: a distância dá uma equação só, a² + b² = 9, para duas incógnitas. Uma equação com duas incógnitas não fixa uma resposta.",
+        "confira": "Escolha um ponto fora dos eixos: (3/√2, 3/√2, 0). Os quadrados dão 9/2 + 9/2 = 9. A reta vertical por ele está a 3 do eixo z, e é diferente das outras quatro da figura. Se você achar uma quinta solução, já não são duas, nem quatro: o que existe é uma curva inteira de soluções.",
+        "atalho": "Sem conta: palavra \"única\" em R³ pede o teste de girar. Gire s em volta de r, mantendo a distância. Ela muda de lugar e continua paralela, então são muitas. Veredito: Falso. Entre as falsas, \"duas\" é a resposta da folha, e a que nega a distância contradiz a própria Lista 8."
+      }
+    },
+    {
+      "id": "ga-s5-l8q10a",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 5,
+      "tema": "Posição de três planos",
+      "origem": "Lista 8 · Q10a",
+      "enunciado": "Determinar a posição relativa entre os planos.\nπ₁: −x + 3y − 4z + 2 = 0, π₂: −4x − y + 8z + 4 = 0 e π₃: x − y + 4z + 1 = 0.\nQual é a posição relativa?",
+      "alternativas": [
+        {"t": "Dois dos planos são paralelos e o terceiro os intersecta segundo retas paralelas.", "certa": false, "erro": "Você viu [[n₁]] = (−1, 3, −4) e [[n₃]] = (1, −1, 4) e achou que eram opostos. O oposto de [[n₁]] é (1, −3, 4), e o y não bate: −1 em vez de −3. Não há par paralelo."},
+        {"t": "Os três planos têm um único ponto em comum.", "certa": true},
+        {"t": "Os três planos são distintos e se intersectam ao longo de uma reta.", "certa": false, "erro": "Cada par se corta numa reta, e a conclusão parece natural. Mas, para os três dividirem uma reta, o determinante dos normais teria de ser 0. Aqui dá 48."},
+        {"t": "Os três planos se intersectam, dois a dois, segundo retas paralelas entre si.", "certa": false, "erro": "As retas de corte teriam a mesma direção. Só que [[n₁]] × [[n₂]] = (20, 24, 13) e [[n₁]] × [[n₃]] = (8, 0, −2) não são múltiplos."},
+        {"t": "Os planos são paralelos dois a dois.", "certa": false, "erro": "Bastaria comparar as proporções. De [[n₁]] para [[n₂]], o x multiplica por 4 e o y por −1/3. Nenhum par de normais é múltiplo."}
+      ],
+      "dica": "Veja se algum normal é múltiplo de outro. Se nenhum for, calcule o determinante dos três normais, o número que diz se eles cabem numa mesma folha.",
+      "resposta": "Os três planos têm um único ponto em comum: (1/12, −3/2, −31/48).",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[2.0, 0.5, 0.375], [2.0, -3.333, -2.5], [1.5, -3.5, -2.5], [-2.0, -3.5, -1.625], [-2.0, 0.5, 1.375]], "cor": 1},
+          {"tipo": "poligono", "pts": [[2.0, -3.5, 0.062], [2.0, 0.5, 0.562], [-2.0, 0.5, -1.438], [-2.0, -3.5, -1.938]], "cor": 2},
+          {"tipo": "poligono", "pts": [[2.0, -3.5, -1.625], [2.0, 0.5, -0.625], [-2.0, 0.5, 0.375], [-2.0, -3.5, -0.625]], "cor": 3},
+          {"tipo": "ponto", "em": [0.083, -1.5, -0.646], "rot": "P"}
+        ],
+        "legenda": "Azul é π₁, coral é π₂, ocre é π₃, recortados por uma caixa. O ponto P é o único que está nos três."
+      },
+      "jeitos": {
+        "visual": "Olhe os três pregos, um em cada folha: (−1, 3, −4), (−4, −1, 8) e (1, −1, 4). Nenhum é múltiplo do outro, e eles não cabem todos numa mesma folha. Na figura, gire até ver as três folhas se atravessando, como o canto de uma caixa torta. As três só dividem o ponto marcado P.",
+        "receita": [
+          "Separe os normais: [[n₁]] = (−1, 3, −4), [[n₂]] = (−4, −1, 8), [[n₃]] = (1, −1, 4).",
+          "Compare par a par: nenhum é múltiplo de outro. Não há planos paralelos nem coincidentes.",
+          "Calcule [[n₂]] × [[n₃]] = (4, 24, 5).",
+          "Determinante: [[n₁]]·(4, 24, 5) = −4 + 72 − 20 = 48. Deu diferente de 0: os três normais não cabem na mesma folha.",
+          "Determinante diferente de 0 significa sistema com solução única. Resolvendo, sai (1/12, −3/2, −31/48).",
+          "Posição: os três planos têm um único ponto em comum."
+        ],
+        "cotidiano": "Pense no canto de um cômodo. Duas paredes fazem uma quina, e o teto fecha essa quina num único ponto. Aqui as paredes são tortas, mas a ideia é a mesma: cada par faz uma quina, e as três quinas terminam no mesmo canto. Fora dele, nenhum ponto toca as três superfícies.",
+        "trabalho": "No Excel, ponha os coeficientes, os números que multiplicam x, y e z, em A1:C3 e use =MATRIZ.DETERM(A1:C3). Dá 48. Diferente de 0 quer dizer que cada equação traz informação nova, e o sistema tem uma resposta só. Com os números soltos das equações, de sinal trocado, em D1:D3 (−2, −4 e −1), a fórmula =MATRIZ.MULT(MATRIZ.INVERSO(A1:C3);D1:D3) devolve as coordenadas do ponto.",
+        "conversa": [
+          {"quem": "Você", "fala": "O (−1, 3, −4) e o (1, −1, 4) têm cara de opostos. Não são paralelos?"},
+          {"quem": "Monitor", "fala": "Troque o sinal do primeiro. Quanto dá?"},
+          {"quem": "Você", "fala": "(1, −3, 4). O y é −3, não −1."},
+          {"quem": "Monitor", "fala": "Então não são múltiplos. Sem par paralelo, o que falta decidir?"},
+          {"quem": "Você", "fala": "Se é um ponto, uma reta em comum ou três retas paralelas."},
+          {"quem": "Monitor", "fala": "O determinante separa. Deu 48. Se desse 0, sobrariam os dois casos de reta."}
+        ],
+        "erro": "A tropeçada comum é concluir \"reta\" porque cada par de planos se corta em reta. Isso vale para os pares, e a pergunta é sobre os três juntos. A outra é bater o olho em dois normais parecidos e chamar de paralelos, sem conferir coordenada por coordenada. Aqui, (−1, 3, −4) e (1, −1, 4) enganam: o y não acompanha.",
+        "confira": "Substitua o ponto (1/12, −3/2, −31/48) nas três equações. Em π₁: −1/12 − 9/2 + 31/12 + 2 = 0. Em π₂: −1/3 + 3/2 − 31/6 + 4 = 0. Em π₃: 1/12 + 3/2 − 31/12 + 1 = 0. Os três dão 0, e o determinante 48 garante que não há outro ponto.",
+        "atalho": "Procure primeiro um normal múltiplo de outro. Sem nenhum, somem de uma vez as alternativas de planos paralelos ou coincidentes. Sobram três casos: ponto, reta em comum e retas paralelas. O determinante decide: diferente de 0 é ponto. Aqui ele sai em três contas curtas e dá 48."
+      }
+    },
+    {
+      "id": "ga-s5-l8q10b",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Posição de três planos",
+      "origem": "Lista 8 · Q10b",
+      "enunciado": "Determinar a posição relativa entre os planos.\nπ₁: −x + y − 4z + 2 = 0, π₂: −2x + 2y + 8z + 4 = 0 e π₃: x − y + 4z + 1 = 0.\nQual é a posição relativa?",
+      "alternativas": [
+        {"t": "Os planos são paralelos dois a dois.", "certa": false, "erro": "(−2, 2, 8) parece 2·(−1, 1, −4), mas 2·(−1, 1, −4) = (−2, 2, −8). O z tem o sinal trocado. Só π₁ e π₃ são paralelos, e π₂ atravessa os dois."},
+        {"t": "Dois dos planos coincidem e o terceiro os intersecta ao longo de uma reta.", "certa": false, "erro": "Você viu [[n₃]] = −[[n₁]] e parou. Multiplicando π₃ por −1, sai −x + y − 4z − 1 = 0. π₁ tem +2 no lugar de −1. Mesmo normal, constante diferente: são paralelos distintos."},
+        {"t": "Os três planos têm um único ponto em comum.", "certa": false, "erro": "Como [[n₃]] = −[[n₁]], o determinante dá 0, e π₁ e π₃ nunca se tocam. Não sobra ponto nenhum comum aos três."},
+        {"t": "Os três planos se intersectam, dois a dois, segundo retas paralelas entre si.", "certa": false, "erro": "As duas retas que existem são mesmo paralelas, na direção (1, 1, 0). Mas o caso pede \"dois a dois\", e π₁ e π₃ não se cortam. São duas retas, não três."},
+        {"t": "Dois dos planos são paralelos e o terceiro os intersecta segundo retas paralelas.", "certa": true}
+      ],
+      "dica": "Compare os normais dois a dois. Quando dois forem múltiplos, ponha as equações na mesma escala e olhe o número final.",
+      "resposta": "Dois dos planos são paralelos (π₁ e π₃), e π₂ os intersecta segundo retas paralelas.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[2.0, 1.0, 0.25], [2.0, -3.0, -0.75], [-2.0, -3.0, 0.25], [-2.0, 1.0, 1.25]], "cor": 1},
+          {"tipo": "poligono", "pts": [[2.0, -3.0, -1.5], [2.0, 1.0, -0.5], [-2.0, 1.0, 0.5], [-2.0, -3.0, -0.5]], "cor": 2},
+          {"tipo": "poligono", "pts": [[2.0, -3.0, 0.75], [2.0, 1.0, -0.25], [-2.0, 1.0, -1.25], [-2.0, -3.0, -0.25]], "cor": 3},
+          {"tipo": "segmento", "de": [-1.0, -3.0, 0.0], "ate": [2.0, 0.0, 0.0], "cor": 4},
+          {"tipo": "segmento", "de": [-2.0, -2.5, -0.375], "ate": [1.5, 1.0, -0.375], "cor": 4}
+        ],
+        "legenda": "Azul é π₁, coral é π₃, ocre é π₂. Os dois riscos escuros são os cortes de π₂ com as outras duas folhas."
+      },
+      "jeitos": {
+        "visual": "Na figura, as folhas azul e coral são π₁ e π₃: mesma inclinação, sem se tocar, como duas prateleiras inclinadas. A folha ocre é π₂, que atravessa as duas. Cada atravessada deixa um risco, a linha escura. Os dois riscos têm direção (1, 1, 0), então são paralelos. Gire até ver os riscos lado a lado, um em cada prateleira.",
+        "receita": [
+          "Normais: [[n₁]] = (−1, 1, −4), [[n₂]] = (−2, 2, 8), [[n₃]] = (1, −1, 4).",
+          "[[n₃]] = −[[n₁]]: π₁ e π₃ têm a mesma inclinação.",
+          "Mesma escala: π₃ × (−1) dá −x + y − 4z − 1 = 0. π₁ tem +2. Constantes diferentes: paralelos distintos.",
+          "[[n₂]] não é múltiplo de [[n₁]]: 2·[[n₁]] seria (−2, 2, −8), e o z de [[n₂]] é 8. π₂ corta os dois.",
+          "Direção dos cortes: [[n₁]] × [[n₂]] = (16, 16, 0) e [[n₂]] × [[n₃]] = (16, 16, 0). A mesma.",
+          "Posição: dois paralelos, e o terceiro os intersecta segundo retas paralelas."
+        ],
+        "cotidiano": "Uma serra cortando duas tábuas paralelas, com um vão entre elas. O disco da serra é π₂. Cada tábua recebe um corte reto, e os dois cortes saem paralelos. As tábuas continuam sem se encostar. Por isso não existe ponto que esteja nas duas tábuas e na serra ao mesmo tempo.",
+        "trabalho": "Pense em dois filtros em conflito: `WHERE -x + y - 4*z = -2 AND -x + y - 4*z = 1`. A mesma expressão não pode valer −2 e 1 na mesma linha, e a consulta devolve zero linhas. Por isso os três planos juntos não têm ponto comum. Cada um desses filtros, combinado com π₂, devolve muitas linhas: uma reta em cada caso.",
+        "conversa": [
+          {"quem": "Você", "fala": "(−2, 2, 8) é o dobro de (−1, 1, −4). Os três são paralelos."},
+          {"quem": "Monitor", "fala": "Faça a conta: 2·(−1, 1, −4)."},
+          {"quem": "Você", "fala": "(−2, 2, −8). O z veio com sinal trocado."},
+          {"quem": "Monitor", "fala": "Então π₂ é diferente. E π₁ com π₃?"},
+          {"quem": "Você", "fala": "(1, −1, 4) é o oposto de (−1, 1, −4). Eles coincidem?"},
+          {"quem": "Monitor", "fala": "Multiplique π₃ por −1 e compare o número final."},
+          {"quem": "Você", "fala": "−1 de um lado, +2 do outro. São paralelos, sem encostar."}
+        ],
+        "erro": "São dois sinais em jogo. Um engana no z: (−2, 2, 8) parece o dobro de (−1, 1, −4), e não é. O outro engana na constante: [[n₃]] = −[[n₁]] parece dizer \"mesmo plano\", mas só diz \"mesma inclinação\". Para comparar o d, multiplique a equação inteira pelo mesmo número. Quem compara só os normais troca paralelo por coincidente.",
+        "confira": "Some as equações de π₁ e π₃. As letras se cancelam e sobra 2 + 1 = 3. Se um ponto estivesse nas duas folhas, essa soma daria 0. Como 3 ≠ 0, π₁ e π₃ não têm ponto comum. Para π₂: (0, −2, 0) está em π₁ e π₂, e (0, −1/2, −3/8) está em π₂ e π₃. Os dois cortes existem.",
+        "atalho": "Há dois normais com a mesma razão? [[n₁]] e [[n₃]] têm razão −1 nas três coordenadas, e [[n₂]] foge disso. Sobram dois casos: dois coincidem ou dois são paralelos. Olhe o final depois de acertar o sinal: +2 contra −1. São paralelos, e a alternativa sai sem calcular corte nenhum."
+      }
+    }
+  ]
+}

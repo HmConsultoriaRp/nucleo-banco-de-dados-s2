@@ -1,0 +1,171 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-l8q10i",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Posição de três planos",
+      "origem": "Lista 8 · Q10i",
+      "enunciado": "Determinar a posição relativa entre os planos.\nπ₁: 2x + 2y − 4z + 4 = 0, π₂: −x − y + z − 6 = 0 e π₃: −2x − 2y − 8z + 4 = 0.\nQual é a posição relativa?",
+      "alternativas": [
+        {"t": "Os três planos são distintos e se intersectam ao longo de uma reta.", "certa": false, "erro": "Determinante 0 deixa dois casos abertos, e você ficou com o errado. Os cortes dois a dois dão z = −4, z = 2/3 e z = 8/5. Se fossem uma só reta, o z seria o mesmo."},
+        {"t": "Os três planos têm um único ponto em comum.", "certa": false, "erro": "Os normais têm x e y iguais: (2, 2, −4), (−1, −1, 1) e (−2, −2, −8). Com a coluna x igual à coluna y, o determinante é 0, e o ponto único cai."},
+        {"t": "Dois dos planos são paralelos e o terceiro os intersecta segundo retas paralelas.", "certa": false, "erro": "(2, 2, −4) e (−2, −2, −8) parecem opostos, mas o oposto de (2, 2, −4) é (−2, −2, 4). O z não bate. Nenhum par é paralelo."},
+        {"t": "Os três planos se intersectam, dois a dois, segundo retas paralelas entre si.", "certa": true},
+        {"t": "Dois dos planos coincidem e o terceiro os intersecta ao longo de uma reta.", "certa": false, "erro": "π₁ ÷ 2 dá x + y − 2z + 2 = 0, e π₂ × (−1) dá x + y − z + 6 = 0. O z é diferente: são planos diferentes, sem par coincidente."}
+      ],
+      "dica": "Os coeficientes de x e y são iguais em cada linha. Troque x + y por s e ache os cortes dois a dois.",
+      "resposta": "Os três planos se intersectam, dois a dois, segundo retas paralelas entre si.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-8.0, -2.0, -4.0], [-2.0, -8.0, -4.0], [2.667, -3.333, 0.667], [-3.333, 2.667, 0.667]], "cor": 1},
+          {"tipo": "poligono", "pts": [[-8.0, -2.0, -4.0], [-2.0, -8.0, -4.0], [0.8, -5.2, 1.6], [-5.2, 0.8, 1.6]], "cor": 2},
+          {"tipo": "poligono", "pts": [[-3.333, 2.667, 0.667], [2.667, -3.333, 0.667], [0.8, -5.2, 1.6], [-5.2, 0.8, 1.6]], "cor": 3},
+          {"tipo": "segmento", "de": [-8.0, -2.0, -4.0], "ate": [-2.0, -8.0, -4.0], "cor": 4},
+          {"tipo": "segmento", "de": [-3.333, 2.667, 0.667], "ate": [2.667, -3.333, 0.667], "cor": 4},
+          {"tipo": "segmento", "de": [-5.2, 0.8, 1.6], "ate": [0.8, -5.2, 1.6], "cor": 4}
+        ],
+        "legenda": "Azul é π₁, coral é π₂, ocre é π₃. Os riscos escuros são as retas de corte, todas na direção (1, −1, 0)."
+      },
+      "jeitos": {
+        "visual": "Olhe a figura como uma barraca: duas lonas e o chão. Cada par de folhas se encontra numa dobra, e as três dobras correm lado a lado, na direção (1, −1, 0). Não há ponto comum às três: dentro da barraca sobra um túnel vazio. Esse formato se chama prisma, um túnel de lados planos. Gire a imagem e olhe pela ponta: você vê um triângulo.",
+        "receita": [
+          "Normais: (2, 2, −4), (−1, −1, 1), (−2, −2, −8). Nenhum par é múltiplo.",
+          "Colunas x e y iguais nos três: o determinante dá 0. Não é ponto único.",
+          "Use s = x + y. As equações ficam s − 2z + 2 = 0, s − z + 6 = 0 e s + 4z − 2 = 0.",
+          "Corte de π₁ e π₂: z = −4, s = −10. De π₁ e π₃: z = 2/3, s = −2/3. De π₂ e π₃: z = 8/5, s = −22/5.",
+          "Três pares (s, z) diferentes: três retas distintas, todas na direção (1, −1, 0).",
+          "Posição: dois a dois, segundo retas paralelas entre si."
+        ],
+        "cotidiano": "Três amigos combinam dois a dois. A e B topam sexta. A e C topam sábado. B e C topam domingo. Cada dupla tem um dia, e o trio não tem nenhum. Não existe data que sirva para todos, mesmo com todos os pares resolvidos. Os planos fazem igual: cada dupla tem sua reta, e os três juntos não têm ponto.",
+        "trabalho": "Pense em três regras de fechamento sobre os mesmos valores. Quaisquer duas convivem: há valores que atendem às duas. As três juntas, não. A conta é de conciliação: 5·π₁ + 12·π₂ − π₃ zera as colunas de x, y e z e deixa −56 em vez de 0. Nenhum valor de x, y ou z elimina essa sobra. Esse −56 é a diferença que não fecha, como numa conciliação em que as colunas batem e o total não.",
+        "conversa": [
+          {"quem": "Você", "fala": "Determinante 0. Então é reta em comum."},
+          {"quem": "Monitor", "fala": "Determinante 0 deixa mais de um caso. Qual outro?"},
+          {"quem": "Você", "fala": "As três retas paralelas."},
+          {"quem": "Monitor", "fala": "Ache o corte de π₁ e π₂ e veja se ele está em π₃."},
+          {"quem": "Você", "fala": "z = −4 e x + y = −10. Em π₃: 20 + 32 + 4 = 56."},
+          {"quem": "Monitor", "fala": "Deu 0?"},
+          {"quem": "Você", "fala": "Não. A reta de π₁ e π₂ não está em π₃. São retas diferentes."}
+        ],
+        "erro": "A armadilha é parar no determinante. Se deu 0, o ponto único caiu, mas ainda restam a reta em comum e as três retas paralelas. O que separa é o número final. Outro engano é olhar (2, 2, −4) e (−2, −2, −8) e ver opostos, sem conferir o z. Nenhum par é paralelo, e todos os pares se cortam.",
+        "confira": "Use a combinação 5·π₁ + 12·π₂ − π₃. Em x: 10 − 12 + 2 = 0. Em y, o mesmo. Em z: −20 + 12 + 8 = 0. Sobra 20 − 72 − 4 = −56. Se houvesse ponto nos três, daria 0. Como dá −56, não há. E os pares se cortam, porque nenhum par de normais é múltiplo.",
+        "atalho": "x e y têm coeficiente igual em cada linha, então trabalhe só com s = x + y e z. O problema vira três retas numa folha com eixos s e z. Três retas nessa folha, sem paralelas entre si e sem ponto comum, formam um triângulo. Calcule dois cortes: z = −4 e z = 2/3. Cortes diferentes já indicam o caso do prisma."
+      }
+    },
+    {
+      "id": "ga-s5-l8q10j",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Posição de três planos",
+      "origem": "Lista 8 · Q10j",
+      "enunciado": "Determinar a posição relativa entre os planos.\nπ₁: x + y − 2z + 2 = 0, π₂: −3x − 3y + z − 6 = 0 e π₃: 4x + 4y − 3z + 8 = 0.\nQual é a posição relativa?",
+      "alternativas": [
+        {"t": "Os três planos se intersectam, dois a dois, segundo retas paralelas entre si.", "certa": false, "erro": "Determinante 0 aparece aqui também, mas não basta. Falta testar o número final. A reta de π₁ e π₂ é z = 0, x + y = −2. Em π₃: 4(−2) − 0 + 8 = 0. Ela está em π₃, logo as três retas são uma só."},
+        {"t": "Os três planos têm um único ponto em comum.", "certa": false, "erro": "Os normais (1, 1, −2), (−3, −3, 1) e (4, 4, −3) têm a coluna x igual à coluna y. O determinante é 0, e não pode ser ponto único."},
+        {"t": "Os três planos são distintos e se intersectam ao longo de uma reta.", "certa": true},
+        {"t": "Dois dos planos são paralelos e o terceiro os intersecta segundo retas paralelas.", "certa": false, "erro": "Nenhum par é paralelo. (1, 1, −2) e (4, 4, −3) têm razão 4 em x e 3/2 em z. Os outros pares também não fecham a proporção."},
+        {"t": "Dois dos planos coincidem e o terceiro os intersecta ao longo de uma reta.", "certa": false, "erro": "Os planos têm uma reta em comum, mas nenhum é múltiplo de outro. A linha (4, 4, −3, 8) é (1, 1, −2, 2) − (−3, −3, 1, −6), uma combinação de duas linhas, não múltiplo de uma."}
+      ],
+      "dica": "Tente escrever π₃ como soma ou diferença de π₁ e π₂, com a linha inteira.",
+      "resposta": "Os três planos são distintos e se intersectam ao longo de uma reta: z = 0, x + y = −2.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[1.0, 1.0, 2.0], [1.0, -3.0, 0.0], [-3.0, -3.0, -2.0], [-3.0, 1.0, 0.0]], "cor": 1},
+          {"tipo": "poligono", "pts": [[0.333, -3.0, -2.0], [1.0, -3.0, 0.0], [1.0, -2.333, 2.0], [-2.333, 1.0, 2.0], [-3.0, 1.0, 0.0], [-3.0, 0.333, -2.0]], "cor": 2},
+          {"tipo": "poligono", "pts": [[1.0, -1.5, 2.0], [1.0, -3.0, 0.0], [-0.5, -3.0, -2.0], [-3.0, -0.5, -2.0], [-3.0, 1.0, 0.0], [-1.5, 1.0, 2.0]], "cor": 3},
+          {"tipo": "segmento", "de": [-3.0, 1.0, 0.0], "ate": [1.0, -3.0, 0.0], "cor": 4}
+        ],
+        "legenda": "Azul é π₁, coral é π₂, ocre é π₃. As três folhas contêm o risco escuro: z = 0, x + y = −2."
+      },
+      "jeitos": {
+        "visual": "Na figura, as três folhas giram em volta do risco escuro, que é a reta z = 0, x + y = −2. Gire a imagem até olhar o risco de ponta: as folhas aparecem como três linhas saindo do mesmo ponto. É diferente do item i, em que olhar de ponta mostra um triângulo. Aqui, o triângulo encolheu até virar um ponto.",
+        "receita": [
+          "Normais: (1, 1, −2), (−3, −3, 1), (4, 4, −3). Nenhum par é múltiplo.",
+          "Colunas x e y iguais: o determinante dá 0. Não é ponto único.",
+          "Corte de π₁ e π₂, com s = x + y: s − 2z + 2 = 0 e −3s + z − 6 = 0. Sai z = 0 e s = −2.",
+          "Leve para π₃: 4(−2) − 3(0) + 8 = 0. A reta de π₁ e π₂ também está em π₃.",
+          "Posição: três planos distintos que dividem a reta z = 0, x + y = −2."
+        ],
+        "cotidiano": "Uma porta giratória: três folhas presas no mesmo eixo. Cada folha é um plano diferente, e todas dividem o eixo. Tirar uma folha não muda o eixo, porque as outras duas já o definem. É o que acontece aqui: o terceiro plano não acrescenta restrição, ele passa pela linha que os dois primeiros já tinham marcado.",
+        "trabalho": "π₃ é π₁ − π₂, linha por linha: (1 + 3, 1 + 3, −2 − 1, 2 + 6) = (4, 4, −3, 8). É uma linha de subtotal na DRE: ela é conta de outras, não traz informação nova. Apagar a linha não muda nada. O sistema fica com duas equações independentes, e sobra um contador livre: uma reta. =MATRIZ.DETERM dá 0, mas é a coluna do total que confirma a combinação.",
+        "conversa": [
+          {"quem": "Você", "fala": "Deu determinante 0, igual ao item i. Então são retas paralelas."},
+          {"quem": "Monitor", "fala": "No item i o número final não acompanhou. Aqui acompanha?"},
+          {"quem": "Você", "fala": "Como eu vejo?"},
+          {"quem": "Monitor", "fala": "Tente escrever π₃ como π₁ menos π₂, com a linha inteira."},
+          {"quem": "Você", "fala": "(1 + 3, 1 + 3, −2 − 1, 2 + 6) = (4, 4, −3, 8). É π₃ exato."},
+          {"quem": "Monitor", "fala": "Então, quem está em π₁ e em π₂ está onde?"},
+          {"quem": "Você", "fala": "Em π₃ também. A reta é uma só."}
+        ],
+        "erro": "A armadilha é achar que determinante 0 basta para dizer \"retas paralelas\", ou que todo caso com x e y iguais é prisma, como no item i. Aqui o número final também entra na combinação: π₃ = π₁ − π₂, com o 8 incluído. Mude o 8 para 9, e a combinação dá 8 ≠ 9: aí sim seriam retas paralelas. É no final da linha que os dois casos se separam.",
+        "confira": "Teste dois pontos da reta nas três equações. (−2, 0, 0): π₁ dá −2 + 2 = 0, π₂ dá 6 − 6 = 0, π₃ dá −8 + 8 = 0. (0, −2, 0): π₁ dá −2 + 2 = 0, π₂ dá 6 − 6 = 0, π₃ dá −8 + 8 = 0. Dois pontos comuns obrigam a reta inteira a estar nos três. Os normais não são múltiplos, então os planos são distintos.",
+        "atalho": "Some e subtraia as linhas antes de qualquer determinante. Na coluna x, 4 = 1 − (−3) dá a pista. Teste π₁ − π₂ na linha inteira: dá π₃. Achou uma combinação exata, sem par múltiplo: os três são distintos e têm reta comum. Isso resolve sem calcular corte nenhum."
+      }
+    },
+    {
+      "id": "ga-s5-l8q11",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 7,
+      "tema": "Planos com retas paralelas",
+      "origem": "Lista 8 · Q11",
+      "enunciado": "Determine o valor de m e n para que os três planos π₁: 2x + 3y − 5z + 7 = 0, π₂: 4x − 2y + z − 5 = 0 e π₃: mx − 8y + 11z + n = 0 se intersectem, dois a dois, segundo retas paralelas entre si.\nQual é o valor de m e a condição sobre n?",
+      "alternativas": [
+        {"t": "m = 16 e n ≠ −20", "certa": false, "erro": "Você tentou deixar π₃ paralelo a π₂: 4·(4, −2, 1, −5) = (16, −8, 4, −20). O y bate, mas o z daria 4, não 11. Com m = 16, o determinante dá −112, e os planos têm um único ponto."},
+        {"t": "m = 0 e n = −19", "certa": false, "erro": "O m está certo, o n está invertido. Com n = −19, π₃ = −2·π₁ + π₂ na linha inteira, e os três passam pela mesma reta. Essa é a situação a evitar."},
+        {"t": "m = 0 e n ≠ −19", "certa": true},
+        {"t": "m = 0 e n ≠ 19", "certa": false, "erro": "É o sinal da constante. Passando as constantes para a direita, −2·(−7) + 5 = 19 é o valor de −n, não de n. Com n ≠ 19, o valor n = −19 ficaria liberado, e aí a reta é comum aos três."},
+        {"t": "m ≠ 0 e n ≠ −19", "certa": false, "erro": "O determinante dá −7m. Com m ≠ 0, ele é diferente de 0, e os planos têm um único ponto comum, em vez de três retas paralelas."}
+      ],
+      "dica": "Dois a dois em retas paralelas quer dizer: as três retas têm a mesma direção, mas não são a mesma reta. Comece pela direção do corte de π₁ e π₂.",
+      "resposta": "m = 0 e n ≠ −19",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-0.637, -4.575, -1.6], [0.762, -0.175, 1.6], [-2.8, 2.2, 1.6], [-4.2, -2.2, -1.6]], "cor": 1},
+          {"tipo": "poligono", "pts": [[-0.637, -4.575, -1.6], [0.762, -0.175, 1.6], [1.95, 2.2, 1.6], [0.55, -2.2, -1.6]], "cor": 2},
+          {"tipo": "poligono", "pts": [[-4.2, -2.2, -1.6], [-2.8, 2.2, 1.6], [1.95, 2.2, 1.6], [0.55, -2.2, -1.6]], "cor": 3},
+          {"tipo": "segmento", "de": [-0.637, -4.575, -1.6], "ate": [0.762, -0.175, 1.6], "cor": 4},
+          {"tipo": "segmento", "de": [-4.2, -2.2, -1.6], "ate": [-2.8, 2.2, 1.6], "cor": 4},
+          {"tipo": "segmento", "de": [0.55, -2.2, -1.6], "ate": [1.95, 2.2, 1.6], "cor": 4}
+        ],
+        "legenda": "Exemplo com m = 0 e n = 0. Azul é π₁, coral é π₂, ocre é π₃. Os riscos escuros têm direção (7, 22, 16)."
+      },
+      "jeitos": {
+        "visual": "A figura mostra o caso m = 0 e n = 0, um exemplo permitido. As três folhas formam um túnel: cada par se encontra numa dobra, e as três dobras são paralelas, na direção (7, 22, 16). Se n fosse −19, a folha ocre deslizaria até a dobra de π₁ e π₂, e o túnel fecharia numa reta só. Por isso n tem de ser diferente de −19.",
+        "receita": [
+          "Direção da reta de π₁ com π₂: [[n₁]] × [[n₂]] = (2, 3, −5) × (4, −2, 1) = (−7, −22, −16).",
+          "π₃ tem de aceitar essa direção: (m, −8, 11)·(−7, −22, −16) = −7m + 176 − 176 = −7m = 0.",
+          "Logo m = 0, e o normal de π₃ fica (0, −8, 11).",
+          "Escreva (0, −8, 11) = a(2, 3, −5) + b(4, −2, 1). Sai a = −2 e b = 1.",
+          "Mesma combinação nas constantes: −2·7 + 1·(−5) = −19. Com n = −19, π₃ passa pela reta de π₁ e π₂, e a reta é uma só.",
+          "Para serem três retas paralelas distintas, n tem de ser diferente: m = 0 e n ≠ −19."
+        ],
+        "cotidiano": "Monte uma barraca com três lonas. Para ficar um túnel, as três dobras têm de correr na mesma direção: esse é o ajuste de m. Depois, a terceira lona não pode passar pela dobra das outras duas, senão vira um leque preso numa única linha: esse é o ajuste de n. Uma condição é de inclinação, e a outra é de posição.",
+        "trabalho": "É uma conciliação em duas etapas. Primeiro as colunas: a linha (m, −8, 11) tem de ser combinação das outras duas, e =MATRIZ.DETERM só zera com m = 0. Depois o total: a mesma combinação nas constantes dá −2·7 + 1·(−5) = −19. A questão pede colunas que batem e total que não bate. A diferença de conciliação, n + 19, precisa ser diferente de 0.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei m = 0 pelo determinante. Agora n = −19, certo?"},
+          {"quem": "Monitor", "fala": "O que acontece com n = −19?"},
+          {"quem": "Você", "fala": "π₃ vira −2·π₁ + π₂, com a constante junto."},
+          {"quem": "Monitor", "fala": "Então quem está em π₁ e π₂ está onde?"},
+          {"quem": "Você", "fala": "Em π₃ também. Os três têm a mesma reta."},
+          {"quem": "Monitor", "fala": "E a questão pede uma reta só ou três paralelas?"},
+          {"quem": "Você", "fala": "Três paralelas. Então n pode ser qualquer valor menos −19."}
+        ],
+        "erro": "A armadilha é tratar a condição como equação e responder n = −19. O −19 é justamente o valor proibido: ele faz os três planos dividirem uma única reta. A outra armadilha é o sinal: passando as constantes para a direita, sai −n = 19, e quem esquece o menos escreve n ≠ 19. Repare que a resposta tem uma igualdade para m e uma desigualdade para n.",
+        "confira": "O ponto (1/16, −19/8, 0) está em π₁ e em π₂: 1/8 − 57/8 + 7 = 0 e 1/4 + 19/4 − 5 = 0. Leve-o para π₃ com m = 0: −8·(−19/8) + n = 19 + n. Esse valor só zera com n = −19. Para outro n, o ponto fica fora de π₃, a dobra de π₁ e π₂ não toca π₃, e os planos formam o túnel.",
+        "atalho": "Olhe as alternativas pelo m. O determinante é −7m: se m ≠ 0, é ponto único, e isso tira m ≠ 0 e m = 16. Para n, a condição tem de excluir o caso da reta comum, então é ≠, e sai \"n = −19\". Falta decidir entre −19 e 19: faça −2·7 + 1·(−5), com os números como estão escritos nas equações."
+      }
+    }
+  ]
+}

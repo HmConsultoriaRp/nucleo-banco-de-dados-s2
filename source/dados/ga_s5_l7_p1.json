@@ -1,0 +1,329 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-l7q1a",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Ângulo entre retas reversas",
+      "origem": "Lista 7 · Q1a",
+      "enunciado": "Determine o ângulo entre r: X = (1, 2, 3) + λ(1, 1, 1), λ ∈ R e s: X = (1, 1, 1) + t(1, −2, −3), t ∈ R.",
+      "alternativas": [
+        {"t": "θ ≈ 128,1°", "certa": false, "erro": "Faltou o módulo. −4/√42 dá 128,1°, a abertura maior entre as mesmas duas linhas. Entre retas vale a menor, de 0° a 90°."},
+        {"t": "θ ≈ 51,9°", "certa": true},
+        {"t": "θ ≈ 38,1°", "certa": false, "erro": "Você usou sen θ = 4/√42, a fórmula de reta com plano. Aqui são duas retas, e duas retas usam cosseno."},
+        {"t": "θ ≈ 22,2°", "certa": false, "erro": "Você pegou os pontos (1, 2, 3) e (1, 1, 1) no lugar das direções: produto 6, cos θ = 6/√42. O ponto diz por onde a reta passa. O rumo vem da seta."},
+        {"t": "θ ≈ 84,5°", "certa": false, "erro": "Você dividiu por 3 × 14 = 42, sem as raízes: cos θ = 4/42. Norma é a raiz da soma dos quadrados, então o denominador é √3·√14 = √42."}
+      ],
+      "dica": "Compare só as setas que vêm depois de λ e de t. Os pontos não entram nessa conta.",
+      "resposta": "θ ≈ 51,9° (cos θ = 4/√42)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 1, 1], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, -2, -3], "rot": "v", "cor": 2},
+          {"tipo": "segmento", "de": [0, 0, 0], "ate": [-1, 2, 3], "tracejado": true}
+        ],
+        "legenda": "As duas direções saem do mesmo ponto. A tracejada é a mesma reta de [[v]], seguindo para o outro lado."
+      },
+      "jeitos": {
+        "visual": "Puxe as duas setas para o mesmo ponto de partida, como na figura: a azul é [[u]] = (1, 1, 1) e a coral é [[v]] = (1, −2, −3). Entre elas cabe uma abertura de 128,1°, larga demais. A linha tracejada é a mesma reta de [[v]], seguindo para o outro lado. Entre a azul e a tracejada está a menor abertura: 51,9°. É essa que vale.",
+        "receita": [
+          "Leia as direções: [[u]] = (1, 1, 1) e [[v]] = (1, −2, −3).",
+          "Produto escalar: [[u]]·[[v]] = 1·1 + 1·(−2) + 1·(−3) = −4.",
+          "Normas: ‖[[u]]‖ = √3 e ‖[[v]]‖ = √(1 + 4 + 9) = √14.",
+          "Aplique o módulo e divida: cos θ = |−4| / (√3·√14) = 4/√42 ≈ 0,617.",
+          "Volte para graus: θ é o ângulo cujo cosseno vale 0,617, ou seja, cerca de 51,9°."
+        ],
+        "cotidiano": "Pense em dois ponteiros de relógio presos no mesmo eixo. O tamanho deles não muda a abertura. Agora troque os ponteiros por duas estradas retas que nem se cruzam: uma passa por cima da outra num viaduto. Mesmo assim dá para comparar os rumos: você leva os dois rumos para o mesmo ponto e mede. Estrada não tem ida nem volta, por isso vale a abertura menor.",
+        "trabalho": "No Excel, com [[u]] em A1:C1 e [[v]] em A2:C2: `=GRAUS(ACOS(ABS(SOMARPRODUTO(A1:C1;A2:C2))/(RAIZ(SOMARPRODUTO(A1:C1;A1:C1))*RAIZ(SOMARPRODUTO(A2:C2;A2:C2)))))` retorna 51,9. O SOMARPRODUTO é o produto escalar, e o ABS é o módulo. Sem o ABS, a mesma fórmula retorna 128,1. O cosseno vive na escala da correlação, de −1 a 1.",
+        "conversa": [
+          {"quem": "Você", "fala": "As retas nem se encostam. Se não há cruzamento, como existe ângulo?"},
+          {"quem": "Monitor", "fala": "O ângulo aqui compara rumos, não um encontro. O que define o rumo de cada reta?"},
+          {"quem": "Você", "fala": "A seta depois do λ e do t: (1, 1, 1) e (1, −2, −3)."},
+          {"quem": "Monitor", "fala": "Faça o produto escalar dessas duas."},
+          {"quem": "Você", "fala": "Deu −4. Com √3 e √14, fica −4/√42, e isso dá 128,1°."},
+          {"quem": "Monitor", "fala": "Troque o sentido de uma seta. A reta continua a mesma? O que acontece com o sinal?"},
+          {"quem": "Você", "fala": "A reta é a mesma, e o sinal vira +4. Então é 4/√42, 51,9°."},
+          {"quem": "Monitor", "fala": "Por isso o módulo existe: ele escolhe a abertura menor."}
+        ],
+        "erro": "O tropeço mais comum é esquecer o módulo e marcar 128,1°. A conta sem módulo mede o ângulo entre duas setas, que pode passar de 90°. Só que a pergunta é sobre retas, e reta não tem ida nem volta. Se o seu resultado entre duas retas passou de 90°, faltou o módulo. Outro deslize é usar os pontos (1, 2, 3) e (1, 1, 1) no lugar das direções.",
+        "confira": "Troque [[v]] por −[[v]] = (−1, 2, 3), que é a mesma reta. O produto escalar com (1, 1, 1) vira −1 + 2 + 3 = 4, positivo, e as normas continuam √3 e √14. Agora a conta dispensa o módulo e dá de novo 4/√42. No Excel, `=GRAUS(ACOS(4/RAIZ(42)))` retorna 51,9. Caminho diferente, mesmo número.",
+        "atalho": "Entre retas, nada passa de 90°: isso elimina 128,1° na hora. Depois olhe o cosseno: 4/√42 é cerca de 4/6,5, um pouco acima de 0,6. O cosseno de 60° é 0,5 e o de 45° é cerca de 0,71. Então a resposta está entre 45° e 60°. Só 51,9° cabe nessa faixa."
+      }
+    },
+    {
+      "id": "ga-s5-l7q1b",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Ângulo entre reta e plano",
+      "origem": "Lista 7 · Q1b",
+      "enunciado": "Determine o ângulo entre r: X = (1, 2, 3) + λ(1, 1, 1), λ ∈ R e π: x + y + z + 1 = 0.",
+      "alternativas": [
+        {"t": "θ = 0°", "certa": false, "erro": "Você usou cosseno, a fórmula de duas retas: 3/(√3·√3) = 1 dá 0°. Esse é o ângulo com o prego. A pergunta é com a folha, e aí a conta é com seno."},
+        {"t": "θ ≈ 35,3°", "certa": false, "erro": "Você tomou ‖[[n]]‖ = 3, sem a raiz: sen θ = 3/(√3·3) = 1/√3. A norma de (1, 1, 1) é √3."},
+        {"t": "θ ≈ 67,8°", "certa": false, "erro": "Você usou o ponto (1, 2, 3) no lugar da direção: sen θ = 6/(√14·√3) = 6/√42. Ponto não dá rumo. Quem dá é a seta depois do λ."},
+        {"t": "θ = 90°", "certa": true},
+        {"t": "θ ≈ 19,5°", "certa": false, "erro": "Você tirou as raízes das duas normas: sen θ = 3/(3·3) = 1/3. Norma é a raiz da soma dos quadrados, e aqui as duas valem √3."}
+      ],
+      "dica": "Leia o prego nos números de x, y e z. Compare com a seta da reta antes de fazer qualquer conta.",
+      "resposta": "θ = 90° (a reta é perpendicular ao plano)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-3, 1, 1], [1, -3, 1], [1, 1, -3]], "cor": 3},
+          {"tipo": "ponto", "em": [1, 2, 3], "rot": "P"},
+          {"tipo": "ponto", "em": [-1.333, -0.333, 0.667], "rot": ""},
+          {"tipo": "vetor", "de": [-1.333, -0.333, 0.667], "ate": [1, 2, 3], "rot": "r", "cor": 1}
+        ],
+        "legenda": "A reta azul sai da folha ocre em (−4/3, −1/3, 2/3), em pé, na mesma linha do prego."
+      },
+      "jeitos": {
+        "visual": "Na figura, a folha ocre é o plano e a seta azul é a reta saindo dela. O prego da folha é (1, 1, 1), os números na frente de x, y e z. A seta da reta também é (1, 1, 1). Prego e reta ocupam a mesma linha: a reta está em pé na folha. Por isso a abertura com a folha é de 90°.",
+        "receita": [
+          "Direção da reta: [[v]] = (1, 1, 1).",
+          "Normal do plano, lida nos coeficientes de x + y + z + 1 = 0: [[n]] = (1, 1, 1).",
+          "Produto escalar: [[v]]·[[n]] = 1 + 1 + 1 = 3.",
+          "Normas: ‖[[v]]‖ = √3 e ‖[[n]]‖ = √3, então o produto delas é 3.",
+          "Reta com plano usa seno: sen θ = |3| / 3 = 1.",
+          "O ângulo cujo seno é 1 é θ = 90°."
+        ],
+        "cotidiano": "Pense num poste numa calçada. A calçada é o plano. Se o poste está bem em pé, ele fica na mesma linha de um fio de prumo, e o ângulo entre o poste e o chão é de 90°. O prumo faz o papel do vetor normal. O poste alinhado com o prumo está a 0° do prumo e a 90° do chão. As duas medidas somam 90°.",
+        "trabalho": "A fórmula entrega a abertura com o prego, e o relatório pede a abertura com a folha. É como apurar a margem quando pediram o custo: a conta está certa, e a coluna é a outra. As duas aberturas somam 90°, assim como margem e custo somam 100%. No Excel, `=GRAUS(ASEN(1))` retorna 90 e `=GRAUS(ACOS(1))` retorna 0. A planilha não avisa qual você queria.",
+        "conversa": [
+          {"quem": "Você", "fala": "Fiz cos θ = 3/(√3·√3) = 1. Deu 0°. A reta está deitada no plano?"},
+          {"quem": "Monitor", "fala": "Se estivesse deitada, que conta daria com o prego?"},
+          {"quem": "Você", "fala": "Produto escalar 0, porque faria 90° com ele."},
+          {"quem": "Monitor", "fala": "E aqui deu 3. Então o seu 0° mede o quê?"},
+          {"quem": "Você", "fala": "A abertura com o prego. A reta está alinhada com ele."},
+          {"quem": "Monitor", "fala": "E com a folha?"},
+          {"quem": "Você", "fala": "90°. Por isso a fórmula troca para seno: sen θ = 1."}
+        ],
+        "erro": "A armadilha é tratar o plano como se fosse outra reta. A turma vê dois (1, 1, 1), conclui que a direção é igual e responde 0°. Só que o (1, 1, 1) do plano é o prego, não uma seta deitada na folha. Direção igual à normal quer dizer reta em pé. Quem responde reta paralela ao plano com [[v]] e [[n]] múltiplos inverteu o quadro.",
+        "confira": "Teste pelo caminho contrário, sem fórmula de ângulo. Pegue uma seta deitada na folha, como (1, −1, 0): com o prego, dá 1 − 1 + 0 = 0, então ela está mesmo na folha. Faça o produto escalar dela com a direção da reta: também dá 1 − 1 + 0 = 0. A reta faz 90° com essa seta da folha. O mesmo vale para (1, 1, −2), outra seta deitada: 1 + 1 − 2 = 0.",
+        "atalho": "Olhe as duas setas antes de calcular. Se a direção da reta é múltipla da normal, o ângulo com o plano é 90°, sem conta. Aqui são idênticas, (1, 1, 1) e (1, 1, 1). O outro extremo aparece com produto escalar igual a 0: reta paralela ao plano, 0°. Esses dois casos saem no olho."
+      }
+    },
+    {
+      "id": "ga-s5-l7q1c",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Ângulo entre planos paralelos",
+      "origem": "Lista 7 · Q1c",
+      "enunciado": "Determine o ângulo entre π₁: x + y + z + 1 = 0 e π₂: −x − y − z + 7 = 0.",
+      "alternativas": [
+        {"t": "θ = 0°", "certa": true},
+        {"t": "θ = 180°", "certa": false, "erro": "Faltou o módulo: −3/(√3·√3) = −1 dá 180°. Entre planos vale a menor abertura, de 0° a 90°."},
+        {"t": "θ = 90°", "certa": false, "erro": "Você usou seno: sen θ = 3/(√3·√3) = 1 dá 90°. Seno é para reta com plano. Plano com plano compara dois pregos, com cosseno."},
+        {"t": "θ ≈ 70,5°", "certa": false, "erro": "Você tomou as normas como 3, sem raiz: cos θ = 3/(3·3) = 1/3. As normas de (1, 1, 1) e (−1, −1, −1) são √3."},
+        {"t": "θ ≈ 73,9°", "certa": false, "erro": "Você colocou o número sem letra nas setas: (1, 1, 1, 1) e (−1, −1, −1, 7), com cos θ = 4/(2·√52). O 1 e o 7 mudam a posição da folha, não a inclinação."}
+      ],
+      "dica": "Escreva as duas normais. Uma é múltipla da outra?",
+      "resposta": "θ = 0° (planos paralelos e distintos)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-3, 1, 1], [1, -3, 1], [1, 1, -3]], "cor": 3},
+          {"tipo": "poligono", "pts": [[-1, 4, 4], [4, -1, 4], [4, 4, -1]], "cor": 3},
+          {"tipo": "vetor", "de": [-0.333, -0.333, -0.333], "ate": [0.667, 0.667, 0.667], "rot": "n₁", "cor": 1},
+          {"tipo": "vetor", "de": [2.333, 2.333, 2.333], "ate": [1.333, 1.333, 1.333], "rot": "n₂", "cor": 2}
+        ],
+        "legenda": "Duas folhas paralelas. Os pregos estão na mesma linha, com sentidos opostos."
+      },
+      "jeitos": {
+        "visual": "Imagine duas placas de vidro em prateleiras. Na figura, a folha de baixo é π₁ e a de cima é π₂. Cada uma tem seu prego: (1, 1, 1) e (−1, −1, −1). Os dois estão na mesma linha, um apontando para o outro. Como a linha é a mesma, as folhas têm a mesma inclinação. Não sobra abertura entre elas: 0°.",
+        "receita": [
+          "Normais: [[n₁]] = (1, 1, 1) e [[n₂]] = (−1, −1, −1).",
+          "Produto escalar: [[n₁]]·[[n₂]] = −1 − 1 − 1 = −3.",
+          "Normas: ‖[[n₁]]‖ = √3 e ‖[[n₂]]‖ = √3, produto 3.",
+          "Com módulo: cos θ = |−3| / 3 = 1.",
+          "O ângulo cujo cosseno é 1 é θ = 0°.",
+          "Desempate: multiplique π₂ por −1 e ele vira x + y + z − 7 = 0. Como π₁ tem +1, os planos são paralelos e distintos."
+        ],
+        "cotidiano": "Pense em dois andares de um prédio. O piso do térreo e o piso do primeiro andar nunca se encontram e têm a mesma inclinação. Uma lâmpada pendurada aponta para baixo e um poste aponta para cima: sentidos opostos, mesma linha vertical. Isso não inclina piso nenhum. Entre os pisos, a abertura é 0°.",
+        "trabalho": "Escreva as duas na mesma forma: x + y + z = −1 e x + y + z = 7. É a mesma soma de três colunas com dois totais diferentes. Nenhuma linha da tabela fecha com −1 e com 7 ao mesmo tempo, então os planos não têm ponto em comum. Os pesos (1, 1, 1) são iguais, e a inclinação vem dos pesos. Na fórmula, `=GRAUS(ACOS(ABS(-3)/3))` retorna 0.",
+        "conversa": [
+          {"quem": "Você", "fala": "Deu cos θ = −1. Então o ângulo é 180°?"},
+          {"quem": "Monitor", "fala": "Entre duas setas, sim. Entre dois planos, qual abertura vale?"},
+          {"quem": "Você", "fala": "A menor. Com módulo, cos θ = 1, e dá 0°."},
+          {"quem": "Monitor", "fala": "Zero grau quer dizer o quê para os planos?"},
+          {"quem": "Você", "fala": "Que são o mesmo plano?"},
+          {"quem": "Monitor", "fala": "Pode ser, ou podem ser paralelos separados. Como você desempata?"},
+          {"quem": "Você", "fala": "Multiplico o segundo por −1: x + y + z − 7 = 0. O primeiro tem +1. Não são o mesmo."},
+          {"quem": "Monitor", "fala": "Paralelos e distintos. O ângulo é 0° nos dois casos."}
+        ],
+        "erro": "Muita gente lê sinais trocados como planos opostos e marca 180°. A normal (−1, −1, −1) só aponta para o outro lado da mesma linha. Entre planos, a abertura fica de 0° a 90°, e o módulo cuida disso. Outro tropeço é achar que 0° obriga os planos a serem iguais. Com π₂ escrito como x + y + z − 7 = 0, os termos +1 e −7 mostram que não são.",
+        "confira": "Prove sem fórmula: some as duas equações. (x + y + z + 1) + (−x − y − z + 7) = 8. Se um ponto estivesse nos dois planos, as duas partes valeriam 0 e a soma daria 0. A soma dá 8, então não existe ponto comum. Planos sem ponto comum têm de ser paralelos, e o ângulo é 0°.",
+        "atalho": "Compare os números na frente de x, y e z: (1, 1, 1) e (−1, −1, −1). Uma lista é a outra com o sinal trocado, logo é múltipla. Normais múltiplas dão 0°, sem cálculo nenhum. Elimine 180° porque entre planos nada passa de 90°. Nem precisa olhar o +1 e o +7, que só contam para a posição."
+      }
+    },
+    {
+      "id": "ga-s5-l7q1d",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Ângulo entre planos transversais",
+      "origem": "Lista 7 · Q1d",
+      "enunciado": "Determine o ângulo entre π₁: x + y − z + 3 = 0 e π₂: 3x − y + z = 0.",
+      "alternativas": [
+        {"t": "θ ≈ 10°", "certa": false, "erro": "Você usou sen θ = 1/√33, a conta de reta com plano. Entre dois planos, comparam-se dois pregos com cosseno."},
+        {"t": "θ ≈ 58,5°", "certa": false, "erro": "Você leu −z como +z em π₁ e usou (1, 1, 1): produto 3, cos θ = 3/√33. O sinal faz parte do número na frente da letra."},
+        {"t": "θ ≈ 88,3°", "certa": false, "erro": "Você dividiu por 3 × 11 = 33, sem as raízes: cos θ = 1/33. O denominador certo é √3·√11 = √33."},
+        {"t": "θ ≈ 100°", "certa": false, "erro": "Esse é o que falta de 80° até 180°. Aparece quando a normal de π₂ vira (−3, 1, −1) e o módulo fica de fora: cos θ = −1/√33. Entre planos vale a menor abertura."},
+        {"t": "θ ≈ 80°", "certa": true}
+      ],
+      "dica": "O sinal na frente de cada letra entra na normal. Confira o −z de π₁ e o −y de π₂.",
+      "resposta": "θ ≈ 80° (cos θ = 1/√33)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [1, 1, -1], "rot": "n₁", "cor": 1},
+          {"tipo": "vetor", "de": [0, 0, 0], "ate": [3, -1, 1], "rot": "n₂", "cor": 2}
+        ],
+        "legenda": "Os dois pregos saindo da origem. A abertura entre eles, perto de 80°, é o ângulo entre os planos."
+      },
+      "jeitos": {
+        "visual": "Imagine duas folhas que se cortam como um livro aberto. A abertura do livro é difícil de medir, mas cada folha tem seu prego. Na figura, as setas são esses pregos, saindo da origem: (1, 1, −1) em azul e (3, −1, 1) em coral. Gire a figura e repare que elas abrem quase em cruz. Essa abertura, perto de 80°, é a mesma que existe entre as folhas.",
+        "receita": [
+          "Leia as normais: [[n₁]] = (1, 1, −1) e [[n₂]] = (3, −1, 1).",
+          "Produto escalar: 1·3 + 1·(−1) + (−1)·1 = 3 − 1 − 1 = 1.",
+          "Normas: ‖[[n₁]]‖ = √3 e ‖[[n₂]]‖ = √(9 + 1 + 1) = √11.",
+          "Divida: cos θ = |1| / (√3·√11) = 1/√33 ≈ 0,174.",
+          "Volte para graus: `=GRAUS(ACOS(1/RAIZ(33)))` retorna cerca de 80."
+        ],
+        "cotidiano": "Uma porta entreaberta e a parede formam um ângulo. Para medir, cole uma régua em pé em cada face, apontando para fora da superfície. A abertura entre as duas réguas acompanha a abertura da porta, e das duas aberturas possíveis fica a menor. Aqui as réguas são as normais, e a conta mostra que elas quase formam um canto de 90°, faltando cerca de 10°.",
+        "trabalho": "As normais são duas linhas de pesos. Com (1, 1, −1) em A1:C1 e (3, −1, 1) em A2:C2, `=SOMARPRODUTO(A1:C1;A2:C2)` retorna 1. Os termos 3, −1 e −1 quase se anulam, por isso o resultado é pequeno perto de √33. Na escala da correlação, 0,174 seria um vínculo fraco: perto de zero. No ângulo, perto de zero significa perto de 90°.",
+        "conversa": [
+          {"quem": "Você", "fala": "Fiz (1, 1, 1) com (3, −1, 1) e deu 3."},
+          {"quem": "Monitor", "fala": "Leia de novo π₁: x + y − z + 3. Qual é o número na frente do z?"},
+          {"quem": "Você", "fala": "−1. Então a normal é (1, 1, −1)."},
+          {"quem": "Monitor", "fala": "E o +3, entra?"},
+          {"quem": "Você", "fala": "Não, ele só desloca a folha. Produto escalar: 3 − 1 − 1 = 1."},
+          {"quem": "Monitor", "fala": "Agora as normas."},
+          {"quem": "Você", "fala": "√3 e √11. cos θ = 1/√33, cerca de 80°."}
+        ],
+        "erro": "A falha mais frequente está na leitura da normal. O sinal de −z fica fora e a conta vira 3/√33, ou seja, 58,5°. O outro caso é trazer o +3 de π₁ para dentro da seta. Note também que π₂ não tem número sem letra, e isso não muda nada: o plano passa pela origem, com a normal lida do mesmo jeito.",
+        "confira": "Use o produto vetorial, por outro caminho: (1, 1, −1) × (3, −1, 1) = (0, −4, −4). A norma dele é √32, e ele vale ‖[[n₁]]‖·‖[[n₂]]‖·sen θ. Logo sen θ = √32/√33. Com cos θ = 1/√33, a soma dos quadrados dá 32/33 + 1/33 = 1. Seno e cosseno fecham no mesmo ângulo.",
+        "atalho": "Produto escalar pequeno perto do produto das normas quer dizer ângulo perto de 90°. Aqui é 1 contra √33, cerca de 5,7. Isso já elimina 10° e 58,5°. O 100° cai porque entre planos nada passa de 90°. Sobram 80° e 88,3°. Para decidir: 1/5,7 é cerca de 0,17. O cosseno de 88,3° é 0,03, quase zero, então fica 80°."
+      }
+    },
+    {
+      "id": "ga-s5-l7q1e",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Direção lida na simétrica",
+      "origem": "Lista 7 · Q1e",
+      "enunciado": "Determine o ângulo entre r: X = (1, 1, 1) + λ(1, −2, 3), λ ∈ R e s: (1 − x)/2 = (y − 1)/4 = (1 − z)/6.",
+      "alternativas": [
+        {"t": "θ ≈ 64,6°", "certa": false, "erro": "Você leu a direção de s como (2, 4, 6), ignorando o menos de −x e de −z: produto 12, cos θ = 12/28 = 3/7. Quando a variável vem com menos, o número de baixo troca de sinal."},
+        {"t": "θ = 180°", "certa": false, "erro": "Faltou o módulo: −28/(√14·√56) = −28/28 = −1. Entre retas vale a menor abertura."},
+        {"t": "θ = 0°", "certa": true},
+        {"t": "θ ≈ 73,4°", "certa": false, "erro": "Você trocou só o sinal do x e leu (−2, 4, 6): produto 8, cos θ = 8/28 = 2/7. O 1 − z também pede a troca, e o 6 vira −6."},
+        {"t": "θ = 90°", "certa": false, "erro": "Você usou seno, a conta de reta com plano: sen θ = 28/28 = 1. Aqui são duas retas, e duas retas usam cosseno."}
+      ],
+      "dica": "Antes de calcular, leia a direção de s: onde a letra vem com menos, o número de baixo troca de sinal.",
+      "resposta": "θ = 0° (a direção de s é −2 vezes a de r; as retas coincidem)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "ponto", "em": [1, 1, 1], "rot": "P"},
+          {"tipo": "vetor", "de": [1, 1, 1], "ate": [2, -1, 4], "rot": "u", "cor": 1},
+          {"tipo": "vetor", "de": [1, 1, 1], "ate": [-1, 5, -5], "rot": "v", "cor": 2}
+        ],
+        "legenda": "As duas setas saem de P = (1, 1, 1) e ocupam a mesma linha, com sentidos opostos."
+      },
+      "jeitos": {
+        "visual": "Comece pela direção de s, escondida na fração. Na figura, as duas setas saem de (1, 1, 1), ponto que está nas duas retas. A azul é (1, −2, 3). A coral é (−2, 4, −6): dobro do tamanho, para o lado oposto, na mesma linha. Como as setas estão alinhadas, nenhuma abertura sobra entre as retas. O ângulo é 0°.",
+        "receita": [
+          "Reescreva s com a letra na frente: (1 − x)/2 = (x − 1)/(−2) e (1 − z)/6 = (z − 1)/(−6).",
+          "Leia a direção de s: [[v]] = (−2, 4, −6). A de r é [[u]] = (1, −2, 3).",
+          "Produto escalar: 1·(−2) + (−2)·4 + 3·(−6) = −2 − 8 − 18 = −28.",
+          "Normas: ‖[[u]]‖ = √14, ‖[[v]]‖ = √56, e √14·√56 = 28.",
+          "Com módulo: cos θ = |−28| / 28 = 1.",
+          "O ângulo cujo cosseno é 1 é θ = 0°."
+        ],
+        "cotidiano": "Dois motoristas na mesma avenida. Um segue para o norte a 1 km por minuto. O outro vem para o sul a 2 km por minuto. Velocidades e sentidos diferentes, e a rua é uma só. A avenida é uma linha, então a diferença de direção é zero. Aqui é igual: (1, −2, 3) e (−2, 4, −6) ficam na mesma linha, e o multiplicador é −2.",
+        "trabalho": "Simétrica é conciliação: um ponto está em s se as três partes derem o mesmo valor. Teste (1, 1, 1): 0, 0 e 0. Bate. Teste (−1, 5, −5), que é esse ponto mais a seta de s: 1, 1 e 1. Bate. Parece o cruzamento de três colunas por uma chave: se uma parte divergir, o lançamento fica fora. Aqui tudo fecha, e as duas retas contêm os mesmos pontos.",
+        "conversa": [
+          {"quem": "Você", "fala": "Li a direção de s como (2, 4, 6). Deu cos θ = 3/7."},
+          {"quem": "Monitor", "fala": "O numerador tem 1 − x. Que x zera essa parte?"},
+          {"quem": "Você", "fala": "x = 1. Então o ponto é (1, 1, 1)."},
+          {"quem": "Monitor", "fala": "E se x cresce 1, a parte cresce ou diminui?"},
+          {"quem": "Você", "fala": "Diminui. Então o passo em x é negativo: −2."},
+          {"quem": "Monitor", "fala": "O mesmo vale para 1 − z. Refaça a direção."},
+          {"quem": "Você", "fala": "(−2, 4, −6). É −2 vezes (1, −2, 3). O ângulo é 0°."}
+        ],
+        "erro": "A armadilha está no 1 − x e no 1 − z. Quem lê só o número de baixo pega (2, 4, 6) e sai com 64,6°. O y vem com sinal positivo, então o 4 fica como está. Perceba o erro pela forma da fração: a letra veio depois do número, com menos. Aí a direção daquela coordenada troca de sinal.",
+        "confira": "Verifique sem calcular ângulo. Divida coordenada por coordenada: −2/1 = −2, 4/(−2) = −2, −6/3 = −2. Razão igual nas três, então as direções são múltiplas. Depois use (1, 1, 1), o ponto de r, em s: (1 − 1)/2 = 0, (1 − 1)/4 = 0, (1 − 1)/6 = 0. Confere. Mesma linha e ponto comum: as retas coincidem.",
+        "atalho": "Antes de qualquer fórmula, teste se é múltiplo: (−2, 4, −6) dividido por (1, −2, 3) dá −2 nas três coordenadas. Direções múltiplas em duas retas dão 0°, pronto. Entre retas, 180° não existe. Quem chega a 64,6° ou 73,4° errou um sinal, e 90° pediria produto escalar zero, o que não acontece aqui."
+      }
+    },
+    {
+      "id": "ga-s5-l7q1f",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 5,
+      "tema": "Normal pelo produto vetorial",
+      "origem": "Lista 7 · Q1f",
+      "enunciado": "Determine o ângulo entre r: x = 1 + k, y = 1 + k, z = −1 + k, k ∈ R e π: X = (1, 1, 1) + α(0, 1, 0) + β(1, 1, 1), α, β ∈ R.",
+      "alternativas": [
+        {"t": "θ = 90°", "certa": false, "erro": "Você usou cosseno: cos θ = 0/(√3·√2) = 0 dá 90°. Essa é a abertura com o prego. A abertura com a folha usa seno: sen θ = 0, então 0°."},
+        {"t": "θ = 0°", "certa": true},
+        {"t": "θ ≈ 35,3°", "certa": false, "erro": "Você tratou (0, 1, 0) como normal: sen θ = 1/√3. Essa seta está deitada na folha. O prego sai do produto vetorial das duas setas do plano."},
+        {"t": "θ ≈ 54,7°", "certa": false, "erro": "Um sinal errado no produto vetorial deixou você com (1, 0, 1): sen θ = 2/(√3·√2) = 2/√6. O certo é (0, 1, 0) × (1, 1, 1) = (1, 0, −1), que dá produto 0 com as duas setas."},
+        {"t": "θ ≈ 70,5°", "certa": false, "erro": "Você somou as duas setas do plano para achar o prego: (0, 1, 0) + (1, 1, 1) = (1, 2, 1), com sen θ = 4/(√3·√6). A soma continua deitada na folha. O prego pede produto vetorial."}
+      ],
+      "dica": "O plano veio com dois contadores. Das duas setas dele, tire o prego antes de comparar com a reta.",
+      "resposta": "θ = 0° (a reta é paralela ao plano, sem tocá-lo)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[2, -2, 2], [2, 3, 2], [-2, 3, -2], [-2, -2, -2]], "cor": 3},
+          {"tipo": "vetor", "de": [1, 1, 1], "ate": [1, 2, 1], "rot": "a", "cor": 1},
+          {"tipo": "vetor", "de": [1, 1, 1], "ate": [2, 2, 2], "rot": "b", "cor": 1},
+          {"tipo": "vetor", "de": [1, 1, 1], "ate": [2, 1, 0], "rot": "n", "cor": 4},
+          {"tipo": "ponto", "em": [1, 1, -1], "rot": ""},
+          {"tipo": "vetor", "de": [1, 1, -1], "ate": [2, 2, 0], "rot": "r", "cor": 2}
+        ],
+        "legenda": "As setas azuis estão deitadas na folha x − z = 0. A seta coral corre ao lado, na mesma direção de b, sem encostar."
+      },
+      "jeitos": {
+        "visual": "Na figura, a folha ocre é o plano x − z = 0. As duas setas azuis, (0, 1, 0) e (1, 1, 1), estão deitadas nela. A seta escura é o prego (1, 0, −1). A seta coral é a reta r, saindo de (1, 1, −1), fora da folha. Ela corre ao lado da folha, sem encostar, com a mesma direção da segunda seta azul. Abertura zero.",
+        "receita": [
+          "Direção da reta, lida nos números que multiplicam k: [[v]] = (1, 1, 1).",
+          "Prego do plano: (0, 1, 0) × (1, 1, 1) = (1·1 − 0·1, 0·1 − 0·1, 0·1 − 1·1) = (1, 0, −1).",
+          "Produto escalar: [[v]]·[[n]] = 1 + 0 − 1 = 0.",
+          "Reta com plano usa seno: sen θ = |0| / (√3·√2) = 0.",
+          "O ângulo cujo seno é 0 é θ = 0°.",
+          "Desempate: o plano é x − z = 0. O ponto (1, 1, −1) de r dá 1 − (−1) = 2, e não 0. Reta paralela, fora do plano."
+        ],
+        "cotidiano": "Uma prateleira e um fio esticado por baixo, acompanhando o comprimento dela. O fio nunca encosta na tábua, e a direção dele é a mesma de uma linha que você pode riscar na prateleira. Entre fio e tábua, a abertura é zero. É o caso aqui: a seta (1, 1, 1) de r é uma das setas riscadas na folha.",
+        "trabalho": "Os contadores α e β funcionam como duas células de entrada: você muda cada uma e o ponto X recalcula. Toda combinação fica dentro da mesma folha. A seta (1, 1, 1) de r aparece na planilha com α = 0 e β = 1, sem criar coluna nova. É como uma coluna calculada a partir de outras: não traz informação nova. Logo, andar na direção de r nunca aproxima nem afasta da folha.",
+        "conversa": [
+          {"quem": "Você", "fala": "Usei (0, 1, 0) como normal, deu 35,3°."},
+          {"quem": "Monitor", "fala": "Essa seta vem multiplicada por α. Ela está em pé ou deitada no plano?"},
+          {"quem": "Você", "fala": "Deitada. Cada valor de α anda por dentro da folha."},
+          {"quem": "Monitor", "fala": "Então como sair da folha para achar o prego?"},
+          {"quem": "Você", "fala": "Produto vetorial das duas setas: (1, 0, −1)."},
+          {"quem": "Monitor", "fala": "Agora compare com a seta da reta."},
+          {"quem": "Você", "fala": "1 + 0 − 1 = 0. Seno 0, ângulo 0°."},
+          {"quem": "Monitor", "fala": "Falta o ponto (1, 1, −1): em x − z = 0, ele dá 2. A reta é paralela, por fora."}
+        ],
+        "erro": "O plano chegou em forma paramétrica, com duas setas. A armadilha é pegar uma delas e chamá-la de normal. Setas que vêm multiplicadas por α e β estão sempre deitadas na folha. O prego sai do produto vetorial. Outra pegadinha: (1, 1, 1) é a direção da reta, é o ponto do plano e é uma seta do plano. Os números coincidem, e os papéis são diferentes.",
+        "confira": "Sem prego nenhum: mostre que a seta da reta é combinação das setas do plano. (1, 1, 1) = 0·(0, 1, 0) + 1·(1, 1, 1). Ela cabe na folha, então r é paralela ao plano. Para saber se está dentro, tente (1, 1, −1) = (1, 1, 1) + α(0, 1, 0) + β(1, 1, 1): o x exige β = 0 e o z exige β = −2. Contradição, portanto fica fora.",
+        "atalho": "Olhe a direção da reta, (1, 1, 1), e as setas do plano. Uma delas é exatamente (1, 1, 1). Se a direção da reta já está entre as setas da folha, a reta é paralela ao plano ou está dentro dele. Nos dois casos, 0°. Sem tabela de seno e sem produto vetorial, o item sai em poucos segundos."
+      }
+    }
+  ]
+}

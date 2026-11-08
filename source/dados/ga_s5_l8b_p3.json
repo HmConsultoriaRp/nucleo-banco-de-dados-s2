@@ -1,0 +1,323 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-l8q10c",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Posição de três planos",
+      "origem": "Lista 8 · Q10c",
+      "enunciado": "Determinar a posição relativa entre os planos.\nπ₁: x + y − 4z + 2 = 0, π₂: −3x − 3y + 12z + 4 = 0 e π₃: x + y − 4z + 1 = 0.\nQual é a posição relativa?",
+      "alternativas": [
+        {"t": "Os três planos coincidem.", "certa": false, "erro": "Os normais são todos múltiplos de (1, 1, −4), mas coincidir exige também o mesmo número final depois de dividir. Eles dão 2, −4/3 e 1."},
+        {"t": "Dois planos coincidem e o terceiro é paralelo a eles.", "certa": false, "erro": "π₁ e π₃ têm as mesmas letras, e dá vontade de dizer que é o mesmo plano. O número final é 2 em um e 1 no outro. O ponto (−2, 0, 0) de π₁ dá −2 + 1 = −1 em π₃, não 0."},
+        {"t": "Os planos são paralelos dois a dois.", "certa": true},
+        {"t": "Dois dos planos são paralelos e o terceiro os intersecta segundo retas paralelas.", "certa": false, "erro": "Você reconheceu π₁ e π₃ como paralelos e não dividiu π₂. Dividindo por −3, sai x + y − 4z − 4/3 = 0: mesmo normal, também paralelo. Ninguém corta ninguém."},
+        {"t": "Os três planos se intersectam, dois a dois, segundo retas paralelas entre si.", "certa": false, "erro": "Planos paralelos distintos não têm ponto em comum, então não formam reta nenhuma. Aqui todos os normais são múltiplos, e nenhum par se corta."}
+      ],
+      "dica": "Todos os normais são múltiplos. Ponha as equações na mesma escala e compare o número final.",
+      "resposta": "Os planos são paralelos dois a dois.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[2.0, 2.0, 1.5], [2.0, -2.0, 0.5], [-2.0, -2.0, -0.5], [-2.0, 2.0, 0.5]], "cor": 1},
+          {"tipo": "poligono", "pts": [[2.0, -2.0, -0.333], [2.0, 2.0, 0.667], [-2.0, 2.0, -0.333], [-2.0, -2.0, -1.333]], "cor": 2},
+          {"tipo": "poligono", "pts": [[2.0, 2.0, 1.25], [2.0, -2.0, 0.25], [-2.0, -2.0, -0.75], [-2.0, 2.0, 0.25]], "cor": 3}
+        ],
+        "legenda": "Três folhas com a mesma inclinação e sem contato: azul é π₁, coral é π₂, ocre é π₃."
+      },
+      "jeitos": {
+        "visual": "Na figura, as três folhas têm a mesma inclinação e não se tocam, como três andares de um estacionamento em rampa. A azul e a ocre ficam bem próximas, e a coral fica do outro lado. Cada uma tem seu endereço: x + y − 4z vale −2 numa, −1 em outra e 4/3 na terceira. O mesmo valor nunca aparece em duas.",
+        "receita": [
+          "Normais: (1, 1, −4), (−3, −3, 12) e (1, 1, −4). Todos múltiplos de (1, 1, −4).",
+          "Deixe π₂ na mesma escala: divida por −3. Sai x + y − 4z − 4/3 = 0.",
+          "Compare os números finais de x + y − 4z + d = 0: d vale 2, −4/3 e 1.",
+          "Três valores diferentes: nenhum par coincide.",
+          "Posição: os planos são paralelos dois a dois."
+        ],
+        "cotidiano": "Três prateleiras na mesma parede, com a mesma inclinação. Ter inclinação igual não faz delas uma só prateleira, porque estão em alturas diferentes. Uma caixa numa não encosta na outra. Para saber se duas são a mesma, você precisa comparar a altura, não só a inclinação.",
+        "trabalho": "É conciliar valores em escalas diferentes. π₂ vem com coeficientes 3 vezes maiores e sinal trocado, como um relatório em outra unidade e com crédito e débito invertidos. Antes de comparar, converta: divida por −3. Só então a coluna final fala a mesma língua: 2, −4/3 e 1. As letras batem, os totais não. Em conciliação, isso é diferença real, não duplicidade.",
+        "conversa": [
+          {"quem": "Você", "fala": "π₁ e π₃ têm x + y − 4z. É o mesmo plano."},
+          {"quem": "Monitor", "fala": "Olhe o fim da linha. O que cada um traz?"},
+          {"quem": "Você", "fala": "+2 em um e +1 no outro."},
+          {"quem": "Monitor", "fala": "Existe ponto que satisfaça as duas?"},
+          {"quem": "Você", "fala": "x + y − 4z teria de valer −2 e −1. Não dá."},
+          {"quem": "Monitor", "fala": "E π₂?"},
+          {"quem": "Você", "fala": "Dividi por −3: x + y − 4z − 4/3 = 0. É outro valor. Três paralelos, cada um no seu lugar."}
+        ],
+        "erro": "O tropeço é decidir pelos normais e parar aí. Normais múltiplos dizem só que os planos têm a mesma inclinação. Se o número final também acompanhar, coincidem; se não, são paralelos separados. O segundo tropeço é comparar sem ajustar a escala: o 4 de π₂ parece maior que o 2 de π₁, mas o número certo a comparar é −4/3.",
+        "confira": "Pegue um ponto de π₁: (−2, 0, 0) dá −2 + 2 = 0. Leve para π₃: −2 + 1 = −1. Leve para π₂: 6 + 4 = 10. Nenhum deu 0. Repita com (0, 0, 1/2), também de π₁: em π₃ dá −1, em π₂ dá 10 de novo. Mudar o ponto não muda o resultado: essa é a marca de planos paralelos.",
+        "atalho": "Olhe as colunas: x, y e z acompanham a mesma razão nas três linhas. Normais todos múltiplos, e isso elimina qualquer caso com corte. Sobram três: todos iguais, dois iguais, ou todos separados. π₁ e π₃ já têm finais diferentes, então \"todos iguais\" cai. Divida π₂ por −3 e compare com 2 e 1."
+      }
+    },
+    {
+      "id": "ga-s5-l8q10d",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Posição de três planos",
+      "origem": "Lista 8 · Q10d",
+      "enunciado": "Determinar a posição relativa entre os planos.\nπ₁: x + y − 4z + 2 = 0, π₂: −3x − 3y + 12z + 6 = 0 e π₃: 2x + 2y − 8z + 4 = 0.\nQual é a posição relativa?",
+      "alternativas": [
+        {"t": "Dois planos coincidem e o terceiro é paralelo a eles.", "certa": true},
+        {"t": "Os três planos coincidem.", "certa": false, "erro": "−3x − 3y + 12z + 6 = 0 engana. Para sair x + y − 4z, divide-se por −3, e o +6 vira −2, não +2. π₂ fica x + y − 4z − 2 = 0, e π₁ tem +2."},
+        {"t": "Os planos são paralelos dois a dois.", "certa": false, "erro": "π₃ é π₁ × 2: 2x + 2y − 8z + 4 = 2(x + y − 4z + 2). Não são paralelos distintos, são a mesma folha. Paralelos dois a dois exige três folhas separadas."},
+        {"t": "Dois dos planos coincidem e o terceiro os intersecta ao longo de uma reta.", "certa": false, "erro": "A parte de π₁ = π₃ está certa. Mas [[n₂]] = −3·(1, 1, −4) é múltiplo, então π₂ não corta ninguém. A soma 3·π₁ + π₂ deixa só 6 + 6 = 12, e 12 = 0 é impossível."},
+        {"t": "Dois dos planos são paralelos e o terceiro os intersecta segundo retas paralelas.", "certa": false, "erro": "O par paralelo existe, π₁ e π₂. Só que π₃ tem o mesmo normal em outra escala e não corta nada. Aqui ele é o próprio π₁."}
+      ],
+      "dica": "Divida cada equação para começar com x + y − 4z, sem esquecer o sinal do divisor.",
+      "resposta": "π₁ e π₃ coincidem, e π₂ é paralelo a eles.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[2.0, 2.0, 1.5], [2.0, -2.0, 0.5], [-2.0, -2.0, -0.5], [-2.0, 2.0, 0.5]], "cor": 1},
+          {"tipo": "poligono", "pts": [[2.0, -2.0, -0.5], [2.0, 2.0, 0.5], [-2.0, 2.0, -0.5], [-2.0, -2.0, -1.5]], "cor": 2}
+        ],
+        "legenda": "A folha azul é π₁ e também π₃. A coral é π₂."
+      },
+      "jeitos": {
+        "visual": "Na figura aparecem só duas folhas, e isso já é a resposta. A azul vale por duas, porque π₃ é π₁ com a equação multiplicada por 2. A coral é π₂: mesma inclinação, mas deslocada. Em x = y = 0, a azul passa em z = 1/2 e a coral passa em z = −1/2. Elas ficam a essa diferença o tempo todo.",
+        "receita": [
+          "Normais: (1, 1, −4), (−3, −3, 12), (2, 2, −8). Todos múltiplos de (1, 1, −4).",
+          "π₃ ÷ 2: x + y − 4z + 2 = 0. Igual a π₁.",
+          "π₂ ÷ (−3): x + y − 4z − 2 = 0. O +6 virou −2, porque o divisor é negativo.",
+          "Números finais: 2, −2 e 2. π₁ e π₃ são a mesma folha, e π₂ é outra.",
+          "Posição: dois planos coincidem e o terceiro é paralelo a eles."
+        ],
+        "cotidiano": "Duas cópias da mesma planta de casa, uma impressa no dobro do tamanho: é a mesma planta. A terceira planta mostra outra casa, com a mesma fachada. Ampliar não muda o conteúdo, e fachada igual não faz dela a mesma casa. Para saber, reduza todas à mesma escala e compare.",
+        "trabalho": "π₃ é duplicidade de lançamento em outra escala: todos os números de π₁ vezes 2. Numa conciliação, isso some depois de padronizar. Já π₂ parece do mesmo grupo, mas, em escala comum, o total sai com sinal contrário: −2 em vez de +2. Colunas iguais e total com o sinal trocado: as duas linhas não são a mesma coisa.",
+        "conversa": [
+          {"quem": "Você", "fala": "−3x − 3y + 12z + 6 é −3 vezes π₁. Os três coincidem."},
+          {"quem": "Monitor", "fala": "Faça −3 vezes a equação inteira de π₁."},
+          {"quem": "Você", "fala": "−3x − 3y + 12z − 6."},
+          {"quem": "Monitor", "fala": "E o que está escrito em π₂?"},
+          {"quem": "Você", "fala": "+6. O sinal não acompanha."},
+          {"quem": "Monitor", "fala": "Então π₂ é outro plano, com a mesma inclinação. E π₃?"},
+          {"quem": "Você", "fala": "π₃ é π₁ vezes 2, com o +4 acompanhando. Esses dois são o mesmo."}
+        ],
+        "erro": "A armadilha está no sinal do final de π₂. Os coeficientes 1, 1 e −4 multiplicados por −3 dão −3, −3 e 12, e a conta parece fechada. Só que 2 multiplicado por −3 dá −6, e π₂ traz +6. Quem olha só as letras, ou esquece o menos do divisor, marca \"os três coincidem\". Multiplique a equação inteira.",
+        "confira": "Combine as equações para sumir com as letras. 3·π₁ + π₂ deixa só 6 + 6 = 12. Se π₁ e π₂ tivessem ponto comum, daria 0, e 12 ≠ 0. Logo, não têm. Já 2·π₁ − π₃ deixa 4 − 4 = 0, sem contradição: é a marca de que π₃ repete π₁. O ponto (−2, 0, 0) confirma: 0 em π₁ e π₃, 12 em π₂.",
+        "atalho": "Olhe π₃ e π₁ primeiro, porque são os mais fáceis: a linha toda é o dobro, inclusive o 4. Eles coincidem. Isso elimina \"paralelos dois a dois\" e o caso de dois paralelos com corte. Todos os normais são múltiplos, então ninguém corta, e sai mais uma. Falta decidir entre dois iguais e três iguais: confira o sinal do 6."
+      }
+    },
+    {
+      "id": "ga-s5-l8q10e",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Posição de três planos",
+      "origem": "Lista 8 · Q10e",
+      "enunciado": "Determinar a posição relativa entre os planos.\nπ₁: x + y − 4z + 2 = 0, π₂: −3x − 3y + 12z − 6 = 0 e π₃: 2x + 2y − 8z + 4 = 0.\nQual é a posição relativa?",
+      "alternativas": [
+        {"t": "Dois planos coincidem e o terceiro é paralelo a eles.", "certa": false, "erro": "O −6 de π₂ parece sinal de outro plano. Ao dividir por −3, −6 vira +2, igual ao de π₁ e ao de π₃ dividido por 2. Sem plano paralelo aqui."},
+        {"t": "Os planos são paralelos dois a dois.", "certa": false, "erro": "Os coeficientes são diferentes na aparência, mas os números finais acompanham: 2, −6 e 4 são 2 vezes 1, −3 e 2. A linha inteira é múltipla, então é a mesma equação em outra escala."},
+        {"t": "Dois dos planos são paralelos e o terceiro os intersecta segundo retas paralelas.", "certa": false, "erro": "Exigiria um normal fora do padrão. Os três são múltiplos de (1, 1, −4), então nenhum plano corta outro."},
+        {"t": "Os três planos coincidem.", "certa": true},
+        {"t": "Os três planos têm um único ponto em comum.", "certa": false, "erro": "Três equações não garantem três informações. Aqui é uma só, repetida. O sistema tem infinitas soluções: (−2, 0, 0) e (0, −2, 0) servem nas três."}
+      ],
+      "dica": "Divida π₂ por −3 e π₃ por 2, e compare com π₁.",
+      "resposta": "Os três planos coincidem.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[2.0, 2.0, 1.5], [2.0, -2.0, 0.5], [-2.0, -2.0, -0.5], [-2.0, 2.0, 0.5]], "cor": 1},
+          {"tipo": "ponto", "em": [-2, 0, 0], "rot": "A"},
+          {"tipo": "ponto", "em": [0, -2, 0], "rot": "B"}
+        ],
+        "legenda": "As três equações desenham esta mesma folha. Os pontos A = (−2, 0, 0) e B = (0, −2, 0) servem nas três."
+      },
+      "jeitos": {
+        "visual": "A figura tem uma folha só, porque as três equações desenham a mesma. Não é erro de desenho. π₂ é π₁ vezes −3, e π₃ é π₁ vezes 2, com o número final acompanhando. Gire a imagem: não existe uma segunda camada. Os pontos marcados A e B servem nas três equações, e todo outro ponto da folha também.",
+        "receita": [
+          "Normais: (1, 1, −4), (−3, −3, 12), (2, 2, −8). Múltiplos de (1, 1, −4).",
+          "π₂ ÷ (−3): x + y − 4z + 2 = 0.",
+          "π₃ ÷ 2: x + y − 4z + 2 = 0.",
+          "π₁ já é x + y − 4z + 2 = 0.",
+          "As três equações são a mesma. Os três planos coincidem."
+        ],
+        "cotidiano": "O mesmo valor de uma conta de luz escrito em reais, em centavos e em milhares de reais. Os números mudam, o valor é o mesmo. Três pessoas descrevendo a mesma coisa em três unidades dão uma única informação, não três. Para perceber, converta tudo para a mesma unidade antes de comparar.",
+        "trabalho": "É uma tabela com três linhas duplicadas, em escalas diferentes. Normalize cada linha dividindo pelo primeiro coeficiente e use `SELECT DISTINCT`: sobra uma linha só, (1, 1, −4, 2). Em termos de sistema: três equações, uma só informação. Sobram duas variáveis livres, e as soluções preenchem um plano inteiro. =MATRIZ.DETERM dá 0, mas o zero sozinho não separa este caso dos outros.",
+        "conversa": [
+          {"quem": "Você", "fala": "O π₂ tem −6 no final e o π₃ tem +4. Não pode ser o mesmo."},
+          {"quem": "Monitor", "fala": "Divida π₂ por −3 e π₃ por 2."},
+          {"quem": "Você", "fala": "Os dois viram x + y − 4z + 2 = 0."},
+          {"quem": "Monitor", "fala": "E π₁?"},
+          {"quem": "Você", "fala": "É isso mesmo. Mas os números eram tão diferentes."},
+          {"quem": "Monitor", "fala": "A escala era diferente. Compare razão por razão com π₁: −3, −3, −3, −3."},
+          {"quem": "Você", "fala": "E 2, 2, 2, 2 no outro. A linha inteira acompanha."}
+        ],
+        "erro": "O tropeço é achar que três equações diferentes na aparência são três planos. Outro é trazer a lembrança do item d: lá π₂ terminava em +6 e o sinal não acompanhava. Aqui ele termina em −6, e −6 dividido por −3 dá +2, exatamente o de π₁. Só decide quem divide a linha inteira.",
+        "confira": "Escolha três pontos de π₁ e teste nos outros dois. (−2, 0, 0): π₂ dá 6 − 6 = 0, π₃ dá −4 + 4 = 0. (0, −2, 0): π₂ dá 6 − 6 = 0, π₃ dá −4 + 4 = 0. (0, 0, 1/2): π₂ dá 6 − 6 = 0, π₃ dá −4 + 4 = 0. Três pontos não colineares nos três planos: é o mesmo plano, como garante a afirmação verdadeira da Q9.",
+        "atalho": "Olhe a razão da constante junto com as outras. π₂ contra π₁: −3, −3, −3 e −6/2 = −3. π₃ contra π₁: 2, 2, 2 e 4/2 = 2. Todas iguais em cada linha: a equação é a mesma. É a prova mais curta, e dispensa figura e determinante."
+      }
+    },
+    {
+      "id": "ga-s5-l8q10f",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Posição de três planos",
+      "origem": "Lista 8 · Q10f",
+      "enunciado": "Determinar a posição relativa entre os planos.\nπ₁: 2x + y − 4z + 2 = 0, π₂: −3x − 3y + 2z − 6 = 0 e π₃: 2x + 2y − 8z + 4 = 0.\nQual é a posição relativa?",
+      "alternativas": [
+        {"t": "Dois dos planos são paralelos e o terceiro os intersecta segundo retas paralelas.", "certa": false, "erro": "π₁ e π₃ têm cara de irmãos: (2, 1, −4) e (2, 2, −8). Mas a razão em x é 1, e em y é 2. Não são múltiplos, e não há par paralelo."},
+        {"t": "Os três planos têm um único ponto em comum.", "certa": true},
+        {"t": "Os três planos são distintos e se intersectam ao longo de uma reta.", "certa": false, "erro": "Para isso o determinante dos normais teria de dar 0. Ele dá 20. Três equações independentes não deixam contador livre, então não sobra reta."},
+        {"t": "Os três planos se intersectam, dois a dois, segundo retas paralelas entre si.", "certa": false, "erro": "As direções dos cortes teriam de ser múltiplas. [[n₁]] × [[n₂]] = (−10, 8, −3) e [[n₁]] × [[n₃]] = (0, 8, 2) não são."},
+        {"t": "Dois dos planos coincidem e o terceiro os intersecta ao longo de uma reta.", "certa": false, "erro": "Coincidir exige normais múltiplos, e nenhum par é. π₃ ÷ 2 dá x + y − 4z + 2 = 0, e π₁ é 2x + y − 4z + 2 = 0. Diferem só no x, e isso basta para serem planos diferentes."}
+      ],
+      "dica": "Compare π₁ e π₃ com cuidado: a proporção vale em todas as coordenadas? Depois calcule o determinante.",
+      "resposta": "Os três planos têm um único ponto em comum: (0, −2, 0).",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[2.0, 0.0, 1.5], [2.0, -4.0, 0.5], [-2.0, -4.0, -1.5], [-2.0, 0.0, -0.5]], "cor": 1},
+          {"tipo": "poligono", "pts": [[0.667, -4.0, -2.0], [2.0, -4.0, 0.0], [2.0, -2.667, 2.0], [-0.667, 0.0, 2.0], [-2.0, 0.0, 0.0], [-2.0, -1.333, -2.0]], "cor": 2},
+          {"tipo": "poligono", "pts": [[2.0, 0.0, 1.0], [2.0, -4.0, 0.0], [-2.0, -4.0, -1.0], [-2.0, 0.0, 0.0]], "cor": 3},
+          {"tipo": "ponto", "em": [0, -2, 0], "rot": "P"}
+        ],
+        "legenda": "Azul é π₁, coral é π₂, ocre é π₃, recortados por uma caixa. P = (0, −2, 0) é o único ponto dos três."
+      },
+      "jeitos": {
+        "visual": "Na figura, as folhas azul e ocre são parecidas, mas não têm a mesma inclinação, e se cortam numa reta que passa por P. A coral atravessa essa reta em um único lugar, o ponto P = (0, −2, 0). Gire a imagem até ver as três passando por P e abrindo em direções diferentes. Fora de P, não há ponto comum.",
+        "receita": [
+          "Normais: [[n₁]] = (2, 1, −4), [[n₂]] = (−3, −3, 2), [[n₃]] = (2, 2, −8). Nenhum par é múltiplo.",
+          "[[n₂]] × [[n₃]] = (20, −20, 0).",
+          "Determinante: [[n₁]]·(20, −20, 0) = 40 − 20 + 0 = 20. Diferente de 0.",
+          "Ache o ponto: π₃ ÷ 2 dá x + y − 4z + 2 = 0. π₁ menos essa equação dá x = 0.",
+          "Com x = 0: y − 4z + 2 = 0 e −3y + 2z − 6 = 0. Daí z = 0 e y = −2.",
+          "Posição: um único ponto em comum, (0, −2, 0)."
+        ],
+        "cotidiano": "Você quer acertar custo, peso e volume de uma mistura com três ingredientes. Cada meta é uma equação. Se as três metas forem independentes, só uma dosagem atende tudo ao mesmo tempo. Metas parecidas não são metas repetidas: basta um número fora de proporção para a meta trazer informação nova.",
+        "trabalho": "No Excel, ponha os coeficientes em A1:C3 e os números soltos das equações, com sinal trocado, em D1:D3: −2, 6 e −4. =MATRIZ.DETERM(A1:C3) dá 20, e =MATRIZ.MULT(MATRIZ.INVERSO(A1:C3);D1:D3) devolve 0, −2 e 0. O primeiro pode aparecer como 4,44E−16: é resíduo de arredondamento da planilha, um zero na prática. É o mesmo mecanismo de um rateio com três centros de custo e três regras independentes: cada regra acrescenta informação, e o resultado é único.",
+        "conversa": [
+          {"quem": "Você", "fala": "(2, 2, −8) parece o dobro de (2, 1, −4). Paralelos?"},
+          {"quem": "Monitor", "fala": "O dobro de (2, 1, −4) é quanto?"},
+          {"quem": "Você", "fala": "(4, 2, −8). O x não bate."},
+          {"quem": "Monitor", "fala": "Então não são paralelos. Há algum par múltiplo?"},
+          {"quem": "Você", "fala": "Não. Aí pode ser ponto, reta em comum ou retas paralelas."},
+          {"quem": "Monitor", "fala": "Quanto dá o determinante?"},
+          {"quem": "Você", "fala": "20. Diferente de 0, então é ponto único."}
+        ],
+        "erro": "A armadilha está em π₁ e π₃: o y, o z e o número final de π₃ são o dobro dos de π₁, e só o x foge. Dá vontade de chamar de paralelos. Um único número fora de proporção já separa as inclinações. Outra armadilha é marcar \"reta em comum\" por achar as equações parecidas demais: o determinante 20 mostra que as três são independentes.",
+        "confira": "Substitua (0, −2, 0). Em π₁: 0 − 2 − 0 + 2 = 0. Em π₂: 0 + 6 + 0 − 6 = 0. Em π₃: 0 − 4 − 0 + 4 = 0. O ponto está nos três. Para ver que é o único, subtraia: π₃ ÷ 2 menos π₁ dá −x = 0, então x = 0 é obrigatório. Com x = 0, o resto só tem a solução y = −2, z = 0.",
+        "atalho": "Compare π₁ e π₃ termo a termo: depois de dividir π₃ por 2, a diferença entre eles é só o x. Logo x = 0, e a questão fica com duas equações em y e z. Duas equações independentes em duas letras dão uma solução. Isso descarta reta em comum e retas paralelas, sem fazer o determinante completo."
+      }
+    },
+    {
+      "id": "ga-s5-l8q10g",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Posição de três planos",
+      "origem": "Lista 8 · Q10g",
+      "enunciado": "Determinar a posição relativa entre os planos.\nπ₁: 2x + 2y − 4z + 2 = 0, π₂: −3x − 3y + 6z − 6 = 0 e π₃: −2x + 2y − 8z + 4 = 0.\nQual é a posição relativa?",
+      "alternativas": [
+        {"t": "Dois dos planos coincidem e o terceiro os intersecta ao longo de uma reta.", "certa": false, "erro": "π₁ e π₂ têm normais múltiplos, certo. Dividindo, π₁ fica x + y − 2z + 1 = 0 e π₂ fica x + y − 2z + 2 = 0. Números finais diferentes: são paralelos, não a mesma folha."},
+        {"t": "Os três planos têm um único ponto em comum.", "certa": false, "erro": "Como π₁ e π₂ não se tocam, os três não têm ponto comum. A combinação 3·π₁ + 2·π₂ deixa só 6 − 12 = −6, e −6 = 0 é impossível."},
+        {"t": "Os planos são paralelos dois a dois.", "certa": false, "erro": "(−2, 2, −8) quebra o padrão: x e y têm sinais opostos, e em π₁ têm o mesmo sinal. π₃ não é paralelo a π₁ e corta os outros dois."},
+        {"t": "Os três planos se intersectam, dois a dois, segundo retas paralelas entre si.", "certa": false, "erro": "Há só duas retas, não três. π₁ e π₂ não se cortam, e \"dois a dois\" falha nesse par."},
+        {"t": "Dois dos planos são paralelos e o terceiro os intersecta segundo retas paralelas.", "certa": true}
+      ],
+      "dica": "Duas das equações têm as letras em proporção. Ajuste a escala e olhe o número final.",
+      "resposta": "Dois dos planos são paralelos (π₁ e π₂), e π₃ os intersecta segundo retas paralelas.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[2.0, 0.0, 1.5], [2.0, -4.0, -0.5], [-1.0, -4.0, -2.0], [-2.0, -3.0, -2.0], [-2.0, 0.0, -0.5]], "cor": 1},
+          {"tipo": "poligono", "pts": [[2.0, -4.0, 0.0], [2.0, 0.0, 2.0], [-2.0, 0.0, 0.0], [-2.0, -4.0, -2.0]], "cor": 2},
+          {"tipo": "poligono", "pts": [[2.0, 0.0, 0.0], [2.0, -4.0, -1.0], [-2.0, -4.0, 0.0], [-2.0, 0.0, 1.0]], "cor": 3},
+          {"tipo": "segmento", "de": [1.333, -4.0, -0.833], "ate": [0.0, 0.0, 0.5], "cor": 4},
+          {"tipo": "segmento", "de": [0.667, -4.0, -0.667], "ate": [-0.667, 0.0, 0.667], "cor": 4}
+        ],
+        "legenda": "Azul é π₁, coral é π₂, ocre é π₃. Os riscos escuros são os cortes de π₃ com as outras duas folhas."
+      },
+      "jeitos": {
+        "visual": "Na figura, a folha azul (π₁) e a coral (π₂) são paralelas: x + y − 2z vale −1 numa e −2 na outra. A ocre (π₃) tem x e y com sinais opostos, por isso atravessa as duas. Os dois riscos escuros são os cortes. Eles têm direção (−1, 3, 1) e nunca se encontram, porque estão em folhas separadas.",
+        "receita": [
+          "π₁ ÷ 2: x + y − 2z + 1 = 0.",
+          "π₂ ÷ (−3): x + y − 2z + 2 = 0.",
+          "Mesmo normal (1, 1, −2), números finais 1 e 2: π₁ e π₂ são paralelos distintos.",
+          "π₃ ÷ 2: −x + y − 4z + 2 = 0, normal (−1, 1, −4). Não é múltiplo de (1, 1, −2): x e y têm sinais opostos.",
+          "Direção dos cortes: (1, 1, −2) × (−1, 1, −4) = (−2, 6, 2), ou seja, (−1, 3, 1). É a mesma nos dois.",
+          "Posição: dois paralelos, e o terceiro os intersecta segundo retas paralelas."
+        ],
+        "cotidiano": "Uma escada rolante atravessando duas lajes paralelas. Ela faz um rasgo em cada laje, e os dois rasgos ficam paralelos. As lajes continuam sem se tocar. Por isso, não há ponto que esteja nas duas lajes e na escada ao mesmo tempo, embora a escada toque cada laje numa linha inteira.",
+        "trabalho": "π₁ e π₂ são duas metas incompatíveis para a mesma soma: x + y − 2z = −1 e x + y − 2z = −2. Em SQL, um `WHERE` com as duas devolve vazio. π₃ é um filtro independente: combinado com cada meta, devolve uma linha reta de soluções. Duas consultas, dois resultados, nenhum registro em comum. É cruzar um critério novo com duas versões conflitantes do mesmo orçamento.",
+        "conversa": [
+          {"quem": "Você", "fala": "2x + 2y − 4z e −3x − 3y + 6z têm cara do mesmo plano."},
+          {"quem": "Monitor", "fala": "Divida um por 2 e o outro por −3."},
+          {"quem": "Você", "fala": "x + y − 2z + 1 e x + y − 2z + 2."},
+          {"quem": "Monitor", "fala": "Mesma folha?"},
+          {"quem": "Você", "fala": "Não. A inclinação é igual e o final muda. São paralelas."},
+          {"quem": "Monitor", "fala": "E π₃?"},
+          {"quem": "Você", "fala": "Tem −2x + 2y. Não acompanha. Ele corta as duas."}
+        ],
+        "erro": "Aqui o tropeço está nas escalas. Os fatores 2 e −3 não deixam ver que as duas primeiras linhas têm o mesmo normal. Depois, quem viu isso pode cair em \"coincidem\", sem checar o final: 2/2 = 1 em π₁ e −6/(−3) = 2 em π₂. Em π₃, o sinal entre x e y muda, e esse detalhe já mostra que ele não é paralelo aos outros.",
+        "confira": "Combine π₁ e π₂ para sumir com as letras: 3·π₁ + 2·π₂ deixa 6 − 12 = −6. Se houvesse ponto comum, daria 0. Logo, π₁ e π₂ não se tocam. Agora os cortes: (1/2, −3/2, 0) está em π₁ e π₃, e (0, −2, 0) está em π₂ e π₃. Substitua e veja os zeros. As direções calculadas sem simplificar, (−8, 24, 8) e (12, −36, −12), são múltiplas.",
+        "atalho": "Olhe as colunas x e y. Em π₁ e π₂, x e y têm o mesmo coeficiente. Em π₃, têm sinais opostos. Logo π₃ é o diferente, e isso tira \"paralelos dois a dois\". Agora decida o par pelo final: a razão é −3/2 nas letras e −6/2 = −3 no número. As razões não batem: paralelos, não coincidentes."
+      }
+    },
+    {
+      "id": "ga-s5-l8q10h",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Posição de três planos",
+      "origem": "Lista 8 · Q10h",
+      "enunciado": "Determinar a posição relativa entre os planos.\nπ₁: 2x + 2y − 4z + 4 = 0, π₂: −3x − 3y + 6z − 6 = 0 e π₃: −2x + 2y − 8z + 4 = 0.\nQual é a posição relativa?",
+      "alternativas": [
+        {"t": "Dois dos planos coincidem e o terceiro os intersecta ao longo de uma reta.", "certa": true},
+        {"t": "Dois dos planos são paralelos e o terceiro os intersecta segundo retas paralelas.", "certa": false, "erro": "2x + 2y − 4z + 4 e −3x − 3y + 6z − 6 parecem dois planos. Dividindo o primeiro por 2 e o segundo por −3, os dois dão x + y − 2z + 2 = 0. É a mesma equação, não um par de paralelos."},
+        {"t": "Os três planos coincidem.", "certa": false, "erro": "π₁ e π₂ coincidem, mas (−2, 2, −8) não é múltiplo de (1, 1, −2). π₃ é outra folha."},
+        {"t": "Dois planos coincidem e o terceiro é paralelo a eles.", "certa": false, "erro": "π₃ teria de ter normal múltiplo de (1, 1, −2). Com x e y de sinais trocados, não tem, e ele corta a folha dos outros dois."},
+        {"t": "Os três planos são distintos e se intersectam ao longo de uma reta.", "certa": false, "erro": "A interseção é mesmo uma reta, e por isso engana. Só que os planos não são distintos: π₁ e π₂ são o mesmo. O caso certo tem dois iguais."}
+      ],
+      "dica": "Mesmo roteiro: ajuste a escala dos dois planos com letras em proporção e olhe o número final.",
+      "resposta": "π₁ e π₂ coincidem, e π₃ os intersecta ao longo de uma reta.",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[2.0, 0.0, 2.0], [2.0, -4.0, 0.0], [-2.0, -4.0, -2.0], [-2.0, 0.0, 0.0]], "cor": 1},
+          {"tipo": "poligono", "pts": [[2.0, 0.0, 0.0], [2.0, -4.0, -1.0], [-2.0, -4.0, 0.0], [-2.0, 0.0, 1.0]], "cor": 2},
+          {"tipo": "segmento", "de": [0.667, -4.0, -0.667], "ate": [-0.667, 0.0, 0.667], "cor": 4}
+        ],
+        "legenda": "A folha azul é π₁ e também π₂. A coral é π₃, e o risco escuro é a reta de corte."
+      },
+      "jeitos": {
+        "visual": "Na figura, só aparecem duas folhas. A azul é π₁ e também π₂. A coral é π₃, que atravessa a azul. O risco escuro é o corte, uma reta que passa por (0, −2, 0) na direção (−1, 3, 1). Compare com o item g: ali o final de π₁ era 2, e havia duas folhas separadas. Aqui o final é 4, e as duas viraram uma.",
+        "receita": [
+          "π₁ ÷ 2: x + y − 2z + 2 = 0.",
+          "π₂ ÷ (−3): x + y − 2z + 2 = 0. Igual a π₁.",
+          "π₃ ÷ 2: −x + y − 4z + 2 = 0, normal (−1, 1, −4). Não é múltiplo de (1, 1, −2).",
+          "O corte: some as duas equações. 2y − 6z + 4 = 0, então y = 3z − 2. Daí x = −z.",
+          "A reta é X = (0, −2, 0) + t(−1, 3, 1).",
+          "Posição: dois planos coincidem, e o terceiro os intersecta ao longo de uma reta."
+        ],
+        "cotidiano": "Duas pessoas dão a mesma instrução com palavras diferentes: fique nesta rampa. Uma terceira diz: fique naquela outra rampa. Você pode estar em qualquer ponto da linha onde as duas rampas se encontram. Duas instruções iguais não valem por duas, e é por isso que sobra uma linha inteira.",
+        "trabalho": "Três linhas, duas delas iguais em outra escala: a segunda não traz informação nova. O sistema fica com duas equações independentes para três variáveis, e sobra um contador de passos livre: uma reta. Em conciliação, é como um título duplicado. Excluído o repetido, o que conta é a informação das outras duas linhas, e o resultado não muda.",
+        "conversa": [
+          {"quem": "Você", "fala": "A interseção é uma reta. Então são três planos distintos com uma reta em comum."},
+          {"quem": "Monitor", "fala": "Três distintos? Divida π₁ por 2 e π₂ por −3."},
+          {"quem": "Você", "fala": "Os dois viram x + y − 2z + 2 = 0."},
+          {"quem": "Monitor", "fala": "Então quantos planos existem de verdade?"},
+          {"quem": "Você", "fala": "Dois. A reta é o corte deles."},
+          {"quem": "Monitor", "fala": "Qual alternativa conta essa história?"},
+          {"quem": "Você", "fala": "Dois coincidem, e o terceiro os intersecta ao longo de uma reta."}
+        ],
+        "erro": "A armadilha é acertar a interseção e errar o nome. A interseção é uma reta, e a alternativa \"distintos e ao longo de uma reta\" fica tentadora. Só que a palavra \"distintos\" cai ao dividir: π₁ e π₂ são a mesma equação. O caminho seguro não muda: padronize as linhas antes de comparar, e só depois classifique.",
+        "confira": "3·π₁ + 2·π₂ zera tudo, inclusive o número final: 12 − 12 = 0. Não há contradição, e isso prova que as duas linhas dizem a mesma coisa. Depois, teste a reta: t = 0 dá (0, −2, 0) e t = 1 dá (−1, 1, 1). Os dois pontos anulam as três equações. Compare com o item g: ali a mesma combinação dava −6.",
+        "atalho": "Compare as razões entre π₁ e π₂: −3/2 em x, y e z, e −6/4 = −3/2 no final. Todas iguais: coincidem. Isso mata a alternativa de paralelos e a de \"distintos\". Agora olhe π₃: −2x + 2y tem sinais opostos. Não é múltiplo, logo corta. Sobra uma só."
+      }
+    }
+  ]
+}

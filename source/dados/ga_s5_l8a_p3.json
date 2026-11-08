@@ -1,0 +1,293 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-l8q4",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Pontos a uma distância dada",
+      "origem": "Lista 8 · Q4",
+      "enunciado": "Dados A = (0, 1, 2) e r: X = (1, 1, 1) + t(1, −1, 1), t ∈ R, ache os pontos de r que equidistam √14 de A. Quais são esses pontos?",
+      "alternativas": [
+        {"t": "(3, −1, 3), somente", "certa": false, "erro": "Você tirou a raiz de t² = 4 e ficou só com t = 2. A raiz de t² tem dois lados: t = −2 também serve e leva a (−1, 3, −1)."},
+        {"t": "(3, −1, 3) e (−1, 3, −1)", "certa": true},
+        {"t": "(2, −2, 2) e (−2, 2, −2)", "certa": false, "erro": "Você parou em t·(1, −1, 1), com t = 2 e t = −2. Faltou somar o ponto de partida (1, 1, 1). Esses dois pontos nem estão em r."},
+        {"t": "(5, −3, 5) e (−3, 5, −3)", "certa": false, "erro": "Você chegou a t² = 4 e usou t = 4 e t = −4, sem tirar a raiz. Esses pontos estão em r, mas ficam a √50 de A."},
+        {"t": "(2, −1, 4) e (−2, 3, 0)", "certa": false, "erro": "Você partiu de A em vez de (1, 1, 1) e somou e subtraiu 2·(1, −1, 1). Esses pontos ficam a 2√3 de A e não estão em r."}
+      ],
+      "dica": "Escreva um ponto genérico de r em função de t e iguale a distância ao quadrado a 14.",
+      "resposta": "(3, −1, 3) e (−1, 3, −1)",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [-2, 4, -2], "ate": [4, -2, 4], "cor": 1},
+          {"tipo": "ponto", "em": [0, 1, 2], "rot": "A"},
+          {"tipo": "ponto", "em": [4, -2, 4], "rot": "r"},
+          {"tipo": "vetor", "de": [0, 1, 2], "ate": [3, -1, 3], "rot": "", "cor": 2},
+          {"tipo": "vetor", "de": [0, 1, 2], "ate": [-1, 3, -1], "rot": "", "cor": 2},
+          {"tipo": "segmento", "de": [0, 1, 2], "ate": [1, 1, 1], "tracejado": true}
+        ],
+        "legenda": "As duas setas coral saem de A e medem √14. O tracejado vai até (1, 1, 1), o ponto da reta mais perto de A."
+      },
+      "jeitos": {
+        "visual": "Pense numa bola de raio √14 com centro em A. A reta r entra na bola por um lado e sai pelo outro. Na figura, as duas setas coral saem de A e têm o mesmo tamanho, √14. As pontas são (3, −1, 3) e (−1, 3, −1). Por isso há dois pontos, um de cada lado de (1, 1, 1), o ponto da reta mais perto de A.",
+        "receita": [
+          "Ponto genérico de r: X = (1 + t, 1 − t, 1 + t).",
+          "Seta de A até X: X − A = (1 + t, −t, t − 1).",
+          "Quadrado da distância: (1 + t)² + t² + (t − 1)² = 3t² + 2.",
+          "Iguale a (√14)² = 14: 3t² + 2 = 14, então t² = 4.",
+          "Dois valores: t = 2 e t = −2.",
+          "Substitua: t = 2 dá (3, −1, 3); t = −2 dá (−1, 3, −1)."
+        ],
+        "cotidiano": "Você percorre uma estrada reta com um celular, e a torre A cobre exatamente um raio de √14. Ao chegar perto, o sinal aparece na borda. Depois você atravessa a área coberta e, mais adiante, o sinal some na outra borda. São dois pontos da estrada na mesma distância da torre, um de entrada e um de saída.",
+        "trabalho": "É um ponto de equilíbrio com duas soluções. No Excel, monte a coluna t e a coluna `=3*t^2+2`, e procure onde ela vale 14. O Atingir Meta parte de um chute e devolve um dos dois valores, t = 2 ou t = −2, conforme o chute inicial. Quem para na primeira resposta deixa metade do resultado de fora.",
+        "conversa": [
+          {"quem": "Você", "fala": "A distância de A até X tem de dar √14. Uso a fórmula com raiz?"},
+          {"quem": "Monitor", "fala": "Pode, mas a raiz atrapalha. Eleve os dois lados ao quadrado. Como fica?"},
+          {"quem": "Você", "fala": "(1 + t)² + t² + (t − 1)² = 14."},
+          {"quem": "Monitor", "fala": "Abra os quadrados."},
+          {"quem": "Você", "fala": "3t² + 2 = 14, então t² = 4 e t = 2."},
+          {"quem": "Monitor", "fala": "Só 2? Quanto é (−2)²?"},
+          {"quem": "Você", "fala": "4 também. Então t = −2 também serve."},
+          {"quem": "Monitor", "fala": "Por isso o enunciado diz pontos, no plural. Substitua os dois em r."}
+        ],
+        "erro": "Dois tropeços seguidos. O primeiro é ficar só com t = 2, quando t² = 4 também aceita t = −2. O segundo é parar no t, ou em t·(1, −1, 1), e não voltar à equação da reta. O ponto é a partida mais os passos. Para perceber, ponha o resultado na distância: (2, −2, 2) fica a √13 de A, não a √14.",
+        "confira": "Meça cada resposta direto. De A a (3, −1, 3): (3, −2, 1), e 9 + 4 + 1 = 14. De A a (−1, 3, −1): (−1, 2, −3), e 1 + 4 + 9 = 14. Veja também que estão em r: com t = 2 e t = −2, as três coordenadas batem. O gabarito chama esses pontos de A e B, mas esse A não é o (0, 1, 2) do enunciado.",
+        "atalho": "Em (1, 1, 1), a reta passa pelo ponto mais próximo de A, porque (−1, 0, 1)·(1, −1, 1) = 0. Então as soluções ficam uma de cada lado de (1, 1, 1), e a média delas dá esse ponto. Teste: (2, −2, 2) e (−2, 2, −2) têm média (0, 0, 0), e (2, −1, 4) e (−2, 3, 0) têm média (0, 1, 2). Caem. A opção de um ponto só também cai, e (5, −3, 5) fica a √50 de A."
+      }
+    },
+    {
+      "id": "ga-s5-l8q5",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Planos a distância dada",
+      "origem": "Lista 8 · Q5",
+      "enunciado": "Ache a(s) equação(ões) do(s) plano(s) ortogonal(is) ao vetor (1, 1, 1), que distam √3 do ponto (2, 2, 2). Qual é a resposta?",
+      "alternativas": [
+        {"t": "x + y + z − 3 = 0, somente", "certa": false, "erro": "Você abriu o módulo de um lado só: |6 + d| = 3 também aceita 6 + d = −3. O segundo plano, x + y + z − 9 = 0, fica do outro lado do ponto, à mesma distância."},
+        {"t": "x + y + z + 3 = 0 e x + y + z + 9 = 0", "certa": false, "erro": "Você inverteu o sinal do d. Esses planos ficam longe: (2, 2, 2) está a 9/√3 = 3√3 do primeiro e a 15/√3 = 5√3 do segundo."},
+        {"t": "x + y + z − 5 = 0 e x + y + z − 7 = 0", "certa": false, "erro": "Você dividiu em vez de multiplicar: |6 + d| = √3/√3 = 1. Esses planos ficam a 1/√3 = √3/3 do ponto. O certo é |6 + d| = √3·√3 = 3."},
+        {"t": "x + y + z − 6 + √3 = 0 e x + y + z − 6 − √3 = 0", "certa": false, "erro": "Você esqueceu a divisão por ‖[[n]]‖ e fez |6 + d| = √3. Esses planos ficam a √3/√3 = 1 do ponto, e não a √3."},
+        {"t": "x + y + z − 3 = 0 e x + y + z − 9 = 0", "certa": true}
+      ],
+      "dica": "Se o prego é (1, 1, 1), todo plano procurado tem a forma x + y + z + d = 0. Falta achar d, e o módulo pode ter dois lados.",
+      "resposta": "x + y + z − 3 = 0 e x + y + z − 9 = 0",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[3, 0, 0], [0, 3, 0], [0, 0, 3]], "cor": 1},
+          {"tipo": "poligono", "pts": [[9, 0, 0], [0, 9, 0], [0, 0, 9]], "cor": 2},
+          {"tipo": "ponto", "em": [2, 2, 2], "rot": "P"},
+          {"tipo": "vetor", "de": [2, 2, 2], "ate": [1, 1, 1], "rot": "", "cor": 4},
+          {"tipo": "vetor", "de": [2, 2, 2], "ate": [3, 3, 3], "rot": "", "cor": 4}
+        ],
+        "legenda": "Um plano de cada lado do ponto. As duas setas seguem o prego (1, 1, 1) e medem √3."
+      },
+      "jeitos": {
+        "visual": "Na figura, o ponto P = (2, 2, 2) fica entre duas folhas paralelas. Dele saem duas setas, uma para cada lado, seguindo o prego. Cada seta tem o tamanho de (1, 1, 1), que mede √3. Uma termina em (1, 1, 1), na folha de baixo, e a outra em (3, 3, 3), na de cima. As somas x + y + z nesses pontos são 3 e 9, e isso dá as duas equações.",
+        "receita": [
+          "Ortogonal ao vetor quer dizer em esquadro com ele. Logo, o prego é [[n]] = (1, 1, 1), e o plano tem a forma x + y + z + d = 0.",
+          "Substitua (2, 2, 2): 2 + 2 + 2 + d = 6 + d. A norma é √3.",
+          "Iguale a distância: |6 + d|/√3 = √3, ou seja, |6 + d| = 3.",
+          "Abra os dois lados do módulo: 6 + d = 3 ou 6 + d = −3.",
+          "Logo d = −3 ou d = −9.",
+          "Planos: x + y + z − 3 = 0 e x + y + z − 9 = 0."
+        ],
+        "cotidiano": "Um apartamento no meio do prédio, e você quer os andares a exatamente 3 lances de escada de distância. Há dois: um acima e outro abaixo. A pergunta não diz para que lado ir. O módulo faz o mesmo: a condição |x| = 3 tem duas saídas, x = 3 e x = −3.",
+        "trabalho": "É a regra do `ABS` no Excel. A condição `=ABS(6+d)=3` é verdadeira para dois valores de d, −3 e −9, e o Atingir Meta entrega um deles por vez. Em conciliação, é a tolerância: o saldo pode estar 3 acima ou 3 abaixo da referência, e as duas linhas passam no filtro. Em SQL, `WHERE ABS(6 + d) = 3` traz as duas.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei x + y + z − 3 = 0. Acabou?"},
+          {"quem": "Monitor", "fala": "O enunciado escreve plano(s), com parênteses. Por que será?"},
+          {"quem": "Você", "fala": "Pode ter mais de um?"},
+          {"quem": "Monitor", "fala": "Olhe a conta: |6 + d| = 3. Quais valores de 6 + d têm módulo 3?"},
+          {"quem": "Você", "fala": "3 e −3."},
+          {"quem": "Monitor", "fala": "E dão que planos?"},
+          {"quem": "Você", "fala": "d = −3 e d = −9. Um de cada lado do ponto."}
+        ],
+        "erro": "O tropeço é abrir o módulo de um lado só. Dá uma resposta certa e incompleta, a pior de todas, porque parece que terminou. Outra armadilha é esquecer o √3 do denominador e chegar a |6 + d| = √3. Para perceber, teste a distância no final: cada plano, com o ponto (2, 2, 2), tem de dar exatamente √3.",
+        "confira": "Teste cada plano. Primeiro: |2 + 2 + 2 − 3|/√3 = 3/√3 = √3. Segundo: |2 + 2 + 2 − 9|/√3 = 3/√3 = √3. Os dois batem. Outra prova, sem fórmula: some e subtraia (1, 1, 1) de (2, 2, 2). Você chega em (3, 3, 3) e (1, 1, 1), com somas 9 e 3.",
+        "atalho": "O vetor (1, 1, 1) tem norma √3, igual à distância pedida. Logo, basta andar uma seta inteira para cada lado de (2, 2, 2). As coordenadas somam 3 e 9. Esse caminho leva direto aos termos −3 e −9. A alternativa com um plano só e as com outros termos caem na hora."
+      }
+    },
+    {
+      "id": "ga-s5-l8q6",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Plano pela origem e distância",
+      "origem": "Lista 8 · Q6",
+      "enunciado": "Seja π o plano que passa pela origem e é perpendicular à reta que passa pelos pontos A = (1, 2, 3) e B = (−1, 1, −2). Encontre a distância do ponto C = (1, 1, 1) ao plano π. Qual é essa distância?",
+      "alternativas": [
+        {"t": "4√30/15", "certa": true},
+        {"t": "8", "certa": false, "erro": "Esse é |2 + 1 + 5| = 8, a sobra de C na equação 2x + y + 5z = 0. Faltou dividir por ‖(2, 1, 5)‖ = √30."},
+        {"t": "4/15", "certa": false, "erro": "Você fez 8/30, dividindo pelo quadrado da norma. O divisor é √30. Em 8/√30, a raiz não some."},
+        {"t": "√3", "certa": false, "erro": "Esse é ‖(1, 1, 1)‖, a distância de C até a origem. A origem está em π, mas esse trecho sai inclinado e não é o menor: a distância é medida ao longo do prego."},
+        {"t": "2√10/5", "certa": false, "erro": "Você somou A + B = (0, 3, 1) no lugar de fazer B − A. Com esse prego, sai |3 + 1|/√10 = 4/√10 = 2√10/5. A seta da reta é a diferença dos pontos."}
+      ],
+      "dica": "A reta é perpendicular ao plano, então a seta dela serve de prego.",
+      "resposta": "8/√30 = 4√30/15 ≈ 1,46",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-2, -2, 1.2], [2, -2, -0.4], [2, 2, -1.2], [-2, 2, 0.4]], "cor": 3},
+          {"tipo": "ponto", "em": [0, 0, 0], "rot": "O"},
+          {"tipo": "ponto", "em": [1, 2, 3], "rot": "A"},
+          {"tipo": "ponto", "em": [-1, 1, -2], "rot": "B"},
+          {"tipo": "ponto", "em": [1, 1, 1], "rot": "C"},
+          {"tipo": "vetor", "de": [1, 2, 3], "ate": [-1, 1, -2], "rot": "AB", "cor": 1},
+          {"tipo": "vetor", "de": [1, 1, 1], "ate": [0.467, 0.733, -0.333], "rot": "d", "cor": 4},
+          {"tipo": "segmento", "de": [1, 1, 1], "ate": [0, 0, 0], "tracejado": true}
+        ],
+        "legenda": "A seta azul, de A até B, dá a direção do prego. A seta escura sai de C na mesma direção e mede 4√30/15. O tracejado até a origem sai inclinado."
+      },
+      "jeitos": {
+        "visual": "Na figura, a seta azul vai de A até B e atravessa a folha π em pé. A função dela é dar a direção do prego. A folha passa pela origem. O ponto C fica fora da folha, e a seta escura desce dele até ela, na mesma direção do prego, chegando em (7/15, 11/15, −1/3). O tracejado, de C até a origem, é mais longo, pois sai inclinado.",
+        "receita": [
+          "Seta da reta: [[AB]] = B − A = (−1 − 1, 1 − 2, −2 − 3) = (−2, −1, −5). Ela serve de prego; com o sinal trocado para facilitar, [[n]] = (2, 1, 5).",
+          "O plano passa pela origem, então o termo solto é 0: 2x + y + 5z = 0.",
+          "Substitua C: 2·1 + 1 + 5·1 = 8.",
+          "Norma: ‖[[n]]‖ = √(4 + 1 + 25) = √30.",
+          "Distância: 8/√30. Multiplicando em cima e embaixo por √30: 8√30/30 = 4√30/15."
+        ],
+        "cotidiano": "Uma vara atravessa um piso em pé. Os pontos A e B marcam a vara e servem para dizer em que direção ela está. Para saber a que altura uma lâmpada C está do piso, você usa a direção da vara, e não a posição dela. A vara poderia estar em outro canto do piso, e a altura da lâmpada seria a mesma.",
+        "trabalho": "Cada coluna é um indicador, e [[n]] = (2, 1, 5) são os pesos de um índice: `=SOMARPRODUTO(pesos;C)`. O plano é o conjunto das combinações com índice zero. C dá 8. Mas 8 está na escala dos pesos: se você dobrar os pesos, o índice dobra. Para ter um número que não depende dessa escala, divide-se por `RAIZ(SOMARPRODUTO(pesos;pesos))`.",
+        "conversa": [
+          {"quem": "Você", "fala": "Medi de C até a origem, pois o plano passa por lá. Deu √3."},
+          {"quem": "Monitor", "fala": "Esse trecho está em pé na folha?"},
+          {"quem": "Você", "fala": "Não sei. Como testo?"},
+          {"quem": "Monitor", "fala": "Compare com a seta da reta, (−2, −1, −5). (1, 1, 1) é múltiplo dela?"},
+          {"quem": "Você", "fala": "Não. Então o trecho está inclinado."},
+          {"quem": "Monitor", "fala": "Logo, √3 é maior que a distância. Ponha C na equação e divida pela norma."},
+          {"quem": "Você", "fala": "|2 + 1 + 5|/√30 = 8/√30. Dá 4√30/15, menor que √3."}
+        ],
+        "erro": "Duas confusões. Uma é achar que A e B estão no plano, como se ele passasse por eles. Eles servem para dar a seta da reta. A outra é usar A + B, trocando a diferença por soma. Seta entre dois pontos é sempre chegada menos saída. Para perceber, teste: o plano 3y + z = 0 não é perpendicular à reta, pois (0, 3, 1) não é múltiplo de (−2, −1, −5).",
+        "confira": "Ache o pé da seta. De C, desça (8/30)·(2, 1, 5) = (8/15, 4/15, 4/3). Você chega em (7/15, 11/15, −1/3). Esse ponto está em π: 14/15 + 11/15 − 25/15 = 0. O trecho percorrido tem norma (8/30)·√30 = 8/√30, igual à conta. Bate por um caminho que não usa a fórmula pronta.",
+        "atalho": "Compare o tamanho: o plano passa pela origem, então d não pode passar de ‖C‖ = √3, cerca de 1,73. Isso elimina 8. O denominador nasce de √(4 + 1 + 25) = √30, então procure 30 na resposta. Só 4√30/15 tem esse √30. Ele vale cerca de 1,46, abaixo de 1,73, como deveria."
+      }
+    },
+    {
+      "id": "ga-s5-l8q7",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Ponto da reta equidistante",
+      "origem": "Lista 8 · Q7",
+      "enunciado": "Dada a reta r: X = (1, 1, 1) + t(1, −1, 1), t ∈ R e os pontos A = (1, 2, 3) e B = (−1, 1, −2), ache o(s) ponto(s) de r equidistante(s) de A e B. Qual é a resposta?",
+      "alternativas": [
+        {"t": "(5/3, 1/3, 5/3)", "certa": false, "erro": "Você chegou a −12t = 8, mas trocou o sinal no fim e usou t = 2/3. O ponto está em r, porém fica a √5 de A e a √21 de B."},
+        {"t": "(0, 3/2, 1/2)", "certa": false, "erro": "Esse é o ponto médio de A e B. Ele é equidistante, mas não está em r: x = 0 pede t = −1, e aí y daria 2, e não 3/2."},
+        {"t": "(−1/2, 5/2, −1/2)", "certa": false, "erro": "Você passou o 5 para o outro lado sem trocar o sinal: −12t = 13 + 5 = 18, então t = −3/2. O certo é −12t = 13 − 5 = 8."},
+        {"t": "(1/3, 5/3, 1/3)", "certa": true},
+        {"t": "(−2/3, 2/3, −2/3)", "certa": false, "erro": "Esse é t·(1, −1, 1) com t = −2/3. Faltou somar o ponto de partida (1, 1, 1)."}
+      ],
+      "dica": "Escreva um ponto genérico de r e iguale a distância até A com a distância até B. Os quadrados ajudam.",
+      "resposta": "(1/3, 5/3, 1/3), com t = −2/3",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "segmento", "de": [-1, 3, -1], "ate": [3, -1, 3], "cor": 1},
+          {"tipo": "ponto", "em": [3, -1, 3], "rot": "r"},
+          {"tipo": "ponto", "em": [1, 2, 3], "rot": "A"},
+          {"tipo": "ponto", "em": [-1, 1, -2], "rot": "B"},
+          {"tipo": "ponto", "em": [0, 1.5, 0.5], "rot": "M"},
+          {"tipo": "segmento", "de": [1, 2, 3], "ate": [-1, 1, -2], "tracejado": true},
+          {"tipo": "vetor", "de": [0.333, 1.667, 0.333], "ate": [1, 2, 3], "rot": "", "cor": 2},
+          {"tipo": "vetor", "de": [0.333, 1.667, 0.333], "ate": [-1, 1, -2], "rot": "", "cor": 2}
+        ],
+        "legenda": "As duas setas coral saem do mesmo ponto de r e têm o mesmo tamanho, √69/3. O ponto médio M de A e B fica fora da reta."
+      },
+      "jeitos": {
+        "visual": "Imagine A e B como duas cidades, e r como uma estrada que passa perto delas. Você anda pela estrada com o GPS mostrando as duas distâncias. Num certo ponto, os dois números empatam. Na figura, é de onde saem as setas coral, de mesmo tamanho: (1/3, 5/3, 1/3). De um lado desse ponto, uma cidade está mais perto; do outro, a outra.",
+        "receita": [
+          "Ponto genérico de r: X = (1 + t, 1 − t, 1 + t).",
+          "Até A: X − A = (t, −1 − t, t − 2). Quadrado: t² + (1 + t)² + (t − 2)² = 3t² − 2t + 5.",
+          "Até B: X − B = (2 + t, −t, 3 + t). Quadrado: (2 + t)² + t² + (3 + t)² = 3t² + 10t + 13.",
+          "Iguale: 3t² − 2t + 5 = 3t² + 10t + 13. O 3t² cancela e sobra −12t = 8.",
+          "Logo t = −2/3.",
+          "Substitua: (1 − 2/3, 1 + 2/3, 1 − 2/3) = (1/3, 5/3, 1/3)."
+        ],
+        "cotidiano": "Dois mercados, A e B, e você mora numa rua reta. Quer a casa da rua que fica à mesma distância dos dois. Você não pode escolher o meio do caminho entre os mercados, porque ele pode nem estar na sua rua. É preciso percorrer a rua no papel, comparando as duas distâncias, até o empate.",
+        "trabalho": "É o ponto de equilíbrio entre duas opções de custo. Monte as duas colunas: custo A = 3t² − 2t + 5 e custo B = 3t² + 10t + 13. A parte 3t² é comum às duas, como um custo igual nos dois cenários, e sai da comparação. Sobra a diferença, que muda em linha reta com t. O equilíbrio é onde ela zera: −12t − 8 = 0, ou t = −2/3.",
+        "conversa": [
+          {"quem": "Você", "fala": "Equidistante é o ponto médio, então (0, 3/2, 1/2)."},
+          {"quem": "Monitor", "fala": "Ele é equidistante, concordo. E está em r?"},
+          {"quem": "Você", "fala": "x = 0 dá t = −1. Com t = −1, y = 2. Não bate."},
+          {"quem": "Monitor", "fala": "Então ele não serve. O enunciado pede o ponto de r. Como você escreve um ponto de r?"},
+          {"quem": "Você", "fala": "(1 + t, 1 − t, 1 + t). Igualo as distâncias ao quadrado?"},
+          {"quem": "Monitor", "fala": "Isso. O que acontece com o t²?"},
+          {"quem": "Você", "fala": "Cancela, e sobra −12t = 8. Então t = −2/3."},
+          {"quem": "Monitor", "fala": "Agora volte à reta para achar o ponto."}
+        ],
+        "erro": "O atalho falso é o ponto médio. Existem infinitos pontos equidistantes de A e B: eles formam um plano inteiro, e o ponto médio é um só. O enunciado pede o ponto que está nesse plano e também em r. O segundo tropeço é abrir os quadrados e errar o sinal ao juntar os termos. Para perceber, calcule as duas distâncias no final: precisam sair iguais.",
+        "confira": "Meça as duas. De A até (1/3, 5/3, 1/3), a seta é (−2/3, −1/3, −8/3), e a soma dos quadrados é 69/9. De B, é (4/3, 2/3, 7/3), e a soma também é 69/9. Empate. Outro caminho: o plano dos equidistantes é 2x + y + 5z − 4 = 0. Pondo r nele, sai 4 + 6t = 0, de novo t = −2/3.",
+        "atalho": "Todo ponto de r tem x = z, porque a partida e a direção têm a primeira e a terceira coordenadas iguais. Isso derruba o ponto médio. Depois teste o plano dos equidistantes, 2x + y + 5z = 4, que sai da seta [[AB]] e do ponto médio. Só (1/3, 5/3, 1/3) dá 2/3 + 5/3 + 5/3 = 4."
+      }
+    },
+    {
+      "id": "ga-s5-l8q8",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Lugar geométrico equidistante",
+      "origem": "Lista 8 · Q8",
+      "enunciado": "Encontre a equação do lugar geométrico dos pontos equidistantes de A = (−1, 1, 4) e B = (2, 3, 1). Essa equação é uma reta ou um plano?",
+      "alternativas": [
+        {"t": "3x + 2y − 3z − 2 = 0. Plano", "certa": false, "erro": "Você substituiu o ponto médio, achou 3·(1/2) + 2·2 − 3·(5/2) = −2 e escreveu esse −2 como termo solto. O termo solto precisa zerar a soma: −2 + d = 0, então d = 2."},
+        {"t": "3x + 2y − 3z + 2 = 0. Plano", "certa": true},
+        {"t": "3x + 2y − 3z + 2 = 0. Reta", "certa": false, "erro": "A equação está certa, o nome não. Uma equação só em x, y e z deixa duas coordenadas livres: isso é um plano. Na folha, em 2D, os equidistantes formam uma reta; em 3D, formam uma folha."},
+        {"t": "3x + 2y − 3z + 13 = 0. Plano", "certa": false, "erro": "Você fez o plano passar por A: 3·(−1) + 2·1 − 3·4 = −13, então d = 13. O plano passa pelo ponto médio, que é equidistante. A não é: fica a 0 de si mesmo e longe de B."},
+        {"t": "X = (1/2, 2, 5/2) + t(3, 2, −3). Reta", "certa": false, "erro": "Essa é a reta que liga A a B. Nela, só o ponto médio é equidistante. Com t = 1, o ponto (7/2, 4, −1/2) está bem mais perto de B do que de A."}
+      ],
+      "dica": "Escreva a igualdade das distâncias ao quadrado para um ponto (x, y, z). O x², o y² e o z² somem.",
+      "resposta": "3x + 2y − 3z + 2 = 0. Plano",
+      "figura": {
+        "modo": "3d",
+        "onde": "explicacao",
+        "itens": [
+          {"tipo": "poligono", "pts": [[-1, 0, -0.333], [2, 0, 2.667], [2, 4, 5.333], [-1, 4, 2.333]], "cor": 3},
+          {"tipo": "ponto", "em": [-1, 1, 4], "rot": "A"},
+          {"tipo": "ponto", "em": [2, 3, 1], "rot": "B"},
+          {"tipo": "ponto", "em": [0.5, 2, 2.5], "rot": "M"},
+          {"tipo": "ponto", "em": [1, 2, 3], "rot": "Q"},
+          {"tipo": "vetor", "de": [-1, 1, 4], "ate": [2, 3, 1], "rot": "AB", "cor": 1},
+          {"tipo": "segmento", "de": [1, 2, 3], "ate": [-1, 1, 4], "tracejado": true, "cor": 2},
+          {"tipo": "segmento", "de": [1, 2, 3], "ate": [2, 3, 1], "tracejado": true, "cor": 2}
+        ],
+        "legenda": "A seta azul liga A a B. A folha passa pelo meio dela, em esquadro. O ponto Q = (1, 2, 3), na folha, fica a √6 de A e a √6 de B."
+      },
+      "jeitos": {
+        "visual": "Estique um barbante entre A e B e marque o meio, (1/2, 2, 5/2). Agora passe uma folha pelo meio, em esquadro com o barbante. Na figura, é a folha inclinada. Qualquer ponto dessa folha está à mesma distância de A e de B, como o ponto Q, a √6 dos dois. Como dá para andar na folha em duas direções, o conjunto é um plano, não uma linha.",
+        "receita": [
+          "Iguale as distâncias ao quadrado: (x + 1)² + (y − 1)² + (z − 4)² = (x − 2)² + (y − 3)² + (z − 1)².",
+          "Abra os dois lados: x², y² e z² aparecem nos dois e saem.",
+          "Sobra: 2x − 2y − 8z + 18 = −4x − 6y − 2z + 14.",
+          "Junte tudo de um lado: 6x + 4y − 6z + 4 = 0.",
+          "Divida por 2: 3x + 2y − 3z + 2 = 0.",
+          "Três letras, grau 1 e uma equação só: é um plano, com prego (3, 2, −3)."
+        ],
+        "cotidiano": "Duas escolas no chão e a divisa entre os bairros atendidos: cada casa vai para a mais perto, e quem fica na divisa está à mesma distância das duas. No mapa, a divisa é uma linha. Mas o espaço tem altura: o andar de cima de um prédio na divisa também empata. Empilhando todas as alturas, a divisa vira uma parede, e essa parede é o plano.",
+        "trabalho": "É o ponto de corte de uma classificação com dois perfis. Imagine clientes descritos por três indicadores e dois perfis de referência, A e B. Para cada cliente, meça a distância até os dois e marque o mais próximo. A fronteira são os clientes que empatam, e ela obedece a 3x + 2y − 3z + 2 = 0. Positivo de um lado, negativo do outro: um `CASE WHEN` faz a classificação.",
+        "conversa": [
+          {"quem": "Você", "fala": "Equidistante de dois pontos é o meio deles, um ponto só."},
+          {"quem": "Monitor", "fala": "O meio é um deles. (1, 2, 3) está a quanto de A e de B?"},
+          {"quem": "Você", "fala": "As setas são (2, 1, −1) e (−1, −1, 2). Dá √6 nos dois."},
+          {"quem": "Monitor", "fala": "E ele não é o meio. Então há mais pontos assim. Como achar todos?"},
+          {"quem": "Você", "fala": "Igualo as distâncias para um (x, y, z) qualquer."},
+          {"quem": "Monitor", "fala": "Abra os quadrados. O que sobra?"},
+          {"quem": "Você", "fala": "3x + 2y − 3z + 2 = 0. Uma reta?"},
+          {"quem": "Monitor", "fala": "Reta em 3D precisa de um contador t ou de duas equações. Uma equação só, com x, y e z, é um plano."}
+        ],
+        "erro": "A armadilha vem da geometria na folha. Em 2D, os pontos equidistantes de A e B formam uma reta. Em 3D, formam um plano. Outra falha é achar que ax + by + cz + d = 0 é reta porque parece com y = ax + b. Se a equação tem três letras e grau 1, é plano. Lugar geométrico, aliás, quer dizer só isto: o conjunto de todos os pontos que cumprem a condição.",
+        "confira": "Teste pontos da equação. (1, 2, 3) dá 3 + 4 − 9 + 2 = 0 e está a √6 de A e de B. (0, −1, 0) dá 0 − 2 − 0 + 2 = 0 e está a √21 dos dois. Agora um ponto fora: A dá −3 + 2 − 12 + 2 = −11, e A não é equidistante. Os três resultados batem com a equação.",
+        "atalho": "O prego é [[AB]] = (3, 2, −3), o que já pede 3x + 2y − 3z. O ponto médio é (1/2, 2, 5/2), que precisa zerar a equação: 3/2 + 4 − 15/2 = −2, então o termo solto é +2. São três passos, sem abrir quadrado nenhum. As alternativas com a palavra reta caem: uma equação só, com três letras, é plano."
+      }
+    }
+  ]
+}
