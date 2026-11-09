@@ -1,7 +1,7 @@
 # Roteiro do conteúdo — site "Núcleo" (Semestre 2, Ciclo 1: Geometria Analítica + Lógica de Programação)
 
 ## Quem vai estudar
-Hélio, aluno de Tecnologia em Banco de Dados (EAD, UFTM/CEDD). Adulto, consultor financeiro e tributário:
+Aluno de Tecnologia em Banco de Dados (EAD, UFTM/CEDD). Adulto que trabalha com finanças:
 vive em Excel, Power BI, SQL, extratos, DRE e conciliação. Estuda à noite, faz avaliação semanal no Moodle
 e prova presencial. Quer entender, não decorar. Já aprovou o formato "questão de múltipla escolha +
 explicação + dica + resolução". Agora quer **a mesma questão explicada de vários jeitos**, porque cada
@@ -23,7 +23,7 @@ o tamanho de uma resposta.
    questão. O último passo chega na resposta. É a resolução completa.
 3. `cotidiano` — Analogia do dia a dia (trajeto, trena, cozinha, fila, troco, interruptor). Precisa ser
    honesta: se a analogia distorce a matemática, troque de analogia.
-4. `trabalho` — Ponte com o mundo do Hélio: Excel (SOMARPRODUTO, SE, SOMASE, PROCV), SQL (WHERE, AND/OR,
+4. `trabalho` — Ponte com o mundo do aluno: Excel (SOMARPRODUTO, SE, SOMASE, PROCV), SQL (WHERE, AND/OR,
    SUM, CASE, JOIN), Power BI, finanças (lançamento, saldo, conciliação, DRE, rateio, reajuste), banco de
    dados (linha, coluna, chave, tipo de dado). Só quando a ligação for verdadeira. Exemplos que valem:
    produto escalar = SOMARPRODUTO(quantidades; preços); implicação p → q = regra de auditoria "se a NF é
@@ -75,7 +75,7 @@ Tamanho: `visual`, `cotidiano`, `trabalho`, `erro`, `confira`, `atalho` com 35 a
 - Português do Brasil **com acento** desde a primeira linha (questão, explicação, você, não, é).
   Numa disciplina anterior o texto saiu sem acento e a correção levou 3.100 trocas.
 
-## Voz (o Hélio pediu "mais humano, menos cara de IA")
+## Voz (o aluno pediu "mais humano, menos cara de IA")
 - Frases curtas. Verbos concretos. Os números da própria questão.
 - Explique o termo técnico na primeira vez que aparecer.
 - PROIBIDO: "Vamos lá", "Ótima pergunta", "Excelente", "mergulhar", "desvendar", "jornada",
