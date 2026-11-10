@@ -23,7 +23,8 @@
     while (i < n) {
       var c = src[i];
       if (c === '\n') { linha++; i++; continue; }
-      if (c === ' ' || c === '\t' || c === '\r') { i++; continue; }
+      // ";" no fim da linha é aceito e ignorado (o manual do VisuAlg usa "var x: inteiro;")
+      if (c === ' ' || c === '\t' || c === '\r' || c === ';') { i++; continue; }
       if (c === '/' && src[i + 1] === '/') { while (i < n && src[i] !== '\n') i++; continue; }
       if (c === '"') {
         var j = i + 1;
@@ -146,6 +147,22 @@
       if (isOp('[')) { next(); idx = [expr()]; while (isOp(',')) { next(); idx.push(expr()); } expectOp(']'); }
       return { nome: t.v, idx: idx, linha: t.linha };
     }
+    // argumento do escreva com formatação opcional: x:5 (largura) ou x:5:2 (largura e casas decimais)
+    function argEscreva() {
+      var e = expr();
+      if (!isOp(':')) return e;
+      next();
+      var w = next();
+      if (w.t !== 'num' || w.real) throw new ErroVA('depois de ":" vem a largura, um número inteiro (ex.: x:5:2)', w.linha);
+      var f = { k: 'formato', e: e, larg: w.v, dec: null };
+      if (isOp(':')) {
+        next();
+        var d = next();
+        if (d.t !== 'num' || d.real) throw new ErroVA('depois da largura vem o número de casas decimais, inteiro (ex.: x:5:2)', d.linha);
+        f.dec = d.v;
+      }
+      return f;
+    }
     function valorCaso() {
       var a = expr();
       if (isKw('ate')) { next(); return { faixa: [a, expr()] }; }
@@ -175,7 +192,7 @@
           var args = [];
           if (isOp('(')) {
             next();
-            if (!isOp(')')) { args.push(expr()); while (isOp(',')) { next(); args.push(expr()); } }
+            if (!isOp(')')) { args.push(argEscreva()); while (isOp(',')) { next(); args.push(argEscreva()); } }
             expectOp(')');
           }
           return { k: 'escreva', nl: t.v === 'escreval', args: args, linha: linha };
@@ -322,6 +339,20 @@
     return val.v;
   }
   var NOME_TIPO = { i: 'inteiro', r: 'real', s: 'caractere', b: 'lógico' };
+
+  // escreva(x:larg:dec). Medido no VisuAlg 3.0.7 real (02/11/2026): arredonda (7,1666 -> 7.17) e
+  // completa com espaços à esquerda até a largura, SEM o espaço extra dos números ("prova: 10.00").
+  // Não medido (hipótese): texto também é alinhado à direita; inteiro com :dec ganha casas decimais;
+  // o meio exato arredonda para longe do zero (-7,25 -> -7.3).
+  function formatado(v, larg, dec) {
+    var t;
+    if (dec !== null && (v.tipo === 'i' || v.tipo === 'r')) {
+      var p = Math.pow(10, dec), sinal = v.v < 0 ? -1 : 1;
+      t = (sinal * Math.round(Math.abs(v.v) * p + 1e-9) / p).toFixed(dec);
+    } else t = fmt(v);
+    while (t.length < larg) t = ' ' + t;
+    return t;
+  }
 
   // Converte o texto digitado para o tipo da variável. Devolve { val } ou { msg }.
   function lerEntrada(txt, base) {
@@ -592,7 +623,10 @@
         case 'escreva': {
           // o VisuAlg escreve número com um espaço antes (ver Exemplos\decomp.alg: escreval(p[j], ex[j]))
           var txt = '';
-          s.args.forEach(function (a) { var v = ev(a); txt += (v.tipo === 'i' || v.tipo === 'r') ? ' ' + fmt(v) : fmt(v); });
+          s.args.forEach(function (a) {
+            if (a.k === 'formato') { txt += formatado(ev(a.e), a.larg, a.dec); return; }
+            var v = ev(a); txt += (v.tipo === 'i' || v.tipo === 'r') ? ' ' + fmt(v) : fmt(v);
+          });
           if (s.nl) txt += '\n';
           saida += txt;
           passo(s.linha, 'escreveu ' + JSON.stringify(txt));
@@ -998,12 +1032,6 @@
         return ex('aspas-simples', 'Linha ' + L + ' · aspas simples', "No VisuAlg, texto vai entre aspas duplas: `\"Olá\"`. A aspa simples `'` não funciona.",
           "Troque `'` por `\"`.", troca(L, get(L).replace(/'/g, '"')));
       }
-      if (c6 === ';') {
-        var semPV = lin.map(function (x) { return x.replace(/;(\s*)$/, '$1'); });
-        return ex('ponto-e-virgula', 'Linha ' + L + ' · ponto e vírgula',
-          'O site ainda não aceita `;` no fim da linha. Pelo manual, o VisuAlg aceita na declaração (`var x: inteiro;`); isso vem numa próxima etapa do site.',
-          'Para testar aqui, apague os `;` do fim das linhas.', semPV, { rotulo: 'Apagar os ;', sugestao: true });
-      }
       return ex('simbolo', 'Linha ' + L + ' · símbolo `' + c6 + '`', 'O símbolo `' + c6 + '` não faz parte da linguagem do VisuAlg.', 'Apague ou troque esse símbolo.', null);
     }
 
@@ -1012,9 +1040,9 @@
       var achou7 = m[1], s7 = get(L);
       if (achou7 === ':') {
         var semFmt = s7.replace(/\s*:\s*\d+(\s*:\s*\d+)?(?=\s*[,)])/g, '');
-        return ex('formatacao', 'Linha ' + L + ' · formatação `:5:2`',
-          'O VisuAlg aceita formatar número: `escreva(x:5:2)` escreve em 5 espaços com 2 casas decimais. O site ainda não aceita; isso vem numa próxima etapa.',
-          'Para testar aqui, tire a formatação. No VisuAlg ela funciona.', troca(L, semFmt), { rotulo: 'Tirar a formatação', sugestao: true });
+        return ex('formatacao', 'Linha ' + L + ' · formatação fora do lugar',
+          'A formatação `:5:2` (5 espaços, 2 casas decimais) só vale dentro do `escreva` e do `escreval`, por exemplo `escreval(media:5:2)`. Aqui ela apareceu em outro lugar.',
+          'Tire a formatação desta linha. Para mostrar o número formatado, use-a no `escreval`.', semFmt !== s7 ? troca(L, semFmt) : null);
       }
       // parêntese aberto numa linha de cima: o site só acusa na linha seguinte
       var lp = 0;
@@ -1047,6 +1075,12 @@
       var s8 = get(L), r8 = s8.match(/^(\s*)(leia|escreval|escreva)\s+(.+?)\s*$/i);
       return ex('sem-parenteses', 'Linha ' + L + ' · faltam parênteses', 'Os comandos `leia`, `escreva` e `escreval` usam parênteses: `leia(x)`.',
         'Coloque o que vem depois do comando entre parênteses.', r8 ? troca(L, r8[1] + r8[2] + '(' + r8[3] + ')') : null);
+    }
+
+    if (/^depois d[ae] (":"|largura)/.test(msg)) {
+      return ex('formato-numero', 'Linha ' + L + ' · formatação `:5:2`',
+        'A formatação tem a forma `valor:largura:casas`, com números inteiros: `media:5:2` escreve em 5 espaços com 2 casas decimais. Só a largura também vale: `idade:3`.',
+        'Confira os números depois dos `:`. Eles não podem ter vírgula nem ponto.', null);
     }
 
     // 8. nomes e tipos na declaração
