@@ -44,6 +44,76 @@
       "saida": "Ano de nascimento: Mês de nascimento: Dia de nascimento: Ano atual: Mês atual: Dia atual: Dias de vida:  9743"
     },
     {
+      "id": "lista02-ex1", "semana": 5, "grupo": "lista02", "titulo": "Ex. 1 · Sensor de umidade",
+      "codigo": "algoritmo \"Sensor de umidade\"\n// Lista 02 - Exercício 1: alerta de umidade do solo na estufa\nvar\n   umidade: real\ninicio\n   escreva(\"Umidade do solo (0 a 100%): \")\n   leia(umidade)\n   se umidade < 30 entao\n      escreval(\"ALERTA: Umidade crítica. Ligar bombas de irrigação!\")\n   senao\n      escreval(\"Umidade adequada. Bombas desligadas.\")\n   fimse\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": ["29.9"],
+      "saida": "Umidade do solo (0 a 100%): ALERTA: Umidade crítica. Ligar bombas de irrigação!"
+    },
+    {
+      "id": "lista02-ex2", "semana": 5, "grupo": "lista02", "titulo": "Ex. 2 · Frete por peso e distância",
+      "codigo": "algoritmo \"Frete por peso e distancia\"\n// Lista 02 - Exercício 2: taxa extra se peso > 20 kg OU distância > 100 km\nvar\n   peso, distancia: real\ninicio\n   escreva(\"Peso do pacote (kg): \")\n   leia(peso)\n   escreva(\"Distância (km): \")\n   leia(distancia)\n   // basta UMA das condições ser verdadeira: por isso o \"ou\"\n   se (peso > 20) ou (distancia > 100) entao\n      escreval(\"Frete com Taxa Especial: Valor Adicional R$ 50,00\")\n   senao\n      escreval(\"Frete Padrão: Sem taxa adicional\")\n   fimse\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": ["21","50"],
+      "saida": "Peso do pacote (kg): Distância (km): Frete com Taxa Especial: Valor Adicional R$ 50,00"
+    },
+    {
+      "id": "lista02-ex3", "semana": 5, "grupo": "lista02", "titulo": "Ex. 3 · Empréstimo bancário",
+      "codigo": "algoritmo \"Emprestimo bancario\"\n// Lista 02 - Exercício 3: análise de crédito em duas etapas (se dentro de se)\nvar\n   renda, parcela: real\ninicio\n   escreva(\"Renda mensal (R$): \")\n   leia(renda)\n   escreva(\"Valor da parcela (R$): \")\n   leia(parcela)\n   // 1ª etapa: renda de pelo menos R$ 2.500,00\n   se renda < 2500 entao\n      escreval(\"Empréstimo negado: Renda insuficiente\")\n   senao\n      // 2ª etapa (se interno): a parcela não pode passar de 30% da renda.\n      // A conta com número real pode dar 1228.9200000000001 quando o certo é 1228.92.\n      // A margem de 0.00001 evita negar uma parcela que é exatamente 30%.\n      se parcela > renda * 30 / 100 + 0.00001 entao\n         escreval(\"Empréstimo negado: Parcela excede limite de comprometimento\")\n      senao\n         escreval(\"Empréstimo APROVADO!\")\n      fimse\n   fimse\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": ["2500","750"],
+      "saida": "Renda mensal (R$): Valor da parcela (R$): Empréstimo APROVADO!"
+    },
+    {
+      "id": "lista02-ex4", "semana": 5, "grupo": "lista02", "titulo": "Ex. 4 · Triagem médica",
+      "codigo": "algoritmo \"Triagem medica\"\n// Lista 02 - Exercício 4: triagem por febre e, se febril, por idade (se dentro de se)\nvar\n   temperatura: real\n   idade: inteiro\ninicio\n   escreva(\"Temperatura corporal (°C): \")\n   leia(temperatura)\n   se temperatura >= 37.8 entao\n      // febril: só agora a idade importa\n      escreva(\"Idade do paciente: \")\n      leia(idade)\n      se (idade < 12) ou (idade >= 60) entao\n         escreval(\"Triagem: Prioridade Alta (Encaminhar à Emergência)\")\n      senao\n         escreval(\"Triagem: Prioridade Média (Aguardar atendimento padrão)\")\n      fimse\n   senao\n      escreval(\"Sem febre: Encaminhar para a triagem geral\")\n   fimse\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": ["38","65"],
+      "saida": "Temperatura corporal (°C): Idade do paciente: Triagem: Prioridade Alta (Encaminhar à Emergência)"
+    },
+    {
+      "id": "lista02-ex5", "semana": 5, "grupo": "lista02", "titulo": "Ex. 5 · Menu do caixa eletrônico",
+      "codigo": "algoritmo \"Menu do caixa eletronico\"\n// Lista 02 - Exercício 5: menu com escolha/caso (o switch/case do VisuAlg)\nvar\n   codigo: inteiro\ninicio\n   escreval(\"1 - Consulta de Saldo\")\n   escreval(\"2 - Depósito em Conta\")\n   escreval(\"3 - Saque em Dinheiro\")\n   escreval(\"4 - Encerrar Atendimento\")\n   escreva(\"Digite a opção: \")\n   leia(codigo)\n   escolha codigo\n   caso 1\n      escreval(\"Opção selecionada: Consulta de Saldo\")\n   caso 2\n      escreval(\"Opção selecionada: Depósito em Conta\")\n   caso 3\n      escreval(\"Opção selecionada: Saque em Dinheiro\")\n   caso 4\n      escreval(\"Opção selecionada: Encerrar Atendimento\")\n   outrocaso\n      escreval(\"Erro: Opção inválida inserida\")\n   fimescolha\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": ["2"],
+      "saida": "1 - Consulta de Saldo\n2 - Depósito em Conta\n3 - Saque em Dinheiro\n4 - Encerrar Atendimento\nDigite a opção: Opção selecionada: Depósito em Conta"
+    },
+    {
+      "id": "lista02-ex6", "semana": 5, "grupo": "lista02", "titulo": "Ex. 6 · Conversão de moeda",
+      "codigo": "algoritmo \"Conversao de moeda\"\n// Lista 02 - Exercício 6: conversão de reais com escolha/caso\n// ATENÇÃO: o enunciado não informa as taxas. As abaixo são DE EXEMPLO\n// (quantos reais vale 1 unidade da moeda). Troque pela cotação do dia.\nvar\n   reais, convertido: real\n   moeda: inteiro\ninicio\n   escreva(\"Valor em reais (R$): \")\n   leia(reais)\n   escreval(\"1 - Dólar (USD)   2 - Euro (EUR)   3 - Libra Esterlina (GBP)\")\n   escreva(\"Código da moeda: \")\n   leia(moeda)\n   escolha moeda\n   caso 1\n      convertido <- reais / 5.00\n      escreval(\"Valor convertido: US$ \", convertido:6:2)\n   caso 2\n      convertido <- reais / 6.00\n      escreval(\"Valor convertido: EUR \", convertido:6:2)\n   caso 3\n      convertido <- reais / 7.00\n      escreval(\"Valor convertido: GBP \", convertido:6:2)\n   outrocaso\n      escreval(\"Moeda não cadastrada\")\n   fimescolha\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": ["100","1"],
+      "saida": "Valor em reais (R$): 1 - Dólar (USD)   2 - Euro (EUR)   3 - Libra Esterlina (GBP)\nCódigo da moeda: Valor convertido: US$  20.00"
+    },
+    {
+      "id": "lista02-ex7", "semana": 5, "grupo": "lista02", "titulo": "Ex. 7 · Reajuste por categoria",
+      "codigo": "algoritmo \"Reajuste por categoria\"\n// Lista 02 - Exercício 7: reajuste salarial com escolha/caso usando letras\nvar\n   salario, novo: real\n   categoria: caractere\n   valida: logico\ninicio\n   escreva(\"Salário atual (R$): \")\n   leia(salario)\n   escreva(\"Categoria (A, B, C ou D): \")\n   leia(categoria)\n   // maiusc: aceita \"a\" ou \"A\" do mesmo jeito\n   categoria <- maiusc(categoria)\n   valida <- verdadeiro\n   escolha categoria\n   caso \"A\"\n      novo <- salario + salario * 10 / 100\n   caso \"B\"\n      novo <- salario + salario * 15 / 100\n   caso \"C\"\n      novo <- salario + salario * 20 / 100\n   caso \"D\"\n      novo <- salario + 350\n   outrocaso\n      valida <- falso\n      escreval(\"Erro: categoria inválida. Use A, B, C ou D.\")\n   fimescolha\n   se valida entao\n      escreval(\"Novo salário: R$ \", novo:6:2)\n   fimse\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": ["2000","b"],
+      "saida": "Salário atual (R$): Categoria (A, B, C ou D): Novo salário: R$ 2300.00"
+    },
+    {
+      "id": "lista02-ex8", "semana": 5, "grupo": "lista02", "titulo": "Ex. 8 · Senha do cofre (desafio)",
+      "codigo": "algoritmo \"Senha do cofre\"\n// Lista 02 - Exercício 8 (desafio): até 3 tentativas com enquanto + se/senao\nvar\n   senha, tentativas: inteiro\n   aberto: logico\ninicio\n   tentativas <- 0\n   aberto <- falso\n   enquanto tentativas < 3 faca\n      escreva(\"Digite a senha: \")\n      leia(senha)\n      tentativas <- tentativas + 1\n      se senha = 8421 entao\n         escreval(\"Acesso Concedido: Cofre Aberto!\")\n         aberto <- verdadeiro\n         interrompa\n      senao\n         escreval(\"Senha incorreta. Tentativas restantes: \", 3 - tentativas)\n      fimse\n   fimenquanto\n   se nao aberto entao\n      escreval(\"ALERTA: Cofre Bloqueado por 15 minutos!\")\n   fimse\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": ["1","2","8421"],
+      "saida": "Digite a senha: Senha incorreta. Tentativas restantes:  2\nDigite a senha: Senha incorreta. Tentativas restantes:  1\nDigite a senha: Acesso Concedido: Cofre Aberto!"
+    },
+    {
+      "id": "lista02-ex9", "semana": 5, "grupo": "lista02", "titulo": "Ex. 9 · Nível do reservatório (desafio)",
+      "codigo": "algoritmo \"Nivel do reservatorio\"\n// Lista 02 - Exercício 9 (desafio): enche o reservatório até 1.000 litros\n// O enunciado não define mensagem para mais de 800 e menos de 1.000 litros:\n// nessa faixa o programa não mostra status (dá para acrescentar um \"senao\").\nvar\n   nivel, adicionado: real\ninicio\n   nivel <- 0\n   enquanto nivel < 1000 faca\n      escreva(\"Litros adicionados: \")\n      leia(adicionado)\n      nivel <- nivel + adicionado\n      escreval(\"Nível atual: \", nivel:7:1, \" litros\")\n      se nivel < 200 entao\n         escreval(\"Status: Nível Crítico (Reserva)\")\n      senao\n         se nivel <= 800 entao\n            escreval(\"Status: Nível Operacional Normal\")\n         fimse\n      fimse\n   fimenquanto\n   escreval(\"Reservatório Cheio: Válvula de entrada fechada!\")\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": ["100","200","500","300"],
+      "saida": "Litros adicionados: Nível atual:   100.0 litros\nStatus: Nível Crítico (Reserva)\nLitros adicionados: Nível atual:   300.0 litros\nStatus: Nível Operacional Normal\nLitros adicionados: Nível atual:   800.0 litros\nStatus: Nível Operacional Normal\nLitros adicionados: Nível atual:  1100.0 litros\nReservatório Cheio: Válvula de entrada fechada!"
+    },
+    {
+      "id": "lista02-ex10", "semana": 5, "grupo": "lista02", "titulo": "Ex. 10 · Caixa de mercado (desafio)",
+      "codigo": "algoritmo \"Caixa de mercado\"\n// Lista 02 - Exercício 10 (desafio): soma as compras até digitar 0\nvar\n   valor, total: real\ninicio\n   total <- 0\n   escreva(\"Valor do produto (0 para fechar): \")\n   leia(valor)\n   enquanto valor <> 0 faca\n      se valor < 0 entao\n         escreval(\"Valor inválido!\")\n      senao\n         total <- total + valor\n      fimse\n      escreva(\"Valor do produto (0 para fechar): \")\n      leia(valor)\n   fimenquanto\n   se total > 300 entao\n      total <- total - total * 10 / 100\n      escreval(\"Valor Final com Desconto de 10%: R$ \", total:6:2)\n   senao\n      escreval(\"Valor Final sem desconto: R$ \", total:6:2)\n   fimse\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": ["100","-5","250","0"],
+      "saida": "Valor do produto (0 para fechar): Valor do produto (0 para fechar): Valor inválido!\nValor do produto (0 para fechar): Valor do produto (0 para fechar): Valor Final com Desconto de 10%: R$ 315.00"
+    },
+    {
       "id": "lab-media", "semana": 5, "titulo": "Média de duas notas e situação",
       "codigo": "algoritmo \"media_e_situacao\"\nvar\n   n1, n2, media: real\ninicio\n   escreva(\"Primeira nota: \")\n   leia(n1)\n   escreva(\"Segunda nota: \")\n   leia(n2)\n   media <- (n1 + n2) / 2\n   se media >= 6 entao\n      escreval(\"Aprovado. Média: \", media)\n   senao\n      escreval(\"Em recuperação. Média: \", media)\n   fimse\nfimalgoritmo",
       "entradas": ["7", "5.5"],

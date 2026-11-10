@@ -958,7 +958,7 @@
   // --- VisuAlg ---
   var DICA_MESA = '<p style="color:var(--muted);font-size:13px">Escreva ou escolha um programa e clique em Rodar. O teste de mesa mostra cada linha executada e o valor das variáveis naquele momento.</p>';
   // Exemplos prontos em grupos: listas do professor (resolução) primeiro, depois os exemplos do site.
-  var GRUPOS_EX = [['lista01', 'Lista 01 do professor (resolução)'], ['', 'Exemplos do site']];
+  var GRUPOS_EX = [['lista01', 'Lista 01 do professor (resolução)'], ['lista02', 'Lista 02 do professor (resolução)'], ['', 'Exemplos do site']];
   function opcoesExemplos(exs) {
     return GRUPOS_EX.map(function (g) {
       var itens = exs.map(function (e, i) { return { e: e, i: i }; }).filter(function (x) { return (x.e.grupo || '') === g[0]; });
