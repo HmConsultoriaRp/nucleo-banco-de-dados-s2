@@ -1,5 +1,6 @@
 /* Interpretador de um subconjunto do VisuAlg 3.0, com teste de mesa.
-   Uso: VisuAlg.executar(codigo, entradas) -> { saida, passos, erro, ordem, decl }
+   Uso: VisuAlg.executar(codigo, entradas, opts) -> { saida, passos, erro, ordem, decl, lidas, espera, recusada }
+   opts.guiada (laboratório): a resposta aparece na tela e o leia sem resposta vira res.espera.
    Cada passo: { linha, nota, vars: {nome: texto}, saida } */
 (function (root) {
   'use strict';
@@ -322,10 +323,36 @@
   }
   var NOME_TIPO = { i: 'inteiro', r: 'real', s: 'caractere', b: 'lógico' };
 
+  // Converte o texto digitado para o tipo da variável. Devolve { val } ou { msg }.
+  function lerEntrada(txt, base) {
+    txt = String(txt);
+    var t = txt.trim();
+    if (base === 'inteiro') {
+      if (!/^[+-]?\d+$/.test(t)) return { msg: 'a entrada "' + txt + '" não é um número inteiro' };
+      return { val: { tipo: 'i', v: parseInt(t, 10) } };
+    }
+    if (base === 'real') {
+      var tt = t.replace(',', '.');
+      if (!/^[+-]?(\d+\.?\d*|\.\d+)$/.test(tt)) return { msg: 'a entrada "' + txt + '" não é um número' };
+      return { val: { tipo: 'r', v: parseFloat(tt) } };
+    }
+    if (base === 'logico') {
+      var l = semAcento(t.toLowerCase());
+      if (l === 'verdadeiro' || l === 'v') return { val: { tipo: 'b', v: true } };
+      if (l === 'falso' || l === 'f') return { val: { tipo: 'b', v: false } };
+      return { msg: 'a entrada "' + txt + '" não é lógica (use VERDADEIRO ou FALSO)' };
+    }
+    return { val: { tipo: 's', v: txt } };
+  }
+  function validarEntrada(txt, base) { var r = lerEntrada(txt, base); return r.msg || null; }
+
   function executar(codigo, entradas, opts) {
     opts = opts || {};
     var MAX = opts.maxPassos || 5000;
-    var res = { saida: '', passos: [], erro: null, ordem: [], decl: {}, nomes: [] };
+    var res = { saida: '', passos: [], erro: null, ordem: [], decl: {}, nomes: [], lidas: [], espera: null, recusada: null };
+    // guiada: modo do laboratório. A resposta digitada aparece na tela depois da pergunta
+    // e, quando falta entrada, o programa registra em que leia parou (res.espera).
+    var guiada = !!opts.guiada;
     var prog;
     try { prog = parse(lex(codigo)); } catch (e) {
       res.erro = { linha: e.linha || 0, msg: e.message || String(e) };
@@ -421,23 +448,16 @@
       return raw + '[' + idx.map(function (e) { return fmt(ev(e)); }).join(',') + ']';
     }
     function entrada(txt, base, linha) {
-      var t = txt.trim();
-      if (base === 'inteiro') {
-        if (!/^[+-]?\d+$/.test(t)) throw new ErroVA('a entrada "' + txt + '" não é um número inteiro', linha);
-        return { tipo: 'i', v: parseInt(t, 10) };
-      }
-      if (base === 'real') {
-        var tt = t.replace(',', '.');
-        if (!/^[+-]?(\d+\.?\d*|\.\d+)$/.test(tt)) throw new ErroVA('a entrada "' + txt + '" não é um número', linha);
-        return { tipo: 'r', v: parseFloat(tt) };
-      }
-      if (base === 'logico') {
-        var l = semAcento(t.toLowerCase());
-        if (l === 'verdadeiro' || l === 'v') return { tipo: 'b', v: true };
-        if (l === 'falso' || l === 'f') return { tipo: 'b', v: false };
-        throw new ErroVA('a entrada "' + txt + '" não é lógica (use VERDADEIRO ou FALSO)', linha);
-      }
-      return { tipo: 's', v: txt };
+      var r = lerEntrada(txt, base);
+      if (r.msg) throw new ErroVA(r.msg, linha);
+      return r.val;
+    }
+    // A pergunta é o que o programa escreveu desde o leia anterior (a última linha com texto).
+    var marcaLeia = 0;
+    function perguntaAtual() {
+      var partes = saida.slice(marcaLeia).split('\n');
+      for (var k = partes.length - 1; k >= 0; k--) if (partes[k].trim()) return partes[k].trim();
+      return '';
     }
     function num(a, linha, op) {
       if (a.tipo !== 'i' && a.tipo !== 'r') throw new ErroVA('a operação "' + op + '" precisa de números, recebeu ' + NOME_TIPO[a.tipo], linha);
@@ -544,13 +564,29 @@
           return;
         }
         case 'leia': {
+          var pergunta = perguntaAtual();
           s.alvos.forEach(function (a) {
-            if (!fila.length) throw new ErroVA('o programa pediu uma entrada (leia) e a lista de entradas acabou', s.linha);
+            if (!fila.length) {
+              if (guiada) {
+                var dd = prog.decl[a.nome];
+                res.espera = { linha: s.linha, nome: dd ? nomeAlvo(a.nome, a.idx) : a.nome, tipo: dd ? dd.tipo.base : '', pergunta: pergunta };
+                passo(s.linha, 'esperando a ' + (res.lidas.length + 1) + 'ª entrada (' + res.espera.nome + ')');
+              }
+              throw new ErroVA('o programa pediu uma entrada (leia) e a lista de entradas acabou', s.linha);
+            }
             var txt = fila.shift();
             var d = decl(a.nome, s.linha);
-            atribuir(a.nome, a.idx, entrada(txt, d.tipo.base, s.linha), s.linha);
-            passo(s.linha, 'leu ' + txt + ' para ' + nomeAlvo(a.nome, a.idx));
+            var info = { linha: s.linha, nome: nomeAlvo(a.nome, a.idx), tipo: d.tipo.base, pergunta: pergunta, valor: txt };
+            var val;
+            try { val = entrada(txt, d.tipo.base, s.linha); } catch (e) {
+              info.msg = e.message; res.recusada = info; throw e;
+            }
+            atribuir(a.nome, a.idx, val, s.linha);
+            res.lidas.push(info);
+            if (guiada) saida += txt + '\n';
+            passo(s.linha, 'leu ' + txt + ' para ' + info.nome);
           });
+          marcaLeia = saida.length;
           return;
         }
         case 'escreva': {
@@ -647,7 +683,7 @@
     }).join('\n').replace(/\n+$/, '').replace(/^\n+/, '');
   }
 
-  var api = { executar: executar, normalizarSaida: normalizarSaida };
+  var api = { executar: executar, normalizarSaida: normalizarSaida, validarEntrada: validarEntrada };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.VisuAlg = api;
 })(this);

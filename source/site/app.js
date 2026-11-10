@@ -301,9 +301,12 @@
   }
 
   // ---------- teste de mesa ----------
-  function mesa(host, codigo, entradas, titulo) {
-    var res = VisuAlg.executar(codigo, entradas || []);
+  function mesa(host, codigo, entradas, titulo, opts) {
+    opts = opts || {};
+    var res = VisuAlg.executar(codigo, entradas || [], opts.va);
     var passos = res.passos, i = 0, play = null, cheia = false;
+    // parado num leia, ou logo depois de uma resposta (laboratório): abre no último passo
+    if ((res.espera || opts.fim) && passos.length) i = passos.length - 1;
     function render() {
       var p = passos[i] || { linha: 0, nota: '', vars: {}, saida: '' };
       var ant = passos[i - 1];
@@ -312,7 +315,9 @@
         var mud = ant && ant.vars[n] !== p.vars[n];
         return '<tr class="' + (mud ? 'mud' : '') + '"><td>' + esc(n) + '</td><td>' + esc(p.vars[n]) + '</td></tr>';
       }).join('');
-      var erro = res.erro && (fim || !passos.length) ? '<span class="err">Erro' + (res.erro.linha ? ' na linha ' + res.erro.linha : '') + ': ' + esc(res.erro.msg) + '</span>' : '';
+      var erro = !(res.erro && (fim || !passos.length)) ? '' :
+        res.espera ? '<span class="espera">▌ esperando a sua resposta na caixa Entradas</span>' :
+        '<span class="err">Erro' + (res.erro.linha ? ' na linha ' + res.erro.linha : '') + ': ' + esc(res.erro.msg) + '</span>';
       var tabela = '';
       if (cheia) {
         tabela = '<div class="mesa-full"><table><thead><tr><th>#</th><th>linha</th><th>o que aconteceu</th>' + res.nomes.map(function (n) { return '<th>' + esc(n) + '</th>'; }).join('') + '</tr></thead><tbody>' +
@@ -953,23 +958,127 @@
   // --- VisuAlg ---
   function labVisualg(host) {
     var exs = EX_VA.filter(function (e) { return e.semana <= ui.sem; });
-    if (!labVA) labVA = { cod: exs.length ? exs[exs.length - 1].codigo : '', ent: exs.length ? (exs[exs.length - 1].entradas || []).join('\n') : '' };
+    if (!labVA) {
+      labVA = { cod: exs.length ? exs[exs.length - 1].codigo : '', ent: exs.length ? (exs[exs.length - 1].entradas || []).slice() : [] };
+      labVA.base = { cod: labVA.cod, lidas: null };
+    }
     host.innerHTML = '<div class="lab-grid" style="grid-template-columns:minmax(0,1fr)"><div class="lab-pane" style="padding:0;border-bottom:1px solid var(--line)">' +
       '<div style="display:flex;gap:6px;padding:10px;border-bottom:1px solid var(--line);flex-wrap:wrap;align-items:center"><select id="va-ex" style="flex:1;min-width:160px;border:1px solid var(--line);padding:7px;background:var(--white)"><option value="">Exemplos prontos…</option>' +
       exs.map(function (e, i) { return '<option value="' + i + '">' + esc(e.titulo) + '</option>'; }).join('') + '</select><button class="primary-button" id="va-run" style="padding:9px 14px">Rodar ▶</button></div>' +
       '<textarea class="editor" id="va-cod" spellcheck="false" aria-label="Código VisuAlg" style="min-height:240px">' + esc(labVA.cod) + '</textarea>' +
-      '<div style="padding:10px"><label style="font-size:11.5px;color:var(--muted)">Entradas (uma por linha, na ordem dos leia)</label><textarea id="va-ent" style="width:100%;min-height:60px;border:1px solid var(--line);padding:6px;font-family:var(--font-mono);background:var(--white)">' + esc(labVA.ent) + '</textarea></div></div>' +
+      '<div class="va-ents" id="va-ents"></div></div>' +
       '<div class="lab-pane" id="va-mesa"><p style="color:var(--muted);font-size:13px">Escreva ou escolha um programa e clique em Rodar. O teste de mesa mostra cada linha executada e o valor das variáveis naquele momento.</p></div></div>';
+    // Entradas guiadas: o programa para em cada leia sem resposta, a pergunta aparece
+    // na caixa Entradas e a resposta digitada faz o programa rodar de novo até o próximo leia.
+    var ultimo = null, editando = -1, colar = false;
+    var DICA = { inteiro: 'número sem vírgula', real: 'número, pode ter casas decimais', caractere: 'texto', logico: 'VERDADEIRO ou FALSO' };
+    function tipoTxt(t) { return t === 'logico' ? 'lógico' : t; }
+    function lerColar() {
+      var ta = $('#va-ent', host);
+      return ta ? ta.value.split('\n').map(function (s) { return s.trim(); }).filter(function (s) { return s.length; }) : labVA.ent;
+    }
+    function cabeca(P) {
+      return '<div class="va-q">' + (P.pergunta ? esc(P.pergunta) : '<i>o programa não escreveu pergunta antes deste leia</i>') + '</div>' +
+        '<div class="va-tag">vai para <code>' + esc(P.nome) + '</code> · ' + esc(tipoTxt(P.tipo)) + (DICA[P.tipo] ? ': ' + DICA[P.tipo] : '') + '</div>';
+    }
+    function desenhaEnts() {
+      var box = $('#va-ents', host);
+      var h = '<div class="va-ents-top"><span>Entradas</span><button type="button" class="va-link" id="va-colar">' + (colar ? 'voltar às perguntas' : 'colar várias de uma vez') + '</button></div>';
+      if (colar) {
+        h += '<p class="va-hint">Uma resposta por linha, na ordem em que o programa pergunta. Depois clique em Rodar.</p>' +
+          '<textarea id="va-ent" class="va-colar" aria-label="Entradas, uma por linha">' + esc(labVA.ent.join('\n')) + '</textarea>';
+      } else if (!ultimo) {
+        h += '<p class="va-hint">Clique em Rodar. Quando o programa chegar num <code>leia</code>, a pergunta aparece aqui e você responde.</p>';
+      } else {
+        var r = ultimo, pend = r.recusada || r.espera;
+        r.lidas.forEach(function (L, k) {
+          h += '<div class="va-row"><span class="va-n">' + (k + 1) + 'ª</span><div class="va-cel">' + cabeca(L) +
+            (editando === k
+              ? '<div class="va-inp"><input class="va-edit" data-k="' + k + '" value="' + esc(L.valor) + '" autocomplete="off" aria-label="Trocar a resposta ' + (k + 1) + '"><button type="button" class="va-go" data-k="' + k + '">Trocar</button></div><div class="va-err"></div>'
+              : '<button type="button" class="va-val" data-k="' + k + '" title="Clique para trocar esta resposta" aria-label="Trocar a resposta ' + (k + 1) + ': ' + esc(L.valor) + '">' + esc(L.valor) + '</button>') +
+            '</div></div>';
+        });
+        if (pend) {
+          var k = r.lidas.length;
+          h += '<div class="va-row wait"><span class="va-n">' + (k + 1) + 'ª</span><div class="va-cel">' + cabeca(pend) +
+            '<div class="va-inp"><input id="va-resp" data-k="' + k + '" value="' + (r.recusada ? esc(r.recusada.valor) : '') + '" placeholder="sua resposta" autocomplete="off" aria-label="Resposta ' + (k + 1) + '"><button type="button" class="va-go" id="va-go" data-k="' + k + '">Continuar ↵</button></div>' +
+            '<div class="va-err">' + (r.recusada ? esc(msgTipo(r.recusada.msg, r.recusada.tipo)) : '') + '</div></div></div>';
+        } else {
+          var sobra = labVA.ent.slice(r.lidas.length);
+          h += '<p class="va-hint">' + (r.erro ? (r.lidas.length ? 'O programa parou por um erro (veja o teste de mesa) antes de pedir outra entrada.' : 'O programa parou por um erro (veja o teste de mesa) antes de pedir alguma entrada.')
+            : (r.lidas.length ? 'O programa terminou e não pediu mais nada.' : 'Este programa não pede nenhuma entrada: não tem <code>leia</code>.')) + '</p>';
+          if (sobra.length && !r.erro) h += '<p class="va-hint">Sobrou sem uso: ' + esc(sobra.join(', ')) + ' · <button type="button" class="va-link" id="va-limpa">apagar</button></p>';
+        }
+      }
+      box.innerHTML = h;
+      $('#va-colar', host).addEventListener('click', function () {
+        if (colar) labVA.ent = lerColar();
+        colar = !colar; desenhaEnts();
+        if (colar) $('#va-ent', host).focus();
+      });
+      var limpa = $('#va-limpa', host);
+      if (limpa) limpa.addEventListener('click', function () { labVA.ent = labVA.ent.slice(0, ultimo.lidas.length); desenhaEnts(); });
+      $$('.va-val', host).forEach(function (b) {
+        b.addEventListener('click', function () {
+          editando = +b.dataset.k; desenhaEnts();
+          var inp = $('.va-edit', host); if (inp) { inp.focus(); inp.select(); }
+        });
+      });
+      $$('.va-inp input', host).forEach(function (inp) {
+        var err = inp.parentNode.nextElementSibling;
+        inp.addEventListener('input', function () { err.textContent = ''; });
+        inp.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter') { ev.preventDefault(); responde(+inp.dataset.k, inp.value, err); }
+          else if (ev.key === 'Escape' && editando >= 0) { editando = -1; desenhaEnts(); }
+        });
+      });
+      $$('.va-inp .va-go', host).forEach(function (b) {
+        b.addEventListener('click', function () {
+          var inp = b.parentNode.querySelector('input');
+          responde(+b.dataset.k, inp.value, b.parentNode.nextElementSibling);
+        });
+      });
+    }
+    function msgTipo(m, tipo) {
+      return m.charAt(0).toUpperCase() + m.slice(1) + '.' + (DICA[tipo] ? ' Aqui vale ' + DICA[tipo] + '.' : '');
+    }
+    function responde(k, v, errEl) {
+      v = String(v).trim();
+      if (!v) { errEl.textContent = 'Digite um valor antes de continuar.'; return; }
+      var P = k < ultimo.lidas.length ? ultimo.lidas[k] : (ultimo.recusada || ultimo.espera);
+      var m = VisuAlg.validarEntrada(v, P.tipo);
+      if (m) { errEl.textContent = msgTipo(m, P.tipo); return; }
+      var nova = labVA.ent.slice(); nova[k] = v;
+      labVA.ent = nova;
+      roda(true, true);
+    }
+    // Respostas valem para o programa em que foram dadas. Se o código mudou, ficam só as
+    // primeiras respostas cujo leia continua igual (mesma variável e mesma pergunta).
+    function roda(foco, fim) {
+      var cod = $('#va-cod', host).value, explicitas = false;
+      if (colar) { labVA.ent = lerColar(); colar = false; explicitas = true; }
+      if (!explicitas && cod !== labVA.base.cod) {
+        var ant = labVA.base.lidas, m = 0;
+        if (ant) {
+          var teste = VisuAlg.executar(cod, labVA.ent, { guiada: true });
+          while (m < teste.lidas.length && m < ant.length && teste.lidas[m].nome === ant[m].nome && teste.lidas[m].pergunta === ant[m].pergunta) m++;
+        }
+        // todas as anteriores bateram: as que vêm depois (recém-digitadas) também ficam
+        if (!(ant && m === ant.length)) labVA.ent = labVA.ent.slice(0, m);
+      }
+      labVA.cod = cod;
+      ultimo = mesa($('#va-mesa', host), cod, labVA.ent, 'Teste de mesa', { va: { guiada: true }, fim: !!fim });
+      labVA.base = { cod: cod, lidas: ultimo.lidas };
+      editando = -1;
+      desenhaEnts();
+      if (foco) { var inp = $('#va-resp', host); if (inp) inp.focus(); }
+    }
     $('#va-ex', host).addEventListener('change', function () {
       var e = exs[+this.value]; if (!e) return;
-      $('#va-cod', host).value = e.codigo; $('#va-ent', host).value = (e.entradas || []).join('\n'); roda();
+      $('#va-cod', host).value = e.codigo; labVA.ent = (e.entradas || []).slice(); labVA.base = { cod: e.codigo, lidas: null }; colar = false; roda(false);
     });
-    $('#va-run', host).addEventListener('click', roda);
-    function roda() {
-      labVA.cod = $('#va-cod', host).value; labVA.ent = $('#va-ent', host).value;
-      var ent = labVA.ent.split('\n').map(function (s) { return s.trim(); }).filter(function (s) { return s.length; });
-      mesa($('#va-mesa', host), labVA.cod, ent, 'Teste de mesa');
-    }
+    $('#va-run', host).addEventListener('click', function () { roda(true); });
+    desenhaEnts();
   }
 
   // ---------- simulado ----------
