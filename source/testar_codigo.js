@@ -36,6 +36,7 @@ const casos = [
   ['ctrl-precedencia', 'algoritmo "a"\nvar\nx: inteiro\ninicio\nx <- 2 + 3 * 4 ^ 2 - 10 div 3\nescreval(x, " ", -2 ^ 2)\nfimalgoritmo', [], '47 -4'],
   ['ctrl-formato', 'algoritmo "a"\nvar\nm: real\ni: inteiro\ninicio\nm <- 43 / 6\ni <- 7\nescreval("M:", m:5:2, " I:", i:3)\nfimalgoritmo', [], 'M: 7.17 I: 7'],
   ['ctrl-ponto-e-virgula', 'algoritmo "a"\nvar x: inteiro;\ninicio\nx <- 5;\nescreval(x);\nfimalgoritmo', [], '5'],
+  ['ctrl-texto-maiuscula', 'algoritmo "a"\nvar\nc: caractere\ninicio\nc <- "abc"\nse c = "ABC" entao\nescreval("igual")\nfimse\nescolha "b"\ncaso "B"\nescreval("caso B")\nfimescolha\nfimalgoritmo', [], 'igual\ncaso B'],
   ['ctrl-acentos', 'algoritmo "a"\nvar\nx: inteiro\ninicio\nx <- 3\nse x > 2 então\nescreval("sim")\nsenão\nescreval("não")\nfimse\nfimalgoritmo', [], 'sim'],
 ];
 for (const c of casos) testa(c[0], c[1], c[2], c[3]);

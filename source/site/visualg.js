@@ -498,7 +498,11 @@
     }
     function compara(a, b, linha) {
       if ((a.tipo === 'i' || a.tipo === 'r') && (b.tipo === 'i' || b.tipo === 'r')) return a.v < b.v ? -1 : a.v > b.v ? 1 : 0;
-      if (a.tipo === 's' && b.tipo === 's') return a.v < b.v ? -1 : a.v > b.v ? 1 : 0;
+      // Manual do VisuAlg: comparações entre textos não diferenciam maiúsculas de minúsculas ("ABC" = "abc")
+      if (a.tipo === 's' && b.tipo === 's') {
+        var x = a.v.toLowerCase(), y = b.v.toLowerCase();
+        return x < y ? -1 : x > y ? 1 : 0;
+      }
       if (a.tipo === 'b' && b.tipo === 'b') return a.v === b.v ? 0 : (a.v ? 1 : -1);
       throw new ErroVA('não dá para comparar ' + NOME_TIPO[a.tipo] + ' com ' + NOME_TIPO[b.tipo], linha);
     }
