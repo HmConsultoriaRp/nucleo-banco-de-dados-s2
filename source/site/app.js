@@ -956,6 +956,7 @@
   }
 
   // --- VisuAlg ---
+  var DICA_MESA = '<p style="color:var(--muted);font-size:13px">Escreva ou escolha um programa e clique em Rodar. O teste de mesa mostra cada linha executada e o valor das variáveis naquele momento.</p>';
   function labVisualg(host) {
     var exs = EX_VA.filter(function (e) { return e.semana <= ui.sem; });
     if (!labVA) {
@@ -963,11 +964,11 @@
       labVA.base = { cod: labVA.cod, lidas: null };
     }
     host.innerHTML = '<div class="lab-grid" style="grid-template-columns:minmax(0,1fr)"><div class="lab-pane" style="padding:0;border-bottom:1px solid var(--line)">' +
-      '<div style="display:flex;gap:6px;padding:10px;border-bottom:1px solid var(--line);flex-wrap:wrap;align-items:center"><select id="va-ex" style="flex:1;min-width:160px;border:1px solid var(--line);padding:7px;background:var(--white)"><option value="">Exemplos prontos…</option>' +
-      exs.map(function (e, i) { return '<option value="' + i + '">' + esc(e.titulo) + '</option>'; }).join('') + '</select><button class="primary-button" id="va-run" style="padding:9px 14px">Rodar ▶</button></div>' +
+      '<div class="va-barra" style="display:flex;gap:6px;padding:10px;border-bottom:1px solid var(--line);flex-wrap:wrap;align-items:center"><select id="va-ex" style="flex:1;min-width:160px;border:1px solid var(--line);padding:7px;background:var(--white)"><option value="">Exemplos prontos…</option>' +
+      exs.map(function (e, i) { return '<option value="' + i + '">' + esc(e.titulo) + '</option>'; }).join('') + '</select><button type="button" class="va-limpar" id="va-limpar" title="Apagar o código, as respostas e o teste de mesa">Limpar</button><button class="primary-button" id="va-run" style="padding:9px 14px">Rodar ▶</button></div>' +
       '<textarea class="editor" id="va-cod" spellcheck="false" aria-label="Código VisuAlg" style="min-height:240px">' + esc(labVA.cod) + '</textarea>' +
       '<div id="va-explica" aria-live="polite"></div><div class="va-ents" id="va-ents"></div></div>' +
-      '<div class="lab-pane" id="va-mesa"><p style="color:var(--muted);font-size:13px">Escreva ou escolha um programa e clique em Rodar. O teste de mesa mostra cada linha executada e o valor das variáveis naquele momento.</p></div></div>';
+      '<div class="lab-pane" id="va-mesa">' + DICA_MESA + '</div></div>';
     // Entradas guiadas: o programa para em cada leia sem resposta, a pergunta aparece
     // na caixa Entradas e a resposta digitada faz o programa rodar de novo até o próximo leia.
     var ultimo = null, editando = -1, colar = false;
@@ -1053,9 +1054,13 @@
       roda(true, true);
     }
     // Explicador de erros: cartão entre o código e as Entradas, com correção de um clique e Desfazer.
-    var desfazer = null;
+    var desfazer = null, desfazLimpa = null;
     function desenhaExplica() {
       var box = $('#va-explica', host), r = ultimo, h = '';
+      if (desfazLimpa) {
+        h += '<div class="va-desfaz"><span>Código, respostas e teste de mesa apagados.</span>' +
+          '<button type="button" class="va-link" id="va-desfaz-limpa">Desfazer</button></div>';
+      }
       if (desfazer) {
         h += '<div class="va-desfaz"><span>' + (r && !r.erro ? 'Correção aplicada: o programa rodou sem erro.' : 'Correção aplicada.') + '</span>' +
           '<button type="button" class="va-link" id="va-desfazer">Desfazer</button></div>';
@@ -1077,6 +1082,13 @@
           '<p class="va-exp-k">Como corrigir</p><p class="va-exp-p">' + md(e.como) + '</p>' + dif + '</div>';
       }
       box.innerHTML = h;
+      var bl = $('#va-desfaz-limpa', host);
+      if (bl) bl.addEventListener('click', function () {
+        var a = desfazLimpa; desfazLimpa = null;
+        $('#va-cod', host).value = a.cod; labVA.cod = a.cod; labVA.ent = a.ent; labVA.base = a.base;
+        desenhaExplica(); desenhaEnts();
+        $('#va-cod', host).focus();
+      });
       var bd = $('#va-desfazer', host);
       if (bd) bd.addEventListener('click', function () {
         var antes = desfazer; desfazer = null;
@@ -1091,8 +1103,24 @@
     }
     // Respostas valem para o programa em que foram dadas. Se o código mudou, ficam só as
     // primeiras respostas cujo leia continua igual (mesma variável e mesma pergunta).
+    // Limpar: apaga código, respostas, explicação e teste de mesa; o Desfazer devolve código e respostas.
+    function limpa() {
+      var cod = $('#va-cod', host).value;
+      if (!cod.trim() && !labVA.ent.length && !ultimo) { $('#va-cod', host).focus(); return; }
+      desfazLimpa = { cod: cod, ent: labVA.ent.slice(), base: labVA.base };
+      desfazer = null; ultimo = null; editando = -1; colar = false;
+      $('#va-cod', host).value = ''; labVA.cod = ''; labVA.ent = []; labVA.base = { cod: '', lidas: null };
+      $('#va-ex', host).value = '';
+      // troca o quadro do teste de mesa por um novo: o "tocar sozinho" do anterior para sozinho
+      var velho = $('#va-mesa', host), novo = velho.cloneNode(false);
+      velho.parentNode.replaceChild(novo, velho);
+      novo.innerHTML = DICA_MESA;
+      desenhaExplica(); desenhaEnts();
+      $('#va-cod', host).focus();
+    }
     function roda(foco, fim, deCorrecao) {
       if (!deCorrecao) desfazer = null;
+      desfazLimpa = null;
       var cod = $('#va-cod', host).value, explicitas = false;
       if (colar) { labVA.ent = lerColar(); colar = false; explicitas = true; }
       if (!explicitas && cod !== labVA.base.cod) {
@@ -1117,6 +1145,7 @@
       $('#va-cod', host).value = e.codigo; labVA.ent = (e.entradas || []).slice(); labVA.base = { cod: e.codigo, lidas: null }; colar = false; roda(false);
     });
     $('#va-run', host).addEventListener('click', function () { roda(true); });
+    $('#va-limpar', host).addEventListener('click', limpa);
     desenhaEnts();
   }
 
