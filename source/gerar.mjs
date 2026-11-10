@@ -55,7 +55,7 @@ function main(saida) {
   }
 
   const exs = JSON.parse(ler(path.join(AQUI, 'exemplos_visualg.json'))).questoes;
-  const exemplosVisualg = exs.map(({ titulo, semana, codigo, entradas }) => ({ titulo, semana, codigo, entradas }));
+  const exemplosVisualg = exs.map(({ titulo, semana, codigo, entradas, grupo }) => ({ titulo, semana, codigo, entradas, grupo: grupo || '' }));
   const dados = { geradoEm: agoraBrasil(), inicio: INICIO, disc, exemplosVisualg };
   const jsDados = `window.NUCLEO = ${JSON.stringify(dados).replaceAll('</', '<\\/')};`;
 

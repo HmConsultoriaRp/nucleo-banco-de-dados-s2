@@ -2,6 +2,48 @@
   "disciplina": "lab",
   "questoes": [
     {
+      "id": "lista01-ex1", "semana": 5, "grupo": "lista01", "titulo": "Ex. 1 · Exibição fixa de dados pessoais",
+      "codigo": "algoritmo \"Dados pessoais fixos\"\n// Lista 01 - Exercício 1: declarar variáveis e exibir na tela\n// Troque os valores de exemplo pelos seus.\nvar\n   nome_completo, apelido: caractere\n   idade: inteiro\ninicio\n   nome_completo <- \"Fulano de Tal da Silva\"\n   apelido <- \"Fulano\"\n   idade <- 40\n   escreval(\"Nome completo: \", nome_completo)\n   escreval(\"Prefiro ser chamado de: \", apelido)\n   escreval(\"Idade: \", idade, \" anos\")\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": [],
+      "saida": "Nome completo: Fulano de Tal da Silva\nPrefiro ser chamado de: Fulano\nIdade:  40 anos"
+    },
+    {
+      "id": "lista01-ex2", "semana": 5, "grupo": "lista01", "titulo": "Ex. 2 · Leitura e exibição formatada",
+      "codigo": "algoritmo \"Leitura e exibicao dos dados\"\n// Lista 01 - Exercício 2: ler do teclado e exibir organizado\nvar\n   nome_completo, apelido: caractere\n   idade: inteiro\ninicio\n   escreva(\"Digite seu nome completo: \")\n   leia(nome_completo)\n   escreva(\"Como você prefere ser chamado? \")\n   leia(apelido)\n   escreva(\"Qual a sua idade? \")\n   leia(idade)\n   escreval(\"\")\n   escreval(\"===== Seus dados =====\")\n   escreval(\"Nome completo : \", nome_completo)\n   escreval(\"Chamado de    : \", apelido)\n   escreval(\"Idade         : \", idade, \" anos\")\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": ["Maria da Conceição Souza","Ceça","52"],
+      "saida": "Digite seu nome completo: Como você prefere ser chamado? Qual a sua idade? \n===== Seus dados =====\nNome completo : Maria da Conceição Souza\nChamado de    : Ceça\nIdade         :  52 anos"
+    },
+    {
+      "id": "lista01-ex3", "semana": 5, "grupo": "lista01", "titulo": "Ex. 3 · Média aritmética de 3 notas",
+      "codigo": "algoritmo \"Media de tres notas\"\n// Lista 01 - Exercício 3: média aritmética de 3 notas, com 2 casas decimais\nvar\n   n1, n2, n3, media: real\ninicio\n   escreva(\"Primeira nota (0 a 10): \")\n   leia(n1)\n   escreva(\"Segunda nota (0 a 10): \")\n   leia(n2)\n   escreva(\"Terceira nota (0 a 10): \")\n   leia(n3)\n   // os parênteses fazem a soma acontecer antes da divisão\n   media <- (n1 + n2 + n3) / 3\n   escreval(\"Média: \", media:5:2)\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": ["7.5","8","6.5"],
+      "saida": "Primeira nota (0 a 10): Segunda nota (0 a 10): Terceira nota (0 a 10): Média:  7.33"
+    },
+    {
+      "id": "lista01-ex4", "semana": 5, "grupo": "lista01", "titulo": "Ex. 4 · Média e desvio padrão",
+      "codigo": "algoritmo \"Media e desvio padrao\"\n// Lista 01 - Exercício 4: média e desvio padrão de 3 notas, com 2 casas decimais\n// A lista não diz qual desvio padrão quer: o programa mostra os dois.\nvar\n   n1, n2, n3, media, soma_quad, dp_pop, dp_amostra: real\ninicio\n   escreva(\"Primeira nota (0 a 10): \")\n   leia(n1)\n   escreva(\"Segunda nota (0 a 10): \")\n   leia(n2)\n   escreva(\"Terceira nota (0 a 10): \")\n   leia(n3)\n   media <- (n1 + n2 + n3) / 3\n   // quanto cada nota se afasta da média, ao quadrado, somado\n   soma_quad <- (n1 - media) ^ 2 + (n2 - media) ^ 2 + (n3 - media) ^ 2\n   dp_pop <- raizq(soma_quad / 3)\n   dp_amostra <- raizq(soma_quad / 2)\n   escreval(\"Média: \", media:5:2)\n   escreval(\"Desvio padrão populacional (divide por 3): \", dp_pop:5:2)\n   escreval(\"Desvio padrão amostral (divide por 2): \", dp_amostra:5:2)\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": ["7.5","8","6.5"],
+      "saida": "Primeira nota (0 a 10): Segunda nota (0 a 10): Terceira nota (0 a 10): Média:  7.33\nDesvio padrão populacional (divide por 3):  0.62\nDesvio padrão amostral (divide por 2):  0.76"
+    },
+    {
+      "id": "lista01-ex5", "semana": 5, "grupo": "lista01", "titulo": "Ex. 5 · Nota necessária na 3ª prova (desafio)",
+      "codigo": "algoritmo \"Nota necessaria na terceira prova\"\n// Lista 01 - Exercício 5 (desafio): nota mínima na 3ª prova\n// Supõe média aritmética simples das 3 provas: (n1 + n2 + n3) / 3 >= média de aprovação\nvar\n   n1, n2, media_aprov, n3: real\ninicio\n   escreva(\"Nota da primeira prova: \")\n   leia(n1)\n   escreva(\"Nota da segunda prova: \")\n   leia(n2)\n   escreva(\"Média necessária para aprovação: \")\n   leia(media_aprov)\n   // (n1 + n2 + n3) / 3 = media_aprov  ->  n3 = 3 * media_aprov - n1 - n2\n   n3 <- 3 * media_aprov - n1 - n2\n   // O computador guarda 6.1 ou 1.9 de forma aproximada: a conta pode dar\n   // 10.000000000000002 quando o certo é 10. A margem de 0.00001 evita a decisão errada.\n   se n3 > 10.00001 entao\n      escreval(\"Não dá para ser aprovado: seria preciso tirar \", n3:5:2, \" na terceira prova.\")\n   senao\n      se n3 <= 0.00001 entao\n         escreval(\"Você já está aprovado: qualquer nota na terceira prova serve.\")\n      senao\n         escreval(\"Nota mínima na terceira prova: \", n3:5:2)\n      fimse\n   fimse\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": ["1.9","6.1","6"],
+      "saida": "Nota da primeira prova: Nota da segunda prova: Média necessária para aprovação: Nota mínima na terceira prova: 10.00"
+    },
+    {
+      "id": "lista01-ex6", "semana": 5, "grupo": "lista01", "titulo": "Ex. 6 · Dias de vida com anos bissextos (desafio)",
+      "codigo": "algoritmo \"Dias de vida\"\n// Lista 01 - Exercício 6 (desafio): dias entre o nascimento e a data atual,\n// contando os anos bissextos (fevereiro com 29 dias)\nvar\n   dias_mes: vetor[1..12] de inteiro\n   dia_do_ano: vetor[1..2] de inteiro\n   ano_nasc, mes_nasc, dia_nasc, ano_atual, mes_atual, dia_atual: inteiro\n   a, m, d, k, mes, ano, total: inteiro\n   valida: logico\ninicio\n   dias_mes[1] <- 31\n   dias_mes[2] <- 28\n   dias_mes[3] <- 31\n   dias_mes[4] <- 30\n   dias_mes[5] <- 31\n   dias_mes[6] <- 30\n   dias_mes[7] <- 31\n   dias_mes[8] <- 31\n   dias_mes[9] <- 30\n   dias_mes[10] <- 31\n   dias_mes[11] <- 30\n   dias_mes[12] <- 31\n   escreva(\"Ano de nascimento: \")\n   leia(ano_nasc)\n   escreva(\"Mês de nascimento: \")\n   leia(mes_nasc)\n   escreva(\"Dia de nascimento: \")\n   leia(dia_nasc)\n   escreva(\"Ano atual: \")\n   leia(ano_atual)\n   escreva(\"Mês atual: \")\n   leia(mes_atual)\n   escreva(\"Dia atual: \")\n   leia(dia_atual)\n   // 1) Confere cada data e acha a posição dela dentro do próprio ano (1º de janeiro = dia 1).\n   //    k = 1 é o nascimento; k = 2 é a data atual.\n   valida <- verdadeiro\n   para k de 1 ate 2 faca\n      se k = 1 entao\n         a <- ano_nasc\n         m <- mes_nasc\n         d <- dia_nasc\n      senao\n         a <- ano_atual\n         m <- mes_atual\n         d <- dia_atual\n      fimse\n      // bissexto: divisível por 4 e não por 100, ou divisível por 400\n      se (((a mod 4) = 0) e ((a mod 100) <> 0)) ou ((a mod 400) = 0) entao\n         dias_mes[2] <- 29\n      senao\n         dias_mes[2] <- 28\n      fimse\n      se (m < 1) ou (m > 12) entao\n         valida <- falso\n      senao\n         se (d < 1) ou (d > dias_mes[m]) entao\n            valida <- falso\n         senao\n            dia_do_ano[k] <- d\n            mes <- 1\n            enquanto mes < m faca\n               dia_do_ano[k] <- dia_do_ano[k] + dias_mes[mes]\n               mes <- mes + 1\n            fimenquanto\n         fimse\n      fimse\n   fimpara\n   se valida entao\n      // 2) A data atual não pode vir antes do nascimento.\n      //    Juntar ano, mês e dia num número só (AAAAMMDD) permite comparar as datas de uma vez.\n      se (ano_atual * 10000 + mes_atual * 100 + dia_atual) < (ano_nasc * 10000 + mes_nasc * 100 + dia_nasc) entao\n         escreval(\"A data atual é anterior à data de nascimento.\")\n      senao\n         // 3) Soma os anos inteiros, do ano de nascimento até o ano anterior ao atual.\n         total <- dia_do_ano[2] - dia_do_ano[1]\n         ano <- ano_nasc\n         enquanto ano < ano_atual faca\n            se (((ano mod 4) = 0) e ((ano mod 100) <> 0)) ou ((ano mod 400) = 0) entao\n               total <- total + 366\n            senao\n               total <- total + 365\n            fimse\n            ano <- ano + 1\n         fimenquanto\n         escreval(\"Dias de vida: \", total)\n      fimse\n   senao\n      escreval(\"Data inválida: o mês vai de 1 a 12 e o dia precisa existir naquele mês.\")\n   fimse\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": ["2000","2","29","2026","11","2"],
+      "saida": "Ano de nascimento: Mês de nascimento: Dia de nascimento: Ano atual: Mês atual: Dia atual: Dias de vida:  9743"
+    },
+    {
       "id": "lab-media", "semana": 5, "titulo": "Média de duas notas e situação",
       "codigo": "algoritmo \"media_e_situacao\"\nvar\n   n1, n2, media: real\ninicio\n   escreva(\"Primeira nota: \")\n   leia(n1)\n   escreva(\"Segunda nota: \")\n   leia(n2)\n   media <- (n1 + n2) / 2\n   se media >= 6 entao\n      escreval(\"Aprovado. Média: \", media)\n   senao\n      escreval(\"Em recuperação. Média: \", media)\n   fimse\nfimalgoritmo",
       "entradas": ["7", "5.5"],

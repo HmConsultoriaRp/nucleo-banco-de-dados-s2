@@ -957,6 +957,17 @@
 
   // --- VisuAlg ---
   var DICA_MESA = '<p style="color:var(--muted);font-size:13px">Escreva ou escolha um programa e clique em Rodar. O teste de mesa mostra cada linha executada e o valor das variáveis naquele momento.</p>';
+  // Exemplos prontos em grupos: listas do professor (resolução) primeiro, depois os exemplos do site.
+  var GRUPOS_EX = [['lista01', 'Lista 01 do professor (resolução)'], ['', 'Exemplos do site']];
+  function opcoesExemplos(exs) {
+    return GRUPOS_EX.map(function (g) {
+      var itens = exs.map(function (e, i) { return { e: e, i: i }; }).filter(function (x) { return (x.e.grupo || '') === g[0]; });
+      if (!itens.length) return '';
+      return '<optgroup label="' + esc(g[1]) + '">' + itens.map(function (x) {
+        return '<option value="' + x.i + '">' + esc(x.e.titulo) + '</option>';
+      }).join('') + '</optgroup>';
+    }).join('');
+  }
   function labVisualg(host) {
     var exs = EX_VA.filter(function (e) { return e.semana <= ui.sem; });
     if (!labVA) {
@@ -965,7 +976,7 @@
     }
     host.innerHTML = '<div class="lab-grid" style="grid-template-columns:minmax(0,1fr)"><div class="lab-pane" style="padding:0;border-bottom:1px solid var(--line)">' +
       '<div class="va-barra" style="display:flex;gap:6px;padding:10px;border-bottom:1px solid var(--line);flex-wrap:wrap;align-items:center"><select id="va-ex" style="flex:1;min-width:160px;border:1px solid var(--line);padding:7px;background:var(--white)"><option value="">Exemplos prontos…</option>' +
-      exs.map(function (e, i) { return '<option value="' + i + '">' + esc(e.titulo) + '</option>'; }).join('') + '</select><button type="button" class="va-limpar" id="va-limpar" title="Apagar o código, as respostas e o teste de mesa">Limpar</button><button class="primary-button" id="va-run" style="padding:9px 14px">Rodar ▶</button></div>' +
+      opcoesExemplos(exs) + '</select><button type="button" class="va-limpar" id="va-limpar" title="Apagar o código, as respostas e o teste de mesa">Limpar</button><button class="primary-button" id="va-run" style="padding:9px 14px">Rodar ▶</button></div>' +
       '<textarea class="editor" id="va-cod" spellcheck="false" aria-label="Código VisuAlg" style="min-height:240px">' + esc(labVA.cod) + '</textarea>' +
       '<div id="va-explica" aria-live="polite"></div><div class="va-ents" id="va-ents"></div></div>' +
       '<div class="lab-pane" id="va-mesa">' + DICA_MESA + '</div></div>';
@@ -1142,7 +1153,8 @@
     }
     $('#va-ex', host).addEventListener('change', function () {
       var e = exs[+this.value]; if (!e) return;
-      $('#va-cod', host).value = e.codigo; labVA.ent = (e.entradas || []).slice(); labVA.base = { cod: e.codigo, lidas: null }; colar = false; roda(false);
+      $('#va-cod', host).value = e.codigo; labVA.ent = (e.entradas || []).slice(); labVA.base = { cod: e.codigo, lidas: null }; colar = false;
+      roda(!labVA.ent.length); // sem respostas prontas: o cursor vai para a primeira pergunta
     });
     $('#va-run', host).addEventListener('click', function () { roda(true); });
     $('#va-limpar', host).addEventListener('click', limpa);

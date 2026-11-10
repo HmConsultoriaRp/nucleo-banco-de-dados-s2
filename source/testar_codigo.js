@@ -63,7 +63,8 @@ for (const f of arquivos) {
   for (const q of d.questoes || []) {
     if (!q.codigo) continue;
     nq++;
-    testa(q.id, q.codigo, q.entradas, q.saida);
+    // entradasTeste: exemplos que no laboratório começam sem respostas (o programa pergunta)
+    testa(q.id, q.codigo, q.entradasTeste || q.entradas, q.saida);
   }
 }
 console.log(`${total} testes (${nq} questões com código); ${falhas} falha(s)`);
