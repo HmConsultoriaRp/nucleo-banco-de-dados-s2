@@ -966,7 +966,7 @@
       '<div style="display:flex;gap:6px;padding:10px;border-bottom:1px solid var(--line);flex-wrap:wrap;align-items:center"><select id="va-ex" style="flex:1;min-width:160px;border:1px solid var(--line);padding:7px;background:var(--white)"><option value="">Exemplos prontos…</option>' +
       exs.map(function (e, i) { return '<option value="' + i + '">' + esc(e.titulo) + '</option>'; }).join('') + '</select><button class="primary-button" id="va-run" style="padding:9px 14px">Rodar ▶</button></div>' +
       '<textarea class="editor" id="va-cod" spellcheck="false" aria-label="Código VisuAlg" style="min-height:240px">' + esc(labVA.cod) + '</textarea>' +
-      '<div class="va-ents" id="va-ents"></div></div>' +
+      '<div id="va-explica" aria-live="polite"></div><div class="va-ents" id="va-ents"></div></div>' +
       '<div class="lab-pane" id="va-mesa"><p style="color:var(--muted);font-size:13px">Escreva ou escolha um programa e clique em Rodar. O teste de mesa mostra cada linha executada e o valor das variáveis naquele momento.</p></div></div>';
     // Entradas guiadas: o programa para em cada leia sem resposta, a pergunta aparece
     // na caixa Entradas e a resposta digitada faz o programa rodar de novo até o próximo leia.
@@ -1005,7 +1005,7 @@
             '<div class="va-err">' + (r.recusada ? esc(msgTipo(r.recusada.msg, r.recusada.tipo)) : '') + '</div></div></div>';
         } else {
           var sobra = labVA.ent.slice(r.lidas.length);
-          h += '<p class="va-hint">' + (r.erro ? (r.lidas.length ? 'O programa parou por um erro (veja o teste de mesa) antes de pedir outra entrada.' : 'O programa parou por um erro (veja o teste de mesa) antes de pedir alguma entrada.')
+          h += '<p class="va-hint">' + (r.erro ? (r.lidas.length ? 'O programa parou por um erro (veja a explicação acima) antes de pedir outra entrada.' : 'O programa parou por um erro (veja a explicação acima) antes de pedir alguma entrada.')
             : (r.lidas.length ? 'O programa terminou e não pediu mais nada.' : 'Este programa não pede nenhuma entrada: não tem <code>leia</code>.')) + '</p>';
           if (sobra.length && !r.erro) h += '<p class="va-hint">Sobrou sem uso: ' + esc(sobra.join(', ')) + ' · <button type="button" class="va-link" id="va-limpa">apagar</button></p>';
         }
@@ -1052,9 +1052,47 @@
       labVA.ent = nova;
       roda(true, true);
     }
+    // Explicador de erros: cartão entre o código e as Entradas, com correção de um clique e Desfazer.
+    var desfazer = null;
+    function desenhaExplica() {
+      var box = $('#va-explica', host), r = ultimo, h = '';
+      if (desfazer) {
+        h += '<div class="va-desfaz"><span>' + (r && !r.erro ? 'Correção aplicada: o programa rodou sem erro.' : 'Correção aplicada.') + '</span>' +
+          '<button type="button" class="va-link" id="va-desfazer">Desfazer</button></div>';
+      }
+      var e = r && r.erro && !r.espera && !r.recusada ? VisuAlg.explicar(labVA.cod, r) : null;
+      if (e) {
+        var dif = '';
+        if (e.correcao) {
+          var ds = e.correcao.diff, mostra = ds.slice(0, 8);
+          dif = '<pre class="va-dif">' + mostra.map(function (d) {
+            return '<span class="' + (d.s === '-' ? 'menos' : 'mais') + '">' + (d.s === '-' ? '−' : '+') + ' ' + d.n + '  ' + esc(d.t.trim()) + '</span>';
+          }).join('\n') + (ds.length > mostra.length ? '\n… e mais ' + (ds.length - mostra.length) + ' linha(s)' : '') + '</pre>' +
+            '<button type="button" class="va-go" id="va-aplicar">' + esc(e.correcao.rotulo) + '</button>';
+        }
+        h += '<div class="va-exp" role="region" aria-label="Explicação do erro">' +
+          '<p class="va-exp-k">Explicação do erro</p><p class="va-exp-t">' + md(e.titulo) + '</p>' +
+          '<p class="va-exp-hoje">mensagem do site: ' + esc(e.hoje) + '</p>' +
+          '<p class="va-exp-k">O que aconteceu</p><p class="va-exp-p">' + md(e.oque) + '</p>' +
+          '<p class="va-exp-k">Como corrigir</p><p class="va-exp-p">' + md(e.como) + '</p>' + dif + '</div>';
+      }
+      box.innerHTML = h;
+      var bd = $('#va-desfazer', host);
+      if (bd) bd.addEventListener('click', function () {
+        var antes = desfazer; desfazer = null;
+        $('#va-cod', host).value = antes; roda(false);
+      });
+      var ba = $('#va-aplicar', host);
+      if (ba) ba.addEventListener('click', function () {
+        desfazer = labVA.cod;
+        $('#va-cod', host).value = e.correcao.codigo;
+        roda(true, true, true);
+      });
+    }
     // Respostas valem para o programa em que foram dadas. Se o código mudou, ficam só as
     // primeiras respostas cujo leia continua igual (mesma variável e mesma pergunta).
-    function roda(foco, fim) {
+    function roda(foco, fim, deCorrecao) {
+      if (!deCorrecao) desfazer = null;
       var cod = $('#va-cod', host).value, explicitas = false;
       if (colar) { labVA.ent = lerColar(); colar = false; explicitas = true; }
       if (!explicitas && cod !== labVA.base.cod) {
@@ -1070,6 +1108,7 @@
       ultimo = mesa($('#va-mesa', host), cod, labVA.ent, 'Teste de mesa', { va: { guiada: true }, fim: !!fim });
       labVA.base = { cod: cod, lidas: ultimo.lidas };
       editando = -1;
+      desenhaExplica();
       desenhaEnts();
       if (foco) { var inp = $('#va-resp', host); if (inp) inp.focus(); }
     }

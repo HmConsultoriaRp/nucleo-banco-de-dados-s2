@@ -677,13 +677,518 @@
     return res;
   }
 
+  // ---------- explicador de erros (laboratório) ----------
+  // VisuAlg.explicar(codigo, res) -> { tipo, titulo, oque, como, hoje, linha, correcao } ou null.
+  // correcao: { codigo, diff: [{ s: '-'|'+', n, t }], rotulo, sugestao }. Texto com `código` entre crases.
+  var CMDS = ['escreval', 'escreva', 'leia', 'se', 'entao', 'senao', 'fimse', 'para', 'faca', 'fimpara', 'enquanto',
+    'fimenquanto', 'repita', 'fimrepita', 'escolha', 'caso', 'outrocaso', 'fimescolha', 'interrompa', 'inicio',
+    'fimalgoritmo', 'algoritmo', 'limpatela', 'pausa'];
+  var FUNCS = ['raizq', 'abs', 'int', 'quad', 'compr', 'maiusc', 'minusc', 'exp'];
+  var FUNC_SIN = { raiz: 'raizq', sqrt: 'raizq', raizquadrada: 'raizq', pow: 'exp', potencia: 'exp', modulo: 'abs', absoluto: 'abs' };
+  var TIPO_SIN = { inteira: 'inteiro', int: 'inteiro', integer: 'inteiro', numero: 'inteiro', inteiros: 'inteiro',
+    texto: 'caractere', string: 'caractere', str: 'caractere', char: 'caractere', caracteres: 'caractere',
+    float: 'real', double: 'real', decimal: 'real', reais: 'real', bool: 'logico', boolean: 'logico', logica: 'logico' };
+  var ABRE = { se: 'fimse', para: 'fimpara', enquanto: 'fimenquanto', repita: 'ate', escolha: 'fimescolha' };
+  var FECHA = { fimse: 'se', fimpara: 'para', fimenquanto: 'enquanto', ate: 'repita', fimrepita: 'repita', fimescolha: 'escolha' };
+  var OPKW = { e: 1, ou: 1, nao: 1, xou: 1, div: 1, mod: 1, de: 1, ate: 1, passo: 1, faca: 1, entao: 1 };
+
+  function distancia(a, b) {
+    var m = a.length, n = b.length, d = [], i, j;
+    for (i = 0; i <= m; i++) { d[i] = [i]; }
+    for (j = 0; j <= n; j++) d[0][j] = j;
+    for (i = 1; i <= m; i++) for (j = 1; j <= n; j++) {
+      d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    }
+    return d[m][n];
+  }
+  // palavra parecida: nada para palavras de 1 ou 2 letras (j e i não são "parecidas");
+  // 3 a 5 letras aceitam 1 diferença, 6 ou mais aceitam 2. minimo: tamanho mínimo da palavra.
+  function parecida(w, lista, minimo) {
+    if (w.length < (minimo || 3)) return null;
+    var melhor = null, md = 3, lim = w.length >= 6 ? 2 : 1;
+    lista.forEach(function (x) {
+      var dd = distancia(w, x);
+      if (dd > 0 && dd < md && dd <= lim && x.length >= 3) { md = dd; melhor = x; }
+    });
+    return melhor;
+  }
+  function escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+  function explicar(codigo, res) {
+    if (!res || !res.erro) return null;
+    try { return explicar_(String(codigo), res); } catch (e) {
+      return { tipo: 'geral', titulo: 'Linha ' + (res.erro.linha || '?') + ' · erro', hoje: res.erro.msg, linha: res.erro.linha,
+        oque: 'O site parou com a mensagem: ' + res.erro.msg + '.', como: 'Confira esta linha e a de cima.', correcao: null };
+    }
+  }
+
+  function explicar_(codigo, res) {
+    var msg = res.erro.msg, L = res.erro.linha || 0, L0 = L;
+    var lin = codigo.split('\n');
+    function get(n) { return (lin[n - 1] || '').replace(/\r$/, ''); }
+    function ind(s) { return (s.match(/^[ \t]*/) || [''])[0]; }
+    function low(s) { return semAcento(String(s).toLowerCase()); }
+    function pw(n) { var m = low(get(n)).trim().match(/^[a-z_][a-z0-9_]*/); return m ? m[0] : ''; }
+    function semCom(s) { var k = s.indexOf('//'); return k >= 0 ? s.slice(0, k) : s; }
+    var decl = res.decl || {};
+    var nomesDecl = Object.keys(decl).map(function (k) { return decl[k].raw; });
+    var ultimo = res.passos && res.passos.length ? res.passos[res.passos.length - 1].vars : {};
+    function valores(n) {
+      var vistos = {}, out = [];
+      (get(n).match(/[A-Za-z_À-ÿ][A-Za-z0-9_À-ÿ]*/g) || []).forEach(function (w) {
+        var k = low(w);
+        if (vistos[k] || !decl[k]) return; vistos[k] = 1;
+        var raw = decl[k].raw;
+        if (ultimo[raw] !== undefined) out.push('`' + raw + ' = ' + ultimo[raw] + '`');
+      });
+      return out;
+    }
+    function ex(tipo, titulo, oque, como, nova, extra) {
+      var r = { tipo: tipo, titulo: titulo, oque: oque, como: como, hoje: (L0 ? 'linha ' + L0 + ': ' : '') + msg, linha: L, correcao: null };
+      if (nova) {
+        var d = diff(lin, nova);
+        if (d.length) r.correcao = { codigo: nova.join('\n'), diff: d, rotulo: (extra && extra.rotulo) || 'Aplicar correção', sugestao: !!(extra && extra.sugestao) };
+      }
+      return r;
+    }
+    function copia() { return lin.slice(); }
+    function troca(n, t) { var c = copia(); c[n - 1] = t; return c; }
+    function insere(depoisDe, t) { var c = copia(); c.splice(depoisDe, 0, t); return c; }
+    function trocaPalavra(n, de, para) {
+      var re = new RegExp('(^|[^A-Za-z0-9_À-ÿ])' + escRe(de) + '(?![A-Za-z0-9_À-ÿ])', 'i');
+      var s = get(n);
+      return re.test(s) ? troca(n, s.replace(re, function (m, a) { return a + para; })) : null;
+    }
+    function linhaVar() { for (var n = 1; n <= lin.length; n++) if (pw(n) === 'var') return n; return 0; }
+    function linhaInicio() { for (var n = 1; n <= lin.length; n++) if (pw(n) === 'inicio') return n; return 0; }
+    var REDECL = /^(\s*(?:var\s+)?)(.+?)(\s*:\s*)(inteiro|real|caractere|caracter|literal|logico)(\s*;?\s*)$/i;
+    function achaDecl(nome) {
+      var a = linhaVar(), b = linhaInicio() || lin.length + 1;
+      if (!a) return null;
+      for (var n = a; n < b; n++) {
+        var m = semCom(get(n)).match(REDECL);
+        if (!m) continue;
+        var nomes = m[2].split(',').map(function (x) { return x.trim(); });
+        var k = nomes.map(low).indexOf(low(nome));
+        if (k >= 0) return { n: n, m: m, nomes: nomes, k: k };
+      }
+      return null;
+    }
+    function mudaTipo(nome, tipo) {
+      var dd = achaDecl(nome);
+      if (!dd) return null;
+      var m = dd.m;
+      if (dd.nomes.length === 1) return troca(dd.n, m[1] + m[2] + m[3] + tipo + m[5]);
+      var resto = dd.nomes.filter(function (x, i) { return i !== dd.k; });
+      var c = troca(dd.n, m[1] + resto.join(', ') + m[3] + m[4] + m[5]);
+      var recuo = ind(get(dd.n)) || '   ';
+      if (/^\s*var\s/i.test(get(dd.n))) recuo = '   ';
+      c.splice(dd.n, 0, recuo + dd.nomes[dd.k] + ': ' + tipo);
+      return c;
+    }
+    function acrescentaDecl(nome, tipo) {
+      var a = linhaVar(), b = linhaInicio();
+      if (a && b) {
+        for (var n = a; n < b; n++) {
+          var m = semCom(get(n)).match(REDECL);
+          if (m && low(m[4]).replace(/caracter$|literal/, 'caractere') === tipo) return troca(n, m[1] + m[2] + ', ' + nome + m[3] + m[4] + m[5]);
+        }
+        return insere(b - 1, '   ' + nome + ': ' + tipo);
+      }
+      if (b) { var c = copia(); c.splice(b - 1, 0, 'var', '   ' + nome + ': ' + tipo); return c; }
+      return null;
+    }
+    function tipoPeloUso(v) {
+      var vr = escRe(v);
+      for (var n = 1; n <= lin.length; n++) {
+        var s = semCom(get(n));
+        if (new RegExp('^\\s*para\\s+' + vr + '\\s+de\\b', 'i').test(s)) return { tipo: 'inteiro', porque: 'Ela conta as voltas do `para`' };
+        var m = s.match(new RegExp('^\\s*' + vr + '\\s*(?:<-|:=|←)\\s*(.+)$', 'i'));
+        if (!m) continue;
+        var r = m[1].trim();
+        if (/^"/.test(r)) return { tipo: 'caractere', porque: 'Ela recebe um texto' };
+        if (/^(verdadeiro|falso)\b/i.test(r)) return { tipo: 'logico', porque: 'Ela recebe VERDADEIRO ou FALSO' };
+        if (/^-?\d+\.\d+/.test(r) || /\//.test(r) || /raizq\s*\(/i.test(r)) return { tipo: 'real', porque: 'Ela recebe um número com casas decimais' };
+        if (/^-?\d+\s*$/.test(r)) return { tipo: 'inteiro', porque: 'Ela recebe um número inteiro' };
+      }
+      return null;
+    }
+    // pilha de blocos pelo começo de cada linha
+    function blocos() {
+      var pilha = [];
+      for (var n = 1; n <= lin.length; n++) {
+        var w = pw(n);
+        if (ABRE[w]) pilha.push({ kw: w, n: n, ind: ind(get(n)) });
+        else if (FECHA[w]) {
+          var topo = pilha[pilha.length - 1];
+          if (topo && topo.kw === FECHA[w]) pilha.pop();
+          else if (topo) return { aberto: topo, achou: { w: w, n: n } };
+          else return { sobra: { w: w, n: n } };
+        } else if (w === 'fimalgoritmo' && pilha.length) return { aberto: pilha[pilha.length - 1], achou: { w: w, n: n } };
+      }
+      return pilha.length ? { aberto: pilha[pilha.length - 1], achou: { w: 'fim do código', n: lin.length } } : null;
+    }
+    function fechaBloco(b) {
+      if (b.kw === 'repita') return null;
+      var ultimoN = b.n;
+      for (var k = b.n + 1; k <= lin.length; k++) {
+        var s = get(k);
+        if (!s.trim()) continue;
+        var w = pw(k);
+        if (ind(s).length > b.ind.length) { ultimoN = k; continue; }
+        if (b.kw === 'se' && w === 'senao') { ultimoN = k; continue; }
+        if (b.kw === 'escolha' && (w === 'caso' || w === 'outrocaso')) { ultimoN = k; continue; }
+        break;
+      }
+      if (ultimoN === b.n) return null;
+      return { nova: insere(ultimoN, b.ind + ABRE[b.kw]), depois: ultimoN };
+    }
+    function blocoAberto(bl) {
+      var a = bl.aberto, fim = ABRE[a.kw], onde = bl.achou.w === 'fim do código' ? 'no fim do código' : 'na linha ' + bl.achou.n + ', ao encontrar `' + bl.achou.w + '`';
+      var fb = fechaBloco(a);
+      L = a.n;
+      return ex('bloco-aberto', 'Linha ' + a.n + ' · `' + a.kw + '` sem `' + fim + '`',
+        'O `' + a.kw + '` aberto na linha ' + a.n + ' não foi fechado. O site só percebeu ' + onde + '.',
+        fb ? 'Feche com `' + fim + '`. Pelo recuo do texto, o bloco termina na linha ' + fb.depois + ', então o `' + fim + '` entra logo depois dela.'
+          : 'Feche com `' + fim + '` depois do último comando que deve ficar dentro do `' + a.kw + '`.' + (a.kw === 'repita' ? ' O `repita` fecha com `ate` e uma condição: `ate i > 10`.' : ''),
+        fb ? fb.nova : null);
+    }
+    var m;
+
+    // 1. variável não declarada
+    if ((m = msg.match(/^variável não declarada: (\S+)/))) {
+      var v = m[1], vRaw = (get(L).match(new RegExp('[A-Za-z0-9_À-ÿ]*', 'g')) || []).filter(function (w) { return low(w) === v; })[0] || v;
+      var quis = parecida(v, Object.keys(decl), 4);
+      if (quis) {
+        return ex('nao-declarada', 'Linha ' + L + ' · nome escrito diferente',
+          'O programa usa `' + vRaw + '`, que não existe no `var`. Existe uma variável parecida: `' + decl[quis].raw + '`.',
+          'Você quis dizer `' + decl[quis].raw + '`? Troque o nome nesta linha.', trocaPalavra(L, vRaw, decl[quis].raw));
+      }
+      var tu = tipoPeloUso(vRaw);
+      return ex('nao-declarada', 'Linha ' + L + ' · variável que não existe',
+        'O programa usa a variável `' + vRaw + '`, mas ela não foi criada no `var`. Toda variável precisa ser declarada antes do `inicio`.',
+        tu ? 'Acrescente `' + vRaw + '` no `var`. ' + tu.porque + ', então é `' + tu.tipo + '`.'
+          : 'Acrescente `' + vRaw + '` no `var` com o tipo certo: `inteiro` (número sem vírgula), `real` (com casas decimais), `caractere` (texto) ou `logico` (VERDADEIRO ou FALSO).',
+        tu ? acrescentaDecl(vRaw, tu.tipo) : null);
+    }
+
+    // 2. palavra seguida de algo que não é <-: comando digitado errado, = no lugar de <-, nome com espaço
+    if ((m = msg.match(/^esperava "<-" depois de "(.+)"$/))) {
+      var w = m[1], wl = low(w), s2 = get(L);
+      if (wl === 'senaose' || wl === 'senaoSe') {
+        return ex('senaose', 'Linha ' + L + ' · `senaose` não existe',
+          'O VisuAlg não tem `senaose`. Para testar outra condição, use `senao` e, dentro dele, um novo `se`.',
+          'Escreva `senao` numa linha e `se ... entao` na linha de baixo. Esse `se` de dentro precisa do próprio `fimse`, então no fim ficam dois `fimse`.', null);
+      }
+      var reIg = new RegExp('^(\\s*' + escRe(w) + '\\s*(?:\\[[^\\]]*\\])?\\s*)=(?!=)', 'i');
+      if (reIg.test(s2)) {
+        return ex('igual', 'Linha ' + L + ' · `=` no lugar de `<-`',
+          'No VisuAlg, guardar um valor numa variável é com `<-` (sinal de menor e hífen). O `=` serve para comparar, por exemplo dentro de um `se`.',
+          'Troque o `=` por `<-`.', troca(L, s2.replace(reIg, function (x, a) { return a.replace(/\s*$/, ' ') + '<-'; })));
+      }
+      var cmd = parecida(wl, CMDS);
+      if (cmd) {
+        return ex('comando-errado', 'Linha ' + L + ' · comando que não existe',
+          '`' + w + '` não é um comando do VisuAlg. Como o site não reconheceu a palavra, achou que fosse uma variável recebendo valor e ficou esperando um `<-`.',
+          'Você quis dizer `' + cmd + '`?', trocaPalavra(L, w, cmd));
+      }
+      if (/^\s*[A-Za-z_À-ÿ][A-Za-z0-9_À-ÿ]*\s*\(/.test(s2)) {
+        return ex('comando-errado', 'Linha ' + L + ' · comando que não existe',
+          '`' + w + '` não é um comando do VisuAlg. Como o site não reconheceu a palavra, achou que fosse uma variável recebendo valor.',
+          'Confira a escrita. Os comandos de tela são `escreva`, `escreval` e `leia`.', null);
+      }
+      return ex('sem-recebe', 'Linha ' + L + ' · faltou `<-`',
+        'Depois do nome de uma variável o VisuAlg espera `<-`, para guardar um valor nela.',
+        'Se a linha era para guardar um valor, escreva `' + w + ' <- valor`. Se era um comando, confira a escrita da primeira palavra.', null);
+    }
+
+    // 3. tipos incompatíveis
+    if ((m = msg.match(/^tipos incompatíveis: valor real em variável inteira \((.+)\)$/))) {
+      return ex('real-em-inteiro', 'Linha ' + L + ' · número com vírgula em variável inteira',
+        'A conta desta linha dá um número com casas decimais (a divisão `/` sempre dá). A variável `' + m[1] + '` foi declarada como `inteiro`, e inteiro não guarda casas decimais.',
+        'Declare `' + m[1] + '` como `real`. Se quiser só a parte inteira da divisão, use `div` no lugar de `/`.', mudaTipo(m[1], 'real'));
+    }
+    if ((m = msg.match(/^tipos incompatíveis: caractere em variável (inteiro|real) \((.+)\)$/))) {
+      var s3 = get(L), q = s3.match(/<-\s*"(\s*-?\d+(?:[.,]\d+)?\s*)"/);
+      if (q) {
+        return ex('texto-em-numero', 'Linha ' + L + ' · número entre aspas',
+          'Entre aspas, `"' + q[1] + '"` é um texto, não um número. A variável `' + m[2] + '` é `' + m[1] + '` e só guarda número.',
+          'Tire as aspas: `' + q[1].trim() + '`.', troca(L, s3.replace(q[0], '<- ' + q[1].trim().replace(',', '.'))));
+      }
+      return ex('texto-em-numero', 'Linha ' + L + ' · texto em variável de número',
+        'A variável `' + m[2] + '` é `' + m[1] + '`, mas esta linha guarda um texto nela.',
+        'Se ela deve guardar texto, declare como `caractere`.', mudaTipo(m[2], 'caractere'));
+    }
+    if ((m = msg.match(/^tipos incompatíveis: (inteiro|real) em variável caractere \((.+)\)$/))) {
+      var s4 = get(L), q2 = s4.match(/<-\s*(-?\d+(?:\.\d+)?)\s*$/);
+      return ex('numero-em-texto', 'Linha ' + L + ' · número em variável de texto',
+        'A variável `' + m[2] + '` é `caractere` (texto), mas esta linha guarda um número nela.',
+        q2 ? 'Se é para guardar como texto, ponha entre aspas: `"' + q2[1] + '"`. Se é para fazer conta, declare `' + m[2] + '` como `inteiro` ou `real`.'
+          : 'Se é para fazer conta, declare `' + m[2] + '` como `inteiro` ou `real`.',
+        q2 ? troca(L, s4.replace(q2[0], '<- "' + q2[1] + '"')) : null);
+    }
+    if ((m = msg.match(/^tipos incompatíveis: (.+) em variável (.+) \((.+)\)$/))) {
+      return ex('tipos', 'Linha ' + L + ' · tipo diferente', 'Esta linha guarda um valor ' + m[1] + ' na variável `' + m[3] + '`, que é ' + m[2] + '.',
+        'Confira o tipo da variável no `var` ou o valor guardado.', null);
+    }
+
+    // 4. blocos sem fechar e estrutura
+    if (/^comando inesperado: /.test(msg) || /^faltou "/.test(msg) || /^esperava "(fimse|fimpara|fimenquanto|fimescolha|ate|fimalgoritmo)"/.test(msg)) {
+      var bl = blocos();
+      if (bl && bl.aberto) return blocoAberto(bl);
+      if (bl && bl.sobra) {
+        L = bl.sobra.n;
+        return ex('fecha-sobrando', 'Linha ' + bl.sobra.n + ' · `' + bl.sobra.w + '` sem abertura',
+          'Há um `' + bl.sobra.w + '` na linha ' + bl.sobra.n + ', mas não existe um `' + FECHA[bl.sobra.w] + '` aberto antes dele.',
+          'Confira se o `' + FECHA[bl.sobra.w] + '` está escrito certo. Se esta linha sobrou, apague.', null);
+      }
+      if ((m = msg.match(/^comando inesperado: var$/))) {
+        // tira o inicio de cima e devolve antes do primeiro comando depois das declarações
+        var iv = linhaInicio(), nv = linhaVar(), cv = null;
+        if (iv && nv > iv) {
+          cv = copia(); var linhaIni = cv.splice(iv - 1, 1)[0];
+          var p = nv - 1;
+          while (p < cv.length && (!cv[p].trim() || /^\s*var\s*$/i.test(cv[p]) || REDECL.test(semCom(cv[p])))) p++;
+          cv.splice(p, 0, linhaIni);
+        }
+        return ex('estrutura', 'Linha ' + L + ' · `var` depois do `inicio`',
+          'O programa tem uma ordem fixa: `algoritmo`, depois `var` com as variáveis, depois `inicio` com os comandos e, por último, `fimalgoritmo`.',
+          'Coloque o `var` e as declarações antes do `inicio`.', cv);
+      }
+      if (/^faltou "fimalgoritmo"/.test(msg)) {
+        var ult = lin.length; while (ult > 1 && !get(ult).trim()) ult--;
+        return ex('estrutura', 'Fim do código · falta `fimalgoritmo`', 'Todo programa termina com `fimalgoritmo`.', 'Acrescente `fimalgoritmo` na última linha.', insere(ult, 'fimalgoritmo'));
+      }
+    }
+
+    // 5. falta entao / faca, <- na condição
+    if ((m = msg.match(/^esperava "(entao|faca)" e encontrei "(.+)"$/))) {
+      var alvo = m[1], achou = m[2], abre = alvo === 'entao' ? ['se'] : ['para', 'enquanto', 'escolha'], ln = 0;
+      for (var k5 = L; k5 >= 1; k5--) if (abre.indexOf(pw(k5)) >= 0) { ln = k5; break; }
+      if (alvo === 'entao' && achou === '<-' && ln) {
+        return ex('recebe-na-condicao', 'Linha ' + ln + ' · `<-` na condição',
+          'Na condição do `se` a gente compara, não guarda. Comparar é com `=`; o `<-` guarda valor numa variável.',
+          'Troque o `<-` por `=`.', troca(ln, get(ln).replace('<-', '=')));
+      }
+      if (ln && ln < L) {
+        var sl = get(ln), corpo = semCom(sl).replace(/\s+$/, '');
+        L = ln;
+        return ex('falta-' + alvo, 'Linha ' + ln + ' · falta `' + alvo + '`',
+          alvo === 'entao' ? 'Depois da condição do `se` vem sempre `entao`: `se media >= 6 entao`.' : 'O `' + pw(ln) + '` termina com `faca`: `para i de 1 ate 10 faca` ou `enquanto i <= 10 faca`.',
+          'Acrescente `' + alvo + '` no fim da linha ' + ln + '.', troca(ln, corpo + ' ' + alvo + sl.slice(corpo.length)));
+      }
+      return ex('falta-' + alvo, 'Linha ' + L + ' · falta `' + alvo + '`', 'O site esperava `' + alvo + '` e encontrou `' + achou + '`.',
+        alvo === 'entao' ? 'O `se` tem a forma `se condição entao`, e os comandos vão nas linhas de baixo.' : 'O laço tem a forma `para i de 1 ate 10 faca` ou `enquanto condição faca`, e os comandos vão nas linhas de baixo.', null);
+    }
+    if ((m = msg.match(/^esperava "(de|ate)" e encontrei/))) {
+      return ex('forma-para', 'Linha ' + L + ' · forma do `para`', 'O `para` tem uma forma fixa: `para i de 1 ate 10 faca`.',
+        'Confira se estão as palavras `de`, `ate` e `faca`, nessa ordem.', null);
+    }
+
+    // 6. aspas e símbolos
+    if (/^texto sem aspas de fechamento/.test(msg)) {
+      var s6 = get(L), np = s6.replace(/\)\s*$/, '"$&');
+      if (np === s6) np = s6.replace(/\s*$/, '"');
+      return ex('aspas', 'Linha ' + L + ' · aspas sem fechar', 'Todo texto começa e termina com aspas: `"Olá"`. Nesta linha uma aspa abriu e não fechou.',
+        'Feche as aspas no fim do texto.', troca(L, np));
+    }
+    if ((m = msg.match(/^símbolo inesperado: (.)$/))) {
+      var c6 = m[1];
+      if (c6 === "'") {
+        return ex('aspas-simples', 'Linha ' + L + ' · aspas simples', "No VisuAlg, texto vai entre aspas duplas: `\"Olá\"`. A aspa simples `'` não funciona.",
+          "Troque `'` por `\"`.", troca(L, get(L).replace(/'/g, '"')));
+      }
+      if (c6 === ';') {
+        var semPV = lin.map(function (x) { return x.replace(/;(\s*)$/, '$1'); });
+        return ex('ponto-e-virgula', 'Linha ' + L + ' · ponto e vírgula',
+          'O site ainda não aceita `;` no fim da linha. Pelo manual, o VisuAlg aceita na declaração (`var x: inteiro;`); isso vem numa próxima etapa do site.',
+          'Para testar aqui, apague os `;` do fim das linhas.', semPV, { rotulo: 'Apagar os ;', sugestao: true });
+      }
+      return ex('simbolo', 'Linha ' + L + ' · símbolo `' + c6 + '`', 'O símbolo `' + c6 + '` não faz parte da linguagem do VisuAlg.', 'Apague ou troque esse símbolo.', null);
+    }
+
+    // 7. parênteses, vírgulas e formatação
+    if ((m = msg.match(/^esperava "\)" e encontrei "(.+)"$/))) {
+      var achou7 = m[1], s7 = get(L);
+      if (achou7 === ':') {
+        var semFmt = s7.replace(/\s*:\s*\d+(\s*:\s*\d+)?(?=\s*[,)])/g, '');
+        return ex('formatacao', 'Linha ' + L + ' · formatação `:5:2`',
+          'O VisuAlg aceita formatar número: `escreva(x:5:2)` escreve em 5 espaços com 2 casas decimais. O site ainda não aceita; isso vem numa próxima etapa.',
+          'Para testar aqui, tire a formatação. No VisuAlg ela funciona.', troca(L, semFmt), { rotulo: 'Tirar a formatação', sugestao: true });
+      }
+      // parêntese aberto numa linha de cima: o site só acusa na linha seguinte
+      var lp = 0;
+      for (var k7 = L; k7 >= 1; k7--) {
+        var sk = semCom(get(k7)).replace(/"[^"]*"/g, '');
+        if ((sk.match(/\(/g) || []).length > (sk.match(/\)/g) || []).length) { lp = k7; break; }
+      }
+      if (lp && (lp < L || CMDS.indexOf(achou7) >= 0 || achou7 === 'fim do código')) {
+        L = lp;
+        return ex('parentese', 'Linha ' + lp + ' · parêntese sem fechar', 'Na linha ' + lp + ' um `(` abriu e não fechou.' + (lp < L0 ? ' O site só percebeu na linha ' + L0 + '.' : ''),
+          'Feche o parêntese no fim da linha ' + lp + '.', troca(lp, get(lp).replace(/\s*$/, ')')));
+      }
+      // falta vírgula entre dois pedaços
+      // textos mascarados para não procurar dentro das aspas (mesmas posições)
+      var m7 = s7.replace(/"[^"]*"/g, function (x) { return '"' + new Array(x.length - 1).join('_') + '"'; });
+      var re7 = /("[^"]*"|[A-Za-z_À-ÿ][A-Za-z0-9_À-ÿ]*|\d+(?:\.\d+)?|\))(\s+)(?=("|[A-Za-z_À-ÿ]|\d))/g, mm, nova7 = null;
+      while ((mm = re7.exec(m7))) {
+        var antes = low(mm[1]), depois = low(m7.slice(mm.index + mm[0].length).match(/^("|[A-Za-z_À-ÿ][A-Za-z0-9_À-ÿ]*|\d+)/)[0]);
+        if (OPKW[antes] || OPKW[depois] || KWSET[antes] && antes !== 'verdadeiro' && antes !== 'falso') continue;
+        nova7 = s7.slice(0, mm.index + mm[1].length) + ', ' + s7.slice(mm.index + mm[0].length);
+        break;
+      }
+      if (nova7) {
+        return ex('virgula', 'Linha ' + L + ' · falta vírgula', 'Dentro dos parênteses, cada pedaço é separado por vírgula: `escreval("Total: ", x)`.',
+          'Acrescente a vírgula que falta.', troca(L, nova7));
+      }
+      return ex('parentese', 'Linha ' + L + ' · parênteses', 'O site esperava fechar um parêntese e encontrou `' + achou7 + '`.', 'Confira os parênteses e as vírgulas desta linha.', null);
+    }
+    if ((m = msg.match(/^esperava "\(" e encontrei/))) {
+      var s8 = get(L), r8 = s8.match(/^(\s*)(leia|escreval|escreva)\s+(.+?)\s*$/i);
+      return ex('sem-parenteses', 'Linha ' + L + ' · faltam parênteses', 'Os comandos `leia`, `escreva` e `escreval` usam parênteses: `leia(x)`.',
+        'Coloque o que vem depois do comando entre parênteses.', r8 ? troca(L, r8[1] + r8[2] + '(' + r8[3] + ')') : null);
+    }
+
+    // 8. nomes e tipos na declaração
+    if ((m = msg.match(/^tipo desconhecido: (.+)$/))) {
+      var tp = TIPO_SIN[low(m[1])] || parecida(low(m[1]), ['inteiro', 'real', 'caractere', 'logico']);
+      return ex('tipo', 'Linha ' + L + ' · tipo `' + m[1] + '` não existe', 'Os tipos do VisuAlg são `inteiro`, `real`, `caractere` e `logico`.',
+        tp ? 'Você quis dizer `' + tp + '`?' : 'Escolha um desses tipos.', tp ? trocaPalavra(L, m[1], tp) : null);
+    }
+    if ((m = msg.match(/^função desconhecida: (.+)$/))) {
+      var fs = FUNC_SIN[low(m[1])] || parecida(low(m[1]), FUNCS);
+      return ex('funcao', 'Linha ' + L + ' · função `' + m[1] + '` não existe', 'O site conhece estas funções: ' + FUNCS.map(function (f) { return '`' + f + '`'; }).join(', ') + '.',
+        fs ? 'Você quis dizer `' + fs + '`?' + (fs === 'exp' ? ' `exp(2, 3)` dá 2 elevado a 3.' : '') : 'Confira o nome da função.', fs ? trocaPalavra(L, m[1], fs) : null);
+    }
+    if ((m = msg.match(/^esperava ":" e encontrei "(.+)"$/))) {
+      var s9 = get(L), li = linhaInicio();
+      if (!li && /<-|:=/.test(s9)) {
+        return ex('estrutura', 'Linha ' + L + ' · falta `inicio`', 'Antes dos comandos vem `inicio`. Sem ele, o site achou que esta linha ainda era declaração de variável.',
+          'Acrescente `inicio` antes da linha ' + L + '.', insere(L - 1, 'inicio'));
+      }
+      var r9 = semCom(s9).match(/^(\s*(?:var\s+)?)([A-Za-z_À-ÿ][A-Za-z0-9_À-ÿ]*)\s+([A-Za-z_À-ÿ][A-Za-z0-9_À-ÿ]*)\s*:/);
+      if (r9) {
+        var junto = r9[2] + '_' + r9[3], reJ = new RegExp(escRe(r9[2]) + '\\s+' + escRe(r9[3]), 'gi');
+        return ex('nome-espaco', 'Linha ' + L + ' · nome com espaço',
+          'Nome de variável não pode ter espaço. Pelo manual, ele começa com letra e depois só tem letras, números ou `_`.',
+          'Junte as palavras com `_`: `' + junto + '`, aqui e em todo lugar onde o nome aparece.', lin.map(function (x) { return x.replace(reJ, junto); }));
+      }
+      return ex('declaracao', 'Linha ' + L + ' · declaração', 'Cada declaração tem a forma `nome: tipo`, por exemplo `idade: inteiro`.', 'Confira esta linha.', null);
+    }
+    if ((m = msg.match(/^esperava "inicio" e encontrei "(.+)"$/))) {
+      if (/^\d/.test(m[1]) || /^\s*\d/.test(get(L))) {
+        return ex('nome-numero', 'Linha ' + L + ' · nome começando com número',
+          'Nome de variável começa com letra. Depois pode ter números: `nota1` vale, `1nota` não.', 'Troque o nome para começar com letra, por exemplo `nota1`.', null);
+      }
+      if (/<-|:=|\(/.test(get(L))) {
+        return ex('estrutura', 'Linha ' + L + ' · falta `inicio`', 'Antes dos comandos vem `inicio`.', 'Acrescente `inicio` antes da linha ' + L + '.', insere(L - 1, 'inicio'));
+      }
+    }
+    if ((m = msg.match(/^variável declarada duas vezes: (.+)$/))) {
+      return ex('duas-vezes', 'Linha ' + L + ' · variável declarada duas vezes', 'A variável `' + m[1] + '` aparece duas vezes no `var`. Cada nome só pode existir uma vez.',
+        'Apague uma das declarações ou troque o nome de uma delas.', null);
+    }
+    if ((m = msg.match(/^nome de variável inválido: (.+)$/))) {
+      return ex('nome', 'Linha ' + L + ' · nome inválido', 'Pelo manual, o nome começa com letra e depois só tem letras, números ou `_`, até 30 caracteres.', 'Troque `' + m[1] + '` por um nome nessa regra.', null);
+    }
+
+    // 9. laço que não termina
+    var val = valores(L), vtxt = val.length ? ' Valores quando o site parou: ' + val.join(', ') + '.' : '';
+    if (/^passei de \d+ passos/.test(msg)) return lacoInfinito();
+
+    // 10. erros ao rodar: explica com os valores do momento
+    if (/^divisão por zero/.test(msg)) return ex('divisao-zero', 'Linha ' + L + ' · divisão por zero', 'Esta linha divide por zero.' + vtxt, 'Confira se o divisor recebeu valor antes. Toda variável numérica começa em 0.', null);
+    if ((m = msg.match(/^não dá para comparar (.+) com (.+)$/))) {
+      return ex('comparar', 'Linha ' + L + ' · comparação de tipos diferentes', 'Só dá para comparar valores do mesmo tipo: texto com texto, número com número. Aqui a comparação é entre ' + m[1] + ' e ' + m[2] + '.' + vtxt,
+        'Se o valor é texto, ponha entre aspas: `"5"`. Se a variável deveria ser número, declare como `inteiro` ou `real`.', null);
+    }
+    if ((m = msg.match(/^índice (.+) fora do vetor (.+)$/))) {
+      return ex('vetor', 'Linha ' + L + ' · posição fora do vetor', 'O vetor `' + m[2] + '` não tem a posição ' + m[1] + '.' + vtxt, 'Confira o limite do `para` que percorre o vetor ou o tamanho na declaração.', null);
+    }
+    if ((m = msg.match(/^"(mod|div|\\)" só funciona com inteiros/))) {
+      return ex('mod-div', 'Linha ' + L + ' · `' + m[1] + '` com número real', '`mod` e `div` são contas de números inteiros (resto e quociente).' + vtxt, 'Use variáveis `inteiro`, ou `int(x)` para tirar a parte decimal antes.', null);
+    }
+    if ((m = msg.match(/^a variável do "para" precisa ser inteira/))) {
+      var vp = (get(L).match(/para\s+([A-Za-z_À-ÿ][A-Za-z0-9_À-ÿ]*)/i) || [])[1];
+      return ex('para-inteiro', 'Linha ' + L + ' · contador do `para`', 'O contador do `para` anda de 1 em 1, por isso precisa ser `inteiro`.', vp ? 'Declare `' + vp + '` como `inteiro`.' : 'Declare o contador como `inteiro`.', vp ? mudaTipo(vp, 'inteiro') : null);
+    }
+    if (/^a condição precisa dar VERDADEIRO ou FALSO/.test(msg)) {
+      return ex('condicao', 'Linha ' + L + ' · condição sem comparação', 'A condição precisa dar VERDADEIRO ou FALSO, como `x > 3` ou `nome = "Ana"`.' + vtxt, 'Complete a condição com uma comparação.', null);
+    }
+    if ((m = msg.match(/^a operação "(.+)" precisa de números, recebeu (.+)$/))) {
+      return ex('conta-texto', 'Linha ' + L + ' · conta com texto', 'A conta `' + m[1] + '` só funciona com números, e aqui entrou um valor ' + m[2] + '.' + vtxt, 'Confira o tipo das variáveis da conta. Texto entre aspas não vira número.', null);
+    }
+    return ex('geral', 'Linha ' + L + ' · erro', 'O site parou com a mensagem: ' + msg + '.' + vtxt, 'Confira esta linha e a de cima. Muitas vezes o erro é um parêntese, uma aspa ou uma palavra que faltou no fim da linha anterior.', null);
+
+    function lacoInfinito() {
+      var ab = 0, fe = 0;
+      for (var k = L; k >= 1 && !ab; k--) {
+        var w = pw(k);
+        if (w !== 'enquanto' && w !== 'repita') continue;
+        var prof = 0;
+        for (var j = k + 1; j <= lin.length; j++) {
+          var wj = pw(j);
+          if (ABRE[wj]) prof++;
+          else if (FECHA[wj]) { if (prof === 0) { if (FECHA[wj] === w && j >= L) { ab = k; fe = j; } break; } prof--; }
+        }
+      }
+      var padrao = ex('laco', 'Linha ' + L + ' · laço que não termina', 'O site parou depois de 5.000 passos: a condição do laço nunca mudou para sair.' + vtxt, 'Confira se a variável da condição muda a cada volta e na direção certa.', null);
+      if (!ab) return padrao;
+      var kw = pw(ab), cond = kw === 'enquanto' ? (semCom(get(ab)).match(/enquanto\s+(.+?)\s+fa[cç]a\b/i) || [])[1] : (semCom(get(fe)).match(/^\s*ate\s+(.+?)\s*$/i) || [])[1];
+      if (!cond) return padrao;
+      var vs = [];
+      (cond.match(/[A-Za-z_À-ÿ][A-Za-z0-9_À-ÿ]*/g) || []).forEach(function (x) { if (decl[low(x)] && vs.indexOf(decl[low(x)].raw) < 0) vs.push(decl[low(x)].raw); });
+      if (!vs.length) return padrao;
+      var corpo = lin.slice(ab, fe - 1).map(semCom);
+      var mudam = vs.filter(function (x) {
+        var r = new RegExp('^\\s*' + escRe(x) + '\\s*(\\[[^\\]]*\\])?\\s*(<-|:=|←)|leia\\s*\\([^)]*\\b' + escRe(x) + '\\b|para\\s+' + escRe(x) + '\\b', 'i');
+        return corpo.some(function (s) { return r.test(s); });
+      });
+      var vals = vs.filter(function (x) { return ultimo[x] !== undefined; }).map(function (x) { return '`' + x + ' = ' + ultimo[x] + '`'; });
+      L = ab;
+      if (mudam.length) {
+        return ex('laco', 'Linha ' + ab + ' · laço que não termina', 'O `' + kw + '` depende de `' + cond + '`, e essa condição nunca deixou o laço sair. O site parou depois de 5.000 passos.' + (vals.length ? ' Valores quando parou: ' + vals.join(', ') + '.' : ''),
+          'Confira se a variável anda na direção certa a cada volta: somando quando precisa crescer, subtraindo quando precisa diminuir.', null);
+      }
+      var x0 = vs[0], cm = cond.match(new RegExp('^\\s*' + escRe(x0) + '\\s*(<=|>=|<>|<|>|=)', 'i')), passoTxt = null;
+      if (cm) {
+        var cresce = kw === 'enquanto' ? (cm[1] === '<' || cm[1] === '<=') : (cm[1] === '>' || cm[1] === '>=');
+        var desce = kw === 'enquanto' ? (cm[1] === '>' || cm[1] === '>=') : (cm[1] === '<' || cm[1] === '<=');
+        if (cresce) passoTxt = x0 + ' <- ' + x0 + ' + 1';
+        else if (desce) passoTxt = x0 + ' <- ' + x0 + ' - 1';
+      }
+      var recuo = null;
+      for (var b = ab + 1; b < fe; b++) if (get(b).trim()) { recuo = ind(get(b)); break; }
+      if (recuo === null) recuo = ind(get(ab)) + '   ';
+      return ex('laco', 'Linha ' + ab + ' · laço que não termina',
+        'O `' + kw + '` depende de `' + cond + '`. Dentro do laço nada muda ' + vs.map(function (x) { return '`' + x + '`'; }).join(', ') + (vals.length ? ' (' + vals.join(', ') + ')' : '') + ', então a condição nunca muda. O site parou depois de 5.000 passos.',
+        passoTxt ? 'Sugestão provável: mude `' + x0 + '` a cada volta, com `' + passoTxt + '` antes do `' + (kw === 'enquanto' ? 'fimenquanto' : 'ate') + '`. Confira se é isso que o exercício pede.'
+          : 'Mude ' + vs.map(function (x) { return '`' + x + '`'; }).join(', ') + ' dentro do laço, de um jeito que a condição chegue ao fim.',
+        passoTxt ? insere(fe - 1, recuo + passoTxt) : null, { rotulo: 'Aplicar sugestão', sugestao: true });
+    }
+  }
+
+  // diferença entre dois códigos, linha a linha (só o trecho que mudou)
+  function diff(a, b) {
+    var i = 0, ja = a.length - 1, jb = b.length - 1, out = [];
+    while (i <= ja && i <= jb && a[i] === b[i]) i++;
+    while (ja >= i && jb >= i && a[ja] === b[jb]) { ja--; jb--; }
+    if (ja - i === jb - i) {
+      for (var k = i; k <= ja; k++) if (a[k] !== b[k]) { out.push({ s: '-', n: k + 1, t: a[k] }); out.push({ s: '+', n: k + 1, t: b[k] }); }
+    } else {
+      for (var x = i; x <= ja; x++) out.push({ s: '-', n: x + 1, t: a[x] });
+      for (var y = i; y <= jb; y++) out.push({ s: '+', n: y + 1, t: b[y] });
+    }
+    return out;
+  }
+
   function normalizarSaida(s) {
     return String(s || '').replace(/\r/g, '').split('\n').map(function (l) {
       return l.replace(/(-?\d+(?:\.\d+)?)/g, ' $1 ').replace(/\s+/g, ' ').trim();
     }).join('\n').replace(/\n+$/, '').replace(/^\n+/, '');
   }
 
-  var api = { executar: executar, normalizarSaida: normalizarSaida, validarEntrada: validarEntrada };
+  var api = { executar: executar, normalizarSaida: normalizarSaida, validarEntrada: validarEntrada, explicar: explicar };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.VisuAlg = api;
 })(this);
