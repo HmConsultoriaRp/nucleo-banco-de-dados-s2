@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 source/tira-duvidas/porteiro.py pendentes)",
+      "Bash(python3 source/tira-duvidas/porteiro.py responder)"
+    ],
+    "deny": [
+      "Edit(./source/tira-duvidas/porteiro.py)",
+      "Write(./source/tira-duvidas/porteiro.py)"
+    ]
+  }
+}
