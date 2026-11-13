@@ -162,7 +162,7 @@ body[data-subject=lp] .qitem.active{box-shadow:inset 3px 0 0 var(--coral)}
 .view.on{display:block}
 @keyframes entra{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 
-/* atividades da faculdade */
+/* atividades da universidade */
 .activity-hub{padding:46px 5vw 52px}
 .activity-head{display:flex;justify-content:space-between;gap:30px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:28px}
 .activity-head h2{font:700 clamp(31px,3.8vw,56px)/1.04 var(--font-display);letter-spacing:-.045em;margin:10px 0 12px}

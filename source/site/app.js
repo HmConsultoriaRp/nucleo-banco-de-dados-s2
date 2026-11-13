@@ -215,7 +215,7 @@
     $$('.qfilter button').forEach(function (b) { b.classList.toggle('active', b.dataset.filtro === ui.filtro); });
   }
 
-  // ---------- atividades da faculdade ----------
+  // ---------- atividades da universidade ----------
   function renderAtividades() {
     var el = $('#view-atividades');
     var info = semanaInfo(ui.disc, ui.sem);
@@ -226,7 +226,7 @@
     var previas = qs.filter(function (q) { return tipoOrigem(q) === 'previa'; });
     var legado = st.legado;
     var h = '<div class="activity-hub"><header class="activity-head"><div><p class="lesson-kicker">' + esc(NOME_LONGO[ui.disc]) + ' · semana ' + n2(ui.sem) + '</p>' +
-      '<h2>Atividades da faculdade</h2><p>O print chega, nós resolvemos juntos e a atividade entra aqui com resposta, armadilhas e diferentes caminhos de explicação.</p></div>' +
+      '<h2>Atividades da universidade</h2><p>O print chega, nós resolvemos juntos e a atividade entra aqui com resposta, armadilhas e diferentes caminhos de explicação.</p></div>' +
       '<span class="activity-count">' + qs.length + '<small>questões</small></span></header>';
     h += '<div class="activity-flow"><article><b>01</b><strong>Enunciado original</strong><span>Transcrito do print sem mudar o que foi pedido.</span></article>' +
       '<article><b>02</b><strong>Ideia central</strong><span>O que a questão realmente quer avaliar.</span></article>' +

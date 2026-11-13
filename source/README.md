@@ -18,7 +18,7 @@ O arquivo final incorpora CSS, JavaScript e todo o banco de questões. Pode ser 
 4. Executar os validadores e os testes do interpretador VisuAlg quando houver código.
 5. Gerar novamente o HTML e testar a questão no navegador.
 
-O site exibe automaticamente a nova questão em **Atividades da faculdade** e em **Questões**. O progresso fica no navegador, em `localStorage`, sob a chave `nucleo-s2-v1`.
+O site exibe automaticamente a nova questão em **Atividades da universidade** e em **Questões**. O progresso fica no navegador, em `localStorage`, sob a chave `nucleo-s2-v1`.
 
 Questões recebidas em avaliações usam origem própria, por exemplo `Avaliação semanal 1 · T1 · Q01`. Formatos de múltipla seleção e classificação podem ser convertidos em alternativas compostas para manter a correção, o simulado e o progresso compatíveis com o banco principal.
 
