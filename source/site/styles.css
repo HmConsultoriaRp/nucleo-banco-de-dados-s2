@@ -635,6 +635,7 @@ body.dark .ideia-frase,body.dark .ideia-passo p{color:var(--ink)}
 /* ---------- tira-duvidas (09/11/2026) ---------- */
 .duv-section{border-top:1px solid var(--line);padding:84px max(7vw,calc((100vw - 1440px)/2 + 7vw))}
 .duv-section .section-heading p{max-width:520px;color:var(--muted)}
+.duv-section [hidden]{display:none!important}
 .duv-modo{margin:-20px 0 22px;font-size:13px;color:var(--muted);display:flex;gap:10px;align-items:center}
 .duv-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:28px;align-items:start}
 .duv-form{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--blue);padding:24px}
