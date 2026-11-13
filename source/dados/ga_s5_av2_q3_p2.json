@@ -8,7 +8,7 @@
       "nivel": 2,
       "minutos": 4,
       "tema": "Reta contida no plano",
-      "origem": "Avaliação semanal 2 · T1-Q3 · Q06",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q3 · Q06",
       "enunciado": "Verdadeiro ou falso? A reta de equação x − 5 = −y + 4 = z − 4 está contida no plano de equação 2x − y + 3z − 18 = 0.",
       "alternativas": [
         {"t":"Falso: o ponto (5, 4, 4) está no plano, mas a direção (1, −1, 1) não é paralela a ele","certa":true},
@@ -37,7 +37,7 @@
       "nivel": 2,
       "minutos": 3,
       "tema": "Ortogonal não implica perpendicular",
-      "origem": "Avaliação semanal 2 · T1-Q3 · Q07",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q3 · Q07",
       "enunciado": "Verdadeiro ou falso? Se as retas são ortogonais, então as retas também são perpendiculares.",
       "alternativas": [
         {"t":"Verdadeiro: ortogonal e perpendicular são a mesma coisa para duas retas","certa":false,"erro":"Para dois planos, o curso trata as duas palavras como iguais. Para duas retas, não: {{ortogonais|ortogonais}} só pedem 90° entre as setas, e {{perpendiculares|perpendiculares}} pedem 90° e um ponto comum."},
@@ -66,7 +66,7 @@
       "nivel": 1,
       "minutos": 2,
       "tema": "Planos ortogonais",
-      "origem": "Avaliação semanal 2 · T1-Q3 · Q08",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q3 · Q08",
       "enunciado": "Verdadeiro ou falso? Os planos π1: x − y + 2z + 4 = 0 e π2: x + y − z − 4 = 0 são ortogonais.",
       "alternativas": [
         {"t":"Verdadeiro: os termos independentes +4 e −4 se anulam","certa":false,"erro":"Os termos independentes só dizem onde cada plano fica. O teste de planos {{perpendiculares-planos|ortogonais}} usa apenas as normais: [[n1]] · [[n2]] = 1 − 1 − 2 = −2."},
@@ -95,7 +95,7 @@
       "nivel": 2,
       "minutos": 4,
       "tema": "Plano perpendicular a dois planos",
-      "origem": "Avaliação semanal 2 · T1-Q3 · Q09",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q3 · Q09",
       "enunciado": "O plano π perpendicular aos planos π1: −2x − y + 4z − 1 = 0 e π2: 2x + 4y + 2z − 3 = 0 é:",
       "alternativas": [
         {"t":"π: 11x − 9y − 8z − 2 = 0","certa":false,"erro":"A normal (11, −9, −8) dá −22 + 9 − 32 = −45 com [[n1]] e 22 − 36 − 16 = −30 com [[n2]]. Não faz 90° com nenhuma das duas, então π não seria {{perpendiculares-planos|perpendicular}} a nenhum dos planos."},
@@ -124,7 +124,7 @@
       "nivel": 1,
       "minutos": 2,
       "tema": "Reversas e plano comum",
-      "origem": "Avaliação semanal 2 · T1-Q3 · Q10",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q3 · Q10",
       "enunciado": "Verdadeiro ou falso? Se as retas r e s são reversas, então existe um plano π que contém as retas r e s.",
       "alternativas": [
         {"t":"Verdadeiro: por duas retas quaisquer sempre passa um plano","certa":false,"erro":"Só passa um plano por duas retas {{coplanares|coplanares}}: concorrentes, paralelas ou coincidentes. {{reversas|Reversas}} são justamente as que não cabem num plano."},

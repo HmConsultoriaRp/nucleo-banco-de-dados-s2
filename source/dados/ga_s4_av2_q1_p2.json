@@ -8,7 +8,7 @@
       "nivel": 1,
       "minutos": 2,
       "tema": "Múltiplos do vetor diretor",
-      "origem": "Avaliação semanal 2 · T1-Q1 · Q05",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q1 · Q05",
       "enunciado": "Verdadeiro ou falso? Se [[v]] é um vetor diretor para a reta r, então −2[[v]] e (1 + √2)[[v]] também são vetores diretores para a reta r.",
       "alternativas": [
         {"t": "Falso: −2[[v]] aponta para o lado oposto, então muda a direção da reta.", "certa": false, "erro": "Confunde direção com sentido. Direção é a linha; sentido é o lado. −2[[v]] vira o lado, mas fica na mesma linha de [[v]]. A reta não tem lado preferido: com t negativo ela já anda para trás."},
@@ -50,7 +50,7 @@
       "nivel": 2,
       "minutos": 5,
       "tema": "Interseção de duas retas",
-      "origem": "Avaliação semanal 2 · T1-Q1 · Q06",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q1 · Q06",
       "enunciado": "Encontre o ponto de interseção entre as retas r: X = (−1, 4, −2) + λ(2, −2, 5), λ ∈ ℝ, e s: X = (−1, 3, 5) + t(4, −3, 3), t ∈ ℝ.",
       "alternativas": [
         {"t": "(7, −4, 18)", "certa": false, "erro": "Está em r, com λ = 4, mas não em s: em s, o x = 7 pede t = 2, e aí y = −3, não −4."},
@@ -92,7 +92,7 @@
       "nivel": 2,
       "minutos": 3,
       "tema": "Quando a simétrica existe",
-      "origem": "Avaliação semanal 2 · T1-Q1 · Q07",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q1 · Q07",
       "enunciado": "Verdadeiro ou falso? Seja r uma reta paralela a um vetor [[v]] não nulo e que passe por um ponto P0. Então, para essa reta é possível determinar: equação vetorial, equações paramétricas e equações simétricas.",
       "alternativas": [
         {"t": "Verdadeiro: com um ponto e uma seta não nula, as três formas sempre existem.", "certa": false, "erro": "Vale para as paramétricas e para a vetorial, mas não para as {{eq-simetricas|simétricas}}. Com [[v]] = (2, 3, 0), o z fica parado: z = 4 + 0t. Não dá para isolar o t nessa linha, e a simétrica não existe."},
@@ -134,7 +134,7 @@
       "nivel": 1,
       "minutos": 2,
       "tema": "Infinitas equações paramétricas",
-      "origem": "Avaliação semanal 2 · T1-Q1 · Q08",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q1 · Q08",
       "enunciado": "Verdadeiro ou falso? Uma reta r possui infinitas equações paramétricas distintas.",
       "alternativas": [
         {"t": "Falso: as paramétricas são únicas; só a equação vetorial pode mudar.", "certa": false, "erro": "As {{eq-parametricas|paramétricas}} são a vetorial aberta por coordenada. Se a vetorial pode ser escrita de infinitos jeitos, as paramétricas também."},

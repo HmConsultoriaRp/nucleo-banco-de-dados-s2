@@ -8,7 +8,7 @@
       "nivel": 2,
       "minutos": 6,
       "tema": "Pontos a uma distância dada",
-      "origem": "Avaliação semanal 2 · T1-Q5 · Q06",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q5 · Q06",
       "enunciado": "Determine os pontos da reta r: 2 − x = (1 − y)/3 = z + 1 que distam 2 do plano π: x + 2y − 2z + 6 = 0.",
       "alternativas": [
         {"t": "(2, 1, −1) e (−2/3, −7, 5/3)", "certa": false, "erro": "Os dois pontos estão na reta (t = 0 e t = 8/3), mas distam 4 do plano. O primeiro é o {{ponto-partida|ponto de partida}} da reta, com t = 0."},
@@ -50,7 +50,7 @@
       "nivel": 1,
       "minutos": 3,
       "tema": "Distância de ponto a plano",
-      "origem": "Avaliação semanal 2 · T1-Q5 · Q07",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q5 · Q07",
       "enunciado": "A distância do ponto P = (2, 1, 3) ao plano π: 2x + y − 3z − 7 = 0 é:",
       "alternativas": [
         {"t": "19/√14", "certa": false, "erro": "Aparece com o sinal do termo 2·2 trocado: −4 + 1 − 9 − 7 = −19. Com os sinais certos, o numerador é −11."},
@@ -92,7 +92,7 @@
       "nivel": 2,
       "minutos": 6,
       "tema": "Ponto equidistante na reta",
-      "origem": "Avaliação semanal 2 · T1-Q5 · Q08",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q5 · Q08",
       "enunciado": "Dada a reta r: X = (−1, 1, 2) + t(−1, 2, −3), t ∈ ℝ, e os pontos A = (1, 2, 1) e B = (3, 1, 2), ache o ponto de r equidistante de A e B.",
       "alternativas": [
         {"t": "(2, −5, 11)", "certa": false, "erro": "Está na reta (t = −3), mas |PA|² = 150 e |PB|² = 118. Fica mais perto de B."},
@@ -135,7 +135,7 @@
       "nivel": 3,
       "minutos": 7,
       "tema": "Três planos numa reta",
-      "origem": "Avaliação semanal 2 · T1-Q5 · Q09",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q5 · Q09",
       "enunciado": "Determine o valor de m e n para que os três planos π₁: −x + 2y − 3z + 5 = 0, π₂: 2x − 4y − 4z + 7 = 0 e π₃: mx − 14y + z + n = 0 se intersectem ao longo de uma reta.",
       "alternativas": [
         {"t": "m = 1 e n = 29", "certa": false, "erro": "Com m = 1, o determinante dos normais é 140 − 20 = 120, diferente de 0. Os três planos se encontram num ponto único, (5, 51/20, 17/10), e não numa reta."},
@@ -178,7 +178,7 @@
       "nivel": 2,
       "minutos": 3,
       "tema": "Plano mediador",
-      "origem": "Avaliação semanal 2 · T1-Q5 · Q10",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q5 · Q10",
       "enunciado": "Verdadeiro ou falso? O lugar geométrico dos pontos do espaço equidistantes dos pontos A e B é uma reta perpendicular ao vetor [[AB]].",
       "alternativas": [
         {"t": "Verdadeiro: é a mediatriz do segmento AB, que é uma reta.", "certa": false, "erro": "A mediatriz é reta só no plano, numa folha. No espaço, os pontos equidistantes formam o {{plano-mediador|plano mediador}}, perpendicular a [[AB]] pelo ponto médio."},

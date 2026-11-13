@@ -8,7 +8,7 @@
       "nivel": 2,
       "minutos": 4,
       "tema": "Ângulo entre reta e plano",
-      "origem": "Avaliação semanal 2 · T1-Q4 · Q01",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q4 · Q01",
       "enunciado": "O ângulo entre a reta r: X = (1, 2, 3) + λ(−1, −2, 3), λ ∈ R e o plano π: 2x − y + 3z − 5 = 0 é:",
       "alternativas": [
         {"t": "30°", "certa": false, "erro": "30° pediria sen θ = 1/2, isto é, |[[v]] · [[n]]| = 7, metade de 14. A conta dá 9, e 9/14 é maior que 1/2."},
@@ -51,7 +51,7 @@
       "nivel": 3,
       "minutos": 7,
       "tema": "Ângulo entre dois planos",
-      "origem": "Avaliação semanal 2 · T1-Q4 · Q02",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q4 · Q02",
       "enunciado": "Sejam π₁ o plano que passa pelos pontos A = (−1, −2, −1), B = (−1, 2, 3) e C = (1, 4, 7) e π₂ o plano que passa pelos pontos D = (3, 4, −2), E = (−3, −1, −6) e é paralelo ao eixo y. Determine o ângulo entre os planos π₁ e π₂.",
       "alternativas": [
         {"t": "36,81°", "certa": true},
@@ -94,7 +94,7 @@
       "nivel": 2,
       "minutos": 2,
       "tema": "Intervalo do ângulo entre retas",
-      "origem": "Avaliação semanal 2 · T1-Q4 · Q03",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q4 · Q03",
       "enunciado": "Verdadeiro ou falso? O ângulo entre duas retas r e s é sempre um ângulo pertencente ao intervalo [0, π].",
       "alternativas": [
         {"t": "Verdadeiro: o ângulo entre retas usa o cosseno sem módulo, como entre vetores, e por isso vai de 0 a π", "certa": false, "erro": "Reta tem direção, mas não tem sentido. Por isso o {{ang-retas|ângulo entre retas}} usa |cos θ| e fica entre 0 e π/2. Cosseno sem módulo é a conta entre vetores."},
@@ -136,7 +136,7 @@
       "nivel": 3,
       "minutos": 5,
       "tema": "Retas pelos ângulos com os eixos",
-      "origem": "Avaliação semanal 2 · T1-Q4 · Q04",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q4 · Q04",
       "enunciado": "Verdadeiro ou falso? Existem 4 retas distintas que passam pelo ponto (1, 2, 3) e que formam ângulos de 45° e 60° com os eixos x e y, respectivamente.",
       "alternativas": [
         {"t": "Falso: são 8 retas, uma para cada combinação de sinais em (±√2/2, ±1/2, ±1/2)", "certa": false, "erro": "Isso conta vetores, não retas. [[u]] e −[[u]] são {{multiplo|múltiplos}} um do outro: mesma linha, lados opostos. Os 8 vetores formam 4 pares, então são 4 retas."},

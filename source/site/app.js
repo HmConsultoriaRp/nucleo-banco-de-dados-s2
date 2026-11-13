@@ -449,7 +449,8 @@
     return V && V.semanas.indexOf(s) >= 0 ? V : null;
   }
   function rotuloOnde(q) {
-    var m = /^Avaliação semanal (\d+) · T\d+-Q(\d+) · Q0?(\d+)$/.exec(q.origem);
+    var m = /^Avaliação semanal (\d+) · T\d+-Q(\d+) · Q0?(\d+)$/.exec(q.origem) ||
+            /^Avaliação · Semana (.+?) · T\d+-Q(\d+) · Q0?(\d+)$/.exec(q.origem);
     return m ? 'Semana ' + m[1] + ' · Avaliação ' + m[2] + ' · Q' + m[3] : q.origem;
   }
   function termoPorId(id) {

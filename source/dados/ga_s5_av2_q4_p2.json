@@ -8,7 +8,7 @@
       "nivel": 1,
       "minutos": 2,
       "tema": "Intervalo do ângulo entre planos",
-      "origem": "Avaliação semanal 2 · T1-Q4 · Q05",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q4 · Q05",
       "enunciado": "Verdadeiro ou falso? O ângulo entre dois planos π₁ e π₂ é sempre um ângulo pertencente ao intervalo [0, π/2].",
       "alternativas": [
         {"t": "Falso: as normais podem formar ângulo obtuso, então o ângulo entre planos vai até π", "certa": false, "erro": "As normais podem, mas o {{ang-planos|ângulo entre planos}} usa |cos θ|. Com normais (1, 0, 0) e (−1, 1, 0), o ângulo entre os vetores é 135°, e o dos planos é 45°."},
@@ -50,7 +50,7 @@
       "nivel": 1,
       "minutos": 2,
       "tema": "Normais paralelas e cosseno",
-      "origem": "Avaliação semanal 2 · T1-Q4 · Q06",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q4 · Q06",
       "enunciado": "Verdadeiro ou falso? Se os vetores normais aos planos π₁ e π₂ são paralelos, então o cosseno do ângulo entre os planos π₁ e π₂ é igual a 0.",
       "alternativas": [
         {"t": "Verdadeiro: planos paralelos não se cruzam, então o ângulo entre eles é 90° e o cosseno é 0", "certa": false, "erro": "Não se cruzar não quer dizer 90°. Planos {{paralelos-distintos|paralelos}} são como dois andares de um prédio: ângulo 0°, cosseno 1. O cosseno 0 é de planos perpendiculares."},
@@ -92,7 +92,7 @@
       "nivel": 2,
       "minutos": 4,
       "tema": "Ângulo entre duas retas",
-      "origem": "Avaliação semanal 2 · T1-Q4 · Q07",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q4 · Q07",
       "enunciado": "O ângulo entre a reta r: X = (1, 2, 3) + λ(−1, 2, 3), λ ∈ R e a reta s: X = (2, −1, 4) + γ(2, −1, 3), γ ∈ R é:",
       "alternativas": [
         {"t": "50°", "certa": false, "erro": "Sai de usar o ponto (1, 2, 3) de r no lugar da direção (−1, 2, 3): (1, 2, 3) · (2, −1, 3) = 9, e arccos(9/14) ≈ 49,99°. O {{vetor-diretor|vetor diretor}} é o que multiplica λ."},
@@ -134,7 +134,7 @@
       "nivel": 2,
       "minutos": 5,
       "tema": "Diagonais do cubo",
-      "origem": "Avaliação semanal 2 · T1-Q4 · Q08",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q4 · Q08",
       "enunciado": "Considere o cubo ABCDEFGH de lado 1, com A = (0, 0, 0) na origem, B = (1, 0, 0) no eixo x, D = (0, 1, 0) no eixo y, E = (0, 0, 1) no eixo z e C = (1, 1, 0). Os vértices F, G e H ficam logo acima de B, C e D, na altura z = 1. Classifique, na ordem, as afirmações: (1) O ângulo entre as retas que contêm as diagonais EC e BH é θ ≈ 70,5°. (2) Se o lado do cubo dobrasse de tamanho, o ângulo entre as retas que contêm as diagonais EC e BH não se modificaria. (3) Se o lado do cubo dobrasse de tamanho, o ângulo entre as retas que contêm as diagonais EC e BH dobraria de tamanho. (4) Se o lado do cubo dobrasse de tamanho, o ângulo entre as retas que contêm as diagonais EC e BH muda de tamanho, mas não é o dobro do tamanho.",
       "alternativas": [
         {"t": "V, F, V, F", "certa": false, "erro": "O ângulo depende só das direções. Dobrar o lado multiplica [[EC]] e [[BH]] por 2, e o cosseno continua 1/3. Além disso, o dobro de 70,53° passa de 90°, o que nenhum {{ang-retas|ângulo entre retas}} alcança."},

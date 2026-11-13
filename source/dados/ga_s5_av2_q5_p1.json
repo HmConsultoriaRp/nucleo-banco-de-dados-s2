@@ -8,7 +8,7 @@
       "nivel": 3,
       "minutos": 6,
       "tema": "Posição de três planos",
-      "origem": "Avaliação semanal 2 · T1-Q5 · Q01",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q5 · Q01",
       "enunciado": "Determine a posição relativa entre os planos π₁: 4x + 2y − 3z + 7 = 0, π₂: 4x + 2y − 2z + 1 = 0 e π₃: −4x − 2y + z − 5 = 0.",
       "alternativas": [
         {"t": "Os três planos são distintos e se intersectam ao longo de uma reta", "certa": false, "erro": "Determinante 0 deixa dois casos abertos, e este é o outro. O corte de π₁ e π₂ tem z = 6 e 4x + 2y = 11. Em π₃ esse corte dá −11 + 6 − 5 = −10, e não 0. A {{reta-comum|reta comum}} exigiria 0."},
@@ -52,7 +52,7 @@
       "nivel": 1,
       "minutos": 2,
       "tema": "Distância entre planos paralelos",
-      "origem": "Avaliação semanal 2 · T1-Q5 · Q02",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q5 · Q02",
       "enunciado": "Verdadeiro ou falso? Seja d₁ > d₂. A distância entre dois planos paralelos π₁: ax + by + cz + d₁ = 0 e π₂: ax + by + cz + d₂ = 0 é d(π₁, π₂) = (d₁ − d₂)/√(a² + b² + c²).",
       "alternativas": [
         {"t": "Verdadeiro: a fórmula geral tem |d₁ − d₂|, e com d₁ > d₂ esse módulo não muda nada.", "certa": true},
@@ -94,7 +94,7 @@
       "nivel": 2,
       "minutos": 3,
       "tema": "Reta paralela ou contida",
-      "origem": "Avaliação semanal 2 · T1-Q5 · Q03",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q5 · Q03",
       "enunciado": "Verdadeiro ou falso? Sejam r uma reta com vetor diretor [[r]] e π um plano com vetor normal [[n]]. Se [[r]] · [[n]] = 0, então d(r, π) ≠ 0.",
       "alternativas": [
         {"t": "Verdadeiro: [[r]] · [[n]] = 0 quer dizer reta paralela ao plano, e reta paralela nunca toca o plano.", "certa": false, "erro": "[[r]] · [[n]] = 0 só diz que a reta anda deitada, na direção do plano. Ela pode correr acima dele ou dentro dele. Se estiver {{contida|contida}}, a distância é 0."},
@@ -137,7 +137,7 @@
       "nivel": 3,
       "minutos": 7,
       "tema": "Distância entre reversas",
-      "origem": "Avaliação semanal 2 · T1-Q5 · Q04",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q5 · Q04",
       "enunciado": "A distância entre as retas r: X = (1, 2, 3) + λ(−1, 2, 3), λ ∈ ℝ e s: X = (−1, −2, 1) + α(3, 7, −5), α ∈ ℝ é:",
       "alternativas": [
         {"t": "2,13", "certa": true},
@@ -181,7 +181,7 @@
       "nivel": 1,
       "minutos": 2,
       "tema": "Planos paralelos distintos",
-      "origem": "Avaliação semanal 2 · T1-Q5 · Q05",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q5 · Q05",
       "enunciado": "Verdadeiro ou falso? Se os vetores normais aos planos distintos π₁ e π₂ são paralelos, então a distância entre os planos π₁ e π₂ é diferente de 0 (zero).",
       "alternativas": [
         {"t": "Falso: com normais paralelos, os planos podem ser o mesmo plano, e aí a distância é 0.", "certa": false, "erro": "O enunciado diz planos distintos. O caso {{coincidentes-planos|coincidente}} fica de fora logo na hipótese."},

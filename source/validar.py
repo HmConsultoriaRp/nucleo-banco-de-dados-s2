@@ -144,6 +144,7 @@ def checa_questao(arq, q, disc):
     org = q.get("origem", "")
     if not (re.fullmatch(r"Lista [1-8] · Q\d+[a-z]?", org) or
             re.fullmatch(r"Avaliação semanal \d+ · T\d+(?:-Q\d+)? · Q\d+", org) or
+            re.fullmatch(r"Avaliação · Semana \d+(?: e \d+)? · T\d+(?:-Q\d+)? · Q\d+", org) or
             org in ("Construída · conferida", "Prévia · ementa")):
         erros.append(f"{onde}: origem fora do padrão: '{org}'")
     tem_codigo = bool(q.get("codigo"))

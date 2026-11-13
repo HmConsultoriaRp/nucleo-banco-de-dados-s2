@@ -8,7 +8,7 @@
       "nivel": 1,
       "minutos": 2,
       "tema": "Infinitas equações vetoriais",
-      "origem": "Avaliação semanal 2 · T1-Q1 · Q01",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q1 · Q01",
       "enunciado": "Verdadeiro ou falso? Uma reta r possui infinitas equações vetoriais distintas.",
       "alternativas": [
         {"t": "Falso: cada reta tem uma única equação vetorial, a que usa o ponto e o vetor dados.", "certa": false, "erro": "O {{ponto-partida|ponto de partida}} pode ser qualquer ponto da reta, e a seta pode ser esticada ou virada. X = (1, 2, 3) + t(1, −1, 2) e X = (2, 1, 5) + t(2, −2, 4) descrevem a mesma reta."},
@@ -50,7 +50,7 @@
       "nivel": 2,
       "minutos": 4,
       "tema": "Ponto na reta de A e B",
-      "origem": "Avaliação semanal 2 · T1-Q1 · Q02",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q1 · Q02",
       "enunciado": "Sabendo que o ponto P = (11, m, n) pertence à reta que passa pelos pontos A = (2, 3, −4) e B = (−1, −2, 3), determinar m e n.",
       "alternativas": [
         {"t": "m = 18 e n = −25", "certa": true},
@@ -92,7 +92,7 @@
       "nivel": 2,
       "minutos": 3,
       "tema": "Ler a equação simétrica",
-      "origem": "Avaliação semanal 2 · T1-Q1 · Q03",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q1 · Q03",
       "enunciado": "Seja a reta r: (x + 2)/5 = (−y + 3)/7 = z − 4. Temos que o vetor diretor [[r]] e o ponto P utilizados para obter essa equação foram:",
       "alternativas": [
         {"t": "[[r]] = (5, −7, 1) e o ponto P = (2, 3, −4)", "certa": false, "erro": "A seta está certa, mas o ponto copiou os números dos numeradores sem trocar o sinal. Em (2, 3, −4) as três partes valem 4/5, 0 e −8: nem são iguais, então esse ponto nem está na reta."},
@@ -134,7 +134,7 @@
       "nivel": 2,
       "minutos": 5,
       "tema": "Mediana do triângulo",
-      "origem": "Avaliação semanal 2 · T1-Q1 · Q04",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q1 · Q04",
       "enunciado": "Seja o triângulo de vértices A = (2, 3, −6), B = (−4, −5, 2) e C = (6, 3, 4). As equações paramétricas da reta que passa pelo ponto médio do lado AC e pelo vértice B são dadas por:",
       "alternativas": [
         {"t": "x = −1 + 9t, y = −1 + 6t, z = −2 + 8t", "certa": false, "erro": "Começa no ponto médio de AB, (−1, −1, −2), e não no de AC. Com t = 1 chega em (8, 5, 6), que não é B. Essa reta não passa nem por B nem pelo ponto médio de AC."},

@@ -8,7 +8,7 @@
       "nivel": 2,
       "minutos": 3,
       "tema": "Não paralelas no espaço",
-      "origem": "Avaliação semanal 2 · T1-Q3 · Q01",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q3 · Q01",
       "enunciado": "Verdadeiro ou falso? Sejam as retas r e s contidas no espaço ℝ³, [[r]] o vetor diretor da reta r e [[s]] o vetor diretor da reta s. Se [[r]] e [[s]] não são paralelos, então as retas são concorrentes.",
       "alternativas": [
         {"t":"Falso: no espaço, retas com direções diferentes podem ser reversas e nunca se encontrar","certa":true},
@@ -37,7 +37,7 @@
       "nivel": 2,
       "minutos": 3,
       "tema": "Perpendicular implica ortogonal",
-      "origem": "Avaliação semanal 2 · T1-Q3 · Q02",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q3 · Q02",
       "enunciado": "Verdadeiro ou falso? Se as retas são perpendiculares, então as retas também são ortogonais.",
       "alternativas": [
         {"t":"Falso: retas ortogonais não se cruzam, e retas perpendiculares se cruzam","certa":false,"erro":"Essa é a convenção da geometria de posição do ensino médio, em que ortogonais precisam ser {{reversas|reversas}}. O Prof. Danilo usa a convenção vetorial: {{ortogonais|ortogonais}} só pedem 90° entre as setas, se cruzando ou não. O gabarito desta avaliação confirmou Verdadeiro."},
@@ -66,7 +66,7 @@
       "nivel": 1,
       "minutos": 3,
       "tema": "Plano paralelo por um ponto",
-      "origem": "Avaliação semanal 2 · T1-Q3 · Q03",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q3 · Q03",
       "enunciado": "O plano que é paralelo ao plano 2x − y + 3z − 5 = 0 e passa pelo ponto (1, 2, −3) é dado por:",
       "alternativas": [
         {"t":"−2x + y − 3z + 9 = 0","certa":false,"erro":"A normal (−2, 1, −3) serve, mas o termo independente está com o sinal trocado. O ponto dá −2 + 2 + 9 + 9 = 18, não 0. Esse plano é 2x − y + 3z − 9 = 0, o espelho do certo."},
@@ -95,7 +95,7 @@
       "nivel": 3,
       "minutos": 8,
       "tema": "Tabela das posições relativas",
-      "origem": "Avaliação semanal 2 · T1-Q3 · Q04",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q3 · Q04",
       "enunciado": "Sejam r1: P = P1 + t[[v1]] e r2: P = P2 + s[[v2]] retas, π1: a1x + b1y + c1z + d1 = 0 e π2: a2x + b2y + c2z + d2 = 0 planos, e [[n1]] e [[n2]] os vetores normais de π1 e π2. Associe, na ordem, cada condição à posição relativa: (1) [[v1]] · [[n1]] = 0 e P1 ∈ π1: a reta está ___ no plano; (2) [[v1]] ≠ λ[[v2]] e [[P1P2]], [[v1]], [[v2]] não coplanares: as retas são; (3) [[n1]] = λ[[n2]] e d1 = λd2 (mesmo λ): os planos são; (4) [[v1]] · [[n1]] = 0: a reta e o plano são; (5) [[v1]] ≠ λ[[v2]] e [[P1P2]], [[v1]], [[v2]] coplanares: as retas são; (6) [[v1]] = λ[[v2]] e P1 ∈ r2: as retas são; (7) [[v1]] · [[n1]] ≠ 0: a reta e o plano são; (8) [[v1]] = λ[[v2]] e P1 ∉ r2: as retas são; (9) [[n1]] ≠ λ[[n2]]: os planos são; (10) [[n1]] = λ[[n2]] e d1 ≠ λd2 (mesmo λ): os planos são.",
       "alternativas": [
         {"t":"Paralelos, Reversas, Coincidentes, Contida, Concorrentes, Coincidentes, Concorrentes, Paralelas Distintas, Transversais, Paralelos Distintos","certa":false,"erro":"Trocou as frases 1 e 4. A frase 1 tem as duas condições, seta deitada e P1 dentro de π1: é a reta {{contida|contida}}. A frase 4 só diz [[v1]] · [[n1]] = 0, sem o ponto: o professor chama de {{paralelos-reta-plano|paralelos}}, como na Lista 6, Q6f."},
@@ -124,7 +124,7 @@
       "nivel": 2,
       "minutos": 5,
       "tema": "Retas perpendiculares",
-      "origem": "Avaliação semanal 2 · T1-Q3 · Q05",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q3 · Q05",
       "enunciado": "Determine a posição relativa entre as retas r: x = 1 + 2k, y = 2 + k, z = 3 − 3k (k ∈ ℝ) e s: X = (3, 3, 0) + λ(1, 1, 1) (λ ∈ ℝ).",
       "alternativas": [
         {"t":"Paralelas Distintas","certa":false,"erro":"{{paralelas-distintas|Paralelas distintas}} pedem setas múltiplas. (2, 1, −3) e (1, 1, 1) não são: [[u]] × [[v]] = (4, −5, 1), diferente de [[0]]."},

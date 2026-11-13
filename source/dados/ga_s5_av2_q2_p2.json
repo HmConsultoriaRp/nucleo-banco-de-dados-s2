@@ -8,7 +8,7 @@
       "nivel": 2,
       "minutos": 3,
       "tema": "Direção da reta de dois planos",
-      "origem": "Avaliação semanal 2 · T1-Q2 · Q06",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q2 · Q06",
       "enunciado": "Verdadeiro ou falso? Se uma reta r é a interseção de dois planos π₁ e π₂, então um vetor diretor da reta r é [[n1]] × [[n2]], onde [[n1]] e [[n2]] são os vetores normais de π₁ e π₂, respectivamente. Para testar com números, use π₁: 2x − 3y − 3z − 2 = 0 e π₂: 2x − 2y + 3z − 2 = 0.",
       "alternativas": [
         {"t": "Falso: o vetor diretor de r é [[n1]] + [[n2]].", "certa": false, "erro": "A soma (2, −3, −3) + (2, −2, 3) = (4, −5, 0) não fica deitada em π₁: (4, −5, 0) · (2, −3, −3) = 23. Uma seta da reta precisa fazer 90° com os dois {{vetor-normal|pregos}}."},
@@ -50,7 +50,7 @@
       "nivel": 1,
       "minutos": 2,
       "tema": "Três pontos e um plano",
-      "origem": "Avaliação semanal 2 · T1-Q2 · Q07",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q2 · Q07",
       "enunciado": "Verdadeiro ou falso? A equação de um plano é determinada se são dados três pontos P₁, P₂ e P₃ quaisquer.",
       "alternativas": [
         {"t": "Verdadeiro: três pontos sempre prendem um plano, como as pernas de um banquinho.", "certa": false, "erro": "Só vale se os pontos não forem {{colineares|colineares}}, isto é, se não estiverem na mesma reta. Três pernas em fila não seguram o banquinho: ele tomba para um lado ou para o outro."},
@@ -92,7 +92,7 @@
       "nivel": 3,
       "minutos": 6,
       "tema": "Plano por reta e ponto",
-      "origem": "Avaliação semanal 2 · T1-Q2 · Q08",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q2 · Q08",
       "enunciado": "Determine a equação geral do plano que contém a reta r: X = (−1, 4, 13) + λ(−1, 2, 4) e o ponto P = (−1, −2, 3).",
       "alternativas": [
         {"t": "2x − 5y + 3z − 17 = 0", "certa": true},
@@ -134,7 +134,7 @@
       "nivel": 1,
       "minutos": 2,
       "tema": "Equações paramétricas do plano",
-      "origem": "Avaliação semanal 2 · T1-Q2 · Q09",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q2 · Q09",
       "enunciado": "Verdadeiro ou falso? Um plano π possui infinitas equações paramétricas distintas.",
       "alternativas": [
         {"t": "Falso: as paramétricas saem da equação geral, que é única.", "certa": false, "erro": "A {{eq-geral-plano|equação geral}} também não é única: multiplicar tudo por um número diferente de 0 dá outra equação do mesmo plano. E as {{eq-param-plano|paramétricas}} dependem do ponto e das setas escolhidas."},

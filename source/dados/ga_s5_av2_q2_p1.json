@@ -8,7 +8,7 @@
       "nivel": 2,
       "minutos": 4,
       "tema": "Ponto no plano paramétrico",
-      "origem": "Avaliação semanal 2 · T1-Q2 · Q01",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q2 · Q01",
       "enunciado": "Verdadeiro ou falso? O ponto A = (13, 8, −4) pertence ao plano π de equações x = −1 + 4t − 3s, y = 2 + 2t − s, z = −3 + t + 2s, com t, s ∈ ℝ.",
       "alternativas": [
         {"t": "Verdadeiro: com t = 2 e s = −2, o ponto A sai das equações.", "certa": false, "erro": "Com t = 2 e s = −2, x dá 13 e y dá 8, mas z dá −3 + 2 − 4 = −5. O ponto que sai é (13, 8, −5), não A."},
@@ -50,7 +50,7 @@
       "nivel": 2,
       "minutos": 5,
       "tema": "Plano por três pontos",
-      "origem": "Avaliação semanal 2 · T1-Q2 · Q02",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q2 · Q02",
       "enunciado": "Determine a equação geral do plano que passa pelos pontos A = (−1, −2, −1), B = (2, 3, −1) e C = (3, −1, 1).",
       "alternativas": [
         {"t": "8x + 2y − 17z − 5 = 0", "certa": false, "erro": "Passa por A e C, mas em B dá 34. É o plano que sai lendo B como (2, 3, 1), sem o sinal de menos no z."},
@@ -92,7 +92,7 @@
       "nivel": 1,
       "minutos": 2,
       "tema": "Equações vetoriais do plano",
-      "origem": "Avaliação semanal 2 · T1-Q2 · Q03",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q2 · Q03",
       "enunciado": "Verdadeiro ou falso? Um plano π possui infinitas equações vetoriais distintas.",
       "alternativas": [
         {"t": "Verdadeiro: o ponto de partida pode ser qualquer ponto de π, e as setas, qualquer par deitado em π e não paralelo entre si.", "certa": true},
@@ -134,7 +134,7 @@
       "nivel": 2,
       "minutos": 4,
       "tema": "Plano por ponto e duas setas",
-      "origem": "Avaliação semanal 2 · T1-Q2 · Q04",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q2 · Q04",
       "enunciado": "Se [[u]] = (2, 1, −2) e [[v]] = (−3, 1, −1) são vetores diretores de um plano π e P = (−1, 2, 1) pertence a π, então a equação geral de π é:",
       "alternativas": [
         {"t": "3x + 4y − 5z = 0", "certa": false, "erro": "Passa por P, mas o {{vetor-normal|prego}} (3, 4, −5) não faz 90° com [[u]]: o produto escalar dá 20. É o plano que sai lendo [[u]] como (2, 1, 2), sem o sinal do último −2."},
@@ -176,7 +176,7 @@
       "nivel": 1,
       "minutos": 3,
       "tema": "Ponto na reta de dois planos",
-      "origem": "Avaliação semanal 2 · T1-Q2 · Q05",
+      "origem": "Avaliação · Semana 2 e 3 · T1-Q2 · Q05",
       "enunciado": "Verdadeiro ou falso? O ponto P = (16, 12, −2) pertence à reta que é interseção dos planos 2x − 3y − 3z − 2 = 0 e 2x − 2y + 3z − 2 = 0.",
       "alternativas": [
         {"t": "Falso: P zera só a primeira equação; na segunda dá 12.", "certa": false, "erro": "Na segunda, 3z com z = −2 vale −6, não +6. A conta certa é 32 − 24 − 6 − 2 = 0: P zera as duas equações."},
