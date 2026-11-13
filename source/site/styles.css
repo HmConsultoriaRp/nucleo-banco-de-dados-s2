@@ -668,8 +668,16 @@ body.dark .ideia-frase,body.dark .ideia-passo p{color:var(--ink)}
 .duv-filtros button{border:1px solid var(--line);background:var(--white);padding:6px 12px;font-size:12px;font-weight:600;cursor:pointer}
 .duv-filtros button.active{background:var(--ink);color:var(--white);border-color:var(--ink)}
 .duv-minhas-tit{font-size:9.5px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--muted);margin:0 0 6px}
-.duv-pend{display:flex;align-items:center;gap:8px;background:var(--note);padding:8px 10px;margin-bottom:6px;font-size:13px}
-.duv-relogio{font-size:16px}
+.duv-pend{display:flex;align-items:flex-start;gap:8px;background:var(--white);border:1px solid var(--line);padding:8px 10px;margin-bottom:6px;font-size:13px}
+.duv-pend>div{flex:1;min-width:0}
+.duv-pend small{display:block;margin-top:2px;font-size:12.5px;color:var(--muted)}
+.duv-pend.duv-motivo{background:var(--coral-tint);border-color:var(--coral)}
+.duv-pend.duv-motivo small{color:var(--ink)}
+.duv-pend.duv-ok{background:var(--blue-tint);border-color:var(--blue)}
+.duv-pend-acoes{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.duv-relogio{font-size:16px;line-height:1.2;width:16px;text-align:center;font-weight:700;flex:none}
+.duv-motivo .duv-relogio{color:var(--coral)}
+.duv-ok .duv-relogio{color:var(--blue)}
 .duv-item{background:var(--white);border:1px solid var(--line);margin-bottom:8px}
 .duv-item summary{cursor:pointer;padding:12px 14px;display:flex;flex-direction:column;gap:4px;list-style:none}
 .duv-item summary::-webkit-details-marker{display:none}

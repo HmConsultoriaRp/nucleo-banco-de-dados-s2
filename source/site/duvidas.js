@@ -105,7 +105,7 @@
       guardaMinha({ id: id, data: new Date().toLocaleDateString('pt-BR'), disciplina: pacote.disciplina, semana: pacote.semana, texto: texto || '(print)', prototipo: !!prototipo });
       $('#duv-texto').value = ''; contaTexto(); tiraImagem(); ref = null; mostraRef();
       msg(prototipo ? 'Protótipo: nada foi enviado. No site de verdade, a dúvida vai para a planilha e ganha o código #' + id + '.'
-        : 'Recebida! Código #' + id + '. A resposta aparece nesta página em algumas horas.', 'ok');
+        : 'Recebida! Código #' + id + '. A resposta aparece nesta página em até 1 dia.', 'ok');
       botao.disabled = false;
       desenhaMinhas();
     };
@@ -126,7 +126,7 @@
     $('#duv-itens').innerHTML = '<p class="duv-vazio">Carregando as respostas…</p>';
     fetch(PORTEIRO + '?acao=respondidas')
       .then(function (r) { return r.json(); })
-      .then(function (j) { respondidas = (j && j.itens) || []; desenhaLista(); desenhaMinhas(); })
+      .then(function (j) { respondidas = (j && j.itens) || []; listaCarregada = true; desenhaLista(); desenhaMinhas(); consultaMinhas(); })
       .catch(function () { $('#duv-itens').innerHTML = '<p class="duv-vazio">Não consegui carregar as respostas agora.</p>'; });
   }
   function desenhaLista() {
@@ -145,12 +145,55 @@
         '<p class="duv-meta">#' + esc(x.id) + ' · respondida em ' + esc(x.data) + (x.exemplo ? ' · <span class="stamp">exemplo do protótipo</span>' : '') + '</p></details>';
     }).join('');
   }
+  // ---------- suas dúvidas: aguardando, não respondida (com o motivo) ou respondida ----------
+  var listaCarregada = false;
+  var situacoes = {};                      // id -> { status, motivo }, perguntado ao porteiro
+  var avisoRespondidas = null;             // as suas que já saíram na lista: aparecem uma vez e saem da memória
+  function tiraMinha(id) { try { localStorage.setItem(CHAVE_MINHAS, JSON.stringify(minhas().filter(function (m) { return m.id !== id; }))); } catch (e) { /* sem armazenamento */ } }
+  function consultaMinhas() {
+    if (!PORTEIRO) return;
+    minhas().filter(function (m) { return !m.prototipo; }).slice(0, 5).forEach(function (m) {
+      fetch(PORTEIRO + '?acao=status&id=' + encodeURIComponent(m.id))
+        .then(function (r) { return r.json(); })
+        .then(function (j) { if (j && j.ok) { situacoes[m.id] = j; desenhaMinhas(); } })
+        .catch(function () { /* sem resposta do porteiro: fica como aguardando */ });
+    });
+  }
+  function resumo(m) { var t = String(m.texto || ''); return esc(t.slice(0, 90)) + (t.length > 90 ? '…' : ''); }
   function desenhaMinhas() {
     var feitas = {}; respondidas.forEach(function (x) { feitas[x.id] = true; });
-    var pend = minhas().filter(function (m) { return !feitas[m.id]; }).slice(0, 5);
-    $('#duv-minhas').innerHTML = pend.length ? '<p class="duv-minhas-tit">Suas dúvidas aguardando resposta</p>' + pend.map(function (m) {
-      return '<div class="duv-pend"><span class="duv-relogio" aria-hidden="true">◷</span><span>#' + esc(m.id) + ' · ' + esc(m.texto.slice(0, 90)) + (m.texto.length > 90 ? '…' : '') + '</span>' + (m.prototipo ? '<span class="stamp">protótipo</span>' : '') + '</div>';
-    }).join('') : '';
+    if (avisoRespondidas === null && listaCarregada) {
+      avisoRespondidas = minhas().filter(function (m) { return feitas[m.id]; });
+      avisoRespondidas.forEach(function (m) { tiraMinha(m.id); });
+    }
+    var blocos = (avisoRespondidas || []).map(function (m) {
+      return '<div class="duv-pend duv-ok"><span class="duv-relogio" aria-hidden="true">✓</span><div><b>#' + esc(m.id) + ' · Respondida</b>' +
+        '<small>Veja em "Dúvidas respondidas", logo abaixo. Este aviso some sozinho.</small></div></div>';
+    });
+    minhas().slice(0, 5).forEach(function (m) {
+      var s = situacoes[m.id] || {};
+      if (s.motivo) {
+        blocos.push('<div class="duv-pend duv-motivo"><span class="duv-relogio" aria-hidden="true">!</span><div><b>#' + esc(m.id) + ' · Não respondida</b>' +
+          '<small>' + esc(s.motivo) + '</small>' +
+          '<span class="duv-pend-acoes"><button type="button" class="ghost" data-minha="de-novo" data-id="' + esc(m.id) + '">Perguntar de novo</button>' +
+          '<button type="button" class="ghost" data-minha="dispensar" data-id="' + esc(m.id) + '">Dispensar</button></span></div></div>');
+      } else if (!feitas[m.id]) {
+        blocos.push('<div class="duv-pend"><span class="duv-relogio" aria-hidden="true">◷</span><div>#' + esc(m.id) + ' · ' + resumo(m) +
+          '<small>Aguardando. A resposta aparece aqui em até 1 dia.</small></div>' + (m.prototipo ? '<span class="stamp">protótipo</span>' : '') + '</div>');
+      }
+    });
+    $('#duv-minhas').innerHTML = blocos.length ? '<p class="duv-minhas-tit">Suas dúvidas</p>' + blocos.join('') : '';
+  }
+  function acaoMinha(e) {
+    var b = e.target.closest && e.target.closest('[data-minha]');
+    if (!b) return;
+    var m = minhas().filter(function (x) { return x.id === b.dataset.id; })[0];
+    tiraMinha(b.dataset.id);
+    desenhaMinhas();
+    if (b.dataset.minha === 'de-novo') {
+      abrir({ disc: m && m.disciplina, sem: m && m.semana });
+      if (m && m.texto && m.texto !== '(print)') { $('#duv-texto').value = m.texto; contaTexto(); }
+    }
   }
 
   // ---------- liga ----------
@@ -174,6 +217,7 @@
     $('#duv-arquivo').addEventListener('change', function () { if (this.files[0]) carregaImagem(this.files[0]); this.value = ''; });
     $('#duv-tira').addEventListener('click', tiraImagem);
     $('#duv-busca').addEventListener('input', desenhaLista);
+    $('#duv-minhas').addEventListener('click', acaoMinha);
     $$('#duv-filtros button').forEach(function (b) {
       b.addEventListener('click', function () { filtro = b.dataset.f; $$('#duv-filtros button').forEach(function (x) { x.classList.toggle('active', x === b); }); desenhaLista(); });
     });

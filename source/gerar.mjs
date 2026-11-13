@@ -11,7 +11,7 @@ const INICIO = '2026-10-26';
 // Tira-dúvidas na página publicada. false = a página sai SEM ele: sem o item do menu, a seção,
 // o atalho fixo, os botões "Tenho uma dúvida" e o duvidas.js. Ligar (true) só depois do teste
 // com dúvida real e com a rotina de respostas ligada, e com ok do dono do site.
-const TIRA_DUVIDAS_NO_AR = false;
+const TIRA_DUVIDAS_NO_AR = true;   // ligado em 13/11/2026, com ok do dono do site
 
 const ler = (p) => fs.readFileSync(p, 'utf8');
 const natural = new Intl.Collator('pt-BR', { numeric: true, sensitivity: 'base' });
