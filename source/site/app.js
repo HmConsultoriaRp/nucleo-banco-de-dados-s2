@@ -112,6 +112,17 @@
     $('#hero-ciclo').textContent = 'Ciclo 01 · semana ' + s + ' de 6';
     var html = '';
     ['ga', 'lp'].forEach(function (d) {
+      var g = grupoAtual(d);
+      if (g) {   // Geometria: a semana do Moodle de hoje, com todas as partes
+        var qsG = questoesGrupo(d, g);
+        var feitasG = qsG.filter(function (q) { return st.resp[q.id]; }).length;
+        var errG = qsG.filter(function (q) { return st.resp[q.id] && !st.resp[q.id].ok; }).length;
+        var faltaG = qsG.length - feitasG;
+        var txtG = !qsG.length ? 'material ainda não chegou' : faltaG > 0 ? 'faltam ' + faltaG + ' de ' + qsG.length : (errG ? 'semana feita; refaça as ' + errG + ' que errou' : 'semana completa');
+        var alvoQ = qsG.filter(function (q) { return !st.resp[q.id]; })[0] || qsG[0];
+        html += '<li><b>' + NOME[d] + '</b> <span>Semana ' + esc(g.rot) + ' do Moodle · ' + esc(g.titulo) + (g.confirmar ? ' (prévia)' : '') + ': ' + txtG + '.</span> <button data-ir="' + d + '|' + (alvoQ ? alvoQ.semana + '|' + alvoQ.id : g.semanas[0]) + '">abrir</button></li>';
+        return;
+      }
       var st2 = statsSemana(d, s), info = semanaInfo(d, s);
       var falta = st2.total - st2.feitas;
       var erradas = questoesDa(d, s).filter(function (q) { return st.resp[q.id] && !st.resp[q.id].ok; }).length;
@@ -124,7 +135,8 @@
     $$('#para-hoje [data-ir]').forEach(function (b) {
       b.addEventListener('click', function () {
         var p = b.dataset.ir.split('|');
-        abrirSemana(p[0], +p[1], 'questao', primeiraPendente(p[0], +p[1]));
+        ui.todas = false;
+        abrirSemana(p[0], +p[1], 'questao', p[2] || primeiraPendente(p[0], +p[1]));
       });
     });
   }
@@ -160,22 +172,74 @@
     var alvo = $('#estudo');
     if (alvo.getBoundingClientRect().top > 120 || alvo.getBoundingClientRect().bottom < 200) alvo.scrollIntoView();
   }
-  // Semana do Moodle (UFTM) que cobre cada semana do site. As semanas do site seguem o assunto.
-  var MOODLE = { ga: { 1: 'Semana 1', 2: 'Semana 1', 3: 'Semana 1', 4: 'Semana 2 e 3', 5: 'Semana 2 e 3' } };
+  // Geometria pelas semanas do Moodle (UFTM). Cada semana do Moodle junta semanas do site, que viram partes.
+  // Datas: Semana 1 = 26/10 a 02/11 e Semana 2 e 3 = 02/11 a 16/11 (medido no Moodle). As das Semanas 4 a 6
+  // seguem o padrao semanal e o assunto da 4 (conicas) e hipotese: a confirmar com o Moodle.
+  var GRUPOS = { ga: [
+    { rot: '1', titulo: 'Vetores', semanas: [1, 2, 3], ini: '2026-10-26' },
+    { rot: '2 e 3', titulo: 'Retas e planos', semanas: [4, 5], ini: '2026-11-03' },
+    { rot: '4', titulo: 'Cônicas e quádricas', semanas: [6], confirmar: true, ini: '2026-11-17' },
+    { rot: '5', titulo: 'a confirmar', semanas: [], ini: '2026-11-24' },
+    { rot: '6', titulo: 'a confirmar', semanas: [], ini: '2026-12-01' }
+  ] };
+  function grupoDe(d, s) { return (GRUPOS[d] || []).filter(function (g) { return g.semanas.indexOf(s) >= 0; })[0] || null; }
+  function questoesGrupo(d, g) { return [].concat.apply([], g.semanas.map(function (s) { return questoesDa(d, s); })); }
+  function questoesVisao() {
+    var g = ui.todas ? grupoDe(ui.disc, ui.sem) : null;
+    return g ? questoesGrupo(ui.disc, g) : questoesDa(ui.disc, ui.sem);
+  }
+  function grupoAtual(d) {
+    var hoje = new Date(), atual = null;
+    (GRUPOS[d] || []).forEach(function (g) { if (g.semanas.length && new Date(g.ini + 'T00:00:00') <= hoje) atual = g; });
+    return atual;
+  }
+  function tituloParte(d, s) { return String(semanaInfo(d, s).titulo).split(':')[0]; }
   function renderEstudo() {
     document.body.dataset.subject = ui.disc;
     $$('[data-subject]').forEach(function (b) { if (b.tagName === 'BUTTON') b.classList.toggle('active', b.dataset.subject === ui.disc); });
-    var tabs = '';
-    for (var w = 1; w <= 6; w++) {
-      var info = semanaInfo(ui.disc, w), stt = statsSemana(ui.disc, w), mdl = (MOODLE[ui.disc] || {})[w];
-      tabs += '<button role="tab" class="' + (w === ui.sem ? 'active' : '') + (info.previa ? ' previa' : '') + '" data-week="' + w + '"><span>Semana</span>' + n2(w) +
-        '<small>' + esc(info.titulo) + '</small>' + (mdl ? '<b class="week-moodle">no Moodle: ' + esc(mdl) + '</b>' : '') + '<em>' + (info.previa ? 'prévia · ' : '') + stt.feitas + '/' + stt.total + '</em>' +
-        '<span class="week-bar"><i style="width:' + (stt.total ? Math.round(stt.feitas / stt.total * 100) : 0) + '%"></i></span></button>';
+    var tabs = '', G = GRUPOS[ui.disc];
+    if (G) {
+      G.forEach(function (g, gi) {
+        var tot = 0, fei = 0;
+        g.semanas.forEach(function (s) { var x = statsSemana(ui.disc, s); tot += x.total; fei += x.feitas; });
+        var vazio = !g.semanas.length, on = g.semanas.indexOf(ui.sem) >= 0;
+        var nota = vazio ? '' : g.confirmar ? 'prévia · a confirmar' : g.semanas.length > 1 ? g.semanas.length + ' partes' : '';
+        tabs += '<button role="tab" class="' + (on ? 'active' : '') + (vazio || g.confirmar ? ' previa' : '') + '" data-grupo="' + gi + '"' + (vazio ? ' disabled' : '') + '><span>Semana</span>' + esc(g.rot) +
+          '<small>' + esc(g.titulo) + '</small>' + (nota ? '<b class="week-moodle">' + esc(nota) + '</b>' : '') + '<em>' + (vazio ? 'em breve' : fei + '/' + tot) + '</em>' +
+          '<span class="week-bar"><i style="width:' + (tot ? Math.round(fei / tot * 100) : 0) + '%"></i></span></button>';
+      });
+    } else {
+      for (var w = 1; w <= 6; w++) {
+        var info = semanaInfo(ui.disc, w), stt = statsSemana(ui.disc, w);
+        tabs += '<button role="tab" class="' + (w === ui.sem ? 'active' : '') + (info.previa ? ' previa' : '') + '" data-week="' + w + '"><span>Semana</span>' + n2(w) +
+          '<small>' + esc(info.titulo) + '</small><em>' + (info.previa ? 'prévia · ' : '') + stt.feitas + '/' + stt.total + '</em>' +
+          '<span class="week-bar"><i style="width:' + (stt.total ? Math.round(stt.feitas / stt.total * 100) : 0) + '%"></i></span></button>';
+      }
     }
     $('#week-tabs').innerHTML = tabs;
-    $$('#week-tabs button').forEach(function (b) { b.addEventListener('click', function () { ui.qid = null; abrirSemana(ui.disc, +b.dataset.week); }); });
+    $('#week-tabs').classList.toggle('moodle', !!G);
+    $$('#week-tabs button[data-week]').forEach(function (b) { b.addEventListener('click', function () { ui.qid = null; ui.todas = false; abrirSemana(ui.disc, +b.dataset.week); }); });
+    $$('#week-tabs button[data-grupo]').forEach(function (b) {
+      b.addEventListener('click', function () { var g = G[+b.dataset.grupo]; if (!g.semanas.length) return; ui.qid = null; ui.todas = false; abrirSemana(ui.disc, g.semanas[0]); });
+    });
+    // partes da semana do Moodle (so quando a semana junta mais de uma parte)
+    var cp = $('#week-partes');
+    if (!cp) { cp = document.createElement('div'); cp.id = 'week-partes'; cp.className = 'week-partes'; $('#week-tabs').insertAdjacentElement('afterend', cp); }
+    var gA = G ? grupoDe(ui.disc, ui.sem) : null;
+    if (gA && gA.semanas.length > 1 && ui.view !== 'atividades') {
+      if (ui.view !== 'questao') ui.todas = false;
+      cp.innerHTML = (ui.view === 'questao' ? '<button type="button" data-parte="todas" class="' + (ui.todas ? 'active' : '') + '">Todas</button>' : '') +
+        gA.semanas.map(function (s, i) { return '<button type="button" data-parte="' + s + '" class="' + (!ui.todas && s === ui.sem ? 'active' : '') + '">Parte ' + (i + 1) + ' · ' + esc(tituloParte(ui.disc, s)) + '</button>'; }).join('');
+      cp.style.display = '';
+      $$('button', cp).forEach(function (b) {
+        b.addEventListener('click', function () {
+          if (b.dataset.parte === 'todas') { ui.todas = true; renderEstudo(); return; }
+          ui.todas = false; ui.qid = null; abrirSemana(ui.disc, +b.dataset.parte);
+        });
+      });
+    } else { cp.innerHTML = ''; cp.style.display = 'none'; if (!gA) ui.todas = false; }
     $$('.view-link').forEach(function (b) { b.classList.toggle('active', b.dataset.view === ui.view); });
-    $('#qcount').textContent = questoesDa(ui.disc, ui.sem).length;
+    $('#qcount').textContent = questoesVisao().length;
     var info2 = semanaInfo(ui.disc, ui.sem);
     $('#index-note').innerHTML = info2.previa
       ? '<strong>Prévia</strong><p>Montado pela ementa do PPC. Quando o material do professor chegar, esta semana muda.</p>'
@@ -193,7 +257,7 @@
     else renderQuestao();
   }
   function renderLista() {
-    var qs = questoesDa(ui.disc, ui.sem).filter(function (q) {
+    var qs = questoesVisao().filter(function (q) {
       var r = st.resp[q.id];
       if (ui.filtro === 'pendentes') return !r;
       if (ui.filtro === 'erradas') return r && !r.ok;
@@ -221,13 +285,14 @@
   function renderAtividades() {
     var el = $('#view-atividades');
     var info = semanaInfo(ui.disc, ui.sem);
-    var qs = questoesDa(ui.disc, ui.sem);
+    var gAt = grupoDe(ui.disc, ui.sem);   // em Geometria, a semana do Moodle inteira (todas as partes)
+    var qs = gAt ? questoesGrupo(ui.disc, gAt) : questoesDa(ui.disc, ui.sem);
     var avaliacoes = qs.filter(function (q) { return tipoOrigem(q) === 'avaliacao'; });
     var oficiais = qs.filter(function (q) { return tipoOrigem(q) === 'lista'; });
     var construidas = qs.filter(function (q) { return tipoOrigem(q) === 'constr'; });
     var previas = qs.filter(function (q) { return tipoOrigem(q) === 'previa'; });
     var legado = st.legado;
-    var h = '<div class="activity-hub"><header class="activity-head"><div><p class="lesson-kicker">' + esc(NOME_LONGO[ui.disc]) + ' · semana ' + n2(ui.sem) + '</p>' +
+    var h = '<div class="activity-hub"><header class="activity-head"><div><p class="lesson-kicker">' + esc(NOME_LONGO[ui.disc]) + (gAt ? ' · Semana ' + esc(gAt.rot) + ' do Moodle' : ' · semana ' + n2(ui.sem)) + '</p>' +
       '<h2>Atividades da universidade</h2><p>O print chega, nós resolvemos juntos e a atividade entra aqui com resposta, armadilhas e diferentes caminhos de explicação.</p></div>' +
       '<span class="activity-count">' + qs.length + '<small>questões</small></span></header>';
     h += '<div class="activity-flow"><article><b>01</b><strong>Enunciado original</strong><span>Transcrito do print sem mudar o que foi pedido.</span></article>' +
@@ -253,10 +318,14 @@
     h += '<div class="activity-next"><div><strong>Vai enviar uma nova atividade?</strong><p>Mande o print na conversa. Ela entra na disciplina e na semana corretas depois que conferirmos juntos.</p></div><button class="primary-button" data-first-activity>Começar pelas questões <span>→</span></button></div></div>';
     el.innerHTML = h;
     $$('[data-activity-q]', el).forEach(function (b) {
-      b.addEventListener('click', function () { ui.qid = b.dataset.activityQ; ui.view = 'questao'; renderEstudo(); });
+      b.addEventListener('click', function () { var q = porId[b.dataset.activityQ]; ui.qid = q.id; ui.sem = q.semana; ui.todas = false; ui.view = 'questao'; renderEstudo(); });
     });
     var primeiro = $('[data-first-activity]', el);
-    if (primeiro) primeiro.addEventListener('click', function () { ui.qid = primeiraPendente(ui.disc, ui.sem); ui.view = 'questao'; renderEstudo(); });
+    if (primeiro) primeiro.addEventListener('click', function () {
+      var pend = qs.filter(function (q) { return !st.resp[q.id]; })[0] || qs[0];
+      if (pend) { ui.qid = pend.id; ui.sem = pend.semana; }
+      ui.view = 'questao'; renderEstudo();
+    });
   }
 
   // ---------- figura, tabela, código ----------
@@ -570,10 +639,11 @@
   function renderQuestao() {
     figReg = [];
     var el = $('#view-questao');
-    var qs = questoesDa(ui.disc, ui.sem);
+    var qs = questoesVisao();
     if (!qs.length) { el.innerHTML = '<div class="vazio">Ainda não há questões nesta semana.</div>'; return; }
     var q = porId[ui.qid];
-    if (!q || q.disc !== ui.disc || q.semana !== ui.sem) { q = qs[0]; ui.qid = q.id; }
+    if (!q || q.disc !== ui.disc || qs.indexOf(q) < 0) { q = qs[0]; ui.qid = q.id; }
+    if (q.semana !== ui.sem) { ui.sem = q.semana; renderLista(); }
     st.ultimo = { disc: ui.disc, sem: ui.sem, id: q.id }; salva();
     var pos = qs.indexOf(q);
     var r = st.resp[q.id];
@@ -641,7 +711,7 @@
     atualizaTudo();
   }
   function navegar(dir) {
-    var qs = questoesDa(ui.disc, ui.sem), i = qs.map(function (x) { return x.id; }).indexOf(ui.qid);
+    var qs = questoesVisao(), i = qs.map(function (x) { return x.id; }).indexOf(ui.qid);
     var j = i + dir;
     if (j < 0 || j >= qs.length) {
       var s2 = ui.sem + dir;

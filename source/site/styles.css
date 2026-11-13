@@ -128,6 +128,12 @@ button{cursor:pointer}
 .week-tabs button em{position:absolute;right:10px;top:12px;font:700 9px var(--font-body);font-style:normal;color:var(--muted);letter-spacing:.04em}
 .week-tabs button.previa em{color:var(--ocre)}
 .week-tabs button .week-moodle{display:block;font:600 9.5px/1.25 var(--font-body);color:var(--blue);letter-spacing:.02em;margin:3px 0 4px}
+.week-tabs button.previa .week-moodle{color:var(--ocre)}
+.week-tabs.moodle{grid-template-columns:repeat(5,1fr)}
+.week-tabs button:disabled{cursor:default;opacity:.7}
+.week-partes{display:flex;flex-wrap:wrap;gap:6px;padding:12px 0 2px}
+.week-partes button{border:1px solid var(--line);background:var(--white);padding:7px 12px;font:600 12px var(--font-body);color:var(--ink);cursor:pointer}
+.week-partes button.active{background:var(--blue-tint);border-color:var(--blue);color:var(--blue-deep)}
 .week-tabs button.active{background:var(--white);color:var(--ink)}
 .week-tabs button.active:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--blue)}
 body[data-subject=lp] .week-tabs button.active:after{background:var(--coral)}
@@ -506,6 +512,7 @@ body.dark .fala.monitor{color:var(--ink)}
   .qitem .tema,.qitem small.min{display:none}
   .study-title{align-items:flex-start;flex-direction:column}
   .week-tabs{overflow-x:auto;grid-template-columns:repeat(6,minmax(128px,1fr))}
+  .week-tabs.moodle{grid-template-columns:repeat(5,minmax(128px,1fr))}
   .blocos{grid-template-columns:1fr}
   .bloco,.bloco:nth-child(odd){padding:22px 5vw}
   .lab-grid{grid-template-columns:1fr}
