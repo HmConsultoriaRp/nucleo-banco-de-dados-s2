@@ -1,0 +1,174 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-av2-t1-q2-06",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Direção da reta de dois planos",
+      "origem": "Avaliação semanal 2 · T1-Q2 · Q06",
+      "enunciado": "Verdadeiro ou falso? Se uma reta r é a interseção de dois planos π₁ e π₂, então um vetor diretor da reta r é [[n1]] × [[n2]], onde [[n1]] e [[n2]] são os vetores normais de π₁ e π₂, respectivamente. Para testar com números, use π₁: 2x − 3y − 3z − 2 = 0 e π₂: 2x − 2y + 3z − 2 = 0.",
+      "alternativas": [
+        {"t": "Falso: o vetor diretor de r é [[n1]] + [[n2]].", "certa": false, "erro": "A soma (2, −3, −3) + (2, −2, 3) = (4, −5, 0) não fica deitada em π₁: (4, −5, 0) · (2, −3, −3) = 23. Uma seta da reta precisa fazer 90° com os dois {{vetor-normal|pregos}}."},
+        {"t": "Falso: [[n1]] × [[n2]] é perpendicular aos dois planos, e não paralelo a eles.", "certa": false, "erro": "[[n1]] × [[n2]] faz 90° com os dois {{vetor-normal|pregos}}. Seta que faz 90° com o prego fica deitada no plano. Então ela é paralela aos dois planos, e não {{perpendicular-reta-plano|perpendicular}}."},
+        {"t": "Verdadeiro, mas só porque os dois planos passam pela origem.", "certa": false, "erro": "O veredito está certo, mas o motivo não. Os planos nem passam pela origem: (0, 0, 0) dá −2 nas duas equações. E a posição não importa: a {{vetor-diretor|direção}} da reta depende só dos {{vetor-normal|pregos}}."},
+        {"t": "Falso: só existe vetor diretor se os planos forem perpendiculares, com [[n1]] · [[n2]] = 0.", "certa": false, "erro": "Aqui [[n1]] · [[n2]] = 4 + 6 − 9 = 1: os planos não são {{perpendiculares-planos|perpendiculares}} e, mesmo assim, se cortam numa reta. Basta que os {{vetor-normal|pregos}} não sejam {{multiplo|múltiplos}}."},
+        {"t": "Verdadeiro: [[n1]] × [[n2]] faz 90° com os dois normais, então fica deitado nos dois planos; aqui dá (−15, −12, 2).", "certa": true}
+      ],
+      "dica": "Uma seta da reta fica deitada nos dois planos. Com qual vetor ela faz 90° em cada plano?",
+      "resposta": "Verdadeiro. A reta r fica deitada em π₁ e em π₂, então seu {{vetor-diretor|vetor diretor}} faz 90° com [[n1]] e com [[n2]]. O produto vetorial [[n1]] × [[n2]] é um vetor com essa propriedade, e não é nulo porque os planos se cortam. Com os números: (2, −3, −3) × (2, −2, 3) = (−15, −12, 2).",
+      "ouro": "Reta de dois planos: **direção = [[n1]] × [[n2]]**. O xis dá a seta que faz 90° com os dois pregos.",
+      "jeitos": {
+        "visual": "Os planos são {{transversais|transversais}}: duas paredes que se cortam numa quina. Cada parede tem seu {{vetor-normal|prego em pé}}. A quina está deitada nas duas paredes, então faz 90° com os dois pregos ao mesmo tempo. O produto vetorial é a ferramenta que dá uma seta a 90° de duas outras. Por isso [[n1]] × [[n2]] aponta ao longo da quina.",
+        "receita": [
+          "Leia os {{vetor-normal|pregos}}: [[n1]] = (2, −3, −3) e [[n2]] = (2, −2, 3).",
+          "Faça [[n1]] × [[n2]] = ((−3)·3 − (−3)·(−2), (−3)·2 − 2·3, 2·(−2) − (−3)·2) = (−15, −12, 2).",
+          "Confira 90° com [[n1]]: (−15, −12, 2) · (2, −3, −3) = −30 + 36 − 6 = 0.",
+          "Confira 90° com [[n2]]: (−15, −12, 2) · (2, −2, 3) = −30 + 24 + 6 = 0.",
+          "A seta fica deitada nos dois planos: é a {{vetor-diretor|direção}} da reta. Verdadeiro."
+        ],
+        "cotidiano": "Num livro aberto, a lombada é a reta onde as duas capas se encontram. Espete um palito em pé em cada capa. A lombada faz canto reto com os dois palitos. Se você conhece os palitos, acha a lombada: é a {{vetor-diretor|direção}} a 90° dos dois. O produto vetorial faz essa conta.",
+        "trabalho": "Pense numa planilha com duas regras de validação, cada uma com sua coluna de controle. A reta é o conjunto de registros que passam nas duas regras. Para andar dentro desse conjunto sem quebrar nenhuma regra, o passo precisa ser neutro para os dois controles: produto escalar 0 com [[n1]] e com [[n2]]. O [[n1]] × [[n2]] é esse passo neutro.",
+        "conversa": [
+          {"quem": "Você", "fala": "Por que o xis dos {{vetor-normal|normais}} dá a {{vetor-diretor|direção}} da reta?"},
+          {"quem": "Monitor", "fala": "A reta está deitada em π₁. Que ângulo ela faz com [[n1]]?"},
+          {"quem": "Você", "fala": "90°, porque [[n1]] é o prego de π₁."},
+          {"quem": "Monitor", "fala": "E com [[n2]]?"},
+          {"quem": "Você", "fala": "Também 90°, porque ela está deitada em π₂."},
+          {"quem": "Monitor", "fala": "Seta a 90° de duas outras é o produto vetorial delas. Aqui dá (−15, −12, 2)."}
+        ],
+        "erro": "O tropeço é pensar que um vetor feito com os {{vetor-normal|normais}} também é normal. [[n1]] × [[n2]] faz 90° com os dois pregos, então deita nos dois planos. Outro erro é somar os normais: (4, −5, 0) não deita em nenhum dos dois. E os planos não precisam ser {{perpendiculares-planos|perpendiculares}}: aqui [[n1]] · [[n2]] = 1.",
+        "confira": "Ache dois pontos da reta e compare. (1, 0, 0) zera as duas equações. Andando −1 vez a seta, chega-se a (16, 12, −2), que também zera as duas. A seta entre esses pontos é (15, 12, −2), que é −1 vez (−15, −12, 2). O resultado bate com [[n1]] × [[n2]].",
+        "atalho": "Guarde a fórmula pronta: reta de dois planos tem {{vetor-diretor|direção}} [[n1]] × [[n2]]. Ela só falha quando os {{vetor-normal|pregos}} são {{multiplo|múltiplos}}, e aí os planos são {{paralelos-distintos|paralelos}} ou {{coincidentes-planos|coincidentes}} e nem existe a reta. Como o enunciado diz que r existe, a afirmação é verdadeira."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q2-07",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Três pontos e um plano",
+      "origem": "Avaliação semanal 2 · T1-Q2 · Q07",
+      "enunciado": "Verdadeiro ou falso? A equação de um plano é determinada se são dados três pontos P₁, P₂ e P₃ quaisquer.",
+      "alternativas": [
+        {"t": "Verdadeiro: três pontos sempre prendem um plano, como as pernas de um banquinho.", "certa": false, "erro": "Só vale se os pontos não forem {{colineares|colineares}}, isto é, se não estiverem na mesma reta. Três pernas em fila não seguram o banquinho: ele tomba para um lado ou para o outro."},
+        {"t": "Falso: se os três pontos estiverem na mesma reta, infinitos planos passam por eles.", "certa": true},
+        {"t": "Falso: são necessários quatro pontos para determinar um plano.", "certa": false, "erro": "O veredito está certo, mas o motivo não. Três pontos não {{colineares|colineares}} já bastam. Com quatro pontos, pode nem existir um plano que passe pelos quatro."},
+        {"t": "Verdadeiro: o produto vetorial (P₂ − P₁) × (P₃ − P₁) sempre dá o vetor normal.", "certa": false, "erro": "Com pontos {{colineares|colineares}}, como (0, 0, 0), (1, 1, 1) e (2, 2, 2), esse produto dá (0, 0, 0). Vetor nulo não serve de {{vetor-normal|prego}}."},
+        {"t": "Falso: três pontos determinam uma reta, não um plano.", "certa": false, "erro": "O veredito está certo, mas o motivo não. Uma reta fica determinada por dois pontos distintos. Três pontos não {{colineares|colineares}} determinam um plano. A frase é falsa porque o 'quaisquer' inclui pontos alinhados."}
+      ],
+      "dica": "Pense em três pontos alinhados numa reta. Quantos planos passam por eles?",
+      "resposta": "Falso. O plano só fica determinado se os três pontos não forem {{colineares|colineares}}. Se estiverem na mesma reta, passam por eles infinitos planos, o {{feixe|feixe de planos}} daquela reta. A palavra 'quaisquer' inclui esse caso.",
+      "ouro": "Três pontos determinam um plano **só se não estiverem alinhados**. Alinhados, o produto vetorial zera e sobram infinitos planos.",
+      "jeitos": {
+        "visual": "Ponha três bolinhas num espeto de churrasco: elas ficam {{colineares|alinhadas}}. Encoste uma folha no espeto. Ela gira em volta dele como uma porta na dobradiça e, em toda posição, continua encostando nas três bolinhas. São infinitos planos, um {{feixe|feixe}}. Se uma bolinha sai da linha, a folha trava numa posição só.",
+        "receita": [
+          "Monte duas setas: P₂ − P₁ e P₃ − P₁.",
+          "Calcule o produto vetorial delas para achar o {{vetor-normal|prego}}.",
+          "Se o resultado não for nulo, os pontos não estão {{colineares|alinhados}} e o plano é único.",
+          "Se der (0, 0, 0), os pontos estão na mesma reta e não há prego único.",
+          "Como 'quaisquer' inclui pontos alinhados, a afirmação é falsa."
+        ],
+        "cotidiano": "Banquinho de três pernas fica firme porque as pernas formam um triângulo no chão. Se o marceneiro pregar as três pernas em fila, o banquinho tomba para um lado ou para o outro: não existe uma posição única. Três pontos só travam um plano quando formam um triângulo.",
+        "trabalho": "Em planilha, ajustar uma regra com dados {{colineares|alinhados}} dá o mesmo problema. Se os três pontos caem numa reta, o terceiro não traz informação nova: repete a {{vetor-diretor|direção}} dos dois primeiros. Aí infinitas regras passam pelos três. Antes de confiar num resultado, confira se os dados são independentes. Aqui o teste é o produto vetorial: zero quer dizer dado repetido.",
+        "conversa": [
+          {"quem": "Você", "fala": "Três pontos não determinam sempre um plano?"},
+          {"quem": "Monitor", "fala": "E se os três estiverem {{colineares|na mesma reta}}, como (0, 0, 0), (1, 1, 1) e (2, 2, 2)?"},
+          {"quem": "Você", "fala": "Aí dá para encostar uma folha nos três e girar."},
+          {"quem": "Monitor", "fala": "Quantas posições a folha tem?"},
+          {"quem": "Você", "fala": "Infinitas. Então o plano não fica determinado."},
+          {"quem": "Monitor", "fala": "Isso. O 'quaisquer' derruba a frase: Falso."}
+        ],
+        "erro": "O tropeço é lembrar a regra 'três pontos determinam um plano' e esquecer a condição: não {{colineares|alinhados}}. Afirmações com 'quaisquer', 'sempre' ou 'todos' pedem caça ao contraexemplo. Um só caso que falha já torna a afirmação falsa, e pontos na mesma reta são esse caso.",
+        "confira": "Tome P₁ = (0, 0, 0), P₂ = (1, 1, 1) e P₃ = (2, 2, 2). O produto (1, 1, 1) × (2, 2, 2) dá (0, 0, 0): não há {{vetor-normal|prego}}. E dá para achar dois planos diferentes pelos três pontos: x − y = 0 e y − z = 0. Os três pontos zeram as duas equações.",
+        "atalho": "Leia a palavra 'quaisquer'. Em geometria, ela convida a procurar o caso ruim. Para três pontos, o caso ruim é serem {{colineares|colineares}}, todos na mesma reta. Achou o caso, a resposta é Falso, sem conta nenhuma."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q2-08",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Plano por reta e ponto",
+      "origem": "Avaliação semanal 2 · T1-Q2 · Q08",
+      "enunciado": "Determine a equação geral do plano que contém a reta r: X = (−1, 4, 13) + λ(−1, 2, 4) e o ponto P = (−1, −2, 3).",
+      "alternativas": [
+        {"t": "2x − 5y + 3z − 17 = 0", "certa": true},
+        {"t": "−2x − 5y + 3z − 21 = 0", "certa": false, "erro": "Passa por P e por (−1, 4, 13), mas a reta não fica {{contida|contida}} nele: o {{vetor-normal|prego}} (−2, −5, 3) dá 4 com a seta (−1, 2, 4). É o que sai ao trocar a ordem na primeira coordenada do xis: 4·(−6) − 2·(−10) = −4, em vez de 4."},
+        {"t": "−22x − 5y + 3z − 41 = 0", "certa": false, "erro": "Também passa por P e por (−1, 4, 13), mas o {{vetor-normal|prego}} dá (−22, −5, 3) · (−1, 2, 4) = 24, e a reta não fica {{contida|contida}} nele. É o que sai ao perder o sinal do −6 na primeira coordenada do xis: 2·(−10) − 4·6 = −44, e a metade é −22."},
+        {"t": "22x − 5y + 3z + 3 = 0", "certa": false, "erro": "Passa pelos dois pontos, mas o {{vetor-normal|prego}} (22, −5, 3) dá −20 com a seta (−1, 2, 4). A reta {{concorrentes-reta-plano|fura o plano}} em (−1, 4, 13) em vez de ficar dentro dele."},
+        {"t": "2x − 5y + 3z + 17 = 0", "certa": false, "erro": "O {{vetor-normal|prego}} está certo, mas o sinal do d foi trocado. Em P: −2 + 10 + 9 + 17 = 34, e teria de dar 0."}
+      ],
+      "dica": "Use duas setas deitadas no plano: a direção da reta e a seta que vai de um ponto da reta até P.",
+      "resposta": "2x − 5y + 3z − 17 = 0. Com A = (−1, 4, 13) na reta, [[AP]] = (0, −6, −10). O {{vetor-normal|vetor normal}} é (−1, 2, 4) × (0, −6, −10) = (4, −10, 6), ou (2, −5, 3) dividindo por 2. Em P: −2 + 10 + 9 + d = 0, então d = −17.",
+      "ouro": "Plano que contém uma reta: o prego precisa fazer 90° com a **direção da reta**. Passar pelos pontos não basta.",
+      "jeitos": {
+        "visual": "A reta r precisa ficar {{contida|contida}} na folha, como um varão deitado nela, e P é uma tachinha fora do varão. Duas setas deitadas descrevem a folha: a {{vetor-diretor|direção}} do varão, (−1, 2, 4), e a seta do ponto (−1, 4, 13) até P, (0, −6, −10). O {{vetor-normal|prego em pé}} é o produto vetorial delas: (4, −10, 6), ou (2, −5, 3).",
+        "receita": [
+          "Tire da reta um ponto e a {{vetor-diretor|seta}}: A = (−1, 4, 13) e [[v]] = (−1, 2, 4).",
+          "Monte [[AP]] = P − A = (0, −6, −10).",
+          "{{vetor-normal|Prego}}: [[v]] × [[AP]] = (2·(−10) − 4·(−6), 4·0 − (−1)·(−10), (−1)·(−6) − 2·0) = (4, −10, 6). Dividindo por 2: (2, −5, 3).",
+          "Fica 2x − 5y + 3z + d = 0. Em P: −2 + 10 + 9 + d = 0, então d = −17.",
+          "Confira A: −2 − 20 + 39 − 17 = 0. Confira a seta: (2, −5, 3) · (−1, 2, 4) = −2 − 10 + 12 = 0."
+        ],
+        "cotidiano": "Pense num toldo que precisa ficar preso a um cano inteiro e a um gancho na parede. O cano é a reta r; o gancho é P. Prender o toldo num ponto do cano e no gancho não basta: ele ainda gira e deixa o resto do cano de fora. Três alternativas erradas fazem isso. Só uma acompanha o cano todo.",
+        "trabalho": "É o mesmo cuidado da amostragem em auditoria. Testar dois títulos que estavam certos não prova a regra para o lote inteiro. Aqui, quatro equações passam por P e por (−1, 4, 13): dois pontos conferidos. O teste que cobre a reta inteira é o produto escalar do {{vetor-normal|prego}} com a {{vetor-diretor|direção}} (−1, 2, 4). Entre essas quatro, só 2x − 5y + 3z − 17 = 0 dá 0 nesse teste.",
+        "conversa": [
+          {"quem": "Você", "fala": "Testei P e o ponto (−1, 4, 13), e quatro alternativas passaram."},
+          {"quem": "Monitor", "fala": "Dois pontos garantem a reta inteira {{contida|dentro do plano}}?"},
+          {"quem": "Você", "fala": "Não. A reta pode só {{concorrentes-reta-plano|furar o plano}} no ponto (−1, 4, 13)."},
+          {"quem": "Monitor", "fala": "Então qual teste falta?"},
+          {"quem": "Você", "fala": "O {{vetor-normal|prego}} fazer 90° com a {{vetor-diretor|direção}} (−1, 2, 4)."},
+          {"quem": "Monitor", "fala": "Faça: (2, −5, 3) · (−1, 2, 4) = −2 − 10 + 12 = 0. Das quatro, só essa zera."}
+        ],
+        "erro": "A armadilha é conferir só pontos. Quatro das cinco alternativas passam por P e por (−1, 4, 13), então essa conferência não separa nada. O que separa é a {{vetor-diretor|direção}} da reta: o {{vetor-normal|prego}} precisa dar 0 com (−1, 2, 4). Também há quem acerte o prego e erre o sinal do d, e chegue a 2x − 5y + 3z + 17 = 0.",
+        "confira": "Ande pela reta e veja se continua no plano. Com λ = 2, a reta dá (−1, 4, 13) + 2·(−1, 2, 4) = (−3, 8, 21). Na resposta: −6 − 40 + 63 − 17 = 0. Ficou no plano. Na alternativa −2x − 5y + 3z − 21 = 0, o mesmo ponto dá 6 − 40 + 63 − 21 = 8: a reta saiu da folha.",
+        "atalho": "Todas as alternativas têm −5y + 3z; só o x e o d mudam. Teste o {{vetor-normal|prego}} (a, −5, 3) contra a {{vetor-diretor|direção}} (−1, 2, 4): −a − 10 + 12 = 0 pede a = 2. Sobram 2x − 5y + 3z − 17 = 0 e 2x − 5y + 3z + 17 = 0. Em P, só a primeira zera: −2 + 10 + 9 − 17 = 0."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q2-09",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Equações paramétricas do plano",
+      "origem": "Avaliação semanal 2 · T1-Q2 · Q09",
+      "enunciado": "Verdadeiro ou falso? Um plano π possui infinitas equações paramétricas distintas.",
+      "alternativas": [
+        {"t": "Falso: as paramétricas saem da equação geral, que é única.", "certa": false, "erro": "A {{eq-geral-plano|equação geral}} também não é única: multiplicar tudo por um número diferente de 0 dá outra equação do mesmo plano. E as {{eq-param-plano|paramétricas}} dependem do ponto e das setas escolhidas."},
+        {"t": "Verdadeiro: porque t e s podem assumir infinitos valores.", "certa": false, "erro": "O veredito está certo, mas o motivo não. Infinitos valores de t e s dão infinitos pontos de uma mesma equação. O que dá infinitas equações é trocar o {{ponto-partida|ponto de partida}} ou as setas."},
+        {"t": "Verdadeiro: trocar o ponto de partida ou as setas deitadas gera outro sistema para o mesmo plano.", "certa": true},
+        {"t": "Falso: trocar o ponto de partida muda o plano.", "certa": false, "erro": "Se o novo {{ponto-partida|ponto de partida}} está no plano e as setas continuam deitadas nele, o plano é o mesmo. Muda só a escrita, não o conjunto de pontos."},
+        {"t": "Falso: cada plano tem exatamente três equações paramétricas, uma para x, uma para y e uma para z.", "certa": false, "erro": "As três linhas x, y e z formam um único sistema de {{eq-param-plano|equações paramétricas}}. Trocando o ponto ou as setas, nasce outro sistema de três linhas, e isso pode ser feito sem fim."}
+      ],
+      "dica": "Escreva x, y e z a partir de um ponto e duas setas. O ponto e as setas são escolhas únicas?",
+      "resposta": "Verdadeiro. As {{eq-param-plano|equações paramétricas}} saem de um ponto do plano e de duas setas deitadas nele e não paralelas. Há infinitas escolhas para cada um, e cada escolha dá um sistema diferente para o mesmo plano.",
+      "ouro": "Infinitos valores de t e s dão infinitos **pontos**; infinitas escolhas de ponto e setas dão infinitas **equações**.",
+      "jeitos": {
+        "visual": "Pense no plano 2x − 5y + 3z − 17 = 0 como um piso de cerâmica. O {{ponto-partida|ponto de partida}} pode ser o ladrilho (1, −3, 0) ou o (6, −1, 0). O passo pode medir um ladrilho ou dois. Cada combinação é um sistema x, y, z diferente, mas o piso é sempre o mesmo.",
+        "receita": [
+          "Escolha um {{ponto-partida|ponto de partida}} do plano 2x − 5y + 3z − 17 = 0, por exemplo (1, −3, 0).",
+          "Escolha duas setas deitadas e não paralelas, como (5, 2, 0) e (0, 3, 5).",
+          "Escreva x = 1 + 5t, y = −3 + 2t + 3s, z = 5s.",
+          "Troque o ponto por (6, −1, 0) e as setas por (10, 4, 0) e (5, 5, 5): sai x = 6 + 10t + 5s, y = −1 + 4t + 5s, z = 5s.",
+          "Os dois sistemas descrevem o mesmo plano, e as trocas não têm fim: Verdadeiro."
+        ],
+        "cotidiano": "Uma receita de bolo pode ser escrita em xícaras ou em gramas, começando pela massa ou pela cobertura. O texto muda, mas o bolo é o mesmo. As {{eq-param-plano|equações paramétricas}} são receitas do plano: mudam o {{ponto-partida|ponto de partida}} e o tamanho dos passos, e o plano que sai é sempre o mesmo.",
+        "trabalho": "Na planilha, a coluna de parcelas pode ser numerada a partir do 0 ou do 1. A fórmula de cada linha muda, mas a lista de parcelas é a mesma. Com o plano é igual. x = 1 + 5t, y = −3 + 2t + 3s, z = 5s e x = 6 + 10t + 5s, y = −1 + 4t + 5s, z = 5s são fórmulas diferentes que listam os mesmos pontos de 2x − 5y + 3z − 17 = 0.",
+        "conversa": [
+          {"quem": "Você", "fala": "Se {{parametro|t e s}} variam sem fim, isso já explica as infinitas equações?"},
+          {"quem": "Monitor", "fala": "Variar t e s muda o quê: o ponto ou a equação?"},
+          {"quem": "Você", "fala": "O ponto. A equação continua a mesma."},
+          {"quem": "Monitor", "fala": "Então, o que muda a equação?"},
+          {"quem": "Você", "fala": "Trocar o {{ponto-partida|ponto de partida}} ou as setas."},
+          {"quem": "Monitor", "fala": "Isso. E há infinitas trocas possíveis: Verdadeiro, pelo motivo certo."}
+        ],
+        "erro": "A armadilha está nos motivos. Um motivo que parece certo e não é: {{parametro|t e s}} variam sem fim. Isso gera pontos, não equações. Outro tropeço é achar que trocar o {{ponto-partida|ponto de partida}} muda o plano. Se o novo ponto está no plano e as setas seguem deitadas, a folha é a mesma.",
+        "confira": "Teste com 2x − 5y + 3z − 17 = 0. O ponto (6, −1, 0) dá 12 + 5 − 17 = 0. A seta (10, 4, 0) faz 90° com o {{vetor-normal|prego}} (2, −5, 3): 20 − 20 + 0 = 0. A seta (5, 5, 5) também: 10 − 25 + 15 = 0. O xis das duas dá (20, −50, 30), que não é nulo. Então x = 6 + 10t + 5s, y = −1 + 4t + 5s, z = 5s é outra {{eq-param-plano|paramétrica}} do mesmo plano.",
+        "atalho": "Diante de 'infinitas equações' de um mesmo plano, procure uma escolha livre: o {{ponto-partida|ponto de partida}} ou o tamanho de uma seta. Dobrar uma seta já dá outra equação, e o mesmo vale para triplicar ou para qualquer número diferente de 0. Achou uma escolha livre, é Verdadeiro."
+      }
+    }
+  ]
+}

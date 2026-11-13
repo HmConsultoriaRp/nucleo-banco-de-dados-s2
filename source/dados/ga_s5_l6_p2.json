@@ -11,30 +11,121 @@
       "origem": "Lista 6 · Q6a",
       "enunciado": "Determine a posição relativa entre:\nr: X = (1, 2, 3) + λ(1, 1, 1), λ ∈ R e s: X = (1, 1, 1) + t(1, −2, −3), t ∈ R.",
       "alternativas": [
-        {"t": "Paralelas distintas", "certa": false, "erro": "(1, −2, −3) não é múltiplo de (1, 1, 1). Olhando a primeira coordenada o fator seria 1, e a segunda pede −2. Sem fator único, as direções são diferentes."},
-        {"t": "Coincidentes", "certa": false, "erro": "Coincidentes pedem a mesma direção, e aqui as setas estão em linhas diferentes. O ponto (1, 2, 3) também não está em s: x = 1 pede t = 0, e aí y = 1."},
-        {"t": "Concorrentes", "certa": false, "erro": "Você resolveu com duas equações e parou. x e y dão λ = t = −1/3. Mas aí o z de r vale 8/3, e o de s vale 2. A terceira equação derruba o ponto."},
-        {"t": "Concorrentes e perpendiculares", "certa": false, "erro": "O produto escalar é 1 − 2 − 3 = −4, e não 0, então não há 90°. E não existe ponto comum: com λ = t = −1/3, o z não bate."},
-        {"t": "Reversas", "certa": true}
+        {
+          "t": "Paralelas distintas",
+          "certa": false,
+          "erro": "(1, −2, −3) não é múltiplo de (1, 1, 1). Olhando a primeira coordenada o fator seria 1, e a segunda pede −2. Sem fator único, as direções são diferentes."
+        },
+        {
+          "t": "Coincidentes",
+          "certa": false,
+          "erro": "{{coincidentes|Coincidentes}} pedem a mesma direção, e aqui as setas estão em linhas diferentes. O ponto (1, 2, 3) também não está em s: x = 1 pede t = 0, e aí y = 1."
+        },
+        {
+          "t": "Concorrentes",
+          "certa": false,
+          "erro": "Você resolveu com duas equações e parou. x e y dão λ = t = −1/3. Mas aí o z de r vale 8/3, e o de s vale 2. A terceira equação derruba o ponto."
+        },
+        {
+          "t": "Concorrentes e perpendiculares",
+          "certa": false,
+          "erro": "O produto escalar é 1 − 2 − 3 = −4, e não 0, então não há 90°. E não existe ponto comum: com λ = t = −1/3, o z não bate."
+        },
+        {
+          "t": "Reversas",
+          "certa": true
+        }
       ],
       "dica": "Cheque se as setas são múltiplas. Se não forem, resolva o sistema e confira a terceira equação.",
-      "resposta": "Reversas",
+      "resposta": "{{reversas|Reversas}}",
       "figura": {
         "modo": "3d",
         "onde": "explicacao",
         "itens": [
-          {"tipo": "segmento", "de": [-2, -1, 0], "ate": [2, 3, 4], "cor": 1},
-          {"tipo": "segmento", "de": [0, 3, 4], "ate": [3, -3, -5], "cor": 2},
-          {"tipo": "ponto", "em": [2, 3, 4], "rot": "r"},
-          {"tipo": "ponto", "em": [0, 3, 4], "rot": "s"},
-          {"tipo": "ponto", "em": [1, 2, 3], "rot": "(1, 2, 3)"},
-          {"tipo": "ponto", "em": [1, 1, 1], "rot": "(1, 1, 1)"},
-          {"tipo": "segmento", "de": [0.615, 1.615, 2.615], "ate": [0.538, 1.923, 2.385], "cor": 4, "tracejado": true}
+          {
+            "tipo": "segmento",
+            "de": [
+              -2,
+              -1,
+              0
+            ],
+            "ate": [
+              2,
+              3,
+              4
+            ],
+            "cor": 1
+          },
+          {
+            "tipo": "segmento",
+            "de": [
+              0,
+              3,
+              4
+            ],
+            "ate": [
+              3,
+              -3,
+              -5
+            ],
+            "cor": 2
+          },
+          {
+            "tipo": "ponto",
+            "em": [
+              2,
+              3,
+              4
+            ],
+            "rot": "r"
+          },
+          {
+            "tipo": "ponto",
+            "em": [
+              0,
+              3,
+              4
+            ],
+            "rot": "s"
+          },
+          {
+            "tipo": "ponto",
+            "em": [
+              1,
+              2,
+              3
+            ],
+            "rot": "(1, 2, 3)"
+          },
+          {
+            "tipo": "ponto",
+            "em": [
+              1,
+              1,
+              1
+            ],
+            "rot": "(1, 1, 1)"
+          },
+          {
+            "tipo": "segmento",
+            "de": [
+              0.615,
+              1.615,
+              2.615
+            ],
+            "ate": [
+              0.538,
+              1.923,
+              2.385
+            ],
+            "cor": 4,
+            "tracejado": true
+          }
         ],
         "legenda": "O tracejado liga os dois pontos mais próximos das retas. Ele tem tamanho, então elas não se tocam. Gire para ver o vão."
       },
       "jeitos": {
-        "visual": "Reversas são o viaduto sobre a avenida. Na figura, gire até olhar as retas de frente: parece que elas se cruzam. Gire mais e aparece o vão, marcado pelo tracejado entre os dois pontos mais próximos. Numa folha, direções diferentes sempre se cruzam. Em 3D dá para passar por cima, e é o que essas duas fazem.",
+        "visual": "{{reversas|Reversas}} são o viaduto sobre a avenida. Na figura, gire até olhar as retas de frente: parece que elas se cruzam. Gire mais e aparece o vão, marcado pelo tracejado entre os dois pontos mais próximos. Numa folha, direções diferentes sempre se cruzam. Em 3D dá para passar por cima, e é o que essas duas fazem.",
         "receita": [
           "Direções: (1, 1, 1) e (1, −2, −3). A primeira coordenada pede fator 1, a segunda pede −2. Não são múltiplas.",
           "Iguale as coordenadas: 1 + λ = 1 + t, 2 + λ = 1 − 2t, 3 + λ = 1 − 3t.",
@@ -45,17 +136,38 @@
         "cotidiano": "Pense em dois aviões em altitudes diferentes, com rotas que se cruzam no mapa. Visto de cima, há um ponto de encontro. Visto de lado, uma rota passa por cima da outra. O mapa equivale às equações de x e y, que fecham em t = −1/3. A altitude é a equação do z, que não fecha. As rotas nunca ocupam o mesmo lugar.",
         "trabalho": "É conciliação por três campos. Você procura uma linha de r e uma de s com x, y e z iguais. Comparando só x e y, aparece um par que bate: λ = t = −1/3, com x = 2/3 e y = 5/3. O terceiro campo denuncia: z dá 8/3 contra 2. Em SQL, um JOIN com `ON a.x = b.x AND a.y = b.y` traria esse par, e um `AND a.z = b.z` o derruba. Conferir por dois campos e dar por fechado é o erro que esta questão pune.",
         "conversa": [
-          {"quem": "Você", "fala": "Com x e y achei t = −1/3. Então são concorrentes."},
-          {"quem": "Monitor", "fala": "E o z? Calcule nas duas."},
-          {"quem": "Você", "fala": "Em r, 3 − 1/3 = 8/3. Em s, 1 + 1 = 2."},
-          {"quem": "Monitor", "fala": "Mesmo ponto?"},
-          {"quem": "Você", "fala": "Não. Mas e se eu escolher outro t?"},
-          {"quem": "Monitor", "fala": "A primeira equação já obriga λ = t, e a segunda já obriga t = −1/3. Não sobra escolha."},
-          {"quem": "Você", "fala": "Então não tem ponto comum, e as setas não são múltiplas. Reversas."}
+          {
+            "quem": "Você",
+            "fala": "Com x e y achei t = −1/3. Então são concorrentes."
+          },
+          {
+            "quem": "Monitor",
+            "fala": "E o z? Calcule nas duas."
+          },
+          {
+            "quem": "Você",
+            "fala": "Em r, 3 − 1/3 = 8/3. Em s, 1 + 1 = 2."
+          },
+          {
+            "quem": "Monitor",
+            "fala": "Mesmo ponto?"
+          },
+          {
+            "quem": "Você",
+            "fala": "Não. Mas e se eu escolher outro t?"
+          },
+          {
+            "quem": "Monitor",
+            "fala": "A primeira equação já obriga λ = t, e a segunda já obriga t = −1/3. Não sobra escolha."
+          },
+          {
+            "quem": "Você",
+            "fala": "Então não tem ponto comum, e as setas não são múltiplas. Reversas."
+          }
         ],
         "erro": "O erro clássico é resolver duas equações e ir embora. Com três equações e duas letras, duas quase sempre fecham: o teste de verdade é a terceira. Aqui, x e y aceitam t = −1/3, e o z reprova. Quem para antes marca concorrentes e ainda anota um ponto que não existe. Regra prática: o valor achado precisa passar em todas as linhas do sistema.",
         "confira": "Há um caminho sem sistema. Faça o produto vetorial das setas: (1, 1, 1) × (1, −2, −3) = (−1, 4, −3). Depois faça o produto escalar com a seta entre os pontos, (1, 1, 1) − (1, 2, 3) = (0, −1, −2): 0 − 4 + 6 = 2. Se desse 0, as retas caberiam numa mesma folha. Deu 2, então nenhuma folha contém as duas. Isso é o que reversas quer dizer.",
-        "atalho": "Primeiro as setas: (1, 1, 1) tem coordenadas iguais, e (1, −2, −3) não. Múltiplo de (1, 1, 1) tem as três iguais, então paralelas e coincidentes saem. Sobram concorrentes e reversas. Resolva as duas primeiras equações, que dão t = −1/3, e jogue na terceira. Não fechou: reversas. Não há atalho melhor que esse sistema curto."
+        "atalho": "Primeiro as setas: (1, 1, 1) tem coordenadas iguais, e (1, −2, −3) não. Múltiplo de (1, 1, 1) tem as três iguais, então {{paralelas-distintas|paralelas}} e {{coincidentes|coincidentes}} saem. Sobram {{concorrentes|concorrentes}} e {{reversas|reversas}}. Resolva as duas primeiras equações, que dão t = −1/3, e jogue na terceira. Não fechou: reversas. Não há atalho melhor que esse sistema curto."
       }
     },
     {
@@ -67,11 +179,30 @@
       "origem": "Lista 6 · Q6b",
       "enunciado": "Determine a posição relativa entre:\nr: X = (1, 2, 3) + λ(1, 1, 1), λ ∈ R e π: x + y + z + 1 = 0.",
       "alternativas": [
-        {"t": "Concorrentes e perpendiculares", "certa": true},
-        {"t": "Concorrentes, sem ser perpendiculares", "certa": false, "erro": "O produto escalar deu 3, diferente de 0, e a reta de fato fura o plano. Faltou o segundo teste: [[v]] = (1, 1, 1) é igual ao prego, então a reta está em pé, a 90°."},
-        {"t": "Paralelos, sem ponto comum", "certa": false, "erro": "Você viu setas iguais e pensou em paralelos. Essa regra vale entre reta e reta. Entre reta e plano, paralela pede produto escalar 0 com o prego, e aqui dá 3."},
-        {"t": "Reta contida no plano", "certa": false, "erro": "Contida pede produto escalar 0 e um ponto no plano. O produto dá 3, e (1, 2, 3) dá 1 + 2 + 3 + 1 = 7, e não 0."},
-        {"t": "Reversos", "certa": false, "erro": "Reversa é palavra de duas retas. Em 3D, reta e plano têm só três saídas: paralela, contida ou concorrente."}
+        {
+          "t": "Concorrentes e perpendiculares",
+          "certa": true
+        },
+        {
+          "t": "Concorrentes, sem ser perpendiculares",
+          "certa": false,
+          "erro": "O produto escalar deu 3, diferente de 0, e a reta de fato fura o plano. Faltou o segundo teste: [[v]] = (1, 1, 1) é igual ao prego, então a reta está em pé, a 90°."
+        },
+        {
+          "t": "Paralelos, sem ponto comum",
+          "certa": false,
+          "erro": "Você viu setas iguais e pensou em paralelos. Essa regra vale entre reta e reta. Entre reta e plano, paralela pede produto escalar 0 com o prego, e aqui dá 3."
+        },
+        {
+          "t": "Reta contida no plano",
+          "certa": false,
+          "erro": "Contida pede produto escalar 0 e um ponto no plano. O produto dá 3, e (1, 2, 3) dá 1 + 2 + 3 + 1 = 7, e não 0."
+        },
+        {
+          "t": "Reversos",
+          "certa": false,
+          "erro": "Reversa é palavra de duas retas. Em 3D, reta e plano têm só três saídas: paralela, contida ou concorrente."
+        }
       ],
       "dica": "Compare a seta da reta com o prego do plano. Olhe se o produto escalar dá 0 e se uma é múltipla da outra.",
       "resposta": "Concorrentes e perpendiculares, no ponto (−4/3, −1/3, 2/3)",
@@ -79,11 +210,79 @@
         "modo": "3d",
         "onde": "explicacao",
         "itens": [
-          {"tipo": "poligono", "pts": [[2, -1, -2], [0, -3, 2], [-4, 1, 2], [-2, 3, -2]], "cor": 3},
-          {"tipo": "segmento", "de": [-3, -2, -1], "ate": [2, 3, 4], "cor": 2},
-          {"tipo": "ponto", "em": [1, 2, 3], "rot": "(1, 2, 3)"},
-          {"tipo": "ponto", "em": [-1.333, -0.333, 0.667], "rot": "furo"},
-          {"tipo": "vetor", "de": [-1.333, -0.333, 0.667], "ate": [-0.333, 0.667, 1.667], "rot": "n", "cor": 1}
+          {
+            "tipo": "poligono",
+            "pts": [
+              [
+                2,
+                -1,
+                -2
+              ],
+              [
+                0,
+                -3,
+                2
+              ],
+              [
+                -4,
+                1,
+                2
+              ],
+              [
+                -2,
+                3,
+                -2
+              ]
+            ],
+            "cor": 3
+          },
+          {
+            "tipo": "segmento",
+            "de": [
+              -3,
+              -2,
+              -1
+            ],
+            "ate": [
+              2,
+              3,
+              4
+            ],
+            "cor": 2
+          },
+          {
+            "tipo": "ponto",
+            "em": [
+              1,
+              2,
+              3
+            ],
+            "rot": "(1, 2, 3)"
+          },
+          {
+            "tipo": "ponto",
+            "em": [
+              -1.333,
+              -0.333,
+              0.667
+            ],
+            "rot": "furo"
+          },
+          {
+            "tipo": "vetor",
+            "de": [
+              -1.333,
+              -0.333,
+              0.667
+            ],
+            "ate": [
+              -0.333,
+              0.667,
+              1.667
+            ],
+            "rot": "n",
+            "cor": 1
+          }
         ],
         "legenda": "A reta coral fura a folha em (−4/3, −1/3, 2/3). A seta azul, o prego, fica em cima da própria reta."
       },
@@ -99,13 +298,34 @@
         "cotidiano": "Pense num espeto atravessando um bife deitado na tábua, com o espeto bem na vertical. O espeto atravessa o bife num único lugar e forma ângulo reto com ele. Se fosse inclinado, ainda atravessaria, só que sem os 90°. Para ficar paralelo, teria de estar deitado, e aí não atravessaria.",
         "trabalho": "Na regra do SOMARPRODUTO, x + y + z tem pesos (1, 1, 1). Andar com a seta da reta muda o total: cada passo soma 1 + 1 + 1 = 3. Começando de (1, 2, 3), o total é 6. O plano está no total −1. De 6 até −1 são 7 de queda, a 3 por passo, então λ = −7/3. Como cada passo muda o total, a reta certamente cruza esse plano.",
         "conversa": [
-          {"quem": "Você", "fala": "As setas são iguais, (1, 1, 1) e (1, 1, 1). Então são paralelos."},
-          {"quem": "Monitor", "fala": "Qual seta é a do plano?"},
-          {"quem": "Você", "fala": "O prego."},
-          {"quem": "Monitor", "fala": "E o prego fica deitado ou em pé na folha?"},
-          {"quem": "Você", "fala": "Em pé. Então a reta, igual ao prego, também está em pé."},
-          {"quem": "Monitor", "fala": "Reta em pé na folha é o quê?"},
-          {"quem": "Você", "fala": "Perpendicular. E fura num ponto, com λ = −7/3."}
+          {
+            "quem": "Você",
+            "fala": "As setas são iguais, (1, 1, 1) e (1, 1, 1). Então são paralelos."
+          },
+          {
+            "quem": "Monitor",
+            "fala": "Qual seta é a do plano?"
+          },
+          {
+            "quem": "Você",
+            "fala": "O prego."
+          },
+          {
+            "quem": "Monitor",
+            "fala": "E o prego fica deitado ou em pé na folha?"
+          },
+          {
+            "quem": "Você",
+            "fala": "Em pé. Então a reta, igual ao prego, também está em pé."
+          },
+          {
+            "quem": "Monitor",
+            "fala": "Reta em pé na folha é o quê?"
+          },
+          {
+            "quem": "Você",
+            "fala": "Perpendicular. E fura num ponto, com λ = −7/3."
+          }
         ],
         "erro": "A tabela de reta com plano parece trocada, e é aí que a turma cai. Entre duas retas, setas múltiplas dão paralelas. Entre reta e plano, a seta do plano é o prego, que já está em cruz com a folha. Então múltiplos dão perpendicular, e produto escalar 0 dá paralela. Quem aplica a regra de reta com reta marca paralelos, o oposto do certo.",
         "confira": "Substitua o ponto de furo no plano: −4/3 − 1/3 + 2/3 + 1 = −1 + 1 = 0. Está na folha. Também está na reta: λ = −7/3 dá 1 − 7/3 = −4/3, 2 − 7/3 = −1/3 e 3 − 7/3 = 2/3. Para o ângulo, use sen θ = |[[v]]·[[n]]| / (‖[[v]]‖·‖[[n]]‖) = 3 / (√3·√3) = 1. Seno 1 é 90°.",
@@ -121,11 +341,30 @@
       "origem": "Lista 6 · Q6c",
       "enunciado": "Determine a posição relativa entre:\nπ₁: x + y + z + 1 = 0 e π₂: −x − y − z + 7 = 0.",
       "alternativas": [
-        {"t": "Coincidentes", "certa": false, "erro": "Os pregos são múltiplos, então o paralelismo vale. Mas multiplique π₂ por −1: x + y + z − 7 = 0. O número solto é −7, e em π₁ é +1. Se fossem o mesmo plano, esses números também bateriam."},
-        {"t": "Transversais, sem ser perpendiculares", "certa": false, "erro": "Você viu sinais opostos e achou que os pregos eram diferentes. (−1, −1, −1) é −1 vezes (1, 1, 1). O prego só mudou de sentido, não de direção."},
-        {"t": "Perpendiculares", "certa": false, "erro": "Perpendicular pede produto escalar 0 entre os pregos. Aqui dá −1 − 1 − 1 = −3."},
-        {"t": "Paralelos distintos", "certa": true},
-        {"t": "Reversos", "certa": false, "erro": "Reverso é caso de duas retas. Dois planos em 3D só têm estas saídas: coincidem, são paralelos ou se cortam."}
+        {
+          "t": "Coincidentes",
+          "certa": false,
+          "erro": "Os pregos são múltiplos, então o paralelismo vale. Mas multiplique π₂ por −1: x + y + z − 7 = 0. O número solto é −7, e em π₁ é +1. Se fossem o mesmo plano, esses números também bateriam."
+        },
+        {
+          "t": "Transversais, sem ser perpendiculares",
+          "certa": false,
+          "erro": "Você viu sinais opostos e achou que os pregos eram diferentes. (−1, −1, −1) é −1 vezes (1, 1, 1). O prego só mudou de sentido, não de direção."
+        },
+        {
+          "t": "Perpendiculares",
+          "certa": false,
+          "erro": "Perpendicular pede produto escalar 0 entre os pregos. Aqui dá −1 − 1 − 1 = −3."
+        },
+        {
+          "t": "Paralelos distintos",
+          "certa": true
+        },
+        {
+          "t": "Reversos",
+          "certa": false,
+          "erro": "Reverso é caso de duas retas. Dois planos em 3D só têm estas saídas: coincidem, são paralelos ou se cortam."
+        }
       ],
       "dica": "Multiplique π₂ por −1 e compare termo a termo com π₁.",
       "resposta": "Paralelos distintos",
@@ -133,10 +372,82 @@
         "modo": "3d",
         "onde": "explicacao",
         "itens": [
-          {"tipo": "poligono", "pts": [[1, 0, -2], [-1, -2, 2], [-3, 0, 2], [-1, 2, -2]], "cor": 1},
-          {"tipo": "poligono", "pts": [[3.667, 2.667, 0.667], [1.667, 0.667, 4.667], [-0.333, 2.667, 4.667], [1.667, 4.667, 0.667]], "cor": 2},
-          {"tipo": "ponto", "em": [-1, 0, 0], "rot": "(−1, 0, 0)"},
-          {"tipo": "vetor", "de": [-1, 0, 0], "ate": [1.667, 2.667, 2.667], "rot": "", "cor": 4}
+          {
+            "tipo": "poligono",
+            "pts": [
+              [
+                1,
+                0,
+                -2
+              ],
+              [
+                -1,
+                -2,
+                2
+              ],
+              [
+                -3,
+                0,
+                2
+              ],
+              [
+                -1,
+                2,
+                -2
+              ]
+            ],
+            "cor": 1
+          },
+          {
+            "tipo": "poligono",
+            "pts": [
+              [
+                3.667,
+                2.667,
+                0.667
+              ],
+              [
+                1.667,
+                0.667,
+                4.667
+              ],
+              [
+                -0.333,
+                2.667,
+                4.667
+              ],
+              [
+                1.667,
+                4.667,
+                0.667
+              ]
+            ],
+            "cor": 2
+          },
+          {
+            "tipo": "ponto",
+            "em": [
+              -1,
+              0,
+              0
+            ],
+            "rot": "(−1, 0, 0)"
+          },
+          {
+            "tipo": "vetor",
+            "de": [
+              -1,
+              0,
+              0
+            ],
+            "ate": [
+              1.667,
+              2.667,
+              2.667
+            ],
+            "rot": "",
+            "cor": 4
+          }
         ],
         "legenda": "A folha azul é π₁, e a coral é π₂. A seta escura liga as duas na direção do prego e mostra o vão."
       },
@@ -152,13 +463,34 @@
         "cotidiano": "Dois andares de um prédio têm pisos na mesma inclinação e nunca se encontram. Medir a altura de cima para baixo ou de baixo para cima muda o sinal da conta, não o andar. É o que o −1 faz em π₂: inverte a escrita, e o plano continua o mesmo. O que separa os andares é a altura, que aqui é o número solto: +1 e −7.",
         "trabalho": "No SOMARPRODUTO com pesos (1, 1, 1), π₁ guarda toda combinação com total −1. π₂, reescrito, guarda toda combinação com total 7. Nenhuma linha da planilha pode ter dois totais ao mesmo tempo. Por isso não existe ponto comum: é como um filtro `WHERE x + y + z = -1 AND x + y + z = 7`, que sempre volta vazio.",
         "conversa": [
-          {"quem": "Você", "fala": "Os sinais são todos opostos. Então são planos bem diferentes, não?"},
-          {"quem": "Monitor", "fala": "Multiplique a equação de π₂ por −1. O plano muda?"},
-          {"quem": "Você", "fala": "Não, continua igual. Fica x + y + z − 7 = 0."},
-          {"quem": "Monitor", "fala": "Agora coloque do lado da π₁."},
-          {"quem": "Você", "fala": "x + y + z + 1 e x + y + z − 7. As letras são iguais."},
-          {"quem": "Monitor", "fala": "E o número solto?"},
-          {"quem": "Você", "fala": "+1 e −7. Paralelos, mas não coincidentes."}
+          {
+            "quem": "Você",
+            "fala": "Os sinais são todos opostos. Então são planos bem diferentes, não?"
+          },
+          {
+            "quem": "Monitor",
+            "fala": "Multiplique a equação de π₂ por −1. O plano muda?"
+          },
+          {
+            "quem": "Você",
+            "fala": "Não, continua igual. Fica x + y + z − 7 = 0."
+          },
+          {
+            "quem": "Monitor",
+            "fala": "Agora coloque do lado da π₁."
+          },
+          {
+            "quem": "Você",
+            "fala": "x + y + z + 1 e x + y + z − 7. As letras são iguais."
+          },
+          {
+            "quem": "Monitor",
+            "fala": "E o número solto?"
+          },
+          {
+            "quem": "Você",
+            "fala": "+1 e −7. Paralelos, mas não coincidentes."
+          }
         ],
         "erro": "Duas quedas seguidas. A primeira é olhar os sinais trocados e achar que os planos se cortam. O −1 não mexe na direção do prego. A segunda é marcar coincidentes sem olhar o número solto. Para comparar, deixe as duas equações com as mesmas letras: só depois de multiplicar π₂ por −1 o número dela vira −7, e aí dá para pôr ao lado do +1.",
         "confira": "Pegue um ponto de π₁: (−1, 0, 0), porque −1 + 0 + 0 + 1 = 0. Leve a π₂: 1 − 0 − 0 + 7 = 8. Deu 8, e não 0, então ele não está em π₂. Se os planos fossem coincidentes, qualquer ponto de um estaria no outro. Isso derruba coincidentes por um caminho que não usa a comparação das equações.",
@@ -174,11 +506,30 @@
       "origem": "Lista 6 · Q6d",
       "enunciado": "Determine a posição relativa entre:\nπ₁: x + y − z + 3 = 0 e π₂: 3x − y + z = 0.",
       "alternativas": [
-        {"t": "Paralelos distintos", "certa": false, "erro": "Os pregos são (1, 1, −1) e (3, −1, 1). O x pede fator 3, e o y e o z pedem −1. Sem fator único, não há paralelismo."},
-        {"t": "Transversais", "certa": true},
-        {"t": "Coincidentes", "certa": false, "erro": "Coincidentes teriam pregos múltiplos, e esses não são. Teste rápido: a origem está em π₂, porque 0 = 0, e fica fora de π₁, onde dá 3."},
-        {"t": "Perpendiculares", "certa": false, "erro": "Perpendicular pede produto escalar 0. Aqui dá 3 − 1 − 1 = 1. Eles se cortam, mas não em 90°."},
-        {"t": "Reversos", "certa": false, "erro": "Reverso é caso de duas retas. Dois planos com pregos não múltiplos se cortam sempre, numa reta inteira."}
+        {
+          "t": "Paralelos distintos",
+          "certa": false,
+          "erro": "Os pregos são (1, 1, −1) e (3, −1, 1). O x pede fator 3, e o y e o z pedem −1. Sem fator único, não há paralelismo."
+        },
+        {
+          "t": "Transversais",
+          "certa": true
+        },
+        {
+          "t": "Coincidentes",
+          "certa": false,
+          "erro": "Coincidentes teriam pregos múltiplos, e esses não são. Teste rápido: a origem está em π₂, porque 0 = 0, e fica fora de π₁, onde dá 3."
+        },
+        {
+          "t": "Perpendiculares",
+          "certa": false,
+          "erro": "Perpendicular pede produto escalar 0. Aqui dá 3 − 1 − 1 = 1. Eles se cortam, mas não em 90°."
+        },
+        {
+          "t": "Reversos",
+          "certa": false,
+          "erro": "Reverso é caso de duas retas. Dois planos com pregos não múltiplos se cortam sempre, numa reta inteira."
+        }
       ],
       "dica": "Compare os pregos: múltiplos? Se não, faça o produto escalar para ver se o corte é em 90°.",
       "resposta": "Transversais (sem ser perpendiculares)",
@@ -186,10 +537,81 @@
         "modo": "3d",
         "onde": "explicacao",
         "itens": [
-          {"tipo": "poligono", "pts": [[-2, -4, -3], [0.5, -4, -0.5], [0.5, 2, 5.5], [-2, 2, 3]], "cor": 1},
-          {"tipo": "poligono", "pts": [[-2, -4, 2], [0.5, -4, -5.5], [0.5, 2, 0.5], [-2, 2, 8]], "cor": 2},
-          {"tipo": "segmento", "de": [-0.75, -4, -1.75], "ate": [-0.75, 2, 4.25], "cor": 4},
-          {"tipo": "ponto", "em": [-0.75, -2.25, 0], "rot": "(−3/4, −9/4, 0)"}
+          {
+            "tipo": "poligono",
+            "pts": [
+              [
+                -2,
+                -4,
+                -3
+              ],
+              [
+                0.5,
+                -4,
+                -0.5
+              ],
+              [
+                0.5,
+                2,
+                5.5
+              ],
+              [
+                -2,
+                2,
+                3
+              ]
+            ],
+            "cor": 1
+          },
+          {
+            "tipo": "poligono",
+            "pts": [
+              [
+                -2,
+                -4,
+                2
+              ],
+              [
+                0.5,
+                -4,
+                -5.5
+              ],
+              [
+                0.5,
+                2,
+                0.5
+              ],
+              [
+                -2,
+                2,
+                8
+              ]
+            ],
+            "cor": 2
+          },
+          {
+            "tipo": "segmento",
+            "de": [
+              -0.75,
+              -4,
+              -1.75
+            ],
+            "ate": [
+              -0.75,
+              2,
+              4.25
+            ],
+            "cor": 4
+          },
+          {
+            "tipo": "ponto",
+            "em": [
+              -0.75,
+              -2.25,
+              0
+            ],
+            "rot": "(−3/4, −9/4, 0)"
+          }
         ],
         "legenda": "A folha azul é π₁, e a coral é π₂. A linha escura é o encontro das duas: x = −3/4, com y e z andando juntos."
       },
@@ -205,13 +627,34 @@
         "cotidiano": "Pense num telhado de duas águas. Cada água é uma folha inclinada para um lado, e as duas se encontram na cumeeira, que é uma reta inteira, e não um ponto. Planos com inclinações diferentes sempre fazem isso, se você continuar as folhas sem fim. Só deixam de se cortar quando têm prego na mesma linha.",
         "trabalho": "Cada plano é uma restrição numa planilha de cenários: x + y − z = −3 e 3x − y + z = 0. Como os pesos não são múltiplos, as duas regras são independentes e sobra uma folga: há infinitas linhas que atendem às duas, e elas formam uma reta. Somando as equações, y e z somem e sobra 4x + 3 = 0, então x = −3/4. É o mesmo truque de somar duas contas para um lançamento e seu estorno se anularem.",
         "conversa": [
-          {"quem": "Você", "fala": "y e z têm os mesmos números com sinais trocados. Acho que são paralelos."},
-          {"quem": "Monitor", "fala": "E o x? O fator é o mesmo?"},
-          {"quem": "Você", "fala": "No x é 3. No y e no z é −1."},
-          {"quem": "Monitor", "fala": "Múltiplo pede o mesmo fator nas três."},
-          {"quem": "Você", "fala": "Então se cortam. São perpendiculares?"},
-          {"quem": "Monitor", "fala": "Faça o produto escalar."},
-          {"quem": "Você", "fala": "3 − 1 − 1 = 1. Não é zero. Transversais, e sem 90°."}
+          {
+            "quem": "Você",
+            "fala": "y e z têm os mesmos números com sinais trocados. Acho que são paralelos."
+          },
+          {
+            "quem": "Monitor",
+            "fala": "E o x? O fator é o mesmo?"
+          },
+          {
+            "quem": "Você",
+            "fala": "No x é 3. No y e no z é −1."
+          },
+          {
+            "quem": "Monitor",
+            "fala": "Múltiplo pede o mesmo fator nas três."
+          },
+          {
+            "quem": "Você",
+            "fala": "Então se cortam. São perpendiculares?"
+          },
+          {
+            "quem": "Monitor",
+            "fala": "Faça o produto escalar."
+          },
+          {
+            "quem": "Você",
+            "fala": "3 − 1 − 1 = 1. Não é zero. Transversais, e sem 90°."
+          }
         ],
         "erro": "O olho é enganado por y − z e −y + z: parecem parte de um múltiplo, e a pessoa nem olha o x. Múltiplo exige o mesmo fator nas três coordenadas, e aqui há 3 no x e −1 nos outros. Outro tropeço: tomar transversais por perpendiculares. Transversal quer dizer só que se cortam. Perpendicular é o caso especial em que o produto escalar dá 0, e aqui dá 1.",
         "confira": "Ache um ponto comum para provar o corte. Some as equações: 4x + 3 = 0 dá x = −3/4. Escolha z = 0. Em π₁: −3/4 + y + 3 = 0, então y = −9/4. Agora teste em π₂: 3(−3/4) + 9/4 + 0 = 0. O ponto (−3/4, −9/4, 0) está nos dois. Como z ficou livre, o encontro é uma reta inteira.",
@@ -227,11 +670,30 @@
       "origem": "Lista 6 · Q6e",
       "enunciado": "Determine a posição relativa entre:\nr: X = (1, 1, 1) + λ(1, −2, 3), λ ∈ R e s: (1 − x)/2 = (y − 1)/4 = (1 − z)/6.",
       "alternativas": [
-        {"t": "Paralelas distintas", "certa": false, "erro": "A direção está certa: (−2, 4, −6) é −2 vezes (1, −2, 3). Faltou testar o ponto. (1, 1, 1) dá 0, 0 e 0 nas três partes de s, então ele está em s."},
-        {"t": "Concorrentes", "certa": false, "erro": "Você leu a direção de s como (2, 4, 6), perdendo os menos de 1 − x e 1 − z. Aí as setas parecem diferentes e, como (1, 1, 1) é comum, sai concorrentes. Lida certo, a direção é (−2, 4, −6)."},
-        {"t": "Coincidentes", "certa": true},
-        {"t": "Reversas", "certa": false, "erro": "Mesma leitura errada da direção, (2, 4, 6), e sem testar o ponto. Com os sinais certos a direção é múltipla, e reversas exigem direções diferentes."},
-        {"t": "Perpendiculares", "certa": false, "erro": "Perpendicular pede produto escalar 0. (1, −2, 3)·(−2, 4, −6) = −2 − 8 − 18 = −28. As setas estão na mesma linha, o oposto de um canto reto."}
+        {
+          "t": "Paralelas distintas",
+          "certa": false,
+          "erro": "A direção está certa: (−2, 4, −6) é −2 vezes (1, −2, 3). Faltou testar o ponto. (1, 1, 1) dá 0, 0 e 0 nas três partes de s, então ele está em s."
+        },
+        {
+          "t": "Concorrentes",
+          "certa": false,
+          "erro": "Você leu a direção de s como (2, 4, 6), perdendo os menos de 1 − x e 1 − z. Aí as setas parecem diferentes e, como (1, 1, 1) é comum, sai concorrentes. Lida certo, a direção é (−2, 4, −6)."
+        },
+        {
+          "t": "Coincidentes",
+          "certa": true
+        },
+        {
+          "t": "Reversas",
+          "certa": false,
+          "erro": "Mesma leitura errada da direção, (2, 4, 6), e sem testar o ponto. Com os sinais certos a direção é múltipla, e reversas exigem direções diferentes."
+        },
+        {
+          "t": "Perpendiculares",
+          "certa": false,
+          "erro": "Perpendicular pede produto escalar 0. (1, −2, 3)·(−2, 4, −6) = −2 − 8 − 18 = −28. As setas estão na mesma linha, o oposto de um canto reto."
+        }
       ],
       "dica": "Cuidado com quem vem com menos em s. Depois ponha (1, 1, 1) nas três partes.",
       "resposta": "Coincidentes",
@@ -239,10 +701,59 @@
         "modo": "3d",
         "onde": "explicacao",
         "itens": [
-          {"tipo": "segmento", "de": [-2, 7, -8], "ate": [3, -3, 7], "cor": 4},
-          {"tipo": "ponto", "em": [1, 1, 1], "rot": "(1, 1, 1)"},
-          {"tipo": "vetor", "de": [1, 1, 1], "ate": [2, -1, 4], "rot": "v", "cor": 1},
-          {"tipo": "vetor", "de": [1, 1, 1], "ate": [-1, 5, -5], "rot": "w", "cor": 2}
+          {
+            "tipo": "segmento",
+            "de": [
+              -2,
+              7,
+              -8
+            ],
+            "ate": [
+              3,
+              -3,
+              7
+            ],
+            "cor": 4
+          },
+          {
+            "tipo": "ponto",
+            "em": [
+              1,
+              1,
+              1
+            ],
+            "rot": "(1, 1, 1)"
+          },
+          {
+            "tipo": "vetor",
+            "de": [
+              1,
+              1,
+              1
+            ],
+            "ate": [
+              2,
+              -1,
+              4
+            ],
+            "rot": "v",
+            "cor": 1
+          },
+          {
+            "tipo": "vetor",
+            "de": [
+              1,
+              1,
+              1
+            ],
+            "ate": [
+              -1,
+              5,
+              -5
+            ],
+            "rot": "w",
+            "cor": 2
+          }
         ],
         "legenda": "As duas setas saem de (1, 1, 1) e ficam na mesma linha, com sentidos opostos. É uma reta só."
       },
@@ -258,13 +769,34 @@
         "cotidiano": "Um mapa diz: a partir da praça, siga 1 quadra para o norte. Outro diz: a partir da praça, siga 2 quadras para o sul. As instruções parecem opostas, mas as duas descrevem a mesma rua, porque a rua vai nos dois sentidos. O tamanho do passo e o lado não mudam qual rua é.",
         "trabalho": "É registro duplicado na base: a mesma reta cadastrada com duas escritas. Para deduplicar, você compara a chave. Aqui a chave tem duas peças: a direção, sem contar o fator que multiplica, e um ponto comum. Normalize a escrita: (−2, 4, −6) dividido por −2 vira (1, −2, 3). Depois faça a consulta: (1, 1, 1) existe em s? As três partes dão 0, o mesmo t. Duplicata confirmada.",
         "conversa": [
-          {"quem": "Você", "fala": "A direção de s é (2, 4, 6). Não é múltiplo de (1, −2, 3)."},
-          {"quem": "Monitor", "fala": "Olhe a parte de cima do x. É x − 1 ou 1 − x?"},
-          {"quem": "Você", "fala": "1 − x. E no z também é 1 − z."},
-          {"quem": "Monitor", "fala": "Então esses dois trocam de sinal."},
-          {"quem": "Você", "fala": "Fica (−2, 4, −6). Agora é −2 vezes (1, −2, 3)."},
-          {"quem": "Monitor", "fala": "E o ponto (1, 1, 1)?"},
-          {"quem": "Você", "fala": "Dá 0, 0 e 0. Está em s. São a mesma reta."}
+          {
+            "quem": "Você",
+            "fala": "A direção de s é (2, 4, 6). Não é múltiplo de (1, −2, 3)."
+          },
+          {
+            "quem": "Monitor",
+            "fala": "Olhe a parte de cima do x. É x − 1 ou 1 − x?"
+          },
+          {
+            "quem": "Você",
+            "fala": "1 − x. E no z também é 1 − z."
+          },
+          {
+            "quem": "Monitor",
+            "fala": "Então esses dois trocam de sinal."
+          },
+          {
+            "quem": "Você",
+            "fala": "Fica (−2, 4, −6). Agora é −2 vezes (1, −2, 3)."
+          },
+          {
+            "quem": "Monitor",
+            "fala": "E o ponto (1, 1, 1)?"
+          },
+          {
+            "quem": "Você",
+            "fala": "Dá 0, 0 e 0. Está em s. São a mesma reta."
+          }
         ],
         "erro": "A escrita de s esconde dois menos, em 1 − x e 1 − z. Quem lê só os números de baixo pega (2, 4, 6) e conclui que as direções diferem. Daí vêm as respostas concorrentes e reversas, ambas falsas. Regra: se a letra vem com menos em cima, o número de baixo troca de sinal. E depois de ver setas múltiplas, não pare: paralelas e coincidentes só se separam pelo ponto.",
         "confira": "Pegue outro ponto de r, com λ = 1: (2, −1, 4). Leve a s: (1 − 2)/2 = −1/2, (−1 − 1)/4 = −1/2, (1 − 4)/6 = −1/2. As três partes batem. Se dois pontos distintos de r estão em s, a reta inteira está, porque por dois pontos só passa uma reta. Esse teste dispensa a leitura da direção.",
@@ -280,11 +812,30 @@
       "origem": "Lista 6 · Q6f",
       "enunciado": "Determine a posição relativa entre:\nr: x = 1 + k, y = 1 + k, z = −1 + k, k ∈ R e π: X = (1, 1, 1) + α(0, 1, 0) + β(1, 1, 1), α, β ∈ R.",
       "alternativas": [
-        {"t": "Reta contida no plano", "certa": false, "erro": "O produto escalar deu 0, e você parou. Falta o ponto. (1, 1, −1) em x − z = 0 dá 1 + 1 = 2, e não 0. A reta corre ao lado da folha, sem estar nela."},
-        {"t": "Concorrentes e perpendiculares", "certa": false, "erro": "Você comparou (1, 1, 1) com uma seta do próprio plano, viu que são iguais e usou a regra de múltiplos dá perpendicular. Essa regra vale com o prego, que é (1, 0, −1). A seta (1, 1, 1) está deitada na folha."},
-        {"t": "Concorrentes, sem ser perpendiculares", "certa": false, "erro": "Para furar o plano, o produto escalar com o prego precisaria ser diferente de 0. Aqui dá (1, 1, 1)·(1, 0, −1) = 1 − 1 = 0, então a reta não fura."},
-        {"t": "Paralelos, sem ponto comum", "certa": true},
-        {"t": "Reversos", "certa": false, "erro": "Reverso é caso de duas retas. Reta e plano não têm essa posição."}
+        {
+          "t": "Reta contida no plano",
+          "certa": false,
+          "erro": "O produto escalar deu 0, e você parou. Falta o ponto. (1, 1, −1) em x − z = 0 dá 1 + 1 = 2, e não 0. A reta corre ao lado da folha, sem estar nela."
+        },
+        {
+          "t": "Concorrentes e perpendiculares",
+          "certa": false,
+          "erro": "Você comparou (1, 1, 1) com uma seta do próprio plano, viu que são iguais e usou a regra de múltiplos dá perpendicular. Essa regra vale com o prego, que é (1, 0, −1). A seta (1, 1, 1) está deitada na folha."
+        },
+        {
+          "t": "Concorrentes, sem ser perpendiculares",
+          "certa": false,
+          "erro": "Para furar o plano, o produto escalar com o prego precisaria ser diferente de 0. Aqui dá (1, 1, 1)·(1, 0, −1) = 1 − 1 = 0, então a reta não fura."
+        },
+        {
+          "t": "Paralelos, sem ponto comum",
+          "certa": true
+        },
+        {
+          "t": "Reversos",
+          "certa": false,
+          "erro": "Reverso é caso de duas retas. Reta e plano não têm essa posição."
+        }
       ],
       "dica": "Ache o prego do plano com o produto vetorial das duas setas. Depois teste a seta da reta contra ele.",
       "resposta": "Paralelos (a reta não está no plano)",
@@ -292,12 +843,94 @@
         "modo": "3d",
         "onde": "explicacao",
         "itens": [
-          {"tipo": "poligono", "pts": [[-1, -1, -1], [3, -1, 3], [3, 3, 3], [-1, 3, -1]], "cor": 3},
-          {"tipo": "segmento", "de": [-1, -1, -3], "ate": [3, 3, 1], "cor": 2},
-          {"tipo": "ponto", "em": [1, 1, 1], "rot": "(1, 1, 1)"},
-          {"tipo": "ponto", "em": [1, 1, -1], "rot": "(1, 1, −1)"},
-          {"tipo": "segmento", "de": [1, 1, 1], "ate": [1, 1, -1], "cor": 4, "tracejado": true},
-          {"tipo": "vetor", "de": [1, 1, 1], "ate": [2, 1, 0], "rot": "n", "cor": 1}
+          {
+            "tipo": "poligono",
+            "pts": [
+              [
+                -1,
+                -1,
+                -1
+              ],
+              [
+                3,
+                -1,
+                3
+              ],
+              [
+                3,
+                3,
+                3
+              ],
+              [
+                -1,
+                3,
+                -1
+              ]
+            ],
+            "cor": 3
+          },
+          {
+            "tipo": "segmento",
+            "de": [
+              -1,
+              -1,
+              -3
+            ],
+            "ate": [
+              3,
+              3,
+              1
+            ],
+            "cor": 2
+          },
+          {
+            "tipo": "ponto",
+            "em": [
+              1,
+              1,
+              1
+            ],
+            "rot": "(1, 1, 1)"
+          },
+          {
+            "tipo": "ponto",
+            "em": [
+              1,
+              1,
+              -1
+            ],
+            "rot": "(1, 1, −1)"
+          },
+          {
+            "tipo": "segmento",
+            "de": [
+              1,
+              1,
+              1
+            ],
+            "ate": [
+              1,
+              1,
+              -1
+            ],
+            "cor": 4,
+            "tracejado": true
+          },
+          {
+            "tipo": "vetor",
+            "de": [
+              1,
+              1,
+              1
+            ],
+            "ate": [
+              2,
+              1,
+              0
+            ],
+            "rot": "n",
+            "cor": 1
+          }
         ],
         "legenda": "A reta coral corre sob a folha, sempre 2 abaixo em z. A seta azul é o prego (1, 0, −1)."
       },
@@ -313,13 +946,34 @@
         "cotidiano": "Pense numa rampa e num cabo esticado logo abaixo dela, acompanhando a inclinação. O cabo corre o tempo todo na mesma direção da rampa e nunca a toca. Um cabo preso à própria rampa teria a mesma direção, só que estaria contido nela. A diferença é se um ponto do cabo encosta ou não na rampa. Para decidir, meça esse único ponto.",
         "trabalho": "Reescrita com SOMARPRODUTO, a regra do plano é x − z = 0: pesos (1, 0, −1), total 0. Na reta, esse total não muda: x − z = (1 + k) − (−1 + k) = 2, para todo k. É uma diferença constante entre duas colunas, como duas contas que sobem juntas mês a mês e mantêm sempre a mesma diferença de 2. Se a diferença nunca muda e nunca é 0, a linha nunca entra no plano.",
         "conversa": [
-          {"quem": "Você", "fala": "A reta tem seta (1, 1, 1), e o plano também tem (1, 1, 1). São múltiplas. Então é perpendicular."},
-          {"quem": "Monitor", "fala": "Essa seta do plano é o prego ou está deitada nele?"},
-          {"quem": "Você", "fala": "Deitada. Ela vem depois do β."},
-          {"quem": "Monitor", "fala": "Então o prego ainda não apareceu. Como se acha?"},
-          {"quem": "Você", "fala": "Produto vetorial: (0, 1, 0) × (1, 1, 1) = (1, 0, −1)."},
-          {"quem": "Monitor", "fala": "Teste a seta da reta contra ele."},
-          {"quem": "Você", "fala": "1 − 1 = 0. É paralela ou está dentro. Testo (1, 1, −1): dá 2. Paralela."}
+          {
+            "quem": "Você",
+            "fala": "A reta tem seta (1, 1, 1), e o plano também tem (1, 1, 1). São múltiplas. Então é perpendicular."
+          },
+          {
+            "quem": "Monitor",
+            "fala": "Essa seta do plano é o prego ou está deitada nele?"
+          },
+          {
+            "quem": "Você",
+            "fala": "Deitada. Ela vem depois do β."
+          },
+          {
+            "quem": "Monitor",
+            "fala": "Então o prego ainda não apareceu. Como se acha?"
+          },
+          {
+            "quem": "Você",
+            "fala": "Produto vetorial: (0, 1, 0) × (1, 1, 1) = (1, 0, −1)."
+          },
+          {
+            "quem": "Monitor",
+            "fala": "Teste a seta da reta contra ele."
+          },
+          {
+            "quem": "Você",
+            "fala": "1 − 1 = 0. É paralela ou está dentro. Testo (1, 1, −1): dá 2. Paralela."
+          }
         ],
         "erro": "O plano vem com duas setas, e a tentação é comparar a seta da reta direto com elas. Essas setas estão deitadas na folha, e nenhuma é o prego. Há também o olho enganado pelo ponto: (1, 1, −1) parece (1, 1, 1), e quem não percebe o z marca contida. Uma coordenada diferente basta para tirar o ponto do plano.",
         "confira": "Monte o sistema sem usar prego: 1 + k = 1 + β, 1 + k = 1 + α + β, −1 + k = 1 + β. Da primeira, β = k. Na terceira, −1 + k = 1 + k, ou seja, −1 = 1. Não há solução, então a reta não toca o plano. Para a direção, veja que (1, 1, 1) é a própria seta de β, portanto fica deitada na folha.",

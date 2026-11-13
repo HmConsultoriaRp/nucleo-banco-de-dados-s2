@@ -1,0 +1,215 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-av2-t1-q2-01",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Ponto no plano paramétrico",
+      "origem": "Avaliação semanal 2 · T1-Q2 · Q01",
+      "enunciado": "Verdadeiro ou falso? O ponto A = (13, 8, −4) pertence ao plano π de equações x = −1 + 4t − 3s, y = 2 + 2t − s, z = −3 + t + 2s, com t, s ∈ ℝ.",
+      "alternativas": [
+        {"t": "Verdadeiro: com t = 2 e s = −2, o ponto A sai das equações.", "certa": false, "erro": "Com t = 2 e s = −2, x dá 13 e y dá 8, mas z dá −3 + 2 − 4 = −5. O ponto que sai é (13, 8, −5), não A."},
+        {"t": "Falso: x = 13 e y = 8 pedem t = 2 e s = −2, e com eles z dá −5, não −4.", "certa": true},
+        {"t": "Verdadeiro: na equação geral 5x − 11y + 2z + 33 = 0, o ponto A dá 0.", "certa": false, "erro": "A {{eq-geral-plano|equação geral}} está certa, mas a conta não: 65 − 88 − 8 + 33 = 2. Sobra 2, então A fica fora do plano."},
+        {"t": "Falso: o plano começa em (−1, 2, −3), longe demais para chegar a A.", "certa": false, "erro": "O veredito está certo, mas o motivo não. Um plano não tem borda: segue sem fim para todos os lados. A distância até o {{ponto-partida|ponto de partida}} não decide nada. O que decide é achar t e s que acertem as três coordenadas."},
+        {"t": "Verdadeiro: basta acertar duas das três coordenadas.", "certa": false, "erro": "O ponto precisa acertar x, y e z com os mesmos t e s. Com duas equações você acha t e s; a terceira é a prova, e aqui ela falha: z dá −5."}
+      ],
+      "dica": "Use as equações de x e y para achar t e s. Depois teste esses valores na equação de z.",
+      "resposta": "Falso. Pelas {{eq-param-plano|equações paramétricas}} de x e y, t = 2 e s = −2. Com esses valores, z = −3 + 2 − 4 = −5, e o ponto A tem z = −4. Logo A não pertence a π.",
+      "ouro": "Para o ponto estar no plano, **os mesmos t e s** precisam acertar as três coordenadas. Duas equações acham t e s; a terceira confere.",
+      "jeitos": {
+        "visual": "Pense no plano como uma folha sem borda. Ela tem um {{ponto-partida|ponto de partida}}, (−1, 2, −3), e duas setas deitadas, (4, 2, 1) e (−3, −1, 2). t e s são {{parametro|contadores de passos}}: t passos numa seta, s passos na outra. O caminho t = 2, s = −2 leva a (13, 8, −5). Esse ponto fica logo abaixo de A, a 1 unidade no eixo z. A não está na folha.",
+        "receita": [
+          "Iguale x: −1 + 4t − 3s = 13, ou seja, 4t − 3s = 14.",
+          "Iguale y: 2 + 2t − s = 8, ou seja, 2t − s = 6.",
+          "Da segunda, s = 2t − 6. Na primeira: 4t − 6t + 18 = 14, então t = 2 e s = −2.",
+          "Teste em z: −3 + 2 + 2·(−2) = −5.",
+          "A tem z = −4. Como −5 ≠ −4, A não pertence a π: Falso."
+        ],
+        "cotidiano": "É como conferir um endereço pelo GPS. O aplicativo acha a rua certa e o número certo, mas o apartamento fica um andar abaixo. Rua e número eram o x e o y; o andar era o z. Chegar perto não basta: a entrega só vale se as três informações batem no mesmo trajeto.",
+        "trabalho": "É a conciliação título a título. Você acha o lançamento pelo valor e pela data, as duas primeiras colunas, e para por aí. O centro de custo, a terceira coluna, fica sem conferir. Aqui aconteceu isso: x e y fecharam com t = 2 e s = −2, mas o z errou por 1. Na planilha, a conferência só termina quando todas as colunas batem com a mesma chave.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei t = 2 e s = −2. Já posso marcar Verdadeiro?"},
+          {"quem": "Monitor", "fala": "Com quais equações você achou esses valores?"},
+          {"quem": "Você", "fala": "Com as de x e y."},
+          {"quem": "Monitor", "fala": "Então falta a de z. Quanto dá −3 + t + 2s?"},
+          {"quem": "Você", "fala": "−3 + 2 − 4 = −5. Mas A tem z = −4."},
+          {"quem": "Monitor", "fala": "Pronto: o caminho que acerta x e y erra z. A está fora do plano."}
+        ],
+        "erro": "O tropeço clássico é achar t e s com duas equações e marcar Verdadeiro sem testar a terceira. Duas equações com duas incógnitas costumam ter solução, então achar t e s não prova nada. A prova está na equação que sobrou. Outro deslize é o sinal de 2·(−2): vale −4, e não +4.",
+        "confira": "Passe pela {{eq-geral-plano|equação geral}}. As setas (4, 2, 1) e (−3, −1, 2) dão o {{vetor-normal|vetor normal}} (4, 2, 1) × (−3, −1, 2) = (5, −11, 2). Com o ponto (−1, 2, −3), a equação fica 5x − 11y + 2z + 33 = 0. Em A: 65 − 88 − 8 + 33 = 2. Não deu 0, então A fica fora. Os dois caminhos concordam.",
+        "atalho": "Resolva só o par x e y, que tem conta curta: 2t − s = 6 dá s = 2t − 6. Levando à equação de x, sai t = 2 e s = −2. Agora vá direto para z: −3 + 2 − 4 = −5. Diferente de −4: Falso. Três linhas de conta, sem montar a {{eq-geral-plano|equação geral}}."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q2-02",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 5,
+      "tema": "Plano por três pontos",
+      "origem": "Avaliação semanal 2 · T1-Q2 · Q02",
+      "enunciado": "Determine a equação geral do plano que passa pelos pontos A = (−1, −2, −1), B = (2, 3, −1) e C = (3, −1, 1).",
+      "alternativas": [
+        {"t": "8x + 2y − 17z − 5 = 0", "certa": false, "erro": "Passa por A e C, mas em B dá 34. É o plano que sai lendo B como (2, 3, 1), sem o sinal de menos no z."},
+        {"t": "−2x − 6y + 7z − 7 = 0", "certa": false, "erro": "Passa por A e C, mas em B dá −36. É o plano que sai lendo B como (2, −3, −1), com o sinal do y trocado."},
+        {"t": "8x + 2y − 13z − 9 = 0", "certa": false, "erro": "Passa só por C: em A dá −8 e em B dá 26. O {{vetor-normal|prego}} (8, 2, −13) nem é {{multiplo|múltiplo}} de (10, −6, −17)."},
+        {"t": "10x − 6y − 17z − 19 = 0", "certa": true},
+        {"t": "8x + 2y − 5z − 17 = 0", "certa": false, "erro": "Passa só por C: em A dá −24 e em B dá 10. O {{vetor-normal|prego}} (8, 2, −5) nem é {{multiplo|múltiplo}} de (10, −6, −17)."}
+      ],
+      "dica": "Monte [[AB]] e [[AC]], faça o produto vetorial para achar o prego e use A para achar o d.",
+      "resposta": "10x − 6y − 17z − 19 = 0. O {{vetor-normal|vetor normal}} é [[AB]] × [[AC]] = (3, 5, 0) × (4, 1, 2) = (10, −6, −17), e o d sai de A: −10 + 12 + 17 + d = 0, então d = −19.",
+      "ouro": "Teste cada alternativa nos **três** pontos. Aqui, duas erradas passam por A e C e falham só em B: vieram de um sinal de B lido errado.",
+      "jeitos": {
+        "visual": "Os três pontos são três tachinhas, e o plano é a folha que encosta nas três. De A saem duas setas deitadas na folha: [[AB]] = (3, 5, 0) e [[AC]] = (4, 1, 2). O produto vetorial das duas dá o {{vetor-normal|prego em pé}}, (10, −6, −17). Com o prego e uma tachinha, a folha fica presa num lugar só.",
+        "receita": [
+          "[[AB]] = B − A = (3, 5, 0).",
+          "[[AC]] = C − A = (4, 1, 2).",
+          "{{vetor-normal|Prego}}: [[AB]] × [[AC]] = (5·2 − 0·1, 0·4 − 3·2, 3·1 − 5·4) = (10, −6, −17).",
+          "Fica 10x − 6y − 17z + d = 0. Em A: −10 + 12 + 17 + d = 0, então d = −19.",
+          "Confira B e C: 20 − 18 + 17 − 19 = 0 e 30 + 6 − 17 − 19 = 0."
+        ],
+        "cotidiano": "Uma mesa de três pernas não balança: o tampo encosta nas três pontas ao mesmo tempo. Se uma perna for medida errado, o tampo inclina e encosta só em duas. As alternativas erradas fazem isso: cada uma encosta em A e C, ou só em C, e deixa ao menos uma perna no ar.",
+        "trabalho": "Pense num fechamento com três contas de controle: caixa, banco e contas a receber. Um ajuste que fecha duas e deixa a terceira com diferença não está certo, mesmo parecendo perto. Aqui é igual: monte uma tabela com as cinco equações nas linhas e A, B e C nas colunas. Só uma linha fica com 0, 0 e 0.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei o {{vetor-normal|prego}} (10, −6, −17). E agora?"},
+          {"quem": "Monitor", "fala": "Agora falta o d. Qual ponto você usa?"},
+          {"quem": "Você", "fala": "Qualquer um dos três?"},
+          {"quem": "Monitor", "fala": "Sim. Com A: −10 + 12 + 17 + d = 0."},
+          {"quem": "Você", "fala": "Então d = −19."},
+          {"quem": "Monitor", "fala": "Teste B e C para garantir. Se os dois derem 0, terminou."}
+        ],
+        "erro": "Aqui o perigo é a leitura de sinal. Quem lê B = (2, 3, 1) chega a 8x + 2y − 17z − 5 = 0. Quem lê B = (2, −3, −1) chega a −2x − 6y + 7z − 7 = 0. As duas passam por A e C e falham só em B. Por isso a conferência precisa usar os três pontos, e não só o que entrou no d.",
+        "confira": "Substitua os três pontos na resposta. A: −10 + 12 + 17 − 19 = 0. B: 20 − 18 + 17 − 19 = 0. C: 30 + 6 − 17 − 19 = 0. Os três zeram. Como o {{vetor-normal|prego}} (10, −6, −17) não é nulo, os pontos não são {{colineares|colineares}}, e esse plano é o único.",
+        "atalho": "Teste as alternativas só em B, o único ponto que derruba as quatro erradas. Em B, a certa dá 0; a que começa com −2x dá −36; a de −17z − 5 dá 34; a de −13z dá 26; a de −5z dá 10. Uma conta por alternativa, e sobra a certa."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q2-03",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Equações vetoriais do plano",
+      "origem": "Avaliação semanal 2 · T1-Q2 · Q03",
+      "enunciado": "Verdadeiro ou falso? Um plano π possui infinitas equações vetoriais distintas.",
+      "alternativas": [
+        {"t": "Verdadeiro: o ponto de partida pode ser qualquer ponto de π, e as setas, qualquer par deitado em π e não paralelo entre si.", "certa": true},
+        {"t": "Falso: cada plano tem uma única equação vetorial, assim como tem um único vetor normal.", "certa": false, "erro": "Nem o {{vetor-normal|vetor normal}} é único: qualquer {{multiplo|múltiplo}} não nulo dele também serve. E a {{eq-param-plano|equação vetorial}} depende de escolhas livres: o ponto e as duas setas."},
+        {"t": "Falso: são só duas, porque dá para trocar a ordem das setas.", "certa": false, "erro": "Trocar a ordem das setas é só uma das mudanças possíveis. Trocar o {{ponto-partida|ponto de partida}} ou esticar uma seta também gera outra equação do mesmo plano, e isso não tem fim."},
+        {"t": "Verdadeiro: cada equação vetorial descreve um plano diferente.", "certa": false, "erro": "O veredito está certo, mas o motivo não. Todas essas equações descrevem o mesmo plano π. Muda o jeito de escrever, não o conjunto de pontos."},
+        {"t": "Falso: a equação vetorial é única; o que é infinito é a equação geral, multiplicando por um número.", "certa": false, "erro": "As duas são infinitas. A {{eq-geral-plano|equação geral}} muda ao multiplicar tudo por um número diferente de 0. A {{eq-param-plano|vetorial}} muda ao trocar o ponto ou as setas."}
+      ],
+      "dica": "Lembre a forma X = A + t[[u]] + s[[v]]. Quantas escolhas existem para A, [[u]] e [[v]]?",
+      "resposta": "Verdadeiro. Na {{eq-param-plano|equação vetorial}} X = A + t[[u]] + s[[v]], o {{ponto-partida|ponto de partida}} A pode ser qualquer ponto de π, e [[u]], [[v]] podem ser qualquer par de setas deitadas em π e não paralelas. Cada escolha dá uma equação diferente para o mesmo plano.",
+      "ouro": "O plano é **um só**; as equações que o descrevem são infinitas. Mudam o ponto e as setas, não a folha.",
+      "jeitos": {
+        "visual": "Imagine o chão de uma sala, o plano z = 0. Você pode começar a andar do canto (0, 0, 0), com passos (1, 0, 0) e (0, 1, 0). Ou começar do meio, (5, 2, 0), com passos (2, 0, 0) e (1, 1, 0). Os caminhos mudam, mas o chão percorrido é o mesmo. Cada jeito de andar é uma {{eq-param-plano|equação vetorial}} diferente do mesmo chão.",
+        "receita": [
+          "Escreva a forma: X = A + t[[u]] + s[[v]].",
+          "O {{ponto-partida|ponto de partida}} A pode ser qualquer ponto do plano, e eles são infinitos.",
+          "[[u]] e [[v]] podem ser quaisquer setas deitadas no plano, desde que não sejam paralelas entre si.",
+          "Trocar A, esticar uma seta ou trocar o par gera outra equação para o mesmo plano.",
+          "Infinitas escolhas, infinitas equações: Verdadeiro."
+        ],
+        "cotidiano": "Um mesmo bairro pode ser descrito por quem sai da praça ou por quem sai da estação. Um conta os passos em quarteirões de norte a sul; o outro, em diagonais. As instruções são diferentes, mas cobrem o mesmo bairro. Com infinitos pontos de saída e infinitos tamanhos de passo, há infinitas descrições do mesmo lugar.",
+        "trabalho": "No SQL, duas consultas diferentes podem devolver as mesmas linhas. Uma filtra WHERE ano = 2026; a outra, WHERE data BETWEEN '2026-01-01' AND '2026-12-31'. O conjunto de lançamentos é o mesmo; a escrita muda. Com a {{eq-param-plano|equação vetorial}} é igual: o plano é o conjunto de pontos, e cada equação é um jeito de chegar nele.",
+        "conversa": [
+          {"quem": "Você", "fala": "O plano não é um só? Como pode ter infinitas equações?"},
+          {"quem": "Monitor", "fala": "O plano é um só. Mas de que ponto você começa a andar nele?"},
+          {"quem": "Você", "fala": "De qualquer ponto dele, eu acho."},
+          {"quem": "Monitor", "fala": "E as setas? Precisam ser sempre as mesmas?"},
+          {"quem": "Você", "fala": "Não. Qualquer par deitado no plano e não paralelo serve."},
+          {"quem": "Monitor", "fala": "Então são infinitas escolhas e infinitas equações para a mesma folha."}
+        ],
+        "erro": "A armadilha é confundir o objeto com a descrição dele. O plano é único, e isso leva a pensar que a equação também é. Outro tropeço é achar que só a {{eq-geral-plano|equação geral}} tem várias versões, multiplicando por um número. A {{eq-param-plano|vetorial}} também muda: basta trocar o ponto, esticar uma seta ou escolher outro par.",
+        "confira": "Teste com números. O plano −2x + y + z = 0 tem a {{eq-param-plano|equação vetorial}} X = (1, 0, 2) + t(1, 2, 0) + s(0, 1, −1). Outra equação dele é X = (2, 5, −1) + t(1, 3, −1) + s(−2, −4, 0). O ponto (2, 5, −1) zera a equação: −4 + 5 − 1 = 0. As novas setas fazem 90° com o {{vetor-normal|prego}} (−2, 1, 1): −2 + 3 − 1 = 0 e 4 − 4 + 0 = 0. E o produto vetorial delas, (−4, 2, 2), não é nulo.",
+        "atalho": "Para decidir rápido, conte as escolhas livres na forma X = A + t[[u]] + s[[v]]: o ponto e as duas setas. Cada uma tem infinitas opções. Uma só escolha livre já basta para gerar infinitas equações do mesmo plano. Aqui há três: Verdadeiro."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q2-04",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Plano por ponto e duas setas",
+      "origem": "Avaliação semanal 2 · T1-Q2 · Q04",
+      "enunciado": "Se [[u]] = (2, 1, −2) e [[v]] = (−3, 1, −1) são vetores diretores de um plano π e P = (−1, 2, 1) pertence a π, então a equação geral de π é:",
+      "alternativas": [
+        {"t": "3x + 4y − 5z = 0", "certa": false, "erro": "Passa por P, mas o {{vetor-normal|prego}} (3, 4, −5) não faz 90° com [[u]]: o produto escalar dá 20. É o plano que sai lendo [[u]] como (2, 1, 2), sem o sinal do último −2."},
+        {"t": "x − 4y − z + 10 = 0", "certa": false, "erro": "Passa por P e o {{vetor-normal|prego}} (1, −4, −1) faz 90° com [[u]], mas com [[v]] o produto escalar dá −6. É o plano que sai lendo [[v]] como (3, 1, −1), sem o sinal do −3."},
+        {"t": "x + 4y + z − 8 = 0", "certa": false, "erro": "Passa por P, mas o {{vetor-normal|prego}} (1, 4, 1) dá 4 com [[u]], e não 0: [[u]] não fica deitada nesse plano. É o plano que sai lendo [[u]] como (−2, 1, −2)."},
+        {"t": "3x + 8y − z − 12 = 0", "certa": false, "erro": "Passa por P, mas o {{vetor-normal|prego}} (3, 8, −1) dá 16 com [[u]]. É o plano que sai lendo [[u]] como (2, −1, −2), com o sinal do 1 trocado."},
+        {"t": "x + 8y + 5z − 20 = 0", "certa": true}
+      ],
+      "dica": "O prego é [[u]] × [[v]]. Atenção: P zera as cinco alternativas, então o teste que decide é outro.",
+      "resposta": "x + 8y + 5z − 20 = 0. O {{vetor-normal|vetor normal}} é [[u]] × [[v]] = (1, 8, 5), e o d sai de P: −1 + 16 + 5 + d = 0, então d = −20.",
+      "ouro": "Quando todas as alternativas passam pelo ponto, o teste que separa é o das **setas deitadas**: o prego tem de dar produto escalar 0 com [[u]] e com [[v]].",
+      "jeitos": {
+        "visual": "O ponto P é uma tachinha, e [[u]] e [[v]] são duas réguas deitadas na folha, saindo de P. O {{vetor-normal|prego em pé}} precisa fazer 90° com as duas réguas ao mesmo tempo. O produto vetorial dá exatamente esse prego: (1, 8, 5). Cada alternativa errada tem um prego que faz 90° com uma régua só, e por isso entorta a folha.",
+        "receita": [
+          "Monte [[u]] × [[v]] = (1·(−1) − (−2)·1, (−2)·(−3) − 2·(−1), 2·1 − 1·(−3)).",
+          "Resultado: (1, 8, 5). Esse é o {{vetor-normal|prego}}.",
+          "Confira: (1, 8, 5) · (2, 1, −2) = 2 + 8 − 10 = 0 e (1, 8, 5) · (−3, 1, −1) = −3 + 8 − 5 = 0.",
+          "Fica x + 8y + 5z + d = 0. Em P: −1 + 16 + 5 + d = 0, então d = −20.",
+          "Plano: x + 8y + 5z − 20 = 0."
+        ],
+        "cotidiano": "Cinco pessoas dizem que estavam na festa, e todas mostram uma foto na porta. A foto na porta não separa ninguém. É preciso outra prova, como uma foto com os dois anfitriões. Aqui a porta é o ponto P: as cinco equações passam por ele. Os anfitriões são [[u]] e [[v]], e só uma equação deixa os dois deitados nela.",
+        "trabalho": "Em auditoria, um teste em que todos os itens passam não tem poder de separar. Conferir P é esse teste: as cinco equações dão 0 em P. O teste que separa é o produto escalar do {{vetor-normal|prego}} com [[u]] e com [[v]]. Numa planilha, ponha as cinco equações nas linhas e três colunas: P, [[u]] e [[v]]. Só a linha de x + 8y + 5z − 20 = 0 fica com 0 nas três.",
+        "conversa": [
+          {"quem": "Você", "fala": "Substituí P em todas e todas deram 0. E agora?"},
+          {"quem": "Monitor", "fala": "Então P não decide. O que mais o enunciado dá?"},
+          {"quem": "Você", "fala": "As duas setas, [[u]] e [[v]]."},
+          {"quem": "Monitor", "fala": "Elas estão deitadas no plano. O que o {{vetor-normal|prego}} faz com elas?"},
+          {"quem": "Você", "fala": "Faz 90°: produto escalar 0 com cada uma."},
+          {"quem": "Monitor", "fala": "Teste isso. Só (1, 8, 5) zera com as duas."}
+        ],
+        "erro": "O primeiro erro é parar no teste do ponto: aqui P zera as cinco equações e não elimina nenhuma. O outro perigo é o sinal. Cada alternativa errada é o plano que sai de ler um sinal trocado: [[u]] como (2, 1, 2), (−2, 1, −2) ou (2, −1, −2), ou [[v]] como (3, 1, −1). Na conta do xis, (−2)·(−3) − 2·(−1) dá 6 + 2 = 8.",
+        "confira": "Ande pela folha a partir de P. P + [[u]] = (1, 3, −1) e, na resposta, 1 + 24 − 5 − 20 = 0. P + [[v]] = (−4, 3, 0) e −4 + 24 + 0 − 20 = 0. Os dois ficam no plano. Na alternativa 3x + 4y − 5z = 0, o ponto P + [[u]] dá 3 + 12 + 5 = 20 e sai da folha.",
+        "atalho": "Pule a conta do produto vetorial. Teste o {{vetor-normal|prego}} de cada alternativa contra [[u]] = (2, 1, −2): (3, 4, −5) dá 20, (1, 4, 1) dá 4, (3, 8, −1) dá 16. Sobram (1, −4, −1) e (1, 8, 5). Contra [[v]], o primeiro dá −6 e o segundo dá 0."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q2-05",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Ponto na reta de dois planos",
+      "origem": "Avaliação semanal 2 · T1-Q2 · Q05",
+      "enunciado": "Verdadeiro ou falso? O ponto P = (16, 12, −2) pertence à reta que é interseção dos planos 2x − 3y − 3z − 2 = 0 e 2x − 2y + 3z − 2 = 0.",
+      "alternativas": [
+        {"t": "Falso: P zera só a primeira equação; na segunda dá 12.", "certa": false, "erro": "Na segunda, 3z com z = −2 vale −6, não +6. A conta certa é 32 − 24 − 6 − 2 = 0: P zera as duas equações."},
+        {"t": "Verdadeiro: basta P zerar uma das equações para estar na reta.", "certa": false, "erro": "O veredito está certo, mas o motivo não. A reta é a parte comum dos dois planos. Um ponto que zera só uma equação está num plano e fora do outro. Aqui P zera as duas, e é isso que decide."},
+        {"t": "Verdadeiro: P zera as duas equações, então está nos dois planos e, por isso, na reta comum.", "certa": true},
+        {"t": "Falso: para estar na reta, P teria de ser múltiplo da direção (−15, −12, 2).", "certa": false, "erro": "Isso só valeria se a reta passasse pela origem, e ela não passa: (0, 0, 0) dá −2 nas duas equações. O teste certo é ver se P − A é {{multiplo|múltiplo}} da {{vetor-diretor|direção}}, com A na reta. Com A = (1, 0, 0), P − A = (15, 12, −2), que é −1 vez (−15, −12, 2)."},
+        {"t": "Falso: dois planos com o mesmo termo −2 são paralelos e não se cortam.", "certa": false, "erro": "Quem decide o paralelismo é o {{vetor-normal|prego}}, não o d. Os pregos (2, −3, −3) e (2, −2, 3) não são {{multiplo|múltiplos}}, então os planos se cortam numa reta."}
+      ],
+      "dica": "Substitua P nas duas equações. Ele precisa zerar as duas.",
+      "resposta": "Verdadeiro. P zera as duas equações: 32 − 36 + 6 − 2 = 0 e 32 − 24 − 6 − 2 = 0. Como os planos são {{transversais|transversais}}, a parte comum é uma reta, e P está nela.",
+      "ouro": "Estar na reta de dois planos é **zerar as duas equações**. Um teste por plano.",
+      "jeitos": {
+        "visual": "Os dois planos são {{transversais|transversais}}: duas paredes que se encontram numa quina. A quina é a reta comum. Um ponto está na quina quando encosta nas duas paredes ao mesmo tempo. P encosta na primeira, porque zera 2x − 3y − 3z − 2, e na segunda, porque zera 2x − 2y + 3z − 2. Então P está na quina.",
+        "receita": [
+          "Plano 1 em P: 2·16 − 3·12 − 3·(−2) − 2 = 32 − 36 + 6 − 2 = 0.",
+          "Plano 2 em P: 2·16 − 2·12 + 3·(−2) − 2 = 32 − 24 − 6 − 2 = 0.",
+          "Confira que os planos se cortam: os {{vetor-normal|pregos}} (2, −3, −3) e (2, −2, 3) não são {{multiplo|múltiplos}}.",
+          "P está nos dois planos, logo na reta comum: Verdadeiro."
+        ],
+        "cotidiano": "Pense num convidado com mesa no salão comum de duas festas vizinhas. Para sentar ali, o nome dele precisa estar nas duas listas. Conferir uma lista só não basta: você procura na primeira e depois na segunda. P aparece nas duas, porque zera as duas equações. Então tem lugar no salão comum, que é a reta.",
+        "trabalho": "No SQL, a reta comum é um WHERE com AND: a linha só volta se passar nas duas condições, plano 1 igual a 0 e plano 2 igual a 0. P passa nas duas. Na conciliação é igual: um título só está conciliado quando bate no extrato e no razão. Bater num só deixa pendência.",
+        "conversa": [
+          {"quem": "Você", "fala": "Preciso achar a equação da reta para responder?"},
+          {"quem": "Monitor", "fala": "Não. A reta é o que os dois planos têm em comum. O que P precisa fazer?"},
+          {"quem": "Você", "fala": "Zerar as duas equações."},
+          {"quem": "Monitor", "fala": "Faça a segunda com cuidado no z."},
+          {"quem": "Você", "fala": "32 − 24 + 3·(−2) − 2. Dá 32 − 24 − 6 − 2 = 0."},
+          {"quem": "Monitor", "fala": "As duas zeram. P está na reta."}
+        ],
+        "erro": "Um deslize possível está no sinal: 3·(−2) vale −6. Quem escreve +6 acha 12 na segunda equação e marca Falso. Outro erro é testar P contra a {{vetor-diretor|direção}} da reta, como se ela saísse da origem. A reta passa por (1, 0, 0), e não por (0, 0, 0). Então P não precisa ser {{multiplo|múltiplo}} da direção.",
+        "confira": "Ache a reta e veja se P cai nela. A {{vetor-diretor|direção}} é (2, −3, −3) × (2, −2, 3) = (−15, −12, 2). Um ponto comum fácil é (1, 0, 0): ele zera as duas equações. Então P − (1, 0, 0) = (15, 12, −2), que é −1 vez a direção. P está na reta, com passo t = −1.",
+        "atalho": "Não monte a reta. Substitua P nas duas equações, uma linha cada: 32 − 36 + 6 − 2 = 0 e 32 − 24 − 6 − 2 = 0. São duas contas de cabeça, e o Verdadeiro sai sem produto vetorial."
+      }
+    }
+  ]
+}

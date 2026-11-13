@@ -1,0 +1,151 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-av2-t1-q3-06",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Reta contida no plano",
+      "origem": "Avaliação semanal 2 · T1-Q3 · Q06",
+      "enunciado": "Verdadeiro ou falso? A reta de equação x − 5 = −y + 4 = z − 4 está contida no plano de equação 2x − y + 3z − 18 = 0.",
+      "alternativas": [
+        {"t":"Falso: o ponto (5, 4, 4) está no plano, mas a direção (1, −1, 1) não é paralela a ele","certa":true},
+        {"t":"Verdadeiro: o ponto (5, 4, 4) da reta satisfaz a equação do plano","certa":false,"erro":"Um ponto no plano só mostra que a reta toca o plano. Para estar {{contida|contida}}, a seta também precisa estar deitada: [[v]] · [[n]] = 0. Aqui dá (1, −1, 1) · (2, −1, 3) = 6."},
+        {"t":"Falso: o ponto (5, 4, 4) não satisfaz a equação do plano","certa":false,"erro":"O veredito está certo, mas o motivo não. O ponto satisfaz: 2·5 − 4 + 3·4 − 18 = 0. O que falha é a direção, com [[v]] · [[n]] = 6."},
+        {"t":"Verdadeiro: a direção da reta, (1, 1, 1), é perpendicular à normal do plano","certa":false,"erro":"Duas falhas. A direção certa é (1, −1, 1), porque −y + 4 = t dá y = 4 − t. E mesmo com (1, 1, 1) o produto com a normal (2, −1, 3) dá 2 − 1 + 3 = 4, não 0."},
+        {"t":"Falso: a reta é paralela ao plano e passa fora dele","certa":false,"erro":"Para ser {{paralelos-reta-plano|paralela}} ao plano, a seta teria de estar deitada, com [[v]] · [[n]] = 0, e aqui dá 6. Além disso, o ponto (5, 4, 4) está no plano. A reta fura o plano nesse ponto: é {{concorrentes-reta-plano|concorrente}}."}
+      ],
+      "dica": "Contida pede dois testes: um ponto da reta no plano e a seta deitada, com [[v]] · [[n]] = 0. Cuidado com o sinal do y.",
+      "resposta": "Falso. Chamando o valor comum de t: x = 5 + t, y = 4 − t, z = 4 + t. O ponto (5, 4, 4) está no plano, mas a seta (1, −1, 1) dá [[v]] · [[n]] = 2 + 1 + 3 = 6 com a normal (2, −1, 3). A reta fura o plano em (5, 4, 4): é {{concorrentes-reta-plano|concorrente}}, não {{contida|contida}}.",
+      "ouro": "Ponto no plano é **metade** do teste de reta contida. A outra metade é [[v]] · [[n]] = 0.",
+      "jeitos": {
+        "visual": "Pense num espeto atravessando uma mesa. Ele toca o tampo num ponto, mas o resto fica acima e abaixo. Estar {{contida|contida}} seria o espeto inteiro deitado no tampo. Aqui o ponto (5, 4, 4) é o furo, e a seta (1, −1, 1) sai do tampo, porque não faz 90° com o {{vetor-normal|vetor normal}} (2, −1, 3), o prego em pé do plano.",
+        "receita": ["Iguale tudo a t: x − 5 = t, −y + 4 = t, z − 4 = t.", "Isole: x = 5 + t, y = 4 − t, z = 4 + t. Ponto (5, 4, 4), seta (1, −1, 1).", "Teste o ponto: 2·5 − 4 + 3·4 − 18 = 0. Está no plano.", "Teste a seta: (1, −1, 1) · (2, −1, 3) = 2 + 1 + 3 = 6 ≠ 0.", "A seta não está deitada: a reta fura o plano e não está {{contida|contida}}. Falso."],
+        "cotidiano": "Uma vara fincada na areia da praia toca o chão num ponto, mas não está deitada na areia. Para dizer que está deitada, é preciso ver o ponto de contato e também a inclinação da vara. Aqui o contato existe, em (5, 4, 4). A inclinação, medida por [[v]] · [[n]] = 6, mostra que a reta sai do plano logo depois do ponto.",
+        "trabalho": "Na conferência de um lançamento, achar a data certa não basta: o valor também precisa bater. O ponto (5, 4, 4) no plano é a data batendo. A seta é o valor, e [[v]] · [[n]] = 6 mostra a diferença. O auditor que confere só um dos dois campos marca 'conciliado' e erra. Aqui, quem confere só o ponto marca Verdadeiro.",
+        "conversa": [{"quem":"Você","fala":"Troquei (5, 4, 4) no plano e deu zero. Então está contida."},{"quem":"Monitor","fala":"Esse teste mostra que a reta toca o plano. E a direção?"},{"quem":"Você","fala":"A seta é (1, 1, 1)?"},{"quem":"Monitor","fala":"Olhe o −y. Se −y + 4 = t, quanto vale y?"},{"quem":"Você","fala":"y = 4 − t. A seta é (1, −1, 1)."},{"quem":"Monitor","fala":"Faça o produto com a normal (2, −1, 3)."},{"quem":"Você","fala":"2 + 1 + 3 = 6. Não é zero: a reta fura o plano. Falso."}],
+        "erro": "Dois tropeços. O primeiro é parar no teste do ponto: ele dá 0 e induz a marcar Verdadeiro. O segundo é ler a seta como (1, 1, 1), esquecendo que o y aparece com sinal de menos. Nesta questão o segundo erro não muda o veredito, porque (1, 1, 1) · (2, −1, 3) = 4, mas em outra questão pode mudar.",
+        "confira": "Pegue outro ponto da reta, com t = 1: (6, 3, 5). No plano: 2·6 − 3 + 3·5 − 18 = 12 − 3 + 15 − 18 = 6. Não zera, então esse ponto está fora do plano. Uma reta {{contida|contida}} teria todos os pontos dentro. Um único ponto fora já derruba a afirmação.",
+        "atalho": "Para reta {{contida|contida}}, comece pela seta, que é a conta mais curta: (1, −1, 1) · (2, −1, 3) = 6. Diferente de 0 já responde Falso, sem testar o ponto. O teste do ponto só é necessário quando a seta dá 0, para separar contida de paralela."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q3-07",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Ortogonal não implica perpendicular",
+      "origem": "Avaliação semanal 2 · T1-Q3 · Q07",
+      "enunciado": "Verdadeiro ou falso? Se as retas são ortogonais, então as retas também são perpendiculares.",
+      "alternativas": [
+        {"t":"Verdadeiro: ortogonal e perpendicular são a mesma coisa para duas retas","certa":false,"erro":"Para dois planos, o curso trata as duas palavras como iguais. Para duas retas, não: {{ortogonais|ortogonais}} só pedem 90° entre as setas, e {{perpendiculares|perpendiculares}} pedem 90° e um ponto comum."},
+        {"t":"Verdadeiro: se as setas formam 90°, as retas sempre se cruzam","certa":false,"erro":"Isso vale numa folha de papel (ℝ²). No espaço, r: X = t(1, 0, 0) e s: X = (0, 0, 1) + k(0, 1, 0) têm setas a 90° e não se cruzam: são {{reversas|reversas}}."},
+        {"t":"Falso: retas ortogonais nunca se cruzam","certa":false,"erro":"O veredito está certo, mas o motivo exagera. {{ortogonais|Ortogonais}} podem se cruzar ou não. As retas X = t(1, 0, 0) e X = h(0, 1, 0) se cruzam na origem a 90°: são ortogonais e também {{perpendiculares|perpendiculares}}."},
+        {"t":"Falso: retas ortogonais podem ser reversas, e aí não se cruzam","certa":true},
+        {"t":"Falso: ortogonal é palavra só para planos, não para retas","certa":false,"erro":"O curso usa {{ortogonais|ortogonais}} também para retas: setas com produto escalar 0, se cruzando ou não. A afirmação é falsa por outro motivo: ortogonal não garante o ponto comum."}
+      ],
+      "dica": "Perpendicular pede duas coisas, e ortogonal pede uma. A frase vai de qual para qual?",
+      "resposta": "Falso. {{ortogonais|Ortogonais}} só exigem setas a 90° ([[u]] · [[v]] = 0). {{perpendiculares|Perpendiculares}} exigem isso e um ponto comum. Contraexemplo: r: X = t(1, 0, 0) e s: X = (0, 0, 1) + k(0, 1, 0) têm produto escalar 0, mas produto misto 1. São {{reversas|reversas}}: ortogonais sem ser perpendiculares. A ida, na questão 2, é verdadeira.",
+      "ouro": "Ortogonal → perpendicular é **Falso**: o par reverso a 90° é o contraexemplo.",
+      "jeitos": {
+        "visual": "Volte ao viaduto. Ele passa sobre a avenida exatamente em ângulo reto, mas lá no alto. Visto de cima, forma uma cruz perfeita; visto de lado, mostra o vão. As setas fazem 90°, então as retas são {{ortogonais|ortogonais}}. Não há ponto comum, então não são {{perpendiculares|perpendiculares}}. É o par {{reversas|reverso}} a 90° que derruba a frase.",
+        "receita": ["Lembre: {{ortogonais|ortogonais}} têm [[u]] · [[v]] = 0; {{perpendiculares|perpendiculares}} são ortogonais com ponto comum.", "Para derrubar a frase, procure ortogonais sem ponto comum.", "Tome r: X = t(1, 0, 0) e s: X = (0, 0, 1) + k(0, 1, 0).", "Setas: (1, 0, 0) · (0, 1, 0) = 0. São ortogonais.", "Com [[AB]] = (0, 0, 1), o produto misto dá 1: {{reversas|reversas}}, sem ponto comum. Falso."],
+        "cotidiano": "Toda pessoa com carteira de motorista é maior de idade, mas nem todo maior de idade dirige. A frase desta questão diz o contrário: 'se é maior de idade, então tem carteira'. Basta um adulto sem habilitação para derrubá-la. Aqui, o adulto sem carteira é o par de retas a 90° que não se cruza.",
+        "trabalho": "Na auditoria, 'todo título pago foi lançado' não implica 'todo título lançado foi pago'. A volta precisa de teste próprio, e um único título em aberto a derruba. Aqui é igual: a questão 2, de perpendicular para ortogonal, vale; a volta não. Em SQL, o filtro só com produto escalar igual a 0 devolve as {{reversas|reversas}} a 90°, que o filtro com escalar e misto iguais a 0 deixa de fora.",
+        "conversa": [{"quem":"Você","fala":"Na questão 2 deu Verdadeiro. Esta não é a mesma?"},{"quem":"Monitor","fala":"É a volta. A 2 ia de perpendicular para ortogonal. Esta vai de ortogonal para perpendicular."},{"quem":"Você","fala":"E a volta pode falhar?"},{"quem":"Monitor","fala":"Pode. Existe reta ortogonal a outra sem cruzar com ela?"},{"quem":"Você","fala":"O viaduto a 90° sobre a avenida."},{"quem":"Monitor","fala":"Isso: {{ortogonais|ortogonais}} e reversas. Não são perpendiculares, então a frase é falsa."}],
+        "erro": "O tropeço é achar que ida e volta têm a mesma resposta. Quem trata as palavras como sinônimas marca Verdadeiro nas duas questões, a 2 e esta, e erra esta. Outro tropeço é usar a regra da folha de papel, em que retas a 90° sempre se cruzam. No espaço, o viaduto mostra que não: são as {{reversas|reversas}}.",
+        "confira": "Com r: X = t(1, 0, 0) e s: X = (0, 0, 1) + k(0, 1, 0): produto escalar das setas 0, produto misto 1. Igualando as coordenadas, sai t = 0, k = 0 e 0 = 1, impossível. A distância entre as retas é |1| / ‖(0, 0, 1)‖ = 1. São ortogonais, sem ponto comum, a 1 unidade uma da outra.",
+        "atalho": "Guarde o par desta avaliação. Do mais exigente para o menos exigente, perpendicular → ortogonal, é Verdadeiro (questão 2). Do menos exigente para o mais exigente, ortogonal → perpendicular, é Falso (esta). O contraexemplo de sempre é o viaduto a 90°."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q3-08",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Planos ortogonais",
+      "origem": "Avaliação semanal 2 · T1-Q3 · Q08",
+      "enunciado": "Verdadeiro ou falso? Os planos π1: x − y + 2z + 4 = 0 e π2: x + y − z − 4 = 0 são ortogonais.",
+      "alternativas": [
+        {"t":"Verdadeiro: os termos independentes +4 e −4 se anulam","certa":false,"erro":"Os termos independentes só dizem onde cada plano fica. O teste de planos {{perpendiculares-planos|ortogonais}} usa apenas as normais: [[n1]] · [[n2]] = 1 − 1 − 2 = −2."},
+        {"t":"Verdadeiro: as normais (1, −1, 2) e (1, 1, −1) não são paralelas","certa":false,"erro":"Normais não paralelas só mostram que os planos se cortam: são {{transversais|transversais}}. Para o corte ser a 90°, o produto escalar das normais teria de dar 0, e dá −2."},
+        {"t":"Falso: [[n1]] · [[n2]] = 1 − 1 − 2 = −2, diferente de 0","certa":true},
+        {"t":"Falso: os planos são paralelos","certa":false,"erro":"O veredito está certo, mas o motivo não. Planos {{paralelos-distintos|paralelos}} teriam normais múltiplas, e [[n1]] × [[n2]] = (−1, 3, 2) não é [[0]]. Os planos se cortam, só que não a 90°."},
+        {"t":"Falso: o produto vetorial das normais não é o vetor nulo","certa":false,"erro":"[[n1]] × [[n2]] ≠ [[0]] prova que os planos não são paralelos; não diz nada sobre 90°. Planos {{perpendiculares-planos|ortogonais}} também têm esse produto diferente de [[0]]. O teste certo é o produto escalar das normais."}
+      ],
+      "dica": "Planos ortogonais têm normais ortogonais. Faça só o produto escalar dos coeficientes de x, y e z.",
+      "resposta": "Falso. As normais são [[n1]] = (1, −1, 2) e [[n2]] = (1, 1, −1). [[n1]] · [[n2]] = 1 − 1 − 2 = −2, diferente de 0. Os planos se cortam (são {{transversais|transversais}}), mas não a 90°: não são {{perpendiculares-planos|ortogonais}}.",
+      "ouro": "Para dois planos, ortogonal = perpendicular = **[[n1]] · [[n2]] = 0**. O termo independente não entra.",
+      "jeitos": {
+        "visual": "Pense em duas paredes que se encontram numa quina. Cada parede tem seu {{vetor-normal|vetor normal}}, um prego em pé saindo reto dela. Se as paredes formam um canto em L, os pregos também formam 90°. Aqui os pregos são (1, −1, 2) e (1, 1, −1), e o produto escalar deles dá −2. A quina existe, mas o canto tem cerca de 61,87°, não 90°.",
+        "receita": ["Leia as normais nos coeficientes: [[n1]] = (1, −1, 2) e [[n2]] = (1, 1, −1).", "Deixe de lado os termos independentes +4 e −4.", "Calcule [[n1]] · [[n2]] = 1·1 + (−1)·1 + 2·(−1) = −2.", "Diferente de 0: as normais não fazem 90°.", "Logo os planos não são {{perpendiculares-planos|ortogonais}}: Falso."],
+        "cotidiano": "Uma porta aberta forma um ângulo com a parede. Para saber se ela está a 90°, não importa em que andar fica a sala; importa o giro da porta. Os termos +4 e −4 são o andar, e as normais são o giro. Aqui o giro dá produto escalar −2, então a porta não está em ângulo reto com a parede.",
+        "trabalho": "Numa planilha, o teste cabe numa célula: SOMARPRODUTO dos coeficientes de x, y e z das duas linhas. Para π1 e π2, as colunas são (1, −1, 2) e (1, 1, −1), e a fórmula devolve −2. Se a coluna do termo independente entrar no intervalo, o resultado vira −18 e a conferência sai errada: o d não faz parte da normal.",
+        "conversa": [{"quem":"Você","fala":"O +4 e o −4 se cancelam. Isso não deixa os planos ortogonais?"},{"quem":"Monitor","fala":"O que define o ângulo entre dois planos?"},{"quem":"Você","fala":"Os vetores normais."},{"quem":"Monitor","fala":"E o termo independente faz parte da normal?"},{"quem":"Você","fala":"Não. As normais são só (1, −1, 2) e (1, 1, −1)."},{"quem":"Monitor","fala":"Então faça o produto escalar delas."},{"quem":"Você","fala":"Dá −2. Não são ortogonais."}],
+        "erro": "O erro mais comum é misturar os dois testes de planos. Normais não múltiplas, com [[n1]] × [[n2]] ≠ [[0]], dizem que os planos se cortam. Produto escalar das normais igual a 0 diz que se cortam a 90°. Aqui o primeiro teste passa e o segundo falha. Outro tropeço é deixar o termo independente entrar na conta.",
+        "confira": "Ângulo entre planos: cos θ = |[[n1]] · [[n2]]| / (‖[[n1]]‖ ‖[[n2]]‖) = 2 / (√6 · √3) = 2/√18. Isso dá θ ≈ 61,87°, longe de 90°. O módulo no numerador deixa o ângulo entre 0° e 90°, como o professor usa. Para dar 90°, o numerador teria de ser 0.",
+        "atalho": "Multiplique coluna por coluna, de cabeça: x dá 1·1 = 1, y dá (−1)·1 = −1, z dá 2·(−1) = −2. A soma é −2. Não zerou: Falso. São três multiplicações, sem tocar nos termos +4 e −4."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q3-09",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Plano perpendicular a dois planos",
+      "origem": "Avaliação semanal 2 · T1-Q3 · Q09",
+      "enunciado": "O plano π perpendicular aos planos π1: −2x − y + 4z − 1 = 0 e π2: 2x + 4y + 2z − 3 = 0 é:",
+      "alternativas": [
+        {"t":"π: 11x − 9y − 8z − 2 = 0","certa":false,"erro":"A normal (11, −9, −8) dá −22 + 9 − 32 = −45 com [[n1]] e 22 − 36 − 16 = −30 com [[n2]]. Não faz 90° com nenhuma das duas, então π não seria {{perpendiculares-planos|perpendicular}} a nenhum dos planos."},
+        {"t":"π: −18x + 12y − 6z − 2 = 0","certa":true},
+        {"t":"π: −18x − 12y + 6z − 2 = 0","certa":false,"erro":"É a normal certa com os sinais de y e z trocados, típico de erro de sinal no produto vetorial. Com [[n1]] dá 36 + 12 + 24 = 72, e com [[n2]] dá −72, não 0."},
+        {"t":"π: 11x + 11y − 2 = 0","certa":false,"erro":"A normal (11, 11, 0) dá −22 − 11 = −33 com [[n1]] e 22 + 44 = 66 com [[n2]]. Nenhum dos dois zera, então o plano não é {{perpendiculares-planos|perpendicular}} a π1 nem a π2."},
+        {"t":"π: 9x + 18y − 2 = 0","certa":false,"erro":"A normal (9, 18, 0) dá −18 − 18 = −36 com [[n1]] e 18 + 72 = 90 com [[n2]]. Nenhum dos dois zera, então falta o ângulo reto com os dois planos."}
+      ],
+      "dica": "O plano procurado tem o prego em pé perpendicular aos dois pregos dados. Use [[n1]] × [[n2]].",
+      "resposta": "π: −18x + 12y − 6z − 2 = 0. O {{vetor-normal|vetor normal}} de π precisa fazer 90° com [[n1]] = (−2, −1, 4) e com [[n2]] = (2, 4, 2), e quem faz isso é [[n1]] × [[n2]] = (−18, 12, −6). Como o enunciado não dá ponto, o termo independente fica livre: o −2 é uma escolha entre infinitas.",
+      "ouro": "Perpendicular a dois planos: normal **[[n1]] × [[n2]]**. Sem ponto no enunciado, o d é livre.",
+      "jeitos": {
+        "visual": "Os dois planos dados se cortam numa quina, que é uma reta. Um plano {{perpendiculares-planos|perpendicular}} aos dois é como uma tampa que corta essa quina de frente, em ângulo reto. O {{vetor-normal|vetor normal}} dessa tampa, o prego em pé, aponta ao longo da quina. E a direção da quina é [[n1]] × [[n2]] = (−18, 12, −6).",
+        "receita": ["Leia as normais: [[n1]] = (−2, −1, 4) e [[n2]] = (2, 4, 2).", "A normal de π tem de dar produto escalar 0 com as duas.", "Quem faz isso é [[n1]] × [[n2]] = (−18, 12, −6).", "Procure a alternativa com essa normal, ou um múltiplo dela: a B.", "O termo −2 é livre, porque o enunciado não dá ponto."],
+        "cotidiano": "Pense num livro aberto em pé sobre a mesa, com a lombada na vertical. As duas metades da capa são π1 e π2. O tampo da mesa é perpendicular às duas metades ao mesmo tempo. O prego em pé do tampo aponta para cima, ao longo da lombada. Por isso a normal procurada tem a direção da quina, [[n1]] × [[n2]].",
+        "trabalho": "É como conciliar um lançamento com duas regras ao mesmo tempo: o candidato precisa zerar a diferença nas duas. Testar alternativa por alternativa é a conferência título a título, com produto escalar contra [[n1]] e contra [[n2]]. A alternativa A dá −45 e −30; a C, 72 e −72; a D, −33 e 66; a E, −36 e 90. Só a B fecha em 0 e 0.",
+        "conversa": [{"quem":"Você","fala":"Não tem ponto no enunciado. Como acho o d?"},{"quem":"Monitor","fala":"Precisa achar? O que torna dois planos perpendiculares?"},{"quem":"Você","fala":"As normais com produto escalar 0."},{"quem":"Monitor","fala":"Então só a normal decide. Qual vetor faz 90° com [[n1]] e com [[n2]] ao mesmo tempo?"},{"quem":"Você","fala":"O produto vetorial dos dois: (−18, 12, −6)."},{"quem":"Monitor","fala":"É a normal da B. O −2 é só um dos infinitos d possíveis."}],
+        "erro": "O erro mais provável é de sinal no produto vetorial: trocar os sinais da segunda e da terceira coordenadas leva à C, (−18, −12, 6). Confira cada coordenada pelo determinante antes de procurar a alternativa. Outro tropeço é travar procurando um ponto: sem ponto, qualquer d serve, e o −2 está lá só para completar a equação.",
+        "confira": "Teste a normal da B nas duas: (−18, 12, −6) · (−2, −1, 4) = 36 − 12 − 24 = 0 e (−18, 12, −6) · (2, 4, 2) = −36 + 48 − 12 = 0. Os dois zeros confirmam o ângulo reto com os dois planos. A normal também é 6 vezes (−3, 2, −1), o que deixa as contas menores.",
+        "atalho": "Não precisa fazer o produto vetorial. Teste cada alternativa só com [[n1]] = (−2, −1, 4): A dá −45, B dá 0, C dá 72, D dá −33 e E dá −36. Só a B zera. Depois, uma conta com [[n2]] confirma."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q3-10",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Reversas e plano comum",
+      "origem": "Avaliação semanal 2 · T1-Q3 · Q10",
+      "enunciado": "Verdadeiro ou falso? Se as retas r e s são reversas, então existe um plano π que contém as retas r e s.",
+      "alternativas": [
+        {"t":"Verdadeiro: por duas retas quaisquer sempre passa um plano","certa":false,"erro":"Só passa um plano por duas retas {{coplanares|coplanares}}: concorrentes, paralelas ou coincidentes. {{reversas|Reversas}} são justamente as que não cabem num plano."},
+        {"t":"Verdadeiro: o plano com normal [[u]] × [[v]] que passa por r contém as duas retas","certa":false,"erro":"Esse plano contém r e corre paralelo a s, sem contê-la. Com r: X = t(1, 0, 0) e s: X = (0, 0, 1) + k(0, 1, 0), ele é z = 0, e s fica inteira na altura z = 1."},
+        {"t":"Falso: só não existe plano comum quando as retas são paralelas","certa":false,"erro":"É o contrário: retas {{paralelas-distintas|paralelas}} sempre cabem num plano. As que não cabem são as {{reversas|reversas}}."},
+        {"t":"Verdadeiro: se as retas não se cruzam, são paralelas e cabem num plano","certa":false,"erro":"Não se cruzar não quer dizer ser paralela. No espaço, retas sem ponto comum podem ter setas diferentes: são as {{reversas|reversas}}, e essas não cabem num plano."},
+        {"t":"Falso: reversas são, por definição, retas que não estão num mesmo plano","certa":true}
+      ],
+      "dica": "Volte à definição: o que o produto misto diferente de 0 diz sobre as duas retas?",
+      "resposta": "Falso. {{reversas|Reversas}} são retas que não cabem num mesmo plano: o produto misto [[AB]] · ([[u]] × [[v]]) é diferente de 0. Se existisse um plano com as duas, elas seriam {{coplanares|coplanares}}, e o produto misto daria 0. A afirmação contradiz a própria definição.",
+      "ouro": "Reversas = **não coplanares**. Nenhum plano contém as duas.",
+      "jeitos": {
+        "visual": "O viaduto e a avenida não cabem na mesma folha. Tente encostar uma placa de vidro nos dois: se ela deita na avenida, o viaduto fica acima; se inclina para tocar o viaduto, perde a avenida. Nenhuma posição da placa encosta nas duas retas inteiras. Esse é o retrato das {{reversas|reversas}}.",
+        "receita": ["Lembre a definição: {{reversas|reversas}} não têm ponto comum e não são paralelas.", "O teste é o produto misto [[AB]] · ([[u]] × [[v]]) ≠ 0.", "Produto misto 0 é a condição para as duas retas caberem num plano.", "Nas reversas ele é diferente de 0, então nenhum plano contém as duas.", "A afirmação é falsa."],
+        "cotidiano": "Pense em dois fios de varal num quintal, um alto e outro baixo, esticados em direções diferentes. Não dá para estender um lençol plano que encoste nos dois fios ao longo de todo o comprimento. Sempre sobra um fio afastado do lençol. É o que acontece com {{reversas|retas reversas}}: nenhuma superfície plana abraça as duas.",
+        "trabalho": "Num SQL de auditoria, o produto misto funciona como um campo calculado de controle. Se vier 0, as duas retas cabem num plano e o registro passa. Se vier diferente de 0, a regra 'existe plano comum' está quebrada para aquele par. Nas {{reversas|reversas}}, o campo nunca vem 0, então a regra da questão falha em todas as linhas desse tipo, não só em uma.",
+        "conversa": [{"quem":"Você","fala":"Não dá para inclinar um plano até ele pegar as duas retas?"},{"quem":"Monitor","fala":"Tente com r: X = t(1, 0, 0) e s: X = (0, 0, 1) + k(0, 1, 0). Um plano com as duas teria de conter as duas direções. Qual é ele, passando por r?"},{"quem":"Você","fala":"Normal (1, 0, 0) × (0, 1, 0) = (0, 0, 1), pela origem: z = 0."},{"quem":"Monitor","fala":"E s está em z = 0?"},{"quem":"Você","fala":"Não, s está toda em z = 1."},{"quem":"Monitor","fala":"Era o único candidato e não serve. Não existe plano comum: Falso."}],
+        "erro": "O tropeço é pensar no papel, onde quaisquer duas retas já estão no mesmo plano, a própria folha. No espaço existem as {{reversas|reversas}}, e para elas isso deixa de valer. Outro erro é achar que o plano com normal [[u]] × [[v]] resolve: ele contém uma das retas e corre paralelo à outra, sem contê-la.",
+        "confira": "Para r: X = t(1, 0, 0) e s: X = (0, 0, 1) + k(0, 1, 0), [[AB]] = (0, 0, 1) e [[u]] × [[v]] = (0, 0, 1). O produto misto dá 1. O plano z = 0 contém r, mas o ponto (0, 0, 1) de s dá 1 na equação, e não 0. A distância entre as retas é 1, maior que 0.",
+        "atalho": "A frase pergunta, no fundo, se {{reversas|reversas}} são coplanares. A definição de reversas é 'não coplanares'. É contradição direta: Falso, sem conta. Guarde o par: produto misto 0, retas coplanares; diferente de 0, retas reversas e sem plano comum."
+      }
+    }
+  ]
+}

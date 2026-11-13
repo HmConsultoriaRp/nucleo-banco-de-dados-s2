@@ -1,0 +1,3500 @@
+{
+  "disciplina": "ga",
+  "vocabulario": {
+    "semanas": [
+      4,
+      5
+    ],
+    "grupos": [
+      {
+        "id": "retas",
+        "nome": "Duas retas"
+      },
+      {
+        "id": "reta-plano",
+        "nome": "Reta e plano"
+      },
+      {
+        "id": "planos",
+        "nome": "Dois planos"
+      },
+      {
+        "id": "tres-planos",
+        "nome": "Três planos"
+      },
+      {
+        "id": "objetos",
+        "nome": "Objetos"
+      },
+      {
+        "id": "equacoes",
+        "nome": "Equações"
+      },
+      {
+        "id": "angulos",
+        "nome": "Ângulos"
+      },
+      {
+        "id": "distancias",
+        "nome": "Distâncias"
+      }
+    ],
+    "termos": [
+      {
+        "id": "paralelas-distintas",
+        "grupo": "retas",
+        "termo": "Paralelas distintas",
+        "frase": "Duas retas com a mesma direção que nunca se encontram, como dois trilhos.",
+        "conta": [
+          "Compare as setas: se [[u]] = λ[[v]] (ou [[u]] × [[v]] = [[0]]), as retas têm a mesma direção.",
+          "Teste um ponto: pegue A de r e veja se ele está em s.",
+          "Se **não** está, são paralelas distintas. Se está, são coincidentes."
+        ],
+        "exemplo": {
+          "fonte": "Lista 6, Q5",
+          "texto": "r passa por (1, 1, 1) com seta (1, −1, 1); s passa por (0, 1, −1) com seta (−2, 2, −2). A seta de s é −2 vezes a de r: mesma direção. Mas (1, 1, 1) não está em s: a seta de (0, 1, −1) até (1, 1, 1) é (1, 0, 2), que não é múltipla de (−2, 2, −2).",
+          "destaque": {
+            "valor": "(−2, 2, −2) = −2 · (1, −1, 1)",
+            "rotulo": "setas múltiplas e ponto fora: paralelas distintas"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "coincidentes",
+            "termo": "Coincidentes",
+            "texto": "Também têm setas múltiplas, mas o ponto de uma está na outra: é a mesma reta."
+          },
+          {
+            "id": "paralelos-reta-plano",
+            "termo": "Paralelos (reta e plano)",
+            "texto": "No feminino é reta com reta. No masculino, o professor fala de reta com plano ou de dois planos."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l6q5a",
+          "ga-s5-av2-t1-q3-04"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "segmento",
+              "de": [
+                -1.0,
+                3.0,
+                -1.0
+              ],
+              "ate": [
+                3.0,
+                -1.0,
+                3.0
+              ],
+              "cor": 1,
+              "largura": 3
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                2.0,
+                -1.0,
+                1.0
+              ],
+              "ate": [
+                -2.0,
+                3.0,
+                -3.0
+              ],
+              "cor": 2,
+              "largura": 3
+            },
+            {
+              "tipo": "ponto",
+              "em": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "rot": "r",
+              "cor": 4
+            },
+            {
+              "tipo": "ponto",
+              "em": [
+                0.0,
+                1.0,
+                -1.0
+              ],
+              "rot": "s",
+              "cor": 4
+            }
+          ],
+          "angulo": {
+            "yaw": -0.62,
+            "pitch": 0.42
+          }
+        }
+      },
+      {
+        "id": "coincidentes",
+        "grupo": "retas",
+        "termo": "Coincidentes (duas retas)",
+        "frase": "É a mesma reta escrita de dois jeitos: todos os pontos em comum.",
+        "conta": [
+          "As setas são múltiplas: [[u]] = λ[[v]].",
+          "Um ponto de r também satisfaz a equação de s.",
+          "Com as duas coisas, é a mesma reta, só com outro ponto de partida ou outro tamanho de passo."
+        ],
+        "exemplo": {
+          "fonte": "Lista 6, Q6e",
+          "texto": "r: X = (1, 1, 1) + λ(1, −2, 3). s: (1 − x)/2 = (y − 1)/4 = (1 − z)/6, que passa por (1, 1, 1) com seta (−2, 4, −6). A seta de s é −2 vezes a de r, e o ponto (1, 1, 1) está nas duas.",
+          "destaque": {
+            "valor": "(−2, 4, −6) = −2 · (1, −2, 3)",
+            "rotulo": "setas múltiplas e ponto comum: a mesma reta"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "paralelas-distintas",
+            "termo": "Paralelas distintas",
+            "texto": "Setas múltiplas também, mas sem ponto comum: duas retas diferentes."
+          },
+          {
+            "id": "coincidentes-planos",
+            "termo": "Coincidentes (dois planos)",
+            "texto": "A mesma palavra vale para planos: a mesma equação multiplicada por um número, inclusive o d."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l6q6e",
+          "ga-s5-av2-t1-q3-04"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "segmento",
+              "de": [
+                -0.2,
+                3.4,
+                -2.6
+              ],
+              "ate": [
+                2.2,
+                -1.4,
+                4.6
+              ],
+              "cor": 2,
+              "largura": 3
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                -0.2,
+                3.4,
+                -2.6
+              ],
+              "ate": [
+                2.2,
+                -1.4,
+                4.6
+              ],
+              "cor": 1,
+              "largura": 3
+            },
+            {
+              "tipo": "vetor",
+              "de": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "ate": [
+                2.0,
+                -1.0,
+                4.0
+              ],
+              "rot": "r",
+              "cor": 1
+            },
+            {
+              "tipo": "vetor",
+              "de": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "ate": [
+                0.0,
+                3.0,
+                -2.0
+              ],
+              "rot": "s",
+              "cor": 2
+            },
+            {
+              "tipo": "ponto",
+              "em": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "rot": "(1, 1, 1)",
+              "cor": 4
+            }
+          ],
+          "angulo": {
+            "yaw": -0.62,
+            "pitch": 0.42
+          }
+        }
+      },
+      {
+        "id": "concorrentes",
+        "grupo": "retas",
+        "termo": "Concorrentes (duas retas)",
+        "frase": "Duas retas que se cruzam em um único ponto.",
+        "conta": [
+          "As setas **não** são múltiplas: [[u]] × [[v]] ≠ [[0]].",
+          "O produto misto [[AB]] · ([[u]] × [[v]]) dá 0: as duas cabem no mesmo plano.",
+          "Direções diferentes no mesmo plano sempre se cruzam: concorrentes."
+        ],
+        "exemplo": {
+          "fonte": "Lista 4, Q6",
+          "texto": "r: X = (−1, 2, 3) + t(1, 1, 1) e s: X = (2, 4, 1) + λ(7, 6, 2). Igualando x e y das duas, sai t = −4 e λ = −1. A terceira coordenada confere: 3 + (−4) = −1 e 1 + 2(−1) = −1.",
+          "destaque": {
+            "valor": "(−5, −2, −1)",
+            "rotulo": "ponto onde as duas se cruzam"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "reversas",
+            "termo": "Reversas",
+            "texto": "Também têm direções diferentes, mas não se cruzam: o produto misto não dá 0."
+          },
+          {
+            "id": "concorrentes-reta-plano",
+            "termo": "Concorrentes (reta e plano)",
+            "texto": "Com reta e plano, o professor usa a mesma palavra para a reta que fura o plano."
+          },
+          {
+            "id": "perpendiculares",
+            "termo": "Perpendiculares",
+            "texto": "Concorrentes que formam 90° ganham o nome de perpendiculares."
+          }
+        ],
+        "questoes": [
+          "ga-s4-l4q6",
+          "ga-s5-av2-t1-q3-01",
+          "ga-s5-av2-t1-q3-04",
+          "ga-s5-av2-t1-q3-05"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "segmento",
+              "de": [
+                -8.0,
+                -5.0,
+                -4.0
+              ],
+              "ate": [
+                -2.0,
+                1.0,
+                2.0
+              ],
+              "cor": 1,
+              "largura": 3
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                -9.9,
+                -6.2,
+                -2.4
+              ],
+              "ate": [
+                -0.1,
+                2.2,
+                0.4
+              ],
+              "cor": 2,
+              "largura": 3
+            },
+            {
+              "tipo": "ponto",
+              "em": [
+                -5.0,
+                -2.0,
+                -1.0
+              ],
+              "rot": "(−5, −2, −1)",
+              "cor": 4
+            }
+          ],
+          "angulo": {
+            "yaw": -0.62,
+            "pitch": 0.42
+          }
+        }
+      },
+      {
+        "id": "reversas",
+        "grupo": "retas",
+        "termo": "Reversas",
+        "frase": "Retas que não se cruzam e não cabem num mesmo plano, como uma avenida e um viaduto.",
+        "conta": [
+          "As setas não são múltiplas: [[u]] × [[v]] ≠ [[0]].",
+          "O produto misto [[AB]] · ([[u]] × [[v]]) dá diferente de 0: não estão no mesmo plano.",
+          "Se desse 0, seriam concorrentes."
+        ],
+        "exemplo": {
+          "fonte": "Lista 6, Q6a",
+          "texto": "r: X = (1, 2, 3) + λ(1, 1, 1) e s: X = (1, 1, 1) + t(1, −2, −3). [[u]] × [[v]] = (−1, 4, −3), diferente de [[0]]. Com [[AB]] = (0, −1, −2), o produto misto dá 0·(−1) + (−1)·4 + (−2)·(−3) = 2.",
+          "destaque": {
+            "valor": "2",
+            "rotulo": "produto misto diferente de 0: reversas"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "concorrentes",
+            "termo": "Concorrentes",
+            "texto": "Direções diferentes também, mas no mesmo plano: se cruzam."
+          },
+          {
+            "id": "ortogonais",
+            "termo": "Ortogonais",
+            "texto": "Fala só do ângulo. Duas retas reversas podem ser ortogonais (avaliação 3, Q7)."
+          },
+          {
+            "id": "paralelas-distintas",
+            "termo": "Paralelas distintas",
+            "texto": "Também não se encontram, mas têm a mesma direção."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l6q6a",
+          "ga-s5-l8q1a",
+          "ga-s5-av2-t1-q3-01",
+          "ga-s5-av2-t1-q3-04",
+          "ga-s5-av2-t1-q3-10",
+          "ga-s5-av2-t1-q5-04"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "segmento",
+              "de": [
+                0.015,
+                1.015,
+                2.015
+              ],
+              "ate": [
+                1.215,
+                2.215,
+                3.215
+              ],
+              "cor": 1,
+              "largura": 3
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                0.258,
+                2.483,
+                3.225
+              ],
+              "ate": [
+                0.818,
+                1.363,
+                1.545
+              ],
+              "cor": 2,
+              "largura": 3
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                0.615,
+                1.615,
+                2.615
+              ],
+              "ate": [
+                0.538,
+                1.923,
+                2.385
+              ],
+              "tracejado": true,
+              "largura": 2.4,
+              "cor": 3
+            }
+          ],
+          "angulo": {
+            "yaw": 0.945,
+            "pitch": 0.579
+          },
+          "semEixos": true
+        }
+      },
+      {
+        "id": "ortogonais",
+        "grupo": "retas",
+        "termo": "Ortogonais (duas retas)",
+        "frase": "Retas cujas direções formam 90°, se cruzando ou não.",
+        "conta": [
+          "Faça o produto escalar das setas: [[u]] · [[v]] = 0 quer dizer 90°.",
+          "Não precisa testar ponto: o cruzamento não importa para ser ortogonal."
+        ],
+        "exemplo": {
+          "fonte": "Avaliação 3, Q7",
+          "texto": "r: X = t(1, 0, 0) e s: X = (0, 0, 1) + k(0, 1, 0). As setas dão (1, 0, 0) · (0, 1, 0) = 0: ortogonais. O produto misto dá 1: elas não se cruzam. São ortogonais e reversas.",
+          "destaque": {
+            "valor": "0",
+            "rotulo": "produto escalar das setas: 90°, mesmo sem cruzar"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "perpendiculares",
+            "termo": "Perpendiculares",
+            "texto": "Perpendiculares são as ortogonais que também se cruzam. Toda perpendicular é ortogonal; a volta não vale."
+          },
+          {
+            "id": "perpendiculares-planos",
+            "termo": "Perpendiculares (dois planos)",
+            "texto": "Para dois planos, o curso usa ortogonais e perpendiculares como a mesma coisa: [[n1]] · [[n2]] = 0."
+          }
+        ],
+        "questoes": [
+          "ga-s5-av2-t1-q3-02",
+          "ga-s5-av2-t1-q3-07"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "segmento",
+              "de": [
+                -1.6,
+                0.0,
+                0.0
+              ],
+              "ate": [
+                1.6,
+                0.0,
+                0.0
+              ],
+              "cor": 1,
+              "largura": 3
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                0.0,
+                -1.6,
+                1.0
+              ],
+              "ate": [
+                0.0,
+                1.6,
+                1.0
+              ],
+              "cor": 2,
+              "largura": 3
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "ate": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "tracejado": true,
+              "largura": 2.4,
+              "cor": 3
+            }
+          ],
+          "angulo": {
+            "yaw": -0.62,
+            "pitch": 0.42
+          }
+        },
+        "nota": "Convenção do Prof. Danilo, confirmada pela nota 10 da avaliação 3."
+      },
+      {
+        "id": "perpendiculares",
+        "grupo": "retas",
+        "termo": "Perpendiculares (duas retas)",
+        "frase": "Retas que se cruzam formando 90°, como os traços de uma cruz.",
+        "conta": [
+          "As setas fazem 90°: [[u]] · [[v]] = 0.",
+          "E as retas se cruzam: as setas não são múltiplas e o produto misto dá 0.",
+          "Só com as duas coisas são perpendiculares."
+        ],
+        "exemplo": {
+          "fonte": "Avaliação 3, Q5",
+          "texto": "r: X = (1, 2, 3) + k(2, 1, −3) e s: X = (3, 3, 0) + λ(1, 1, 1). As setas dão 2 + 1 − 3 = 0. Com k = 1 e λ = 0, as duas chegam a (3, 3, 0).",
+          "destaque": {
+            "valor": "(3, 3, 0)",
+            "rotulo": "ponto comum, com 90° entre as setas"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "ortogonais",
+            "termo": "Ortogonais",
+            "texto": "Ortogonais não precisam se cruzar. Perpendiculares precisam."
+          },
+          {
+            "id": "concorrentes",
+            "termo": "Concorrentes",
+            "texto": "Toda perpendicular é concorrente. Na avaliação 3, Q5, \"somente concorrentes\" quer dizer concorrentes sem 90°."
+          }
+        ],
+        "questoes": [
+          "ga-s5-av2-t1-q3-02",
+          "ga-s5-av2-t1-q3-05",
+          "ga-s5-av2-t1-q3-07"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "segmento",
+              "de": [
+                1.0,
+                2.0,
+                3.0
+              ],
+              "ate": [
+                5.0,
+                4.0,
+                -3.0
+              ],
+              "cor": 1,
+              "largura": 3
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                1.4,
+                1.4,
+                -1.6
+              ],
+              "ate": [
+                4.6,
+                4.6,
+                1.6
+              ],
+              "cor": 2,
+              "largura": 3
+            },
+            {
+              "tipo": "ponto",
+              "em": [
+                3.0,
+                3.0,
+                0.0
+              ],
+              "rot": "(3, 3, 0)",
+              "cor": 4
+            }
+          ],
+          "angulo": {
+            "yaw": -0.62,
+            "pitch": 0.42
+          }
+        },
+        "nota": "Convenção do Prof. Danilo, confirmada pela nota 10 da avaliação 3."
+      },
+      {
+        "id": "contida",
+        "grupo": "reta-plano",
+        "termo": "Contida (reta no plano)",
+        "frase": "A reta inteira fica dentro do plano: todos os pontos dela satisfazem a equação do plano.",
+        "conta": [
+          "A seta da reta faz 90° com o prego do plano: [[v]] · [[n]] = 0. Ela corre deitada.",
+          "Um ponto da reta satisfaz a equação do plano.",
+          "As duas coisas juntas: contida. Só a primeira não basta."
+        ],
+        "exemplo": {
+          "fonte": "Lista 7, Q8",
+          "texto": "r: X = (−2, −1, 1) + λ(6, 0, −3) e π: 2x − 3y + 4z − 3 = 0. [[v]] · [[n]] = 12 + 0 − 12 = 0. O ponto (−2, −1, 1) dá −4 + 3 + 4 − 3 = 0.",
+          "destaque": {
+            "valor": "0 e 0",
+            "rotulo": "seta deitada e ponto no plano: contida"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "paralelos-reta-plano",
+            "termo": "Paralelos (reta e plano)",
+            "texto": "Seta deitada também, mas o ponto fica fora: a reta passa por cima, sem tocar."
+          },
+          {
+            "id": "concorrentes-reta-plano",
+            "termo": "Concorrentes (reta e plano)",
+            "texto": "A seta não é deitada ([[v]] · [[n]] ≠ 0): a reta fura o plano num ponto."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l7q8",
+          "ga-s5-av2-t1-q3-04",
+          "ga-s5-av2-t1-q3-06",
+          "ga-s5-av2-t1-q5-03"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  -4.545,
+                  -2.329,
+                  1.276
+                ],
+                [
+                  -0.252,
+                  -2.329,
+                  -0.871
+                ],
+                [
+                  0.545,
+                  0.329,
+                  0.724
+                ],
+                [
+                  -3.748,
+                  0.329,
+                  2.871
+                ]
+              ],
+              "cor": 1
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                -4.1,
+                -1.0,
+                2.05
+              ],
+              "ate": [
+                0.1,
+                -1.0,
+                -0.05
+              ],
+              "cor": 4,
+              "largura": 3
+            },
+            {
+              "tipo": "vetor",
+              "de": [
+                -2.0,
+                -1.0,
+                1.0
+              ],
+              "ate": [
+                -1.629,
+                -1.557,
+                1.743
+              ],
+              "rot": "n",
+              "cor": 2
+            },
+            {
+              "tipo": "vetor",
+              "de": [
+                -2.0,
+                -1.0,
+                1.0
+              ],
+              "ate": [
+                -0.5,
+                -1.0,
+                0.25
+              ],
+              "rot": "v",
+              "cor": 1
+            }
+          ],
+          "angulo": {
+            "yaw": 0.641,
+            "pitch": 0.356
+          },
+          "semEixos": true
+        }
+      },
+      {
+        "id": "paralelos-reta-plano",
+        "grupo": "reta-plano",
+        "termo": "Paralelos (reta e plano)",
+        "frase": "A reta corre ao lado do plano sem tocá-lo, como um fio esticado acima da mesa.",
+        "conta": [
+          "Seta deitada: [[v]] · [[n]] = 0.",
+          "Um ponto da reta **não** satisfaz a equação do plano.",
+          "Então a distância entre os dois é a mesma em toda a reta, e maior que 0."
+        ],
+        "exemplo": {
+          "fonte": "Lista 6, Q6f",
+          "texto": "r: X = (1, 1, −1) + k(1, 1, 1). O plano π passa por (1, 1, 1) com setas (0, 1, 0) e (1, 1, 1); o prego é (0, 1, 0) × (1, 1, 1) = (1, 0, −1), e a equação fica x − z = 0. [[v]] · [[n]] = 1 + 0 − 1 = 0, mas o ponto (1, 1, −1) dá 1 − (−1) = 2.",
+          "destaque": {
+            "valor": "2",
+            "rotulo": "o ponto da reta não zera a equação: paralelos"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "contida",
+            "termo": "Contida",
+            "texto": "Mesma seta deitada, mas o ponto zera a equação: a reta está dentro."
+          },
+          {
+            "id": "paralelas-distintas",
+            "termo": "Paralelas distintas",
+            "texto": "No feminino é reta com reta."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l6q6f",
+          "ga-s5-av2-t1-q3-04",
+          "ga-s5-av2-t1-q5-03"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  -1.726,
+                  0.988,
+                  -1.726
+                ],
+                [
+                  0.583,
+                  3.298,
+                  0.583
+                ],
+                [
+                  1.726,
+                  1.012,
+                  1.726
+                ],
+                [
+                  -0.583,
+                  -1.298,
+                  -0.583
+                ]
+              ],
+              "cor": 1
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                -0.4,
+                -0.4,
+                -2.4
+              ],
+              "ate": [
+                2.4,
+                2.4,
+                0.4
+              ],
+              "cor": 4,
+              "largura": 3
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                1.0,
+                1.0,
+                -1.0
+              ],
+              "ate": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "tracejado": true,
+              "largura": 2.4,
+              "cor": 3
+            },
+            {
+              "tipo": "vetor",
+              "de": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "ate": [
+                0.707,
+                1.0,
+                -0.707
+              ],
+              "rot": "n",
+              "cor": 2
+            }
+          ],
+          "angulo": {
+            "yaw": -0.684,
+            "pitch": 0.142
+          },
+          "semEixos": true
+        }
+      },
+      {
+        "id": "concorrentes-reta-plano",
+        "grupo": "reta-plano",
+        "termo": "Concorrentes (reta e plano)",
+        "frase": "A reta fura o plano em um único ponto. Alguns livros chamam de transversal.",
+        "conta": [
+          "A seta não é deitada: [[v]] · [[n]] ≠ 0.",
+          "Para achar o ponto, troque x, y e z da reta na equação do plano e resolva o λ."
+        ],
+        "exemplo": {
+          "fonte": "Lista 6, Q6b",
+          "texto": "r: X = (1, 2, 3) + λ(1, 1, 1) e π: x + y + z + 1 = 0. [[v]] · [[n]] = 3, diferente de 0. Trocando: (1 + λ) + (2 + λ) + (3 + λ) + 1 = 0, então 7 + 3λ = 0 e λ = −7/3.",
+          "destaque": {
+            "valor": "(−4/3, −1/3, 2/3)",
+            "rotulo": "ponto onde a reta fura o plano"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "transversais",
+            "termo": "Transversais",
+            "texto": "Para dois planos que se cortam, o professor usa transversais (avaliação 3, Q4)."
+          },
+          {
+            "id": "perpendicular-reta-plano",
+            "termo": "Perpendicular (reta e plano)",
+            "texto": "Caso especial: a seta da reta tem a direção do prego."
+          },
+          {
+            "id": "concorrentes",
+            "termo": "Concorrentes (duas retas)",
+            "texto": "Com duas retas, concorrentes quer dizer que se cruzam num ponto."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l6q6b",
+          "ga-s5-av2-t1-q3-04",
+          "ga-s5-av2-t1-q4-01"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  -3.564,
+                  0.264,
+                  2.3
+                ],
+                [
+                  -0.736,
+                  -2.564,
+                  2.3
+                ],
+                [
+                  0.897,
+                  -0.931,
+                  -0.966
+                ],
+                [
+                  -1.931,
+                  1.897,
+                  -0.966
+                ]
+              ],
+              "cor": 1
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                -2.933,
+                -1.933,
+                -0.933
+              ],
+              "ate": [
+                0.267,
+                1.267,
+                2.267
+              ],
+              "cor": 4,
+              "largura": 3
+            },
+            {
+              "tipo": "ponto",
+              "em": [
+                -1.333,
+                -0.333,
+                0.667
+              ],
+              "rot": "",
+              "cor": 4
+            }
+          ],
+          "angulo": {
+            "yaw": -1.074,
+            "pitch": 0.199
+          },
+          "semEixos": true
+        }
+      },
+      {
+        "id": "perpendicular-reta-plano",
+        "grupo": "reta-plano",
+        "termo": "Perpendicular (reta e plano)",
+        "frase": "A reta fura o plano em pé, como um prego: a seta da reta tem a direção do vetor normal.",
+        "conta": [
+          "A seta da reta é múltipla do prego: [[v]] = λ[[n]], ou [[v]] × [[n]] = [[0]].",
+          "É um caso de concorrentes: fura num ponto, com 90°.",
+          "Cuidado: aqui o teste é múltiplo. [[v]] · [[n]] = 0 diz o contrário (seta deitada)."
+        ],
+        "exemplo": {
+          "fonte": "Lista 6, Q6b",
+          "texto": "r tem seta (1, 1, 1) e π: x + y + z + 1 = 0 tem prego (1, 1, 1): é a mesma direção. O gabarito diz \"Concorrentes (e perpendiculares)\", e na Lista 7, Q1b, o ângulo dá 90°.",
+          "destaque": {
+            "valor": "90°",
+            "rotulo": "ângulo entre a reta e o plano"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "paralelos-reta-plano",
+            "termo": "Paralelos (reta e plano)",
+            "texto": "Seta deitada ([[v]] · [[n]] = 0) é o oposto: reta junto ao plano."
+          },
+          {
+            "id": "ortogonais",
+            "termo": "Ortogonais",
+            "texto": "Ortogonais compara duas retas, não reta com plano."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l6q6b",
+          "ga-s5-l7q1b"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  -3.564,
+                  0.264,
+                  2.3
+                ],
+                [
+                  -0.736,
+                  -2.564,
+                  2.3
+                ],
+                [
+                  0.897,
+                  -0.931,
+                  -0.966
+                ],
+                [
+                  -1.931,
+                  1.897,
+                  -0.966
+                ]
+              ],
+              "cor": 1
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                -2.933,
+                -1.933,
+                -0.933
+              ],
+              "ate": [
+                0.267,
+                1.267,
+                2.267
+              ],
+              "cor": 4,
+              "largura": 3
+            },
+            {
+              "tipo": "vetor",
+              "de": [
+                -1.333,
+                -0.333,
+                0.667
+              ],
+              "ate": [
+                -0.756,
+                0.244,
+                1.244
+              ],
+              "rot": "n",
+              "cor": 2
+            },
+            {
+              "tipo": "ponto",
+              "em": [
+                -1.333,
+                -0.333,
+                0.667
+              ],
+              "rot": "",
+              "cor": 4
+            }
+          ],
+          "angulo": {
+            "yaw": -1.074,
+            "pitch": 0.199
+          },
+          "semEixos": true
+        }
+      },
+      {
+        "id": "coincidentes-planos",
+        "grupo": "planos",
+        "termo": "Coincidentes (dois planos)",
+        "frase": "É o mesmo plano escrito com outros números: uma equação é a outra multiplicada por um número.",
+        "conta": [
+          "Pregos múltiplos: [[n1]] = λ[[n2]].",
+          "O termo solto acompanha o **mesmo** λ: d1 = λd2.",
+          "Com as duas coisas, é o mesmo plano."
+        ],
+        "exemplo": {
+          "fonte": "Lista 8, Q10e",
+          "texto": "π1: x + y − 4z + 2 = 0 e π2: −3x − 3y + 12z − 6 = 0. Tudo em π2 é −3 vezes π1: −3·1 = −3, −3·1 = −3, −3·(−4) = 12 e −3·2 = −6.",
+          "destaque": {
+            "valor": "λ = −3",
+            "rotulo": "vale para x, y, z e para o d: mesmo plano"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "paralelos-distintos",
+            "termo": "Paralelos distintos",
+            "texto": "Pregos múltiplos também, mas o d não acompanha: dois andares diferentes."
+          },
+          {
+            "id": "coincidentes",
+            "termo": "Coincidentes (duas retas)",
+            "texto": "Para duas retas, coincidentes também quer dizer a mesma reta."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l8q10e",
+          "ga-s5-av2-t1-q3-04"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  -2.339,
+                  2.206,
+                  0.467
+                ],
+                [
+                  0.206,
+                  -0.339,
+                  0.467
+                ],
+                [
+                  -1.661,
+                  -2.206,
+                  -0.467
+                ],
+                [
+                  -4.206,
+                  0.339,
+                  -0.467
+                ]
+              ],
+              "cor": 2
+            },
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  -2.339,
+                  2.206,
+                  0.467
+                ],
+                [
+                  0.206,
+                  -0.339,
+                  0.467
+                ],
+                [
+                  -1.661,
+                  -2.206,
+                  -0.467
+                ],
+                [
+                  -4.206,
+                  0.339,
+                  -0.467
+                ]
+              ],
+              "cor": 1
+            },
+            {
+              "tipo": "vetor",
+              "de": [
+                -2.0,
+                0.0,
+                0.0
+              ],
+              "ate": [
+                -1.764,
+                0.236,
+                -0.943
+              ],
+              "rot": "n",
+              "cor": 4
+            }
+          ],
+          "angulo": {
+            "yaw": 2.166,
+            "pitch": 0.491
+          },
+          "semEixos": true
+        }
+      },
+      {
+        "id": "paralelos-distintos",
+        "grupo": "planos",
+        "termo": "Paralelos distintos (dois planos)",
+        "frase": "Dois planos com o mesmo prego e alturas diferentes, como dois andares de um prédio.",
+        "conta": [
+          "Pregos múltiplos: [[n1]] = λ[[n2]].",
+          "O d não acompanha: d1 ≠ λd2. São planos diferentes que nunca se tocam.",
+          "Com o mesmo prego nos dois, a distância é |d1 − d2| / ‖[[n]]‖."
+        ],
+        "exemplo": {
+          "fonte": "Lista 6, Q6c",
+          "texto": "π1: x + y + z + 1 = 0 e π2: −x − y − z + 7 = 0. O prego de π2 é −1 vez o de π1, mas −1·1 = −1, e não 7. Reescrevendo π2 como x + y + z − 7 = 0, a distância é |1 − (−7)| / √3 = 8/√3.",
+          "destaque": {
+            "valor": "8√3/3 ≈ 4,62",
+            "rotulo": "distância entre os dois andares"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "coincidentes-planos",
+            "termo": "Coincidentes (dois planos)",
+            "texto": "Se o d acompanhasse o mesmo λ, seria o mesmo plano."
+          },
+          {
+            "id": "paralelas-distintas",
+            "termo": "Paralelas distintas",
+            "texto": "No feminino é reta com reta."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l6q6c",
+          "ga-s5-av2-t1-q3-04",
+          "ga-s5-av2-t1-q4-06",
+          "ga-s5-av2-t1-q5-02",
+          "ga-s5-av2-t1-q5-05"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  -1.914,
+                  0.349,
+                  0.565
+                ],
+                [
+                  0.349,
+                  -1.914,
+                  0.565
+                ],
+                [
+                  1.247,
+                  -1.016,
+                  -1.231
+                ],
+                [
+                  -1.016,
+                  1.247,
+                  -1.231
+                ]
+              ],
+              "cor": 1
+            },
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  0.753,
+                  3.016,
+                  3.231
+                ],
+                [
+                  3.016,
+                  0.753,
+                  3.231
+                ],
+                [
+                  3.914,
+                  1.651,
+                  1.435
+                ],
+                [
+                  1.651,
+                  3.914,
+                  1.435
+                ]
+              ],
+              "cor": 2
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                -0.333,
+                -0.333,
+                -0.333
+              ],
+              "ate": [
+                2.333,
+                2.333,
+                2.333
+              ],
+              "tracejado": true,
+              "largura": 2.4,
+              "cor": 3
+            }
+          ],
+          "angulo": {
+            "yaw": -0.928,
+            "pitch": 0.1
+          },
+          "semEixos": true
+        }
+      },
+      {
+        "id": "transversais",
+        "grupo": "planos",
+        "termo": "Transversais (dois planos)",
+        "frase": "Dois planos que se cortam numa reta, como duas paredes que se encontram na quina.",
+        "conta": [
+          "Pregos **não** múltiplos: [[n1]] × [[n2]] ≠ [[0]].",
+          "A reta da quina tem a direção [[n1]] × [[n2]]."
+        ],
+        "exemplo": {
+          "fonte": "Lista 6, Q6d",
+          "texto": "π1: x + y − z + 3 = 0 e π2: 3x − y + z = 0. [[n1]] × [[n2]] = (1, 1, −1) × (3, −1, 1) = (0, −4, −4), diferente de [[0]]: os planos se cortam numa reta com essa direção.",
+          "destaque": {
+            "valor": "(0, −4, −4)",
+            "rotulo": "direção da reta da quina"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "concorrentes-reta-plano",
+            "termo": "Concorrentes (reta e plano)",
+            "texto": "Com reta e plano, o professor usa concorrentes, não transversais (avaliação 3, Q4)."
+          },
+          {
+            "id": "perpendiculares-planos",
+            "termo": "Perpendiculares (dois planos)",
+            "texto": "Transversais que se cortam a 90° são perpendiculares."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l6q6d",
+          "ga-s5-l7q1d",
+          "ga-s5-av2-t1-q3-04",
+          "ga-s5-av2-t1-q4-02"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  0.23,
+                  0.783,
+                  4.013
+                ],
+                [
+                  0.23,
+                  -1.763,
+                  1.467
+                ],
+                [
+                  -1.73,
+                  -0.783,
+                  0.487
+                ],
+                [
+                  -1.73,
+                  1.763,
+                  3.033
+                ]
+              ],
+              "cor": 1
+            },
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  -1.262,
+                  0.505,
+                  4.29
+                ],
+                [
+                  -1.262,
+                  -2.04,
+                  1.745
+                ],
+                [
+                  -0.238,
+                  -0.505,
+                  0.21
+                ],
+                [
+                  -0.238,
+                  2.04,
+                  2.755
+                ]
+              ],
+              "cor": 2
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                -0.75,
+                1.273,
+                3.523
+              ],
+              "ate": [
+                -0.75,
+                -1.273,
+                0.977
+              ],
+              "cor": 4,
+              "largura": 3
+            }
+          ],
+          "angulo": {
+            "yaw": 1.671,
+            "pitch": 0.439
+          },
+          "semEixos": true
+        }
+      },
+      {
+        "id": "perpendiculares-planos",
+        "grupo": "planos",
+        "termo": "Perpendiculares (dois planos)",
+        "frase": "Planos que se cortam em ângulo reto, como o chão e a parede.",
+        "conta": [
+          "Os pregos fazem 90°: [[n1]] · [[n2]] = 0.",
+          "Para planos, o curso usa ortogonais com o mesmo sentido (avaliação 3, Q8)."
+        ],
+        "exemplo": {
+          "fonte": "Avaliação 3, Q9",
+          "texto": "π1: −2x − y + 4z − 1 = 0 e π: −18x + 12y − 6z − 2 = 0. Pregos: (−2, −1, 4) · (−18, 12, −6) = 36 − 12 − 24 = 0.",
+          "destaque": {
+            "valor": "0",
+            "rotulo": "produto escalar dos pregos: planos perpendiculares"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "transversais",
+            "termo": "Transversais",
+            "texto": "Todo par perpendicular é transversal, mas transversais podem se cortar em outro ângulo (80° na Lista 7, Q1d)."
+          },
+          {
+            "id": "paralelos-distintos",
+            "termo": "Paralelos distintos",
+            "texto": "Pregos múltiplos são o oposto: planos que não se cortam."
+          }
+        ],
+        "questoes": [
+          "ga-s5-av2-t1-q3-08",
+          "ga-s5-av2-t1-q3-09"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  -0.227,
+                  2.444,
+                  0.747
+                ],
+                [
+                  -1.697,
+                  -0.495,
+                  -0.722
+                ],
+                [
+                  0.227,
+                  -1.778,
+                  -0.081
+                ],
+                [
+                  1.697,
+                  1.162,
+                  1.389
+                ]
+              ],
+              "cor": 1
+            },
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  1.259,
+                  2.065,
+                  0.021
+                ],
+                [
+                  -0.211,
+                  -0.874,
+                  -1.449
+                ],
+                [
+                  -1.259,
+                  -1.398,
+                  0.646
+                ],
+                [
+                  0.211,
+                  1.541,
+                  2.116
+                ]
+              ],
+              "cor": 2
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                0.735,
+                1.803,
+                1.068
+              ],
+              "ate": [
+                -0.735,
+                -1.136,
+                -0.402
+              ],
+              "cor": 4,
+              "largura": 3
+            }
+          ],
+          "angulo": {
+            "yaw": 1.454,
+            "pitch": 0.237
+          },
+          "semEixos": true
+        }
+      },
+      {
+        "id": "ponto-unico",
+        "grupo": "tres-planos",
+        "termo": "Um único ponto em comum",
+        "frase": "Os três planos se encontram num ponto só, como o canto de uma sala. O produto misto dos três pregos é diferente de 0.",
+        "conta": [
+          "Nenhum par de pregos é múltiplo.",
+          "O produto misto dos três pregos dá diferente de 0.",
+          "Então o sistema dos três planos tem uma solução só: um ponto."
+        ],
+        "exemplo": {
+          "fonte": "Lista 8, Q10a",
+          "texto": "π1: −x + 3y − 4z + 2 = 0, π2: −4x − y + 8z + 4 = 0 e π3: x − y + 4z + 1 = 0. Nenhum prego é múltiplo de outro, e o produto misto dos três pregos dá 48.",
+          "destaque": {
+            "valor": "48",
+            "rotulo": "produto misto diferente de 0: um ponto só"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "reta-comum",
+            "termo": "Uma reta em comum",
+            "texto": "Quando o produto misto dá 0, não há ponto único: ou os três passam por uma reta, ou formam a barraca."
+          },
+          {
+            "id": "calha",
+            "termo": "Retas paralelas dois a dois",
+            "texto": "Produto misto 0 e nenhum ponto dos três."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l8q10a",
+          "ga-s5-l8q10f"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  -1.353,
+                  -0.986,
+                  0.098
+                ],
+                [
+                  0.924,
+                  -0.227,
+                  0.098
+                ],
+                [
+                  1.519,
+                  -2.014,
+                  -1.39
+                ],
+                [
+                  -0.757,
+                  -2.773,
+                  -1.39
+                ]
+              ],
+              "cor": 1
+            },
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  1.409,
+                  -2.405,
+                  -0.096
+                ],
+                [
+                  0.827,
+                  -0.077,
+                  -0.096
+                ],
+                [
+                  -1.243,
+                  -0.595,
+                  -1.196
+                ],
+                [
+                  -0.66,
+                  -2.923,
+                  -1.196
+                ]
+              ],
+              "cor": 2
+            },
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  0.132,
+                  0.149,
+                  -0.246
+                ],
+                [
+                  -1.565,
+                  -1.549,
+                  -0.246
+                ],
+                [
+                  0.035,
+                  -3.149,
+                  -1.046
+                ],
+                [
+                  1.732,
+                  -1.451,
+                  -1.046
+                ]
+              ],
+              "cor": 3
+            },
+            {
+              "tipo": "ponto",
+              "em": [
+                0.083,
+                -1.5,
+                -0.646
+              ],
+              "rot": "",
+              "cor": 4
+            }
+          ],
+          "angulo": {
+            "yaw": -0.62,
+            "pitch": 0.42
+          },
+          "semEixos": true
+        }
+      },
+      {
+        "id": "reta-comum",
+        "grupo": "tres-planos",
+        "termo": "Uma reta em comum (feixe)",
+        "frase": "Os três passam pela mesma reta, como páginas de um livro presas na lombada.",
+        "conta": [
+          "O produto misto dos três pregos dá 0.",
+          "Um dos planos é mistura dos outros dois, inclusive no termo solto: π3 = απ1 + βπ2.",
+          "Então todo ponto da reta de π1 e π2 também está em π3."
+        ],
+        "exemplo": {
+          "fonte": "Lista 8, Q10j",
+          "texto": "π1: x + y − 2z + 2 = 0, π2: −3x − 3y + z − 6 = 0 e π3: 4x + 4y − 3z + 8 = 0. Fazendo π1 − π2: (1 + 3)x + (1 + 3)y + (−2 − 1)z + (2 + 6) = 4x + 4y − 3z + 8, que é o π3.",
+          "destaque": {
+            "valor": "π3 = π1 − π2",
+            "rotulo": "os três passam pela mesma reta"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "feixe",
+            "termo": "Feixe de planos",
+            "texto": "É o nome da família de planos que passam por uma mesma reta."
+          },
+          {
+            "id": "calha",
+            "termo": "Retas paralelas dois a dois",
+            "texto": "Produto misto 0 também, mas o termo solto não acompanha a mistura."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l8q10j",
+          "ga-s5-l8q11",
+          "ga-s5-av2-t1-q5-09"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  0.554,
+                  -3.709,
+                  -0.577
+                ],
+                [
+                  -1.709,
+                  -1.446,
+                  -0.577
+                ],
+                [
+                  -0.554,
+                  -0.291,
+                  0.577
+                ],
+                [
+                  1.709,
+                  -2.554,
+                  0.577
+                ]
+              ],
+              "cor": 1
+            },
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  1.294,
+                  -2.969,
+                  0.973
+                ],
+                [
+                  -0.969,
+                  -0.706,
+                  0.973
+                ],
+                [
+                  -1.294,
+                  -1.031,
+                  -0.973
+                ],
+                [
+                  0.969,
+                  -3.294,
+                  -0.973
+                ]
+              ],
+              "cor": 2
+            },
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  0.8,
+                  -3.463,
+                  -0.883
+                ],
+                [
+                  -1.463,
+                  -1.2,
+                  -0.883
+                ],
+                [
+                  -0.8,
+                  -0.537,
+                  0.883
+                ],
+                [
+                  1.463,
+                  -2.8,
+                  0.883
+                ]
+              ],
+              "cor": 3
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                1.273,
+                -3.273,
+                0.0
+              ],
+              "ate": [
+                -1.273,
+                -0.727,
+                0.0
+              ],
+              "cor": 4,
+              "largura": 3
+            }
+          ],
+          "angulo": {
+            "yaw": 2.632,
+            "pitch": 0.714
+          },
+          "semEixos": true
+        }
+      },
+      {
+        "id": "calha",
+        "grupo": "tres-planos",
+        "termo": "Retas paralelas dois a dois",
+        "frase": "Cada par se corta numa reta, as três retas são paralelas e nenhum ponto é dos três, como as faces de uma barraca.",
+        "conta": [
+          "Nenhum par de pregos é múltiplo, e o produto misto dá 0.",
+          "Teste um ponto da reta de dois planos no terceiro: não serve.",
+          "Então cada par se corta numa reta, e as três retas são paralelas."
+        ],
+        "exemplo": {
+          "fonte": "Lista 8, Q10i",
+          "texto": "π1: 2x + 2y − 4z + 4 = 0, π2: −x − y + z − 6 = 0 e π3: −2x − 2y − 8z + 4 = 0. O produto misto dá 0, e os três pregos fazem 90° com (1, −1, 0). O ponto (−5, −5, −4), que está em π1 e em π2, dá 56 em π3, e não 0.",
+          "destaque": {
+            "valor": "(1, −1, 0)",
+            "rotulo": "direção das três retas paralelas"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "reta-comum",
+            "termo": "Uma reta em comum",
+            "texto": "Produto misto 0 também, mas lá o ponto serve nos três."
+          },
+          {
+            "id": "dois-paralelos",
+            "termo": "Dois paralelos e um que corta",
+            "texto": "Lá dois pregos são múltiplos."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l8q10i",
+          "ga-s5-l8q11",
+          "ga-s5-av2-t1-q5-01"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  -7.821,
+                  -3.579,
+                  -4.7
+                ],
+                [
+                  -3.579,
+                  -7.821,
+                  -4.7
+                ],
+                [
+                  2.488,
+                  -1.755,
+                  1.367
+                ],
+                [
+                  -1.755,
+                  2.488,
+                  1.367
+                ]
+              ],
+              "cor": 1
+            },
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  -7.541,
+                  -3.299,
+                  -4.84
+                ],
+                [
+                  -3.299,
+                  -7.541,
+                  -4.84
+                ],
+                [
+                  0.341,
+                  -3.901,
+                  2.44
+                ],
+                [
+                  -3.901,
+                  0.341,
+                  2.44
+                ]
+              ],
+              "cor": 2
+            },
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  -2.175,
+                  2.068,
+                  0.527
+                ],
+                [
+                  2.068,
+                  -2.175,
+                  0.527
+                ],
+                [
+                  -0.359,
+                  -4.601,
+                  1.74
+                ],
+                [
+                  -4.601,
+                  -0.359,
+                  1.74
+                ]
+              ],
+              "cor": 3
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                -7.121,
+                -2.879,
+                -4.0
+              ],
+              "ate": [
+                -2.879,
+                -7.121,
+                -4.0
+              ],
+              "cor": 4,
+              "largura": 2
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                -2.455,
+                1.788,
+                0.667
+              ],
+              "ate": [
+                1.788,
+                -2.455,
+                0.667
+              ],
+              "cor": 4,
+              "largura": 2
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                -4.321,
+                -0.079,
+                1.6
+              ],
+              "ate": [
+                -0.079,
+                -4.321,
+                1.6
+              ],
+              "cor": 4,
+              "largura": 2
+            }
+          ],
+          "angulo": {
+            "yaw": -0.785,
+            "pitch": 0.558
+          },
+          "semEixos": true
+        }
+      },
+      {
+        "id": "dois-paralelos",
+        "grupo": "tres-planos",
+        "termo": "Dois paralelos e um que corta",
+        "frase": "Dois planos paralelos e um terceiro que corta os dois em retas paralelas.",
+        "conta": [
+          "Dois pregos são múltiplos e o termo solto não acompanha: esses dois são paralelos distintos.",
+          "O terceiro prego não é múltiplo dos outros: ele corta os dois.",
+          "As duas retas de corte saem paralelas."
+        ],
+        "exemplo": {
+          "fonte": "Lista 8, Q10b",
+          "texto": "π1: −x + y − 4z + 2 = 0 e π3: x − y + 4z + 1 = 0 têm pregos múltiplos, (1, −1, 4) = −1 · (−1, 1, −4), mas −1 · 2 = −2, e não 1: são paralelos distintos. π2: −2x + 2y + 8z + 4 = 0 corta os dois.",
+          "destaque": {
+            "valor": "(1, −1, 4) = −1 · (−1, 1, −4)",
+            "rotulo": "dois pregos múltiplos: dois planos paralelos"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "calha",
+            "termo": "Retas paralelas dois a dois",
+            "texto": "Lá nenhum par de pregos é múltiplo."
+          },
+          {
+            "id": "paralelos-tres",
+            "termo": "Paralelos ou coincidentes",
+            "texto": "Lá os três pregos são múltiplos."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l8q10b",
+          "ga-s5-l8q10g",
+          "ga-s5-l8q10h"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "paralelos-tres",
+        "grupo": "tres-planos",
+        "termo": "Paralelos ou coincidentes",
+        "frase": "Os três pregos são múltiplos: planos empilhados como andares, ou alguns iguais.",
+        "conta": [
+          "Os três pregos são múltiplos de um mesmo prego.",
+          "Escreva os três com o mesmo prego e compare os termos soltos.",
+          "Todos diferentes: três andares. Dois iguais: dois coincidem. Três iguais: o mesmo plano."
+        ],
+        "exemplo": {
+          "fonte": "Lista 8, Q10c",
+          "texto": "π1: x + y − 4z + 2 = 0, π2: −3x − 3y + 12z + 4 = 0 e π3: x + y − 4z + 1 = 0. Dividindo π2 por −3: x + y − 4z − 4/3 = 0. Com o prego (1, 1, −4) nos três, os termos soltos ficam 2, −4/3 e 1, todos diferentes.",
+          "destaque": {
+            "valor": "2, −4/3 e 1",
+            "rotulo": "termos soltos diferentes: paralelos dois a dois"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "dois-paralelos",
+            "termo": "Dois paralelos e um que corta",
+            "texto": "Lá só dois pregos são múltiplos."
+          },
+          {
+            "id": "coincidentes-planos",
+            "termo": "Coincidentes (dois planos)",
+            "texto": "Termo solto igual com o mesmo prego: o mesmo plano."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l8q10c",
+          "ga-s5-l8q10d",
+          "ga-s5-l8q10e"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  -0.576,
+                  1.687,
+                  0.778
+                ],
+                [
+                  1.687,
+                  -0.576,
+                  0.778
+                ],
+                [
+                  0.354,
+                  -1.909,
+                  0.111
+                ],
+                [
+                  -1.909,
+                  0.354,
+                  0.111
+                ]
+              ],
+              "cor": 1
+            },
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  -0.391,
+                  1.872,
+                  0.037
+                ],
+                [
+                  1.872,
+                  -0.391,
+                  0.037
+                ],
+                [
+                  0.539,
+                  -1.724,
+                  -0.63
+                ],
+                [
+                  -1.724,
+                  0.539,
+                  -0.63
+                ]
+              ],
+              "cor": 2
+            },
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  -0.52,
+                  1.742,
+                  0.556
+                ],
+                [
+                  1.742,
+                  -0.52,
+                  0.556
+                ],
+                [
+                  0.409,
+                  -1.854,
+                  -0.111
+                ],
+                [
+                  -1.854,
+                  0.409,
+                  -0.111
+                ]
+              ],
+              "cor": 3
+            }
+          ],
+          "angulo": {
+            "yaw": 2.297,
+            "pitch": 0.164
+          },
+          "semEixos": true
+        }
+      },
+      {
+        "id": "vetor-diretor",
+        "grupo": "objetos",
+        "termo": "Vetor diretor",
+        "frase": "A seta que dá a direção da reta: para onde ela anda.",
+        "conta": [
+          "Na equação vetorial X = A + t[[v]], é o [[v]] que multiplica o t.",
+          "Nas paramétricas, são os números que acompanham o t em x, y e z.",
+          "Na simétrica, são os números de baixo, depois de deixar x, y e z com sinal +."
+        ],
+        "exemplo": {
+          "fonte": "Lista 4, Q5",
+          "texto": "r: (1 − x)/2 = y = (z + 1)/7. Como (1 − x)/2 = (x − 1)/(−2), o vetor diretor é (−2, 1, 7), e um ponto é (1, 0, −1).",
+          "destaque": {
+            "valor": "(−2, 1, 7)",
+            "rotulo": "vetor diretor lido na simétrica"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "vetor-normal",
+            "termo": "Vetor normal",
+            "texto": "O diretor fica deitado na reta; o normal fica em pé no plano."
+          },
+          {
+            "id": "eq-simetricas",
+            "termo": "Equações simétricas",
+            "texto": "O sinal de x, y e z precisa ficar + antes de ler o diretor."
+          }
+        ],
+        "questoes": [
+          "ga-s4-l4q5",
+          "ga-s4-l4q1a",
+          "ga-s5-l7q1e",
+          "ga-s4-av2-t1-q1-03"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "vetor-normal",
+        "grupo": "objetos",
+        "termo": "Vetor normal",
+        "frase": "O prego em pé no plano: faz 90° com tudo o que está deitado nele.",
+        "conta": [
+          "Na equação geral ax + by + cz + d = 0, o normal é (a, b, c).",
+          "Por três pontos ou duas setas do plano, o normal sai do produto vetorial.",
+          "Toda seta deitada no plano dá produto escalar 0 com o normal."
+        ],
+        "exemplo": {
+          "fonte": "Lista 5, Q1a",
+          "texto": "Plano por A = (−1, 2, 3) com normal (1, 1, 1): 1(x + 1) + 1(y − 2) + 1(z − 3) = 0, que dá x + y + z − 4 = 0.",
+          "destaque": {
+            "valor": "x + y + z − 4 = 0",
+            "rotulo": "os números de x, y e z são o prego"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "vetor-diretor",
+            "termo": "Vetor diretor",
+            "texto": "O diretor dá o caminho da reta; o normal fica em pé no plano."
+          },
+          {
+            "id": "perpendicular-reta-plano",
+            "termo": "Perpendicular (reta e plano)",
+            "texto": "Reta com a direção do normal fura o plano em pé."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l5q1a",
+          "ga-s5-l5q1b",
+          "ga-s5-l5q1c",
+          "ga-s5-l6q4",
+          "ga-s5-av2-t1-q2-02",
+          "ga-s5-av2-t1-q2-04"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  -2.621,
+                  2.641,
+                  3.98
+                ],
+                [
+                  -0.359,
+                  0.379,
+                  3.98
+                ],
+                [
+                  0.621,
+                  1.359,
+                  2.02
+                ],
+                [
+                  -1.641,
+                  3.621,
+                  2.02
+                ]
+              ],
+              "cor": 1
+            },
+            {
+              "tipo": "vetor",
+              "de": [
+                -1.0,
+                2.0,
+                3.0
+              ],
+              "ate": [
+                -0.423,
+                2.577,
+                3.577
+              ],
+              "rot": "n",
+              "cor": 2
+            },
+            {
+              "tipo": "ponto",
+              "em": [
+                -1.0,
+                2.0,
+                3.0
+              ],
+              "rot": "A",
+              "cor": 4
+            }
+          ],
+          "angulo": {
+            "yaw": -1.226,
+            "pitch": 0.293
+          },
+          "semEixos": true
+        }
+      },
+      {
+        "id": "ponto-partida",
+        "grupo": "objetos",
+        "termo": "Ponto de partida",
+        "frase": "Um ponto conhecido da reta ou do plano, de onde se começa a andar.",
+        "conta": [
+          "Na equação X = A + t[[v]], o A é o ponto de partida (t = 0).",
+          "Qualquer ponto da reta serve como partida: a reta é a mesma.",
+          "Por isso uma reta tem infinitas equações vetoriais."
+        ],
+        "exemplo": {
+          "fonte": "Exemplo construído",
+          "texto": "X = (−1, 4, −2) + t(2, −2, 5). Com t = 3 chega a (5, −2, 13). Começando de lá, X = (5, −2, 13) + s(2, −2, 5) descreve a mesma reta.",
+          "destaque": {
+            "valor": "(5, −2, 13)",
+            "rotulo": "outro ponto de partida, a mesma reta"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "parametro",
+            "termo": "Parâmetro (t, λ)",
+            "texto": "O ponto de partida é onde o contador vale 0."
+          },
+          {
+            "id": "vetor-diretor",
+            "termo": "Vetor diretor",
+            "texto": "O ponto diz por onde passa; o diretor diz para onde vai."
+          }
+        ],
+        "questoes": [
+          "ga-s4-l4q1a",
+          "ga-s5-l6q1",
+          "ga-s4-av2-t1-q1-08",
+          "ga-s5-av2-t1-q2-03"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "parametro",
+        "grupo": "objetos",
+        "termo": "Parâmetro (t, λ)",
+        "frase": "O contador de passos: cada valor de t dá um ponto diferente da reta.",
+        "conta": [
+          "Cada valor de t dá um ponto: t = 0 é o ponto de partida.",
+          "Para achar o t de um ponto, use uma coordenada e confira nas outras.",
+          "Se as coordenadas pedirem t diferentes, o ponto não está na reta."
+        ],
+        "exemplo": {
+          "fonte": "Lista 4, Q2",
+          "texto": "P = (1, m, n) está na reta por A = (−1, 1, 4) e B = (2, 3, 1). Partindo de A com a seta [[AB]] = (3, 2, −3): x = −1 + 3t = 1 dá t = 2/3. Então m = 1 + 2 · 2/3 = 7/3 e n = 4 − 3 · 2/3 = 2.",
+          "destaque": {
+            "valor": "t = 2/3",
+            "rotulo": "o contador que leva até P"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "ponto-partida",
+            "termo": "Ponto de partida",
+            "texto": "O ponto de partida é o t = 0."
+          },
+          {
+            "id": "multiplo",
+            "termo": "Múltiplo",
+            "texto": "O t multiplica a seta: t[[v]] é múltiplo de [[v]]."
+          }
+        ],
+        "questoes": [
+          "ga-s4-l4q2",
+          "ga-s5-l6q7",
+          "ga-s4-av2-t1-q1-02"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "multiplo",
+        "grupo": "objetos",
+        "termo": "Múltiplo (u = λv)",
+        "frase": "Duas setas na mesma direção: uma é a outra esticada, encolhida ou virada.",
+        "conta": [
+          "Divida coordenada por coordenada: se o fator é o mesmo em todas, as setas são múltiplas.",
+          "Outro teste: o produto vetorial dá [[0]].",
+          "Coordenada 0 só combina com 0 na mesma posição."
+        ],
+        "exemplo": {
+          "fonte": "Lista 6, Q5",
+          "texto": "(−2, 2, −2) ÷ (1, −1, 1) dá −2, −2 e −2: mesmo fator. Já (1, −2, −3) ÷ (1, 1, 1) dá 1, −2 e −3: fatores diferentes, setas em direções diferentes.",
+          "destaque": {
+            "valor": "λ = −2",
+            "rotulo": "mesmo fator nas três coordenadas"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "paralelas-distintas",
+            "termo": "Paralelas distintas",
+            "texto": "Setas múltiplas é o primeiro teste de retas paralelas."
+          },
+          {
+            "id": "colineares",
+            "termo": "Colineares",
+            "texto": "Pontos alinhados dão setas múltiplas entre si."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l6q5a",
+          "ga-s5-l6q6a",
+          "ga-s5-l6q1",
+          "ga-s4-av2-t1-q1-05"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "colineares",
+        "grupo": "objetos",
+        "termo": "Colineares",
+        "frase": "Pontos que ficam na mesma reta.",
+        "conta": [
+          "Faça as setas de um ponto até os outros dois.",
+          "Se as setas são múltiplas (produto vetorial [[0]]), os pontos estão alinhados.",
+          "Três pontos alinhados não definem um plano: cabem em infinitos."
+        ],
+        "exemplo": {
+          "fonte": "Avaliação 2, Q7",
+          "texto": "(0, 0, 0), (1, 1, 1) e (2, 2, 2): as setas (1, 1, 1) e (2, 2, 2) são múltiplas, e o produto vetorial dá (0, 0, 0). Os planos x − y = 0 e y − z = 0 passam pelos três.",
+          "destaque": {
+            "valor": "(0, 0, 0)",
+            "rotulo": "produto vetorial nulo: pontos alinhados"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "coplanares",
+            "termo": "Coplanares",
+            "texto": "Coplanar é caber num plano; colinear é caber numa reta."
+          },
+          {
+            "id": "multiplo",
+            "termo": "Múltiplo",
+            "texto": "O teste de colinear é o de setas múltiplas."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l8q9i",
+          "ga-s4-l4q2",
+          "ga-s5-av2-t1-q2-07"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "coplanares",
+        "grupo": "objetos",
+        "termo": "Coplanares",
+        "frase": "Pontos, setas ou retas que cabem num mesmo plano. O teste é o produto misto dar 0.",
+        "conta": [
+          "Para três setas: o produto misto dá 0.",
+          "Para duas retas: [[AB]] · ([[u]] × [[v]]) = 0, com A de uma e B da outra.",
+          "Retas coplanares são paralelas, coincidentes ou concorrentes; nunca reversas."
+        ],
+        "exemplo": {
+          "fonte": "Lista 4, Q6",
+          "texto": "r: (−1, 2, 3) + t(1, 1, 1) e s: (2, 4, 1) + λ(7, 6, 2). [[AB]] = (3, 2, −2) e [[u]] × [[v]] = (−4, 5, −1). O produto misto dá −12 + 10 + 2 = 0: as duas cabem num plano.",
+          "destaque": {
+            "valor": "0",
+            "rotulo": "produto misto: retas no mesmo plano"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "reversas",
+            "termo": "Reversas",
+            "texto": "Retas que não são coplanares."
+          },
+          {
+            "id": "colineares",
+            "termo": "Colineares",
+            "texto": "Colinear é caber numa reta."
+          }
+        ],
+        "questoes": [
+          "ga-s4-l4q6",
+          "ga-s5-l5q4",
+          "ga-s5-l6q5b",
+          "ga-s5-av2-t1-q3-04"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "pe-perpendicular",
+        "grupo": "objetos",
+        "termo": "Pé da perpendicular",
+        "frase": "O ponto do plano ou da reta mais perto de um ponto de fora.",
+        "conta": [
+          "Saia do ponto P na direção do prego: X = P + k[[n]].",
+          "Troque esse X na equação do plano e ache o k.",
+          "O ponto achado é o pé; a distância de P até ele é a distância ao plano."
+        ],
+        "exemplo": {
+          "fonte": "Lista 8, Q1i",
+          "texto": "P = (1, 2, 3) e π: −x − y − z + 7 = 0. P dá −1 − 2 − 3 + 7 = 1, e ‖[[n]]‖² = 3. O pé é P − (1/3)(−1, −1, −1) = (4/3, 7/3, 10/3), que dá −4/3 − 7/3 − 10/3 + 7 = 0.",
+          "destaque": {
+            "valor": "(4/3, 7/3, 10/3)",
+            "rotulo": "pé da perpendicular no plano"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "dist-ponto-plano",
+            "termo": "Distância de ponto a plano",
+            "texto": "A distância é o tamanho do tracejado até o pé."
+          },
+          {
+            "id": "vetor-normal",
+            "termo": "Vetor normal",
+            "texto": "O caminho mais curto até o plano segue o prego."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l8q1i",
+          "ga-s5-l8q9c",
+          "ga-s5-l7q5"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  1.874,
+                  0.894,
+                  4.231
+                ],
+                [
+                  -0.106,
+                  2.874,
+                  4.231
+                ],
+                [
+                  0.792,
+                  3.772,
+                  2.435
+                ],
+                [
+                  2.772,
+                  1.792,
+                  2.435
+                ]
+              ],
+              "cor": 1
+            },
+            {
+              "tipo": "ponto",
+              "em": [
+                1.0,
+                2.0,
+                3.0
+              ],
+              "rot": "P",
+              "cor": 4
+            },
+            {
+              "tipo": "ponto",
+              "em": [
+                1.333,
+                2.333,
+                3.333
+              ],
+              "rot": "pé",
+              "cor": 4
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                1.0,
+                2.0,
+                3.0
+              ],
+              "ate": [
+                1.333,
+                2.333,
+                3.333
+              ],
+              "tracejado": true,
+              "largura": 2.4,
+              "cor": 3
+            }
+          ],
+          "angulo": {
+            "yaw": -1.001,
+            "pitch": 0.15
+          },
+          "semEixos": true
+        }
+      },
+      {
+        "id": "eq-vetorial",
+        "grupo": "equacoes",
+        "termo": "Equação vetorial da reta",
+        "frase": "X = A + t[[v]]: comece em A e ande t passos na direção de [[v]].",
+        "conta": [
+          "Escolha um ponto A da reta e uma seta [[v]] na direção dela.",
+          "Escreva X = A + t[[v]], com t real.",
+          "Cada t dá um ponto: t = 0 é o A, t = 1 é A + [[v]]."
+        ],
+        "exemplo": {
+          "fonte": "Lista 6, Q6a",
+          "texto": "r: X = (1, 2, 3) + λ(1, 1, 1). Com λ = 0 sai (1, 2, 3); com λ = 1 sai (2, 3, 4); com λ = −1 sai (0, 1, 2).",
+          "destaque": {
+            "valor": "(2, 3, 4)",
+            "rotulo": "o ponto com λ = 1"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "eq-parametricas",
+            "termo": "Equações paramétricas",
+            "texto": "É a mesma equação, separada por coordenada."
+          },
+          {
+            "id": "eq-param-plano",
+            "termo": "Equações paramétricas do plano",
+            "texto": "O plano precisa de duas setas e dois contadores."
+          }
+        ],
+        "questoes": [
+          "ga-s4-l4q1a",
+          "ga-s4-l4q1b",
+          "ga-s4-l4q1c",
+          "ga-s4-av2-t1-q1-08"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "eq-parametricas",
+        "grupo": "equacoes",
+        "termo": "Equações paramétricas",
+        "frase": "A equação vetorial separada em x, y e z, cada uma com o t.",
+        "conta": [
+          "Separe X = A + t[[v]] em três linhas: x, y e z.",
+          "Em cada linha: coordenada do ponto + t vezes a coordenada da seta.",
+          "Para um ponto da reta, o mesmo t vale nas três linhas."
+        ],
+        "exemplo": {
+          "fonte": "Lista 4, Q6",
+          "texto": "r: x = −1 + t, y = 2 + t, z = 3 + t. Com t = −4: x = −5, y = −2 e z = −1.",
+          "destaque": {
+            "valor": "(−5, −2, −1)",
+            "rotulo": "o ponto com t = −4"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "eq-vetorial",
+            "termo": "Equação vetorial da reta",
+            "texto": "As paramétricas são a vetorial escrita linha a linha."
+          },
+          {
+            "id": "eq-simetricas",
+            "termo": "Equações simétricas",
+            "texto": "As simétricas isolam o t de cada linha."
+          }
+        ],
+        "questoes": [
+          "ga-s4-l4q6",
+          "ga-s4-l4q3",
+          "ga-s5-l5q3",
+          "ga-s4-av2-t1-q1-04"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "eq-simetricas",
+        "grupo": "equacoes",
+        "termo": "Equações simétricas",
+        "frase": "Isola o t de cada coordenada e iguala. Só existe se nenhuma coordenada da seta for 0.",
+        "conta": [
+          "Isole o t em cada paramétrica: t = (x − x0)/a, t = (y − y0)/b, t = (z − z0)/c.",
+          "Iguale as três frações.",
+          "Se uma coordenada da seta é 0, aquela coordenada fica parada e não há simétrica com ela."
+        ],
+        "exemplo": {
+          "fonte": "Lista 4, Q5",
+          "texto": "x = 1 − 2t, y = t, z = −1 + 7t. Isolando: t = (1 − x)/2, t = y e t = (z + 1)/7. Então (1 − x)/2 = y = (z + 1)/7.",
+          "destaque": {
+            "valor": "(1 − x)/2 = y = (z + 1)/7",
+            "rotulo": "as três frações iguais"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "eq-parametricas",
+            "termo": "Equações paramétricas",
+            "texto": "A simétrica sai das paramétricas."
+          },
+          {
+            "id": "vetor-diretor",
+            "termo": "Vetor diretor",
+            "texto": "Para ler o diretor, deixe x, y e z com sinal + antes."
+          }
+        ],
+        "questoes": [
+          "ga-s4-l4q1b",
+          "ga-s4-l4q1c",
+          "ga-s4-l4q5",
+          "ga-s4-av2-t1-q1-03",
+          "ga-s4-av2-t1-q1-07"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "eq-geral-plano",
+        "grupo": "equacoes",
+        "termo": "Equação geral do plano",
+        "frase": "ax + by + cz + d = 0: os números a, b e c formam o prego.",
+        "conta": [
+          "Ache o prego [[n]] = (a, b, c).",
+          "Escreva ax + by + cz + d = 0 e troque um ponto do plano para achar o d.",
+          "Teste outro ponto: tem de dar 0."
+        ],
+        "exemplo": {
+          "fonte": "Lista 5, Q1a",
+          "texto": "Prego (1, 1, 1) e ponto (−1, 2, 3): x + y + z + d = 0 com −1 + 2 + 3 + d = 0, então d = −4.",
+          "destaque": {
+            "valor": "x + y + z − 4 = 0",
+            "rotulo": "equação geral do plano"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "eq-param-plano",
+            "termo": "Equações paramétricas do plano",
+            "texto": "A mesma folha descrita por um ponto e duas setas."
+          },
+          {
+            "id": "vetor-normal",
+            "termo": "Vetor normal",
+            "texto": "Os números de x, y e z são o prego."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l5q1a",
+          "ga-s5-l5q2",
+          "ga-s5-l6q3",
+          "ga-s5-av2-t1-q2-02",
+          "ga-s5-av2-t1-q2-04",
+          "ga-s5-av2-t1-q2-08"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "eq-param-plano",
+        "grupo": "equacoes",
+        "termo": "Equações paramétricas do plano",
+        "frase": "Um ponto e duas setas deitadas: X = A + t[[u]] + s[[v]].",
+        "conta": [
+          "Escolha um ponto A e duas setas deitadas, [[u]] e [[v]], que não sejam múltiplas.",
+          "Escreva X = A + t[[u]] + s[[v]], com dois contadores.",
+          "Para passar à equação geral, o prego é [[u]] × [[v]]."
+        ],
+        "exemplo": {
+          "fonte": "Avaliação 2, Q1",
+          "texto": "x = −1 + 4t − 3s, y = 2 + 2t − s, z = −3 + t + 2s: ponto (−1, 2, −3) e setas (4, 2, 1) e (−3, −1, 2). O prego é (4, 2, 1) × (−3, −1, 2) = (5, −11, 2).",
+          "destaque": {
+            "valor": "(5, −11, 2)",
+            "rotulo": "prego = produto vetorial das duas setas"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "eq-geral-plano",
+            "termo": "Equação geral do plano",
+            "texto": "A geral usa o prego; a paramétrica usa duas setas deitadas."
+          },
+          {
+            "id": "eq-vetorial",
+            "termo": "Equação vetorial da reta",
+            "texto": "A reta tem uma seta e um contador."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l5q7",
+          "ga-s5-l5q8",
+          "ga-s5-l5q9",
+          "ga-s5-av2-t1-q2-01",
+          "ga-s5-av2-t1-q2-03"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "feixe",
+        "grupo": "equacoes",
+        "termo": "Feixe de planos",
+        "frase": "Todos os planos que passam por uma mesma reta: misturas α·π1 + β·π2.",
+        "conta": [
+          "Pegue dois planos que se cortam numa reta: π1 e π2.",
+          "Todo plano por essa reta é uma mistura α·π1 + β·π2, termo solto incluído.",
+          "Para achar a mistura, compare os coeficientes que você conhece."
+        ],
+        "exemplo": {
+          "fonte": "Avaliação 5, Q9",
+          "texto": "π1: −x + 2y − 3z + 5 = 0, π2: 2x − 4y − 4z + 7 = 0 e π3: mx − 14y + z + n = 0. Comparando y e z, sai α = −3 e β = 2. A mistura dá 7x − 14y + z − 1 = 0.",
+          "destaque": {
+            "valor": "m = 7 e n = −1",
+            "rotulo": "π3 = −3π1 + 2π2"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "reta-comum",
+            "termo": "Uma reta em comum",
+            "texto": "É a posição dos três planos de um feixe."
+          },
+          {
+            "id": "calha",
+            "termo": "Retas paralelas dois a dois",
+            "texto": "Se o termo solto não acompanhar a mistura, sai a barraca."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l8q11",
+          "ga-s5-l8q10j",
+          "ga-s5-av2-t1-q5-09"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "ang-vetores",
+        "grupo": "angulos",
+        "termo": "Ângulo entre vetores",
+        "frase": "Vai de 0° a 180°, porque a seta tem sentido.",
+        "conta": [
+          "cos θ = ([[u]] · [[v]]) / (‖[[u]]‖ ‖[[v]]‖), sem módulo.",
+          "Produto escalar negativo dá ângulo maior que 90°.",
+          "O resultado fica entre 0° e 180°."
+        ],
+        "exemplo": {
+          "fonte": "Lista 7, Q1a",
+          "texto": "Setas (1, 1, 1) e (1, −2, −3): produto escalar −4, tamanhos √3 e √14. cos θ = −4/√42, e θ ≈ 128,1°.",
+          "destaque": {
+            "valor": "128,1°",
+            "rotulo": "ângulo entre as setas, sem módulo"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "ang-retas",
+            "termo": "Ângulo entre retas",
+            "texto": "Com módulo, as mesmas setas dão 51,9° entre as retas."
+          },
+          {
+            "id": "cossenos-diretores",
+            "termo": "Cossenos diretores",
+            "texto": "São ângulos de uma seta com os eixos."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l7q1a",
+          "ga-s5-av2-t1-q4-03"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "ang-retas",
+        "grupo": "angulos",
+        "termo": "Ângulo entre retas",
+        "frase": "Usa o cosseno com módulo, então fica entre 0° e 90°.",
+        "conta": [
+          "cos θ = |[[u]] · [[v]]| / (‖[[u]]‖ ‖[[v]]‖), com módulo.",
+          "O módulo escolhe o ângulo agudo: fica entre 0° e 90°.",
+          "Vale também para retas reversas: só as setas entram na conta."
+        ],
+        "exemplo": {
+          "fonte": "Lista 7, Q1a",
+          "texto": "Setas (1, 1, 1) e (1, −2, −3): |−4| / √42 ≈ 0,617, e θ ≈ 51,9°. As retas são reversas, e mesmo assim o ângulo existe.",
+          "destaque": {
+            "valor": "51,9°",
+            "rotulo": "ângulo entre as retas, igual ao gabarito"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "ang-vetores",
+            "termo": "Ângulo entre vetores",
+            "texto": "Sem módulo, daria 128,1°."
+          },
+          {
+            "id": "ang-reta-plano",
+            "termo": "Ângulo entre reta e plano",
+            "texto": "Reta com plano usa seno."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l7q1a",
+          "ga-s5-l7q1e",
+          "ga-s5-l7q7",
+          "ga-s5-av2-t1-q4-03",
+          "ga-s5-av2-t1-q4-07"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "ang-reta-plano",
+        "grupo": "angulos",
+        "termo": "Ângulo entre reta e plano",
+        "frase": "Usa o seno, porque o prego fica de pé: é o que falta para 90°.",
+        "conta": [
+          "sen θ = |[[v]] · [[n]]| / (‖[[v]]‖ ‖[[n]]‖), com seno.",
+          "O seno entra porque o prego fica em pé: o ângulo com o plano é o que falta para 90°.",
+          "[[v]] · [[n]] = 0 dá 0°: a reta é paralela ao plano ou está dentro dele."
+        ],
+        "exemplo": {
+          "fonte": "Avaliação 4, Q1",
+          "texto": "Reta com seta (−1, −2, 3) e plano 2x − y + 3z − 5 = 0: produto escalar 9, tamanhos √14 e √14. sen θ = 9/14, e θ ≈ 40°.",
+          "destaque": {
+            "valor": "40°",
+            "rotulo": "ângulo entre a reta e o plano"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "ang-retas",
+            "termo": "Ângulo entre retas",
+            "texto": "Entre retas, o cosseno; com o plano, o seno."
+          },
+          {
+            "id": "contida",
+            "termo": "Contida",
+            "texto": "Ângulo 0° com ponto no plano: a reta está dentro (Lista 7, Q8)."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l7q1b",
+          "ga-s5-l7q4",
+          "ga-s5-l7q8",
+          "ga-s5-av2-t1-q4-01"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "ang-planos",
+        "grupo": "angulos",
+        "termo": "Ângulo entre planos",
+        "frase": "É o ângulo entre os pregos, com módulo: entre 0° e 90°.",
+        "conta": [
+          "cos θ = |[[n1]] · [[n2]]| / (‖[[n1]]‖ ‖[[n2]]‖): o ângulo entre os pregos, com módulo.",
+          "Pregos múltiplos dão cos = 1 e ângulo 0°: planos paralelos.",
+          "Pregos com produto escalar 0 dão 90°: planos perpendiculares."
+        ],
+        "exemplo": {
+          "fonte": "Lista 7, Q1d",
+          "texto": "π1: x + y − z + 3 = 0 e π2: 3x − y + z = 0. Pregos (1, 1, −1) e (3, −1, 1): produto escalar 1, tamanhos √3 e √11. cos θ = 1/√33, e θ ≈ 80°.",
+          "destaque": {
+            "valor": "80°",
+            "rotulo": "ângulo entre os planos, igual ao gabarito"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "transversais",
+            "termo": "Transversais",
+            "texto": "Planos que se cortam têm ângulo entre 0° e 90°, sem incluir o 0°."
+          },
+          {
+            "id": "paralelos-distintos",
+            "termo": "Paralelos distintos",
+            "texto": "Ângulo 0°: cos = 1, e não 0 (avaliação 4, Q6)."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l7q1d",
+          "ga-s5-l7q1c",
+          "ga-s5-l7q2",
+          "ga-s5-av2-t1-q4-02",
+          "ga-s5-av2-t1-q4-05",
+          "ga-s5-av2-t1-q4-06"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "cossenos-diretores",
+        "grupo": "angulos",
+        "termo": "Cossenos diretores",
+        "frase": "Os cossenos dos ângulos da seta com os eixos x, y e z. Os quadrados somam 1.",
+        "conta": [
+          "Para uma seta [[v]], cos α = vx/‖[[v]]‖, cos β = vy/‖[[v]]‖ e cos γ = vz/‖[[v]]‖.",
+          "Os quadrados somam 1: cos²α + cos²β + cos²γ = 1.",
+          "Para retas, o ângulo com o eixo usa módulo, então o sinal fica livre."
+        ],
+        "exemplo": {
+          "fonte": "Lista 7, Q3",
+          "texto": "45° com x e 60° com y: 1/2 + 1/4 + cos²γ = 1, então cos²γ = 1/4. As setas (√2/2, ±1/2, ±1/2) dão 4 retas diferentes.",
+          "destaque": {
+            "valor": "4 retas",
+            "rotulo": "uma para cada combinação de sinais"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "ang-retas",
+            "termo": "Ângulo entre retas",
+            "texto": "O eixo é uma reta: vale o cosseno com módulo."
+          },
+          {
+            "id": "ang-vetores",
+            "termo": "Ângulo entre vetores",
+            "texto": "Com sinal fixo, seriam só 2 retas."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l7q3",
+          "ga-s5-l7q6",
+          "ga-s5-av2-t1-q4-04"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "dist-ponto-plano",
+        "grupo": "distancias",
+        "termo": "Distância de ponto a plano",
+        "frase": "Troque o ponto na equação, tire o módulo e divida pelo tamanho do prego.",
+        "conta": [
+          "Troque as coordenadas do ponto na equação do plano.",
+          "Tire o módulo do resultado.",
+          "Divida pelo tamanho do prego: ‖[[n]]‖ = √(a² + b² + c²)."
+        ],
+        "exemplo": {
+          "fonte": "Lista 8, Q1i",
+          "texto": "P = (1, 2, 3) e π: −x − y − z + 7 = 0. |−1 − 2 − 3 + 7| = 1, e ‖[[n]]‖ = √3. A distância é 1/√3 = √3/3.",
+          "destaque": {
+            "valor": "√3/3 ≈ 0,58",
+            "rotulo": "distância de P até o plano"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "pe-perpendicular",
+            "termo": "Pé da perpendicular",
+            "texto": "A distância é medida até o pé."
+          },
+          {
+            "id": "dist-planos",
+            "termo": "Distância entre planos paralelos",
+            "texto": "Entre planos paralelos, use um ponto de um deles."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l8q1i",
+          "ga-s5-l8q5",
+          "ga-s5-l8q6",
+          "ga-s5-av2-t1-q5-06",
+          "ga-s5-av2-t1-q5-07"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  1.874,
+                  0.894,
+                  4.231
+                ],
+                [
+                  -0.106,
+                  2.874,
+                  4.231
+                ],
+                [
+                  0.792,
+                  3.772,
+                  2.435
+                ],
+                [
+                  2.772,
+                  1.792,
+                  2.435
+                ]
+              ],
+              "cor": 1
+            },
+            {
+              "tipo": "ponto",
+              "em": [
+                1.0,
+                2.0,
+                3.0
+              ],
+              "rot": "P",
+              "cor": 4
+            },
+            {
+              "tipo": "ponto",
+              "em": [
+                1.333,
+                2.333,
+                3.333
+              ],
+              "rot": "pé",
+              "cor": 4
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                1.0,
+                2.0,
+                3.0
+              ],
+              "ate": [
+                1.333,
+                2.333,
+                3.333
+              ],
+              "tracejado": true,
+              "largura": 2.4,
+              "cor": 3
+            }
+          ],
+          "angulo": {
+            "yaw": -1.001,
+            "pitch": 0.15
+          },
+          "semEixos": true
+        }
+      },
+      {
+        "id": "dist-ponto-reta",
+        "grupo": "distancias",
+        "termo": "Distância de ponto a reta",
+        "frase": "A área do paralelogramo dividida pela base: ‖[[AP]] × [[v]]‖ / ‖[[v]]‖.",
+        "conta": [
+          "Pegue um ponto A da reta e faça a seta [[AP]].",
+          "O paralelogramo de [[AP]] e [[v]] tem área ‖[[AP]] × [[v]]‖.",
+          "Divida pela base ‖[[v]]‖: sobra a altura, que é a distância."
+        ],
+        "exemplo": {
+          "fonte": "Lista 8, Q1h",
+          "texto": "P = (1, 2, 3) e s: (x − 3)/2 = (y − 1)/4 = (z + 2)/6. A = (3, 1, −2), [[v]] = (2, 4, 6) e [[AP]] = (−2, 1, 5). [[AP]] × [[v]] = (−14, 22, −10). Distância² = 780/56 = 195/14.",
+          "destaque": {
+            "valor": "√(195/14) ≈ 3,73",
+            "rotulo": "distância de P até a reta"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "dist-retas-paralelas",
+            "termo": "Distância entre retas paralelas",
+            "texto": "Entre paralelas, é a mesma conta com um ponto de uma reta."
+          },
+          {
+            "id": "dist-ponto-plano",
+            "termo": "Distância de ponto a plano",
+            "texto": "Até um plano a conta é outra: troca na equação e divide pelo prego."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l8q1h",
+          "ga-s5-l8q4"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "dist-retas-paralelas",
+        "grupo": "distancias",
+        "termo": "Distância entre retas paralelas",
+        "frase": "É a distância de um ponto de uma reta até a outra.",
+        "conta": [
+          "Confirme que as setas são múltiplas e que as retas não coincidem.",
+          "Pegue um ponto de uma reta.",
+          "Calcule a distância desse ponto até a outra reta."
+        ],
+        "exemplo": {
+          "fonte": "Lista 8, Q3b",
+          "texto": "r: (1, 1, 1) + t(1, −1, 1) e s: x = −2k, y = 1 + 2k, z = −1 − 2k. Do ponto (1, 1, 1) até s: a seta até (0, 1, −1) é (1, 0, 2), e (1, 0, 2) × (1, −1, 1) = (2, 1, −1). Distância² = 6/3 = 2.",
+          "destaque": {
+            "valor": "√2 ≈ 1,41",
+            "rotulo": "distância entre as paralelas, igual ao gabarito"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "dist-ponto-reta",
+            "termo": "Distância de ponto a reta",
+            "texto": "É a conta usada aqui."
+          },
+          {
+            "id": "dist-reversas",
+            "termo": "Distância entre reversas",
+            "texto": "Entre reversas, a conta usa o produto misto."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l8q3b",
+          "ga-s5-l8q1g",
+          "ga-s5-l8q2"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "dist-reversas",
+        "grupo": "distancias",
+        "termo": "Distância entre reversas",
+        "frase": "O volume da caixa dividido pela área da base: a altura do viaduto.",
+        "conta": [
+          "Ponto A de uma reta, ponto B da outra e as duas setas [[u]] e [[v]].",
+          "Volume da caixa: |[[AB]] · ([[u]] × [[v]])|. Área da base: ‖[[u]] × [[v]]‖.",
+          "Volume dividido pela base dá a altura: a distância."
+        ],
+        "exemplo": {
+          "fonte": "Lista 8, Q1a",
+          "texto": "r: (1, 2, 3) + λ(1, 1, 1) e s: (1, 1, 1) + t(1, −2, −3). Produto misto 2, e ‖(−1, 4, −3)‖ = √26. A distância é 2/√26 = √26/13.",
+          "destaque": {
+            "valor": "√26/13 ≈ 0,39",
+            "rotulo": "altura do viaduto, igual ao gabarito"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "reversas",
+            "termo": "Reversas",
+            "texto": "Só reversas têm essa distância positiva com setas não múltiplas."
+          },
+          {
+            "id": "dist-retas-paralelas",
+            "termo": "Distância entre retas paralelas",
+            "texto": "Com setas múltiplas, a caixa achata: use ponto a reta."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l8q1a",
+          "ga-s5-l8q3a",
+          "ga-s5-av2-t1-q5-04"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "segmento",
+              "de": [
+                0.015,
+                1.015,
+                2.015
+              ],
+              "ate": [
+                1.215,
+                2.215,
+                3.215
+              ],
+              "cor": 1,
+              "largura": 3
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                0.258,
+                2.483,
+                3.225
+              ],
+              "ate": [
+                0.818,
+                1.363,
+                1.545
+              ],
+              "cor": 2,
+              "largura": 3
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                0.615,
+                1.615,
+                2.615
+              ],
+              "ate": [
+                0.538,
+                1.923,
+                2.385
+              ],
+              "tracejado": true,
+              "largura": 2.4,
+              "cor": 3
+            }
+          ],
+          "angulo": {
+            "yaw": 0.945,
+            "pitch": 0.579
+          },
+          "semEixos": true
+        }
+      },
+      {
+        "id": "dist-planos",
+        "grupo": "distancias",
+        "termo": "Distância entre planos paralelos",
+        "frase": "Com o mesmo prego nos dois: |d1 − d2| / ‖[[n]]‖.",
+        "conta": [
+          "Confirme que os pregos são múltiplos.",
+          "Reescreva os dois planos com o mesmo prego.",
+          "Distância = |d1 − d2| / ‖[[n]]‖."
+        ],
+        "exemplo": {
+          "fonte": "Lista 8, Q1c",
+          "texto": "π1: x + y + z + 1 = 0 e π2: −x − y − z + 7 = 0, que vira x + y + z − 7 = 0. |1 − (−7)| / √3 = 8/√3 = 8√3/3.",
+          "destaque": {
+            "valor": "8√3/3 ≈ 4,62",
+            "rotulo": "distância entre os planos, igual ao gabarito"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "paralelos-distintos",
+            "termo": "Paralelos distintos",
+            "texto": "Só planos paralelos distintos têm distância maior que 0."
+          },
+          {
+            "id": "transversais",
+            "termo": "Transversais",
+            "texto": "Planos que se cortam têm distância 0 (Lista 8, Q1d)."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l8q1c",
+          "ga-s5-l8q1d",
+          "ga-s5-l8q5",
+          "ga-s5-av2-t1-q5-02",
+          "ga-s5-av2-t1-q5-05"
+        ],
+        "avaliacoes": [],
+        "fig": {
+          "modo": "3d",
+          "itens": [
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  -1.914,
+                  0.349,
+                  0.565
+                ],
+                [
+                  0.349,
+                  -1.914,
+                  0.565
+                ],
+                [
+                  1.247,
+                  -1.016,
+                  -1.231
+                ],
+                [
+                  -1.016,
+                  1.247,
+                  -1.231
+                ]
+              ],
+              "cor": 1
+            },
+            {
+              "tipo": "poligono",
+              "pts": [
+                [
+                  0.753,
+                  3.016,
+                  3.231
+                ],
+                [
+                  3.016,
+                  0.753,
+                  3.231
+                ],
+                [
+                  3.914,
+                  1.651,
+                  1.435
+                ],
+                [
+                  1.651,
+                  3.914,
+                  1.435
+                ]
+              ],
+              "cor": 2
+            },
+            {
+              "tipo": "segmento",
+              "de": [
+                -0.333,
+                -0.333,
+                -0.333
+              ],
+              "ate": [
+                2.333,
+                2.333,
+                2.333
+              ],
+              "tracejado": true,
+              "largura": 2.4,
+              "cor": 3
+            }
+          ],
+          "angulo": {
+            "yaw": -0.928,
+            "pitch": 0.1
+          },
+          "semEixos": true
+        }
+      },
+      {
+        "id": "lugar-geometrico",
+        "grupo": "distancias",
+        "termo": "Lugar geométrico",
+        "frase": "O conjunto de todos os pontos que cumprem uma condição, como ficar à mesma distância de A e de B.",
+        "conta": [
+          "Escreva a condição como conta: por exemplo, ‖X − A‖ = √14.",
+          "Troque X pelos pontos do objeto que você tem (uma reta, um plano).",
+          "As soluções são os pontos que cumprem a condição."
+        ],
+        "exemplo": {
+          "fonte": "Lista 8, Q4",
+          "texto": "Pontos de r: (1, 1, 1) + t(1, −1, 1) a √14 de A = (0, 1, 2). A distância² dá 3t² + 2 = 14, então t = 2 ou t = −2.",
+          "destaque": {
+            "valor": "(3, −1, 3) e (−1, 3, −1)",
+            "rotulo": "os dois pontos, iguais ao gabarito"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "plano-mediador",
+            "termo": "Plano mediador",
+            "texto": "Um lugar geométrico famoso: mesma distância de A e de B."
+          },
+          {
+            "id": "equidistante",
+            "termo": "Equidistante",
+            "texto": "Equidistante é uma condição de lugar geométrico."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l8q4",
+          "ga-s5-l8q8",
+          "ga-s5-av2-t1-q5-10"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "plano-mediador",
+        "grupo": "distancias",
+        "termo": "Plano mediador",
+        "frase": "Os pontos à mesma distância de A e de B: é um plano, e não uma reta (avaliação 5, Q10).",
+        "conta": [
+          "Iguale as distâncias ao quadrado: ‖X − A‖² = ‖X − B‖².",
+          "Os quadrados de x, y e z se cancelam e sobra uma equação de 1º grau: um plano.",
+          "O prego é [[AB]], e o plano passa pelo ponto médio de A e B."
+        ],
+        "exemplo": {
+          "fonte": "Lista 8, Q8",
+          "texto": "A = (−1, 1, 4) e B = (2, 3, 1): 2(3, 2, −3) · X = 14 − 18, que dá 3x + 2y − 3z + 2 = 0. O ponto médio (1/2, 2, 5/2) dá 3/2 + 4 − 15/2 + 2 = 0.",
+          "destaque": {
+            "valor": "3x + 2y − 3z + 2 = 0",
+            "rotulo": "plano mediador, igual ao gabarito"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "lugar-geometrico",
+            "termo": "Lugar geométrico",
+            "texto": "O plano mediador é um lugar geométrico."
+          },
+          {
+            "id": "perpendiculares-planos",
+            "termo": "Perpendiculares",
+            "texto": "O prego do mediador é a seta [[AB]]."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l8q8",
+          "ga-s5-av2-t1-q5-10"
+        ],
+        "avaliacoes": []
+      },
+      {
+        "id": "equidistante",
+        "grupo": "distancias",
+        "termo": "Equidistante",
+        "frase": "À mesma distância de dois pontos ou de dois objetos.",
+        "conta": [
+          "Iguale as duas distâncias ao quadrado (assim não precisa de raiz).",
+          "Se o ponto está numa reta, use X = A + t[[v]] e resolva o t.",
+          "Confira: as duas distâncias têm de dar iguais."
+        ],
+        "exemplo": {
+          "fonte": "Lista 8, Q7",
+          "texto": "Ponto de r: (1, 1, 1) + t(1, −1, 1) equidistante de A = (1, 2, 3) e B = (−1, 1, −2). As distâncias² dão 3t² − 2t + 5 e 3t² + 10t + 13; igualando, t = −2/3.",
+          "destaque": {
+            "valor": "(1/3, 5/3, 1/3)",
+            "rotulo": "o ponto equidistante, igual ao gabarito"
+          }
+        },
+        "naoConfunda": [
+          {
+            "id": "plano-mediador",
+            "termo": "Plano mediador",
+            "texto": "Todos os pontos equidistantes de A e B formam o plano mediador."
+          },
+          {
+            "id": "lugar-geometrico",
+            "termo": "Lugar geométrico",
+            "texto": "Equidistante é uma condição; o lugar é o conjunto que ela gera."
+          }
+        ],
+        "questoes": [
+          "ga-s5-l8q7",
+          "ga-s5-av2-t1-q5-08"
+        ],
+        "avaliacoes": []
+      }
+    ]
+  }
+}

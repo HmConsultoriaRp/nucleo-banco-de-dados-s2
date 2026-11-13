@@ -1,0 +1,174 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s4-av2-t1-q1-01",
+      "semana": 4,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Infinitas equações vetoriais",
+      "origem": "Avaliação semanal 2 · T1-Q1 · Q01",
+      "enunciado": "Verdadeiro ou falso? Uma reta r possui infinitas equações vetoriais distintas.",
+      "alternativas": [
+        {"t": "Falso: cada reta tem uma única equação vetorial, a que usa o ponto e o vetor dados.", "certa": false, "erro": "O {{ponto-partida|ponto de partida}} pode ser qualquer ponto da reta, e a seta pode ser esticada ou virada. X = (1, 2, 3) + t(1, −1, 2) e X = (2, 1, 5) + t(2, −2, 4) descrevem a mesma reta."},
+        {"t": "Falso: equações vetoriais diferentes sempre descrevem retas diferentes.", "certa": false, "erro": "Equações diferentes podem dar o mesmo conjunto de pontos. X = (1, 2, 3) + t(1, −1, 2) e X = (1, 2, 3) + t(2, −2, 4) passam pelos mesmos pontos; só andam com passos de tamanhos diferentes."},
+        {"t": "Verdadeiro: o t pode assumir infinitos valores, e cada valor gera uma equação nova.", "certa": false, "erro": "O veredito está certo, mas o motivo não. Cada valor do {{parametro|t}} dá um ponto da reta, não uma equação. A equação é a regra inteira: ponto de partida mais t vezes a seta."},
+        {"t": "Verdadeiro, mas só trocando o ponto de partida: a seta da reta é uma só.", "certa": false, "erro": "Trocar o ponto já gera infinitas equações, mas a seta não é única. Qualquer {{multiplo|múltiplo}} não nulo dela, como 2[[v]] ou −[[v]], também serve de {{vetor-diretor|vetor diretor}}."},
+        {"t": "Verdadeiro: qualquer ponto da reta serve de partida, e qualquer múltiplo não nulo do vetor diretor serve de seta.", "certa": true}
+      ],
+      "dica": "Uma equação vetorial é feita de duas escolhas: um ponto da reta e uma seta. Quantas opções existem para cada uma?",
+      "resposta": "Verdadeiro. A {{eq-vetorial|equação vetorial}} X = A + t[[v]] aceita qualquer ponto A da reta e qualquer {{multiplo|múltiplo}} não nulo de [[v]]. São infinitas escolhas para a mesma reta.",
+      "ouro": "Equação diferente não quer dizer reta diferente. **Troque o ponto (dentro da reta) ou estique a seta**: a reta continua a mesma.",
+      "jeitos": {
+        "visual": "Pense num trilho reto. A {{eq-vetorial|equação vetorial}} diz onde você entra no trilho e qual passo dá a cada tique do contador. Entrar em (1, 2, 3) ou em (2, 1, 5) não muda o trilho, porque os dois pontos estão nele. Dar passos de (1, −1, 2) ou de (2, −2, 4) também não: o segundo passo é o dobro do primeiro, na mesma linha. Cada combinação é uma equação nova para o mesmo trilho.",
+        "receita": [
+          "Escreva a forma geral: X = A + t[[v]], com A na reta e [[v]] não nulo.",
+          "Troque A por outro ponto da reta, por exemplo A + [[v]]: a reta não muda.",
+          "Troque [[v]] por k[[v]], com k ≠ 0: a direção não muda.",
+          "Há infinitos pontos na reta e infinitos valores de k: infinitas equações.",
+          "Conclusão: Verdadeiro."
+        ],
+        "cotidiano": "Pense numa avenida reta. Dá para descrevê-la saindo da padaria e andando de quadra em quadra para o norte, ou saindo do banco e andando de duas em duas quadras para o sul. As instruções mudam; a avenida é a mesma. Cada instrução é uma equação, e a avenida é a reta. Como há infinitos pontos de saída e infinitos tamanhos de passo, as descrições não acabam.",
+        "trabalho": "É como a mesma projeção linear montada em duas planilhas. Uma começa em janeiro, com variação mensal fixa. Outra começa em março, já com o saldo de março, e usa a variação bimestral, que é o dobro. As fórmulas são outras, mas, no gráfico, os pontos caem sobre a mesma linha. Na auditoria você não compara fórmulas; compara se a seta é {{multiplo|múltipla}} e se o ponto inicial está na reta.",
+        "conversa": [
+          {"quem": "Você", "fala": "Se a reta é uma só, como pode ter infinitas equações?"},
+          {"quem": "Monitor", "fala": "Do que é feita uma equação vetorial?"},
+          {"quem": "Você", "fala": "De um ponto e de uma seta."},
+          {"quem": "Monitor", "fala": "O ponto precisa ser um ponto específico da reta?"},
+          {"quem": "Você", "fala": "Não, qualquer ponto dela serve. E a seta pode ser o dobro, o triplo, ou virar para o outro lado."},
+          {"quem": "Monitor", "fala": "Então são infinitas escolhas para a mesma reta: Verdadeiro."}
+        ],
+        "erro": "A armadilha é achar que a equação é a reta. A equação é só uma receita para chegar aos pontos dela. Outro tropeço está no motivo: dizer que são infinitas porque o {{parametro|t}} varia. Cada t dá um ponto, não uma equação nova. O que gera equações novas é trocar o {{ponto-partida|ponto de partida}} ou multiplicar a seta por um número diferente de zero.",
+        "confira": "Teste com r: X = (1, 2, 3) + t(1, −1, 2). Com t = 2 sai (3, 0, 7). Agora use X = (2, 1, 5) + t(1, −1, 2): com t = 1 também sai (3, 0, 7). E X = (1, 2, 3) + t(2, −2, 4) chega lá com t = 1. Três equações diferentes, o mesmo ponto, a mesma reta.",
+        "atalho": "Lembre a dupla: ponto livre dentro da reta, seta livre entre os múltiplos não nulos. Duas escolhas infinitas dão infinitas equações. Entre as alternativas com Verdadeiro, fique com a que cita os dois motivos. A que fala do t confunde ponto com equação."
+      }
+    },
+    {
+      "id": "ga-s4-av2-t1-q1-02",
+      "semana": 4,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Ponto na reta de A e B",
+      "origem": "Avaliação semanal 2 · T1-Q1 · Q02",
+      "enunciado": "Sabendo que o ponto P = (11, m, n) pertence à reta que passa pelos pontos A = (2, 3, −4) e B = (−1, −2, 3), determinar m e n.",
+      "alternativas": [
+        {"t": "m = 18 e n = −25", "certa": true},
+        {"t": "m = 8 e n = −11", "certa": false, "erro": "Esses valores são do ponto (5, 8, −11), que está na reta com t = −1. Mas ali x = 5, e P tem x = 11. Faltou usar o x para achar o {{parametro|t}}."},
+        {"t": "m = −17 e n = 24", "certa": false, "erro": "É o ponto (−10, −17, 24) da reta, com x = −10. Ele aparece quando o t sai com o sinal trocado (t = 3) e a conta parte de B em vez de A: B + 3[[AB]]."},
+        {"t": "m = 13 e n = −18", "certa": false, "erro": "O t = −3 está certo, mas foi aplicado a partir de B: B − 3[[AB]] = (8, 13, −18). A equação X = A + t[[AB]] exige partir de A. Esse ponto tem x = 8."},
+        {"t": "m = −12 e n = 17", "certa": false, "erro": "Erro de sinal no x: 2 + 3t = 11 dá t = 3. O x da seta [[AB]] é −3, então a conta certa é 2 − 3t = 11. Com t = 3 sai o ponto (−7, −12, 17), que tem x = −7."}
+      ],
+      "dica": "Monte a reta com A e a seta [[AB]] = B − A. Use o x = 11 para achar o t; depois calcule y e z.",
+      "resposta": "m = 18 e n = −25. Com {{vetor-diretor|vetor diretor}} [[AB]] = (−3, −5, 7), o x = 11 pede t = −3, e o ponto é P = (11, 18, −25).",
+      "ouro": "Quando o ponto tem uma coordenada conhecida, **ela entrega o t**. Com o t na mão, as outras coordenadas saem direto.",
+      "jeitos": {
+        "visual": "A reta sai de A = (2, 3, −4) e anda na direção de [[AB]] = (−3, −5, 7). Cada passo para a frente diminui o x em 3. Para chegar em x = 11 é preciso andar para trás: de 2 até 11 são 9 unidades, ou seja, três passos de ré, {{parametro|t}} = −3. Nesses três passos de ré, o y sobe 15 e o z desce 21. O ponto é (11, 18, −25).",
+        "receita": [
+          "Calcule a seta: [[AB]] = B − A = (−3, −5, 7).",
+          "Escreva as paramétricas: x = 2 − 3t, y = 3 − 5t, z = −4 + 7t.",
+          "Use o x de P: 2 − 3t = 11, então t = −3.",
+          "Calcule y: 3 − 5(−3) = 18. Então m = 18.",
+          "Calcule z: −4 + 7(−3) = −25. Então n = −25."
+        ],
+        "cotidiano": "Pense numa viagem com velocidade constante e três medidores: quilômetro, combustível e altitude. Você sabe só o quilômetro de um momento passado. Basta descobrir quantas horas antes isso aconteceu; com esse número, os outros dois medidores saem da mesma regra. Aqui o quilômetro é o x = 11, as horas são o t = −3, e combustível e altitude são m e n.",
+        "trabalho": "Funciona como um PROCV ao contrário. Você tem a regra da linha (saldo inicial mais variação por período) e conhece só uma coluna de um registro: x = 11. Primeiro descobre o período: (11 − 2)/(−3) = −3. Depois busca as outras colunas desse período: y = 18 e z = −25. Se alguém informar m = 8, a conciliação acusa: o período do y seria −1, e o do x é −3.",
+        "conversa": [
+          {"quem": "Você", "fala": "São duas incógnitas, m e n. Preciso montar um sistema?"},
+          {"quem": "Monitor", "fala": "Qual coordenada de P você já conhece?"},
+          {"quem": "Você", "fala": "O x, que é 11."},
+          {"quem": "Monitor", "fala": "Então use x = 2 − 3t para achar o t."},
+          {"quem": "Você", "fala": "2 − 3t = 11, logo t = −3."},
+          {"quem": "Monitor", "fala": "Agora é só substituir: y = 3 + 15 = 18 e z = −4 − 21 = −25."}
+        ],
+        "erro": "O tropeço mais comum é o sinal da seta. O x de [[AB]] é −3, então a equação é 2 − 3t = 11, e não 2 + 3t = 11. Com o sinal trocado sai t = 3 e a alternativa E. Outro deslize é achar t = −3 e partir de B em vez de A, o que leva à alternativa D. Repare que todas as erradas são pontos da reta, mas com x diferente de 11.",
+        "confira": "Monte [[AP]] = P − A = (9, 15, −21). Ela tem de ser múltipla de [[AB]] = (−3, −5, 7), porque A, B e P são {{colineares|colineares}}. E é: (9, 15, −21) = −3 · (−3, −5, 7). O mesmo −3 aparece nas três coordenadas, e é justamente o t encontrado.",
+        "atalho": "Ache o t só pelo x: 2 − 3t = 11 dá t = −3. Depois calcule apenas o y: 3 − 5(−3) = 18. Só a alternativa A tem m = 18. O z serve de prova: −4 − 21 = −25, que é o n dessa mesma alternativa."
+      }
+    },
+    {
+      "id": "ga-s4-av2-t1-q1-03",
+      "semana": 4,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Ler a equação simétrica",
+      "origem": "Avaliação semanal 2 · T1-Q1 · Q03",
+      "enunciado": "Seja a reta r: (x + 2)/5 = (−y + 3)/7 = z − 4. Temos que o vetor diretor [[r]] e o ponto P utilizados para obter essa equação foram:",
+      "alternativas": [
+        {"t": "[[r]] = (5, −7, 1) e o ponto P = (2, 3, −4)", "certa": false, "erro": "A seta está certa, mas o ponto copiou os números dos numeradores sem trocar o sinal. Em (2, 3, −4) as três partes valem 4/5, 0 e −8: nem são iguais, então esse ponto nem está na reta."},
+        {"t": "[[r]] = (5, 7, −1) e o ponto P = (2, −3, 4)", "certa": false, "erro": "Os dois estão errados. A seta (5, 7, −1) não é {{multiplo|múltipla}} de (5, −7, 1), e o ponto (2, −3, 4) dá 4/5, 6/7 e 0 nas três partes, logo está fora da reta."},
+        {"t": "[[r]] = (5, −7, 1) e o ponto P = (−2, 3, 4)", "certa": true},
+        {"t": "[[r]] = (−5, 7, −1) e o ponto P = (−2, 3, 4)", "certa": false, "erro": "É a armadilha. Essa seta é −1 vez a certa e o ponto está na reta: descreve a mesma reta. Mas, com ela, a equação sairia (x + 2)/(−5) = (y − 3)/7 = (z − 4)/(−1). A pergunta é qual seta gerou esta escrita, e os denominadores da forma padrão são 5, −7 e 1."},
+        {"t": "[[r]] = (5, −7, −1) e o ponto P = (2, −3, 4)", "certa": false, "erro": "O z da seta é 1, porque z − 4 = (z − 4)/1; trocar para −1 muda a direção. E o ponto (2, −3, 4) dá 4/5, 6/7 e 0 nas três partes: está fora da reta."}
+      ],
+      "dica": "Na simétrica, cada parte tem a forma (coordenada − número)/denominador. Passe o sinal de menos do y para o denominador antes de ler.",
+      "resposta": "[[r]] = (5, −7, 1) e P = (−2, 3, 4). Lendo a {{eq-simetricas|equação simétrica}} parte por parte: x + 2 = x − (−2), sobre 5; (−y + 3)/7 = (y − 3)/(−7); z − 4 = (z − 4)/1.",
+      "ouro": "Antes de ler a simétrica, **deixe cada parte na forma (coordenada − número)/denominador**. O número dá o ponto; o denominador dá a seta.",
+      "jeitos": {
+        "visual": "Imagine cada parte da {{eq-simetricas|simétrica}} como um relógio que mostra o mesmo t. No ponto P = (−2, 3, 4), os três relógios marcam zero: é a largada. Um passo depois, em (3, −4, 5), os três marcam 1. A diferença entre esses dois pontos é a seta: (5, −7, 1). Repare no y: ele desceu de 3 para −4 enquanto o t subia, por isso a seta tem −7.",
+        "receita": [
+          "Reescreva o x: (x + 2)/5 = (x − (−2))/5. Ponto x0 = −2, seta a = 5.",
+          "Reescreva o y: (−y + 3)/7 = (y − 3)/(−7). Ponto y0 = 3, seta b = −7.",
+          "Reescreva o z: z − 4 = (z − 4)/1. Ponto z0 = 4, seta c = 1.",
+          "Junte: [[r]] = (5, −7, 1) e P = (−2, 3, 4).",
+          "Confira: em P as três partes valem 0."
+        ],
+        "cotidiano": "Pense num formulário com campos fixos: primeiro o nome, depois o CPF. Se alguém escreve o CPF antes do nome, você não copia na ordem em que veio; arruma primeiro. A simétrica tem formato fixo: (coordenada − número)/denominador. O pedaço (−y + 3)/7 veio fora do formato. Arrumado, vira (y − 3)/(−7): o número é 3 e o denominador é −7.",
+        "trabalho": "É a leitura de um layout de importação. Cada campo tem posição e sinal definidos; se o arquivo traz o sinal no lugar errado, o valor entra invertido no sistema. Aqui o arquivo é a equação, e o campo do y veio como (−y + 3)/7. Ler 7 como seta é importar um débito como crédito. Normalize antes: (y − 3)/(−7). Aí os campos batem com o ponto (−2, 3, 4) e a seta (5, −7, 1).",
+        "conversa": [
+          {"quem": "Você", "fala": "No y, o denominador é 7. Por que a seta tem −7?"},
+          {"quem": "Monitor", "fala": "Na forma padrão, quem leva o sinal de menos: o y ou o denominador?"},
+          {"quem": "Você", "fala": "O y fica positivo: y − y0."},
+          {"quem": "Monitor", "fala": "Então tire o menos do y. (−y + 3)/7 = (y − 3)/(−7)."},
+          {"quem": "Você", "fala": "O menos foi para o denominador. b = −7 e y0 = 3."},
+          {"quem": "Monitor", "fala": "Isso. E a alternativa D, com (−5, 7, −1), também é da reta, mas geraria outra escrita."}
+        ],
+        "erro": "Dois tropeços aparecem aqui. O primeiro é copiar o número do numerador com o sinal que aparece: x + 2 dá x0 = −2, e não 2. O segundo é ler o 7 do y como seta sem tirar o menos de −y. A alternativa D engana porque descreve a mesma reta, mas com essa {{vetor-diretor|seta}} a equação teria −5 e −1 nos denominadores.",
+        "confira": "Ponha P = (−2, 3, 4) nas três partes: (−2 + 2)/5 = 0, (−3 + 3)/7 = 0 e 4 − 4 = 0. Agora dê um passo com a seta: (−2, 3, 4) + (5, −7, 1) = (3, −4, 5). Nas três partes: 5/5 = 1, 7/7 = 1 e 5 − 4 = 1. Mesmo t nas três, então a seta está certa.",
+        "atalho": "Olhe primeiro o ponto: ele precisa zerar as três partes. Só (−2, 3, 4) faz isso, o que deixa C e D. Para decidir entre elas, leia os denominadores da forma padrão: 5, −7 e 1. A seta que gerou a escrita é (5, −7, 1)."
+      }
+    },
+    {
+      "id": "ga-s4-av2-t1-q1-04",
+      "semana": 4,
+      "nivel": 2,
+      "minutos": 5,
+      "tema": "Mediana do triângulo",
+      "origem": "Avaliação semanal 2 · T1-Q1 · Q04",
+      "enunciado": "Seja o triângulo de vértices A = (2, 3, −6), B = (−4, −5, 2) e C = (6, 3, 4). As equações paramétricas da reta que passa pelo ponto médio do lado AC e pelo vértice B são dadas por:",
+      "alternativas": [
+        {"t": "x = −1 + 9t, y = −1 + 6t, z = −2 + 8t", "certa": false, "erro": "Começa no ponto médio de AB, (−1, −1, −2), e não no de AC. Com t = 1 chega em (8, 5, 6), que não é B. Essa reta não passa nem por B nem pelo ponto médio de AC."},
+        {"t": "x = 4 − 8t, y = 3 − 8t, z = −1 + 3t", "certa": true},
+        {"t": "x = −1 + 7t, y = −1 + 4t, z = −2 + 6t", "certa": false, "erro": "É outra mediana do triângulo: sai do ponto médio de AB, (−1, −1, −2), e chega em C com t = 1. A pedida liga o ponto médio de AC ao vértice B."},
+        {"t": "x = 1 + 3t, y = −1 + 6t, z = 3 − 7t", "certa": false, "erro": "Começa no ponto médio de BC, (1, −1, 3). Com t = 1 chega em (4, 5, −4), que não é vértice nenhum. A reta não passa por B nem pelo ponto médio de AC."},
+        {"t": "x = 1 + t, y = −1 + 4t, z = 3 − 9t", "certa": false, "erro": "É a mediana do vértice A: sai do ponto médio de BC, (1, −1, 3), e chega em A com t = 1. Trocou o lado e o vértice."}
+      ],
+      "dica": "Calcule M = (A + C)/2. A seta é B − M. Escreva x, y e z a partir de M.",
+      "resposta": "x = 4 − 8t, y = 3 − 8t, z = −1 + 3t. O ponto médio de AC é M = (4, 3, −1), o {{vetor-diretor|vetor diretor}} é B − M = (−8, −8, 3), e com t = 1 a reta chega em B.",
+      "ouro": "Ponto médio é a **média das coordenadas**. Depois, a reta por dois pontos usa um deles como partida e a diferença entre eles como seta.",
+      "jeitos": {
+        "visual": "O triângulo tem três medianas, cada uma ligando um vértice ao meio do lado oposto. Elas se cruzam no baricentro G = (4/3, 1/3, 0). A pedida sai do meio de AC, M = (4, 3, −1), e vai até B. Com t = 0 você está em M; com t = 1 chega em B; com t = 1/3 passa por G. As alternativas C e E são as outras duas medianas.",
+        "receita": [
+          "Ponto médio de AC: M = ((2 + 6)/2, (3 + 3)/2, (−6 + 4)/2) = (4, 3, −1).",
+          "Seta: B − M = (−4 − 4, −5 − 3, 2 + 1) = (−8, −8, 3).",
+          "Paramétricas a partir de M: x = 4 − 8t, y = 3 − 8t, z = −1 + 3t.",
+          "Teste t = 1: (−4, −5, 2), que é B.",
+          "Marque a alternativa B."
+        ],
+        "cotidiano": "Três amigos moram nos vértices A, B e C. Os de A e C combinam de se encontrar no meio do caminho entre as casas deles: esse ponto de encontro é a média dos endereços, M. O de B quer uma estrada reta da casa dele até esse ponto. A estrada sai de M e aponta para B; cada valor do contador é um ponto da estrada.",
+        "trabalho": "O ponto médio é uma MÉDIA de planilha, coluna a coluna: média de x, de y e de z entre A e C. Depois a reta é uma projeção linear entre dois registros: M no período 0 e B no período 1. A variação por período é B − M. Para conferir, rode o período 1 na fórmula e compare com B. Esquecer de dividir por 2 é somar em vez de tirar a média: daria (8, 6, −2).",
+        "conversa": [
+          {"quem": "Você", "fala": "Qual ponto eu uso como partida, M ou B?"},
+          {"quem": "Monitor", "fala": "Qualquer um dos dois serve. Qual aparece nas alternativas?"},
+          {"quem": "Você", "fala": "A alternativa B começa em (4, 3, −1), que é o M."},
+          {"quem": "Monitor", "fala": "Então a seta precisa levar de M até B. Quanto dá B − M?"},
+          {"quem": "Você", "fala": "(−8, −8, 3). Bate com os números que multiplicam o t."},
+          {"quem": "Monitor", "fala": "E com t = 1 você cai exatamente em B."}
+        ],
+        "erro": "O erro mais comum é pegar o lado errado. Há três pontos médios: de AB, (−1, −1, −2); de BC, (1, −1, 3); e de AC, (4, 3, −1). As alternativas A, C, D e E partem dos dois primeiros. C e E são medianas de verdade, mas dos vértices C e A. Leia de novo o enunciado: lado AC, vértice B.",
+        "confira": "Substitua t = 1 na alternativa B: x = 4 − 8 = −4, y = 3 − 8 = −5, z = −1 + 3 = 2. Saiu (−4, −5, 2), que é B. Com t = 0 sai (4, 3, −1), a média de A e C. A reta passa pelos dois pontos pedidos.",
+        "atalho": "Calcule só o ponto médio de AC: (4, 3, −1). Só a alternativa B tem esses números como termos sem t. Falta uma prova rápida: some a seta uma vez, (4 − 8, 3 − 8, −1 + 3), e veja que sai o vértice B."
+      }
+    }
+  ]
+}

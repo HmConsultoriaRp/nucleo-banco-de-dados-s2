@@ -1,0 +1,177 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-av2-t1-q4-01",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Ângulo entre reta e plano",
+      "origem": "Avaliação semanal 2 · T1-Q4 · Q01",
+      "enunciado": "O ângulo entre a reta r: X = (1, 2, 3) + λ(−1, −2, 3), λ ∈ R e o plano π: 2x − y + 3z − 5 = 0 é:",
+      "alternativas": [
+        {"t": "30°", "certa": false, "erro": "30° pediria sen θ = 1/2, isto é, |[[v]] · [[n]]| = 7, metade de 14. A conta dá 9, e 9/14 é maior que 1/2."},
+        {"t": "4,09°", "certa": false, "erro": "Um ângulo tão pequeno pediria sen θ ≈ 1/14, com a reta quase {{paralelos-reta-plano|paralela}} ao plano. Aqui |[[v]] · [[n]]| = 9, longe de 1."},
+        {"t": "40°", "certa": true},
+        {"t": "68,21°", "certa": false, "erro": "Sai de errar o sinal do primeiro produto: (−1) · 2 virou +2, e a soma ficou 2 + 2 + 9 = 13. E arcsen(13/14) ≈ 68,21°."},
+        {"t": "20,92°", "certa": false, "erro": "Sai de errar o sinal do segundo produto: (−2) · (−1) virou −2, e a soma ficou −2 − 2 + 9 = 5. E arcsen(5/14) ≈ 20,92°."}
+      ],
+      "dica": "Reta com plano usa o seno: sen θ = |[[v]] · [[n]]| / (‖[[v]]‖ ‖[[n]]‖), com [[v]] a direção da reta e [[n]] o vetor normal do plano.",
+      "resposta": "θ = arcsen(9/14) ≈ 40,01°, a alternativa de 40°. No {{ang-reta-plano|ângulo entre reta e plano}} entra o seno, porque o {{vetor-normal|vetor normal}} fica em pé e mede o que falta para 90°.",
+      "ouro": "Reta com plano: **seno**. O prego (vetor normal) fica em pé, então o ângulo com o plano é o que falta para 90°.",
+      "jeitos": {
+        "visual": "Pense no {{vetor-normal|vetor normal}} [[n]] = (2, −1, 3) como um prego em pé no plano. A reta r faz com esse prego um ângulo de quase 50°. O ângulo com o chão é o que falta para 90°: cerca de 40°. Por isso, em reta com plano, a fórmula usa o seno no lugar do cosseno.",
+        "receita": [
+          "Leia a direção da reta: [[v]] = (−1, −2, 3), o vetor que multiplica λ.",
+          "Leia o vetor normal nos coeficientes de x, y e z: [[n]] = (2, −1, 3).",
+          "Faça [[v]] · [[n]] = −2 + 2 + 9 = 9.",
+          "Calcule ‖[[v]]‖ = √14 e ‖[[n]]‖ = √14; o produto das normas é 14.",
+          "Use o seno: sen θ = |9|/14 ≈ 0,643.",
+          "Conclua: θ = arcsen(9/14) ≈ 40,01°, a alternativa de 40°."
+        ],
+        "cotidiano": "Uma escada encostada no muro faz um ângulo com o chão e outro com um poste em pé ao lado dela. Os dois somam 90°. A conta com o vetor normal mede contra o poste. O seno devolve direto o ângulo com o chão, que é o que a questão pede.",
+        "trabalho": "Na planilha, com [[v]] em B2:D2 e [[n]] em B3:D3, a fórmula `=GRAUS(ASEN(ABS(SOMARPRODUTO(B2:D2;B3:D3))/RAIZ(SOMAQUAD(B2:D2)*SOMAQUAD(B3:D3))))` devolve 40,01. Trocar ASEN por ACOS devolve 49,99, o ângulo com o prego. É como auditar uma fórmula antes de confiar no número: a função errada gera um valor plausível e errado.",
+        "conversa": [
+          {"quem": "Você", "fala": "Usei cosseno e achei 49,99°. Não tem essa alternativa."},
+          {"quem": "Monitor", "fala": "Esse é o ângulo entre a reta e o quê?"},
+          {"quem": "Você", "fala": "Entre a reta e o vetor normal."},
+          {"quem": "Monitor", "fala": "E o vetor normal fica em pé no plano. Quanto falta para 90°?"},
+          {"quem": "Você", "fala": "90 − 49,99 = 40,01. Então é a de 40°."},
+          {"quem": "Monitor", "fala": "Isso. O seno faz essa subtração por você."}
+        ],
+        "erro": "Três tropeços rondam esta questão. Usar cosseno dá 49,99°, o ângulo com o prego, e não com o plano. Errar um sinal no produto escalar troca o 9 por 13 ou por 5, e leva a 68,21° ou 20,92°. E usar o ponto (1, 2, 3) no lugar da direção é perigoso: aqui o resultado é 9 por coincidência, mas na Q07 o mesmo deslize leva a uma alternativa errada.",
+        "confira": "Teste ao contrário: sen 40° ≈ 0,6428 e 9/14 ≈ 0,6429. Os dois batem até a terceira casa. Outra prova: arccos(9/14) ≈ 49,99°, e 49,99° + 40,01° = 90°. O ângulo com o prego e o ângulo com o plano sempre se completam até 90°.",
+        "atalho": "As duas normas valem √14, então o denominador é 14. Basta o numerador: sen θ = 9/14, um pouco menos que 2/3. O ângulo de seno 2/3 fica perto de 42°, então a resposta é um pouco menor que isso. Só a alternativa de 40° serve."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q4-02",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 7,
+      "tema": "Ângulo entre dois planos",
+      "origem": "Avaliação semanal 2 · T1-Q4 · Q02",
+      "enunciado": "Sejam π₁ o plano que passa pelos pontos A = (−1, −2, −1), B = (−1, 2, 3) e C = (1, 4, 7) e π₂ o plano que passa pelos pontos D = (3, 4, −2), E = (−3, −1, −6) e é paralelo ao eixo y. Determine o ângulo entre os planos π₁ e π₂.",
+      "alternativas": [
+        {"t": "36,81°", "certa": true},
+        {"t": "27,19°", "certa": false, "erro": "Sai de copiar o z de A com sinal trocado, A = (−1, −2, 1). A {{vetor-normal|normal}} de π₁ muda, e o ângulo cai para 27,19°. Com A = (−1, −2, −1), a normal é (1, 1, −1)."},
+        {"t": "66,91°", "certa": false, "erro": "Sai de copiar o y de A com sinal trocado, A = (−1, 2, −1). Um único sinal errado no ponto muda o {{vetor-normal|vetor normal}} de π₁ e leva a 66,91°."},
+        {"t": "86,53°", "certa": false, "erro": "Aparece com dois sinais trocados em A, que vira (1, 2, −1). Com os pontos certos, |cos θ| = 5/√39 ≈ 0,80, longe do cosseno quase zero de 86,53°."},
+        {"t": "64,16°", "certa": false, "erro": "64,16° pediria |cos θ| ≈ 0,44. Com as normais certas, (1, 1, −1) e (2, 0, −3), o cosseno é 5/√39 ≈ 0,80. Esse valor aparece se dois sinais forem copiados trocados: o x de A e o y de C."}
+      ],
+      "dica": "Normal de π₁: [[AB]] × [[AC]]. Normal de π₂: [[DE]] × (0, 1, 0), porque o plano contém a direção do eixo y. Depois, cosseno com módulo.",
+      "resposta": "θ ≈ 36,81°. As normais são (1, 1, −1) e (2, 0, −3), e o {{ang-planos|ângulo entre planos}} sai de cos θ = 5/√39 ≈ 0,8006.",
+      "ouro": "Plano paralelo a um eixo **contém a direção desse eixo**. Por isso o vetor do eixo entra no produto vetorial como se fosse um segundo vetor do plano.",
+      "jeitos": {
+        "visual": "Pense em π₂ como uma parede que corre ao lado do eixo y, sem nunca cruzá-lo. Ela contém duas direções: a de [[DE]] e a do eixo y. O {{vetor-normal|vetor normal}} de π₂ é perpendicular às duas; o de π₁ é perpendicular a [[AB]] e [[AC]]. O ângulo entre as duas paredes é o ângulo entre esses dois pregos, com módulo.",
+        "receita": [
+          "[[AB]] = (0, 4, 4) e [[AC]] = (2, 6, 8).",
+          "[[n1]] = [[AB]] × [[AC]] = (8, 8, −8), ou (1, 1, −1).",
+          "[[DE]] = (−6, −5, −4), e o eixo y dá (0, 1, 0).",
+          "[[n2]] = [[DE]] × (0, 1, 0) = (4, 0, −6), ou (2, 0, −3).",
+          "[[n1]] · [[n2]] = 2 + 0 + 3 = 5, com normas √3 e √13.",
+          "cos θ = 5/√39 ≈ 0,8006, então θ ≈ 36,81°."
+        ],
+        "cotidiano": "Para medir o ângulo entre duas paredes de um galpão, o pedreiro não precisa medir a parede inteira. Ele crava um prego em pé em cada uma e mede a abertura entre os pregos. Se a abertura passar de 90°, ele fica com o lado agudo, porque a quina tem dois lados e o curso escolhe o menor.",
+        "trabalho": "Antes de confiar no ângulo, faça a prova de integridade, como no fechamento do mês: cada ponto precisa zerar a equação do seu plano. Com π₁: x + y − z + 2 = 0, os pontos A, B e C dão zero. Com π₂: 2x − 3z − 12 = 0, D e E dão zero. Um sinal copiado errado em A já levaria a 27,19° ou 66,91°.",
+        "conversa": [
+          {"quem": "Você", "fala": "Só tenho dois pontos de π₂. Como acho a normal?"},
+          {"quem": "Monitor", "fala": "O que quer dizer o plano ser paralelo ao eixo y?"},
+          {"quem": "Você", "fala": "Que ele também anda na direção do eixo y?"},
+          {"quem": "Monitor", "fala": "Isso. Então (0, 1, 0) é um segundo vetor deitado no plano, ao lado de [[DE]]."},
+          {"quem": "Você", "fala": "Aí faço [[DE]] × (0, 1, 0) e saio com (4, 0, −6)."},
+          {"quem": "Monitor", "fala": "E repare: o y da normal ficou zero. Plano paralelo ao eixo y não tem y na equação."}
+        ],
+        "erro": "O ponto fraco aqui é a cópia dos pontos. Um sinal trocado no z de A leva a 27,19°; no y de A, a 66,91°. Outro tropeço é achar que falta informação para π₂: o eixo y fornece o segundo vetor deitado no plano. E vale simplificar as normais antes de multiplicar: (1, 1, −1) e (2, 0, −3) dão o mesmo ângulo com contas menores.",
+        "confira": "π₂ é paralelo ao eixo y se a normal for perpendicular a (0, 1, 0): (4, 0, −6) · (0, 1, 0) = 0. Confere. O tamanho das normais não altera o ângulo: com (8, 8, −8) e (4, 0, −6), o produto é 80, e 80² / (192 · 52) = 25/39, o mesmo cos² θ das normais simplificadas.",
+        "atalho": "Plano paralelo ao eixo y tem normal sem y: (a, 0, c). Ela precisa ser perpendicular a [[DE]] = (−6, −5, −4), então −6a − 4c = 0, o que dá (2, 0, −3). Repare que o y de D e de E nem entra na conta. Para π₁, o produto vetorial simplificado dá (1, 1, −1)."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q4-03",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 2,
+      "tema": "Intervalo do ângulo entre retas",
+      "origem": "Avaliação semanal 2 · T1-Q4 · Q03",
+      "enunciado": "Verdadeiro ou falso? O ângulo entre duas retas r e s é sempre um ângulo pertencente ao intervalo [0, π].",
+      "alternativas": [
+        {"t": "Verdadeiro: o ângulo entre retas usa o cosseno sem módulo, como entre vetores, e por isso vai de 0 a π", "certa": false, "erro": "Reta tem direção, mas não tem sentido. Por isso o {{ang-retas|ângulo entre retas}} usa |cos θ| e fica entre 0 e π/2. Cosseno sem módulo é a conta entre vetores."},
+        {"t": "Verdadeiro: todo valor de [0, π/2] também está em [0, π], então a frase vale", "certa": false, "erro": "É a leitura ao pé da letra. A frase não pergunta se o ângulo cabe num intervalo maior: ela descreve a faixa do ângulo entre retas. Na convenção do professor essa faixa é [0, π/2], e [0, π] é a faixa do {{ang-vetores|ângulo entre vetores}}. O gabarito marcou Falso."},
+        {"t": "Falso: retas reversas não se cruzam, então não formam ângulo", "certa": false, "erro": "Retas {{reversas|reversas}} formam ângulo, sim: ele é medido entre as direções. É por isso que existem retas ortogonais que não se cruzam."},
+        {"t": "Falso: o ângulo entre retas fica em [0, π/2]; o intervalo [0, π] é o do ângulo entre vetores", "certa": true},
+        {"t": "Falso: o ângulo entre retas fica em [0, π/2), porque retas nunca formam exatamente 90°", "certa": false, "erro": "O veredito está certo, mas o motivo não. Retas {{ortogonais|ortogonais}} formam exatamente 90°, ou π/2, que está dentro do intervalo fechado [0, π/2]."}
+      ],
+      "dica": "Compare com a frase da Q05 desta avaliação, sobre planos, que usa [0, π/2]. Reta tem direção, mas não tem sentido.",
+      "resposta": "Falso. Na convenção do professor, o {{ang-retas|ângulo entre retas}} usa o cosseno com módulo e fica em [0, π/2]. O intervalo [0, π] é o do {{ang-vetores|ângulo entre vetores}}.",
+      "ouro": "**Vetor tem sentido; reta não.** Entre vetores, de 0 a π. Entre retas e entre planos, de 0 a π/2.",
+      "jeitos": {
+        "visual": "Duas retas que se cruzam desenham um X. O X tem dois pares de ângulos, um agudo e um obtuso, que somam 180°. Como a reta não aponta para lado nenhum, os dois pares descrevem o mesmo cruzamento. A convenção fica com o agudo. Por isso o {{ang-retas|ângulo entre retas}} nunca passa de 90°, isto é, de π/2.",
+        "receita": [
+          "Veja sobre o que a frase fala: retas, não vetores.",
+          "Lembre a fórmula do curso: cos θ = |[[u]] · [[v]]| / (‖[[u]]‖ ‖[[v]]‖).",
+          "Com o módulo, o cosseno fica entre 0 e 1.",
+          "Cosseno entre 0 e 1 corresponde a ângulo entre 0 e π/2.",
+          "A frase dá [0, π], a faixa dos vetores: é Falsa."
+        ],
+        "cotidiano": "Numa esquina onde uma avenida cruza uma rua, quem pergunta o ângulo espera ouvir 60°, e não 120°. As duas medidas descrevem a mesma esquina, e a gente fala do lado fechado. Já o volante de um carro tem sentido: virar 60° ou 120° leva a lugares diferentes. Reta é a esquina; vetor é o volante.",
+        "trabalho": "Lembra uma regra de classificação no plano de contas de um cliente. Lida ao pé da letra, uma despesa pode caber em duas contas, mas o que vale é o critério combinado. Aqui o critério do professor é a faixa [0, π/2] para retas, e a faixa [0, π] fica reservada aos vetores. Na avaliação, a resposta aceita foi Falso.",
+        "conversa": [
+          {"quem": "Você", "fala": "Mas 30° está dentro de [0, π]. A frase não é verdadeira?"},
+          {"quem": "Monitor", "fala": "Ao pé da letra, sim. Mas qual é a faixa que o professor usa para retas?"},
+          {"quem": "Você", "fala": "De 0 a π/2, por causa do módulo."},
+          {"quem": "Monitor", "fala": "E [0, π] é a faixa de quê?"},
+          {"quem": "Você", "fala": "Do ângulo entre vetores."},
+          {"quem": "Monitor", "fala": "Então a frase troca a faixa das retas pela dos vetores. Para ele, é Falsa."}
+        ],
+        "erro": "A armadilha é ler a frase como lógica pura. Todo ângulo de [0, π/2] cabe em [0, π], então a palavra 'sempre' parece segura. Mas a questão cobra a convenção. A mesma prova traz a frase sobre planos com [0, π/2], que é Verdadeira. Esta troca o intervalo para [0, π], a faixa do {{ang-vetores|ângulo entre vetores}}, e o gabarito marcou Falso.",
+        "confira": "Teste com a Lista 7, Q1a: direções (1, 1, 1) e (1, −2, −3). O produto escalar dá −4. Sem módulo, o ângulo seria 128,11°; com módulo, 51,89°. O gabarito do professor traz 51,9°. Então ele usa o módulo, e o ângulo entre retas não passa de 90°.",
+        "atalho": "Pergunte: o objeto tem sentido? Vetor tem, e o ângulo vai até π. Reta e plano não têm, e o ângulo para em π/2. Neste curso, uma frase que dê [0, π] como faixa de retas ou de planos está com a faixa errada."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q4-04",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 5,
+      "tema": "Retas pelos ângulos com os eixos",
+      "origem": "Avaliação semanal 2 · T1-Q4 · Q04",
+      "enunciado": "Verdadeiro ou falso? Existem 4 retas distintas que passam pelo ponto (1, 2, 3) e que formam ângulos de 45° e 60° com os eixos x e y, respectivamente.",
+      "alternativas": [
+        {"t": "Falso: são 8 retas, uma para cada combinação de sinais em (±√2/2, ±1/2, ±1/2)", "certa": false, "erro": "Isso conta vetores, não retas. [[u]] e −[[u]] são {{multiplo|múltiplos}} um do outro: mesma linha, lados opostos. Os 8 vetores formam 4 pares, então são 4 retas."},
+        {"t": "Verdadeiro: o z sai ±1/2, e os sinais de y e de z geram 4 direções, porque [[u]] e −[[u]] são a mesma reta", "certa": true},
+        {"t": "Falso: os ângulos com x e com y já fixam a direção, então existe uma reta só", "certa": false, "erro": "O ângulo com z não foi dado. Pela soma dos {{cossenos-diretores|cossenos diretores}}, cos² γ = 1 − 1/2 − 1/4 = 1/4, e cos γ pode ser 1/2 ou −1/2. Com a escolha de sinal em y, saem 4 retas."},
+        {"t": "Falso: são só 2 retas, (√2/2, 1/2, ±1/2), porque y negativo daria 120° com o eixo y", "certa": false, "erro": "Entre vetores, sim: (√2/2, −1/2, 1/2) faz 120° com (0, 1, 0). Mas o {{ang-retas|ângulo entre retas}} usa módulo, e 120° vira 60°. Com y = −1/2, a reta também faz 60° com o eixo y."},
+        {"t": "Verdadeiro: o z pode ser 1/2, −1/2, √2/2 ou −√2/2, e isso dá 4 retas", "certa": false, "erro": "O veredito está certo, mas a conta não. Com z = √2/2, a soma dos quadrados dá 1/2 + 1/4 + 1/2 = 5/4, e não 1. O z só pode ser ±1/2; as 4 retas vêm dos sinais de y e de z."}
+      ],
+      "dica": "Numa seta de comprimento 1, as coordenadas são os cossenos dos ângulos com os eixos, e os quadrados somam 1. Lembre que [[u]] e −[[u]] dão a mesma reta.",
+      "resposta": "Verdadeiro. As 4 direções são (√2/2, ±1/2, ±1/2). O z sai de cos² γ = 1/4, e o {{ang-retas|ângulo entre retas}} usa módulo, por isso y = −1/2 também faz 60° com o eixo y.",
+      "ouro": "Conte **retas**, não setas: [[u]] e −[[u]] são a mesma reta. 8 setas viram 4 retas.",
+      "jeitos": {
+        "visual": "Imagine uma seta de comprimento 1 saindo de (1, 2, 3). A sombra dela no eixo x mede √2/2, e a sombra no eixo y mede 1/2. A sombra no eixo z sai da conta: 1/2. Cada sombra pode cair para um lado ou para o outro, o que gera 8 setas. Mas cada seta e a sua oposta desenham a mesma reta, e sobram 4.",
+        "receita": [
+          "Use cos 45° = √2/2 para x e cos 60° = 1/2 para y.",
+          "Some os quadrados: 1/2 + 1/4 = 3/4.",
+          "Complete até 1: cos² γ = 1/4, então z = ±1/2.",
+          "Combine os sinais: (±√2/2, ±1/2, ±1/2) dá 8 vetores.",
+          "Junte cada [[u]] com −[[u]]: sobram 4 retas.",
+          "Conclua: a afirmação é Verdadeira."
+        ],
+        "cotidiano": "Uma antena presa num ponto precisa fazer 45° com uma régua que aponta para o leste e 60° com outra que aponta para o norte. Há quatro jeitos de instalar: puxada para o norte ou para o sul, e para cima ou para baixo. Virar a antena de ponta-cabeça não cria um quinto jeito, porque ela continua na mesma linha.",
+        "trabalho": "É um caso de registro em duplicidade. Liste os 8 vetores numa tabela e normalize o sinal: multiplique por −1 toda linha com x negativo. Depois, um SELECT DISTINCT nas três colunas devolve 4 linhas. Contar antes de tirar as duplicatas dá 8, o mesmo erro de somar parcela e baixa do extrato como se fossem dois títulos.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei z = ±1/2. Então são 2 retas?"},
+          {"quem": "Monitor", "fala": "E o y? Ele precisa ser +1/2?"},
+          {"quem": "Você", "fala": "Com −1/2, o ângulo com o eixo y dá 120°."},
+          {"quem": "Monitor", "fala": "Entre vetores. E entre retas, com o módulo?"},
+          {"quem": "Você", "fala": "Vira 60°. Então o y também tem dois sinais: são 4 retas."},
+          {"quem": "Monitor", "fala": "Isso. E o x negativo não acrescenta nada: ele só vira a seta ao contrário."}
+        ],
+        "erro": "Dois erros opostos aparecem. O primeiro é contar 8, uma reta por vetor, esquecendo que a seta e a oposta ficam na mesma linha. O segundo é contar 2, exigindo y positivo, como se o ângulo fosse entre vetores. O professor mede o {{ang-retas|ângulo entre retas}} com módulo, e o gabarito da Lista 7, Q3 traz as mesmas 4 retas.",
+        "confira": "Pegue (√2/2, −1/2, −1/2). O comprimento é √(1/2 + 1/4 + 1/4) = 1. Com o eixo x, |cos| = √2/2, ou seja, 45°. Com o eixo y, |cos| = 1/2, ou seja, 60°. Confere. E as 4 direções não são {{multiplo|múltiplas}} umas das outras: o produto vetorial de cada par é diferente de zero.",
+        "atalho": "Fixe o x positivo, √2/2. Assim cada reta aparece uma vez só, sem a seta oposta. Sobram dois sinais livres, o de y e o de z, e cada um tem duas escolhas: 2 × 2 = 4 retas. A frase é Verdadeira."
+      }
+    }
+  ]
+}

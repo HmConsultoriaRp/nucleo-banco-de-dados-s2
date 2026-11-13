@@ -23,7 +23,9 @@ EMOJI = re.compile("[\U0001F300-\U0001FAFF☀-⛿✀-➿]")
 erros, avisos = [], []
 
 def tira_codigo(s):
-    return re.sub(r"`[^`]*`", " ", s)
+    s = re.sub(r"`[^`]*`", " ", s)
+    # termo ligado {{id|texto}}: o id é código (pode ter "unico" sem acento); confere só o texto
+    return re.sub(r"\{\{[a-z0-9-]+\|([^}]*)\}\}", r"\1", s)
 
 def checa_texto(onde, s, matematica=True):
     if not isinstance(s, str) or not s.strip():

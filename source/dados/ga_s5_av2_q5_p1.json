@@ -1,0 +1,220 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-av2-t1-q5-01",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 6,
+      "tema": "Posição de três planos",
+      "origem": "Avaliação semanal 2 · T1-Q5 · Q01",
+      "enunciado": "Determine a posição relativa entre os planos π₁: 4x + 2y − 3z + 7 = 0, π₂: 4x + 2y − 2z + 1 = 0 e π₃: −4x − 2y + z − 5 = 0.",
+      "alternativas": [
+        {"t": "Os três planos são distintos e se intersectam ao longo de uma reta", "certa": false, "erro": "Determinante 0 deixa dois casos abertos, e este é o outro. O corte de π₁ e π₂ tem z = 6 e 4x + 2y = 11. Em π₃ esse corte dá −11 + 6 − 5 = −10, e não 0. A {{reta-comum|reta comum}} exigiria 0."},
+        {"t": "Os três planos têm um único ponto em comum", "certa": false, "erro": "A coluna de x, (4, 4, −4), é o dobro da coluna de y, (2, 2, −2). Por isso o determinante dos normais é 0, e o ponto único cai."},
+        {"t": "Os três planos se intersectam, dois a dois, segundo retas paralelas entre si", "certa": true},
+        {"t": "Dois dos planos são paralelos e o terceiro os intersecta segundo retas paralelas", "certa": false, "erro": "(4, 2, −3) e (−4, −2, 1) parecem opostos, mas o oposto de (4, 2, −3) é (−4, −2, 3). O z não bate. Nenhum par de normais é múltiplo, então nenhum par de planos é {{paralelos-distintos|paralelo}}."},
+        {"t": "Os planos são paralelos dois a dois", "certa": false, "erro": "O trecho 4x + 2y se repete, mas o z muda: −3, −2 e 1. Para planos paralelos, as três coordenadas do {{vetor-normal|vetor normal}} precisam ser proporcionais, e não só as duas primeiras."}
+      ],
+      "dica": "Troque 4x + 2y por s. Ache o corte de dois planos e teste esse corte no terceiro.",
+      "resposta": "Os três planos se intersectam, dois a dois, segundo retas paralelas entre si. As três retas de corte têm a direção (1, −2, 0), e nenhum ponto é comum aos três: é o caso das {{calha|retas paralelas dois a dois}}, a barraca.",
+      "ouro": "Determinante 0 só elimina o **ponto único**. Quem separa a reta comum da barraca é o teste do corte de dois planos no terceiro.",
+      "jeitos": {
+        "visual": "Imagine uma barraca de camping: duas lonas inclinadas e o chão. Cada par de folhas se encontra numa dobra, e as três dobras correm lado a lado, na direção (1, −2, 0). Por dentro fica um túnel vazio, sem ponto que pertença às três folhas. Visto pela ponta, o túnel é um triângulo. Aqui as dobras estão nas alturas z = 6, z = 1 e z = −4. É o caso das {{calha|retas paralelas dois a dois}}.",
+        "receita": [
+          "{{vetor-normal|Normais}}: (4, 2, −3), (4, 2, −2) e (−4, −2, 1). Nenhum par é múltiplo, então nenhum par de planos é paralelo.",
+          "A coluna de x é o dobro da de y: o determinante dá 0. Não é ponto único.",
+          "Use s = 4x + 2y. Os planos viram s − 3z + 7 = 0, s − 2z + 1 = 0 e −s + z − 5 = 0.",
+          "Corte de π₁ e π₂: z = 6 e s = 11. Em π₃: −11 + 6 − 5 = −10, e não 0.",
+          "Os outros cortes dão z = 1 e z = −4: três retas diferentes, todas na direção (1, −2, 0).",
+          "Posição: dois a dois, segundo retas paralelas entre si."
+        ],
+        "cotidiano": "Três sócios tentam marcar reunião. Ana e Bruno podem na terça. Ana e Carla, na quarta. Bruno e Carla, na quinta. Toda dupla tem um dia livre em comum, e o trio não tem nenhum. Os três planos se comportam assim: cada dupla se encontra numa reta, mas nenhum ponto serve aos três ao mesmo tempo.",
+        "trabalho": "Faça a conciliação linha a linha. π₁ − 2·π₂ dá −4x − 2y + z + 5 = 0. As colunas de x, y e z batem com π₃, mas o termo final é +5 de um lado e −5 do outro. Subtraindo, sobra 10 em vez de 0. É a planilha em que cada coluna fecha e o total não: uma diferença de 10 que nenhum valor de x, y ou z consegue zerar. Por isso não existe ponto comum aos três.",
+        "conversa": [
+          {"quem": "Você", "fala": "O determinante deu 0. Então os três têm uma {{reta-comum|reta em comum}}?"},
+          {"quem": "Monitor", "fala": "Determinante 0 deixa dois casos. Qual é o outro?"},
+          {"quem": "Você", "fala": "As três retas paralelas, a barraca."},
+          {"quem": "Monitor", "fala": "Pegue o corte de π₁ e π₂ e leve para π₃."},
+          {"quem": "Você", "fala": "z = 6 e 4x + 2y = 11. Em π₃ dá −11 + 6 − 5 = −10."},
+          {"quem": "Monitor", "fala": "Deu 0?"},
+          {"quem": "Você", "fala": "Não. Então é a barraca: retas paralelas dois a dois."}
+        ],
+        "erro": "A armadilha é parar no determinante. Ele deu 0, e isso só tira o ponto único. Sobram a {{reta-comum|reta comum}} e as {{calha|retas paralelas dois a dois}}, e quem decide é o teste do corte no terceiro plano. Outro tropeço é ver 4x + 2y nos três e concluir que são paralelos. Para isso o z também teria de acompanhar, e −3, −2 e 1 não acompanham.",
+        "confira": "Teste cada corte no plano que ficou de fora. Corte de π₁ e π₃: z = 1 e s = −4; em π₂ dá −4 − 2 + 1 = −5. Corte de π₂ e π₃: z = −4 e s = −9; em π₁ dá −9 + 12 + 7 = 10. Corte de π₁ e π₂: z = 6, e em π₃ dá −10. Nenhum zera. A direção (1, −2, 0) faz 90° com os três normais, por exemplo 4 − 4 + 0 = 0.",
+        "atalho": "Olhe primeiro as colunas. Coluna x igual ao dobro da coluna y: determinante 0, então sai o ponto único. Nenhum par de normais é múltiplo, então saem as opções com planos paralelos. Restam a reta comum e a barraca. Um teste decide: o corte z = 6, s = 11 dá −10 em π₃. Não é 0, logo barraca."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q5-02",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Distância entre planos paralelos",
+      "origem": "Avaliação semanal 2 · T1-Q5 · Q02",
+      "enunciado": "Verdadeiro ou falso? Seja d₁ > d₂. A distância entre dois planos paralelos π₁: ax + by + cz + d₁ = 0 e π₂: ax + by + cz + d₂ = 0 é d(π₁, π₂) = (d₁ − d₂)/√(a² + b² + c²).",
+      "alternativas": [
+        {"t": "Verdadeiro: a fórmula geral tem |d₁ − d₂|, e com d₁ > d₂ esse módulo não muda nada.", "certa": true},
+        {"t": "Falso: falta o módulo no numerador, e a fórmula pode dar valor negativo.", "certa": false, "erro": "Com d₁ > d₂, a diferença d₁ − d₂ já é positiva. O módulo só faria falta se a ordem fosse desconhecida. A condição do enunciado existe justamente para dispensá-lo."},
+        {"t": "Falso: o certo é (d₂ − d₁)/√(a² + b² + c²).", "certa": false, "erro": "Com d₁ > d₂, d₂ − d₁ é negativo. Em x + 2y + 2z + 7 = 0 e x + 2y + 2z + 1 = 0, daria (1 − 7)/3 = −2, e distância não é negativa."},
+        {"t": "Falso: o denominador deveria ser a² + b² + c², sem a raiz.", "certa": false, "erro": "Divide-se pelo tamanho do {{vetor-normal|vetor normal}}, que leva raiz. No exemplo com (1, 2, 2), a distância medida é 2 = 6/3. Sem a raiz daria 6/9 = 2/3."},
+        {"t": "Verdadeiro, mas só quando d₁ e d₂ são positivos.", "certa": false, "erro": "O sinal de cada um não importa, só a ordem. Com (2, 3, 6), d₁ = −1 e d₂ = −15, a fórmula dá 14/7 = 2, e a distância medida a partir de um ponto de π₂ também é 2."}
+      ],
+      "dica": "Pegue um ponto de π₂ e meça a distância dele até π₁ pela fórmula de ponto a plano.",
+      "resposta": "Verdadeiro. A {{dist-planos|distância entre planos paralelos}} é |d₁ − d₂|/√(a² + b² + c²). Como d₁ > d₂, o número d₁ − d₂ é positivo, e o módulo pode sair.",
+      "ouro": "O módulo protege contra a ordem errada. Quando o enunciado já garante d₁ > d₂, a diferença é positiva e a fórmula **sem módulo** está certa.",
+      "jeitos": {
+        "visual": "Dois {{paralelos-distintos|planos paralelos}} são dois andares de um prédio, com o mesmo prego em pé. A distância é a altura entre os andares. O d de cada equação marca em que nível está cada andar, contado ao longo do prego. A diferença d₁ − d₂ é o desnível, e dividir pelo tamanho do prego converte esse desnível em distância de verdade.",
+        "receita": [
+          "Os dois planos têm o mesmo (a, b, c): são paralelos, com o mesmo {{vetor-normal|vetor normal}}.",
+          "Pegue um ponto P de π₂. Nele, ax + by + cz = −d₂.",
+          "Distância de P a π₁: |ax + by + cz + d₁|/√(a² + b² + c²) = |d₁ − d₂|/√(a² + b² + c²).",
+          "Com d₁ > d₂, d₁ − d₂ é positivo: |d₁ − d₂| = d₁ − d₂.",
+          "A fórmula do enunciado vale: Verdadeiro."
+        ],
+        "cotidiano": "Dois boletos têm o mesmo valor de base e encargos diferentes. A diferença entre eles é sempre o maior menos o menor. Se alguém já avisou qual é o maior, você subtrai nessa ordem e não precisa de módulo. O módulo só serve quando a ordem é desconhecida. Aqui o enunciado avisou: d₁ é o maior.",
+        "trabalho": "Na planilha, a diferença entre dois saldos costuma vir com =ABS(B2 − C2), para não sair negativa. Se uma regra de validação já garante B2 > C2, o ABS fica redundante: =B2 − C2 dá o mesmo número. A fórmula do enunciado é essa versão sem ABS, protegida pela condição d₁ > d₂. Depois vem a divisão pelo tamanho do vetor (a, b, c), como quem converte a unidade.",
+        "conversa": [
+          {"quem": "Você", "fala": "A fórmula que eu decorei tem módulo. Essa não tem. Está errada?"},
+          {"quem": "Monitor", "fala": "Para que serve o módulo ali?"},
+          {"quem": "Você", "fala": "Para a distância não sair negativa."},
+          {"quem": "Monitor", "fala": "E com d₁ > d₂, a diferença d₁ − d₂ pode ser negativa?"},
+          {"quem": "Você", "fala": "Não. Já é positiva."},
+          {"quem": "Monitor", "fala": "Então o módulo não muda nada. A afirmação é verdadeira."}
+        ],
+        "erro": "O tropeço é marcar Falso só porque falta o módulo. A frase traz a condição d₁ > d₂, e ela faz o trabalho do módulo. Outro deslize é trocar a ordem e escrever d₂ − d₁, que daria número negativo. Cuidado também com a raiz no denominador: divide-se pelo tamanho do {{vetor-normal|vetor normal}}, não pelo quadrado dele.",
+        "confira": "Teste com x + 2y + 2z + 7 = 0 e x + 2y + 2z + 1 = 0. O ponto (−1, 0, 0) está no segundo, porque −1 + 1 = 0. No primeiro, ele dá −1 + 7 = 6. O tamanho de (1, 2, 2) é 3, então a distância medida é 6/3 = 2. A fórmula do enunciado dá (7 − 1)/3 = 2. Bate.",
+        "atalho": "Leia a condição antes da fórmula. Se o enunciado garante qual d é o maior e a subtração segue essa ordem, a falta do módulo não é erro. Confira só duas coisas: o mesmo (a, b, c) nos dois planos e a raiz no denominador. Com isso, Verdadeiro."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q5-03",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Reta paralela ou contida",
+      "origem": "Avaliação semanal 2 · T1-Q5 · Q03",
+      "enunciado": "Verdadeiro ou falso? Sejam r uma reta com vetor diretor [[r]] e π um plano com vetor normal [[n]]. Se [[r]] · [[n]] = 0, então d(r, π) ≠ 0.",
+      "alternativas": [
+        {"t": "Verdadeiro: [[r]] · [[n]] = 0 quer dizer reta paralela ao plano, e reta paralela nunca toca o plano.", "certa": false, "erro": "[[r]] · [[n]] = 0 só diz que a reta anda deitada, na direção do plano. Ela pode correr acima dele ou dentro dele. Se estiver {{contida|contida}}, a distância é 0."},
+        {"t": "Verdadeiro: com [[r]] · [[n]] = 0, a reta fura o plano em pé e fica longe dele.", "certa": false, "erro": "Reta em pé é a {{perpendicular-reta-plano|perpendicular}}, com [[r]] na direção de [[n]]; aí [[r]] · [[n]] não é 0. E reta que fura o plano tem distância 0."},
+        {"t": "Falso: com [[r]] · [[n]] = 0 a reta sempre fura o plano, e a distância é 0.", "certa": false, "erro": "É o contrário. Quem fura o plano é a reta com [[r]] · [[n]] ≠ 0, a {{concorrentes-reta-plano|concorrente}}. Com produto 0, a reta é paralela ou contida, e no caso paralelo a distância é positiva."},
+        {"t": "Falso: [[r]] · [[n]] = 0 também vale para reta contida no plano, e aí d(r, π) = 0.", "certa": true},
+        {"t": "Falso: a distância é diferente de 0 só quando [[r]] · [[n]] ≠ 0.", "certa": false, "erro": "Quando [[r]] · [[n]] ≠ 0, a reta fura o plano, e a distância é 0. A frase inverte os casos."}
+      ],
+      "dica": "Quais posições de reta e plano dão [[r]] · [[n]] = 0? Há duas. Veja a distância em cada uma.",
+      "resposta": "Falso. [[r]] · [[n]] = 0 vale para reta {{paralelos-reta-plano|paralela}} ao plano e para reta {{contida|contida}} nele. Na contida, d(r, π) = 0, e um caso basta para derrubar a frase.",
+      "ouro": "Produto escalar 0 entre a direção da reta e o normal deixa **duas posições**: paralela ou contida. Para decidir, teste um ponto da reta na equação do plano.",
+      "jeitos": {
+        "visual": "O {{vetor-normal|vetor normal}} é o prego em pé no plano. [[r]] · [[n]] = 0 diz que a reta faz 90° com o prego, isto é, anda deitada. Uma régua deitada pode flutuar acima da mesa, como um fio esticado, ou estar apoiada no tampo. No primeiro caso há um vão até a mesa. No segundo, a régua encosta no tampo inteiro, e a distância é 0.",
+        "receita": [
+          "[[r]] · [[n]] = 0: a reta faz 90° com o {{vetor-normal|vetor normal}}.",
+          "Isso deixa duas posições: paralela ao plano ou contida nele.",
+          "Pegue um ponto da reta e coloque na equação do plano.",
+          "Se não dá 0, é paralela, e a distância é positiva. Se dá 0, é contida, e a distância é 0.",
+          "Como o caso contido é possível, a afirmação é Falsa."
+        ],
+        "cotidiano": "Um varal esticado na mesma direção do chão pode estar a dois metros de altura ou largado no piso. Nos dois casos ele corre paralelo ao chão, com a mesma inclinação. Só que, no piso, a distância é zero. Saber a direção do varal não revela a altura: falta olhar um ponto dele.",
+        "trabalho": "Pense na conciliação de duas contas com o mesmo movimento todo mês. Movimento igual não diz se os saldos coincidem ou se há um desnível fixo entre eles. [[r]] · [[n]] = 0 é o movimento igual. O teste de um ponto da reta na equação do plano é comparar o saldo inicial: diferença 0 é reta {{contida|contida}}; diferença diferente de 0 é reta paralela, com distância positiva.",
+        "conversa": [
+          {"quem": "Você", "fala": "Se a reta faz 90° com o normal, ela é paralela ao plano. Então tem distância."},
+          {"quem": "Monitor", "fala": "Paralela por fora ou dentro do plano?"},
+          {"quem": "Você", "fala": "Como assim, dentro?"},
+          {"quem": "Monitor", "fala": "Pegue x + y + z − 3 = 0 e a reta (1, 1, 1) + t(1, −1, 0). Quanto dá [[r]] · [[n]]?"},
+          {"quem": "Você", "fala": "1 − 1 + 0 = 0."},
+          {"quem": "Monitor", "fala": "E o ponto (1, 1, 1) no plano?"},
+          {"quem": "Você", "fala": "1 + 1 + 1 − 3 = 0. A reta está {{contida|contida}}, e a distância é 0. Falso."}
+        ],
+        "erro": "A armadilha é ler [[r]] · [[n]] = 0 como paralela por fora. A conta só fala da direção. Uma reta {{contida|contida}} no plano também faz 90° com o prego e passa no teste. Ela tem distância 0, e um único caso desses derruba a frase. Lembre também que reta que fura o plano tem [[r]] · [[n]] ≠ 0.",
+        "confira": "Use o plano x + y + z − 3 = 0 e a direção (1, −1, 0), com (1, −1, 0) · (1, 1, 1) = 0. Partindo de (1, 1, 1), todo ponto da reta dá 0 no plano: distância 0. Partindo de (0, 0, 0), a reta corre por fora, e a distância é |−3|/√3 = √3. Mesma direção, dois resultados diferentes.",
+        "atalho": "Frase com cara de regra geral cai com um só contraexemplo. Pense na reta mais simples possível: uma reta desenhada no próprio plano. Ela faz 90° com o normal e tem distância 0. Pronto: Falso, sem conta."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q5-04",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 7,
+      "tema": "Distância entre reversas",
+      "origem": "Avaliação semanal 2 · T1-Q5 · Q04",
+      "enunciado": "A distância entre as retas r: X = (1, 2, 3) + λ(−1, 2, 3), λ ∈ ℝ e s: X = (−1, −2, 1) + α(3, 7, −5), α ∈ ℝ é:",
+      "alternativas": [
+        {"t": "2,13", "certa": true},
+        {"t": "0,36", "certa": false, "erro": "Sai de ler a direção de s como (3, 7, 5). Com o −5 certo, o produto vetorial é (−31, 4, −13), e não (−11, 14, −13). Com a leitura errada, a conta dá 8/√486 ≈ 0,36."},
+        {"t": "2,8", "certa": false, "erro": "Não sai da conta das {{reversas|reversas}}. O quadrado da distância certa é 5184/1146 ≈ 4,52, e 2,8² = 7,84."},
+        {"t": "1,75", "certa": false, "erro": "Também não fecha: 1,75² ≈ 3,06, longe de 4,52. A altura do viaduto é 72/√1146 ≈ 2,13."},
+        {"t": "3,7", "certa": false, "erro": "É a distância de B = (−1, −2, 1) até r: ‖[[AB]] × [[u]]‖/‖[[u]]‖ = √192/√14 ≈ 3,7. Essa conta trata as retas como paralelas, mas as direções não são múltiplas: as retas são {{reversas|reversas}}."}
+      ],
+      "dica": "Primeiro veja se as direções são múltiplas. Se não forem, use o volume da caixa dividido pela área da base.",
+      "resposta": "A distância é 72/√1146 ≈ 2,13. As retas são {{reversas|reversas}}, e a {{dist-reversas|distância entre reversas}} é |[[AB]] · ([[u]] × [[v]])|/‖[[u]] × [[v]]‖.",
+      "ouro": "Retas reversas: **volume da caixa dividido pela área da base**. A fórmula de ponto a reta mede outra coisa.",
+      "jeitos": {
+        "visual": "Pense num viaduto sobre a avenida. As duas retas não se cruzam nem são paralelas: são {{reversas|reversas}}. A distância é a altura do viaduto, medida onde uma pista passa mais perto da outra. A conta monta uma caixa com as setas [[u]], [[v]] e [[AB]]. O volume dividido pela área da base dá a altura.",
+        "receita": [
+          "A = (1, 2, 3), [[u]] = (−1, 2, 3); B = (−1, −2, 1), [[v]] = (3, 7, −5).",
+          "[[u]] × [[v]] = (−31, 4, −13). Não é nulo: as retas não são paralelas.",
+          "[[AB]] = B − A = (−2, −4, −2).",
+          "Volume da caixa: [[AB]] · ([[u]] × [[v]]) = 62 − 16 + 26 = 72. Não é 0: {{reversas|reversas}}.",
+          "Área da base: ‖[[u]] × [[v]]‖ = √(961 + 16 + 169) = √1146 ≈ 33,85.",
+          "Distância: 72/33,85 ≈ 2,13."
+        ],
+        "cotidiano": "Num cruzamento em dois níveis, a pista de cima e a de baixo nunca se tocam e seguem direções diferentes. Quem quer saber a folga para um caminhão mede o vão na vertical entre as pistas. Medir de um ponto qualquer da rua de baixo até a pista de cima daria um número maior, porque seria uma medida na diagonal.",
+        "trabalho": "No Excel, monte três linhas: [[AB]], [[u]] e [[v]]. =MATRIZ.DETERM nessas linhas dá 72, o volume da caixa. A área da base sai de =RAIZ(SOMARQUAD(−31; 4; −13)), que é √1146. A divisão dá 2,13. É uma conferência em duas colunas: numerador e denominador calculados à parte, e a razão no fim. Se o determinante desse 0, as retas estariam no mesmo plano.",
+        "conversa": [
+          {"quem": "Você", "fala": "Usei a distância do ponto B até a reta r e deu 3,7."},
+          {"quem": "Monitor", "fala": "Essa fórmula serve para que tipo de retas?"},
+          {"quem": "Você", "fala": "Para paralelas. Aí qualquer ponto de uma serve."},
+          {"quem": "Monitor", "fala": "E estas são paralelas?"},
+          {"quem": "Você", "fala": "Não: (−1, 2, 3) e (3, 7, −5) não são múltiplos."},
+          {"quem": "Monitor", "fala": "Então use a caixa: 72 de volume e √1146 de base."},
+          {"quem": "Você", "fala": "72/√1146 ≈ 2,13."}
+        ],
+        "erro": "O deslize mais comum é tratar as retas como paralelas e medir de B até r: dá 3,7. Isso só vale quando as direções são múltiplas, porque aí a distância é a mesma a partir de qualquer ponto. Em retas {{reversas|reversas}}, cada ponto de s fica a uma distância diferente de r. Outro tropeço é o sinal do −5: lendo +5, sai 0,36.",
+        "confira": "Ache os pontos mais próximos: λ = −182/191 em r e α = 64/191 em s. O segmento entre eles faz 90° com [[u]] e com [[v]], e o seu tamanho ao quadrado é 864/191 ≈ 4,52. A raiz é 2,13, o mesmo valor da caixa.",
+        "atalho": "Compare os quadrados, que dispensam a raiz. O certo é 72²/1146 = 5184/1146 ≈ 4,52. Das alternativas, 2,13² ≈ 4,54 é a única perto. Já 2,8² = 7,84, 1,75² ≈ 3,06, 3,7² = 13,69 e 0,36² ≈ 0,13 ficam longe. Basta calcular o produto misto e o produto vetorial; o resto é comparação."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q5-05",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Planos paralelos distintos",
+      "origem": "Avaliação semanal 2 · T1-Q5 · Q05",
+      "enunciado": "Verdadeiro ou falso? Se os vetores normais aos planos distintos π₁ e π₂ são paralelos, então a distância entre os planos π₁ e π₂ é diferente de 0 (zero).",
+      "alternativas": [
+        {"t": "Falso: com normais paralelos, os planos podem ser o mesmo plano, e aí a distância é 0.", "certa": false, "erro": "O enunciado diz planos distintos. O caso {{coincidentes-planos|coincidente}} fica de fora logo na hipótese."},
+        {"t": "Falso: normais paralelos indicam planos que se cortam, então a distância é 0.", "certa": false, "erro": "Planos que se cortam, os {{transversais|transversais}}, têm normais não paralelos. Normais paralelos dão planos empilhados, sem corte."},
+        {"t": "Verdadeiro: quaisquer dois planos distintos têm distância diferente de 0.", "certa": false, "erro": "z = 0 e x = 0 são distintos e se cortam no eixo y: distância 0. A condição dos normais paralelos é o que garante a separação."},
+        {"t": "Verdadeiro, mas só se os normais forem iguais, e não apenas paralelos.", "certa": false, "erro": "O normal (2, 4, −4) é o dobro de (1, 2, −2) e tem a mesma direção. Os planos x + 2y − 2z − 3 = 0 e 2x + 4y − 4z + 6 = 0 distam 2."},
+        {"t": "Verdadeiro: normais paralelos e planos distintos dão planos paralelos sem ponto comum, a uma distância positiva.", "certa": true}
+      ],
+      "dica": "Com normais paralelos só há dois casos: o mesmo plano ou dois andares separados. Qual deles o enunciado exclui?",
+      "resposta": "Verdadeiro. Normais paralelos deixam dois casos: planos {{coincidentes-planos|coincidentes}} ou {{paralelos-distintos|paralelos distintos}}. Como os planos são distintos, sobra o segundo, com distância maior que 0.",
+      "ouro": "Normais paralelos: ou é o mesmo plano, ou são andares diferentes. A palavra **distintos** tira o primeiro caso.",
+      "jeitos": {
+        "visual": "{{vetor-normal|Normais}} paralelos são pregos de pé na mesma direção. Planos com o mesmo prego são andares de um prédio: ou é o mesmo andar, ou um fica acima do outro. Como o enunciado diz que os planos são distintos, não é o mesmo andar. Sobra um andar acima do outro, separados por uma altura que não é zero.",
+        "receita": [
+          "{{vetor-normal|Normais}} paralelos: [[n₂]] = k·[[n₁]], com k ≠ 0.",
+          "Divida a equação de π₂ por k. Os dois planos ficam com o mesmo (a, b, c).",
+          "Se os termos d ficarem iguais, é o mesmo plano. Se ficarem diferentes, são {{paralelos-distintos|paralelos distintos}}.",
+          "O enunciado diz distintos: os termos d são diferentes.",
+          "Distância |d₁ − d₂|/‖[[n₁]]‖ com d₁ ≠ d₂: maior que 0. Verdadeiro."
+        ],
+        "cotidiano": "Duas prateleiras niveladas da mesma estante têm a mesma inclinação. Se são prateleiras diferentes, uma está acima da outra, e há um vão entre elas. Só não haveria vão se fossem a mesma prateleira. É exatamente o que o enunciado afasta ao dizer distintos.",
+        "trabalho": "Pense em duas filiais com o mesmo mix de despesas variáveis, só que uma tem custo fixo maior. As colunas variáveis são proporcionais, e o valor fixo é diferente. Se o fixo também fosse igual, seriam a mesma conta duplicada. Na conciliação, colunas proporcionais com total diferente sempre deixam uma diferença que não zera. Nos planos, essa diferença é a distância.",
+        "conversa": [
+          {"quem": "Você", "fala": "Normais paralelos. Então os planos podem coincidir, e a distância seria 0."},
+          {"quem": "Monitor", "fala": "Podem. Mas o que o enunciado diz sobre os planos?"},
+          {"quem": "Você", "fala": "Que são distintos."},
+          {"quem": "Monitor", "fala": "Então qual caso sobra?"},
+          {"quem": "Você", "fala": "Planos {{paralelos-distintos|paralelos distintos}}, como dois andares. A distância é maior que 0: Verdadeiro."}
+        ],
+        "erro": "A armadilha é lembrar do caso {{coincidentes-planos|coincidente}} e marcar Falso. Ele existe, mas o enunciado o excluiu com a palavra distintos. Outro engano é achar que normais paralelos indicam planos que se cortam. Planos que se cortam têm normais em direções diferentes, como a parede e o chão.",
+        "confira": "Teste com x + 2y − 2z − 3 = 0 e 2x + 4y − 4z + 6 = 0. O normal do segundo é 2·(1, 2, −2). O ponto (−3, 0, 0) está no segundo: −6 + 6 = 0. No primeiro, ele dá −3 − 3 = −6. O tamanho de (1, 2, −2) é 3. Distância: 6/3 = 2, diferente de 0.",
+        "atalho": "Com normais paralelos só existem dois cenários: mesmo plano ou planos separados. Risque o primeiro, porque o enunciado disse distintos. O que sobra são dois andares diferentes do mesmo prédio, e entre andares diferentes sempre há uma altura positiva. Verdadeiro, sem conta."
+      }
+    }
+  ]
+}

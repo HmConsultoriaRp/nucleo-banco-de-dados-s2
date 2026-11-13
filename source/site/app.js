@@ -35,11 +35,12 @@
     var codigos = [];
     var t = esc(s).replace(/`([^`]+)`/g, function (m, c) { codigos.push(c); return '\u0000' + (codigos.length - 1) + '\u0000'; });
     t = t.replace(/\[\[([^\]]+)\]\]/g, '<span class="vec">$1</span>')
+      .replace(/\{\{([a-z0-9-]+)\|([^}]+)\}\}/g, '<span class="termo-link" role="button" tabindex="0" data-termo="$1">$2</span>')
       .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>')
       .replace(/\n/g, '<br>');
     return t.replace(/\u0000(\d+)\u0000/g, function (m, i) { return '<code>' + codigos[+i] + '</code>'; });
   }
-  function semMarca(s) { return String(s || '').replace(/\[\[([^\]]+)\]\]/g, '$1').replace(/\*\*/g, '').replace(/`/g, ''); }
+  function semMarca(s) { return String(s || '').replace(/\{\{[^|}]+\|([^}]+)\}\}/g, '$1').replace(/\[\[([^\]]+)\]\]/g, '$1').replace(/\*\*/g, '').replace(/`/g, ''); }
   function n2(n) { return (n < 10 ? '0' : '') + n; }
   function fmtNota(x) { return (Math.round(x * 10) / 10).toFixed(1).replace('.', ','); }
 
@@ -420,6 +421,11 @@
     } else if (w.blocos && w.blocos.length) {
       h += '<div class="blocos">' + w.blocos.map(function (b, i) { return '<div class="bloco"><h4><span>' + n2(i + 1) + '</span>' + esc(b.titulo) + '</h4><p>' + md(b.texto) + '</p></div>'; }).join('') + '</div>';
     }
+    var VOC = vocabDa(ui.disc, ui.sem);
+    if (VOC) {
+      h += '<section class="vocab" id="vocab"><div class="ideias-head"><h3>Vocabulário</h3><p>As palavras que o professor usa, uma por cartão: o que querem dizer, como reconhecer pela conta, um exemplo com números e com o que não confundir.</p></div>' +
+        '<div class="vocab-grupos" role="tablist" aria-label="Grupos do vocabulário"></div><div class="ideias-grid vocab-grid"></div></section>';
+    }
     if (w.formulas && w.formulas.length) {
       h += '<div class="formulas"><h3>O que usar e quando</h3><table class="ftable">' + w.formulas.map(function (f) { return '<tr><td>' + md(f.nome) + '</td><td>' + md(f.expr) + '</td><td>' + md(f.quando) + '</td></tr>'; }).join('') + '</table></div>';
     }
@@ -434,6 +440,84 @@
     if (nj) lentes($('#lentes-semana'), w.jeitos, { chave: 'sem-' + ui.disc + ui.sem });
     $$('[data-view-go]', el).forEach(function (b) { b.addEventListener('click', function () { ui.view = b.dataset.viewGo; renderEstudo(); }); });
     $$('[data-ideia]', el).forEach(function (b) { b.addEventListener('click', function () { abrirIdeia(w, +b.dataset.ideia); }); });
+    if (VOC) renderVocab($('#vocab', el), VOC);
+  }
+
+  // ---------- vocabulário: cartões por grupo e painel do termo ----------
+  function vocabDa(d, s) {
+    var V = D.disc[d] && D.disc[d].vocabulario;
+    return V && V.semanas.indexOf(s) >= 0 ? V : null;
+  }
+  function rotuloOnde(q) {
+    var m = /^Avaliação semanal (\d+) · T\d+-Q(\d+) · Q0?(\d+)$/.exec(q.origem);
+    return m ? 'Semana ' + m[1] + ' · Avaliação ' + m[2] + ' · Q' + m[3] : q.origem;
+  }
+  function termoPorId(id) {
+    var V = D.disc.ga.vocabulario;
+    return V ? V.termos.filter(function (t) { return t.id === id; })[0] : null;
+  }
+  function renderVocab(sec, V) {
+    if (!ui.vgrupo || !V.grupos.some(function (g) { return g.id === ui.vgrupo; })) ui.vgrupo = V.grupos[0].id;
+    $('.vocab-grupos', sec).innerHTML = V.grupos.map(function (g) {
+      var n = V.termos.filter(function (t) { return t.grupo === g.id; }).length;
+      var on = g.id === ui.vgrupo;
+      return '<button role="tab" aria-selected="' + on + '" class="vocab-grupo' + (on ? ' on' : '') + '" data-vgrupo="' + g.id + '">' + esc(g.nome) + ' <small>' + n + '</small></button>';
+    }).join('');
+    $('.vocab-grid', sec).innerHTML = V.termos.filter(function (t) { return t.grupo === ui.vgrupo; }).map(function (t) {
+      var meta = t.esboco ? '<span class="stamp">em preparo</span>' :
+        '<span class="ideia-meta">' + (t.fig ? 'figura que gira · ' : '') + 'conta · exemplo · ' + esc(t.exemplo.fonte) + '</span>';
+      return '<button class="ideia-card termo-card' + (t.esboco ? ' esboco' : '') + '"' + (t.esboco ? ' disabled' : ' data-termo="' + t.id + '"') + '><b>' + esc(t.termo) + '</b><span class="ideia-frase">' + md(t.frase) + '</span>' + meta + '</button>';
+    }).join('');
+    $$('[data-vgrupo]', sec).forEach(function (b) { b.addEventListener('click', function () { ui.vgrupo = b.dataset.vgrupo; renderVocab(sec, V); }); });
+  }
+  var termoFig = {};
+  function abrirTermo(id) {
+    var t = termoPorId(id);
+    if (!t || t.esboco) return;
+    var V = D.disc.ga.vocabulario;
+    var g = V.grupos.filter(function (x) { return x.id === t.grupo; })[0];
+    var irmaos = V.termos.filter(function (x) { return x.grupo === t.grupo && !x.esboco; });
+    var i = irmaos.indexOf(t);
+    var dlg = $('#termo-dialog'), corpo = $('#termo-corpo'), fig = null;
+    var ex = t.exemplo;
+    var ant = irmaos[i - 1], prox = irmaos[i + 1];
+    corpo.innerHTML =
+      '<p class="lesson-kicker">Vocabulário · ' + esc(g.nome) + '</p>' +
+      '<h2 id="termo-titulo">' + esc(t.termo) + '</h2><p class="ideia-frase-grande">' + md(t.frase) + '</p>' +
+      (t.fig ? '<div class="ideia-fig"><canvas id="termo-cv" aria-label="Figura do termo; arraste para girar"></canvas>' +
+        '<span class="vistas"><button data-vista="padrao">3D</button><button data-vista="frente">frente</button><button data-vista="cima">de cima</button></span>' +
+        '<span class="ideia-dica">arraste para girar</span></div>' : '') +
+      '<div class="termo-sec"><h4>Como reconhecer pela conta</h4><ol class="termo-conta">' + t.conta.map(function (c) { return '<li>' + md(c) + '</li>'; }).join('') + '</ol></div>' +
+      '<div class="termo-sec"><h4>Exemplo · ' + esc(ex.fonte) + '</h4><p>' + md(ex.texto) + '</p>' +
+      '<div class="ideia-destaque"><strong>' + esc(ex.destaque.valor) + '</strong><small>' + esc(ex.destaque.rotulo) + '</small></div></div>' +
+      '<div class="termo-sec"><h4>Não confunda com</h4><ul class="termo-nao">' + t.naoConfunda.map(function (n) {
+        var alvo = termoPorId(n.id);
+        var nome = alvo && !alvo.esboco ? '<button class="termo-ir" data-termo-ir="' + n.id + '">' + esc(n.termo) + '</button>' : '<b>' + esc(n.termo) + '</b>';
+        return '<li>' + nome + '<span>' + md(n.texto) + '</span></li>';
+      }).join('') + '</ul></div>' +
+      (t.nota ? '<p class="termo-nota">' + md(t.nota) + '</p>' : '') +
+      '<div class="ideia-lista"><p>Onde cai</p><div>' +
+        (t.questoes || []).filter(function (qid) { return porId[qid]; }).map(function (qid) { return '<button class="chip" data-ir-questao="' + qid + '">' + esc(rotuloOnde(porId[qid])) + '</button>'; }).join('') +
+        (t.avaliacoes || []).map(function (a) { return '<span class="chip chip-texto">' + esc(a) + '</span>'; }).join('') +
+      '</div></div>' +
+      '<div class="ideia-nav termo-nav">' +
+        (ant ? '<button class="ghost" data-termo-ir="' + ant.id + '">← ' + esc(ant.termo) + '</button>' : '<span></span>') +
+        '<span class="termo-pos">' + (i + 1) + ' de ' + irmaos.length + '</span>' +
+        (prox ? '<button class="primary-button" data-termo-ir="' + prox.id + '">' + esc(prox.termo) + ' <span>→</span></button>' : '<span></span>') +
+      '</div>';
+    $$('[data-termo-ir]', corpo).forEach(function (b) { b.addEventListener('click', function () { abrirTermo(b.dataset.termoIr); }); });
+    $$('[data-ir-questao]', corpo).forEach(function (b) {
+      b.addEventListener('click', function () { var q = porId[b.dataset.irQuestao]; dlg.close(); abrirSemana(q.disc, q.semana, 'questao', q.id); });
+    });
+    if (!dlg.open) dlg.showModal();
+    dlg.scrollTop = 0;
+    if (t.fig) {
+      fig = Figura.montar($('#termo-cv'), t.fig);
+      $$('[data-vista]', corpo).forEach(function (b) { b.addEventListener('click', function () { if (fig) fig.vista(b.dataset.vista); }); });
+    }
+    if (termoFig.resize) window.removeEventListener('resize', termoFig.resize);
+    termoFig.resize = function () { if (fig) fig.redesenhar(); };
+    window.addEventListener('resize', termoFig.resize);
   }
 
   // ---------- ideia: painel com figura e passos ----------
@@ -453,7 +537,7 @@
       '<div class="ideia-nav"><button class="ghost" id="ideia-ant">← Anterior</button><span id="ideia-pos"></span><button class="primary-button" id="ideia-prox">Próximo <span>→</span></button></div></div>' +
       '<div class="ideia-lista"><p>Na lista do professor</p><div>' + (it.questoes || []).filter(function (id) { return porId[id]; }).map(function (id) {
         return '<button class="chip" data-ir-questao="' + id + '">' + esc(porId[id].origem) + '</button>';
-      }).join('') + '</div></div>';
+      }).join('') + '</div><button class="ghost duv-gatilho" data-duvida-ideia="' + esc(it.titulo) + '" data-duvida-disc="' + ui.disc + '" data-duvida-sem="' + ui.sem + '">Tenho uma dúvida nesta ideia</button></div>';
     function mostra() {
       var p = it.passos[passo];
       $('#ideia-passo-corpo').innerHTML = '<h4><span>' + (passo + 1) + '</span>' + esc(p.titulo) + '</h4><p>' + md(p.texto) + '</p>' +
@@ -510,7 +594,8 @@
     h += '<div class="q-actions">' + (!r ? '<button class="ghost" data-acao="dica">Uma dica</button>' : '') +
       (!aberto ? '<button class="ghost" data-acao="revelar">Ver explicação sem responder</button>' : '') +
       (r ? '<button class="ghost" data-acao="refazer">Refazer esta questão</button>' : '') +
-      (r || aberto ? '<button class="ghost" data-nav="1">Próxima questão →</button>' : '') + '</div>';
+      (r || aberto ? '<button class="ghost" data-nav="1">Próxima questão →</button>' : '') +
+      '<button class="ghost duv-gatilho" data-duvida-q="' + esc(q.id) + '">Tenho uma dúvida</button></div>';
     if (ui.dica[q.id] && !r) h += '<div class="dica"><strong>Dica</strong>' + md(q.dica) + '</div>';
     if (r) {
       var certa = q.alternativas.filter(function (a) { return a.certa; })[0];
@@ -958,7 +1043,7 @@
   // --- VisuAlg ---
   var DICA_MESA = '<p style="color:var(--muted);font-size:13px">Escreva ou escolha um programa e clique em Rodar. O teste de mesa mostra cada linha executada e o valor das variáveis naquele momento.</p>';
   // Exemplos prontos em grupos: listas do professor (resolução) primeiro, depois os exemplos do site.
-  var GRUPOS_EX = [['lista01', 'Lista 01 do professor (resolução)'], ['lista02', 'Lista 02 do professor (resolução)'], ['', 'Exemplos do site']];
+  var GRUPOS_EX = [['lista01', 'Lista 01 do professor (resolução)'], ['lista02', 'Lista 02 do professor (resolução)'], ['lista03', 'Lista 03 do professor (resolução)'], ['', 'Exemplos do site']];
   function opcoesExemplos(exs) {
     return GRUPOS_EX.map(function (g) {
       var itens = exs.map(function (e, i) { return { e: e, i: i }; }).filter(function (x) { return (x.e.grupo || '') === g[0]; });
@@ -1273,6 +1358,18 @@
     $$('[data-open-planner]').forEach(function (b) { b.addEventListener('click', function () { $('#planner-dialog').showModal(); }); });
     $$('[data-close-dialog]').forEach(function (b) { b.addEventListener('click', function () { b.closest('dialog').close(); }); });
     $$('dialog').forEach(function (d) { d.addEventListener('click', function (e) { if (e.target === d) d.close(); }); });
+    // termo do vocabulário: cartão ou palavra marcada no texto abre o painel (captura: não marca alternativa)
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('[data-termo]');
+      if (!a) return;
+      e.preventDefault(); e.stopPropagation();
+      abrirTermo(a.dataset.termo);
+    }, true);
+    document.addEventListener('keydown', function (e) {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('termo-link')) {
+        e.preventDefault(); abrirTermo(e.target.dataset.termo);
+      }
+    });
     $$('.topnav a').forEach(function (a) { a.addEventListener('click', function () { $$('.topnav a').forEach(function (x) { x.classList.remove('active'); }); a.classList.add('active'); }); });
     $('#theme-toggle').addEventListener('click', function () {
       st.tema = st.tema === 'escuro' ? 'claro' : 'escuro'; salva();

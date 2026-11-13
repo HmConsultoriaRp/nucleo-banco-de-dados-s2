@@ -57,7 +57,8 @@
       if (dois === '<-' || dois === ':=' || dois === '<=' || dois === '>=' || dois === '<>' || dois === '..') {
         toks.push({ t: 'op', v: dois === ':=' ? '<-' : dois, linha: linha }); i += 2; continue;
       }
-      if ('+-*/\\^%()[],:=<>'.indexOf(c) >= 0) { toks.push({ t: 'op', v: c, linha: linha }); i++; continue; }
+      // "." sozinho: campo de registro (p[i].nome); ".." já foi tratado acima
+      if ('+-*/\\^%()[],:=<>.'.indexOf(c) >= 0) { toks.push({ t: 'op', v: c, linha: linha }); i++; continue; }
       throw new ErroVA('símbolo inesperado: ' + c, linha);
     }
     toks.push({ t: 'eof', v: '', linha: linha });
@@ -67,6 +68,10 @@
   // ---------- analisador sintático ----------
   function parse(toks) {
     var p = 0;
+    // tipos registro declarados em "tipo Nome = registro ... fimregistro" (antes do var).
+    // "tipo", "registro" e "fimregistro" são reconhecidos só nessa posição, para não quebrar
+    // programas que usam essas palavras como nome de variável.
+    var tipos = {};
     function peek() { return toks[p]; }
     function next() { return toks[p++]; }
     function isKw(v) { return peek().t === 'kw' && peek().v === v; }
@@ -86,6 +91,7 @@
     function parseTipo() {
       var t = next();
       if (t.t === 'kw' && ['inteiro', 'real', 'caractere', 'caracter', 'literal', 'logico'].indexOf(t.v) >= 0) return { base: normTipo(t.v) };
+      if (t.t === 'id' && tipos[t.v]) return { base: 'registro', reg: tipos[t.v] };
       if (t.t === 'kw' && t.v === 'vetor') {
         expectOp('[');
         var dims = [];
@@ -98,6 +104,7 @@
         }
         expectOp(']'); expectKw('de');
         var bt = next();
+        if (bt.t === 'id' && tipos[bt.v]) return { base: 'registro', reg: tipos[bt.v], dims: dims };
         if (bt.t !== 'kw' || ['inteiro', 'real', 'caractere', 'caracter', 'literal', 'logico'].indexOf(bt.v) < 0) throw new ErroVA('tipo do vetor desconhecido', bt.linha);
         return { base: normTipo(bt.v), dims: dims };
       }
@@ -107,6 +114,38 @@
     expectKw('algoritmo');
     var nome = '';
     if (peek().t === 'str') nome = next().v;
+    // tipo Produto = registro / campos / fimregistro (aceita também "tipo" sozinho na linha)
+    while (peek().t === 'id' && peek().v === 'tipo') {
+      next();
+      while (peek().t === 'id' && toks[p + 1] && toks[p + 1].t === 'op' && toks[p + 1].v === '=') {
+        var tn = next(); next();
+        var rg = next();
+        if (!(rg.t === 'id' && rg.v === 'registro')) throw new ErroVA('depois de "' + tn.raw + ' =" vem "registro"', rg.linha);
+        if (tipos[tn.v]) throw new ErroVA('tipo declarado duas vezes: ' + tn.raw, tn.linha);
+        var campos = {}, ordemC = [];
+        while (!(peek().t === 'id' && peek().v === 'fimregistro')) {
+          if (peek().t === 'eof' || (peek().t === 'kw' && (peek().v === 'var' || peek().v === 'inicio'))) throw new ErroVA('faltou "fimregistro" no tipo ' + tn.raw, peek().linha);
+          var cn = [next()];
+          if (cn[0].t !== 'id') throw new ErroVA('nome de campo inválido: ' + mostra(cn[0]), cn[0].linha);
+          while (isOp(',')) {
+            next();
+            var c2 = next();
+            if (c2.t !== 'id') throw new ErroVA('nome de campo inválido: ' + mostra(c2), c2.linha);
+            cn.push(c2);
+          }
+          expectOp(':');
+          var ct = parseTipo();
+          if (ct.base === 'registro' || ct.dims) throw new ErroVA('campo de registro precisa ser inteiro, real, caractere ou logico', cn[0].linha);
+          cn.forEach(function (tk) {
+            if (campos[tk.v]) throw new ErroVA('campo declarado duas vezes: ' + tk.raw, tk.linha);
+            campos[tk.v] = { tipo: ct, raw: tk.raw };
+            ordemC.push(tk.v);
+          });
+        }
+        next();
+        tipos[tn.v] = { nome: tn.raw, campos: campos, ordem: ordemC };
+      }
+    }
     var decl = {}, ordem = [];
     if (isKw('var')) {
       next();
@@ -130,7 +169,7 @@
     var ini = expectKw('inicio');
     var corpo = bloco(['fimalgoritmo']);
     var fim = expectKw('fimalgoritmo');
-    return { nome: nome, decl: decl, ordem: ordem, corpo: corpo, linhaInicio: ini.linha, linhaFim: fim.linha };
+    return { nome: nome, decl: decl, ordem: ordem, corpo: corpo, linhaInicio: ini.linha, linhaFim: fim.linha, tipos: tipos };
 
     function bloco(fins) {
       var lista = [];
@@ -145,7 +184,15 @@
       if (t.t !== 'id') throw new ErroVA('leia precisa de uma variável', t.linha);
       var idx = null;
       if (isOp('[')) { next(); idx = [expr()]; while (isOp(',')) { next(); idx.push(expr()); } expectOp(']'); }
-      return { nome: t.v, idx: idx, linha: t.linha };
+      return { nome: t.v, idx: idx, campo: campoOpc(), linha: t.linha };
+    }
+    // ".campo" depois do nome (ou do índice) de um registro
+    function campoOpc() {
+      if (!isOp('.')) return null;
+      next();
+      var c = next();
+      if (c.t !== 'id') throw new ErroVA('depois do ponto vem o nome do campo do registro', c.linha);
+      return c.v;
     }
     // argumento do escreva com formatação opcional: x:5 (largura) ou x:5:2 (largura e casas decimais)
     function argEscreva() {
@@ -174,9 +221,10 @@
         next();
         var idx = null;
         if (isOp('[')) { next(); idx = [expr()]; while (isOp(',')) { next(); idx.push(expr()); } expectOp(']'); }
+        var campo = campoOpc();
         if (!isOp('<-')) throw new ErroVA('esperava "<-" depois de "' + t.raw + '"', linha);
         next();
-        return { k: 'atrib', nome: t.v, idx: idx, e: expr(), linha: linha };
+        return { k: 'atrib', nome: t.v, idx: idx, campo: campo, e: expr(), linha: linha };
       }
       if (t.t !== 'kw') throw new ErroVA('comando inesperado: ' + mostra(t), linha);
       switch (t.v) {
@@ -313,14 +361,14 @@
           expectOp(')');
           return { k: 'fn', nome: t.v, raw: t.raw, args: args, linha: t.linha };
         }
+        var idx = null;
         if (isOp('[')) {
           next();
-          var idx = [expr()];
+          idx = [expr()];
           while (isOp(',')) { next(); idx.push(expr()); }
           expectOp(']');
-          return { k: 'var', nome: t.v, idx: idx, linha: t.linha };
         }
-        return { k: 'var', nome: t.v, idx: null, linha: t.linha };
+        return { k: 'var', nome: t.v, idx: idx, campo: campoOpc(), linha: t.linha };
       }
       throw new ErroVA('expressão inválida perto de "' + mostra(t) + '"', t.linha);
     }
@@ -398,22 +446,33 @@
       if (base === 'logico') return { tipo: 'b', v: false };
       return { tipo: 's', v: '' };
     }
+    // valor inicial de uma variável (ou de uma posição de vetor): registro ganha um valor por campo
+    function novo(tipo) {
+      if (tipo.base !== 'registro') return inicial(tipo.base);
+      var c = {};
+      tipo.reg.ordem.forEach(function (k) { c[k] = inicial(tipo.reg.campos[k].tipo.base); });
+      return { reg: tipo.reg, campos: c };
+    }
     prog.ordem.forEach(function (n) {
       var d = prog.decl[n];
       if (d.tipo.dims) {
         var tam = 1;
         d.tipo.dims.forEach(function (dm) { tam *= (dm[1] - dm[0] + 1); });
         var dados = [];
-        for (var i = 0; i < tam; i++) dados.push(inicial(d.tipo.base));
+        for (var i = 0; i < tam; i++) dados.push(novo(d.tipo));
         mem[n] = { vetor: true, dims: d.tipo.dims, dados: dados };
-      } else mem[n] = inicial(d.tipo.base);
+      } else mem[n] = novo(d.tipo);
     });
     var fila = (entradas || []).map(String);
     var saida = '';
     var INTERROMPA = { interrompa: true };
 
+    function txtReg(v) {
+      return '{' + v.reg.ordem.map(function (k) { return v.reg.campos[k].raw + ': ' + txtVar(v.campos[k]); }).join(', ') + '}';
+    }
     function txtVar(v) {
-      if (v && v.vetor) return '[' + v.dados.map(fmt).join(', ') + ']';
+      if (v && v.vetor) return '[' + v.dados.map(function (x) { return x.reg ? txtReg(x) : fmt(x); }).join(', ') + ']';
+      if (v && v.reg) return txtReg(v);
       return v.tipo === 's' ? '"' + v.v + '"' : fmt(v);
     }
     function snap() {
@@ -445,11 +504,26 @@
       }
       return off;
     }
-    function ler(nome, idx, linha) {
+    // tipo base do alvo: o da variável ou, com .campo, o do campo do registro
+    function baseDe(nome, campo, linha) {
+      var d = decl(nome, linha);
+      if (!campo) return d.tipo.base;
+      if (d.tipo.base !== 'registro') throw new ErroVA(d.raw + ' não é registro: não tem o campo .' + campo, linha);
+      var c = d.tipo.reg.campos[campo];
+      if (!c) throw new ErroVA('o registro ' + d.tipo.reg.nome + ' não tem o campo ' + campo, linha);
+      return c.tipo.base;
+    }
+    function ler(nome, idx, linha, campo) {
       var d = decl(nome, linha), cel = mem[nome];
-      if (idx) return cel.dados[posicao(nome, idx, linha)];
-      if (cel.vetor) throw new ErroVA('use ' + d.raw + '[índice] para ler uma posição do vetor', linha);
-      return cel;
+      var alvo;
+      if (idx) alvo = cel.dados[posicao(nome, idx, linha)];
+      else {
+        if (cel.vetor) throw new ErroVA('use ' + d.raw + '[índice] para ler uma posição do vetor', linha);
+        alvo = cel;
+      }
+      if (campo) { baseDe(nome, campo, linha); return alvo.campos[campo]; }
+      if (alvo.reg) throw new ErroVA('use ' + d.raw + (idx ? '[índice]' : '') + '.campo para usar um campo do registro', linha);
+      return alvo;
     }
     function converte(val, base, linha, nome) {
       if (base === 'inteiro') {
@@ -464,8 +538,15 @@
       }
       throw new ErroVA('tipos incompatíveis: ' + NOME_TIPO[val.tipo] + ' em variável ' + base + ' (' + nome + ')', linha);
     }
-    function atribuir(nome, idx, val, linha) {
+    function atribuir(nome, idx, val, linha, campo) {
       var d = decl(nome, linha), cel = mem[nome];
+      if (campo) {
+        var vc = converte(val, baseDe(nome, campo, linha), linha, d.raw + '.' + d.tipo.reg.campos[campo].raw);
+        if (!idx && cel.vetor) throw new ErroVA('use ' + d.raw + '[índice].' + campo + ' para gravar num registro do vetor', linha);
+        (idx ? cel.dados[posicao(nome, idx, linha)] : cel).campos[campo] = vc;
+        return;
+      }
+      if (d.tipo.base === 'registro') throw new ErroVA('grave campo por campo: ' + d.raw + (idx ? '[índice]' : '') + '.campo <- valor', linha);
       var v = converte(val, d.tipo.base, linha, d.raw);
       if (idx) cel.dados[posicao(nome, idx, linha)] = v;
       else {
@@ -473,10 +554,11 @@
         mem[nome] = v;
       }
     }
-    function nomeAlvo(nome, idx) {
-      var raw = prog.decl[nome] ? prog.decl[nome].raw : nome;
-      if (!idx) return raw;
-      return raw + '[' + idx.map(function (e) { return fmt(ev(e)); }).join(',') + ']';
+    function nomeAlvo(nome, idx, campo) {
+      var d = prog.decl[nome], raw = d ? d.raw : nome;
+      if (idx) raw += '[' + idx.map(function (e) { return fmt(ev(e)); }).join(',') + ']';
+      if (campo) raw += '.' + (d && d.tipo.reg && d.tipo.reg.campos[campo] ? d.tipo.reg.campos[campo].raw : campo);
+      return raw;
     }
     function entrada(txt, base, linha) {
       var r = lerEntrada(txt, base);
@@ -566,7 +648,7 @@
         case 'num': return { tipo: e.real ? 'r' : 'i', v: e.v };
         case 'str': return { tipo: 's', v: e.v };
         case 'log': return { tipo: 'b', v: e.v };
-        case 'var': return ler(e.nome, e.idx, e.linha);
+        case 'var': return ler(e.nome, e.idx, e.linha, e.campo);
         case 'un': {
           var a = ev(e.a);
           if (e.op === '-') { num(a, e.linha, '-'); return { tipo: a.tipo, v: -a.v }; }
@@ -594,8 +676,8 @@
       switch (s.k) {
         case 'atrib': {
           var val = ev(s.e);
-          atribuir(s.nome, s.idx, val, s.linha);
-          passo(s.linha, nomeAlvo(s.nome, s.idx) + ' recebe ' + (val.tipo === 's' ? '"' + val.v + '"' : fmt(val)));
+          atribuir(s.nome, s.idx, val, s.linha, s.campo);
+          passo(s.linha, nomeAlvo(s.nome, s.idx, s.campo) + ' recebe ' + (val.tipo === 's' ? '"' + val.v + '"' : fmt(val)));
           return;
         }
         case 'leia': {
@@ -604,19 +686,20 @@
             if (!fila.length) {
               if (guiada) {
                 var dd = prog.decl[a.nome];
-                res.espera = { linha: s.linha, nome: dd ? nomeAlvo(a.nome, a.idx) : a.nome, tipo: dd ? dd.tipo.base : '', pergunta: pergunta };
+                res.espera = { linha: s.linha, nome: dd ? nomeAlvo(a.nome, a.idx, a.campo) : a.nome, tipo: dd ? baseDe(a.nome, a.campo, s.linha) : '', pergunta: pergunta };
                 passo(s.linha, 'esperando a ' + (res.lidas.length + 1) + 'ª entrada (' + res.espera.nome + ')');
               }
               throw new ErroVA('o programa pediu uma entrada (leia) e a lista de entradas acabou', s.linha);
             }
             var txt = fila.shift();
-            var d = decl(a.nome, s.linha);
-            var info = { linha: s.linha, nome: nomeAlvo(a.nome, a.idx), tipo: d.tipo.base, pergunta: pergunta, valor: txt };
+            var base = baseDe(a.nome, a.campo, s.linha);
+            if (base === 'registro') throw new ErroVA('leia um campo por vez: ' + nomeAlvo(a.nome, a.idx) + '.campo', s.linha);
+            var info = { linha: s.linha, nome: nomeAlvo(a.nome, a.idx, a.campo), tipo: base, pergunta: pergunta, valor: txt };
             var val;
-            try { val = entrada(txt, d.tipo.base, s.linha); } catch (e) {
+            try { val = entrada(txt, base, s.linha); } catch (e) {
               info.msg = e.message; res.recusada = info; throw e;
             }
-            atribuir(a.nome, a.idx, val, s.linha);
+            atribuir(a.nome, a.idx, val, s.linha, a.campo);
             res.lidas.push(info);
             if (guiada) saida += txt + '\n';
             passo(s.linha, 'leu ' + txt + ' para ' + info.nome);

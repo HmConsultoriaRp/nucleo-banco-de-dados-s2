@@ -1,0 +1,151 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-av2-t1-q3-01",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Não paralelas no espaço",
+      "origem": "Avaliação semanal 2 · T1-Q3 · Q01",
+      "enunciado": "Verdadeiro ou falso? Sejam as retas r e s contidas no espaço ℝ³, [[r]] o vetor diretor da reta r e [[s]] o vetor diretor da reta s. Se [[r]] e [[s]] não são paralelos, então as retas são concorrentes.",
+      "alternativas": [
+        {"t":"Falso: no espaço, retas com direções diferentes podem ser reversas e nunca se encontrar","certa":true},
+        {"t":"Verdadeiro: direções diferentes sempre acabam se cruzando em algum ponto","certa":false,"erro":"Isso vale numa folha de papel (ℝ²). No espaço existe uma terceira saída: as {{reversas|reversas}}. Exemplo: r: X = t(1, 0, 0) fica sempre na altura z = 0, e s: X = (0, 0, 1) + k(0, 1, 0) fica sempre em z = 1. As direções são diferentes e as retas nunca se encontram."},
+        {"t":"Falso: com direções diferentes, as retas são sempre reversas","certa":false,"erro":"Troca um exagero por outro. Direções diferentes deixam duas saídas: {{concorrentes|concorrentes}} ou {{reversas|reversas}}. Quem decide é o produto misto [[AB]] · ([[r]] × [[s]]): 0 dá concorrentes; diferente de 0 dá reversas."},
+        {"t":"Verdadeiro: se [[r]] × [[s]] não é o vetor nulo, existe ponto comum","certa":false,"erro":"[[r]] × [[s]] ≠ [[0]] só mostra que as setas não são múltiplas, isto é, que as retas não são paralelas. Ter ponto comum depende também de onde cada reta passa, e isso aparece no produto misto, que usa um ponto de cada reta."},
+        {"t":"Falso: as retas podem ser paralelas distintas","certa":false,"erro":"O veredito está certo, mas o motivo não. {{paralelas-distintas|Paralelas distintas}} têm setas múltiplas, e o enunciado diz que [[r]] e [[s]] não são paralelos. O contraexemplo que serve são as {{reversas|reversas}}."}
+      ],
+      "dica": "No espaço, além de se cruzar ou correr lado a lado, uma reta pode passar por cima da outra.",
+      "resposta": "Falso. Setas não paralelas deixam duas possibilidades no espaço: {{concorrentes|concorrentes}} (produto misto 0) ou {{reversas|reversas}} (produto misto diferente de 0). Exemplo: r: X = t(1, 0, 0) e s: X = (0, 0, 1) + k(0, 1, 0) têm produto misto 1 e nunca se encontram.",
+      "ouro": "Setas não paralelas **não garantem** cruzamento no espaço: falta o teste do produto misto.",
+      "jeitos": {
+        "visual": "{{reversas|Reversas}} são o viaduto sobre a avenida. Vistos do alto, os dois traços parecem se cruzar. Olhando de lado, aparece o vão: a avenida fica numa altura e o viaduto em outra. As direções são diferentes e, mesmo assim, não existe ponto comum. Numa folha de papel isso não acontece, porque falta a terceira dimensão para separar as linhas.",
+        "receita": ["Teste as setas: [[r]] × [[s]] ≠ [[0]] confirma que as retas não são paralelas.", "Escolha um ponto A de r e um ponto B de s e monte [[AB]].", "Calcule o produto misto [[AB]] · ([[r]] × [[s]]).", "Se der 0, as retas cabem num plano: {{concorrentes|concorrentes}}.", "Se der diferente de 0, não cabem: {{reversas|reversas}}. Como esse caso existe, a afirmação é falsa."],
+        "cotidiano": "Num prédio, um cano de água corre no teto do térreo, de leste a oeste. Um cabo de luz corre no teto do primeiro andar, de norte a sul. As direções são diferentes, mas o cano e o cabo nunca se tocam: estão em alturas diferentes. Para se encontrarem, precisariam estar no mesmo andar, isto é, no mesmo plano.",
+        "trabalho": "Monte uma planilha com os pontos de cada reta, um por linha. Na reta r: X = t(1, 0, 0), a coluna z mostra sempre 0; na reta s: X = (0, 0, 1) + k(0, 1, 0), mostra sempre 1. Um PROCV dos pontos de r na tabela de s nunca acha nada. É como numa auditoria: a regra que diz 'sempre' cai com um único caso contrário, e esse par é o caso.",
+        "conversa": [{"quem":"Você","fala":"Se as setas apontam para lados diferentes, as retas não têm de se cruzar?"},{"quem":"Monitor","fala":"Numa folha, sim. E no espaço, o que mais pode acontecer?"},{"quem":"Você","fala":"Uma pode passar por cima da outra, como o viaduto."},{"quem":"Monitor","fala":"Isso: são as {{reversas|reversas}}. Qual conta separa os dois casos?"},{"quem":"Você","fala":"O produto misto: 0 é concorrente; diferente de 0 é reversa."},{"quem":"Monitor","fala":"Então a afirmação é falsa: ela pula esse teste."}],
+        "erro": "O tropeço é levar para o espaço uma regra da geometria plana. Na folha, duas retas não paralelas sempre se cruzam. No ℝ³ isso deixa de valer, porque existe a altura. O enunciado fala em espaço justamente para cobrar as {{reversas|reversas}}. Ler 'não paralelas' como 'concorrentes' pula um teste inteiro.",
+        "confira": "Com r: X = t(1, 0, 0) e s: X = (0, 0, 1) + k(0, 1, 0), [[r]] × [[s]] = (0, 0, 1), que não é nulo. [[AB]] = (0, 0, 1) e o produto misto dá 1. Igualando as coordenadas, x pede t = 0, y pede k = 0, e a coordenada z vira 0 = 1, impossível. Não existe ponto comum.",
+        "atalho": "Procure a palavra que define o lugar: ℝ³. No espaço, toda frase do tipo 'não paralelas, então concorrentes' é falsa, porque esquece as {{reversas|reversas}}. Se a frase falasse de retas num mesmo plano, como na folha de papel (ℝ²), aí sim seria verdadeira."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q3-02",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Perpendicular implica ortogonal",
+      "origem": "Avaliação semanal 2 · T1-Q3 · Q02",
+      "enunciado": "Verdadeiro ou falso? Se as retas são perpendiculares, então as retas também são ortogonais.",
+      "alternativas": [
+        {"t":"Falso: retas ortogonais não se cruzam, e retas perpendiculares se cruzam","certa":false,"erro":"Essa é a convenção da geometria de posição do ensino médio, em que ortogonais precisam ser {{reversas|reversas}}. O Prof. Danilo usa a convenção vetorial: {{ortogonais|ortogonais}} só pedem 90° entre as setas, se cruzando ou não. O gabarito desta avaliação confirmou Verdadeiro."},
+        {"t":"Verdadeiro: as duas palavras querem dizer exatamente a mesma coisa","certa":false,"erro":"O veredito está certo, mas o motivo não. Se fossem sinônimos, a volta também valeria, e ela não vale: setas a 90° em retas que não se cruzam formam um par {{ortogonais|ortogonal}} que não é {{perpendiculares|perpendicular}}. É a questão 7 desta avaliação."},
+        {"t":"Verdadeiro: perpendiculares formam 90° e se cruzam; ortogonais só exigem os 90°","certa":true},
+        {"t":"Falso: perpendicular é palavra para reta e plano, não para duas retas","certa":false,"erro":"O curso usa {{perpendiculares|perpendiculares}} também para duas retas: setas com produto escalar 0 e um ponto comum. Exemplo: r: X = (1, 2, 3) + k(2, 1, −3) e s: X = (3, 3, 0) + λ(1, 1, 1) se cruzam em (3, 3, 0), com (2, 1, −3) · (1, 1, 1) = 0."},
+        {"t":"Verdadeiro: duas retas no mesmo plano são sempre ortogonais","certa":false,"erro":"Estar no mesmo plano não define ortogonal. O que define é a conta [[u]] · [[v]] = 0 entre as setas. As retas X = t(1, 0, 0) e X = h(1, 1, 0) estão no mesmo plano, se cruzam na origem e formam 45°: não são {{ortogonais|ortogonais}}."}
+      ],
+      "dica": "Separe as duas exigências: ângulo de 90° e ponto comum. Qual das palavras pede as duas?",
+      "resposta": "Verdadeiro. Na convenção do professor, {{ortogonais|ortogonais}} são retas com setas a 90° ([[u]] · [[v]] = 0), se cruzando ou não. {{perpendiculares|Perpendiculares}} são as ortogonais que também se cruzam. Quem é perpendicular já cumpre os 90°, então é ortogonal. A volta está na questão 7 e é falsa.",
+      "ouro": "**Perpendicular = ortogonal + ponto comum.** Toda perpendicular é ortogonal; nem toda ortogonal é perpendicular.",
+      "jeitos": {
+        "visual": "Desenhe uma cruz no chão: os traços se encontram no centro e formam 90°. Isso é {{perpendiculares|perpendicular}}. Agora suba um dos traços até o teto, sem girar. Visto de cima, o desenho continua uma cruz, mas os traços não se tocam mais. Os 90° continuam lá, então o par segue {{ortogonais|ortogonal}}. A cruz no chão cumpre as duas condições ao mesmo tempo.",
+        "receita": ["Regra do professor: {{ortogonais|ortogonais}} são retas com [[u]] · [[v]] = 0, se cruzando ou não.", "{{perpendiculares|Perpendiculares}} são ortogonais que também têm um ponto comum.", "Parta de duas retas perpendiculares: elas já têm [[u]] · [[v]] = 0.", "Esse produto zero é tudo o que ortogonal exige.", "Logo, a afirmação é verdadeira."],
+        "cotidiano": "Todo carro elétrico é carro, mas nem todo carro é elétrico. Ser elétrico é ser carro com uma exigência a mais. Perpendicular funciona igual: é ortogonal com a exigência extra de se cruzar. A frase da questão vai do grupo menor para o maior, do elétrico para o carro, e por isso vale. A frase contrária iria do maior para o menor e cairia.",
+        "trabalho": "Em SQL, perpendiculares seriam um filtro com duas condições: `WHERE escalar = 0 AND misto = 0`. Ortogonais usam só a primeira: `WHERE escalar = 0`. Toda linha que passa no filtro de duas condições passa também no de uma. Por isso perpendicular implica ortogonal. A volta falha: o filtro mais solto deixa passar as {{reversas|reversas}} a 90°, que o filtro rígido barra.",
+        "conversa": [{"quem":"Você","fala":"Perpendicular e ortogonal não são a mesma coisa?"},{"quem":"Monitor","fala":"Para o professor, não. O que {{ortogonais|ortogonal}} exige?"},{"quem":"Você","fala":"Só que as setas façam 90°, com produto escalar zero."},{"quem":"Monitor","fala":"E perpendicular?"},{"quem":"Você","fala":"Os 90° e mais um ponto comum."},{"quem":"Monitor","fala":"Então quem é perpendicular já tem os 90°. A frase é verdadeira."}],
+        "erro": "Há dois tropeços. Um é usar a convenção do ensino médio, em que ortogonais precisam ser {{reversas|reversas}}; nela a resposta viraria Falso. O outro é achar que as palavras são sinônimas e acertar por acaso: o mesmo raciocínio derruba você na questão 7, que pergunta a volta e tem gabarito Falso. Guarde a ordem: perpendicular está dentro de ortogonal.",
+        "confira": "Teste com r: X = t(1, 0, 0) e s: X = h(0, 1, 0). As setas dão (1, 0, 0) · (0, 1, 0) = 0, e as duas passam pela origem: perpendiculares. A mesma conta de produto escalar igual a 0 já as classifica como ortogonais. Para a volta falhar, basta subir s para X = (0, 0, 1) + h(0, 1, 0): o produto escalar continua 0, mas o produto misto passa a dar 1.",
+        "atalho": "Olhe a ordem da frase. Do mais exigente (perpendicular) para o menos exigente (ortogonal): Verdadeiro. Do menos exigente para o mais exigente: Falso. Nesta avaliação, a questão 2 é a primeira forma e a questão 7 é a segunda. Basta lembrar qual palavra pede o ponto comum."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q3-03",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Plano paralelo por um ponto",
+      "origem": "Avaliação semanal 2 · T1-Q3 · Q03",
+      "enunciado": "O plano que é paralelo ao plano 2x − y + 3z − 5 = 0 e passa pelo ponto (1, 2, −3) é dado por:",
+      "alternativas": [
+        {"t":"−2x + y − 3z + 9 = 0","certa":false,"erro":"A normal (−2, 1, −3) serve, mas o termo independente está com o sinal trocado. O ponto dá −2 + 2 + 9 + 9 = 18, não 0. Esse plano é 2x − y + 3z − 9 = 0, o espelho do certo."},
+        {"t":"6x − 3y + 9z + 15 = 0","certa":false,"erro":"O {{vetor-normal|vetor normal}} (6, −3, 9) é 3 vezes (2, −1, 3), então o plano é paralelo. Mas o ponto dá 6 − 6 − 27 + 15 = −12. Para passar por (1, 2, −3), o termo teria de ser 27."},
+        {"t":"−4x + 2y − 6z + 26 = 0","certa":false,"erro":"A normal é −2 vezes (2, −1, 3), então o plano é paralelo. Mas o ponto dá −4 + 4 + 18 + 26 = 44. O termo certo seria −18."},
+        {"t":"−6x + 3y − 9z − 27 = 0","certa":true},
+        {"t":"4x − 2y + 6z − 36 = 0","certa":false,"erro":"A normal é 2 vezes (2, −1, 3), então o plano é paralelo. Mas o ponto dá 4 − 4 − 18 − 36 = −54. O termo certo seria 18."}
+      ],
+      "dica": "Plano paralelo herda o prego em pé: mantenha (2, −1, 3) e ache o d pelo ponto. Depois procure um múltiplo da equação.",
+      "resposta": "−6x + 3y − 9z − 27 = 0. O plano paralelo tem o mesmo {{vetor-normal|vetor normal}} (2, −1, 3): 2x − y + 3z + d = 0. O ponto (1, 2, −3) dá 2 − 2 − 9 + d = 0, então d = 9. Multiplicando 2x − y + 3z + 9 = 0 por −3, sai a alternativa D.",
+      "ouro": "Nas alternativas, as cinco normais são paralelas: **quem decide é o ponto**.",
+      "jeitos": {
+        "visual": "Dois planos {{paralelos-distintos|paralelos}} são andares de um prédio. O térreo é o plano dado; o andar novo tem o mesmo prego em pé, o {{vetor-normal|vetor normal}} (2, −1, 3). Muda só a altura, e quem fixa a altura é o ponto (1, 2, −3): ele precisa estar pisando no andar novo.",
+        "receita": ["Copie a normal do plano dado: [[n]] = (2, −1, 3).", "Escreva o plano paralelo: 2x − y + 3z + d = 0.", "Troque o ponto (1, 2, −3): 2 − 2 − 9 + d = 0, então d = 9.", "Plano achado: 2x − y + 3z + 9 = 0.", "Procure a alternativa que seja múltipla dele: −3 vezes dá −6x + 3y − 9z − 27 = 0."],
+        "cotidiano": "É como pendurar um segundo quadro paralelo ao primeiro, numa parede da frente. A inclinação é copiada do quadro antigo. O que define a posição do novo é um gancho já fixado na parede: o quadro precisa encostar nele. Aqui, a inclinação é a normal (2, −1, 3), e o gancho fixado é o ponto (1, 2, −3).",
+        "trabalho": "As cinco alternativas são como cinco lançamentos com o mesmo histórico e valores diferentes. O histórico, que é a normal, bate em todos: são múltiplos de (2, −1, 3). A conciliação se decide no valor: troque o ponto (1, 2, −3) em cada equação e veja qual zera. Só a D fecha em 0. As outras dão 18, −12, 44 e −54.",
+        "conversa": [{"quem":"Você","fala":"Todas as alternativas têm normal parecida. Como escolho?"},{"quem":"Monitor","fala":"Parecida ou paralela? Divida cada uma por (2, −1, 3)."},{"quem":"Você","fala":"Dá −1, 3, −2, −3 e 2. Todas paralelas."},{"quem":"Monitor","fala":"Então o que sobra para decidir?"},{"quem":"Você","fala":"O ponto. Troco (1, 2, −3) em cada uma."},{"quem":"Monitor","fala":"E só a D dá zero."}],
+        "erro": "O erro clássico está no sinal do d. Quem faz 2 − 2 − 9 + d = 0 e escreve d = −9 chega a 2x − y + 3z − 9 = 0, que aparece como alternativa A multiplicada por −1. Outro tropeço é parar em 2x − y + 3z + 9 = 0, não achar essa forma na lista e desistir: a resposta veio multiplicada por −3.",
+        "confira": "Troque o ponto na D: −6·1 + 3·2 − 9·(−3) − 27 = −6 + 6 + 27 − 27 = 0. A normal (−6, 3, −9) é −3 vezes (2, −1, 3), então o plano é paralelo. E o ponto não está no plano original: 2 − 2 − 9 − 5 = −14. O plano novo é outro andar, não o mesmo.",
+        "atalho": "Pule a conta do d. As cinco alternativas passam no teste da normal, então troque (1, 2, −3) direto nelas. A primeira que zerar é a resposta. Na D: −6 + 6 + 27 − 27 = 0. Nas outras, o ponto deixa sobra."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q3-04",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 8,
+      "tema": "Tabela das posições relativas",
+      "origem": "Avaliação semanal 2 · T1-Q3 · Q04",
+      "enunciado": "Sejam r1: P = P1 + t[[v1]] e r2: P = P2 + s[[v2]] retas, π1: a1x + b1y + c1z + d1 = 0 e π2: a2x + b2y + c2z + d2 = 0 planos, e [[n1]] e [[n2]] os vetores normais de π1 e π2. Associe, na ordem, cada condição à posição relativa: (1) [[v1]] · [[n1]] = 0 e P1 ∈ π1: a reta está ___ no plano; (2) [[v1]] ≠ λ[[v2]] e [[P1P2]], [[v1]], [[v2]] não coplanares: as retas são; (3) [[n1]] = λ[[n2]] e d1 = λd2 (mesmo λ): os planos são; (4) [[v1]] · [[n1]] = 0: a reta e o plano são; (5) [[v1]] ≠ λ[[v2]] e [[P1P2]], [[v1]], [[v2]] coplanares: as retas são; (6) [[v1]] = λ[[v2]] e P1 ∈ r2: as retas são; (7) [[v1]] · [[n1]] ≠ 0: a reta e o plano são; (8) [[v1]] = λ[[v2]] e P1 ∉ r2: as retas são; (9) [[n1]] ≠ λ[[n2]]: os planos são; (10) [[n1]] = λ[[n2]] e d1 ≠ λd2 (mesmo λ): os planos são.",
+      "alternativas": [
+        {"t":"Paralelos, Reversas, Coincidentes, Contida, Concorrentes, Coincidentes, Concorrentes, Paralelas Distintas, Transversais, Paralelos Distintos","certa":false,"erro":"Trocou as frases 1 e 4. A frase 1 tem as duas condições, seta deitada e P1 dentro de π1: é a reta {{contida|contida}}. A frase 4 só diz [[v1]] · [[n1]] = 0, sem o ponto: o professor chama de {{paralelos-reta-plano|paralelos}}, como na Lista 6, Q6f."},
+        {"t":"Contida, Reversas, Coincidentes, Paralelos, Concorrentes, Coincidentes, Concorrentes, Paralelas Distintas, Transversais, Paralelos Distintos","certa":true},
+        {"t":"Contida, Reversas, Coincidentes, Paralelos, Concorrentes, Coincidentes, Transversais, Paralelas Distintas, Concorrentes, Paralelos Distintos","certa":false,"erro":"Trocou as frases 7 e 9. O professor usa {{concorrentes-reta-plano|concorrentes}} para a reta que fura o plano (frase 7, como na Lista 6, Q6b) e {{transversais|transversais}} para dois planos que se cortam numa reta (frase 9, como na Lista 6, Q6d)."},
+        {"t":"Contida, Concorrentes, Coincidentes, Paralelos, Reversas, Coincidentes, Concorrentes, Paralelas Distintas, Transversais, Paralelos Distintos","certa":false,"erro":"Trocou as frases 2 e 5. Setas não múltiplas e tudo coplanar quer dizer que as retas cabem num plano e se cruzam: {{concorrentes|concorrentes}} (frase 5). Sem caber num plano, é o viaduto: {{reversas|reversas}} (frase 2)."},
+        {"t":"Contida, Reversas, Coincidentes, Paralelos, Concorrentes, Coincidentes, Concorrentes, Paralelos Distintos, Transversais, Paralelas Distintas","certa":false,"erro":"Trocou as frases 8 e 10. O gênero da palavra entrega a resposta: {{paralelas-distintas|paralelas distintas}}, no feminino, combina com retas (frase 8); {{paralelos-distintos|paralelos distintos}}, no masculino, combina com planos (frase 10)."}
+      ],
+      "dica": "Separe as frases pelo par de objetos: reta com reta (2, 5, 6, 8), reta com plano (1, 4, 7) e plano com plano (3, 9, 10). Cada grupo usa palavras próprias.",
+      "resposta": "Contida, Reversas, Coincidentes, Paralelos, Concorrentes, Coincidentes, Concorrentes, Paralelas Distintas, Transversais, Paralelos Distintos. Reta com plano: {{contida|contida}} (1), {{paralelos-reta-plano|paralelos}} (4) e {{concorrentes-reta-plano|concorrentes}} (7). Reta com reta: {{reversas|reversas}} (2), {{concorrentes|concorrentes}} (5), {{coincidentes|coincidentes}} (6) e {{paralelas-distintas|paralelas distintas}} (8). Plano com plano: {{coincidentes-planos|coincidentes}} (3), {{transversais|transversais}} (9) e {{paralelos-distintos|paralelos distintos}} (10).",
+      "ouro": "Reta que fura o plano é **concorrente**; dois planos que se cortam são **transversais**. Paralelas distintas são retas; paralelos distintos são planos.",
+      "jeitos": {
+        "visual": "Pense em três gavetas. Na de reta com reta ficam o viaduto ({{reversas|reversas}}), o cruzamento ({{concorrentes|concorrentes}}), os trilhos ({{paralelas-distintas|paralelas distintas}}) e os traços sobrepostos ({{coincidentes|coincidentes}}). Na de reta com plano ficam o fio deitado na mesa ({{contida|contida}}), o fio esticado acima dela ({{paralelos-reta-plano|paralelos}}) e o espeto que fura o tampo ({{concorrentes-reta-plano|concorrentes}}). Na de plano com plano ficam os andares ({{paralelos-distintos|paralelos distintos}}), o mesmo piso ({{coincidentes-planos|coincidentes}}) e as paredes da quina ({{transversais|transversais}}).",
+        "receita": ["Agrupe as frases: reta × reta (2, 5, 6, 8), reta × plano (1, 4, 7) e plano × plano (3, 9, 10).", "Reta × reta com setas múltiplas: com ponto comum, {{coincidentes|Coincidentes}} (6); sem ponto comum, {{paralelas-distintas|Paralelas Distintas}} (8).", "Reta × reta com setas não múltiplas: coplanares, {{concorrentes|Concorrentes}} (5); não coplanares, {{reversas|Reversas}} (2).", "Reta × plano: [[v1]] · [[n1]] = 0 com P1 dentro, {{contida|Contida}} (1); só a seta deitada, {{paralelos-reta-plano|Paralelos}} (4); [[v1]] · [[n1]] ≠ 0, {{concorrentes-reta-plano|Concorrentes}} (7).", "Plano × plano: normais múltiplas com o mesmo λ no d, {{coincidentes-planos|Coincidentes}} (3); λ diferente no d, {{paralelos-distintos|Paralelos Distintos}} (10); normais não múltiplas, {{transversais|Transversais}} (9)."],
+        "cotidiano": "É como arrumar um armário cheio de etiquetas parecidas. 'Paralelas distintas' e 'paralelos distintos' quase não se distinguem, mas vão para gavetas diferentes: o feminino acompanha retas; o masculino, planos. Outro par que confunde: com reta e plano que se cruzam, o professor escreve {{concorrentes-reta-plano|concorrentes}}; com dois planos que se cortam, escreve {{transversais|transversais}}. Lendo a etiqueta com calma, cada peça encontra o lugar.",
+        "trabalho": "Funciona como um CASE em SQL, lido de cima para baixo. Primeiro vem a coluna 'tipo do par': reta × reta, reta × plano ou plano × plano. Depois, as condições: setas múltiplas ou não, [[v1]] · [[n1]] igual a 0 ou não, o mesmo λ no d ou não. Cada combinação devolve um único rótulo. Errar o tipo do par é rodar a regra na tabela errada: o rótulo sai com a palavra de outra gaveta.",
+        "conversa": [{"quem":"Você","fala":"Nas frases 7 e 9 eu fiquei entre concorrentes e transversais."},{"quem":"Monitor","fala":"Quais objetos aparecem em cada uma?"},{"quem":"Você","fala":"Na 7, reta e plano. Na 9, dois planos."},{"quem":"Monitor","fala":"O professor usa {{concorrentes-reta-plano|concorrentes}} para reta com plano e {{transversais|transversais}} para plano com plano. A Lista 6 já mostrava isso."},{"quem":"Você","fala":"E na frase 4, por que não é contida?"},{"quem":"Monitor","fala":"Falta o ponto P1 no plano. Só com a seta deitada, o nome é {{paralelos-reta-plano|paralelos}}."}],
+        "erro": "Três tropeços aparecem aqui. Trocar {{concorrentes-reta-plano|concorrentes}} por {{transversais|transversais}} nas frases 7 e 9. Marcar {{contida|contida}} na frase 4, sem perceber que o ponto P1 não foi dado. E ignorar o gênero: {{paralelas-distintas|paralelas distintas}} é reta com reta (frase 8); {{paralelos-distintos|paralelos distintos}} é plano com plano (frase 10). Ler o objeto de cada frase antes de abrir o menu evita os três.",
+        "confira": "A Lista 6, Q6, confirma a convenção. Na 6b, r: X = (1, 2, 3) + λ(1, 1, 1) e π: x + y + z + 1 = 0 dão [[v]] · [[n]] = 3, e o gabarito diz concorrentes. Na 6d, π1: x + y − z + 3 = 0 e π2: 3x − y + z = 0 dão [[n1]] × [[n2]] = (0, −4, −4), e o gabarito diz transversais. Na 6f, [[v]] · [[n]] = 0 com o ponto fora do plano, e o gabarito diz paralelos.",
+        "atalho": "Leia primeiro o fim de cada frase: 'a reta está ___ no plano', 'as retas são', 'a reta e o plano são', 'os planos são'. Isso já elimina metade do menu. Depois use duas marcas: o ponto dentro do plano separa {{contida|contida}} de {{paralelos-reta-plano|paralelos}}, e o gênero separa paralelas distintas de paralelos distintos."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q3-05",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 5,
+      "tema": "Retas perpendiculares",
+      "origem": "Avaliação semanal 2 · T1-Q3 · Q05",
+      "enunciado": "Determine a posição relativa entre as retas r: x = 1 + 2k, y = 2 + k, z = 3 − 3k (k ∈ ℝ) e s: X = (3, 3, 0) + λ(1, 1, 1) (λ ∈ ℝ).",
+      "alternativas": [
+        {"t":"Paralelas Distintas","certa":false,"erro":"{{paralelas-distintas|Paralelas distintas}} pedem setas múltiplas. (2, 1, −3) e (1, 1, 1) não são: [[u]] × [[v]] = (4, −5, 1), diferente de [[0]]."},
+        {"t":"Coincidentes","certa":false,"erro":"{{coincidentes|Coincidentes}} também pedem setas múltiplas. As coordenadas de (2, 1, −3) e (1, 1, 1) não guardam a mesma proporção: a primeira divisão dá 2 e a última dá −3."},
+        {"t":"Somente Concorrentes","certa":false,"erro":"As retas se cruzam, sim, em (3, 3, 0). Mas o 'somente' exclui o ângulo reto, e aqui [[u]] · [[v]] = 2 + 1 − 3 = 0. O nome mais preciso é {{perpendiculares|perpendiculares}}, um caso particular de {{concorrentes|concorrentes}}."},
+        {"t":"Reversas","certa":false,"erro":"{{reversas|Reversas}} não têm ponto comum, e estas têm: k = 1 e λ = 0 levam as duas retas a (3, 3, 0). O produto misto também dá 0, sinal de que elas cabem num plano."},
+        {"t":"Perpendiculares","certa":true}
+      ],
+      "dica": "Achou o ponto comum? Não pare ali: faça o produto escalar das setas.",
+      "resposta": "Perpendiculares. As setas (2, 1, −3) e (1, 1, 1) não são múltiplas; as retas se encontram em (3, 3, 0), com k = 1 e λ = 0; e [[u]] · [[v]] = 2 + 1 − 3 = 0. São {{concorrentes|concorrentes}} a 90°, isto é, {{perpendiculares|perpendiculares}}.",
+      "ouro": "Depois do ponto comum, **faça o produto escalar**. Zero transforma concorrentes em perpendiculares.",
+      "jeitos": {
+        "visual": "As duas retas se encontram em (3, 3, 0). Pense nos traços de uma cruz: saber que eles se tocam não basta, a cruz pede ângulo reto. A conta das setas mostra esses 90°. Então o desenho certo é a cruz das {{perpendiculares|perpendiculares}}, e não um X torto, que seria o caso de 'somente concorrentes'.",
+        "receita": ["Leia as setas: [[u]] = (2, 1, −3) em r e [[v]] = (1, 1, 1) em s.", "Teste o paralelismo: [[u]] × [[v]] = (4, −5, 1) ≠ [[0]]. Não são paralelas.", "Procure o ponto comum: 1 + 2k = 3 + λ e 2 + k = 3 + λ dão k = 1 e λ = 0.", "Confira em z: 3 − 3·1 = 0 em r e 0 + 0 = 0 em s. Ponto comum (3, 3, 0).", "Faça [[u]] · [[v]] = 2 + 1 − 3 = 0: ângulo reto.", "Concorrentes com 90°: {{perpendiculares|perpendiculares}}."],
+        "cotidiano": "Num cruzamento de ruas, saber que elas se encontram não diz se a esquina é em ângulo reto ou em diagonal. Para pintar a faixa certa, alguém precisa medir o ângulo. Aqui o encontro é em (3, 3, 0), e a régua que mede o ângulo é o produto escalar das setas. Deu 0: a esquina é em ângulo reto.",
+        "trabalho": "Lembra uma classificação de títulos em faixas: 'vencido' e 'vencido há mais de 90 dias'. Um título da segunda faixa também está na primeira, mas o relatório pede a faixa mais específica. 'Somente concorrentes' é a faixa geral sem o ângulo reto; {{perpendiculares|perpendiculares}} é a específica. Como o produto escalar deu 0, o par vai para a faixa específica, a alternativa E.",
+        "conversa": [{"quem":"Você","fala":"Achei o ponto (3, 3, 0). Então são concorrentes, alternativa C."},{"quem":"Monitor","fala":"Leia a C de novo: 'somente concorrentes'. O que o 'somente' tira?"},{"quem":"Você","fala":"Tira o caso de 90°?"},{"quem":"Monitor","fala":"Isso. Faça o produto escalar das setas."},{"quem":"Você","fala":"2 + 1 − 3 = 0. Deu ângulo reto."},{"quem":"Monitor","fala":"Então são {{perpendiculares|perpendiculares}}, a alternativa E."}],
+        "erro": "A pegadinha é a alternativa C. Quem acha o ponto comum e para ali marca 'somente concorrentes'. O 'somente' quer dizer {{concorrentes|concorrentes}} sem 90°. Como as setas têm produto escalar 0, o nome certo é {{perpendiculares|perpendiculares}}. Sempre feche a conta com o produto escalar quando houver uma opção de ângulo reto na lista.",
+        "confira": "Troque k = 1 em r: (1 + 2, 2 + 1, 3 − 3) = (3, 3, 0). Troque λ = 0 em s: (3, 3, 0). O ponto é o mesmo. Com A = (1, 2, 3) e B = (3, 3, 0), [[AB]] = (2, 1, −3) e o produto misto dá 8 − 5 − 3 = 0, o que confirma retas no mesmo plano. E (2, 1, −3) · (1, 1, 1) = 0 confirma os 90°.",
+        "atalho": "O ponto (3, 3, 0) de s está escrito na própria equação. Teste em r: x = 3 pede k = 1, e aí y = 3 e z = 0. Bateu, então as retas se cruzam. Agora uma conta de cabeça, 2 + 1 − 3 = 0, e a resposta é {{perpendiculares|perpendiculares}}."
+      }
+    }
+  ]
+}

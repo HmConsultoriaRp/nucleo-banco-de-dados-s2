@@ -28,7 +28,7 @@ def main():
         if nome.endswith(".json"):
             with open(os.path.join(DADOS, nome), encoding="utf-8") as f:
                 d = json.load(f)
-            for q in d["questoes"]:
+            for q in d.get("questoes", []):
                 q["_disc"] = d["disciplina"]
                 qs.append(q)
     ok = True

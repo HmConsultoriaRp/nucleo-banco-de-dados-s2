@@ -1,0 +1,175 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-av2-t1-q4-05",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Intervalo do ângulo entre planos",
+      "origem": "Avaliação semanal 2 · T1-Q4 · Q05",
+      "enunciado": "Verdadeiro ou falso? O ângulo entre dois planos π₁ e π₂ é sempre um ângulo pertencente ao intervalo [0, π/2].",
+      "alternativas": [
+        {"t": "Falso: as normais podem formar ângulo obtuso, então o ângulo entre planos vai até π", "certa": false, "erro": "As normais podem, mas o {{ang-planos|ângulo entre planos}} usa |cos θ|. Com normais (1, 0, 0) e (−1, 1, 0), o ângulo entre os vetores é 135°, e o dos planos é 45°."},
+        {"t": "Falso: planos paralelos não formam ângulo, então o 0 fica de fora", "certa": false, "erro": "Planos {{paralelos-distintos|paralelos}} têm normais paralelas, |cos θ| = 1 e ângulo 0. O intervalo é fechado, então o 0 está dentro."},
+        {"t": "Falso: o certo é [0, π/2), porque planos perpendiculares não têm ângulo definido", "certa": false, "erro": "Planos {{perpendiculares-planos|perpendiculares}} têm normais com produto escalar 0, cos θ = 0 e ângulo π/2. Esse extremo está dentro de [0, π/2]."},
+        {"t": "Verdadeiro: o ângulo entre planos usa o seno, como o ângulo entre reta e plano", "certa": false, "erro": "O veredito está certo, mas o motivo não. O seno é do {{ang-reta-plano|ângulo entre reta e plano}}. Entre dois planos, o professor usa o cosseno com módulo entre os vetores normais."},
+        {"t": "Verdadeiro: o cosseno com módulo entre as normais fica entre 0 e 1, e o ângulo vai de 0 a π/2", "certa": true}
+      ],
+      "dica": "Pense nos pregos em pé de cada plano e na fórmula com módulo: cos θ = |[[n1]] · [[n2]]| / (‖[[n1]]‖ ‖[[n2]]‖).",
+      "resposta": "Verdadeiro. O {{ang-planos|ângulo entre planos}} usa |cos θ| entre os {{vetor-normal|vetores normais}}, um número entre 0 e 1. Por isso θ vai de 0, com planos paralelos, até π/2, com planos perpendiculares.",
+      "ouro": "Entre planos, **módulo no cosseno**: de 0° (paralelos ou coincidentes) a 90° (perpendiculares).",
+      "jeitos": {
+        "visual": "Dois andares de um prédio são paralelos: 0°. O chão e a parede são perpendiculares: 90°. Entre esses extremos ficam rampas e telhados. Um telhado que abre 135° de um lado da quina abre 45° do outro, e a convenção fica com o menor. Por isso nenhum par de planos passa de 90°.",
+        "receita": [
+          "Escreva a fórmula: cos θ = |[[n1]] · [[n2]]| / (‖[[n1]]‖ ‖[[n2]]‖).",
+          "O módulo deixa o cosseno maior ou igual a 0.",
+          "O cosseno nunca passa de 1.",
+          "Cosseno entre 0 e 1 corresponde a θ entre 0 e π/2.",
+          "Os extremos acontecem: 0 para planos paralelos e π/2 para perpendiculares."
+        ],
+        "cotidiano": "Abra um livro sobre a mesa. Com a capa fechada, a abertura é 0°. Com a capa em pé, 90°. Se você continuar abrindo até 135°, quem olha do outro lado da lombada vê 45°. Um plano inteiro não tem lado de dentro nem de fora, então as duas leituras valem, e o curso fica com a menor.",
+        "trabalho": "Na planilha, o ABS faz o papel do módulo. Com as normais em B2:D2 e B3:D3, a fórmula `=GRAUS(ACOS(ABS(SOMARPRODUTO(B2:D2;B3:D3))/RAIZ(SOMAQUAD(B2:D2)*SOMAQUAD(B3:D3))))` entrega ao ACOS um número entre 0 e 1 e devolve no máximo 90. Sem o ABS, normais opostas dariam 180 para dois planos paralelos: um falso alarme, como uma divergência que é só sinal trocado.",
+        "conversa": [
+          {"quem": "Você", "fala": "As normais (1, 1, 1) e (−1, −1, −1) dão 180°. Isso não fura o intervalo?"},
+          {"quem": "Monitor", "fala": "Esses dois planos são o quê?"},
+          {"quem": "Você", "fala": "Paralelos: uma normal é a outra virada."},
+          {"quem": "Monitor", "fala": "E dois planos paralelos fazem que ângulo?"},
+          {"quem": "Você", "fala": "Zero. Então o módulo transforma o 180° em 0°."},
+          {"quem": "Monitor", "fala": "Exatamente. É o que o gabarito da Lista 7, Q1c mostra."}
+        ],
+        "erro": "O tropeço é tratar as normais como setas soltas e aceitar o ângulo obtuso entre elas. Normais opostas são o mesmo prego virado, e o plano não muda por isso. Outro engano é achar que os extremos ficam de fora: paralelos dão 0 e perpendiculares dão π/2, os dois dentro do intervalo fechado.",
+        "confira": "Teste a Lista 7, Q1d: normais (1, 1, −1) e (3, −1, 1). O produto escalar é 1, e as normas ao quadrado são 3 e 11. Então cos² θ = 1/33 e θ ≈ 79,98°, o 80° do gabarito. O resultado fica abaixo de 90°, como o intervalo exige.",
+        "atalho": "Compare com a Q03 desta avaliação: para retas, o intervalo [0, π] foi marcado Falso. Aqui, para planos, [0, π/2] é Verdadeiro. Retas e planos dividem a mesma faixa, de 0° a 90°; só os vetores vão até 180°."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q4-06",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 2,
+      "tema": "Normais paralelas e cosseno",
+      "origem": "Avaliação semanal 2 · T1-Q4 · Q06",
+      "enunciado": "Verdadeiro ou falso? Se os vetores normais aos planos π₁ e π₂ são paralelos, então o cosseno do ângulo entre os planos π₁ e π₂ é igual a 0.",
+      "alternativas": [
+        {"t": "Verdadeiro: planos paralelos não se cruzam, então o ângulo entre eles é 90° e o cosseno é 0", "certa": false, "erro": "Não se cruzar não quer dizer 90°. Planos {{paralelos-distintos|paralelos}} são como dois andares de um prédio: ângulo 0°, cosseno 1. O cosseno 0 é de planos perpendiculares."},
+        {"t": "Falso: normais paralelas dão |cos θ| = 1 e ângulo 0°; cosseno 0 é o caso de normais perpendiculares", "certa": true},
+        {"t": "Verdadeiro: vetores paralelos têm produto escalar 0, e o cosseno acompanha o produto escalar", "certa": false, "erro": "Produto escalar 0 é de vetores perpendiculares. Vetores paralelos zeram o produto vetorial, não o escalar. Com [[n1]] = (1, −2, 3) e [[n2]] = (−3, 6, −9), o produto escalar é −42."},
+        {"t": "Falso: o cosseno vale sempre −1, porque normais paralelas apontam em sentidos opostos", "certa": false, "erro": "Normais paralelas podem ter o mesmo sentido, como (1, −2, 3) e (2, −4, 6). E a fórmula do curso usa módulo, então o cosseno do ângulo entre os planos é 1, não −1."},
+        {"t": "Falso: o cosseno só vale 0 quando os planos são coincidentes", "certa": false, "erro": "Planos {{coincidentes-planos|coincidentes}} também têm normais paralelas e cosseno 1. O cosseno 0 aparece quando [[n1]] · [[n2]] = 0, isto é, com planos {{perpendiculares-planos|perpendiculares}}."}
+      ],
+      "dica": "Normais paralelas: [[n2]] = k[[n1]]. Coloque isso na fórmula do cosseno e veja o que sobra.",
+      "resposta": "Falso. Com [[n2]] = k[[n1]], |cos θ| = 1 e θ = 0°: os planos são paralelos ou coincidentes. O cosseno 0 é dos planos {{perpendiculares-planos|perpendiculares}}, com [[n1]] · [[n2]] = 0.",
+      "ouro": "Normais **paralelas → cos = 1** (ângulo 0°). Normais **perpendiculares → cos = 0** (ângulo 90°).",
+      "jeitos": {
+        "visual": "Pense em dois andares de um prédio. O prego em pé de cada piso aponta para cima, na mesma direção. Pregos alinhados formam ângulo 0°, e o cosseno de 0° é 1. Para o cosseno dar 0, os pregos teriam de formar uma cruz, como o prego do chão e o prego da parede.",
+        "receita": [
+          "Escreva [[n2]] = k[[n1]], com k diferente de 0.",
+          "Então [[n1]] · [[n2]] = k‖[[n1]]‖².",
+          "E ‖[[n2]]‖ = |k| ‖[[n1]]‖.",
+          "Assim, |cos θ| = |k| ‖[[n1]]‖² / (‖[[n1]]‖ · |k| ‖[[n1]]‖) = 1.",
+          "θ = 0°, e a afirmação, que dizia cosseno 0, é Falsa."
+        ],
+        "cotidiano": "Duas prateleiras da mesma estante ficam uma acima da outra e nunca se encostam. Mesmo assim, entre elas não há abertura nenhuma: o ângulo é 0°. Um ângulo de 90° seria o de uma prateleira com a lateral da estante, que se encontram na quina.",
+        "trabalho": "Lembra a correlação entre duas séries numa planilha. Séries proporcionais, uma o triplo da outra, têm correlação de módulo 1; séries sem relação linear têm correlação perto de 0. Normais paralelas são o caso proporcional: o cosseno, em módulo, vale 1. O valor 0 fica para normais perpendiculares, que não andam juntas em nada.",
+        "conversa": [
+          {"quem": "Você", "fala": "Paralelo não é aquele que dá zero?"},
+          {"quem": "Monitor", "fala": "Zero em qual produto?"},
+          {"quem": "Você", "fala": "No produto vetorial. No escalar, zero é perpendicular."},
+          {"quem": "Monitor", "fala": "E o cosseno vem de qual produto?"},
+          {"quem": "Você", "fala": "Do escalar. Então normal paralela dá cosseno 1, e não 0."},
+          {"quem": "Monitor", "fala": "Isso. Cosseno 0 fica para os planos perpendiculares."}
+        ],
+        "erro": "A frase troca dois casos. Normais paralelas dão cosseno 1 e zeram o produto vetorial. Normais perpendiculares dão cosseno 0 e zeram o produto escalar. Quem decora 'paralelo dá zero' sem dizer em qual produto cai exatamente nesta troca.",
+        "confira": "Com [[n1]] = (1, −2, 3) e [[n2]] = (−3, 6, −9), que é −3 vezes [[n1]]: o produto escalar é −42, ‖[[n1]]‖² = 14 e ‖[[n2]]‖² = 126. Então cos² θ = 42² / (14 · 126) = 1764/1764 = 1. O módulo do cosseno é 1, e não 0.",
+        "atalho": "Guarde dois pares. Paralelo combina com cosseno 1, porque o ângulo é 0°. Perpendicular combina com cosseno 0, porque o ângulo é 90°. A frase junta paralelo com cosseno 0, então está errada sem precisar de conta."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q4-07",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 4,
+      "tema": "Ângulo entre duas retas",
+      "origem": "Avaliação semanal 2 · T1-Q4 · Q07",
+      "enunciado": "O ângulo entre a reta r: X = (1, 2, 3) + λ(−1, 2, 3), λ ∈ R e a reta s: X = (2, −1, 4) + γ(2, −1, 3), γ ∈ R é:",
+      "alternativas": [
+        {"t": "50°", "certa": false, "erro": "Sai de usar o ponto (1, 2, 3) de r no lugar da direção (−1, 2, 3): (1, 2, 3) · (2, −1, 3) = 9, e arccos(9/14) ≈ 49,99°. O {{vetor-diretor|vetor diretor}} é o que multiplica λ."},
+        {"t": "85,91°", "certa": false, "erro": "85,91° pediria |cos θ| ≈ 0,07, com retas quase {{ortogonais|ortogonais}}. Aqui |[[u]] · [[v]]| = 5, e 5/14 ≈ 0,36, longe disso."},
+        {"t": "69,08°", "certa": true},
+        {"t": "60°", "certa": false, "erro": "60° pediria cos θ = 1/2, isto é, |[[u]] · [[v]]| = 7. A conta dá 5. É um valor redondo que não sai dos dados."},
+        {"t": "21,79°", "certa": false, "erro": "Sai de errar dois sinais no produto escalar: 2 + 2 + 9 = 13 no lugar de −2 − 2 + 9 = 5. E arccos(13/14) ≈ 21,79°."}
+      ],
+      "dica": "Use só as direções, que multiplicam λ e γ: cos θ = |[[u]] · [[v]]| / (‖[[u]]‖ ‖[[v]]‖).",
+      "resposta": "θ = arccos(5/14) ≈ 69,08°. O {{ang-retas|ângulo entre retas}} usa o cosseno com módulo das direções (−1, 2, 3) e (2, −1, 3); os pontos de partida não entram.",
+      "ouro": "Ângulo entre retas: **só as direções**, cosseno com módulo. Os pontos de partida não entram.",
+      "jeitos": {
+        "visual": "Leve as duas setas para a mesma origem, sem girar: (−1, 2, 3) e (2, −1, 3). Os pontos (1, 2, 3) e (2, −1, 4) só dizem por onde cada reta passa, não para onde ela anda. A abertura entre as setas é o ângulo procurado, um pouco abaixo de 70°.",
+        "receita": [
+          "Separe as direções: [[u]] = (−1, 2, 3) e [[v]] = (2, −1, 3).",
+          "[[u]] · [[v]] = −2 − 2 + 9 = 5.",
+          "‖[[u]]‖ = √14 e ‖[[v]]‖ = √14; o produto das normas é 14.",
+          "cos θ = |5|/14 ≈ 0,3571.",
+          "θ = arccos(5/14) ≈ 69,08°."
+        ],
+        "cotidiano": "Duas estradas saem de cidades diferentes. Para saber o ângulo entre elas, não importa em que cidade cada uma começa: importa o rumo de cada estrada. O ponto de partida muda o lugar no mapa, mas não muda a abertura entre os rumos.",
+        "trabalho": "No Excel, com as direções em B2:D2 e B3:D3, o SOMARPRODUTO devolve 5. Confira o sinal de cada parcela como quem confere débito e crédito: −2, −2 e +9. Um sinal invertido muda o total para 9, e dois sinais invertidos, para 13. Os ângulos que saem, 50° e 21,79°, estão entre as alternativas erradas.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei 50° e marquei a A."},
+          {"quem": "Monitor", "fala": "Qual vetor você usou para r?"},
+          {"quem": "Você", "fala": "(1, 2, 3)."},
+          {"quem": "Monitor", "fala": "Esse é o ponto de partida. A direção é o que multiplica λ."},
+          {"quem": "Você", "fala": "Então é (−1, 2, 3). O produto escalar dá 5, e não 9."},
+          {"quem": "Monitor", "fala": "E arccos(5/14) dá 69,08°. Ponto e direção parecidos facilitam a troca: confira sempre o que multiplica λ."}
+        ],
+        "erro": "O ponto de r, (1, 2, 3), e a direção de r, (−1, 2, 3), diferem só no primeiro sinal. Trocar um pelo outro leva a 50°. Outro tropeço é usar seno, como se fosse reta com plano: arcsen(5/14) ≈ 20,92°. Esse valor não está entre as alternativas desta questão, mas aparece como alternativa errada na Q01.",
+        "confira": "Como o produto escalar 5 é positivo, o ângulo já sai agudo, sem depender do módulo. Teste ao contrário: cos 69,08° ≈ 0,3571, e 5/14 ≈ 0,3571. As normas também conferem: 1 + 4 + 9 = 14 nas duas direções, e √14 · √14 = 14.",
+        "atalho": "As duas direções usam os mesmos números, 1, 2 e 3, trocados de lugar e de sinal. Então as normas são iguais, √14, e o denominador é 14. Só falta o numerador, 5. Como 5/14 é pouco mais que 1/3, e arccos(1/3) ≈ 70,53°, o ângulo fica um pouco abaixo disso: 69,08°."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q4-08",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 5,
+      "tema": "Diagonais do cubo",
+      "origem": "Avaliação semanal 2 · T1-Q4 · Q08",
+      "enunciado": "Considere o cubo ABCDEFGH de lado 1, com A = (0, 0, 0) na origem, B = (1, 0, 0) no eixo x, D = (0, 1, 0) no eixo y, E = (0, 0, 1) no eixo z e C = (1, 1, 0). Os vértices F, G e H ficam logo acima de B, C e D, na altura z = 1. Classifique, na ordem, as afirmações: (1) O ângulo entre as retas que contêm as diagonais EC e BH é θ ≈ 70,5°. (2) Se o lado do cubo dobrasse de tamanho, o ângulo entre as retas que contêm as diagonais EC e BH não se modificaria. (3) Se o lado do cubo dobrasse de tamanho, o ângulo entre as retas que contêm as diagonais EC e BH dobraria de tamanho. (4) Se o lado do cubo dobrasse de tamanho, o ângulo entre as retas que contêm as diagonais EC e BH muda de tamanho, mas não é o dobro do tamanho.",
+      "alternativas": [
+        {"t": "V, F, V, F", "certa": false, "erro": "O ângulo depende só das direções. Dobrar o lado multiplica [[EC]] e [[BH]] por 2, e o cosseno continua 1/3. Além disso, o dobro de 70,53° passa de 90°, o que nenhum {{ang-retas|ângulo entre retas}} alcança."},
+        {"t": "V, F, F, V", "certa": false, "erro": "Dobrar o lado estica as duas diagonais pelo mesmo fator. A direção não muda, então o ângulo também não muda: a afirmação 2 é V e a 4 é F."},
+        {"t": "F, V, F, F", "certa": false, "erro": "A afirmação 1 é verdadeira. O cosseno sem módulo dá −1/3 e 109,47°, que é o {{ang-vetores|ângulo entre os vetores}} [[EC]] e [[BH]]. Entre retas vale o módulo: |cos θ| = 1/3 e θ ≈ 70,53°, que arredonda para 70,5°."},
+        {"t": "V, V, F, V", "certa": false, "erro": "As afirmações 2 e 4 se contradizem: uma diz que o ângulo não muda, a outra diz que muda. Só uma pode ser verdadeira, e é a 2."},
+        {"t": "V, V, F, F", "certa": true}
+      ],
+      "dica": "Monte [[EC]] = C − E e [[BH]] = H − B. Use o cosseno com módulo. Para o lado dobrado, multiplique as coordenadas por 2 e refaça.",
+      "resposta": "V, V, F, F. Com [[EC]] = (1, 1, −1) e [[BH]] = (−1, 1, 1), |cos θ| = 1/3 e θ ≈ 70,53°. Mudar o lado só estica as diagonais, e o {{ang-retas|ângulo entre retas}} fica igual.",
+      "ouro": "O ângulo **não muda com a escala**: esticar as duas setas pelo mesmo fator mantém o cosseno.",
+      "jeitos": {
+        "visual": "[[EC]] sai do canto de cima que fica sobre a origem e desce até o canto oposto do chão. [[BH]] sai do canto do chão no eixo x e sobe até o canto de cima que fica sobre o eixo y. As duas atravessam o cubo por dentro e se cruzam no centro, (1/2, 1/2, 1/2). Um cubo maior é a mesma figura ampliada, com os mesmos ângulos.",
+        "receita": [
+          "Escreva E = (0, 0, 1), C = (1, 1, 0), B = (1, 0, 0) e H = (0, 1, 1).",
+          "[[EC]] = C − E = (1, 1, −1) e [[BH]] = H − B = (−1, 1, 1).",
+          "[[EC]] · [[BH]] = −1 + 1 − 1 = −1; as duas normas valem √3.",
+          "|cos θ| = 1/3, então θ ≈ 70,53° ≈ 70,5°: afirmação 1 V.",
+          "Com lado 2, as setas viram (2, 2, −2) e (−2, 2, 2); o cosseno continua 4/12 = 1/3.",
+          "O ângulo não muda: 2 V, 3 F e 4 F."
+        ],
+        "cotidiano": "Uma foto ampliada para o tamanho de um pôster mantém todos os ângulos do original: o telhado da casa continua com a mesma inclinação. Ampliar muda os comprimentos, não as aberturas. O cubo de lado 2 é a foto ampliada do cubo de lado 1.",
+        "trabalho": "É como a análise vertical da DRE. Se a empresa passar a lançar tudo em milhares de reais, cada linha muda de número, mas o percentual sobre o faturamento bruto fica igual. O cosseno também é uma razão: o fator 2 do lado dobrado aparece em cima e embaixo da fração e se cancela.",
+        "conversa": [
+          {"quem": "Você", "fala": "Se o cubo dobra, as diagonais dobram. O ângulo não dobra junto?"},
+          {"quem": "Monitor", "fala": "O que acontece com o cosseno quando as duas setas dobram?"},
+          {"quem": "Você", "fala": "O produto escalar fica 4 vezes maior, e o produto das normas também."},
+          {"quem": "Monitor", "fala": "Então a razão muda?"},
+          {"quem": "Você", "fala": "Não, continua 1/3. O ângulo fica igual."},
+          {"quem": "Monitor", "fala": "Isso. E o dobro de 70,53° passaria de 90°, o que é impossível entre retas."}
+        ],
+        "erro": "O primeiro tropeço é confundir comprimento com abertura: o lado dobra, mas o ângulo depende de uma razão e não muda. O segundo é ficar com 109,47°, que é o {{ang-vetores|ângulo entre os vetores}} [[EC]] e [[BH]]. Entre retas, o cosseno entra com módulo, e o ângulo é o agudo, 70,53°.",
+        "confira": "Refaça com lado 2: [[EC]] = (2, 2, −2) e [[BH]] = (−2, 2, 2). O produto escalar é −4, e as normas ao quadrado são 12 e 12. Então |cos θ| = 4/12 = 1/3, o mesmo valor do lado 1. Com um lado a qualquer, o produto vira −a² e o produto das normas, 3a²: o a² se cancela.",
+        "atalho": "Duas diagonais internas de um cubo sempre formam arccos(1/3) ≈ 70,53°, seja qual for o tamanho do cubo. Com isso, as afirmações 1 e 2 são V. As afirmações 3 e 4 dizem que o ângulo muda, então as duas são F."
+      }
+    }
+  ]
+}

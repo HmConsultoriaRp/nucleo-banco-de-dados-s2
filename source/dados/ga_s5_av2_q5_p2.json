@@ -1,0 +1,218 @@
+{
+  "disciplina": "ga",
+  "semanas": [],
+  "questoes": [
+    {
+      "id": "ga-s5-av2-t1-q5-06",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 6,
+      "tema": "Pontos a uma distância dada",
+      "origem": "Avaliação semanal 2 · T1-Q5 · Q06",
+      "enunciado": "Determine os pontos da reta r: 2 − x = (1 − y)/3 = z + 1 que distam 2 do plano π: x + 2y − 2z + 6 = 0.",
+      "alternativas": [
+        {"t": "(2, 1, −1) e (−2/3, −7, 5/3)", "certa": false, "erro": "Os dois pontos estão na reta (t = 0 e t = 8/3), mas distam 4 do plano. O primeiro é o {{ponto-partida|ponto de partida}} da reta, com t = 0."},
+        {"t": "(5/3, 0, −2/3) e (−1/3, −6, 4/3)", "certa": false, "erro": "Estão na reta (t = 1/3 e t = 7/3), mas distam 3 do plano, e não 2."},
+        {"t": "(7/3, 2, −4/3) e (−1, −8, 2)", "certa": false, "erro": "Estão na reta (t = −1/3 e t = 3), mas distam 5 do plano, e não 2."},
+        {"t": "(4/3, −1, −1/3) e (0, −5, 1)", "certa": true},
+        {"t": "(8/3, 3, −5/3) e (−4/3, −9, 7/3)", "certa": false, "erro": "Distam 6 do plano. É o par que sai ao dividir por ‖[[n]]‖² = 9 em vez de ‖[[n]]‖ = 3: |12 − 9t| = 18 dá t = −2/3 e t = 10/3."}
+      ],
+      "dica": "Chame cada parte da igualdade de t, escreva x, y e z em função de t e use a fórmula de distância de ponto a plano.",
+      "resposta": "(4/3, −1, −1/3) e (0, −5, 1). Na reta, o lado esquerdo do plano vale 12 − 9t. A {{dist-ponto-plano|distância de ponto a plano}} fica |12 − 9t|/3 = 2, o que dá t = 2/3 e t = 2.",
+      "ouro": "Equação com módulo dá **duas respostas**, uma de cada lado do plano. Se a sua conta deu um ponto só, faltou o outro sinal.",
+      "jeitos": {
+        "visual": "A reta atravessa o plano no ponto (2/3, −3, 1/3), quando t = 4/3. Os pontos procurados ficam um de cada lado desse furo, como dois degraus iguais, um acima e outro abaixo: t = 2/3 e t = 2, ambos a 2/3 de passo do furo. Por isso a resposta tem dois pontos, e não um.",
+        "receita": [
+          "A reta vem em {{eq-simetricas|equações simétricas}}. Iguale cada parte ao {{parametro|parâmetro}} t: 2 − x = t, (1 − y)/3 = t, z + 1 = t.",
+          "Ponto da reta: (2 − t, 1 − 3t, t − 1).",
+          "No plano: (2 − t) + 2(1 − 3t) − 2(t − 1) + 6 = 12 − 9t.",
+          "Tamanho do normal (1, 2, −2): √9 = 3. Distância: |12 − 9t|/3 = 2.",
+          "|12 − 9t| = 6: t = 2/3 ou t = 2.",
+          "Pontos: (4/3, −1, −1/3) e (0, −5, 1)."
+        ],
+        "cotidiano": "Numa estrada que cruza a divisa entre dois estados, existem dois marcos a 2 km da divisa: um antes e outro depois. Quem procura só um esquece o outro lado. O plano é a divisa, a reta é a estrada, e o módulo da fórmula é o que lembra dos dois lados.",
+        "trabalho": "É como procurar as datas em que uma projeção linear se afasta 6 da meta, para cima ou para baixo. O desvio é 12 − 9t; dividido por 3, vira a distância. A condição |12 − 9t| = 6 tem duas soluções: t = 2/3, com desvio +6, e t = 2, com desvio −6. Numa planilha, uma coluna com =ABS(12 − 9*t)/3 mostra as duas linhas que dão 2.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei t = 2/3 e o ponto (4/3, −1, −1/3)."},
+          {"quem": "Monitor", "fala": "E o outro sinal do módulo?"},
+          {"quem": "Você", "fala": "12 − 9t = −6 dá t = 2."},
+          {"quem": "Monitor", "fala": "Qual ponto sai?"},
+          {"quem": "Você", "fala": "(0, −5, 1). Os dois aparecem juntos numa única alternativa."}
+        ],
+        "erro": "O tropeço clássico é resolver só 12 − 9t = 6 e esquecer 12 − 9t = −6. Outro é dividir por 9, o quadrado do tamanho do normal, em vez de 3: isso leva aos pontos que distam 6. Por fim, cuidado ao montar a reta: 2 − x = t dá x = 2 − t, com sinal de menos no t.",
+        "confira": "Leve cada ponto ao plano. (4/3, −1, −1/3): 4/3 − 2 + 2/3 + 6 = 6, e 6/3 = 2. (0, −5, 1): 0 − 10 − 2 + 6 = −6, e |−6|/3 = 2. Os dois estão na reta: t = 2 − x dá 2/3 e 2, e as outras coordenadas conferem com esses valores.",
+        "atalho": "Todas as alternativas trazem pontos da reta, então teste só a distância. Calcule x + 2y − 2z + 6 no primeiro ponto de cada par e divida por 3. Só o par que começa em (4/3, −1, −1/3) dá 2. Depois confirme o parceiro, (0, −5, 1), pelo mesmo caminho."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q5-07",
+      "semana": 5,
+      "nivel": 1,
+      "minutos": 3,
+      "tema": "Distância de ponto a plano",
+      "origem": "Avaliação semanal 2 · T1-Q5 · Q07",
+      "enunciado": "A distância do ponto P = (2, 1, 3) ao plano π: 2x + y − 3z − 7 = 0 é:",
+      "alternativas": [
+        {"t": "19/√14", "certa": false, "erro": "Aparece com o sinal do termo 2·2 trocado: −4 + 1 − 9 − 7 = −19. Com os sinais certos, o numerador é −11."},
+        {"t": "21/√14", "certa": false, "erro": "É a soma sem sinais: 4 + 1 + 9 + 7 = 21. O −3z e o −7 entram negativos: 4 + 1 − 9 − 7 = −11."},
+        {"t": "11/√14", "certa": true},
+        {"t": "13/√14", "certa": false, "erro": "Sai com o sinal do y trocado: 4 − 1 − 9 − 7 = −13. O ponto tem y = 1, e o coeficiente de y é +1."},
+        {"t": "5/√14", "certa": false, "erro": "Exige dois sinais trocados, como 4 − 1 + 9 − 7 = 5. Na conta certa, só o −9 e o −7 são negativos, e o total é −11."}
+      ],
+      "dica": "Coloque o ponto na equação do plano, tire o módulo e divida pelo tamanho do vetor normal.",
+      "resposta": "11/√14 ≈ 2,94. Pela {{dist-ponto-plano|distância de ponto a plano}}: |2·2 + 1 − 3·3 − 7|/√(4 + 1 + 9) = |−11|/√14.",
+      "ouro": "Todas as alternativas têm √14 embaixo: a questão inteira está **no numerador e nos sinais**.",
+      "jeitos": {
+        "visual": "Do ponto P, desça um fio de prumo até o plano, na direção do {{vetor-normal|vetor normal}} (2, 1, −3). O fio toca o plano no {{pe-perpendicular|pé da perpendicular}}, (25/7, 25/14, 9/14). O comprimento desse fio é a distância: o caminho mais curto de P até o plano. Qualquer outro caminho, inclinado, sai mais longo.",
+        "receita": [
+          "Leia o {{vetor-normal|vetor normal}}: [[n]] = (2, 1, −3), e o termo −7.",
+          "Coloque P = (2, 1, 3): 2·2 + 1·1 − 3·3 − 7 = 4 + 1 − 9 − 7 = −11.",
+          "Tire o módulo: 11.",
+          "Tamanho do normal: √(4 + 1 + 9) = √14.",
+          "Distância: 11/√14 ≈ 2,94."
+        ],
+        "cotidiano": "Para saber a que altura uma lâmpada está do chão, ninguém mede na diagonal até um canto da sala. Mede na vertical, o caminho mais curto. A fórmula faz isso: coloca o ponto na equação, que diz o quanto ele está fora do plano, e corrige pela escala do normal.",
+        "trabalho": "Numa planilha, a conta cabe em uma célula: =ABS(2*2 + 1 − 3*3 − 7)/RAIZ(14). O SOMARPRODUTO de (2, 1, −3) com (2, 1, 3), mais o −7, dá −11. O ABS tira o sinal, que só diz de que lado do plano o ponto está. O denominador é o mesmo para o plano todo, então numa tabela de pontos ele vira uma constante.",
+        "conversa": [
+          {"quem": "Você", "fala": "Deu 21/√14."},
+          {"quem": "Monitor", "fala": "Como ficou o numerador?"},
+          {"quem": "Você", "fala": "4 + 1 + 9 + 7."},
+          {"quem": "Monitor", "fala": "O termo com z é −3z, e o final é −7. Que sinais entram?"},
+          {"quem": "Você", "fala": "4 + 1 − 9 − 7 = −11. Com módulo, 11."},
+          {"quem": "Monitor", "fala": "Então a distância é 11/√14."}
+        ],
+        "erro": "O erro típico é somar tudo sem olhar os sinais, o que dá 21. O módulo vem depois da soma, e não em cada parcela. Outros sinais trocados geram 19, 13 e 5, todos na lista. Calcule as quatro parcelas com o sinal certo antes de qualquer módulo: 4, 1, −9 e −7.",
+        "confira": "O {{pe-perpendicular|pé da perpendicular}} é (25/7, 25/14, 9/14). Coloque-o no plano: 50/7 + 25/14 − 27/14 − 7 = 0. A distância de P até ele, ao quadrado, é 121/14. A raiz disso é 11/√14, o mesmo valor da fórmula.",
+        "atalho": "O denominador √14 é igual em todas as alternativas, então só o numerador decide. Faça 4 + 1 − 9 − 7 com calma e tire o módulo: 11. A alternativa com 11 em cima é a resposta. Se quiser o decimal: 11/3,74 ≈ 2,94."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q5-08",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 6,
+      "tema": "Ponto equidistante na reta",
+      "origem": "Avaliação semanal 2 · T1-Q5 · Q08",
+      "enunciado": "Dada a reta r: X = (−1, 1, 2) + t(−1, 2, −3), t ∈ ℝ, e os pontos A = (1, 2, 1) e B = (3, 1, 2), ache o ponto de r equidistante de A e B.",
+      "alternativas": [
+        {"t": "(2, −5, 11)", "certa": false, "erro": "Está na reta (t = −3), mas |PA|² = 150 e |PB|² = 118. Fica mais perto de B."},
+        {"t": "(−2/7, −3/7, 29/7)", "certa": true},
+        {"t": "(−2, 3, −1)", "certa": false, "erro": "Está na reta (t = 1), mas |PA|² = 14 e |PB|² = 38. Fica mais perto de A."},
+        {"t": "(−2/3, 1/3, 3)", "certa": false, "erro": "Está na reta (t = −1/3), mas |PA|² = 86/9 e |PB|² = 134/9. Não é {{equidistante|equidistante}}."},
+        {"t": "(0, −1, 5)", "certa": false, "erro": "Está na reta (t = −1), mas |PA|² = 26 e |PB|² = 22. Os quadrados não batem."}
+      ],
+      "dica": "Escreva o ponto da reta com t, iguale |PA|² a |PB|² e veja os termos com t² sumirem.",
+      "resposta": "(−2/7, −3/7, 29/7), com t = −5/7. Nesse ponto, |PA|² = |PB|² = 122/7: o ponto é {{equidistante|equidistante}} de A e B.",
+      "ouro": "Iguale os **quadrados** das distâncias: o t² some dos dois lados e sobra uma equação do primeiro grau, com uma só resposta.",
+      "jeitos": {
+        "visual": "Os pontos {{equidistante|equidistantes}} de A e B formam um plano: o {{plano-mediador|plano mediador}}, que corta o segmento AB ao meio e faz 90° com ele. A reta r atravessa esse plano num só ponto. É esse ponto que a questão pede: o lugar onde r cruza a parede invisível entre A e B.",
+        "receita": [
+          "Ponto da reta: P = (−1 − t, 1 + 2t, 2 − 3t).",
+          "|PA|² = (2 + t)² + (1 − 2t)² + (−1 + 3t)² = 14t² − 6t + 6.",
+          "|PB|² = (4 + t)² + (−2t)² + (3t)² = 14t² + 8t + 16.",
+          "Iguale: −6t + 6 = 8t + 16, logo t = −5/7.",
+          "P = (−1 + 5/7, 1 − 10/7, 2 + 15/7) = (−2/7, −3/7, 29/7)."
+        ],
+        "cotidiano": "Dois amigos moram em A e em B e querem se encontrar numa avenida reta, de modo que ninguém ande mais que o outro. Existe um único ponto da avenida que deixa as duas caminhadas iguais. Ele não é o meio do caminho entre as casas, que nem fica na avenida. É o ponto da avenida que cai na divisa de igual distância entre as duas.",
+        "trabalho": "Funciona como achar o ponto de equilíbrio entre duas tabelas de custo que crescem com t. As duas têm o mesmo termo 14t², que se cancela. Sobram duas retas: −6t + 6 e 8t + 16. O cruzamento é t = −5/7. No Excel, o Atingir Meta acharia o mesmo t, zerando a diferença entre as duas colunas.",
+        "conversa": [
+          {"quem": "Você", "fala": "Vou cair numa equação do segundo grau, com t²."},
+          {"quem": "Monitor", "fala": "Quanto vale o termo com t² em |PA|² e em |PB|²?"},
+          {"quem": "Você", "fala": "14t² nos dois."},
+          {"quem": "Monitor", "fala": "Então, ao igualar, o que acontece?"},
+          {"quem": "Você", "fala": "Some. Fica −6t + 6 = 8t + 16, e t = −5/7."},
+          {"quem": "Monitor", "fala": "E o ponto?"},
+          {"quem": "Você", "fala": "(−2/7, −3/7, 29/7)."}
+        ],
+        "erro": "O engano mais comum é testar só se o ponto está na reta. Aqui as cinco alternativas estão em r, então esse teste não elimina nada: o que separa é a igualdade das distâncias. Outro tropeço é o sinal ao montar P: com t negativo, −1 − t vira −1 + 5/7. Confira as frações com calma.",
+        "confira": "O ponto médio de AB é (2, 3/2, 3/2), e [[AB]] = (2, −1, 1). O {{plano-mediador|plano mediador}} é 2x − y + z = 4. Coloque o ponto achado: −4/7 + 3/7 + 29/7 = 28/7 = 4. Ele está no plano, logo é equidistante. E |PA|² = |PB|² = 122/7.",
+        "atalho": "Use o {{plano-mediador|plano mediador}} direto: 2x − y + z = 4. Na reta, 2x − y + z vale −1 − 7t. Então −1 − 7t = 4 e t = −5/7. Ou teste as alternativas nesse plano: as outras dão 20, −8, 4/3 e 6, e só (−2/7, −3/7, 29/7) dá 4."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q5-09",
+      "semana": 5,
+      "nivel": 3,
+      "minutos": 7,
+      "tema": "Três planos numa reta",
+      "origem": "Avaliação semanal 2 · T1-Q5 · Q09",
+      "enunciado": "Determine o valor de m e n para que os três planos π₁: −x + 2y − 3z + 5 = 0, π₂: 2x − 4y − 4z + 7 = 0 e π₃: mx − 14y + z + n = 0 se intersectem ao longo de uma reta.",
+      "alternativas": [
+        {"t": "m = 1 e n = 29", "certa": false, "erro": "Com m = 1, o determinante dos normais é 140 − 20 = 120, diferente de 0. Os três planos se encontram num ponto único, (5, 51/20, 17/10), e não numa reta."},
+        {"t": "m = 7 e n = −1", "certa": true},
+        {"t": "m ≠ 7 e n qualquer valor real", "certa": false, "erro": "Com m ≠ 7, o determinante 140 − 20m não é 0. Isso dá ponto único, nunca uma reta. É a condição do caso oposto."},
+        {"t": "m = 7 e n ≠ −1", "certa": false, "erro": "O m está certo, mas n ≠ −1 é a barraca: cada par de planos se corta numa reta, as três retas são paralelas, e nenhum ponto é dos três. São {{calha|retas paralelas dois a dois}}, e não uma reta comum."},
+        {"t": "m ≠ 1 e n qualquer valor real", "certa": false, "erro": "Larga demais. Inclui m = 7 e n = −1, mas também m = 0 e n = 5, que dá um ponto único, (6/7, 67/140, 17/10)."}
+      ],
+      "dica": "Tente escrever π₃ como α·π₁ + β·π₂, com a linha inteira, inclusive o termo final.",
+      "resposta": "m = 7 e n = −1. Com esses valores, π₃ = −3·π₁ + 2·π₂: os três planos formam um {{feixe|feixe}} e dividem a mesma {{reta-comum|reta}}.",
+      "ouro": "Reta comum aos três: π₃ tem de ser combinação de π₁ e π₂ na **linha inteira**. As colunas dão m; o termo final dá n.",
+      "jeitos": {
+        "visual": "Pense num livro aberto em pé: as páginas são planos diferentes, todas presas na lombada. A lombada é a reta de π₁ e π₂, na direção (2, 1, 0) e na altura z = 17/10. Para π₃ virar mais uma página do {{feixe|feixe}}, ele precisa conter a lombada inteira: a direção certa fixa m = 7, e passar pelo ponto certo fixa n = −1.",
+        "receita": [
+          "Direção da reta de π₁ e π₂: [[n₁]] × [[n₂]] = (−1, 2, −3) × (2, −4, −4) = (−20, −10, 0).",
+          "π₃ precisa aceitar essa direção: (m, −14, 1) · (−20, −10, 0) = −20m + 140 = 0, logo m = 7.",
+          "Ponto da reta: com y = 0, sai P₀ = (−1/10, 0, 17/10). Ele zera π₁ e π₂.",
+          "P₀ em π₃: 7·(−1/10) + 17/10 + n = 1 + n = 0, logo n = −1.",
+          "Prova: −3·π₁ + 2·π₂ = 7x − 14y + z − 1, que é π₃. Os três formam um {{feixe|feixe}}."
+        ],
+        "cotidiano": "Três portas presas no mesmo eixo. Para a terceira porta girar junto, duas coisas precisam dar certo: a dobradiça tem de estar alinhada com o eixo e tem de estar presa nele, não ao lado. Alinhada mas deslocada, a porta corre paralela ao eixo sem tocá-lo. É a diferença entre acertar m e acertar n.",
+        "trabalho": "É conciliação em duas etapas. Primeiro as colunas: (m, −14, 1) tem de ser −3·(−1, 2, −3) + 2·(2, −4, −4), o que fixa m = 7. Depois o total: a mesma combinação nas constantes dá −3·5 + 2·7 = −1, que tem de ser n. Colunas certas com total diferente é a barraca: tudo bate, menos o fechamento. Aqui a pergunta pede fechamento exato.",
+        "conversa": [
+          {"quem": "Você", "fala": "Achei m = 7 pelo determinante. Agora qualquer n serve?"},
+          {"quem": "Monitor", "fala": "Com m = 7 e n = 0, onde fica o ponto (−1/10, 0, 17/10)?"},
+          {"quem": "Você", "fala": "Em π₃ dá −7/10 + 17/10 + 0 = 1. Fora."},
+          {"quem": "Monitor", "fala": "Então a reta de π₁ e π₂ não está em π₃. Que caso é esse?"},
+          {"quem": "Você", "fala": "A barraca: {{calha|retas paralelas dois a dois}}."},
+          {"quem": "Monitor", "fala": "E para ser reta comum?"},
+          {"quem": "Você", "fala": "1 + n = 0. Então n = −1."}
+        ],
+        "erro": "A armadilha da barraca é acertar m = 7 e achar que n é livre, ou escolher n ≠ −1. Com m = 7 o determinante zera, e ainda restam dois casos. Só n = −1 põe a reta de π₁ e π₂ dentro de π₃. Com qualquer outro n, os três pares se cortam em {{calha|retas paralelas}}, sem ponto comum. A condição pedida é uma igualdade nos dois números.",
+        "confira": "Teste dois pontos da reta em π₃: 7x − 14y + z − 1. P₀ = (−1/10, 0, 17/10): −7/10 + 17/10 − 1 = 0. Andando um passo na direção (2, 1, 0), chega-se a (19/10, 1, 17/10): 133/10 − 14 + 17/10 − 1 = 0. Dois pontos da reta no plano obrigam a reta inteira a estar nele.",
+        "atalho": "Leia as alternativas pelo m. O determinante é 140 − 20m: qualquer m diferente de 7 dá ponto único. Isso derruba m = 1 e m ≠ 7. A opção m ≠ 1 também cai, porque deixa passar valores como m = 0. Sobram m = 7 com n = −1 ou com n ≠ −1. Reta comum pede igualdade: n = −1."
+      }
+    },
+    {
+      "id": "ga-s5-av2-t1-q5-10",
+      "semana": 5,
+      "nivel": 2,
+      "minutos": 3,
+      "tema": "Plano mediador",
+      "origem": "Avaliação semanal 2 · T1-Q5 · Q10",
+      "enunciado": "Verdadeiro ou falso? O lugar geométrico dos pontos do espaço equidistantes dos pontos A e B é uma reta perpendicular ao vetor [[AB]].",
+      "alternativas": [
+        {"t": "Verdadeiro: é a mediatriz do segmento AB, que é uma reta.", "certa": false, "erro": "A mediatriz é reta só no plano, numa folha. No espaço, os pontos equidistantes formam o {{plano-mediador|plano mediador}}, perpendicular a [[AB]] pelo ponto médio."},
+        {"t": "Verdadeiro: a condição |PA| = |PB| vira uma única equação, e uma equação descreve uma reta.", "certa": false, "erro": "No espaço, uma equação do primeiro grau em x, y e z descreve um plano. Reta no espaço precisa de duas equações ou de um parâmetro."},
+        {"t": "Falso: os pontos equidistantes de A e B formam uma esfera centrada no ponto médio.", "certa": false, "erro": "Esfera é distância fixa a um só ponto. Ao igualar |PA|² e |PB|², os termos x², y² e z² se cancelam, e sobra uma equação do primeiro grau: um plano."},
+        {"t": "Falso: o conjunto é uma reta, mas paralela a [[AB]].", "certa": false, "erro": "Na reta que passa por A e B, só o ponto médio é {{equidistante|equidistante}}. O conjunto faz 90° com [[AB]] e é um plano."},
+        {"t": "Falso: é um plano perpendicular a [[AB]], que passa pelo ponto médio de AB.", "certa": true}
+      ],
+      "dica": "Escreva |PA|² = |PB|² com P = (x, y, z) e veja o que sobra depois que os quadrados se cancelam.",
+      "resposta": "Falso. O {{lugar-geometrico|lugar geométrico}} é o {{plano-mediador|plano mediador}} de AB: perpendicular a [[AB]] e passando pelo ponto médio. Uma reta perpendicular a [[AB]] pelo meio é só uma parte dele.",
+      "ouro": "Numa folha, equidistante de A e B é a mediatriz, uma reta. **No espaço**, é o plano mediador.",
+      "jeitos": {
+        "visual": "Coloque A e B em lados opostos de uma parede fina, à mesma distância dela. Todo ponto da parede fica {{equidistante|equidistante}} dos dois, e a parede é um plano, não uma linha. Uma reta desenhada nessa parede, perpendicular a [[AB]], também tem pontos equidistantes, mas deixa de fora o resto da parede.",
+        "receita": [
+          "P = (x, y, z) {{equidistante|equidistante}}: |PA|² = |PB|².",
+          "Abrindo os quadrados, x², y² e z² aparecem dos dois lados e se cancelam.",
+          "Sobra 2[[AB]] · (x, y, z) = ‖B‖² − ‖A‖², com A e B lidos como setas a partir da origem.",
+          "Uma equação do primeiro grau em x, y e z é um plano, com normal [[AB]].",
+          "Logo o {{lugar-geometrico|lugar geométrico}} é um plano, e não uma reta: Falso."
+        ],
+        "cotidiano": "Num terreno plano, a cerca que divide igualmente dois vizinhos é uma linha no chão. Agora pense no espaço todo, com altura: drones parados à mesma distância das duas casas podem estar em qualquer altura acima dessa cerca. Juntando todos, forma-se uma parede invisível, um plano, e não apenas a linha no chão.",
+        "trabalho": "É como confundir o resultado de um filtro com um recorte dele. Em SQL, WHERE dist_A = dist_B devolve todos os pontos que cumprem a condição, e eles ocupam um plano inteiro. Uma reta seria um subconjunto: um WHERE com uma condição a mais, que a frase não traz. Na auditoria, chamar a amostra de população é o mesmo erro: a amostra cabe dentro, mas não é tudo.",
+        "conversa": [
+          {"quem": "Você", "fala": "Na escola, os pontos equidistantes de A e B formavam a mediatriz, uma reta."},
+          {"quem": "Monitor", "fala": "Lá o desenho era numa folha ou no espaço?"},
+          {"quem": "Você", "fala": "Numa folha."},
+          {"quem": "Monitor", "fala": "E aqui a frase fala de quê?"},
+          {"quem": "Você", "fala": "Do espaço. Então a mediatriz vira o {{plano-mediador|plano mediador}}."},
+          {"quem": "Monitor", "fala": "Isso. A palavra perpendicular está certa; o erro é chamar de reta."}
+        ],
+        "erro": "A armadilha é trazer a mediatriz da geometria plana para o espaço. Numa folha, o conjunto é uma reta. Com três coordenadas, a mesma condição gera uma única equação do primeiro grau em x, y e z, e isso é um plano. A parte da frase que diz perpendicular a [[AB]] está certa; o objeto é que está errado.",
+        "confira": "Use A = (0, 0, 0) e B = (2, 0, 0). O {{plano-mediador|plano mediador}} é x = 1. Os pontos (1, 0, 0), (1, 5, 0) e (1, 0, 7) estão nele e não ficam numa mesma reta. Distâncias ao quadrado até A e até B: 1 e 1, 26 e 26, 50 e 50. Três pontos fora de uma linha, todos equidistantes: não é reta.",
+        "atalho": "Conte as equações. A condição |PA| = |PB| dá uma só equação do primeiro grau. No espaço, uma equação assim é sempre um plano; reta exigiria duas. Logo Falso, e o objeto certo é o plano mediador."
+      }
+    }
+  ]
+}

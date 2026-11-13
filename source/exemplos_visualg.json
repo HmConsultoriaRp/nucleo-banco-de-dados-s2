@@ -2,169 +2,474 @@
   "disciplina": "lab",
   "questoes": [
     {
-      "id": "lista01-ex1", "semana": 5, "grupo": "lista01", "titulo": "Ex. 1 · Exibição fixa de dados pessoais",
+      "id": "lista01-ex1",
+      "semana": 5,
+      "grupo": "lista01",
+      "titulo": "Ex. 1 · Exibição fixa de dados pessoais",
       "codigo": "algoritmo \"Dados pessoais fixos\"\n// Lista 01 - Exercício 1: declarar variáveis e exibir na tela\n// Troque os valores de exemplo pelos seus.\nvar\n   nome_completo, apelido: caractere\n   idade: inteiro\ninicio\n   nome_completo <- \"Fulano de Tal da Silva\"\n   apelido <- \"Fulano\"\n   idade <- 40\n   escreval(\"Nome completo: \", nome_completo)\n   escreval(\"Prefiro ser chamado de: \", apelido)\n   escreval(\"Idade: \", idade, \" anos\")\nfimalgoritmo",
       "entradas": [],
       "entradasTeste": [],
       "saida": "Nome completo: Fulano de Tal da Silva\nPrefiro ser chamado de: Fulano\nIdade:  40 anos"
     },
     {
-      "id": "lista01-ex2", "semana": 5, "grupo": "lista01", "titulo": "Ex. 2 · Leitura e exibição formatada",
+      "id": "lista01-ex2",
+      "semana": 5,
+      "grupo": "lista01",
+      "titulo": "Ex. 2 · Leitura e exibição formatada",
       "codigo": "algoritmo \"Leitura e exibicao dos dados\"\n// Lista 01 - Exercício 2: ler do teclado e exibir organizado\nvar\n   nome_completo, apelido: caractere\n   idade: inteiro\ninicio\n   escreva(\"Digite seu nome completo: \")\n   leia(nome_completo)\n   escreva(\"Como você prefere ser chamado? \")\n   leia(apelido)\n   escreva(\"Qual a sua idade? \")\n   leia(idade)\n   escreval(\"\")\n   escreval(\"===== Seus dados =====\")\n   escreval(\"Nome completo : \", nome_completo)\n   escreval(\"Chamado de    : \", apelido)\n   escreval(\"Idade         : \", idade, \" anos\")\nfimalgoritmo",
       "entradas": [],
-      "entradasTeste": ["Maria da Conceição Souza","Ceça","52"],
+      "entradasTeste": [
+        "Maria da Conceição Souza",
+        "Ceça",
+        "52"
+      ],
       "saida": "Digite seu nome completo: Como você prefere ser chamado? Qual a sua idade? \n===== Seus dados =====\nNome completo : Maria da Conceição Souza\nChamado de    : Ceça\nIdade         :  52 anos"
     },
     {
-      "id": "lista01-ex3", "semana": 5, "grupo": "lista01", "titulo": "Ex. 3 · Média aritmética de 3 notas",
+      "id": "lista01-ex3",
+      "semana": 5,
+      "grupo": "lista01",
+      "titulo": "Ex. 3 · Média aritmética de 3 notas",
       "codigo": "algoritmo \"Media de tres notas\"\n// Lista 01 - Exercício 3: média aritmética de 3 notas, com 2 casas decimais\nvar\n   n1, n2, n3, media: real\ninicio\n   escreva(\"Primeira nota (0 a 10): \")\n   leia(n1)\n   escreva(\"Segunda nota (0 a 10): \")\n   leia(n2)\n   escreva(\"Terceira nota (0 a 10): \")\n   leia(n3)\n   // os parênteses fazem a soma acontecer antes da divisão\n   media <- (n1 + n2 + n3) / 3\n   escreval(\"Média: \", media:5:2)\nfimalgoritmo",
       "entradas": [],
-      "entradasTeste": ["7.5","8","6.5"],
+      "entradasTeste": [
+        "7.5",
+        "8",
+        "6.5"
+      ],
       "saida": "Primeira nota (0 a 10): Segunda nota (0 a 10): Terceira nota (0 a 10): Média:  7.33"
     },
     {
-      "id": "lista01-ex4", "semana": 5, "grupo": "lista01", "titulo": "Ex. 4 · Média e desvio padrão",
+      "id": "lista01-ex4",
+      "semana": 5,
+      "grupo": "lista01",
+      "titulo": "Ex. 4 · Média e desvio padrão",
       "codigo": "algoritmo \"Media e desvio padrao\"\n// Lista 01 - Exercício 4: média e desvio padrão de 3 notas, com 2 casas decimais\n// A lista não diz qual desvio padrão quer: o programa mostra os dois.\nvar\n   n1, n2, n3, media, soma_quad, dp_pop, dp_amostra: real\ninicio\n   escreva(\"Primeira nota (0 a 10): \")\n   leia(n1)\n   escreva(\"Segunda nota (0 a 10): \")\n   leia(n2)\n   escreva(\"Terceira nota (0 a 10): \")\n   leia(n3)\n   media <- (n1 + n2 + n3) / 3\n   // quanto cada nota se afasta da média, ao quadrado, somado\n   soma_quad <- (n1 - media) ^ 2 + (n2 - media) ^ 2 + (n3 - media) ^ 2\n   dp_pop <- raizq(soma_quad / 3)\n   dp_amostra <- raizq(soma_quad / 2)\n   escreval(\"Média: \", media:5:2)\n   escreval(\"Desvio padrão populacional (divide por 3): \", dp_pop:5:2)\n   escreval(\"Desvio padrão amostral (divide por 2): \", dp_amostra:5:2)\nfimalgoritmo",
       "entradas": [],
-      "entradasTeste": ["7.5","8","6.5"],
+      "entradasTeste": [
+        "7.5",
+        "8",
+        "6.5"
+      ],
       "saida": "Primeira nota (0 a 10): Segunda nota (0 a 10): Terceira nota (0 a 10): Média:  7.33\nDesvio padrão populacional (divide por 3):  0.62\nDesvio padrão amostral (divide por 2):  0.76"
     },
     {
-      "id": "lista01-ex5", "semana": 5, "grupo": "lista01", "titulo": "Ex. 5 · Nota necessária na 3ª prova (desafio)",
+      "id": "lista01-ex5",
+      "semana": 5,
+      "grupo": "lista01",
+      "titulo": "Ex. 5 · Nota necessária na 3ª prova (desafio)",
       "codigo": "algoritmo \"Nota necessaria na terceira prova\"\n// Lista 01 - Exercício 5 (desafio): nota mínima na 3ª prova\n// Supõe média aritmética simples das 3 provas: (n1 + n2 + n3) / 3 >= média de aprovação\nvar\n   n1, n2, media_aprov, n3: real\ninicio\n   escreva(\"Nota da primeira prova: \")\n   leia(n1)\n   escreva(\"Nota da segunda prova: \")\n   leia(n2)\n   escreva(\"Média necessária para aprovação: \")\n   leia(media_aprov)\n   // (n1 + n2 + n3) / 3 = media_aprov  ->  n3 = 3 * media_aprov - n1 - n2\n   n3 <- 3 * media_aprov - n1 - n2\n   // O computador guarda 6.1 ou 1.9 de forma aproximada: a conta pode dar\n   // 10.000000000000002 quando o certo é 10. A margem de 0.00001 evita a decisão errada.\n   se n3 > 10.00001 entao\n      escreval(\"Não dá para ser aprovado: seria preciso tirar \", n3:5:2, \" na terceira prova.\")\n   senao\n      se n3 <= 0.00001 entao\n         escreval(\"Você já está aprovado: qualquer nota na terceira prova serve.\")\n      senao\n         escreval(\"Nota mínima na terceira prova: \", n3:5:2)\n      fimse\n   fimse\nfimalgoritmo",
       "entradas": [],
-      "entradasTeste": ["1.9","6.1","6"],
+      "entradasTeste": [
+        "1.9",
+        "6.1",
+        "6"
+      ],
       "saida": "Nota da primeira prova: Nota da segunda prova: Média necessária para aprovação: Nota mínima na terceira prova: 10.00"
     },
     {
-      "id": "lista01-ex6", "semana": 5, "grupo": "lista01", "titulo": "Ex. 6 · Dias de vida com anos bissextos (desafio)",
+      "id": "lista01-ex6",
+      "semana": 5,
+      "grupo": "lista01",
+      "titulo": "Ex. 6 · Dias de vida com anos bissextos (desafio)",
       "codigo": "algoritmo \"Dias de vida\"\n// Lista 01 - Exercício 6 (desafio): dias entre o nascimento e a data atual,\n// contando os anos bissextos (fevereiro com 29 dias)\nvar\n   dias_mes: vetor[1..12] de inteiro\n   dia_do_ano: vetor[1..2] de inteiro\n   ano_nasc, mes_nasc, dia_nasc, ano_atual, mes_atual, dia_atual: inteiro\n   a, m, d, k, mes, ano, total: inteiro\n   valida: logico\ninicio\n   dias_mes[1] <- 31\n   dias_mes[2] <- 28\n   dias_mes[3] <- 31\n   dias_mes[4] <- 30\n   dias_mes[5] <- 31\n   dias_mes[6] <- 30\n   dias_mes[7] <- 31\n   dias_mes[8] <- 31\n   dias_mes[9] <- 30\n   dias_mes[10] <- 31\n   dias_mes[11] <- 30\n   dias_mes[12] <- 31\n   escreva(\"Ano de nascimento: \")\n   leia(ano_nasc)\n   escreva(\"Mês de nascimento: \")\n   leia(mes_nasc)\n   escreva(\"Dia de nascimento: \")\n   leia(dia_nasc)\n   escreva(\"Ano atual: \")\n   leia(ano_atual)\n   escreva(\"Mês atual: \")\n   leia(mes_atual)\n   escreva(\"Dia atual: \")\n   leia(dia_atual)\n   // 1) Confere cada data e acha a posição dela dentro do próprio ano (1º de janeiro = dia 1).\n   //    k = 1 é o nascimento; k = 2 é a data atual.\n   valida <- verdadeiro\n   para k de 1 ate 2 faca\n      se k = 1 entao\n         a <- ano_nasc\n         m <- mes_nasc\n         d <- dia_nasc\n      senao\n         a <- ano_atual\n         m <- mes_atual\n         d <- dia_atual\n      fimse\n      // bissexto: divisível por 4 e não por 100, ou divisível por 400\n      se (((a mod 4) = 0) e ((a mod 100) <> 0)) ou ((a mod 400) = 0) entao\n         dias_mes[2] <- 29\n      senao\n         dias_mes[2] <- 28\n      fimse\n      se (m < 1) ou (m > 12) entao\n         valida <- falso\n      senao\n         se (d < 1) ou (d > dias_mes[m]) entao\n            valida <- falso\n         senao\n            dia_do_ano[k] <- d\n            mes <- 1\n            enquanto mes < m faca\n               dia_do_ano[k] <- dia_do_ano[k] + dias_mes[mes]\n               mes <- mes + 1\n            fimenquanto\n         fimse\n      fimse\n   fimpara\n   se valida entao\n      // 2) A data atual não pode vir antes do nascimento.\n      //    Juntar ano, mês e dia num número só (AAAAMMDD) permite comparar as datas de uma vez.\n      se (ano_atual * 10000 + mes_atual * 100 + dia_atual) < (ano_nasc * 10000 + mes_nasc * 100 + dia_nasc) entao\n         escreval(\"A data atual é anterior à data de nascimento.\")\n      senao\n         // 3) Soma os anos inteiros, do ano de nascimento até o ano anterior ao atual.\n         total <- dia_do_ano[2] - dia_do_ano[1]\n         ano <- ano_nasc\n         enquanto ano < ano_atual faca\n            se (((ano mod 4) = 0) e ((ano mod 100) <> 0)) ou ((ano mod 400) = 0) entao\n               total <- total + 366\n            senao\n               total <- total + 365\n            fimse\n            ano <- ano + 1\n         fimenquanto\n         escreval(\"Dias de vida: \", total)\n      fimse\n   senao\n      escreval(\"Data inválida: o mês vai de 1 a 12 e o dia precisa existir naquele mês.\")\n   fimse\nfimalgoritmo",
       "entradas": [],
-      "entradasTeste": ["2000","2","29","2026","11","2"],
+      "entradasTeste": [
+        "2000",
+        "2",
+        "29",
+        "2026",
+        "11",
+        "2"
+      ],
       "saida": "Ano de nascimento: Mês de nascimento: Dia de nascimento: Ano atual: Mês atual: Dia atual: Dias de vida:  9743"
     },
     {
-      "id": "lista02-ex1", "semana": 5, "grupo": "lista02", "titulo": "Ex. 1 · Sensor de umidade",
+      "id": "lista02-ex1",
+      "semana": 5,
+      "grupo": "lista02",
+      "titulo": "Ex. 1 · Sensor de umidade",
       "codigo": "algoritmo \"Sensor de umidade\"\n// Lista 02 - Exercício 1: alerta de umidade do solo na estufa\nvar\n   umidade: real\ninicio\n   escreva(\"Umidade do solo (0 a 100%): \")\n   leia(umidade)\n   se umidade < 30 entao\n      escreval(\"ALERTA: Umidade crítica. Ligar bombas de irrigação!\")\n   senao\n      escreval(\"Umidade adequada. Bombas desligadas.\")\n   fimse\nfimalgoritmo",
       "entradas": [],
-      "entradasTeste": ["29.9"],
+      "entradasTeste": [
+        "29.9"
+      ],
       "saida": "Umidade do solo (0 a 100%): ALERTA: Umidade crítica. Ligar bombas de irrigação!"
     },
     {
-      "id": "lista02-ex2", "semana": 5, "grupo": "lista02", "titulo": "Ex. 2 · Frete por peso e distância",
+      "id": "lista02-ex2",
+      "semana": 5,
+      "grupo": "lista02",
+      "titulo": "Ex. 2 · Frete por peso e distância",
       "codigo": "algoritmo \"Frete por peso e distancia\"\n// Lista 02 - Exercício 2: taxa extra se peso > 20 kg OU distância > 100 km\nvar\n   peso, distancia: real\ninicio\n   escreva(\"Peso do pacote (kg): \")\n   leia(peso)\n   escreva(\"Distância (km): \")\n   leia(distancia)\n   // basta UMA das condições ser verdadeira: por isso o \"ou\"\n   se (peso > 20) ou (distancia > 100) entao\n      escreval(\"Frete com Taxa Especial: Valor Adicional R$ 50,00\")\n   senao\n      escreval(\"Frete Padrão: Sem taxa adicional\")\n   fimse\nfimalgoritmo",
       "entradas": [],
-      "entradasTeste": ["21","50"],
+      "entradasTeste": [
+        "21",
+        "50"
+      ],
       "saida": "Peso do pacote (kg): Distância (km): Frete com Taxa Especial: Valor Adicional R$ 50,00"
     },
     {
-      "id": "lista02-ex3", "semana": 5, "grupo": "lista02", "titulo": "Ex. 3 · Empréstimo bancário",
+      "id": "lista02-ex3",
+      "semana": 5,
+      "grupo": "lista02",
+      "titulo": "Ex. 3 · Empréstimo bancário",
       "codigo": "algoritmo \"Emprestimo bancario\"\n// Lista 02 - Exercício 3: análise de crédito em duas etapas (se dentro de se)\nvar\n   renda, parcela: real\ninicio\n   escreva(\"Renda mensal (R$): \")\n   leia(renda)\n   escreva(\"Valor da parcela (R$): \")\n   leia(parcela)\n   // 1ª etapa: renda de pelo menos R$ 2.500,00\n   se renda < 2500 entao\n      escreval(\"Empréstimo negado: Renda insuficiente\")\n   senao\n      // 2ª etapa (se interno): a parcela não pode passar de 30% da renda.\n      // A conta com número real pode dar 1228.9200000000001 quando o certo é 1228.92.\n      // A margem de 0.00001 evita negar uma parcela que é exatamente 30%.\n      se parcela > renda * 30 / 100 + 0.00001 entao\n         escreval(\"Empréstimo negado: Parcela excede limite de comprometimento\")\n      senao\n         escreval(\"Empréstimo APROVADO!\")\n      fimse\n   fimse\nfimalgoritmo",
       "entradas": [],
-      "entradasTeste": ["2500","750"],
+      "entradasTeste": [
+        "2500",
+        "750"
+      ],
       "saida": "Renda mensal (R$): Valor da parcela (R$): Empréstimo APROVADO!"
     },
     {
-      "id": "lista02-ex4", "semana": 5, "grupo": "lista02", "titulo": "Ex. 4 · Triagem médica",
+      "id": "lista02-ex4",
+      "semana": 5,
+      "grupo": "lista02",
+      "titulo": "Ex. 4 · Triagem médica",
       "codigo": "algoritmo \"Triagem medica\"\n// Lista 02 - Exercício 4: triagem por febre e, se febril, por idade (se dentro de se)\nvar\n   temperatura: real\n   idade: inteiro\ninicio\n   escreva(\"Temperatura corporal (°C): \")\n   leia(temperatura)\n   se temperatura >= 37.8 entao\n      // febril: só agora a idade importa\n      escreva(\"Idade do paciente: \")\n      leia(idade)\n      se (idade < 12) ou (idade >= 60) entao\n         escreval(\"Triagem: Prioridade Alta (Encaminhar à Emergência)\")\n      senao\n         escreval(\"Triagem: Prioridade Média (Aguardar atendimento padrão)\")\n      fimse\n   senao\n      escreval(\"Sem febre: Encaminhar para a triagem geral\")\n   fimse\nfimalgoritmo",
       "entradas": [],
-      "entradasTeste": ["38","65"],
+      "entradasTeste": [
+        "38",
+        "65"
+      ],
       "saida": "Temperatura corporal (°C): Idade do paciente: Triagem: Prioridade Alta (Encaminhar à Emergência)"
     },
     {
-      "id": "lista02-ex5", "semana": 5, "grupo": "lista02", "titulo": "Ex. 5 · Menu do caixa eletrônico",
+      "id": "lista02-ex5",
+      "semana": 5,
+      "grupo": "lista02",
+      "titulo": "Ex. 5 · Menu do caixa eletrônico",
       "codigo": "algoritmo \"Menu do caixa eletronico\"\n// Lista 02 - Exercício 5: menu com escolha/caso (o switch/case do VisuAlg)\nvar\n   codigo: inteiro\ninicio\n   escreval(\"1 - Consulta de Saldo\")\n   escreval(\"2 - Depósito em Conta\")\n   escreval(\"3 - Saque em Dinheiro\")\n   escreval(\"4 - Encerrar Atendimento\")\n   escreva(\"Digite a opção: \")\n   leia(codigo)\n   escolha codigo\n   caso 1\n      escreval(\"Opção selecionada: Consulta de Saldo\")\n   caso 2\n      escreval(\"Opção selecionada: Depósito em Conta\")\n   caso 3\n      escreval(\"Opção selecionada: Saque em Dinheiro\")\n   caso 4\n      escreval(\"Opção selecionada: Encerrar Atendimento\")\n   outrocaso\n      escreval(\"Erro: Opção inválida inserida\")\n   fimescolha\nfimalgoritmo",
       "entradas": [],
-      "entradasTeste": ["2"],
+      "entradasTeste": [
+        "2"
+      ],
       "saida": "1 - Consulta de Saldo\n2 - Depósito em Conta\n3 - Saque em Dinheiro\n4 - Encerrar Atendimento\nDigite a opção: Opção selecionada: Depósito em Conta"
     },
     {
-      "id": "lista02-ex6", "semana": 5, "grupo": "lista02", "titulo": "Ex. 6 · Conversão de moeda",
+      "id": "lista02-ex6",
+      "semana": 5,
+      "grupo": "lista02",
+      "titulo": "Ex. 6 · Conversão de moeda",
       "codigo": "algoritmo \"Conversao de moeda\"\n// Lista 02 - Exercício 6: conversão de reais com escolha/caso\n// ATENÇÃO: o enunciado não informa as taxas. As abaixo são DE EXEMPLO\n// (quantos reais vale 1 unidade da moeda). Troque pela cotação do dia.\nvar\n   reais, convertido: real\n   moeda: inteiro\ninicio\n   escreva(\"Valor em reais (R$): \")\n   leia(reais)\n   escreval(\"1 - Dólar (USD)   2 - Euro (EUR)   3 - Libra Esterlina (GBP)\")\n   escreva(\"Código da moeda: \")\n   leia(moeda)\n   escolha moeda\n   caso 1\n      convertido <- reais / 5.00\n      escreval(\"Valor convertido: US$ \", convertido:6:2)\n   caso 2\n      convertido <- reais / 6.00\n      escreval(\"Valor convertido: EUR \", convertido:6:2)\n   caso 3\n      convertido <- reais / 7.00\n      escreval(\"Valor convertido: GBP \", convertido:6:2)\n   outrocaso\n      escreval(\"Moeda não cadastrada\")\n   fimescolha\nfimalgoritmo",
       "entradas": [],
-      "entradasTeste": ["100","1"],
+      "entradasTeste": [
+        "100",
+        "1"
+      ],
       "saida": "Valor em reais (R$): 1 - Dólar (USD)   2 - Euro (EUR)   3 - Libra Esterlina (GBP)\nCódigo da moeda: Valor convertido: US$  20.00"
     },
     {
-      "id": "lista02-ex7", "semana": 5, "grupo": "lista02", "titulo": "Ex. 7 · Reajuste por categoria",
+      "id": "lista02-ex7",
+      "semana": 5,
+      "grupo": "lista02",
+      "titulo": "Ex. 7 · Reajuste por categoria",
       "codigo": "algoritmo \"Reajuste por categoria\"\n// Lista 02 - Exercício 7: reajuste salarial com escolha/caso usando letras\nvar\n   salario, novo: real\n   categoria: caractere\n   valida: logico\ninicio\n   escreva(\"Salário atual (R$): \")\n   leia(salario)\n   escreva(\"Categoria (A, B, C ou D): \")\n   leia(categoria)\n   // maiusc: aceita \"a\" ou \"A\" do mesmo jeito\n   categoria <- maiusc(categoria)\n   valida <- verdadeiro\n   escolha categoria\n   caso \"A\"\n      novo <- salario + salario * 10 / 100\n   caso \"B\"\n      novo <- salario + salario * 15 / 100\n   caso \"C\"\n      novo <- salario + salario * 20 / 100\n   caso \"D\"\n      novo <- salario + 350\n   outrocaso\n      valida <- falso\n      escreval(\"Erro: categoria inválida. Use A, B, C ou D.\")\n   fimescolha\n   se valida entao\n      escreval(\"Novo salário: R$ \", novo:6:2)\n   fimse\nfimalgoritmo",
       "entradas": [],
-      "entradasTeste": ["2000","b"],
+      "entradasTeste": [
+        "2000",
+        "b"
+      ],
       "saida": "Salário atual (R$): Categoria (A, B, C ou D): Novo salário: R$ 2300.00"
     },
     {
-      "id": "lista02-ex8", "semana": 5, "grupo": "lista02", "titulo": "Ex. 8 · Senha do cofre (desafio)",
+      "id": "lista02-ex8",
+      "semana": 5,
+      "grupo": "lista02",
+      "titulo": "Ex. 8 · Senha do cofre (desafio)",
       "codigo": "algoritmo \"Senha do cofre\"\n// Lista 02 - Exercício 8 (desafio): até 3 tentativas com enquanto + se/senao\nvar\n   senha, tentativas: inteiro\n   aberto: logico\ninicio\n   tentativas <- 0\n   aberto <- falso\n   enquanto tentativas < 3 faca\n      escreva(\"Digite a senha: \")\n      leia(senha)\n      tentativas <- tentativas + 1\n      se senha = 8421 entao\n         escreval(\"Acesso Concedido: Cofre Aberto!\")\n         aberto <- verdadeiro\n         interrompa\n      senao\n         escreval(\"Senha incorreta. Tentativas restantes: \", 3 - tentativas)\n      fimse\n   fimenquanto\n   se nao aberto entao\n      escreval(\"ALERTA: Cofre Bloqueado por 15 minutos!\")\n   fimse\nfimalgoritmo",
       "entradas": [],
-      "entradasTeste": ["1","2","8421"],
+      "entradasTeste": [
+        "1",
+        "2",
+        "8421"
+      ],
       "saida": "Digite a senha: Senha incorreta. Tentativas restantes:  2\nDigite a senha: Senha incorreta. Tentativas restantes:  1\nDigite a senha: Acesso Concedido: Cofre Aberto!"
     },
     {
-      "id": "lista02-ex9", "semana": 5, "grupo": "lista02", "titulo": "Ex. 9 · Nível do reservatório (desafio)",
+      "id": "lista02-ex9",
+      "semana": 5,
+      "grupo": "lista02",
+      "titulo": "Ex. 9 · Nível do reservatório (desafio)",
       "codigo": "algoritmo \"Nivel do reservatorio\"\n// Lista 02 - Exercício 9 (desafio): enche o reservatório até 1.000 litros\n// O enunciado não define mensagem para mais de 800 e menos de 1.000 litros:\n// nessa faixa o programa não mostra status (dá para acrescentar um \"senao\").\nvar\n   nivel, adicionado: real\ninicio\n   nivel <- 0\n   enquanto nivel < 1000 faca\n      escreva(\"Litros adicionados: \")\n      leia(adicionado)\n      nivel <- nivel + adicionado\n      escreval(\"Nível atual: \", nivel:7:1, \" litros\")\n      se nivel < 200 entao\n         escreval(\"Status: Nível Crítico (Reserva)\")\n      senao\n         se nivel <= 800 entao\n            escreval(\"Status: Nível Operacional Normal\")\n         fimse\n      fimse\n   fimenquanto\n   escreval(\"Reservatório Cheio: Válvula de entrada fechada!\")\nfimalgoritmo",
       "entradas": [],
-      "entradasTeste": ["100","200","500","300"],
+      "entradasTeste": [
+        "100",
+        "200",
+        "500",
+        "300"
+      ],
       "saida": "Litros adicionados: Nível atual:   100.0 litros\nStatus: Nível Crítico (Reserva)\nLitros adicionados: Nível atual:   300.0 litros\nStatus: Nível Operacional Normal\nLitros adicionados: Nível atual:   800.0 litros\nStatus: Nível Operacional Normal\nLitros adicionados: Nível atual:  1100.0 litros\nReservatório Cheio: Válvula de entrada fechada!"
     },
     {
-      "id": "lista02-ex10", "semana": 5, "grupo": "lista02", "titulo": "Ex. 10 · Caixa de mercado (desafio)",
+      "id": "lista02-ex10",
+      "semana": 5,
+      "grupo": "lista02",
+      "titulo": "Ex. 10 · Caixa de mercado (desafio)",
       "codigo": "algoritmo \"Caixa de mercado\"\n// Lista 02 - Exercício 10 (desafio): soma as compras até digitar 0\nvar\n   valor, total: real\ninicio\n   total <- 0\n   escreva(\"Valor do produto (0 para fechar): \")\n   leia(valor)\n   enquanto valor <> 0 faca\n      se valor < 0 entao\n         escreval(\"Valor inválido!\")\n      senao\n         total <- total + valor\n      fimse\n      escreva(\"Valor do produto (0 para fechar): \")\n      leia(valor)\n   fimenquanto\n   se total > 300 entao\n      total <- total - total * 10 / 100\n      escreval(\"Valor Final com Desconto de 10%: R$ \", total:6:2)\n   senao\n      escreval(\"Valor Final sem desconto: R$ \", total:6:2)\n   fimse\nfimalgoritmo",
       "entradas": [],
-      "entradasTeste": ["100","-5","250","0"],
+      "entradasTeste": [
+        "100",
+        "-5",
+        "250",
+        "0"
+      ],
       "saida": "Valor do produto (0 para fechar): Valor do produto (0 para fechar): Valor inválido!\nValor do produto (0 para fechar): Valor do produto (0 para fechar): Valor Final com Desconto de 10%: R$ 315.00"
     },
     {
-      "id": "lab-media", "semana": 5, "titulo": "Média de duas notas e situação",
+      "id": "lista03-ex1",
+      "semana": 6,
+      "grupo": "lista03",
+      "titulo": "Ex. 1 · Contagem regressiva do foguete",
+      "codigo": "algoritmo \"Contagem regressiva\"\n// Lista 03 - Exercício 1: contagem regressiva com \"para\" de N até 0 (passo -1)\nvar\n   n, s: inteiro\ninicio\n   escreva(\"Segundos iniciais (N): \")\n   leia(n)\n   para s de n ate 0 passo -1 faca\n      escreval(\"Contagem:\", s, \" segundos\")\n   fimpara\n   escreval(\"Fogo! Foguete lançado com sucesso!\")\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": [
+        "5"
+      ],
+      "saida": "Segundos iniciais (N): Contagem: 5 segundos\nContagem: 4 segundos\nContagem: 3 segundos\nContagem: 2 segundos\nContagem: 1 segundos\nContagem: 0 segundos\nFogo! Foguete lançado com sucesso!\n"
+    },
+    {
+      "id": "lista03-ex2",
+      "semana": 6,
+      "grupo": "lista03",
+      "titulo": "Ex. 2 · Folha de pagamento e média",
+      "codigo": "algoritmo \"Folha de pagamento\"\n// Lista 03 - Exercício 2: soma e média dos salários de 5 funcionários com \"para\"\nvar\n   i: inteiro\n   salario, soma, media: real\ninicio\n   soma <- 0\n   para i de 1 ate 5 faca\n      escreva(\"Salário do funcionário\", i, \": \")\n      leia(salario)\n      soma <- soma + salario\n   fimpara\n   media <- soma / 5\n   escreval(\"Soma total da folha: R$ \", soma:1:2)\n   escreval(\"Média salarial: R$ \", media:1:2)\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": [
+        "1412.5",
+        "1412.5",
+        "2500",
+        "3100.75",
+        "980"
+      ],
+      "saida": "Salário do funcionário 1: Salário do funcionário 2: Salário do funcionário 3: Salário do funcionário 4: Salário do funcionário 5: Soma total da folha: R$ 9405.75\nMédia salarial: R$ 1881.15\n"
+    },
+    {
+      "id": "lista03-ex3",
+      "semana": 6,
+      "grupo": "lista03",
+      "titulo": "Ex. 3 · PIN do cartão",
+      "codigo": "algoritmo \"PIN do cartao\"\n// Lista 03 - Exercício 3: repete a leitura do PIN \"enquanto\" ele estiver errado\nvar\n   pin: inteiro\ninicio\n   escreva(\"Digite o PIN: \")\n   leia(pin)\n   enquanto pin <> 4321 faca\n      escreval(\"Senha Incorreta! Tente novamente.\")\n      escreva(\"Digite o PIN: \")\n      leia(pin)\n   fimenquanto\n   escreval(\"Acesso Liberado! Bem-vindo ao sistema bancário.\")\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": [
+        "1111",
+        "1234",
+        "4321"
+      ],
+      "saida": "Digite o PIN: Senha Incorreta! Tente novamente.\nDigite o PIN: Senha Incorreta! Tente novamente.\nDigite o PIN: Acesso Liberado! Bem-vindo ao sistema bancário.\n"
+    },
+    {
+      "id": "lista03-ex4",
+      "semana": 6,
+      "grupo": "lista03",
+      "titulo": "Ex. 4 · Caixas no galpão (500 kg)",
+      "codigo": "algoritmo \"Caixas no galpao\"\n// Lista 03 - Exercício 4: soma os pesos \"enquanto\" o total for menor que 500 kg\nvar\n   peso, total: real\ninicio\n   total <- 0\n   enquanto total < 500 faca\n      escreva(\"Peso da caixa (kg): \")\n      leia(peso)\n      total <- total + peso\n   fimenquanto\n   escreval(\"Capacidade máxima atingida! Peso total carregado: \", total:1:1, \" kg.\")\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": [
+        "100",
+        "200",
+        "199.5",
+        "0.5"
+      ],
+      "saida": "Peso da caixa (kg): Peso da caixa (kg): Peso da caixa (kg): Peso da caixa (kg): Capacidade máxima atingida! Peso total carregado: 500.0 kg.\n"
+    },
+    {
+      "id": "lista03-ex5",
+      "semana": 6,
+      "grupo": "lista03",
+      "titulo": "Ex. 5 · Nota válida",
+      "codigo": "algoritmo \"Nota valida\"\n// Lista 03 - Exercício 5: \"repita\" a leitura até a nota ficar entre 0 e 10\nvar\n   nota: real\ninicio\n   repita\n      escreva(\"Nota (0 a 10): \")\n      leia(nota)\n      se (nota < 0) ou (nota > 10) entao\n         escreval(\"Nota inválida! A nota deve estar entre 0.0 e 10.0.\")\n      fimse\n   ate (nota >= 0) e (nota <= 10)\n   escreval(\"Nota \", nota:1:1, \" cadastrada com sucesso!\")\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": [
+        "-2",
+        "15",
+        "10"
+      ],
+      "saida": "Nota (0 a 10): Nota inválida! A nota deve estar entre 0.0 e 10.0.\nNota (0 a 10): Nota inválida! A nota deve estar entre 0.0 e 10.0.\nNota (0 a 10): Nota 10.0 cadastrada com sucesso!\n"
+    },
+    {
+      "id": "lista03-ex6",
+      "semana": 6,
+      "grupo": "lista03",
+      "titulo": "Ex. 6 · Menu do restaurante",
+      "codigo": "algoritmo \"Menu do restaurante\"\n// Lista 03 - Exercício 6: o menu volta (\"repita\") até a opção 4\nvar\n   opcao: inteiro\ninicio\n   repita\n      escreval(\"1 - Ver Cardápio\")\n      escreval(\"2 - Fazer Pedido\")\n      escreval(\"3 - Chamar Garçom\")\n      escreval(\"4 - Sair\")\n      escreva(\"Opção: \")\n      leia(opcao)\n      escolha opcao\n      caso 1\n         escreval(\"Abrindo o cardápio.\")\n      caso 2\n         escreval(\"Pedido registrado.\")\n      caso 3\n         escreval(\"Garçom chamado.\")\n      caso 4\n         escreval(\"Saindo. Obrigado pela visita.\")\n      outrocaso\n         escreval(\"Opção inválida! Escolha um número do menu.\")\n      fimescolha\n   ate opcao = 4\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": [
+        "1",
+        "2",
+        "7",
+        "3",
+        "4"
+      ],
+      "saida": "1 - Ver Cardápio\n2 - Fazer Pedido\n3 - Chamar Garçom\n4 - Sair\nOpção: Abrindo o cardápio.\n1 - Ver Cardápio\n2 - Fazer Pedido\n3 - Chamar Garçom\n4 - Sair\nOpção: Pedido registrado.\n1 - Ver Cardápio\n2 - Fazer Pedido\n3 - Chamar Garçom\n4 - Sair\nOpção: Opção inválida! Escolha um número do menu.\n1 - Ver Cardápio\n2 - Fazer Pedido\n3 - Chamar Garçom\n4 - Sair\nOpção: Garçom chamado.\n1 - Ver Cardápio\n2 - Fazer Pedido\n3 - Chamar Garçom\n4 - Sair\nOpção: Saindo. Obrigado pela visita.\n"
+    },
+    {
+      "id": "lista03-ex7",
+      "semana": 6,
+      "grupo": "lista03",
+      "titulo": "Ex. 7 · Busca com parada (-1)",
+      "codigo": "algoritmo \"Busca com parada\"\n// Lista 03 - Exercício 7: lê até 10 números; -1 para tudo com \"interrompa\"\nvar\n   i, n: inteiro\n   parou: logico\ninicio\n   parou <- falso\n   para i de 1 ate 10 faca\n      escreva(\"Número\", i, \" de 10: \")\n      leia(n)\n      se n = -1 entao\n         escreval(\"Busca interrompida pelo usuário.\")\n         parou <- verdadeiro\n         interrompa\n      fimse\n   fimpara\n   se nao parou entao\n      escreval(\"Processamento de todos os 10 elementos concluído.\")\n   fimse\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": [
+        "5",
+        "8",
+        "-1"
+      ],
+      "saida": "Número 1 de 10: Número 2 de 10: Número 3 de 10: Busca interrompida pelo usuário.\n"
+    },
+    {
+      "id": "lista03-ex8",
+      "semana": 6,
+      "grupo": "lista03",
+      "titulo": "Ex. 8 · Alarme do reator",
+      "codigo": "algoritmo \"Reator\"\n// Lista 03 - Exercício 8: até 12 leituras; 120 graus ou mais dispara o alarme e \"interrompa\"\nvar\n   i: inteiro\n   temp: real\n   alarme: logico\ninicio\n   alarme <- falso\n   para i de 1 ate 12 faca\n      escreva(\"Temperatura da leitura\", i, \" (°C): \")\n      leia(temp)\n      se temp >= 120 entao\n         escreval(\"ALERTA CRÍTICO: Superaquecimento detectado (\", temp:1:1, \"°C)! Reator desligado de emergência!\")\n         alarme <- verdadeiro\n         interrompa\n      fimse\n   fimpara\n   se nao alarme entao\n      escreval(\"Ciclo de resfriamento concluído com segurança.\")\n   fimse\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": [
+        "90",
+        "100",
+        "120"
+      ],
+      "saida": "Temperatura da leitura 1 (°C): Temperatura da leitura 2 (°C): Temperatura da leitura 3 (°C): ALERTA CRÍTICO: Superaquecimento detectado (120.0°C)! Reator desligado de emergência!\n"
+    },
+    {
+      "id": "lista03-ex9",
+      "semana": 6,
+      "grupo": "lista03",
+      "titulo": "Ex. 9 · Temperaturas da semana (desafio)",
+      "codigo": "algoritmo \"Temperaturas da semana\"\n// Lista 03 - Exercício 9 (desafio): vetor de 7 reais; maior, menor e média\nvar\n   t: vetor[1..7] de real\n   i: inteiro\n   maior, menor, soma, media: real\ninicio\n   para i de 1 ate 7 faca\n      escreva(\"Temperatura do dia\", i, \": \")\n      leia(t[i])\n   fimpara\n   maior <- t[1]\n   menor <- t[1]\n   soma <- 0\n   para i de 1 ate 7 faca\n      se t[i] > maior entao\n         maior <- t[i]\n      fimse\n      se t[i] < menor entao\n         menor <- t[i]\n      fimse\n      soma <- soma + t[i]\n   fimpara\n   media <- soma / 7\n   escreval(\"Maior temperatura: \", maior:1:1)\n   escreval(\"Menor temperatura: \", menor:1:1)\n   escreval(\"Média da semana: \", media:1:1)\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": [
+        "22",
+        "25.5",
+        "19",
+        "30.2",
+        "27",
+        "18.4",
+        "24"
+      ],
+      "saida": "Temperatura do dia 1: Temperatura do dia 2: Temperatura do dia 3: Temperatura do dia 4: Temperatura do dia 5: Temperatura do dia 6: Temperatura do dia 7: Maior temperatura: 30.2\nMenor temperatura: 18.4\nMédia da semana: 23.7\n"
+    },
+    {
+      "id": "lista03-ex10",
+      "semana": 6,
+      "grupo": "lista03",
+      "titulo": "Ex. 10 · Estoque com registro (desafio)",
+      "codigo": "algoritmo \"Estoque com registro\"\n// Lista 03 - Exercício 10 (desafio): vetor de registros Produto\ntipo Produto = registro\n   codigo: inteiro\n   nome: caractere\n   preco: real\n   quantidade: inteiro\nfimregistro\nvar\n   p: vetor[1..5] de Produto\n   i: inteiro\n   total: real\ninicio\n   para i de 1 ate 5 faca\n      escreval(\"Produto\", i)\n      escreva(\"  Código: \")\n      leia(p[i].codigo)\n      escreva(\"  Nome: \")\n      leia(p[i].nome)\n      escreva(\"  Preço: \")\n      leia(p[i].preco)\n      escreva(\"  Quantidade: \")\n      leia(p[i].quantidade)\n   fimpara\n   total <- 0\n   escreval(\"Produtos cadastrados:\")\n   para i de 1 ate 5 faca\n      escreval(\"  \", p[i].nome)\n      total <- total + p[i].preco * p[i].quantidade\n   fimpara\n   escreval(\"Valor total do estoque: R$ \", total:1:2)\nfimalgoritmo",
+      "entradas": [],
+      "entradasTeste": [
+        "1",
+        "Caneta",
+        "2.5",
+        "100",
+        "2",
+        "Caderno",
+        "15.9",
+        "20",
+        "3",
+        "Borracha",
+        "1.25",
+        "40",
+        "4",
+        "Mochila",
+        "89.9",
+        "3",
+        "5",
+        "Regua",
+        "4",
+        "15"
+      ],
+      "saida": "Produto 1\n  Código:   Nome:   Preço:   Quantidade: Produto 2\n  Código:   Nome:   Preço:   Quantidade: Produto 3\n  Código:   Nome:   Preço:   Quantidade: Produto 4\n  Código:   Nome:   Preço:   Quantidade: Produto 5\n  Código:   Nome:   Preço:   Quantidade: Produtos cadastrados:\n  Caneta\n  Caderno\n  Borracha\n  Mochila\n  Regua\nValor total do estoque: R$ 947.70\n"
+    },
+    {
+      "id": "lab-media",
+      "semana": 5,
+      "titulo": "Média de duas notas e situação",
       "codigo": "algoritmo \"media_e_situacao\"\nvar\n   n1, n2, media: real\ninicio\n   escreva(\"Primeira nota: \")\n   leia(n1)\n   escreva(\"Segunda nota: \")\n   leia(n2)\n   media <- (n1 + n2) / 2\n   se media >= 6 entao\n      escreval(\"Aprovado. Média: \", media)\n   senao\n      escreval(\"Em recuperação. Média: \", media)\n   fimse\nfimalgoritmo",
-      "entradas": ["7", "5.5"],
+      "entradas": [
+        "7",
+        "5.5"
+      ],
       "saida": "Primeira nota: Segunda nota: Aprovado. Média: 6.25"
     },
     {
-      "id": "lab-maior3", "semana": 5, "titulo": "Maior de três números",
+      "id": "lab-maior3",
+      "semana": 5,
+      "titulo": "Maior de três números",
       "codigo": "algoritmo \"maior_de_tres\"\nvar\n   a, b, c, maior: inteiro\ninicio\n   leia(a, b, c)\n   maior <- a\n   se b > maior entao\n      maior <- b\n   fimse\n   se c > maior entao\n      maior <- c\n   fimse\n   escreval(\"Maior: \", maior)\nfimalgoritmo",
-      "entradas": ["12", "40", "7"],
+      "entradas": [
+        "12",
+        "40",
+        "7"
+      ],
       "saida": "Maior: 40"
     },
     {
-      "id": "lab-digitos", "semana": 5, "titulo": "Separar os dígitos com div e mod",
+      "id": "lab-digitos",
+      "semana": 5,
+      "titulo": "Separar os dígitos com div e mod",
       "codigo": "algoritmo \"digitos\"\nvar\n   n, c, d, u: inteiro\ninicio\n   n <- 347\n   c <- n div 100\n   d <- (n mod 100) div 10\n   u <- n mod 10\n   escreval(\"centena \", c, \", dezena \", d, \", unidade \", u)\nfimalgoritmo",
       "entradas": [],
       "saida": "centena 3, dezena 4, unidade 7"
     },
     {
-      "id": "lab-dia", "semana": 5, "titulo": "Dia da semana com escolha",
+      "id": "lab-dia",
+      "semana": 5,
+      "titulo": "Dia da semana com escolha",
       "codigo": "algoritmo \"dia_da_semana\"\nvar\n   d: inteiro\ninicio\n   leia(d)\n   escolha d\n   caso 1, 7\n      escreval(\"Fim de semana\")\n   caso 2, 3, 4, 5, 6\n      escreval(\"Dia útil\")\n   outrocaso\n      escreval(\"Número inválido\")\n   fimescolha\nfimalgoritmo",
-      "entradas": ["7"],
+      "entradas": [
+        "7"
+      ],
       "saida": "Fim de semana"
     },
     {
-      "id": "lab-pares", "semana": 6, "titulo": "Soma dos pares (acumulador)",
+      "id": "lab-pares",
+      "semana": 6,
+      "titulo": "Soma dos pares (acumulador)",
       "codigo": "algoritmo \"soma_dos_pares\"\nvar\n   i, s: inteiro\ninicio\n   s <- 0\n   para i de 1 ate 6 faca\n      se i mod 2 = 0 entao\n         s <- s + i\n      fimse\n   fimpara\n   escreval(s)\nfimalgoritmo",
       "entradas": [],
       "saida": "12"
     },
     {
-      "id": "lab-tabuada", "semana": 6, "titulo": "Tabuada do 7 com para",
+      "id": "lab-tabuada",
+      "semana": 6,
+      "titulo": "Tabuada do 7 com para",
       "codigo": "algoritmo \"tabuada\"\nvar\n   i: inteiro\ninicio\n   para i de 1 ate 5 faca\n      escreval(\"7 x \", i, \" = \", 7 * i)\n   fimpara\nfimalgoritmo",
       "entradas": [],
       "saida": "7 x 1 = 7\n7 x 2 = 14\n7 x 3 = 21\n7 x 4 = 28\n7 x 5 = 35"
     },
     {
-      "id": "lab-regressiva", "semana": 6, "titulo": "Contagem com enquanto (de 2 em 2)",
+      "id": "lab-regressiva",
+      "semana": 6,
+      "titulo": "Contagem com enquanto (de 2 em 2)",
       "codigo": "algoritmo \"regressiva\"\nvar\n   n: inteiro\ninicio\n   n <- 5\n   enquanto n > 0 faca\n      escreva(n)\n      n <- n - 2\n   fimenquanto\n   escreval()\n   escreval(\"fim com n = \", n)\nfimalgoritmo",
       "entradas": [],
       "saida": "5 3 1\nfim com n = -1"
     },
     {
-      "id": "lab-senha", "semana": 6, "titulo": "Senha com repita",
+      "id": "lab-senha",
+      "semana": 6,
+      "titulo": "Senha com repita",
       "codigo": "algoritmo \"senha\"\nvar\n   tentativa: caractere\n   vezes: inteiro\ninicio\n   vezes <- 0\n   repita\n      leia(tentativa)\n      vezes <- vezes + 1\n   ate tentativa = \"1234\"\n   escreval(\"Entrou na tentativa \", vezes)\nfimalgoritmo",
-      "entradas": ["0000", "4321", "1234"],
+      "entradas": [
+        "0000",
+        "4321",
+        "1234"
+      ],
       "saida": "Entrou na tentativa 3"
     },
     {
-      "id": "lab-vetor", "semana": 6, "titulo": "Maior valor guardado num vetor",
+      "id": "lab-vetor",
+      "semana": 6,
+      "titulo": "Maior valor guardado num vetor",
       "codigo": "algoritmo \"maior_do_vetor\"\nvar\n   v: vetor[1..5] de inteiro\n   i, maior: inteiro\ninicio\n   para i de 1 ate 5 faca\n      leia(v[i])\n   fimpara\n   maior <- v[1]\n   para i de 2 ate 5 faca\n      se v[i] > maior entao\n         maior <- v[i]\n      fimse\n   fimpara\n   escreval(\"Maior: \", maior)\nfimalgoritmo",
-      "entradas": ["8", "3", "15", "2", "9"],
+      "entradas": [
+        "8",
+        "3",
+        "15",
+        "2",
+        "9"
+      ],
       "saida": "Maior: 15"
     }
   ]

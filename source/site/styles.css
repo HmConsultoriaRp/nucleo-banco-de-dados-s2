@@ -603,6 +603,100 @@ dialog.ideia-dialog{box-sizing:border-box;width:min(640px,100%);max-width:100%;h
 .ideia-lista div{display:flex;flex-wrap:wrap;gap:6px}
 .ideia-lista .chip{border:1px solid var(--line);background:var(--white);padding:6px 10px;font-size:12px;font-weight:600;cursor:pointer}
 .ideia-lista .chip:hover{border-color:var(--blue);color:var(--blue)}
+.ideia-lista>.duv-gatilho{margin-top:12px}
+/* ---------- vocabulario (12/11/2026) ---------- */
+.vocab{padding:4px 5vw 40px}
+.vocab-grupos{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.vocab-grupo{border:1px solid var(--line);background:var(--white);color:var(--ink);font:600 12.5px var(--font-body);padding:7px 12px;cursor:pointer}
+.vocab-grupo small{font-weight:600;color:var(--muted);margin-left:2px}
+.vocab-grupo:hover{border-color:var(--blue);color:var(--blue)}
+.vocab-grupo.on{background:var(--blue);border-color:var(--blue);color:var(--white)}
+.vocab-grupo.on small{color:var(--white);opacity:.8}
+.vocab-grid .termo-card{min-height:120px}
+.termo-link{color:var(--blue-deep);border-bottom:1.5px dotted var(--blue);cursor:help;font-weight:600}
+.termo-link:hover,.termo-link:focus-visible{background:var(--blue-tint);outline:none}
+.termo-sec{margin-top:18px}
+.termo-sec h4{font-size:9.5px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--muted);margin:0 0 8px}
+.termo-sec p{margin:0;font-size:14.5px;line-height:1.55}
+.termo-conta{margin:0;padding-left:20px;font-size:14.5px;line-height:1.55}
+.termo-conta li{margin:0 0 6px}
+.termo-nao{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.termo-nao li{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border:1px solid var(--line);background:var(--paper);font-size:13.5px;line-height:1.5}
+.termo-ir{align-self:flex-start;border:0;background:none;padding:0;font:700 14px var(--font-display);color:var(--blue-deep);border-bottom:1.5px dotted var(--blue);cursor:pointer}
+.termo-nota{margin:14px 0 0;font-size:12.5px;color:var(--muted)}
+.ideia-lista .chip-texto{cursor:default;color:var(--muted)}
+.ideia-lista .chip-texto:hover{border-color:var(--line);color:var(--muted)}
+.termo-nav{border-top:1px solid var(--line);padding-top:14px;margin-top:22px}
+.termo-nav button{max-width:46%;text-align:left}
+.termo-nav .primary-button{text-align:right}
+.termo-pos{white-space:nowrap}
+/* no escuro, a frase dos cartões e o texto do passo tinham cor fixa escura (achado em 12/11/2026) */
+body.dark .ideia-frase,body.dark .ideia-passo p{color:var(--ink)}
+/* ---------- tira-duvidas (09/11/2026) ---------- */
+.duv-section{border-top:1px solid var(--line);padding:84px max(7vw,calc((100vw - 1440px)/2 + 7vw))}
+.duv-section .section-heading p{max-width:520px;color:var(--muted)}
+.duv-modo{margin:-20px 0 22px;font-size:13px;color:var(--muted);display:flex;gap:10px;align-items:center}
+.duv-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:28px;align-items:start}
+.duv-form{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--blue);padding:24px}
+.duv-linha{display:grid;grid-template-columns:1.4fr 1fr;gap:12px;margin-bottom:14px}
+.duv-linha label,.duv-rot{display:flex;flex-direction:column;gap:6px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.duv-linha select{font:500 14px var(--font-body);color:var(--ink);background:var(--paper);border:1px solid var(--line);padding:9px 10px;text-transform:none;letter-spacing:0}
+.duv-rot{margin-bottom:6px}
+.duv-ref{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--blue-tint);border-left:4px solid var(--blue);padding:8px 10px;margin-bottom:12px;font-size:13px}
+.duv-ref button{border:0;background:none;font-size:20px;line-height:1;cursor:pointer;color:var(--muted)}
+.duv-caixa{border:1.5px dashed var(--line);background:var(--paper);transition:border-color .15s,background .15s}
+.duv-caixa:focus-within{border-color:var(--blue)}
+.duv-caixa.arrastando{border-color:var(--blue);background:var(--blue-tint)}
+.duv-caixa textarea{display:block;width:100%;box-sizing:border-box;border:0;background:transparent;resize:vertical;min-height:120px;padding:12px;font:400 15px/1.5 var(--font-body);color:var(--ink)}
+.duv-caixa textarea:focus{outline:none}
+.duv-print{display:flex;gap:12px;padding:10px 12px 12px;border-top:1px solid var(--line);align-items:flex-start}
+.duv-print img{width:120px;max-height:120px;object-fit:contain;background:var(--white);border:1px solid var(--line);flex:none}
+.duv-print p{margin:0 0 6px;font-size:12px;color:var(--muted)}
+.duv-print .duv-cuidado{color:var(--ink);font-size:12.5px}
+.duv-acoes{display:flex;align-items:center;gap:12px;margin-top:14px}
+.duv-anexo{cursor:pointer;display:inline-flex;align-items:center}
+.duv-conta{margin-left:auto;font-size:11.5px;color:var(--muted)}
+.duv-msg{min-height:20px;margin:12px 0 0;font-size:13.5px}
+.duv-msg.ok{color:var(--blue-deep);font-weight:600}
+.duv-msg.erro{color:var(--coral);font-weight:600}
+.duv-aviso{margin:6px 0 0;font-size:12px;color:var(--muted)}
+.duv-lista-topo{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.duv-lista-topo h3{font:700 20px var(--font-display);margin:0}
+.duv-lista-topo h3 small{font:500 12px var(--font-body);color:var(--muted);margin-left:6px}
+.duv-lista-topo input{min-width:0;flex:0 1 260px;border:1px solid var(--line);background:var(--white);padding:9px 10px;font:400 14px var(--font-body)}
+.duv-filtros{display:flex;gap:4px;margin-bottom:14px}
+.duv-filtros button{border:1px solid var(--line);background:var(--white);padding:6px 12px;font-size:12px;font-weight:600;cursor:pointer}
+.duv-filtros button.active{background:var(--ink);color:var(--white);border-color:var(--ink)}
+.duv-minhas-tit{font-size:9.5px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--muted);margin:0 0 6px}
+.duv-pend{display:flex;align-items:center;gap:8px;background:var(--note);padding:8px 10px;margin-bottom:6px;font-size:13px}
+.duv-relogio{font-size:16px}
+.duv-item{background:var(--white);border:1px solid var(--line);margin-bottom:8px}
+.duv-item summary{cursor:pointer;padding:12px 14px;display:flex;flex-direction:column;gap:4px;list-style:none}
+.duv-item summary::-webkit-details-marker{display:none}
+.duv-item[open] summary{border-bottom:1px solid var(--line-soft)}
+.duv-tag{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+.duv-tag.lp{color:var(--coral)}
+.duv-perg{font-weight:600;font-size:14.5px}
+.duv-resp{padding:12px 14px 4px;font-size:14.5px;line-height:1.55;color:#2f342e}
+.duv-meta{margin:0;padding:4px 14px 12px;font-size:11.5px;color:var(--muted);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.duv-vazio{color:var(--muted);font-size:14px}
+.duv-flutuante{display:none}
+@media(max-width:900px){
+  .duv-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .duv-section{padding:56px 16px}
+  .duv-form{padding:18px 14px}
+  .duv-linha{grid-template-columns:1fr 1fr}
+  .duv-acoes{flex-wrap:wrap}
+  .duv-acoes .primary-button{width:100%;justify-content:center}
+  .duv-lista-topo{flex-direction:column;align-items:stretch}
+  .duv-lista-topo input{flex:1 1 auto}
+}
+/* abaixo de 1080 px o menu de cima some (regra antiga do site): o tira-duvidas ganha um atalho fixo */
+@media(max-width:1080px){
+  .duv-flutuante{display:block;position:fixed;right:14px;bottom:16px;z-index:40;background:var(--ink);color:var(--white);text-decoration:none;font-weight:700;font-size:13px;padding:11px 16px;border-radius:999px;box-shadow:var(--shadow)}
+}
 @media(max-width:640px){
   /* os 4 botoes da sala de estudo em 2 x 2: em fila unica empurravam a pagina para 406 px num celular de 375 */
   .views-row{display:grid;grid-template-columns:1fr 1fr}

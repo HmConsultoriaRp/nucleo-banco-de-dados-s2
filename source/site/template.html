@@ -26,6 +26,7 @@
       <a href="#trilhas">Trilhas</a>
       <a href="#estudo">Estudar</a>
       <a href="#simulado">Simulado</a>
+      <!--duvidas--><a href="#duvidas">Tira-dúvidas</a><!--/duvidas-->
     </nav>
     <div class="top-actions">
       <button class="icon-button" id="theme-toggle" aria-label="Alternar tema claro e escuro" title="Tema claro ou escuro">
@@ -148,7 +149,50 @@
       <div class="sim-quote">“Errar aqui é descobrir onde estudar.”</div>
     </div>
   </section>
+
+  <!--duvidas-->
+  <section class="duv-section" id="duvidas">
+    <div class="section-heading">
+      <div><p class="eyebrow"><span></span> Tira-dúvidas</p><h2>Travou? Pergunte.</h2></div>
+      <p>Escreva a dúvida ou cole o print da questão. O Claude responde aqui em algumas horas, e a resposta fica para a turma toda.</p>
+    </div>
+    <p class="duv-modo" id="duv-modo" hidden><span class="stamp">protótipo</span> Nada sai do seu navegador: as respostas abaixo são exemplos.</p>
+    <div class="duv-grid">
+      <form class="duv-form" id="duv-form" novalidate>
+        <div class="duv-linha">
+          <label>Disciplina<select id="duv-disc"><option value="ga">Geometria Analítica</option><option value="lp">Lógica de Programação</option></select></label>
+          <label>Semana<select id="duv-sem"></select></label>
+        </div>
+        <div class="duv-ref" id="duv-ref" hidden></div>
+        <label class="duv-rot" for="duv-texto">Sua dúvida</label>
+        <div class="duv-caixa" id="duv-caixa">
+          <textarea id="duv-texto" rows="5" maxlength="2000" placeholder="Escreva o que não entendeu. Se preferir, cole aqui o print da questão (Ctrl + V)."></textarea>
+          <div class="duv-print" id="duv-print" hidden>
+            <img id="duv-img" alt="Prévia do print">
+            <div><p id="duv-img-info"></p><p class="duv-cuidado">Confira se não aparece seu nome. A imagem não fica pública: no site aparece só a pergunta escrita e a resposta.</p><button type="button" class="ghost" id="duv-tira">Remover imagem</button></div>
+          </div>
+        </div>
+        <div class="duv-acoes">
+          <label class="ghost duv-anexo">Anexar imagem<input type="file" id="duv-arquivo" accept="image/*" hidden></label>
+          <span class="duv-conta" id="duv-conta">0/2000</span>
+          <button class="primary-button" id="duv-enviar" type="submit">Enviar dúvida <span>→</span></button>
+        </div>
+        <p class="duv-msg" id="duv-msg" role="status" aria-live="polite"></p>
+        <p class="duv-aviso">Sem login e sem nome. Só dúvidas de Geometria Analítica e Lógica de Programação são respondidas.</p>
+      </form>
+      <div class="duv-lista">
+        <div class="duv-lista-topo"><h3>Dúvidas respondidas <small id="duv-total"></small></h3><input type="search" id="duv-busca" placeholder="Buscar: plano, distância, vetor…" aria-label="Buscar nas dúvidas respondidas"></div>
+        <div class="duv-filtros" id="duv-filtros" role="group" aria-label="Filtrar por disciplina">
+          <button type="button" data-f="todas" class="active">Todas</button><button type="button" data-f="ga">Geometria</button><button type="button" data-f="lp">Lógica</button>
+        </div>
+        <div id="duv-minhas"></div>
+        <div id="duv-itens"></div>
+      </div>
+    </div>
+  </section>
+  <!--/duvidas-->
 </main>
+<!--duvidas--><a class="duv-flutuante" href="#duvidas" aria-label="Ir para o tira-dúvidas">Tira-dúvidas</a><!--/duvidas-->
 
 <footer class="page-footer">
   <div class="brand"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Núcleo<small>semestre 2 · ciclo 01</small></span></div>
@@ -167,6 +211,11 @@
 <dialog id="ideia-dialog" class="ideia-dialog" aria-labelledby="ideia-titulo">
   <button class="dialog-close" data-close-dialog aria-label="Fechar">×</button>
   <div id="ideia-corpo"></div>
+</dialog>
+
+<dialog id="termo-dialog" class="ideia-dialog termo-dialog" aria-labelledby="termo-titulo">
+  <button class="dialog-close" data-close-dialog aria-label="Fechar">×</button>
+  <div id="termo-corpo"></div>
 </dialog>
 
 <dialog id="sim-dialog" class="sim-dialog">
