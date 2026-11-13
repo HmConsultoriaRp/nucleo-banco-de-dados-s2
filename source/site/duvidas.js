@@ -174,7 +174,7 @@
       var s = situacoes[m.id] || {};
       if (s.motivo) {
         blocos.push('<div class="duv-pend duv-motivo"><span class="duv-relogio" aria-hidden="true">!</span><div><b>#' + esc(m.id) + ' · Não respondida</b>' +
-          '<small>' + esc(s.motivo) + '</small>' +
+          '<small>' + txt(s.motivo) + '</small>' +
           '<span class="duv-pend-acoes"><button type="button" class="ghost" data-minha="de-novo" data-id="' + esc(m.id) + '">Perguntar de novo</button>' +
           '<button type="button" class="ghost" data-minha="dispensar" data-id="' + esc(m.id) + '">Dispensar</button></span></div></div>');
       } else if (!feitas[m.id]) {
