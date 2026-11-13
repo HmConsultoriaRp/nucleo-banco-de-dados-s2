@@ -4,7 +4,7 @@
   "questoes": [
     {
       "id": "ga-s1-av1-t1-q2-01",
-      "semana": 1,
+      "semana": 2,
       "nivel": 2,
       "minutos": 5,
       "tema": "Área do triângulo",
@@ -33,7 +33,7 @@
     },
     {
       "id": "ga-s1-av1-t1-q2-02",
-      "semana": 1,
+      "semana": 2,
       "nivel": 1,
       "minutos": 2,
       "tema": "Zeros dos produtos",
@@ -62,7 +62,7 @@
     },
     {
       "id": "ga-s1-av1-t1-q2-03",
-      "semana": 1,
+      "semana": 2,
       "nivel": 3,
       "minutos": 6,
       "tema": "Propriedades vetoriais",
@@ -91,7 +91,7 @@
     },
     {
       "id": "ga-s1-av1-t1-q2-04",
-      "semana": 1,
+      "semana": 2,
       "nivel": 1,
       "minutos": 2,
       "tema": "Norma do produto vetorial",
@@ -120,7 +120,7 @@
     },
     {
       "id": "ga-s1-av1-t1-q2-05",
-      "semana": 1,
+      "semana": 2,
       "nivel": 2,
       "minutos": 4,
       "tema": "Fórmulas fundamentais",
@@ -149,7 +149,7 @@
     },
     {
       "id": "ga-s1-av1-t1-q2-06",
-      "semana": 1,
+      "semana": 2,
       "nivel": 3,
       "minutos": 5,
       "tema": "Sistema com vetores",
@@ -178,7 +178,7 @@
     },
     {
       "id": "ga-s1-av1-t1-q2-07",
-      "semana": 1,
+      "semana": 2,
       "nivel": 1,
       "minutos": 3,
       "tema": "Cosseno entre vetores",
@@ -207,7 +207,7 @@
     },
     {
       "id": "ga-s1-av1-t1-q2-08",
-      "semana": 1,
+      "semana": 2,
       "nivel": 2,
       "minutos": 4,
       "tema": "Projeção ortogonal",

@@ -135,7 +135,9 @@ def checa_questao(arq, q, disc):
     sem = q.get("semana")
     if not isinstance(sem, int) or not 1 <= sem <= 6:
         erros.append(f"{onde}: semana inválida")
-    elif disc in ("ga", "lp") and not str(qid).startswith(f"{disc}-s{sem}-"):
+    # Questao de avaliacao pode mudar de semana sem trocar o id: o progresso salvo no navegador usa o id.
+    elif disc in ("ga", "lp") and not str(qid).startswith(f"{disc}-s{sem}-") and not (
+            str(q.get("origem", "")).startswith("Avaliação") and re.match(rf"{disc}-s\d+-", str(qid))):
         erros.append(f"{onde}: id deve começar com '{disc}-s{sem}-'")
     if q.get("nivel") not in (1, 2, 3):
         erros.append(f"{onde}: nivel deve ser 1, 2 ou 3")

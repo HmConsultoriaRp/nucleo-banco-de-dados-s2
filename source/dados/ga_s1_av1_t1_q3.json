@@ -4,7 +4,7 @@
   "questoes": [
     {
       "id": "ga-s1-av1-t1-q3-01",
-      "semana": 1,
+      "semana": 3,
       "nivel": 2,
       "minutos": 3,
       "tema": "Dependência e volume",
@@ -33,7 +33,7 @@
     },
     {
       "id": "ga-s1-av1-t1-q3-02",
-      "semana": 1,
+      "semana": 3,
       "nivel": 3,
       "minutos": 5,
       "tema": "Condição de coplanaridade",
@@ -62,7 +62,7 @@
     },
     {
       "id": "ga-s1-av1-t1-q3-03",
-      "semana": 1,
+      "semana": 3,
       "nivel": 2,
       "minutos": 4,
       "tema": "Volume pelo produto misto",
@@ -91,7 +91,7 @@
     },
     {
       "id": "ga-s1-av1-t1-q3-04",
-      "semana": 1,
+      "semana": 3,
       "nivel": 3,
       "minutos": 5,
       "tema": "Volume com parâmetro",
@@ -120,7 +120,7 @@
     },
     {
       "id": "ga-s1-av1-t1-q3-05",
-      "semana": 1,
+      "semana": 3,
       "nivel": 2,
       "minutos": 5,
       "tema": "Tipos de resultados",
@@ -149,7 +149,7 @@
     },
     {
       "id": "ga-s1-av1-t1-q3-06",
-      "semana": 1,
+      "semana": 3,
       "nivel": 1,
       "minutos": 2,
       "tema": "Soma em caminho fechado",
@@ -178,7 +178,7 @@
     },
     {
       "id": "ga-s1-av1-t1-q3-07",
-      "semana": 1,
+      "semana": 3,
       "nivel": 2,
       "minutos": 3,
       "tema": "Norma de múltiplos",
@@ -207,7 +207,7 @@
     },
     {
       "id": "ga-s1-av1-t1-q3-08",
-      "semana": 1,
+      "semana": 3,
       "nivel": 3,
       "minutos": 4,
       "tema": "Identidade de Lagrange",

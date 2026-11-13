@@ -160,14 +160,16 @@
     var alvo = $('#estudo');
     if (alvo.getBoundingClientRect().top > 120 || alvo.getBoundingClientRect().bottom < 200) alvo.scrollIntoView();
   }
+  // Semana do Moodle (UFTM) que cobre cada semana do site. As semanas do site seguem o assunto.
+  var MOODLE = { ga: { 1: 'Semana 1', 2: 'Semana 1', 3: 'Semana 1', 4: 'Semana 2 e 3', 5: 'Semana 2 e 3' } };
   function renderEstudo() {
     document.body.dataset.subject = ui.disc;
     $$('[data-subject]').forEach(function (b) { if (b.tagName === 'BUTTON') b.classList.toggle('active', b.dataset.subject === ui.disc); });
     var tabs = '';
     for (var w = 1; w <= 6; w++) {
-      var info = semanaInfo(ui.disc, w), stt = statsSemana(ui.disc, w);
+      var info = semanaInfo(ui.disc, w), stt = statsSemana(ui.disc, w), mdl = (MOODLE[ui.disc] || {})[w];
       tabs += '<button role="tab" class="' + (w === ui.sem ? 'active' : '') + (info.previa ? ' previa' : '') + '" data-week="' + w + '"><span>Semana</span>' + n2(w) +
-        '<small>' + esc(info.titulo) + '</small><em>' + (info.previa ? 'prévia · ' : '') + stt.feitas + '/' + stt.total + '</em>' +
+        '<small>' + esc(info.titulo) + '</small>' + (mdl ? '<b class="week-moodle">no Moodle: ' + esc(mdl) + '</b>' : '') + '<em>' + (info.previa ? 'prévia · ' : '') + stt.feitas + '/' + stt.total + '</em>' +
         '<span class="week-bar"><i style="width:' + (stt.total ? Math.round(stt.feitas / stt.total * 100) : 0) + '%"></i></span></button>';
     }
     $('#week-tabs').innerHTML = tabs;
