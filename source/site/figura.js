@@ -17,9 +17,11 @@
     };
   }
   function p3(c) { return [c[0], c[1], c.length > 2 ? c[2] : 0]; }
+  function fmtN(x) { return String(Math.round(x * 100) / 100).replace('.', ','); }
+  function fonte(peso, px) { return peso + ' ' + px + 'px ' + cssVar('--font-body', 'system-ui'); }
 
   function montar(canvas, figInicial) {
-    var fig, modo, centro, raio;
+    var fig, modo, centro, raio, caixa;
     var yaw = -0.62, pitch = 0.42;
     var ctx = canvas.getContext('2d');
 
@@ -37,6 +39,7 @@
       var mn = [Infinity, Infinity, Infinity], mx = [-Infinity, -Infinity, -Infinity];
       pts.forEach(function (q) { for (var i = 0; i < 3; i++) { mn[i] = Math.min(mn[i], q[i]); mx[i] = Math.max(mx[i], q[i]); } });
       for (var i = 0; i < 3; i++) { if (mx[i] - mn[i] < 1) { mx[i] += 0.5; mn[i] -= 0.5; } }
+      caixa = { mn: mn.slice(), mx: mx.slice() };
       centro = [(mn[0] + mx[0]) / 2, (mn[1] + mx[1]) / 2, modo === '2d' ? 0 : (mn[2] + mx[2]) / 2];
       raio = 0;
       pts.forEach(function (q) {
@@ -112,19 +115,45 @@
         ctx.strokeStyle = C.eixo; ctx.lineWidth = 1.2;
         ctx.beginPath(); ctx.moveTo(0, o[1]); ctx.lineTo(W, o[1]); ctx.moveTo(o[0], 0); ctx.lineTo(o[0], H); ctx.stroke();
       } else if (!fig.semEixos) {
-        var L = raio * 1.05;
-        [[[L, 0, 0], 'x'], [[0, L, 0], 'y'], [[0, 0, L], 'z']].forEach(function (e) {
-          var neg = proj([-e[0][0] * 0.35, -e[0][1] * 0.35, -e[0][2] * 0.35], W, H, esc);
-          var pos = proj(e[0], W, H, esc);
-          ctx.strokeStyle = C.eixo; ctx.lineWidth = 1; ctx.globalAlpha = 0.55;
-          ctx.setLineDash([4, 4]);
-          ctx.beginPath(); ctx.moveTo(neg[0], neg[1]); ctx.lineTo(pos[0], pos[1]); ctx.stroke();
-          ctx.setLineDash([]); ctx.globalAlpha = 1;
-          ctx.font = '600 12px ' + cssVar('--font-body', 'system-ui');
-          ctx.fillStyle = C.eixo; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-          ctx.fillText(e[1], pos[0] + 8, pos[1] - 8);
+        // chao quadriculado (plano xy, z = 0) e eixos firmes com marcas numeradas
+        var vao = Math.max(caixa.mx[0] - caixa.mn[0], caixa.mx[1] - caixa.mn[1], caixa.mx[2] - caixa.mn[2]);
+        var pas = vao <= 8 ? 1 : vao <= 16 ? 2 : vao <= 40 ? 5 : 10;
+        var lim = function (i, lado) {
+          var v = lado < 0 ? Math.min(0, caixa.mn[i]) : Math.max(0, caixa.mx[i]);
+          return lado < 0 ? Math.floor(v / pas) * pas : Math.ceil(v / pas) * pas;
+        };
+        var gx0 = lim(0, -1), gx1 = lim(0, 1), gy0 = lim(1, -1), gy1 = lim(1, 1), gz0 = lim(2, -1), gz1 = lim(2, 1);
+        ctx.strokeStyle = C.linha; ctx.lineWidth = 1; ctx.globalAlpha = 0.8;
+        for (var u = gx0; u <= gx1 + 1e-9; u += pas) {
+          var g1 = proj([u, gy0, 0], W, H, esc), g2 = proj([u, gy1, 0], W, H, esc);
+          ctx.beginPath(); ctx.moveTo(g1[0], g1[1]); ctx.lineTo(g2[0], g2[1]); ctx.stroke();
+        }
+        for (var v = gy0; v <= gy1 + 1e-9; v += pas) {
+          var g3 = proj([gx0, v, 0], W, H, esc), g4 = proj([gx1, v, 0], W, H, esc);
+          ctx.beginPath(); ctx.moveTo(g3[0], g3[1]); ctx.lineTo(g4[0], g4[1]); ctx.stroke();
+        }
+        ctx.globalAlpha = 1;
+        [[0, gx0, gx1 + pas * 0.7, 'x'], [1, gy0, gy1 + pas * 0.7, 'y'], [2, gz0, gz1 + pas * 0.7, 'z']].forEach(function (e) {
+          var ini = [0, 0, 0], fim = [0, 0, 0];
+          ini[e[0]] = e[1]; fim[e[0]] = e[2];
+          var a = proj(ini, W, H, esc), b = proj(fim, W, H, esc);
+          seta(a, b, C.eixo, 1.5);
+          var dx = b[0] - a[0], dy = b[1] - a[1], l = Math.hypot(dx, dy) || 1;
+          ctx.font = fonte(700, 13); ctx.fillStyle = C.eixo; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+          if (l > 4) ctx.fillText(e[3], b[0] + dx / l * 12, b[1] + dy / l * 12);
+          ctx.font = fonte(500, 10);
+          for (var t = Math.ceil(e[1] / pas) * pas; t <= e[2] - pas * 0.6; t += pas) {
+            if (Math.abs(t) < 1e-9) continue;
+            var p = [0, 0, 0]; p[e[0]] = t;
+            var m = proj(p, W, H, esc);
+            ctx.beginPath(); ctx.arc(m[0], m[1], 1.8, 0, Math.PI * 2); ctx.fill();
+            ctx.fillText(fmtN(t), m[0] + (e[0] === 2 ? -12 : 0), m[1] + (e[0] === 2 ? 0 : 10));
+          }
         });
+        var o3 = proj([0, 0, 0], W, H, esc);
+        ctx.fillText('0', o3[0] - 9, o3[1] + 9);
       }
+      alvos = [];
 
       var ordem = { poligono: 0, segmento: 1, vetor: 2, ponto: 3 };
       (fig.itens || []).slice().sort(function (a, b) { return (ordem[a.tipo] || 0) - (ordem[b.tipo] || 0); }).forEach(function (it) {
@@ -152,26 +181,64 @@
           var q = proj(p3(it.em), W, H, esc);
           ctx.fillStyle = cor; ctx.beginPath(); ctx.arc(q[0], q[1], 4.5, 0, Math.PI * 2); ctx.fill();
           if (it.rot) rotulo(it.rot, q[0] + 13, q[1] - 12, cor, false);
+          alvos.push({ it: it, x: q[0], y: q[1] });
         }
       });
+
+      // coordenadas do ponto apontado (mouse) ou tocado (celular)
+      var alvo = dica && alvos.filter(function (p) { return p.it === dica; })[0];
+      if (alvo) {
+        var c = p3(dica.em);
+        var txt = (dica.rot ? dica.rot + ' ' : '') + '(' + fmtN(c[0]) + '; ' + fmtN(c[1]) + (modo === '2d' ? '' : '; ' + fmtN(c[2])) + ')';
+        ctx.font = fonte(600, 12);
+        var bw = ctx.measureText(txt).width + 16, bh = 24;
+        var bx = Math.min(Math.max(alvo.x - bw / 2, 4), W - bw - 4), by = alvo.y - 38;
+        if (by < 4) by = alvo.y + 14;
+        ctx.strokeStyle = C[4]; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.arc(alvo.x, alvo.y, 8, 0, Math.PI * 2); ctx.stroke();
+        ctx.fillStyle = C[4]; ctx.globalAlpha = 0.92; ctx.fillRect(bx, by, bw, bh); ctx.globalAlpha = 1;
+        ctx.fillStyle = cssVar('--white', '#fffdf8'); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText(txt, bx + bw / 2, by + bh / 2);
+      }
     }
 
-    var arrasto = null;
+    var arrasto = null, toque = null, dica = null, alvos = [];
+    function pontoEm(x, y, alcance) {
+      var melhor = null, dmin = alcance;
+      alvos.forEach(function (p) { var d = Math.hypot(p.x - x, p.y - y); if (d <= dmin) { dmin = d; melhor = p.it; } });
+      return melhor;
+    }
     canvas.addEventListener('pointerdown', function (e) {
+      toque = { x: e.clientX, y: e.clientY };
       if (modo !== '3d') return;
       arrasto = { x: e.clientX, y: e.clientY, yaw: yaw, pitch: pitch };
       try { canvas.setPointerCapture(e.pointerId); } catch (err) { /* sem captura */ }
       canvas.style.cursor = 'grabbing';
     });
     canvas.addEventListener('pointermove', function (e) {
-      if (!arrasto) return;
-      yaw = arrasto.yaw + (e.clientX - arrasto.x) * 0.011;
-      pitch = Math.max(-1.45, Math.min(1.45, arrasto.pitch + (e.clientY - arrasto.y) * 0.011));
-      desenhar();
+      if (arrasto) {
+        yaw = arrasto.yaw + (e.clientX - arrasto.x) * 0.011;
+        pitch = Math.max(-1.45, Math.min(1.45, arrasto.pitch + (e.clientY - arrasto.y) * 0.011));
+        desenhar();
+        return;
+      }
+      if (e.pointerType !== 'mouse') return;
+      var h = pontoEm(e.offsetX, e.offsetY, 12);
+      canvas.style.cursor = h ? 'pointer' : (modo === '3d' ? 'grab' : 'default');
+      if (h !== dica) { dica = h; desenhar(); }
     });
     function solta() { arrasto = null; if (modo === '3d') canvas.style.cursor = 'grab'; }
-    canvas.addEventListener('pointerup', solta);
-    canvas.addEventListener('pointercancel', solta);
+    canvas.addEventListener('pointerup', function (e) {
+      if (toque && Math.hypot(e.clientX - toque.x, e.clientY - toque.y) < 6) {
+        var h = pontoEm(e.offsetX, e.offsetY, e.pointerType === 'mouse' ? 12 : 22);
+        dica = e.pointerType === 'mouse' ? h : (h && h !== dica ? h : null);
+        desenhar();
+      }
+      toque = null;
+      solta();
+    });
+    canvas.addEventListener('pointercancel', function () { toque = null; solta(); });
+    canvas.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse' && dica && !arrasto) { dica = null; desenhar(); } });
 
     // angulo inicial proprio da figura (opcional): { yaw, pitch }
     var yaw0 = -0.62, pitch0 = 0.42;
@@ -184,7 +251,7 @@
     desenhar();
     return {
       redesenhar: desenhar,
-      trocar: function (f) { anguloDe(f); prepara(f); desenhar(); },
+      trocar: function (f) { dica = null; anguloDe(f); prepara(f); desenhar(); },
       vista: function (nome) {
         if (nome === 'frente') { yaw = 0; pitch = 0; }
         else if (nome === 'cima') { yaw = 0; pitch = 1.45; }
