@@ -70,7 +70,7 @@
   function tipoOrigem(q) { return /^Avaliação/.test(q.origem) ? 'avaliacao' : (/^Lista/.test(q.origem) ? 'lista' : (/Construída/.test(q.origem) ? 'constr' : 'previa')); }
 
   // ---------- estado da tela ----------
-  var ui = { disc: 'ga', sem: 1, view: 'questao', qid: null, filtro: 'todas', revelado: {}, dica: {}, lente: {} };
+  var ui = { disc: 'ga', sem: 1, view: 'questao', qid: null, filtro: 'todas', revelado: {}, dica: {}, lente: {}, projeto: false, pf: 'pedido' };
   var figuras = [];
 
   // ---------- progresso ----------
@@ -165,6 +165,7 @@
 
   // ---------- sala de estudo ----------
   function abrirSemana(d, s, view, qid) {
+    ui.projeto = false;
     ui.disc = d; ui.sem = s; ui.view = view || ui.view;
     if (qid) ui.qid = qid;
     else if (!ui.qid || !porId[ui.qid] || porId[ui.qid].disc !== d || porId[ui.qid].semana !== s) ui.qid = primeiraPendente(d, s);
@@ -209,16 +210,38 @@
           '<span class="week-bar"><i style="width:' + (tot ? Math.round(fei / tot * 100) : 0) + '%"></i></span></button>';
       });
     } else {
+      var pfOn0 = ui.projeto && ui.disc === 'lp';
       for (var w = 1; w <= 6; w++) {
         var info = semanaInfo(ui.disc, w), stt = statsSemana(ui.disc, w);
-        tabs += '<button role="tab" class="' + (w === ui.sem ? 'active' : '') + (info.previa ? ' previa' : '') + '" data-week="' + w + '"><span>Semana</span>' + n2(w) +
+        tabs += '<button role="tab" class="' + (w === ui.sem && !pfOn0 ? 'active' : '') + (info.previa ? ' previa' : '') + '" data-week="' + w + '"><span>Semana</span>' + n2(w) +
           '<small>' + esc(info.titulo) + '</small><em>' + (info.previa ? 'prévia · ' : '') + stt.feitas + '/' + stt.total + '</em>' +
           '<span class="week-bar"><i style="width:' + (stt.total ? Math.round(stt.feitas / stt.total * 100) : 0) + '%"></i></span></button>';
+      }
+      // Lógica: aba do projeto final ao lado das semanas (barra = checklist do grupo)
+      if (ui.disc === 'lp' && D.projeto) {
+        var ck = pfChecados();
+        tabs += '<button role="tab" class="week-pf' + (pfOn0 ? ' active' : '') + '" data-projeto="1"><span>Avaliação</span>Projeto final' +
+          '<small>Portugol, C e Python</small><em>' + D.projeto.pontos + ' pts</em>' +
+          '<span class="week-bar"><i style="width:' + Math.round(ck / D.projeto.checklist.length * 100) + '%"></i></span></button>';
       }
     }
     $('#week-tabs').innerHTML = tabs;
     $('#week-tabs').classList.toggle('moodle', !!G);
+    $('#week-tabs').classList.toggle('com-pf', !G && ui.disc === 'lp' && !!D.projeto);
     $$('#week-tabs button[data-week]').forEach(function (b) { b.addEventListener('click', function () { ui.qid = null; ui.todas = false; abrirSemana(ui.disc, +b.dataset.week); }); });
+    $$('#week-tabs button[data-projeto]').forEach(function (b) { b.addEventListener('click', function () { ui.projeto = true; renderEstudo(); }); });
+    // projeto final: troca a sala da semana pela página do projeto
+    var pfOn = ui.projeto && ui.disc === 'lp' && !!D.projeto;
+    $('.lesson-shell:not(#projeto-shell)').style.display = pfOn ? 'none' : '';
+    $('#projeto-shell').style.display = pfOn ? '' : 'none';
+    if (pfOn) {
+      var cp0 = $('#week-partes');
+      if (cp0) { cp0.innerHTML = ''; cp0.style.display = 'none'; }
+      figuras = [];
+      renderProjeto();
+      return;
+    }
+    $('#projeto-shell').innerHTML = '';
     $$('#week-tabs button[data-grupo]').forEach(function (b) {
       b.addEventListener('click', function () { var g = G[+b.dataset.grupo]; if (!g.semanas.length) return; ui.qid = null; ui.todas = false; abrirSemana(ui.disc, g.semanas[0]); });
     });
@@ -351,7 +374,7 @@
     });
     return h + '</tbody></table></div>';
   }
-  var KWVA = /^(algoritmo|var|inicio|início|fimalgoritmo|inteiro|real|caractere|caracter|logico|lógico|vetor|de|leia|escreva|escreval|se|entao|então|senao|senão|fimse|escolha|caso|outrocaso|fimescolha|para|ate|até|passo|faca|faça|fimpara|enquanto|fimenquanto|repita|fimrepita|interrompa|e|ou|nao|não|xou|div|mod|verdadeiro|falso)$/i;
+  var KWVA = /^(algoritmo|var|inicio|início|fimalgoritmo|inteiro|real|caractere|caracter|logico|lógico|vetor|de|leia|escreva|escreval|se|entao|então|senao|senão|fimse|escolha|caso|outrocaso|fimescolha|para|ate|até|passo|faca|faça|fimpara|enquanto|fimenquanto|repita|fimrepita|interrompa|e|ou|nao|não|xou|div|mod|verdadeiro|falso|funcao|função|fimfuncao|fimfunção|procedimento|fimprocedimento|retorne|tipo|registro|fimregistro)$/i;
   function realce(linha) {
     var out = '', i = 0;
     var com = linha.indexOf('//');
@@ -383,7 +406,8 @@
       var p = passos[i] || { linha: 0, nota: '', vars: {}, saida: '' };
       var ant = passos[i - 1];
       var fim = i === passos.length - 1;
-      var linhasVars = res.nomes.map(function (n) {
+      // variável local de sub-rotina só aparece enquanto a sub-rotina está rodando
+      var linhasVars = res.nomes.filter(function (n) { return p.vars[n] !== undefined; }).map(function (n) {
         var mud = ant && ant.vars[n] !== p.vars[n];
         return '<tr class="' + (mud ? 'mud' : '') + '"><td>' + esc(n) + '</td><td>' + esc(p.vars[n]) + '</td></tr>';
       }).join('');
@@ -633,6 +657,185 @@
     var redesenha = function () { if (fig) fig.redesenhar(); };
     window.addEventListener('resize', redesenha);
     dlg.addEventListener('close', function () { window.removeEventListener('resize', redesenha); }, { once: true });
+  }
+
+  // ---------- projeto final de Lógica (17/11/2026) ----------
+  // Aba ao lado das semanas: o que o professor pede, exemplos (painel com as 7 partes do relatório
+  // e o código em Portugol, C e Python), checklist do grupo (guardado neste navegador) e modelo.
+  var PF_VIEWS = [['pedido', 'O que o professor pede'], ['exemplos', 'Exemplos'], ['checklist', 'Checklist do grupo'], ['modelo', 'Modelo do relatório']];
+  var PF_LING = [['portugol', 'Portugol'], ['c', 'C'], ['python', 'Python']];
+  function pfChecados() {
+    var c = st.pfCheck || {}, n = 0;
+    (D.projeto ? D.projeto.checklist : []).forEach(function (x, i) { if (c[i]) n++; });
+    return n;
+  }
+  function copiarTexto(texto, aviso) {
+    function ok() { if (aviso) { aviso.textContent = 'Copiado.'; setTimeout(function () { aviso.textContent = ''; }, 2500); } }
+    function antigo() {
+      var t = document.createElement('textarea');
+      t.value = texto; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+      document.body.appendChild(t); t.select();
+      try { document.execCommand('copy'); ok(); } catch (e) { if (aviso) aviso.textContent = 'Não deu para copiar: selecione o texto e use Ctrl+C.'; }
+      document.body.removeChild(t);
+    }
+    try { navigator.clipboard.writeText(texto).then(ok, antigo); } catch (e) { antigo(); }
+  }
+  var KW_LING = {
+    c: /^(int|double|float|char|void|const|return|if|else|for|while|do|typedef|struct|include|break)$/,
+    python: /^(def|return|if|else|elif|for|in|while|True|False|break|and|or|not|None)$/
+  };
+  // realce simples para C e Python: comentário, texto, número e palavra-chave
+  function realceLing(linha, lp, estado) {
+    var out = '', i = 0, n = linha.length;
+    while (i < n) {
+      if (estado.com) {
+        var f = linha.indexOf('*/', i), fim = f < 0 ? n : f + 2;
+        out += '<span class="cm">' + esc(linha.slice(i, fim)) + '</span>'; i = fim;
+        if (f >= 0) estado.com = false;
+        continue;
+      }
+      var c = linha[i];
+      if (lp === 'c' && linha.substr(i, 2) === '/*') { estado.com = true; continue; }
+      if ((lp === 'c' && linha.substr(i, 2) === '//') || (lp === 'python' && c === '#')) { out += '<span class="cm">' + esc(linha.slice(i)) + '</span>'; break; }
+      if (c === '"' || c === "'") {
+        var j = i + 1;
+        while (j < n && linha[j] !== c) { if (linha[j] === '\\') j++; j++; }
+        out += '<span class="st">' + esc(linha.slice(i, j + 1)) + '</span>'; i = j + 1; continue;
+      }
+      if (/[0-9]/.test(c) && !/[A-Za-z_]/.test(linha[i - 1] || '')) {
+        var m = /^\d+(\.\d+)?/.exec(linha.slice(i));
+        out += '<span class="nu">' + m[0] + '</span>'; i += m[0].length; continue;
+      }
+      if (/[A-Za-z_]/.test(c)) {
+        var w = /^[A-Za-z_][A-Za-z0-9_]*/.exec(linha.slice(i))[0];
+        out += KW_LING[lp].test(w) ? '<span class="kw">' + w + '</span>' : esc(w); i += w.length; continue;
+      }
+      out += esc(c); i++;
+    }
+    return out;
+  }
+  function htmlCodigoLing(codigo, lp) {
+    if (lp === 'portugol') return htmlCodigo(codigo, 0);
+    var estado = { com: false };
+    return '<pre class="code">' + codigo.split('\n').map(function (l, i) {
+      return '<span class="ln"><i>' + (i + 1) + '</i>' + realceLing(l, lp, estado) + '</span>';
+    }).join('') + '</pre>';
+  }
+  function renderProjeto() {
+    var P = D.projeto, host = $('#projeto-shell');
+    var ck = pfChecados(), tot = P.checklist.length;
+    var aside = '<aside class="lesson-index pf-index"><p>Nesta aba</p><div class="views-row">' + PF_VIEWS.map(function (v, i) {
+      return '<button class="view-link' + (ui.pf === v[0] ? ' active' : '') + '" data-pf="' + v[0] + '"><span>0' + (i + 1) + '</span>' + v[1] +
+        (v[0] === 'exemplos' ? '<b>' + P.exemplos.length + '</b>' : v[0] === 'checklist' ? '<b>' + ck + '/' + tot + '</b>' : '') + '</button>';
+    }).join('') + '</div><div class="index-note"><strong>Fonte</strong><p>' + esc(P.fonte) + '. Os exemplos foram feitos para este site.</p></div></aside>';
+    var h = '<div class="pf-wrap"><p class="lesson-kicker">Lógica de Programação · Projeto final</p>';
+    if (ui.pf === 'pedido') {
+      h += '<h2 class="pf-h">O que o professor pede</h2><p class="pf-lead">' + md(P.pedido) + '</p>' +
+        '<div class="ideia-destaque pf-pontos"><strong>' + P.pontos + ' pontos</strong><small>valor do projeto na folha do professor</small></div>' +
+        '<h3>As 7 partes do relatório</h3><ol class="pf-partes">' + P.partes.map(function (p) {
+          return '<li><b>' + p.n + '</b><div><strong>' + esc(p.titulo) + '</strong><span>' + md(p.texto) + '</span></div></li>';
+        }).join('') + '</ol>' +
+        '<h3>O que o programa precisa ter</h3><p class="pf-sub">Os cinco itens são obrigatórios. Cada um tem um jeito de escrever em cada linguagem.</p>' +
+        '<div class="tw"><table class="pf-tab"><thead><tr><th>Item obrigatório</th><th>Portugol</th><th>C</th><th>Python</th></tr></thead><tbody>' +
+        P.obrigatorios.map(function (o) {
+          return '<tr><th scope="row">' + esc(o.titulo) + '</th><td><code>' + esc(o.portugol) + '</code></td><td><code>' + esc(o.c) + '</code></td><td><code>' + esc(o.python) + '</code></td></tr>';
+        }).join('') + '</tbody></table></div>' +
+        '<ul class="pf-avisos">' + P.avisos.map(function (a) { return '<li>' + md(a) + '</li>'; }).join('') + '</ul>' +
+        '<button class="primary-button" data-pf-ir="exemplos">Ver os exemplos <span>→</span></button>';
+    } else if (ui.pf === 'exemplos') {
+      h += '<h2 class="pf-h">Exemplos de projeto</h2><p class="pf-lead">Quatro exemplos completos, do título à conclusão. Servem de modelo de formato: o professor pede que o grupo crie a própria situação.</p>' +
+        '<div class="ideias-grid pf-grid">' + P.exemplos.map(function (ex, i) {
+          return '<button class="ideia-card pf-card" data-pf-ex="' + i + '"><span class="ideia-num">EXEMPLO ' + n2(i + 1) + '</span><b>' + esc(ex.titulo) + '</b>' +
+            '<span class="ideia-frase">' + esc(ex.resumo) + '</span><span class="pf-chips">' + P.obrigatorios.map(function (o) { return '<i>✓ ' + esc(o.curto || o.titulo) + '</i>'; }).join('') + '</span>' +
+            '<span class="ideia-meta">Portugol · C · Python →</span></button>';
+        }).join('') + '</div>';
+    } else if (ui.pf === 'checklist') {
+      h += '<h2 class="pf-h">Checklist do grupo</h2><p class="pf-lead">Marque o que já está pronto. As marcas ficam guardadas só neste navegador.</p>' +
+        '<div class="ideia-destaque pf-pontos"><strong id="pf-ck-num">' + ck + ' de ' + tot + '</strong><small>itens prontos</small></div>' +
+        '<ul class="pf-check">' + P.checklist.map(function (t, i) {
+          var on = !!(st.pfCheck && st.pfCheck[i]);
+          return '<li><label class="' + (on ? 'ok' : '') + '"><input type="checkbox" data-ck="' + i + '"' + (on ? ' checked' : '') + '> <span>' + esc(t) + '</span></label></li>';
+        }).join('') + '</ul><button class="ghost" id="pf-ck-limpa">Desmarcar tudo</button>';
+    } else {
+      h += '<h2 class="pf-h">Modelo do relatório</h2><p class="pf-lead">Copie e preencha. O que está entre colchetes é o que o grupo escreve.</p>' +
+        '<div class="pf-modelo-top"><button class="primary-button" id="pf-copiar">Copiar modelo <span>⧉</span></button><span class="pf-copiado" id="pf-copiado" role="status" aria-live="polite"></span></div>' +
+        '<pre class="pf-modelo">' + esc(P.modelo) + '</pre>' +
+        '<h3>Para passar o código para C e Python</h3><div class="tw"><table class="pf-tab pf-trad"><thead><tr><th>Portugol</th><th>C</th><th>Python</th></tr></thead><tbody>' +
+        P.traducao.map(function (r) { return '<tr>' + r.map(function (c) { return '<td><code>' + esc(c) + '</code></td>'; }).join('') + '</tr>'; }).join('') + '</tbody></table></div>' +
+        '<h3>Dicas</h3><ul class="pf-dicas">' + P.dicas.map(function (d) { return '<li>' + md(d) + '</li>'; }).join('') + '</ul>';
+    }
+    h += '</div>';
+    host.innerHTML = aside + '<article class="lesson-content pf-content">' + h + '</article>';
+    $$('[data-pf]', host).forEach(function (b) { b.addEventListener('click', function () { ui.pf = b.dataset.pf; renderProjeto(); }); });
+    $$('[data-pf-ir]', host).forEach(function (b) { b.addEventListener('click', function () { ui.pf = b.dataset.pfIr; renderProjeto(); }); });
+    $$('[data-pf-ex]', host).forEach(function (b) { b.addEventListener('click', function () { abrirExemploPF(+b.dataset.pfEx, 'portugol'); }); });
+    $$('[data-ck]', host).forEach(function (inp) {
+      inp.addEventListener('change', function () {
+        st.pfCheck = st.pfCheck || {};
+        if (inp.checked) st.pfCheck[inp.dataset.ck] = true; else delete st.pfCheck[inp.dataset.ck];
+        salva();
+        inp.closest('label').classList.toggle('ok', inp.checked);
+        var n = pfChecados();
+        $('#pf-ck-num').textContent = n + ' de ' + tot;
+        var bl = $('.view-link[data-pf="checklist"] b', host); if (bl) bl.textContent = n + '/' + tot;
+        var bar = $('#week-tabs button[data-projeto] .week-bar i'); if (bar) bar.style.width = Math.round(n / tot * 100) + '%';
+      });
+    });
+    var lim = $('#pf-ck-limpa', host);
+    if (lim) lim.addEventListener('click', function () { st.pfCheck = {}; salva(); renderEstudo(); });
+    var cop = $('#pf-copiar', host);
+    if (cop) cop.addEventListener('click', function () { copiarTexto(P.modelo, $('#pf-copiado', host)); });
+  }
+  function abrirExemploPF(idx, ling) {
+    var P = D.projeto, ex = P.exemplos[idx];
+    if (!ex) return;
+    var dlg = $('#projeto-dialog'), corpo = $('#pf-corpo'), cf = P.conferido || {};
+    var cats = P.obrigatorios;
+    corpo.innerHTML = '<p class="lesson-kicker">Projeto final · Exemplo ' + (idx + 1) + ' de ' + P.exemplos.length + '</p>' +
+      '<h2 id="pf-titulo">' + esc(ex.titulo) + '</h2><p class="ideia-frase-grande">' + esc(ex.resumo) + '</p>' +
+      '<section class="pf-sec"><h4><span>1</span>Título do projeto</h4><p>' + esc(ex.titulo) + '</p></section>' +
+      '<section class="pf-sec"><h4><span>2</span>Descrição do projeto</h4><p>' + md(ex.situacao) + '</p></section>' +
+      '<section class="pf-sec"><h4><span>3</span>Descrição do que será feito no algoritmo</h4><ol class="pf-passos">' +
+        ex.passos.map(function (p) { return '<li>' + md(p) + '</li>'; }).join('') + '</ol>' +
+        '<div class="pf-onde"><p>Onde está cada item obrigatório</p>' + cats.map(function (o) {
+          return '<div><b>' + esc(o.titulo) + '</b><span>' + md(ex.onde[o.k] || '') + '</span></div>';
+        }).join('') + '</div></section>' +
+      '<section class="pf-sec"><h4><span>4–6</span>Código e saída</h4>' +
+        '<div class="pf-tabs" role="tablist">' + PF_LING.map(function (l) { return '<button role="tab" data-ling="' + l[0] + '">' + l[1] + '</button>'; }).join('') + '</div>' +
+        '<div class="pf-codigo" id="pf-codigo"></div>' +
+        '<div class="pf-acoes"><button class="ghost" id="pf-copia-cod">Copiar código</button><button class="primary-button" id="pf-rodar">Rodar no laboratório <span>▶</span></button><span class="pf-copiado" id="pf-cod-aviso" role="status" aria-live="polite"></span></div>' +
+        '<p class="pf-rot">Saída · igual nas três linguagens · entradas: ' + esc(ex.entradas.join(', ')) + '</p>' +
+        '<div class="console pf-tela">' + esc(ex.tela) + '</div>' +
+        '<p class="pf-conf">Conferido em ' + esc(cf.data || '') + ': com as mesmas entradas, Portugol (' + esc(cf.portugol || '') + '), C (' + esc(cf.c || '') + ') e Python (' + esc(cf.python || '') + ') mostraram exatamente a mesma saída. ' +
+        '<span class="stamp">VisuAlg 3.0.7: pendente</span> Ainda não rodado no VisuAlg instalado no computador.</p>' +
+        '<div class="pf-trad-ex"><p>Cuidados na tradução</p><ul>' + ex.traducao.map(function (t) { return '<li>' + md(t) + '</li>'; }).join('') + '</ul></div></section>' +
+      '<section class="pf-sec pf-concl"><h4><span>7</span>Conclusão <small>(modelo)</small></h4>' +
+        '<h5>Aprendizados</h5><ul>' + ex.conclusao.aprendizados.map(function (t) { return '<li>' + md(t) + '</li>'; }).join('') + '</ul>' +
+        '<h5>Dificuldades</h5><ul>' + ex.conclusao.dificuldades.map(function (t) { return '<li>' + md(t) + '</li>'; }).join('') + '</ul>' +
+        '<h5>Resultados</h5><p>' + md(ex.conclusao.resultados) + '</p>' +
+        '<p class="pf-nota">A conclusão do grupo conta o que aconteceu no trabalho de vocês: use esta só como modelo de formato.</p></section>' +
+      '<div class="ideia-nav">' + (idx > 0 ? '<button class="ghost" data-pf-nav="' + (idx - 1) + '">← ' + esc(P.exemplos[idx - 1].titulo) + '</button>' : '<span></span>') +
+        '<span>' + (idx + 1) + ' de ' + P.exemplos.length + '</span>' +
+        (idx < P.exemplos.length - 1 ? '<button class="primary-button" data-pf-nav="' + (idx + 1) + '">' + esc(P.exemplos[idx + 1].titulo) + ' <span>→</span></button>' : '<span></span>') + '</div>';
+    var atual = ling;
+    function mostra(l) {
+      atual = l;
+      $$('[data-ling]', corpo).forEach(function (b) { var on = b.dataset.ling === l; b.classList.toggle('on', on); b.setAttribute('aria-selected', on ? 'true' : 'false'); });
+      $('#pf-codigo').innerHTML = htmlCodigoLing(ex.codigo[l], l);
+      $('#pf-rodar').style.display = l === 'portugol' ? '' : 'none';
+    }
+    $$('[data-ling]', corpo).forEach(function (b) { b.addEventListener('click', function () { mostra(b.dataset.ling); }); });
+    $('#pf-copia-cod').addEventListener('click', function () { copiarTexto(ex.codigo[atual], $('#pf-cod-aviso')); });
+    $('#pf-rodar').addEventListener('click', function () {
+      labVA = { cod: ex.codigo.portugol, ent: ex.entradas.slice(), base: { cod: ex.codigo.portugol, lidas: null }, rodarJa: true };
+      dlg.close();
+      ui.qid = null; ui.todas = false;
+      abrirSemana('lp', 6, 'lab');
+    });
+    $$('[data-pf-nav]', corpo).forEach(function (b) { b.addEventListener('click', function () { abrirExemploPF(+b.dataset.pfNav, atual); }); });
+    mostra(ling || 'portugol');
+    if (!dlg.open) dlg.showModal();
+    dlg.scrollTop = 0;
   }
 
   // ---------- questão ----------
@@ -1116,7 +1319,7 @@
   // --- VisuAlg ---
   var DICA_MESA = '<p style="color:var(--muted);font-size:13px">Escreva ou escolha um programa e clique em Rodar. O teste de mesa mostra cada linha executada e o valor das variáveis naquele momento.</p>';
   // Exemplos prontos em grupos: listas do professor (resolução) primeiro, depois os exemplos do site.
-  var GRUPOS_EX = [['lista01', 'Lista 01 do professor (resolução)'], ['lista02', 'Lista 02 do professor (resolução)'], ['lista03', 'Lista 03 do professor (resolução)'], ['', 'Exemplos do site']];
+  var GRUPOS_EX = [['projeto', 'Projeto final (exemplos)'], ['lista01', 'Lista 01 do professor (resolução)'], ['lista02', 'Lista 02 do professor (resolução)'], ['lista03', 'Lista 03 do professor (resolução)'], ['', 'Exemplos do site']];
   function opcoesExemplos(exs) {
     return GRUPOS_EX.map(function (g) {
       var itens = exs.map(function (e, i) { return { e: e, i: i }; }).filter(function (x) { return (x.e.grupo || '') === g[0]; });
@@ -1317,6 +1520,8 @@
     $('#va-run', host).addEventListener('click', function () { roda(true); });
     $('#va-limpar', host).addEventListener('click', limpa);
     desenhaEnts();
+    // veio do projeto final ("Rodar no laboratório"): roda na hora com as entradas do exemplo
+    if (labVA.rodarJa) { labVA.rodarJa = false; roda(false, true); }
   }
 
   // ---------- simulado ----------

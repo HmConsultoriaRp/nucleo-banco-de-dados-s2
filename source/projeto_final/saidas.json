@@ -1,0 +1,75 @@
+{
+ "conferido": {
+  "data": "17/11/2026",
+  "portugol": "interpretador VisuAlg do site",
+  "python": "Python 3.14.10",
+  "c": "gcc 14.1 (Compiler Explorer)"
+ },
+ "exemplos": {
+  "estoque": {
+   "entradas": [
+    "7",
+    "3",
+    "Caderno",
+    "30",
+    "10",
+    "15.00",
+    "Caneta azul",
+    "8",
+    "20",
+    "2.50",
+    "Mochila",
+    "4",
+    "2",
+    "129.90"
+   ],
+   "saida": "Quantos produtos (1 a 5)? Valor invalido. Digite de 1 a 5.\nQuantos produtos (1 a 5)? Produto 1\n  Nome:   Quantidade em estoque:   Estoque minimo:   Preco unitario (R$): Produto 2\n  Nome:   Quantidade em estoque:   Estoque minimo:   Preco unitario (R$): Produto 3\n  Nome:   Quantidade em estoque:   Estoque minimo:   Preco unitario (R$): \n===== RELATORIO DO ESTOQUE =====\n 1 Caderno - qtd  30 - valor R$   450.00 - ok\n 2 Caneta azul - qtd   8 - valor R$    20.00 - REPOR (faltam 12)\n 3 Mochila - qtd   4 - valor R$   519.60 - ok\nValor total do estoque: R$   989.60\nProdutos para repor: 1\n",
+   "tela": "Quantos produtos (1 a 5)? 7\nValor invalido. Digite de 1 a 5.\nQuantos produtos (1 a 5)? 3\nProduto 1\n  Nome: Caderno\n  Quantidade em estoque: 30\n  Estoque minimo: 10\n  Preco unitario (R$): 15.00\nProduto 2\n  Nome: Caneta azul\n  Quantidade em estoque: 8\n  Estoque minimo: 20\n  Preco unitario (R$): 2.50\nProduto 3\n  Nome: Mochila\n  Quantidade em estoque: 4\n  Estoque minimo: 2\n  Preco unitario (R$): 129.90\n\n===== RELATORIO DO ESTOQUE =====\n 1 Caderno - qtd  30 - valor R$   450.00 - ok\n 2 Caneta azul - qtd   8 - valor R$    20.00 - REPOR (faltam 12)\n 3 Mochila - qtd   4 - valor R$   519.60 - ok\nValor total do estoque: R$   989.60\nProdutos para repor: 1\n"
+  },
+  "boletim": {
+   "entradas": [
+    "3",
+    "Ana",
+    "8.5",
+    "7",
+    "Bruno",
+    "11",
+    "5",
+    "3.5",
+    "Carla",
+    "2",
+    "4.5"
+   ],
+   "saida": "Quantos alunos (1 a 10)? Nome do aluno 1:   Nota 1:   Nota 2: Nome do aluno 2:   Nota 1:   Nota invalida: use de 0 a 10.\n  Nota 1:   Nota 2: Nome do aluno 3:   Nota 1:   Nota 2: \n===== BOLETIM =====\nAna: media  7.75 - Aprovado\nBruno: media  4.25 - Recuperacao\nCarla: media  3.25 - Reprovado\nMedia da turma: 5.08\nMaior media: Ana (7.75)\nAprovados: 1 | Recuperacao: 1 | Reprovados: 1\n",
+   "tela": "Quantos alunos (1 a 10)? 3\nNome do aluno 1: Ana\n  Nota 1: 8.5\n  Nota 2: 7\nNome do aluno 2: Bruno\n  Nota 1: 11\n  Nota invalida: use de 0 a 10.\n  Nota 1: 5\n  Nota 2: 3.5\nNome do aluno 3: Carla\n  Nota 1: 2\n  Nota 2: 4.5\n\n===== BOLETIM =====\nAna: media  7.75 - Aprovado\nBruno: media  4.25 - Recuperacao\nCarla: media  3.25 - Reprovado\nMedia da turma: 5.08\nMaior media: Ana (7.75)\nAprovados: 1 | Recuperacao: 1 | Reprovados: 1\n"
+  },
+  "orcamento": {
+   "entradas": [
+    "0",
+    "4500",
+    "1500",
+    "980.50",
+    "610",
+    "520"
+   ],
+   "saida": "Renda do mes (R$): A renda precisa ser maior que zero.\nRenda do mes (R$): Gasto com Moradia (R$): Gasto com Alimentacao (R$): Gasto com Transporte (R$): Gasto com Lazer (R$): \n===== ORCAMENTO DO MES =====\nMoradia: R$  1500.00 =  33.3% ######\nAlimentacao: R$   980.50 =  21.8% ####\nTransporte: R$   610.00 =  13.6% ##\nLazer: R$   520.00 =  11.6% ##\n   ATENCAO: passou do limite de 10%\nTotal gasto: R$  3610.50\nSobra do mes: R$   889.50\nCategorias acima do limite: 1\n",
+   "tela": "Renda do mes (R$): 0\nA renda precisa ser maior que zero.\nRenda do mes (R$): 4500\nGasto com Moradia (R$): 1500\nGasto com Alimentacao (R$): 980.50\nGasto com Transporte (R$): 610\nGasto com Lazer (R$): 520\n\n===== ORCAMENTO DO MES =====\nMoradia: R$  1500.00 =  33.3% ######\nAlimentacao: R$   980.50 =  21.8% ####\nTransporte: R$   610.00 =  13.6% ##\nLazer: R$   520.00 =  11.6% ##\n   ATENCAO: passou do limite de 10%\nTotal gasto: R$  3610.50\nSobra do mes: R$   889.50\nCategorias acima do limite: 1\n"
+  },
+  "lanchonete": {
+   "entradas": [
+    "1",
+    "2",
+    "7",
+    "3",
+    "2",
+    "5",
+    "1",
+    "0",
+    "50",
+    "60"
+   ],
+   "saida": "===== CARDAPIO =====\n1 - X-Burguer R$  18.50\n2 - Misto quente R$   9.00\n3 - Suco natural R$   7.50\n4 - Refrigerante R$   6.00\n5 - Pastel R$   8.00\n0 - Fechar o pedido\nCodigo do item (0 fecha): Quantidade:   + 2 x X-Burguer\nCodigo do item (0 fecha):   Codigo invalido.\nCodigo do item (0 fecha): Quantidade:   + 2 x Suco natural\nCodigo do item (0 fecha): Quantidade:   + 1 x Pastel\nCodigo do item (0 fecha): \n===== CUPOM =====\n 2 x X-Burguer = R$   37.00\n 2 x Suco natural = R$   15.00\n 1 x Pastel = R$    8.00\nSubtotal: R$   60.00\nDesconto: R$    6.00\nTotal:    R$   54.00\nValor pago (R$):   Valor menor que o total.\nValor pago (R$): Troco: R$    6.00\n",
+   "tela": "===== CARDAPIO =====\n1 - X-Burguer R$  18.50\n2 - Misto quente R$   9.00\n3 - Suco natural R$   7.50\n4 - Refrigerante R$   6.00\n5 - Pastel R$   8.00\n0 - Fechar o pedido\nCodigo do item (0 fecha): 1\nQuantidade: 2\n  + 2 x X-Burguer\nCodigo do item (0 fecha): 7\n  Codigo invalido.\nCodigo do item (0 fecha): 3\nQuantidade: 2\n  + 2 x Suco natural\nCodigo do item (0 fecha): 5\nQuantidade: 1\n  + 1 x Pastel\nCodigo do item (0 fecha): 0\n\n===== CUPOM =====\n 2 x X-Burguer = R$   37.00\n 2 x Suco natural = R$   15.00\n 1 x Pastel = R$    8.00\nSubtotal: R$   60.00\nDesconto: R$    6.00\nTotal:    R$   54.00\nValor pago (R$): 50\n  Valor menor que o total.\nValor pago (R$): 60\nTroco: R$    6.00\n"
+  }
+ }
+}

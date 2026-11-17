@@ -1,0 +1,224 @@
+{
+  "titulo": "Projeto final",
+  "pontos": 4,
+  "fonte": "Enunciado do professor (PDF com data de 15/11/2026)",
+  "avisos": [
+    "A folha tem espaço para 4 nomes e matrículas.",
+    "Data na folha: 15/11/2026. O prazo de entrega não aparece no PDF: confira no Moodle.",
+    "O código em Portugol aqui está na linguagem do VisuAlg, a mesma das listas do curso."
+  ],
+  "pedido": "O grupo inventa uma situação do dia a dia que um programa resolve, projeta esse programa e escreve o relatório. O mesmo programa aparece três vezes: em Portugol, em C e em Python, cada um com a saída de uma execução.",
+  "partes": [
+    { "n": 1, "titulo": "Título do projeto", "texto": "Um nome curto que diga o que o programa faz." },
+    { "n": 2, "titulo": "Descrição do projeto", "texto": "A situação do dia a dia e o que o software precisa fazer, em poucas linhas." },
+    { "n": 3, "titulo": "Descrição do que será feito no algoritmo", "texto": "Os passos que o programa segue, em ordem, do primeiro `leia` ao último `escreva`." },
+    { "n": 4, "titulo": "Código em Portugol e saída", "texto": "O código e a tela de uma execução, com as entradas usadas." },
+    { "n": 5, "titulo": "Algoritmo em C e saída", "texto": "O mesmo programa em C, rodado com as mesmas entradas, e a saída." },
+    { "n": 6, "titulo": "Algoritmo em Python e saída", "texto": "O mesmo programa em Python, com as mesmas entradas, e a saída." },
+    { "n": 7, "titulo": "Conclusão", "texto": "Aprendizados, dificuldades, resultados e o que foi importante no trabalho." }
+  ],
+  "obrigatorios": [
+    { "k": "leitura", "titulo": "Leitura e saída de dados", "curto": "Leitura e saída", "portugol": "leia / escreva", "c": "scanf / printf", "python": "input / print" },
+    { "k": "decisao", "titulo": "Estrutura de decisão", "curto": "Decisão", "portugol": "se ... entao ... senao", "c": "if ... else", "python": "if ... else" },
+    { "k": "repeticao", "titulo": "Estrutura de repetição", "curto": "Repetição", "portugol": "para, enquanto, repita", "c": "for, while, do ... while", "python": "for, while" },
+    { "k": "vetor", "titulo": "Vetor ou registro", "curto": "Vetor ou registro", "portugol": "vetor, registro", "c": "vetor [ ], struct", "python": "lista [ ], dicionário { }" },
+    { "k": "funcao", "titulo": "Função", "curto": "Função", "portugol": "funcao, procedimento", "c": "double f(...), void p(...)", "python": "def f(...)" }
+  ],
+  "exemplos": [
+    {
+      "id": "estoque",
+      "titulo": "Controle de estoque da papelaria",
+      "resumo": "Cadastra os produtos num registro, soma o valor parado no estoque e avisa o que precisa repor.",
+      "situacao": "Uma papelaria pequena controla o estoque num caderno e só percebe que a caneta acabou quando o cliente pede. O programa cadastra até 5 produtos (nome, quantidade, estoque mínimo e preço), mostra quanto dinheiro está parado em cada um e avisa quais estão abaixo do mínimo.",
+      "passos": [
+        "Perguntar quantos produtos serão cadastrados e repetir a pergunta até vir um número de 1 a 5.",
+        "Para cada produto, ler nome, quantidade, estoque mínimo e preço e guardar no registro `Produto`, dentro do vetor `p`.",
+        "Calcular o valor em estoque de cada produto (quantidade × preço) com a função `valorItem`.",
+        "Testar com a função `precisaRepor` se a quantidade está abaixo do mínimo; se estiver, mostrar quantas unidades faltam.",
+        "Somar os valores e contar os produtos a repor.",
+        "Mostrar o relatório, o valor total do estoque e quantos produtos precisam de reposição."
+      ],
+      "onde": {
+        "leitura": "`leia` dentro do procedimento `lerProduto`; `escreva` no relatório.",
+        "decisao": "`se precisaRepor(i) entao` e o `se` que recusa número fora de 1 a 5.",
+        "repeticao": "`repita ... ate` na validação; `para i de 1 ate n` no cadastro e no relatório.",
+        "vetor": "Registro `Produto` guardado no vetor `p[1..5]`.",
+        "funcao": "Funções `valorItem` e `precisaRepor`; procedimento `lerProduto`."
+      },
+      "traducao": [
+        "O `registro` vira `struct` em C e um dicionário em Python (`p[k][\"nome\"]`).",
+        "O vetor do Portugol começa em 1; em C e Python começa em 0. Aqui ele foi criado com uma posição a mais e a posição 0 fica sem uso, para manter os mesmos índices.",
+        "Para ler um nome com espaço em C: `scanf(\" %49[^\\n]\", nome)`."
+      ],
+      "conclusao": {
+        "aprendizados": [
+          "O registro junta num lugar só os dados que andam juntos: nome, quantidade, mínimo e preço.",
+          "Separar os cálculos em funções deixou o programa principal curto e fácil de ler.",
+          "Validar a entrada com `repita` evita rodar o programa com um número de produtos impossível."
+        ],
+        "dificuldades": [
+          "Na passagem para C, ler um nome com espaço exigiu outro formato no `scanf`.",
+          "Lembrar que em C e Python o vetor começa em 0."
+        ],
+        "resultados": "Com 3 produtos, o programa mostrou R$ 989,60 parados no estoque e apontou a caneta azul para reposição (faltam 12 unidades). As três versões deram a mesma saída."
+      }
+    },
+    {
+      "id": "boletim",
+      "titulo": "Boletim da turma",
+      "resumo": "Lê duas notas por aluno, calcula a média, diz a situação e resume a turma.",
+      "situacao": "O professor fecha as notas numa planilha e confere a situação de cada aluno à mão. O programa lê o nome e as duas notas de até 10 alunos, recusa nota fora de 0 a 10, calcula a média, diz se o aluno está aprovado, em recuperação ou reprovado e mostra a média da turma e a maior média. A regra das situações foi inventada para o exemplo.",
+      "passos": [
+        "Ler quantos alunos e repetir a pergunta enquanto o número estiver fora de 1 a 10.",
+        "Para cada aluno, ler o nome e as duas notas; repetir a leitura da nota enquanto ela estiver fora de 0 a 10 (função `notaValida`).",
+        "Calcular a média de cada aluno com a função `media`.",
+        "Decidir a situação com a função `situacao`: 6 ou mais, aprovado; de 4 a 5,99, recuperação; abaixo de 4, reprovado.",
+        "Contar quantos alunos há em cada situação, somar as médias e guardar quem tem a maior.",
+        "Mostrar o boletim, a média da turma, a maior média e a contagem."
+      ],
+      "onde": {
+        "leitura": "`leia` do nome e das notas; `escreval` do boletim.",
+        "decisao": "`se` encadeado na função `situacao` e na contagem das situações.",
+        "repeticao": "`enquanto` na quantidade de alunos, `repita` nas notas, `para` nos alunos.",
+        "vetor": "Vetores `nomes`, `n1` e `n2`: o mesmo índice guarda o mesmo aluno.",
+        "funcao": "Funções `media`, `situacao` (devolve texto) e `notaValida` (devolve lógico)."
+      },
+      "traducao": [
+        "Comparar texto em C não é com `==`: usa-se `strcmp(a, b) == 0`, da biblioteca `string.h`.",
+        "Em C, a função `situacao` devolve `const char *` (um texto fixo).",
+        "No Python, `input` sempre devolve texto: a nota passa por `float(...)`."
+      ],
+      "conclusao": {
+        "aprendizados": [
+          "Uma função pode devolver texto (`situacao`) ou lógico (`notaValida`), não só número.",
+          "Guardar cada aluno pelo mesmo índice nos três vetores mantém nome e notas juntos.",
+          "O `repita` serve bem para validar: a pergunta acontece pelo menos uma vez."
+        ],
+        "dificuldades": [
+          "Em C, comparar textos exigiu `strcmp`.",
+          "Decidir o que fazer com nota inválida: a escolha foi repetir a pergunta."
+        ],
+        "resultados": "Com 3 alunos, um em cada situação, a média da turma deu 5,08 e a maior média foi da Ana (7,75). A nota 11, digitada por engano, foi recusada. As três versões deram a mesma saída."
+      }
+    },
+    {
+      "id": "orcamento",
+      "titulo": "Orçamento doméstico",
+      "resumo": "Mostra quanto cada gasto pesa na renda, desenha uma barra e avisa o que passou do limite.",
+      "situacao": "Uma família quer saber para onde vai o dinheiro do mês. O programa lê a renda e o gasto em 4 categorias (moradia, alimentação, transporte e lazer), mostra o percentual de cada uma com uma barra, avisa quando passa do limite combinado e diz quanto sobrou ou faltou.",
+      "passos": [
+        "Guardar as categorias e os limites (35%, 25%, 15% e 10%) em vetores.",
+        "Ler a renda e repetir enquanto ela não for maior que zero.",
+        "Ler o gasto de cada categoria e somar o total.",
+        "Para cada categoria, calcular o percentual da renda com a função `percentual` e desenhar a barra (um # para cada 5%) com o procedimento `barra`.",
+        "Se o percentual passar do limite, mostrar o aviso e contar.",
+        "Calcular o saldo: positivo é sobra; negativo é falta."
+      ],
+      "onde": {
+        "leitura": "`leia` da renda e dos gastos; `escreva` da tabela.",
+        "decisao": "`se p > limite[i]` e o `se` do saldo.",
+        "repeticao": "`repita` na renda; `para` nas categorias e dentro do procedimento `barra`.",
+        "vetor": "Vetores `cat`, `limite` e `gasto`.",
+        "funcao": "Função `percentual` (dois parâmetros) e procedimento `barra`."
+      },
+      "traducao": [
+        "Em C, o símbolo % dentro do `printf` se escreve `%%`.",
+        "A parte inteira de um número: `int(x)` no Portugol, `(int)(x)` em C e `int(x)` em Python.",
+        "O `abs` do Portugol vira `fabs` em C (biblioteca `math.h`) e `abs` em Python."
+      ],
+      "conclusao": {
+        "aprendizados": [
+          "Um vetor com valores fixos (categorias e limites) evita repetir o mesmo código 4 vezes.",
+          "Um procedimento pode só desenhar na tela, sem devolver valor.",
+          "O percentual sobre a renda deixa os gastos fáceis de comparar."
+        ],
+        "dificuldades": [
+          "Formatar os números para as três linguagens mostrarem exatamente a mesma coisa.",
+          "Escrever o símbolo % no `printf` do C."
+        ],
+        "resultados": "Com renda de R$ 4.500,00, o lazer (11,6%) passou do limite de 10% e sobraram R$ 889,50. As três versões deram a mesma saída."
+      }
+    },
+    {
+      "id": "lanchonete",
+      "titulo": "Caixa da lanchonete",
+      "resumo": "Registra o pedido pelo código do cardápio, dá desconto e calcula o troco.",
+      "situacao": "Na hora do almoço, o caixa da lanchonete soma o pedido de cabeça e erra o troco. O programa mostra o cardápio, recebe os itens pelo código até o cliente fechar o pedido (código 0), dá 10% de desconto em compras a partir de R$ 50,00, imprime o cupom e calcula o troco, recusando pagamento menor que o total.",
+      "passos": [
+        "Guardar os 5 itens do cardápio e os preços em vetores e mostrar o cardápio (procedimento `mostraCardapio`).",
+        "Repetir: ler o código do item; se for de 1 a 5, ler a quantidade e somar no vetor `qtd`; se for outro número que não 0, avisar que o código é inválido. Parar quando o código for 0.",
+        "Calcular o subtotal com a função `subtotal` (soma de quantidade × preço).",
+        "Calcular o desconto com a função `desconto`: 10% se o subtotal for de R$ 50,00 ou mais.",
+        "Mostrar o cupom só com os itens pedidos, o desconto e o total.",
+        "Ler o valor pago, repetindo enquanto for menor que o total, e mostrar o troco."
+      ],
+      "onde": {
+        "leitura": "`leia` do código, da quantidade e do valor pago.",
+        "decisao": "`se` do código válido, do item pedido e do desconto.",
+        "repeticao": "`repita` do pedido e do pagamento; `para` no cardápio, no subtotal e no cupom.",
+        "vetor": "Vetores `item`, `preco` e `qtd`.",
+        "funcao": "Funções `subtotal` (sem parâmetro) e `desconto`; procedimento `mostraCardapio`."
+      },
+      "traducao": [
+        "No Portugol do VisuAlg, função sem parâmetro é chamada sem parênteses (`bruto <- subtotal`). Em C e Python os parênteses são obrigatórios: `subtotal()`.",
+        "O `repita ... ate cod = 0` vira `do { ... } while (!(cod == 0));` em C e `while True:` com `break` em Python.",
+        "Em C, o vetor `qtd` declarado fora do `main` já começa com zero, como no Portugol."
+      ],
+      "conclusao": {
+        "aprendizados": [
+          "Um vetor de quantidades indexado pelo código do item resolve o pedido sem precisar de muitas variáveis.",
+          "O código 0 como sinal de fim é um jeito simples de parar uma repetição.",
+          "Dividir o problema em procedimentos e funções facilitou testar cada parte."
+        ],
+        "dificuldades": [
+          "Traduzir o `repita ... ate` para C e Python, que não têm esse laço igual.",
+          "Decidir o que fazer com código inválido e com pagamento menor que o total."
+        ],
+        "resultados": "O pedido de R$ 60,00 ganhou R$ 6,00 de desconto; o pagamento de R$ 50,00 foi recusado e o de R$ 60,00 deu R$ 6,00 de troco. As três versões deram a mesma saída."
+      }
+    }
+  ],
+  "checklist": [
+    "Escolhemos a situação e o título",
+    "A descrição diz o que o programa faz, em poucas linhas",
+    "Os passos do algoritmo estão escritos em ordem",
+    "O programa lê dados (leia) e mostra resultados (escreva)",
+    "Tem pelo menos uma decisão (se)",
+    "Tem pelo menos uma repetição (para, enquanto ou repita)",
+    "Guarda dados em vetor ou registro",
+    "Tem pelo menos uma função ou procedimento nosso",
+    "Rodamos o Portugol e copiamos a saída",
+    "Passamos para C, rodamos e copiamos a saída",
+    "Passamos para Python, rodamos e copiamos a saída",
+    "As três saídas batem, com as mesmas entradas",
+    "Escrevemos a conclusão: aprendizados, dificuldades e resultados",
+    "Nome e matrícula de todos estão na folha"
+  ],
+  "dicas": [
+    "Rodem as três versões com as mesmas entradas. A saída tem de sair igual; qualquer diferença aponta um erro de tradução.",
+    "Os exemplos usam mensagens sem acento de propósito: no C do Windows, o acento pode sair trocado na tela.",
+    "No VisuAlg, número sai com um espaço antes. Para a saída ficar igual em C e Python, use a formatação `x:8:2` ou termine o texto sem espaço: `escreval(\"Total:\", x)`.",
+    "No Python, `input` sempre devolve texto: número passa por `int(...)` ou `float(...)`.",
+    "Número com casas decimais se digita com ponto nas três linguagens: `12.50`."
+  ],
+  "traducao": [
+    ["leia(x)", "scanf(\"%d\", &x);", "x = int(input())"],
+    ["escreval(\"Total:\", t)", "printf(\"Total: %d\\n\", t);", "print(f\"Total: {t}\")"],
+    ["x <- 5", "x = 5;", "x = 5"],
+    ["se x > 0 entao ... senao ... fimse", "if (x > 0) { ... } else { ... }", "if x > 0: ... else: ..."],
+    ["para i de 1 ate n faca", "for (i = 1; i <= n; i++)", "for i in range(1, n + 1):"],
+    ["enquanto x < 10 faca", "while (x < 10)", "while x < 10:"],
+    ["repita ... ate x = 0", "do { ... } while (!(x == 0));", "while True: ... if x == 0: break"],
+    ["v: vetor[1..5] de real", "double v[6];", "v = [0.0] * 6"],
+    ["tipo P = registro ... fimregistro", "typedef struct { ... } P;", "{\"nome\": ..., \"qtd\": ...}"],
+    ["funcao f(x: real): real", "double f(double x)", "def f(x):"],
+    ["procedimento p(k: inteiro)", "void p(int k)", "def p(k):"],
+    ["retorne x", "return x;", "return x"],
+    ["e, ou, nao", "&&, ||, !", "and, or, not"],
+    ["= (comparar), <>", "==, !=", "==, !="],
+    ["a div b, a mod b", "a / b (inteiros), a % b", "a // b, a % b"],
+    ["x:8:2", "%8.2f", "{x:8.2f}"],
+    ["nome: caractere", "char nome[50];", "nome = \"\" (texto)"]
+  ],
+  "modelo": "PROJETO FINAL - LÓGICA DE PROGRAMAÇÃO\nNome: ________________________  Matrícula: __________\n(uma linha para cada integrante)\n\n1. Título do projeto\n[nome curto do programa]\n\n2. Descrição do projeto\nSituação: [quem tem o problema e qual é]\nO software deve: [o que o programa faz, em 2 ou 3 linhas]\n\n3. Descrição do que será feito no algoritmo\n1) [primeiro passo]\n2) [segundo passo]\n3) [...]\nOnde estão os itens obrigatórios:\n- Leitura e saída de dados: [...]\n- Estrutura de decisão: [...]\n- Estrutura de repetição: [...]\n- Vetor ou registro: [...]\n- Função: [...]\n\n4. Código em Portugol e saída\n[código]\nEntradas usadas: [...]\nSaída:\n[tela da execução]\n\n5. Algoritmo em C e saída\n[código]\nSaída:\n[tela da execução, com as mesmas entradas]\n\n6. Algoritmo em Python e saída\n[código]\nSaída:\n[tela da execução, com as mesmas entradas]\n\n7. Conclusão\nAprendizados: [...]\nDificuldades: [...]\nResultados: [...]\n"
+}

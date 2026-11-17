@@ -38,6 +38,12 @@ const casos = [
   ['ctrl-ponto-e-virgula', 'algoritmo "a"\nvar x: inteiro;\ninicio\nx <- 5;\nescreval(x);\nfimalgoritmo', [], '5'],
   ['ctrl-texto-maiuscula', 'algoritmo "a"\nvar\nc: caractere\ninicio\nc <- "abc"\nse c = "ABC" entao\nescreval("igual")\nfimse\nescolha "b"\ncaso "B"\nescreval("caso B")\nfimescolha\nfimalgoritmo', [], 'igual\ncaso B'],
   ['ctrl-acentos', 'algoritmo "a"\nvar\nx: inteiro\ninicio\nx <- 3\nse x > 2 então\nescreval("sim")\nsenão\nescreval("não")\nfimse\nfimalgoritmo', [], 'sim'],
+  // funcao e procedimento (17/11/2026): forma dos Exemplos do VisuAlg (fatorial2.alg, troca.alg, buscbinr.alg, decpoutras.alg)
+  ['ctrl-funcao-recursao', 'algoritmo "a"\nfuncao fat(n: inteiro): inteiro\ninicio\nse n <= 1 entao\nretorne 1\nfimse\nretorne n * fat(n - 1)\nfimfuncao\ninicio\nescreval(fat(5))\nfimalgoritmo', [], '120'],
+  ['ctrl-procedimento-ref', 'algoritmo "a"\nvar\nv: vetor[1..3] de inteiro\na, b: inteiro\nprocedimento troca(var x, y: inteiro)\nvar t: inteiro\ninicio\nt <- x\nx <- y\ny <- t\nfimprocedimento\ninicio\na <- 1\nb <- 2\ntroca(a, b)\nv[1] <- 10\nv[3] <- 30\ntroca(v[1], v[3])\nescreval(a, b, v[1], v[3])\nfimalgoritmo', [], '2 1 30 10'],
+  ['ctrl-funcao-local', 'algoritmo "a"\nvar\nx: inteiro\nprocedimento p(n: inteiro)\nvar x: inteiro\ninicio\nx <- n * 2\nn <- 0\nescreva(x)\nfimprocedimento\ninicio\nx <- 7\np(x)\nescreval(x)\nfimalgoritmo', [], '14 7'],
+  ['ctrl-funcao-sem-parenteses', 'algoritmo "a"\nfuncao dez: inteiro\ninicio\nretorne 10\nfimfuncao\ninicio\nescreval(dez + 1)\nfimalgoritmo', [], '11'],
+  ['ctrl-funcao-texto-logico', 'algoritmo "a"\nfuncao par(n: inteiro): logico\ninicio\nretorne n mod 2 = 0\nfimfuncao\nfuncao rotulo(n: inteiro): caractere\ninicio\nse par(n) entao\nretorne "par"\nsenao\nretorne "impar"\nfimse\nfimfuncao\ninicio\nescreval(rotulo(4), " ", rotulo(7))\nfimalgoritmo', [], 'par impar'],
 ];
 for (const c of casos) testa(c[0], c[1], c[2], c[3]);
 
@@ -46,6 +52,11 @@ const deveErrar = [
   ['erro-real-em-inteiro', 'algoritmo "a"\nvar\nm: inteiro\ninicio\nm <- 7 / 2\nfimalgoritmo'],
   ['erro-infinito', 'algoritmo "a"\nvar\nx: inteiro\ninicio\nenquanto x >= 0 faca\nx <- x + 1\nfimenquanto\nfimalgoritmo'],
   ['erro-nao-declarada', 'algoritmo "a"\ninicio\ny <- 1\nfimalgoritmo'],
+  // regras do site para sub-rotinas (não conferidas no VisuAlg real)
+  ['erro-retorne-fora', 'algoritmo "a"\ninicio\nretorne 1\nfimalgoritmo'],
+  ['erro-funcao-sem-retorne', 'algoritmo "a"\nfuncao f(n: inteiro): inteiro\ninicio\nn <- 1\nfimfuncao\ninicio\nescreval(f(2))\nfimalgoritmo'],
+  ['erro-qtd-argumentos', 'algoritmo "a"\nfuncao f(n: inteiro): inteiro\ninicio\nretorne n\nfimfuncao\ninicio\nescreval(f(1, 2))\nfimalgoritmo'],
+  ['erro-procedimento-inexistente', 'algoritmo "a"\nprocedimento p\ninicio\nescreval("p")\nfimprocedimento\ninicio\nq\nfimalgoritmo'],
 ];
 for (const [id, cod] of deveErrar) {
   total++;
@@ -68,5 +79,15 @@ for (const f of arquivos) {
     testa(q.id, q.codigo, q.entradasTeste || q.entradas, q.saida);
   }
 }
-console.log(`${total} testes (${nq} questões com código); ${falhas} falha(s)`);
+// projeto final de Lógica: o Portugol de cada exemplo tem de dar a saída conferida (saidas.json)
+const PF = path.join(__dirname, 'projeto_final');
+let npf = 0;
+if (fs.existsSync(path.join(PF, 'saidas.json'))) {
+  const s = JSON.parse(fs.readFileSync(path.join(PF, 'saidas.json'), 'utf8')).exemplos;
+  for (const id of Object.keys(s)) {
+    npf++;
+    testa('projeto-' + id, fs.readFileSync(path.join(PF, id + '.alg'), 'utf8'), s[id].entradas, s[id].saida);
+  }
+}
+console.log(`${total} testes (${nq} questões com código, ${npf} exemplos do projeto final); ${falhas} falha(s)`);
 process.exit(falhas ? 1 : 0);

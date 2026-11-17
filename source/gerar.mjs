@@ -64,7 +64,24 @@ function main(saida) {
 
   const exs = JSON.parse(ler(path.join(AQUI, 'exemplos_visualg.json'))).questoes;
   const exemplosVisualg = exs.map(({ titulo, semana, codigo, entradas, grupo }) => ({ titulo, semana, codigo, entradas, grupo: grupo || '' }));
-  const dados = { geradoEm: agoraBrasil(), inicio: INICIO, disc, exemplosVisualg };
+
+  // Projeto final de Lógica (17/11/2026): textos + código nas 3 linguagens + saídas conferidas
+  // (projeto_final/conferir_tres.py grava saidas.json só quando Portugol, C e Python batem).
+  const PF = path.join(AQUI, 'projeto_final');
+  const projeto = JSON.parse(ler(path.join(PF, 'textos.json')));
+  const saidasPF = JSON.parse(ler(path.join(PF, 'saidas.json')));
+  projeto.conferido = saidasPF.conferido;
+  for (const ex of projeto.exemplos) {
+    const s = saidasPF.exemplos[ex.id];
+    if (!s) throw new Error(`projeto final: ${ex.id} sem saída conferida em saidas.json`);
+    ex.codigo = {};
+    for (const [k, ext] of [['portugol', 'alg'], ['c', 'c'], ['python', 'py']]) ex.codigo[k] = ler(path.join(PF, `${ex.id}.${ext}`)).replace(/\r\n/g, '\n').replace(/\n+$/, '');
+    ex.entradas = s.entradas;
+    ex.tela = s.tela;
+    // o Portugol também entra nos exemplos prontos do laboratório (semana 6 de Lógica)
+    exemplosVisualg.push({ titulo: ex.titulo, semana: 6, codigo: ex.codigo.portugol, entradas: s.entradas, grupo: 'projeto' });
+  }
+  const dados = { geradoEm: agoraBrasil(), inicio: INICIO, disc, exemplosVisualg, projeto };
   const jsDados = `window.NUCLEO = ${JSON.stringify(dados).replaceAll('</', '<\\/')};`;
 
   let html = ler(path.join(SITE, 'template.html'));

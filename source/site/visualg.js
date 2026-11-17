@@ -9,7 +9,9 @@
     'literal', 'logico', 'vetor', 'de', 'leia', 'escreva', 'escreval', 'se', 'entao', 'senao', 'fimse',
     'escolha', 'caso', 'outrocaso', 'fimescolha', 'para', 'ate', 'passo', 'faca', 'fimpara', 'enquanto',
     'fimenquanto', 'repita', 'fimrepita', 'interrompa', 'e', 'ou', 'nao', 'xou', 'div', 'mod',
-    'verdadeiro', 'falso', 'limpatela', 'pausa'];
+    'verdadeiro', 'falso', 'limpatela', 'pausa',
+    // sub-rotinas (manual do VisuAlg 3.0: Funcao/Fimfuncao, Procedimento/Fimprocedimento; acento é aceito)
+    'funcao', 'fimfuncao', 'procedimento', 'fimprocedimento', 'retorne'];
   var KWSET = {};
   KW.forEach(function (k) { KWSET[k] = true; });
   var ACENTO = { 'á': 'a', 'à': 'a', 'â': 'a', 'ã': 'a', 'é': 'e', 'ê': 'e', 'í': 'i', 'ó': 'o', 'ô': 'o', 'õ': 'o', 'ú': 'u', 'ç': 'c' };
@@ -147,8 +149,7 @@
       }
     }
     var decl = {}, ordem = [];
-    if (isKw('var')) {
-      next();
+    function declaracoes(tab, ord) {
       while (peek().t === 'id') {
         var nomes = [next()];
         while (isOp(',')) {
@@ -160,16 +161,75 @@
         expectOp(':');
         var tipo = parseTipo();
         nomes.forEach(function (tk) {
-          if (decl[tk.v]) throw new ErroVA('variável declarada duas vezes: ' + tk.raw, tk.linha);
-          decl[tk.v] = { tipo: tipo, raw: tk.raw, linha: tk.linha };
-          ordem.push(tk.v);
+          if (tab[tk.v]) throw new ErroVA('variável declarada duas vezes: ' + tk.raw, tk.linha);
+          tab[tk.v] = { tipo: tipo, raw: tk.raw, linha: tk.linha };
+          ord.push(tk.v);
         });
       }
     }
+    if (isKw('var')) { next(); declaracoes(decl, ordem); }
+    // sub-rotinas: entre as variáveis e o inicio do programa (como nos Exemplos do VisuAlg,
+    // ex.: fatorial2.alg, buscbinr.alg). Uma chamada feita dentro de uma sub-rotina pode citar
+    // outra declarada mais abaixo: o nome é conferido depois que todas forem lidas.
+    var subs = {}, pendentes = [], subsProntas = false, dentroDe = null;
+    while (isKw('funcao') || isKw('procedimento')) subRotina();
+    pendentes.forEach(function (c) { if (!subs[c.nome]) throw new ErroVA('esperava "<-" depois de "' + c.raw + '"', c.linha); });
+    subsProntas = true;
     var ini = expectKw('inicio');
     var corpo = bloco(['fimalgoritmo']);
     var fim = expectKw('fimalgoritmo');
-    return { nome: nome, decl: decl, ordem: ordem, corpo: corpo, linhaInicio: ini.linha, linhaFim: fim.linha, tipos: tipos };
+    return { nome: nome, decl: decl, ordem: ordem, corpo: corpo, linhaInicio: ini.linha, linhaFim: fim.linha, tipos: tipos, subs: subs };
+
+    // funcao nome(a, b: inteiro; var c: real): tipo  /  procedimento nome(...)  -- parênteses opcionais
+    function subRotina() {
+      var kt = next(), ehF = kt.v === 'funcao', nomeK = ehF ? 'função' : 'procedimento';
+      var nt = next();
+      if (nt.t !== 'id') throw new ErroVA('depois de "' + kt.v + '" vem o nome da ' + (ehF ? 'função' : 'sub-rotina'), nt.linha);
+      if (subs[nt.v]) throw new ErroVA('sub-rotina declarada duas vezes: ' + nt.raw, nt.linha);
+      if (decl[nt.v]) throw new ErroVA('o nome ' + nt.raw + ' já é de uma variável', nt.linha);
+      var sub = { k: kt.v, nome: nt.v, raw: nt.raw, params: [], decl: {}, ordem: [], ret: null, linha: kt.linha };
+      subs[nt.v] = sub;
+      if (isOp('(')) {
+        next();
+        while (!isOp(')')) {
+          if (peek().t === 'eof') throw new ErroVA('faltou ")" na declaração de ' + nt.raw, peek().linha);
+          var porRef = false;
+          if (isKw('var')) { next(); porRef = true; }
+          var ns = [next()];
+          if (ns[0].t !== 'id') throw new ErroVA('nome de parâmetro inválido: ' + mostra(ns[0]), ns[0].linha);
+          while (isOp(',')) {
+            next();
+            var t3 = next();
+            if (t3.t !== 'id') throw new ErroVA('nome de parâmetro inválido: ' + mostra(t3), t3.linha);
+            ns.push(t3);
+          }
+          expectOp(':');
+          var tp = parseTipo();
+          ns.forEach(function (tk) {
+            if (sub.decl[tk.v]) throw new ErroVA('parâmetro declarado duas vezes: ' + tk.raw, tk.linha);
+            sub.decl[tk.v] = { tipo: tp, raw: tk.raw, linha: tk.linha, param: true, ref: porRef };
+            sub.ordem.push(tk.v);
+            sub.params.push(tk.v);
+          });
+        }
+        expectOp(')');
+      }
+      if (ehF) {
+        if (!isOp(':')) throw new ErroVA('a função ' + nt.raw + ' precisa dizer o tipo do valor que devolve, ex.: funcao ' + nt.raw + '(...): real', peek().linha);
+        next();
+        var rt = parseTipo();
+        if (rt.dims || rt.base === 'registro') throw new ErroVA('a função devolve um valor só: inteiro, real, caractere ou logico', nt.linha);
+        sub.ret = rt;
+      }
+      if (isKw('var')) { next(); declaracoes(sub.decl, sub.ordem); }
+      sub.linhaInicio = expectKw('inicio').linha;
+      dentroDe = sub;
+      var fimK = ehF ? 'fimfuncao' : 'fimprocedimento';
+      sub.corpo = bloco([fimK]);
+      sub.linhaFim = expectKw(fimK).linha;
+      dentroDe = null;
+      sub.nomeK = nomeK;
+    }
 
     function bloco(fins) {
       var lista = [];
@@ -219,6 +279,21 @@
       var t = peek(), linha = t.linha;
       if (t.t === 'id') {
         next();
+        // chamada de sub-rotina: nome(args) ou só nome (procedimento sem parâmetros)
+        if (isOp('(') || !(isOp('[') || isOp('.') || isOp('<-'))) {
+          // no programa principal todas as sub-rotinas já são conhecidas: nome que não existe
+          // dá o mesmo erro de antes (o explicador conta com ele)
+          if (subsProntas && !subs[t.v]) throw new ErroVA('esperava "<-" depois de "' + t.raw + '"', linha);
+          var argsC = [];
+          if (isOp('(')) {
+            next();
+            if (!isOp(')')) { argsC.push(expr()); while (isOp(',')) { next(); argsC.push(expr()); } }
+            expectOp(')');
+          }
+          var ch = { k: 'chama', nome: t.v, raw: t.raw, args: argsC, linha: linha };
+          if (!subsProntas) pendentes.push(ch);
+          return ch;
+        }
         var idx = null;
         if (isOp('[')) { next(); idx = [expr()]; while (isOp(',')) { next(); idx.push(expr()); } expectOp(']'); }
         var campo = campoOpc();
@@ -295,6 +370,12 @@
         }
         case 'interrompa': next(); return { k: 'interrompa', linha: linha };
         case 'limpatela': case 'pausa': next(); return { k: 'nada', linha: linha };
+        case 'retorne': {
+          next();
+          if (!dentroDe) throw new ErroVA('"retorne" só vale dentro de uma função (entre funcao e fimfuncao)', linha);
+          if (dentroDe.k !== 'funcao') throw new ErroVA('"retorne" só vale em função: o procedimento ' + dentroDe.raw + ' não devolve valor', linha);
+          return { k: 'retorne', e: expr(), linha: linha };
+        }
       }
       throw new ErroVA('comando inesperado: ' + mostra(t), linha);
     }
@@ -437,8 +518,21 @@
       res.erro = { linha: e.linha || 0, msg: e.message || String(e) };
       return res;
     }
-    res.ordem = prog.ordem; res.decl = prog.decl;
+    var subs = prog.subs || {};
+    res.ordem = prog.ordem;
+    // para o explicador: variáveis do programa e, sem repetir nome, as das sub-rotinas
+    res.decl = {};
+    prog.ordem.forEach(function (n) { res.decl[n] = prog.decl[n]; });
+    res.subs = {};
+    Object.keys(subs).forEach(function (sn) {
+      res.subs[sn] = { raw: subs[sn].raw, k: subs[sn].k };
+      subs[sn].ordem.forEach(function (n) { if (!res.decl[n]) res.decl[n] = subs[sn].decl[n]; });
+    });
+    // teste de mesa: as variáveis do programa e, depois, as de cada sub-rotina ("x · nome")
     res.nomes = prog.ordem.map(function (n) { return prog.decl[n].raw; });
+    Object.keys(subs).forEach(function (sn) {
+      subs[sn].ordem.forEach(function (n) { res.nomes.push(subs[sn].decl[n].raw + ' · ' + subs[sn].raw); });
+    });
     var mem = {};
     function inicial(base) {
       if (base === 'inteiro') return { tipo: 'i', v: 0 };
@@ -453,19 +547,58 @@
       tipo.reg.ordem.forEach(function (k) { c[k] = inicial(tipo.reg.campos[k].tipo.base); });
       return { reg: tipo.reg, campos: c };
     }
-    prog.ordem.forEach(function (n) {
-      var d = prog.decl[n];
-      if (d.tipo.dims) {
-        var tam = 1;
-        d.tipo.dims.forEach(function (dm) { tam *= (dm[1] - dm[0] + 1); });
-        var dados = [];
-        for (var i = 0; i < tam; i++) dados.push(novo(d.tipo));
-        mem[n] = { vetor: true, dims: d.tipo.dims, dados: dados };
-      } else mem[n] = novo(d.tipo);
-    });
+    // valor inicial completo de uma declaração (vetor ganha todas as posições)
+    function criar(tipo) {
+      if (!tipo.dims) return novo(tipo);
+      var tam = 1;
+      tipo.dims.forEach(function (dm) { tam *= (dm[1] - dm[0] + 1); });
+      var dados = [];
+      for (var i = 0; i < tam; i++) dados.push(novo(tipo));
+      return { vetor: true, dims: tipo.dims, dados: dados };
+    }
+    prog.ordem.forEach(function (n) { mem[n] = criar(prog.decl[n].tipo); });
     var fila = (entradas || []).map(String);
     var saida = '';
     var INTERROMPA = { interrompa: true };
+
+    // ---------- escopos ----------
+    // O programa principal é o escopo global. Cada chamada de sub-rotina empilha um escopo com os
+    // parâmetros e as variáveis locais; o que não é local vem do global (as sub-rotinas dos
+    // Exemplos do VisuAlg usam o vetor global, ex.: buscbinr.alg). Parâmetro "var" é referência:
+    // aponta para a variável (ou posição de vetor, ou campo) de quem chamou.
+    var global = { decl: prog.decl, ordem: prog.ordem, mem: mem, refs: {}, sub: null };
+    var pilha = [global];
+    function topo() { return pilha[pilha.length - 1]; }
+    // R = { d: declaração vista pelo programa, esc, nome } ou, para referência a posição/campo, { d, alvo }
+    function achar(nome) {
+      var e = topo();
+      if (e.decl[nome]) {
+        var r = e.refs[nome];
+        if (!r) return { d: e.decl[nome], esc: e, nome: nome };
+        if (r.off === null && !r.campo) return { d: r.esc.decl[r.nome], esc: r.esc, nome: r.nome };
+        return { d: e.decl[nome], alvo: r };
+      }
+      if (global.decl[nome]) return { d: global.decl[nome], esc: global, nome: nome };
+      return null;
+    }
+    function ref(nome, linha) {
+      var R = achar(nome);
+      if (!R) throw new ErroVA('variável não declarada: ' + nome, linha);
+      return R;
+    }
+    function celula(R) {
+      if (!R.alvo) return R.esc.mem[R.nome];
+      var a = R.alvo, c = a.esc.mem[a.nome];
+      if (a.off !== null) c = c.dados[a.off];
+      if (a.campo) c = c.campos[a.campo];
+      return c;
+    }
+    function grava(R, v) {
+      if (!R.alvo) { R.esc.mem[R.nome] = v; return; }
+      var a = R.alvo, c = a.esc.mem[a.nome];
+      if (a.campo) { (a.off !== null ? c.dados[a.off] : c).campos[a.campo] = v; return; }
+      c.dados[a.off] = v;
+    }
 
     function txtReg(v) {
       return '{' + v.reg.ordem.map(function (k) { return v.reg.campos[k].raw + ': ' + txtVar(v.campos[k]); }).join(', ') + '}';
@@ -478,19 +611,22 @@
     function snap() {
       var o = {};
       prog.ordem.forEach(function (n) { o[prog.decl[n].raw] = txtVar(mem[n]); });
+      var e = topo();
+      if (e !== global) {
+        e.ordem.forEach(function (n) {
+          var R = e.refs[n] ? achar(n) : { d: e.decl[n], esc: e, nome: n };
+          o[e.decl[n].raw + ' · ' + e.sub.raw] = txtVar(celula(R)) + (e.refs[n] ? ' (ref.)' : '');
+        });
+      }
       return o;
     }
     function passo(linha, nota) {
       if (res.passos.length >= MAX) throw new ErroVA('passei de ' + MAX + ' passos: parece um laço que não termina', linha);
       res.passos.push({ linha: linha, nota: nota || '', vars: snap(), saida: saida });
     }
-    function decl(nome, linha) {
-      var d = prog.decl[nome];
-      if (!d) throw new ErroVA('variável não declarada: ' + nome, linha);
-      return d;
-    }
-    function posicao(nome, idx, linha) {
-      var cel = mem[nome], d = decl(nome, linha);
+    function decl(nome, linha) { return ref(nome, linha).d; }
+    function posicao(R, idx, linha) {
+      var cel = celula(R), d = R.d;
       if (!cel.vetor) throw new ErroVA(d.raw + ' não é vetor', linha);
       if (idx.length !== cel.dims.length) throw new ErroVA('número de índices errado em ' + d.raw, linha);
       var off = 0, mult = 1;
@@ -514,9 +650,9 @@
       return c.tipo.base;
     }
     function ler(nome, idx, linha, campo) {
-      var d = decl(nome, linha), cel = mem[nome];
+      var R = ref(nome, linha), d = R.d, cel = celula(R);
       var alvo;
-      if (idx) alvo = cel.dados[posicao(nome, idx, linha)];
+      if (idx) alvo = cel.dados[posicao(R, idx, linha)];
       else {
         if (cel.vetor) throw new ErroVA('use ' + d.raw + '[índice] para ler uma posição do vetor', linha);
         alvo = cel;
@@ -539,23 +675,23 @@
       throw new ErroVA('tipos incompatíveis: ' + NOME_TIPO[val.tipo] + ' em variável ' + base + ' (' + nome + ')', linha);
     }
     function atribuir(nome, idx, val, linha, campo) {
-      var d = decl(nome, linha), cel = mem[nome];
+      var R = ref(nome, linha), d = R.d, cel = celula(R);
       if (campo) {
         var vc = converte(val, baseDe(nome, campo, linha), linha, d.raw + '.' + d.tipo.reg.campos[campo].raw);
         if (!idx && cel.vetor) throw new ErroVA('use ' + d.raw + '[índice].' + campo + ' para gravar num registro do vetor', linha);
-        (idx ? cel.dados[posicao(nome, idx, linha)] : cel).campos[campo] = vc;
+        (idx ? cel.dados[posicao(R, idx, linha)] : cel).campos[campo] = vc;
         return;
       }
       if (d.tipo.base === 'registro') throw new ErroVA('grave campo por campo: ' + d.raw + (idx ? '[índice]' : '') + '.campo <- valor', linha);
       var v = converte(val, d.tipo.base, linha, d.raw);
-      if (idx) cel.dados[posicao(nome, idx, linha)] = v;
+      if (idx) cel.dados[posicao(R, idx, linha)] = v;
       else {
         if (cel.vetor) throw new ErroVA('não dá para atribuir a um vetor inteiro de uma vez (' + d.raw + ')', linha);
-        mem[nome] = v;
+        grava(R, v);
       }
     }
     function nomeAlvo(nome, idx, campo) {
-      var d = prog.decl[nome], raw = d ? d.raw : nome;
+      var d = topo().decl[nome] || global.decl[nome] || null, raw = d ? d.raw : nome;
       if (idx) raw += '[' + idx.map(function (e) { return fmt(ev(e)); }).join(',') + ']';
       if (campo) raw += '.' + (d && d.tipo.reg && d.tipo.reg.campos[campo] ? d.tipo.reg.campos[campo].raw : campo);
       return raw;
@@ -625,7 +761,88 @@
       }
       throw new ErroVA('operador desconhecido ' + op, L);
     }
+    // ---------- chamada de sub-rotina ----------
+    function copiaFunda(c) {
+      if (c.vetor) return { vetor: true, dims: c.dims, dados: c.dados.map(copiaFunda) };
+      if (c.reg) { var k = {}; for (var x in c.campos) k[x] = { tipo: c.campos[x].tipo, v: c.campos[x].v }; return { reg: c.reg, campos: k }; }
+      return { tipo: c.tipo, v: c.v };
+    }
+    function nomeTipo(t) { return (t.dims ? 'vetor de ' : '') + (t.base === 'registro' ? t.reg.nome : t.base); }
+    function mesmoTipo(a, b) {
+      if (a.base !== b.base || (a.base === 'registro' && a.reg !== b.reg)) return false;
+      if (!a.dims !== !b.dims) return false;
+      if (a.dims) return JSON.stringify(a.dims) === JSON.stringify(b.dims);
+      return true;
+    }
+    // onde mora a variável passada para um parâmetro "var" (no escopo de quem chama)
+    function localizar(a, linha) {
+      var R = ref(a.nome, linha), t = R.d.tipo;
+      var loc = R.alvo ? { esc: R.alvo.esc, nome: R.alvo.nome, off: R.alvo.off, campo: R.alvo.campo }
+        : { esc: R.esc, nome: R.nome, off: null, campo: null };
+      if (a.idx) {
+        if (loc.off !== null || loc.campo) throw new ErroVA('referência a ' + R.d.raw + ': use a variável inteira', linha);
+        loc.off = posicao(R, a.idx, linha);
+        t = { base: t.base, reg: t.reg };
+      } else if (celula(R).vetor && a.campo) throw new ErroVA('use ' + R.d.raw + '[índice].campo', linha);
+      if (a.campo) {
+        var c = t.base === 'registro' && t.reg.campos[a.campo];
+        if (!c) throw new ErroVA(R.d.raw + ' não tem o campo ' + a.campo, linha);
+        loc.campo = a.campo;
+        t = c.tipo;
+      }
+      return { loc: loc, tipo: t };
+    }
+    var RETORNA = { retorna: true };
+    function chamar(sub, argsE, linha) {
+      var np = sub.params.length;
+      if (argsE.length !== np) {
+        throw new ErroVA(sub.raw + ' recebe ' + np + (np === 1 ? ' valor' : ' valores') + ' e a chamada mandou ' + argsE.length, linha);
+      }
+      if (pilha.length > 200) throw new ErroVA('mais de 200 chamadas abertas ao mesmo tempo (' + sub.raw + '): parece uma recursão que não para', linha);
+      var e = { decl: sub.decl, ordem: sub.ordem, mem: {}, refs: {}, sub: sub }, mostra = [];
+      // argumentos: calculados no escopo de quem chama, antes de entrar
+      sub.params.forEach(function (pn, i) {
+        var pd = sub.decl[pn], a = argsE[i];
+        if (pd.ref) {
+          if (a.k !== 'var') throw new ErroVA('o parâmetro var ' + pd.raw + ' de ' + sub.raw + ' precisa receber uma variável, não uma conta ou um valor', linha);
+          var L0 = localizar(a, linha);
+          if (!mesmoTipo(L0.tipo, pd.tipo)) throw new ErroVA('o parâmetro var ' + pd.raw + ' de ' + sub.raw + ' é ' + nomeTipo(pd.tipo) + ' e recebeu ' + nomeTipo(L0.tipo), linha);
+          e.refs[pn] = L0.loc;
+          mostra.push(nomeAlvo(a.nome, a.idx, a.campo));
+          return;
+        }
+        if (pd.tipo.dims || pd.tipo.base === 'registro') {
+          if (a.k !== 'var') throw new ErroVA('o parâmetro ' + pd.raw + ' de ' + sub.raw + ' é ' + nomeTipo(pd.tipo) + ' e precisa receber uma variável desse tipo', linha);
+          var L1 = localizar(a, linha);
+          if (!mesmoTipo(L1.tipo, pd.tipo)) throw new ErroVA('o parâmetro ' + pd.raw + ' de ' + sub.raw + ' é ' + nomeTipo(pd.tipo) + ' e recebeu ' + nomeTipo(L1.tipo), linha);
+          e.mem[pn] = copiaFunda(celula({ alvo: L1.loc }));
+          mostra.push(nomeAlvo(a.nome, a.idx, a.campo));
+          return;
+        }
+        var v = converte(ev(a), pd.tipo.base, linha, pd.raw);
+        e.mem[pn] = v;
+        mostra.push(v.tipo === 's' ? '"' + v.v + '"' : fmt(v));
+      });
+      sub.ordem.forEach(function (n) { if (!sub.decl[n].param) e.mem[n] = criar(sub.decl[n].tipo); });
+      pilha.push(e);
+      passo(sub.linha, 'entra em ' + sub.raw + '(' + mostra.join(', ') + ')');
+      var volta = null;
+      try { exec(sub.corpo); } catch (err) {
+        if (err === INTERROMPA) throw new ErroVA('"interrompa" fora de um laço (dentro de ' + sub.raw + ')', res.passos.length ? res.passos[res.passos.length - 1].linha : 0);
+        if (err !== RETORNA) throw err;
+        volta = RETORNA.valor;
+      }
+      if (sub.k === 'funcao' && volta === null) throw new ErroVA('a função ' + sub.raw + ' chegou ao fim sem "retorne": ela precisa devolver um valor', sub.linhaFim);
+      if (sub.k !== 'funcao') passo(sub.linhaFim, 'fim de ' + sub.raw + ': volta para quem chamou');
+      pilha.pop();
+      return volta;
+    }
     function fn(e) {
+      var sb = subs[e.nome];
+      if (sb) {
+        if (sb.k !== 'funcao') throw new ErroVA(sb.raw + ' é procedimento: não devolve valor para usar numa conta ou no escreva', e.linha);
+        return chamar(sb, e.args, e.linha);
+      }
       var args = e.args.map(ev), L = e.linha, nome = e.nome;
       function n1() { if (args.length !== 1) throw new ErroVA(e.raw + ' precisa de 1 argumento', L); }
       switch (nome) {
@@ -648,7 +865,10 @@
         case 'num': return { tipo: e.real ? 'r' : 'i', v: e.v };
         case 'str': return { tipo: 's', v: e.v };
         case 'log': return { tipo: 'b', v: e.v };
-        case 'var': return ler(e.nome, e.idx, e.linha, e.campo);
+        case 'var':
+          // função sem parâmetros chamada sem parênteses (ex.: funcao menu : caracter, em decpoutras.alg)
+          if (!e.idx && !e.campo && !achar(e.nome) && subs[e.nome]) return fn({ nome: e.nome, raw: e.nome, args: [], linha: e.linha });
+          return ler(e.nome, e.idx, e.linha, e.campo);
         case 'un': {
           var a = ev(e.a);
           if (e.op === '-') { num(a, e.linha, '-'); return { tipo: a.tipo, v: -a.v }; }
@@ -685,7 +905,7 @@
           s.alvos.forEach(function (a) {
             if (!fila.length) {
               if (guiada) {
-                var dd = prog.decl[a.nome];
+                var dd = achar(a.nome);
                 res.espera = { linha: s.linha, nome: dd ? nomeAlvo(a.nome, a.idx, a.campo) : a.nome, tipo: dd ? baseDe(a.nome, a.campo, s.linha) : '', pergunta: pergunta };
                 passo(s.linha, 'esperando a ' + (res.lidas.length + 1) + 'ª entrada (' + res.espera.nome + ')');
               }
@@ -746,14 +966,27 @@
           if (pa.v === 0) throw new ErroVA('passo 0 deixaria o laço parado', s.linha);
           atribuir(s.v, null, ini, s.linha);
           for (;;) {
-            var atual = mem[s.v].v;
+            var atual = ler(s.v, null, s.linha).v;
             var segue = pa.v > 0 ? atual <= fim.v : atual >= fim.v;
             passo(s.linha, d.raw + ' = ' + atual + (segue ? ': entra no laço' : ': passou de ' + fim.v + ', sai do laço'));
             if (!segue) break;
             if (laco(s.corpo)) break;
-            atribuir(s.v, null, { tipo: 'i', v: mem[s.v].v + pa.v }, s.linha);
+            atribuir(s.v, null, { tipo: 'i', v: ler(s.v, null, s.linha).v + pa.v }, s.linha);
           }
           return;
+        }
+        case 'chama': {
+          var sbc = subs[s.nome];
+          if (!sbc) throw new ErroVA('esperava "<-" depois de "' + s.raw + '"', s.linha);
+          passo(s.linha, 'chama ' + sbc.raw);
+          chamar(sbc, s.args, s.linha);
+          return;
+        }
+        case 'retorne': {
+          var sr = topo().sub, rv = converte(ev(s.e), sr.ret.base, s.linha, 'valor devolvido por ' + sr.raw);
+          passo(s.linha, sr.raw + ' devolve ' + (rv.tipo === 's' ? '"' + rv.v + '"' : fmt(rv)));
+          RETORNA.valor = rv;
+          throw RETORNA;
         }
         case 'enquanto': {
           for (;;) {
@@ -803,7 +1036,7 @@
   // correcao: { codigo, diff: [{ s: '-'|'+', n, t }], rotulo, sugestao }. Texto com `código` entre crases.
   var CMDS = ['escreval', 'escreva', 'leia', 'se', 'entao', 'senao', 'fimse', 'para', 'faca', 'fimpara', 'enquanto',
     'fimenquanto', 'repita', 'fimrepita', 'escolha', 'caso', 'outrocaso', 'fimescolha', 'interrompa', 'inicio',
-    'fimalgoritmo', 'algoritmo', 'limpatela', 'pausa'];
+    'fimalgoritmo', 'algoritmo', 'limpatela', 'pausa', 'funcao', 'fimfuncao', 'procedimento', 'fimprocedimento', 'retorne'];
   var FUNCS = ['raizq', 'abs', 'int', 'quad', 'compr', 'maiusc', 'minusc', 'exp'];
   var FUNC_SIN = { raiz: 'raizq', sqrt: 'raizq', raizquadrada: 'raizq', pow: 'exp', potencia: 'exp', modulo: 'abs', absoluto: 'abs' };
   var TIPO_SIN = { inteira: 'inteiro', int: 'inteiro', integer: 'inteiro', numero: 'inteiro', inteiros: 'inteiro',
@@ -945,7 +1178,7 @@
           if (topo && topo.kw === FECHA[w]) pilha.pop();
           else if (topo) return { aberto: topo, achou: { w: w, n: n } };
           else return { sobra: { w: w, n: n } };
-        } else if (w === 'fimalgoritmo' && pilha.length) return { aberto: pilha[pilha.length - 1], achou: { w: w, n: n } };
+        } else if ((w === 'fimalgoritmo' || w === 'fimfuncao' || w === 'fimprocedimento') && pilha.length) return { aberto: pilha[pilha.length - 1], achou: { w: w, n: n } };
       }
       return pilha.length ? { aberto: pilha[pilha.length - 1], achou: { w: 'fim do código', n: lin.length } } : null;
     }
@@ -1006,6 +1239,13 @@
         return ex('igual', 'Linha ' + L + ' · `=` no lugar de `<-`',
           'No VisuAlg, guardar um valor numa variável é com `<-` (sinal de menor e hífen). O `=` serve para comparar, por exemplo dentro de um `se`.',
           'Troque o `=` por `<-`.', troca(L, s2.replace(reIg, function (x, a) { return a.replace(/\s*$/, ' ') + '<-'; })));
+      }
+      var nomesSub = Object.keys(res.subs || {});
+      var sbq = parecida(wl, nomesSub);
+      if (sbq) {
+        return ex('sub-nome', 'Linha ' + L + ' · nome de sub-rotina diferente',
+          '`' + w + '` não foi declarado. Existe uma sub-rotina com nome parecido: `' + res.subs[sbq].raw + '`.',
+          'Você quis dizer `' + res.subs[sbq].raw + '`?', trocaPalavra(L, w, res.subs[sbq].raw));
       }
       var cmd = parecida(wl, CMDS);
       if (cmd) {
@@ -1177,8 +1417,14 @@
         tp ? 'Você quis dizer `' + tp + '`?' : 'Escolha um desses tipos.', tp ? trocaPalavra(L, m[1], tp) : null);
     }
     if ((m = msg.match(/^função desconhecida: (.+)$/))) {
+      var subsF = Object.keys(res.subs || {}).filter(function (k) { return res.subs[k].k === 'funcao'; });
+      var fsU = parecida(low(m[1]), subsF);
+      if (fsU) {
+        return ex('funcao', 'Linha ' + L + ' · função `' + m[1] + '` não existe', 'O programa declara uma função com nome parecido: `' + res.subs[fsU].raw + '`.',
+          'Você quis dizer `' + res.subs[fsU].raw + '`?', trocaPalavra(L, m[1], res.subs[fsU].raw));
+      }
       var fs = FUNC_SIN[low(m[1])] || parecida(low(m[1]), FUNCS);
-      return ex('funcao', 'Linha ' + L + ' · função `' + m[1] + '` não existe', 'O site conhece estas funções: ' + FUNCS.map(function (f) { return '`' + f + '`'; }).join(', ') + '.',
+      return ex('funcao', 'Linha ' + L + ' · função `' + m[1] + '` não existe', 'O site conhece estas funções: ' + FUNCS.map(function (f) { return '`' + f + '`'; }).join(', ') + (subsF.length ? ', além das que o programa declara (' + subsF.map(function (f) { return '`' + res.subs[f].raw + '`'; }).join(', ') + ')' : '') + '.',
         fs ? 'Você quis dizer `' + fs + '`?' + (fs === 'exp' ? ' `exp(2, 3)` dá 2 elevado a 3.' : '') : 'Confira o nome da função.', fs ? trocaPalavra(L, m[1], fs) : null);
     }
     if ((m = msg.match(/^esperava ":" e encontrei "(.+)"$/))) {
