@@ -173,6 +173,15 @@
     var alvo = $('#estudo');
     if (alvo.getBoundingClientRect().top > 120 || alvo.getBoundingClientRect().bottom < 200) alvo.scrollIntoView();
   }
+  // Ao trocar a vista de um painel, a tela ficava parada; se a vista nova e mais curta, o painel subia para
+  // fora da tela (medido em 17/11/2026: "Ver os exemplos" mostrava o Simulado). Leva o topo do painel para
+  // logo abaixo da barra fixa quando ele esta escondido em cima.
+  function topoDoPainel(el) {
+    if (!el) return;
+    var barra = $('.topbar'), alt = barra ? barra.offsetHeight : 0, r = el.getBoundingClientRect();
+    if (r.top < alt) window.scrollTo(0, Math.max(0, window.pageYOffset + r.top - alt - 12));
+  }
+  function topoDaAula() { topoDoPainel($('.lesson-shell:not(#projeto-shell)')); }
   // Geometria pelas semanas do Moodle (UFTM). Cada semana do Moodle junta semanas do site, que viram partes.
   // Datas: Semana 1 = 26/10 a 02/11 e Semana 2 e 3 = 02/11 a 16/11 (medido no Moodle). As das Semanas 4 a 6
   // seguem o padrao semanal e o assunto da 4 (conicas) e hipotese: a confirmar com o Moodle.
@@ -341,13 +350,13 @@
     h += '<div class="activity-next"><div><strong>Vai enviar uma nova atividade?</strong><p>Mande o print na conversa. Ela entra na disciplina e na semana corretas depois que conferirmos juntos.</p></div><button class="primary-button" data-first-activity>Começar pelas questões <span>→</span></button></div></div>';
     el.innerHTML = h;
     $$('[data-activity-q]', el).forEach(function (b) {
-      b.addEventListener('click', function () { var q = porId[b.dataset.activityQ]; ui.qid = q.id; ui.sem = q.semana; ui.todas = false; ui.view = 'questao'; renderEstudo(); });
+      b.addEventListener('click', function () { var q = porId[b.dataset.activityQ]; ui.qid = q.id; ui.sem = q.semana; ui.todas = false; ui.view = 'questao'; renderEstudo(); topoDaAula(); });
     });
     var primeiro = $('[data-first-activity]', el);
     if (primeiro) primeiro.addEventListener('click', function () {
       var pend = qs.filter(function (q) { return !st.resp[q.id]; })[0] || qs[0];
       if (pend) { ui.qid = pend.id; ui.sem = pend.semana; }
-      ui.view = 'questao'; renderEstudo();
+      ui.view = 'questao'; renderEstudo(); topoDaAula();
     });
   }
 
@@ -533,7 +542,7 @@
     var el = $('#view-conceito');
     el.innerHTML = h;
     if (nj) lentes($('#lentes-semana'), w.jeitos, { chave: 'sem-' + ui.disc + ui.sem });
-    $$('[data-view-go]', el).forEach(function (b) { b.addEventListener('click', function () { ui.view = b.dataset.viewGo; renderEstudo(); }); });
+    $$('[data-view-go]', el).forEach(function (b) { b.addEventListener('click', function () { ui.view = b.dataset.viewGo; renderEstudo(); topoDaAula(); }); });
     $$('[data-ideia]', el).forEach(function (b) { b.addEventListener('click', function () { abrirIdeia(w, +b.dataset.ideia); }); });
     if (VOC) renderVocab($('#vocab', el), VOC);
   }
@@ -766,8 +775,8 @@
     }
     h += '</div>';
     host.innerHTML = aside + '<article class="lesson-content pf-content">' + h + '</article>';
-    $$('[data-pf]', host).forEach(function (b) { b.addEventListener('click', function () { ui.pf = b.dataset.pf; renderProjeto(); }); });
-    $$('[data-pf-ir]', host).forEach(function (b) { b.addEventListener('click', function () { ui.pf = b.dataset.pfIr; renderProjeto(); }); });
+    $$('[data-pf]', host).forEach(function (b) { b.addEventListener('click', function () { ui.pf = b.dataset.pf; renderProjeto(); topoDoPainel(host); }); });
+    $$('[data-pf-ir]', host).forEach(function (b) { b.addEventListener('click', function () { ui.pf = b.dataset.pfIr; renderProjeto(); topoDoPainel(host); }); });
     $$('[data-pf-ex]', host).forEach(function (b) { b.addEventListener('click', function () { abrirExemploPF(+b.dataset.pfEx, 'portugol'); }); });
     $$('[data-ck]', host).forEach(function (inp) {
       inp.addEventListener('change', function () {
@@ -1627,7 +1636,7 @@
     $$('.subject-switch [data-subject]').forEach(function (b) {
       b.addEventListener('click', function () { ui.qid = null; abrirSemana(b.dataset.subject, ui.sem); });
     });
-    $$('.view-link').forEach(function (b) { b.addEventListener('click', function () { ui.view = b.dataset.view; renderEstudo(); }); });
+    $$('.view-link').forEach(function (b) { b.addEventListener('click', function () { ui.view = b.dataset.view; renderEstudo(); topoDaAula(); }); });
     $$('.qfilter button').forEach(function (b) { b.addEventListener('click', function () { ui.filtro = b.dataset.filtro; renderLista(); }); });
     $('#continuar').addEventListener('click', function () {
       if (st.ultimo && porId[st.ultimo.id]) abrirSemana(st.ultimo.disc, st.ultimo.sem, 'questao', st.ultimo.id);
